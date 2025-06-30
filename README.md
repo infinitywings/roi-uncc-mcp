@@ -94,6 +94,15 @@ Replace `/ABSOLUTE/PATH/ON/HOST` with your local project directory path.
 - **GridPACK** v3.4+ with all dependencies (PETSc, Boost, GA, MPI)
 - **Development Tools**: GCC, CMake, Git, Python development environment
 
+### Docker Build Troubleshooting
+
+For detailed information about Docker build issues and their solutions, including:
+- GridLAB-D CMake jsoncpp errors
+- PETSc download failures
+- Python command not found errors
+
+See [containers/docker/DOCKER_BUILD_FIXES.md](containers/docker/DOCKER_BUILD_FIXES.md)
+
 
 ## Quick Start Guide
 

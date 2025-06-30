@@ -33,14 +33,16 @@ WORKDIR /root/develop
 RUN apt-get install -y wget libxerces-c-dev \
 					   libhdf5-serial-dev curl \
 					   libzmq3-dev gfortran libncurses5-dev \
-					   libncursesw5-dev
+					   libncursesw5-dev libjsoncpp-dev pkg-config
 RUN git clone https://github.com/gridlab-d/gridlab-d.git gridlabd
 WORKDIR /root/develop/gridlabd
 RUN git submodule update --init --recursive
 
-RUN sed -i '/add_subdirectory(third_party\/jsoncpp_lib)/d' CMakeLists.txt && \
-	sed -i '/get_target_property(jsoncpp_lib/d' CMakeLists.txt && \
-	sed -i '/target_link_libraries(jsoncpp_lib/d' CMakeLists.txt
+# Fix jsoncpp build issues by using system jsoncpp
+RUN sed -i 's|add_subdirectory(third_party/jsoncpp_lib)|find_package(PkgConfig REQUIRED)\npkg_check_modules(JSONCPP REQUIRED jsoncpp)\nlink_directories(${JSONCPP_LIBRARY_DIRS})|' CMakeLists.txt && \
+    sed -i 's|get_target_property(JSON_INC_PATH jsoncpp_static INTERFACE_INCLUDE_DIRECTORIES)|set(JSON_INC_PATH ${JSONCPP_INCLUDE_DIRS})|' CMakeLists.txt && \
+    sed -i 's|set(JSONCPP_LIB jsoncpp_static)|set(JSONCPP_LIB ${JSONCPP_LIBRARIES})|' CMakeLists.txt && \
+    sed -i '/^\s*${JSONCPP_LIB}/d' CMakeLists.txt
 RUN cmake -DCMAKE_INSTALL_PREFIX=/usr/local/gridlabd \
 		  -DGLD_USE_HELICS=ON \ 
 		  -DGLD_HELICS_DIR=/usr/local \
@@ -93,11 +95,13 @@ WORKDIR /root/develop/petsc
 RUN git checkout v3.16.4
 ENV PETSC_DIR=/root/develop/petsc
 
-RUN ./configure --download-superlu_dist \
+RUN apt-get install -y libblas-dev liblapack-dev && \
+    ./configure --download-superlu_dist \
 				--download-metis \
 				--download-parmetis \
 				--download-suitesparse \
-				--download-f2cblaslapack \
+				--with-blas-lib=/usr/lib/x86_64-linux-gnu/libblas.so \
+				--with-lapack-lib=/usr/lib/x86_64-linux-gnu/liblapack.so \
 				--prefix=/usr/local/petsc-3.16.4
 
 RUN make && make install
@@ -138,3 +142,14 @@ RUN cmake -D GA_DIR:STRING="/usr/local/ga-5.8" \
 RUN make -j 10 install 
 
 WORKDIR /root
+
+# Create python symlink and ensure Python is in PATH
+RUN ln -s /usr/bin/python3 /usr/bin/python && \
+    python --version && \
+    pip --version
+
+# Set PATH to include all necessary binaries
+ENV PATH="/usr/local/gridlabd/bin:/usr/local/GridPACK/bin:/usr/local/helics/bin:${PATH}"
+
+# Create workspace directory
+WORKDIR /workspace
