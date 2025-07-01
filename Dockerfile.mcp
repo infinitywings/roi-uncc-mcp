@@ -1,0 +1,25 @@
+# Dockerfile for MCP Server - extends existing container
+FROM roi-uncc-img:latest
+
+# Install additional Python packages for MCP server
+RUN pip install --no-cache-dir flask flask-cors pyyaml requests
+
+# Copy MCP server code
+COPY mcp-server/ /app/mcp-server/
+COPY examples/2bus-13bus/ /app/examples/2bus-13bus/
+COPY API.txt /app/API.txt
+
+# Set working directory
+WORKDIR /app
+
+# Set Python path
+ENV PYTHONPATH=/app/mcp-server/src:$PYTHONPATH
+
+# Create demo results directory
+RUN mkdir -p /app/demo_results
+
+# Expose MCP server port
+EXPOSE 5000
+
+# Default command - run the MCP server
+CMD ["python3", "mcp-server/src/server.py"]

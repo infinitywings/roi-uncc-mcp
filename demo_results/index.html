@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI UNCC MCP - Attack Visualization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 ROI UNCC MCP</h1>
+            <p>AI-Assisted Grid Penetration Testing Results</p>
+        </div>
+
+        <div class="upload-section">
+            <h3>📁 Load Results</h3>
+            <input type="file" id="fileInput" accept=".json">
+            <button id="loadSample">Load Sample Data</button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="overview">Overview</button>
+            <button class="tab" data-tab="timeline">Timeline</button>
+            <button class="tab" data-tab="ai-attacks">AI Attacks</button>
+            <button class="tab" data-tab="random-attacks">Random Attacks</button>
+            <button class="tab" data-tab="comparison">Comparison</button>
+        </div>
+
+        <div id="overview" class="tab-content active">
+            <div class="metrics">
+                <div class="metric-card">
+                    <div class="metric-value" id="ai-effectiveness">0.00</div>
+                    <div class="metric-label">AI Effectiveness</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="random-effectiveness">0.00</div>
+                    <div class="metric-label">Random Effectiveness</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="improvement-ratio">0.00x</div>
+                    <div class="metric-label">AI Improvement</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="total-attacks">0</div>
+                    <div class="metric-label">Total Attacks</div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="overviewChart"></canvas>
+            </div>
+        </div>
+
+        <div id="timeline" class="tab-content">
+            <div class="chart-section">
+                <h3>📊 Interactive Attack Timeline</h3>
+                <div class="chart-container" style="height: 400px; position: relative;">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+            <div class="timeline-section">
+                <h3>🤖 AI Attack Timeline</h3>
+                <div id="ai-timeline"></div>
+            </div>
+            <div class="timeline-section">
+                <h3>🎲 Random Attack Timeline</h3>
+                <div id="random-timeline"></div>
+            </div>
+        </div>
+
+        <div id="ai-attacks" class="tab-content">
+            <h3>🤖 AI Attack Timeline</h3>
+            <div id="ai-timeline-detailed"></div>
+        </div>
+
+        <div id="random-attacks" class="tab-content">
+            <h3>🎲 Random Attack Timeline</h3>
+            <div id="random-timeline-detailed"></div>
+        </div>
+
+        <div id="comparison" class="tab-content">
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>🤖 AI Strategy</h3>
+                    <div class="stat">Success Rate: <span id="ai-success">0%</span></div>
+                    <div class="stat">Attacks: <span id="ai-count">0</span></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="ai-progress"></div>
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <h3>🎲 Random Strategy</h3>
+                    <div class="stat">Success Rate: <span id="random-success">0%</span></div>
+                    <div class="stat">Attacks: <span id="random-count">0</span></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="random-progress"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="comparisonChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Chart.js first -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    
+    <!-- Load main app -->
+    <script src="app.js"></script>
+    
+    <script>
+        // Verify Chart.js loaded and show status
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof Chart !== 'undefined') {
+                console.log('✅ Chart.js loaded successfully, version:', Chart.version);
+            } else {
+                console.error('❌ Chart.js failed to load');
+                // Try local backup
+                const script = document.createElement('script');
+                script.src = 'chart.min.js';
+                script.onload = function() {
+                    console.log('✅ Chart.js loaded from local backup');
+                    // Reinitialize the app if needed
+                    if (window.attackVisualizer) {
+                        window.attackVisualizer.createTimelineChart();
+                    }
+                };
+                script.onerror = function() {
+                    console.error('❌ Local Chart.js backup also failed');
+                    alert('Chart.js failed to load. Timeline charts will not work.');
+                };
+                document.head.appendChild(script);
+            }
+        });
+    </script>
+</body>
+</html>

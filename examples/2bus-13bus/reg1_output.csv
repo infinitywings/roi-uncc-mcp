@@ -1,0 +1,12 @@
+# file...... reg1_output.csv
+# date...... Tue Jul  1 14:16:14 2025
+# user...... (null)
+# host...... (null)
+# target.... regulator 52
+# trigger... (none)
+# interval.. 1
+# limit..... 1
+# timestamp,tap_A,tap_B,tap_C,power_in_A.real,power_in_A.imag,power_in_B.real,power_in_B.imag,power_in_C.real,power_in_C.imag,power_in.real,power_in.imag
+2025-02-21 00:00:00 PST,6,-8,10,+1.25362e+06,+693916,+934100,+403793,+1.362e+06,+675922,+3.54972e+06,+1.77363e+06
+2025-02-21 00:00:01 PST,6,-8,10,+1.25362e+06,+693915,+934101,+403792,+1.362e+06,+675922,+3.54972e+06,+1.77363e+06
+# end of tape

@@ -1,0 +1,32 @@
+voltage_limits:
+  min: 0.7  # 70% of nominal (per unit)
+  max: 1.3  # 130% of nominal (per unit)
+
+power_limits:
+  max_injection: 5000000  # 5 MVA maximum power injection
+
+timing_limits:
+  min_interval: 1.0  # seconds between attacks
+  max_duration: 300  # maximum attack duration in seconds
+
+allowed_techniques:
+  - spoof_data
+  - inject_load
+  - reconnaissance
+  - block_command
+
+restricted_targets:
+  - safety_systems
+  - emergency_controls
+  - critical_infrastructure
+
+simulation_safety:
+  max_voltage_deviation: 0.5  # maximum 50% deviation from nominal
+  max_power_injection_ratio: 2.0  # maximum 200% of baseline power
+  prevent_permanent_damage: true  # clamp dangerous values instead of rejecting
+
+research_constraints:
+  target_environment: simulated_only
+  documentation_required: true
+  audit_logging: true
+  defensive_purpose_only: true

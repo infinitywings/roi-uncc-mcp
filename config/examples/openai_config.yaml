@@ -1,0 +1,37 @@
+# OpenAI GPT-4 Configuration Example
+# Copy this file to config/demo_config.yaml and add your API key
+
+demo:
+  mode: "ai"
+  duration: 60
+  trials: 3
+  grid_model: "2bus-13bus"
+
+ai:
+  # OpenAI GPT-4 settings
+  model: "gpt-4"
+  api_base: "https://api.openai.com/v1"
+  api_key: "sk-your-openai-api-key-here"  # Replace with your actual API key
+  
+  # Model parameters optimized for GPT-4
+  temperature: 0.7
+  max_tokens: 2000
+  top_p: 0.9
+  frequency_penalty: 0.0
+  presence_penalty: 0.0
+  
+  # Request settings
+  timeout: 30
+  retry_attempts: 3
+  retry_delay: 2
+
+attack:
+  prompt: "Analyze the power grid vulnerabilities and design a strategic attack sequence"
+  max_concurrent_attacks: 5
+  attack_timeout: 30
+  validation_mode: "strict"
+  voltage_limit_min: 0.7
+  voltage_limit_max: 1.3
+  max_power_injection: 5000000
+
+# Rest of configuration uses defaults from main config

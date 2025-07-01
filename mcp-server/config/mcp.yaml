@@ -1,0 +1,22 @@
+ai:
+  api_base: http://nginx-lb/v1
+  max_tokens: 4000
+  model: Qwen/Qwen3-30B-A3B
+  temperature: 0.8
+attacks:
+  max_concurrent: 5
+  timeout: 30.0
+  validation: strict
+helics:
+  broker_address: tcp://helics-broker:23405
+  federate_name: mcp_attacker
+  period: 1.0
+  time_delta: 1.0
+monitoring:
+  anomaly_detection: true
+  history_size: 1000
+  update_interval: 0.1
+server:
+  debug: false
+  host: 0.0.0.0
+  port: 5000

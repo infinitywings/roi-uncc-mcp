@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  demo:
+    build: .
+    image: roi-uncc-mcp:latest
+    container_name: roi-uncc-mcp-demo
+    ports:
+      - "5000:5000"
+    environment:
+      - DEMO_MODE=${DEMO_MODE:-comparison}
+      - DEMO_DURATION=${DEMO_DURATION:-60}
+      - DEMO_TRIALS=${DEMO_TRIALS:-3}
+    volumes:
+      - ./demo_results:/app/demo_results
+      - ./API.txt:/app/API.txt:ro
+    command: >
+      python3 demo_launcher.py 
+      --mode ${DEMO_MODE:-comparison}
+      --duration ${DEMO_DURATION:-60}
+      --trials ${DEMO_TRIALS:-3}
+    networks:
+      - grid-network
+
+networks:
+  grid-network:
+    driver: bridge

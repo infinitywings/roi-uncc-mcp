@@ -1,0 +1,81 @@
+# ROI UNCC MCP Demo Configuration
+# This file contains all configuration options for running the AI-assisted grid penetration testing demo
+
+# Demo execution settings
+demo:
+  mode: "comparison"           # Options: ai, random, comparison
+  duration: 60                 # Attack campaign duration in seconds
+  trials: 3                    # Number of trials for comparison mode
+  grid_model: "2bus-13bus"     # Options: 2bus-13bus, IEEE-39bus, IEEE-118bus
+
+# AI model configuration
+ai:
+  # Model selection
+  model: "Qwen/Qwen3-30B-A3B"  # Model name/identifier
+  api_base: "http://nginx-lb/v1"  # API endpoint URL
+  api_key: ""                   # API key (leave empty for local models)
+  api_key_file: "API.txt"       # File containing API key (alternative to api_key)
+  
+  # Model parameters
+  temperature: 0.8              # Sampling temperature (0.0-1.0)
+  max_tokens: 4000              # Maximum response length
+  top_p: 0.95                   # Nucleus sampling parameter
+  frequency_penalty: 0.0        # Frequency penalty (-2.0 to 2.0)
+  presence_penalty: 0.0         # Presence penalty (-2.0 to 2.0)
+  
+  # Request settings
+  timeout: 60                   # API request timeout in seconds
+  retry_attempts: 3             # Number of retry attempts on failure
+  retry_delay: 2                # Delay between retries in seconds
+
+# Attack configuration
+attack:
+  # Default attack prompt (can be overridden via command line)
+  prompt: "Demonstrate AI-driven strategic attack progression targeting grid vulnerabilities"
+  
+  # Attack constraints
+  max_concurrent_attacks: 5     # Maximum simultaneous attacks
+  attack_timeout: 30            # Individual attack timeout in seconds
+  validation_mode: "strict"     # Options: strict, permissive
+  
+  # Safety limits (threat model)
+  voltage_limit_min: 0.7        # Minimum voltage (pu)
+  voltage_limit_max: 1.3        # Maximum voltage (pu)
+  max_power_injection: 5000000  # Maximum power injection (W)
+
+# Grid simulation settings
+grid:
+  # HELICS federation configuration
+  helics:
+    broker_address: "tcp://helics-broker:23406"
+    federate_name: "mcp_attacker"
+    time_delta: 1.0
+    period: 1.0
+    log_level: "warning"
+  
+  # Monitoring settings
+  monitoring:
+    update_interval: 0.1        # Grid state update interval (seconds)
+    history_size: 1000          # Number of historical states to keep
+    anomaly_detection: true     # Enable anomaly detection
+
+# Docker configuration
+docker:
+  compose_file: "docker-compose.demo.yml"
+  build_on_start: false         # Build containers before running
+  cleanup_on_exit: true         # Remove containers after demo
+  startup_timeout: 120          # Timeout for service initialization (seconds)
+
+# Logging configuration
+logging:
+  level: "INFO"                 # Options: DEBUG, INFO, WARNING, ERROR
+  file: "demo_results/demo.log" # Log file location
+  console: true                 # Enable console output
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Results configuration
+results:
+  directory: "demo_results"     # Directory for saving results
+  save_raw_data: true          # Save raw campaign data
+  generate_plots: false        # Generate visualization plots
+  format: "json"               # Output format: json, csv

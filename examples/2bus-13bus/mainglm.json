@@ -1,5 +1,5 @@
 {
-    "coreInit": "--federates=1",
+    "coreInit": "--federates=1 --broker_address=tcp://helics-broker:23406",
     "coreName": "IEEE13bus Core",
     "coreType": "zmq",
     "name": "IEEE13bus_fed",

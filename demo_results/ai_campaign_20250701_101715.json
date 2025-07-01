@@ -1,0 +1,870 @@
+{
+  "ai_decision_count": 2,
+  "ai_decisions": [
+    {
+      "adaptive_plan": {
+        "ai_plan": {
+          "assessment_sequence": [
+            {
+              "parameters": {
+                "data_targets": [
+                  "HELICS communication channels",
+                  "Voltage regulator settings",
+                  "Power flow solver configurations"
+                ],
+                "duration_seconds": 5,
+                "scope": "Full topology mapping"
+              },
+              "priority": "high",
+              "technique": "reconnaissance",
+              "test_id": "REC001"
+            },
+            {
+              "parameters": {
+                "data_type": "voltage_measurements",
+                "duration_seconds": 10,
+                "magnitude_offset": 0.02,
+                "phase_shift": 5,
+                "target_nodes": [
+                  "Node650",
+                  "Bus1"
+                ]
+              },
+              "priority": "critical",
+              "technique": "spoof_data",
+              "test_id": "SPF001"
+            },
+            {
+              "parameters": {
+                "duration_seconds": 8,
+                "load_increase_percent": 15,
+                "target_nodes": [
+                  "Bus2"
+                ],
+                "waveform_shape": "sinusoidal"
+              },
+              "priority": "high",
+              "technique": "inject_load",
+              "test_id": "INF001"
+            },
+            {
+              "parameters": {
+                "communication_layer": "HELICS",
+                "disruption_duration": 3,
+                "target_components": [
+                  "GridPACK solver",
+                  "GridLAB-D interface"
+                ]
+              },
+              "priority": "medium",
+              "technique": "block_command",
+              "test_id": "BLK001"
+            }
+          ],
+          "expected_outcomes": {
+            "monitoring_detection": {
+              "communication_gaps": "Notified within 1.8s",
+              "load_anomalies": "Identified by 4.1s",
+              "spoofed_data": "Detected within 2.3s"
+            },
+            "stability_responses": [
+              "Voltage regulation system activation",
+              "Overcurrent protection triggers",
+              "Power flow solver recalibration"
+            ],
+            "system_recovery": "Full restoration within 12s for 85% of scenarios"
+          },
+          "situation_analysis": {
+            "critical_vulnerabilities": [
+              "HELICS communication interface latency",
+              "Voltage control system sensitivity",
+              "Power flow interface synchronization"
+            ],
+            "current_risk_factors": [
+              "Oscillation-prone control systems",
+              "Limited power flow monitoring",
+              "High dependency on co-simulation timing"
+            ],
+            "node_risk_levels": {
+              "Bus1": "medium",
+              "Bus2": "medium",
+              "Node650": "high"
+            },
+            "system_status": "Healthy but with high instability risk"
+          },
+          "strategic_approach": {
+            "defense_validation": "Evaluate protection system coordination during synthetic failures",
+            "methodology": "Control system perturbation combined with communication layer testing",
+            "primary_focus": "Stability-driven vulnerability exploitation",
+            "progression_model": "From passive observation to active interference with real-time monitoring"
+          },
+          "success_metrics": {
+            "defensive_effectiveness": "Protection systems validated against 78% of attack patterns",
+            "resilience_score": "Maintained >85% operational capacity during tests",
+            "response_time": {
+              "detection": "<5s",
+              "isolation": "<8s",
+              "recovery": "<15s"
+            },
+            "vulnerability_coverage": "92% of identified weaknesses tested"
+          }
+        },
+        "generation_timestamp": "2025-07-01T14:16:55.505504",
+        "grid_context": {
+          "current_state": {
+            "powers": {},
+            "system_health": {
+              "issues": [],
+              "score": 100,
+              "status": "healthy",
+              "total_power_mva": 0.0
+            },
+            "timestamp": 2.0,
+            "voltages": {
+              "gpk_voltage_Va": {
+                "angle": -0.0004090183319425942,
+                "imag": -0.017132851843146675,
+                "magnitude": 2399.9904771538427,
+                "real": 2399.9904770926896
+              },
+              "gpk_voltage_Vb": {
+                "angle": -120.000316400349,
+                "imag": -2078.448812353989,
+                "magnitude": 2399.9936144584603,
+                "real": -1200.0082849154326
+              },
+              "gpk_voltage_Vc": {
+                "angle": 119.99953244200654,
+                "imag": 2078.4612717553377,
+                "magnitude": 2399.9890422092994,
+                "real": -1199.9775600143091
+              }
+            }
+          },
+          "vulnerabilities": {
+            "overall_risk_level": "high",
+            "power_vulnerabilities": [],
+            "stability_vulnerabilities": [
+              {
+                "risk": "Oscillations, control system failures",
+                "severity": "high",
+                "stability_score": 0,
+                "type": "instability"
+              }
+            ],
+            "voltage_vulnerabilities": []
+          }
+        },
+        "raw_ai_response": "\n\n{\n  \"situation_analysis\": {\n    \"system_status\": \"Healthy but with high instability risk\",\n    \"critical_vulnerabilities\": [\n      \"HELICS communication interface latency\",\n      \"Voltage control system sensitivity\",\n      \"Power flow interface synchronization\"\n    ],\n    \"current_risk_factors\": [\n      \"Oscillation-prone control systems\",\n      \"Limited power flow monitoring\",\n      \"High dependency on co-simulation timing\"\n    ],\n    \"node_risk_levels\": {\n      \"Node650\": \"high\",\n      \"Bus1\": \"medium\",\n      \"Bus2\": \"medium\"\n    }\n  },\n  \"strategic_approach\": {\n    \"primary_focus\": \"Stability-driven vulnerability exploitation\",\n    \"methodology\": \"Control system perturbation combined with communication layer testing\",\n    \"defense_validation\": \"Evaluate protection system coordination during synthetic failures\",\n    \"progression_model\": \"From passive observation to active interference with real-time monitoring\"\n  },\n  \"assessment_sequence\": [\n    {\n      \"test_id\": \"REC001\",\n      \"technique\": \"reconnaissance\",\n      \"parameters\": {\n        \"scope\": \"Full topology mapping\",\n        \"duration_seconds\": 5,\n        \"data_targets\": [\n          \"HELICS communication channels\",\n          \"Voltage regulator settings\",\n          \"Power flow solver configurations\"\n        ]\n      },\n      \"priority\": \"high\"\n    },\n    {\n      \"test_id\": \"SPF001\",\n      \"technique\": \"spoof_data\",\n      \"parameters\": {\n        \"data_type\": \"voltage_measurements\",\n        \"magnitude_offset\": 0.02,\n        \"phase_shift\": 5,\n        \"duration_seconds\": 10,\n        \"target_nodes\": [\n          \"Node650\",\n          \"Bus1\"\n        ]\n      },\n      \"priority\": \"critical\"\n    },\n    {\n      \"test_id\": \"INF001\",\n      \"technique\": \"inject_load\",\n      \"parameters\": {\n        \"load_increase_percent\": 15,\n        \"duration_seconds\": 8,\n        \"target_nodes\": [\n          \"Bus2\"\n        ],\n        \"waveform_shape\": \"sinusoidal\"\n      },\n      \"priority\": \"high\"\n    },\n    {\n      \"test_id\": \"BLK001\",\n      \"technique\": \"block_command\",\n      \"parameters\": {\n        \"communication_layer\": \"HELICS\",\n        \"disruption_duration\": 3,\n        \"target_components\": [\n          \"GridPACK solver\",\n          \"GridLAB-D interface\"\n        ]\n      },\n      \"priority\": \"medium\"\n    }\n  ],\n  \"expected_outcomes\": {\n    \"stability_responses\": [\n      \"Voltage regulation system activation\",\n      \"Overcurrent protection triggers\",\n      \"Power flow solver recalibration\"\n    ],\n    \"monitoring_detection\": {\n      \"spoofed_data\": \"Detected within 2.3s\",\n      \"load_anomalies\": \"Identified by 4.1s\",\n      \"communication_gaps\": \"Notified within 1.8s\"\n    },\n    \"system_recovery\": \"Full restoration within 12s for 85% of scenarios\"\n  },\n  \"success_metrics\": {\n    \"vulnerability_coverage\": \"92% of identified weaknesses tested\",\n    \"response_time\": {\n      \"detection\": \"<5s\",\n      \"isolation\": \"<8s\",\n      \"recovery\": \"<15s\"\n    },\n    \"resilience_score\": \"Maintained >85% operational capacity during tests\",\n    \"defensive_effectiveness\": \"Protection systems validated against 78% of attack patterns\"\n  }\n}"
+      },
+      "timestamp": "2025-07-01T14:16:55.505518",
+      "trigger": "After spoof_data attack"
+    },
+    {
+      "adaptive_plan": {
+        "ai_plan": {
+          "assessment_sequence": [
+            {
+              "expected_behavior": "Complete system mapping without triggering alerts",
+              "parameters": {
+                "communication_channels": "HELICS message flow analysis",
+                "system_topology": "Full IEEE 13-bus + 2-bus",
+                "voltage_range": "2.4kV-4.16kV"
+              },
+              "technique": "reconnaissance",
+              "test_id": "RECON-001"
+            },
+            {
+              "expected_behavior": "Monitoring systems fail to detect synthetic voltage anomalies",
+              "parameters": {
+                "data_rate": "100Hz sampling",
+                "simulation_time": "3.0-5.0 seconds",
+                "voltage_offset": "\u00b11.5% on critical nodes"
+              },
+              "technique": "spoof_data",
+              "test_id": "SPOOF-002"
+            },
+            {
+              "expected_behavior": "Overcurrent protection activation with delayed response",
+              "parameters": {
+                "distribution_pattern": "Unbalanced phase loading",
+                "duration": "5 seconds",
+                "load_increment": "15% on Node650"
+              },
+              "technique": "inject_load",
+              "test_id": "LOAD-003"
+            },
+            {
+              "expected_behavior": "Voltage regulation failure during disruption period",
+              "parameters": {
+                "communication_disruption": "500ms HELICS message loss",
+                "critical_nodes": [
+                  "Bus1",
+                  "Bus2"
+                ],
+                "recovery_window": "3 seconds"
+              },
+              "technique": "block_command",
+              "test_id": "BLOCK-004"
+            }
+          ],
+          "expected_outcomes": {
+            "communication": {
+              "data_integrity": "12% packet loss tolerance",
+              "helics_recovery": "2.3s restoration time"
+            },
+            "protection_system": {
+              "backup_activation": "75% success rate",
+              "overcurrent_response": "1.8s delay in tripping"
+            },
+            "voltage_system": {
+              "oscillation_amplitude": "Increased by 22% during load injection",
+              "spoof_detection": "Failure (85% false reading retention)"
+            }
+          },
+          "situation_analysis": {
+            "critical_vulnerabilities": [
+              "HELICS communication interface latency",
+              "Voltage control system oscillation susceptibility",
+              "Power flow solver synchronization issues"
+            ],
+            "current_risk_factors": [
+              "Unstable voltage regulation patterns",
+              "Potential for cascading protection system failures",
+              "Limited fault detection in co-simulation interfaces"
+            ],
+            "node_sensitivity": {
+              "Bus1": "Medium - Transmission interface",
+              "Bus2": "Medium - Generation connection",
+              "Node650": "High - Central distribution hub"
+            },
+            "system_status": "Healthy but with high instability risk"
+          },
+          "strategic_approach": {
+            "coordinated_attack_pattern": "Communication disruption \u2192 Voltage manipulation \u2192 Load stress",
+            "defense_testing": "Validate protection system coordination and fallback mechanisms",
+            "primary_focus": "Stability-driven vulnerability exploitation",
+            "resilience_measurement": "Track recovery time and stability metrics post-attack"
+          },
+          "success_metrics": {
+            "attack_surface_reduction": "\u226540% vulnerability mitigation effectiveness",
+            "detection_rate": "\u226590% vulnerability identification",
+            "resilience_score": "\u226575/100 after mitigation",
+            "response_time": "\u22642.5s for critical protection systems",
+            "stability_index": "\u226585% recovery to nominal voltage"
+          }
+        },
+        "generation_timestamp": "2025-07-01T14:17:13.701010",
+        "grid_context": {
+          "current_state": {
+            "powers": {},
+            "system_health": {
+              "issues": [],
+              "score": 100,
+              "status": "healthy",
+              "total_power_mva": 0.0
+            },
+            "timestamp": 3.0,
+            "voltages": {
+              "gpk_voltage_Va": {
+                "angle": -0.0004089590169132287,
+                "imag": -0.017130367242650896,
+                "magnitude": 2399.9904732009804,
+                "real": 2399.990473139845
+              },
+              "gpk_voltage_Vb": {
+                "angle": -120.00031633478187,
+                "imag": -2078.4488092275697,
+                "magnitude": 2399.99360926268,
+                "real": -1200.0082799390186
+              },
+              "gpk_voltage_Vc": {
+                "angle": 119.99953254284709,
+                "imag": 2078.4612647774547,
+                "magnitude": 2399.989036590642,
+                "real": -1199.9775608631116
+              }
+            }
+          },
+          "vulnerabilities": {
+            "overall_risk_level": "high",
+            "power_vulnerabilities": [],
+            "stability_vulnerabilities": [
+              {
+                "risk": "Oscillations, control system failures",
+                "severity": "high",
+                "stability_score": 0,
+                "type": "instability"
+              }
+            ],
+            "voltage_vulnerabilities": []
+          }
+        },
+        "raw_ai_response": "\n\n{\n  \"situation_analysis\": {\n    \"system_status\": \"Healthy but with high instability risk\",\n    \"critical_vulnerabilities\": [\n      \"HELICS communication interface latency\",\n      \"Voltage control system oscillation susceptibility\",\n      \"Power flow solver synchronization issues\"\n    ],\n    \"current_risk_factors\": [\n      \"Unstable voltage regulation patterns\",\n      \"Potential for cascading protection system failures\",\n      \"Limited fault detection in co-simulation interfaces\"\n    ],\n    \"node_sensitivity\": {\n      \"Node650\": \"High - Central distribution hub\",\n      \"Bus1\": \"Medium - Transmission interface\",\n      \"Bus2\": \"Medium - Generation connection\"\n    }\n  },\n  \"strategic_approach\": {\n    \"primary_focus\": \"Stability-driven vulnerability exploitation\",\n    \"coordinated_attack_pattern\": \"Communication disruption \u2192 Voltage manipulation \u2192 Load stress\",\n    \"defense_testing\": \"Validate protection system coordination and fallback mechanisms\",\n    \"resilience_measurement\": \"Track recovery time and stability metrics post-attack\"\n  },\n  \"assessment_sequence\": [\n    {\n      \"test_id\": \"RECON-001\",\n      \"technique\": \"reconnaissance\",\n      \"parameters\": {\n        \"system_topology\": \"Full IEEE 13-bus + 2-bus\",\n        \"communication_channels\": \"HELICS message flow analysis\",\n        \"voltage_range\": \"2.4kV-4.16kV\"\n      },\n      \"expected_behavior\": \"Complete system mapping without triggering alerts\"\n    },\n    {\n      \"test_id\": \"SPOOF-002\",\n      \"technique\": \"spoof_data\",\n      \"parameters\": {\n        \"voltage_offset\": \"\u00b11.5% on critical nodes\",\n        \"simulation_time\": \"3.0-5.0 seconds\",\n        \"data_rate\": \"100Hz sampling\"\n      },\n      \"expected_behavior\": \"Monitoring systems fail to detect synthetic voltage anomalies\"\n    },\n    {\n      \"test_id\": \"LOAD-003\",\n      \"technique\": \"inject_load\",\n      \"parameters\": {\n        \"load_increment\": \"15% on Node650\",\n        \"duration\": \"5 seconds\",\n        \"distribution_pattern\": \"Unbalanced phase loading\"\n      },\n      \"expected_behavior\": \"Overcurrent protection activation with delayed response\"\n    },\n    {\n      \"test_id\": \"BLOCK-004\",\n      \"technique\": \"block_command\",\n      \"parameters\": {\n        \"communication_disruption\": \"500ms HELICS message loss\",\n        \"critical_nodes\": [\"Bus1\", \"Bus2\"],\n        \"recovery_window\": \"3 seconds\"\n      },\n      \"expected_behavior\": \"Voltage regulation failure during disruption period\"\n    }\n  ],\n  \"expected_outcomes\": {\n    \"voltage_system\": {\n      \"spoof_detection\": \"Failure (85% false reading retention)\",\n      \"oscillation_amplitude\": \"Increased by 22% during load injection\"\n    },\n    \"protection_system\": {\n      \"overcurrent_response\": \"1.8s delay in tripping\",\n      \"backup_activation\": \"75% success rate\"\n    },\n    \"communication\": {\n      \"helics_recovery\": \"2.3s restoration time\",\n      \"data_integrity\": \"12% packet loss tolerance\"\n    }\n  },\n  \"success_metrics\": {\n    \"detection_rate\": \"\u226590% vulnerability identification\",\n    \"response_time\": \"\u22642.5s for critical protection systems\",\n    \"stability_index\": \"\u226585% recovery to nominal voltage\",\n    \"resilience_score\": \"\u226575/100 after mitigation\",\n    \"attack_surface_reduction\": \"\u226540% vulnerability mitigation effectiveness\"\n  }\n}"
+      },
+      "timestamp": "2025-07-01T14:17:13.701022",
+      "trigger": "After inject_load attack"
+    }
+  ],
+  "attack_count": 4,
+  "attacks": [
+    {
+      "ai_objective": null,
+      "ai_rationale": null,
+      "attack_surfaces": [
+        {
+          "attack_methods": [
+            "message_tampering",
+            "data_injection",
+            "replay_attacks"
+          ],
+          "description": "HELICS messages lack authentication and encryption",
+          "impact": "high",
+          "surface": "helics_messaging",
+          "type": "communication"
+        },
+        {
+          "attack_methods": [
+            "load_manipulation",
+            "power_injection"
+          ],
+          "description": "GridPACK-GridLAB-D power flow interface",
+          "impact": "high",
+          "surface": "power_flow_control",
+          "type": "control_system"
+        },
+        {
+          "attack_methods": [
+            "protection_blinding",
+            "false_trip_signals"
+          ],
+          "description": "Protection relay coordination points",
+          "impact": "critical",
+          "surface": "protection_coordination",
+          "type": "protection_system"
+        }
+      ],
+      "attack_type": "reconnaissance",
+      "grid_topology": {
+        "critical_nodes": [],
+        "identified_buses": [],
+        "power_flows": [],
+        "voltage_levels": []
+      },
+      "impact": {
+        "power_impact": 0,
+        "system_health_impact": 0,
+        "total_impact_score": 0.0,
+        "voltage_impact": 0
+      },
+      "post_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 1.0,
+        "voltages": {
+          "gpk_voltage_Va": {
+            "angle": 0.0,
+            "imag": 0.0,
+            "magnitude": 2401.78,
+            "real": 2401.78
+          },
+          "gpk_voltage_Vb": {
+            "angle": -120.00001156757612,
+            "imag": -2080.0015245000004,
+            "magnitude": 2401.77916012741,
+            "real": -1200.89
+          },
+          "gpk_voltage_Vc": {
+            "angle": 120.00001156757612,
+            "imag": 2080.0015245000004,
+            "magnitude": 2401.77916012741,
+            "real": -1200.89
+          }
+        }
+      },
+      "pre_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 0.0,
+        "voltages": {}
+      },
+      "recommendations": [
+        {
+          "expected_impact": "Complete vulnerability assessment",
+          "objective": "Gather comprehensive grid intelligence",
+          "parameters": {},
+          "priority": "high",
+          "target": "all_systems",
+          "technique": "reconnaissance"
+        }
+      ],
+      "step_number": null,
+      "success": true,
+      "technique": "reconnaissance",
+      "timestamp": "2025-07-01T14:16:34.816339",
+      "vulnerabilities": []
+    },
+    {
+      "ai_objective": null,
+      "ai_rationale": null,
+      "angle": 0,
+      "attack_type": "voltage_spoof",
+      "impact": {
+        "power_impact": 0,
+        "system_health_impact": 0,
+        "total_impact_score": 0.029813197613312494,
+        "voltage_impact": 0.07453299403328123
+      },
+      "injected_voltage": {
+        "imag": 0.0,
+        "real": 2041.51
+      },
+      "magnitude": 2041.51,
+      "post_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 2.0,
+        "voltages": {
+          "gpk_voltage_Va": {
+            "angle": -0.0004090183319425942,
+            "imag": -0.017132851843146675,
+            "magnitude": 2399.9904771538427,
+            "real": 2399.9904770926896
+          },
+          "gpk_voltage_Vb": {
+            "angle": -120.000316400349,
+            "imag": -2078.448812353989,
+            "magnitude": 2399.9936144584603,
+            "real": -1200.0082849154326
+          },
+          "gpk_voltage_Vc": {
+            "angle": 119.99953244200654,
+            "imag": 2078.4612717553377,
+            "magnitude": 2399.9890422092994,
+            "real": -1199.9775600143091
+          }
+        }
+      },
+      "pre_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 1.0,
+        "voltages": {
+          "gpk_voltage_Va": {
+            "angle": 0.0,
+            "imag": 0.0,
+            "magnitude": 2401.78,
+            "real": 2401.78
+          },
+          "gpk_voltage_Vb": {
+            "angle": -120.00001156757612,
+            "imag": -2080.0015245000004,
+            "magnitude": 2401.77916012741,
+            "real": -1200.89
+          },
+          "gpk_voltage_Vc": {
+            "angle": 120.00001156757612,
+            "imag": 2080.0015245000004,
+            "magnitude": 2401.77916012741,
+            "real": -1200.89
+          }
+        }
+      },
+      "step_number": null,
+      "success": true,
+      "target_phase": "A",
+      "technique": "spoof_data",
+      "timestamp": "2025-07-01T14:16:36.818302"
+    },
+    {
+      "ai_objective": null,
+      "ai_rationale": null,
+      "attack_type": "load_injection",
+      "impact": {
+        "power_impact": 0,
+        "system_health_impact": 0,
+        "total_impact_score": 9.364471537839737e-08,
+        "voltage_impact": 2.3411178844599342e-07
+      },
+      "injected_load": {
+        "imag": 653834.8415311009,
+        "real": 1350000.0
+      },
+      "magnitude_va": 1500000,
+      "post_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 3.0,
+        "voltages": {
+          "gpk_voltage_Va": {
+            "angle": -0.0004089590169132287,
+            "imag": -0.017130367242650896,
+            "magnitude": 2399.9904732009804,
+            "real": 2399.990473139845
+          },
+          "gpk_voltage_Vb": {
+            "angle": -120.00031633478187,
+            "imag": -2078.4488092275697,
+            "magnitude": 2399.99360926268,
+            "real": -1200.0082799390186
+          },
+          "gpk_voltage_Vc": {
+            "angle": 119.99953254284709,
+            "imag": 2078.4612647774547,
+            "magnitude": 2399.989036590642,
+            "real": -1199.9775608631116
+          }
+        }
+      },
+      "power_factor": 0.9,
+      "pre_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 2.0,
+        "voltages": {
+          "gpk_voltage_Va": {
+            "angle": -0.0004090183319425942,
+            "imag": -0.017132851843146675,
+            "magnitude": 2399.9904771538427,
+            "real": 2399.9904770926896
+          },
+          "gpk_voltage_Vb": {
+            "angle": -120.000316400349,
+            "imag": -2078.448812353989,
+            "magnitude": 2399.9936144584603,
+            "real": -1200.0082849154326
+          },
+          "gpk_voltage_Vc": {
+            "angle": 119.99953244200654,
+            "imag": 2078.4612717553377,
+            "magnitude": 2399.9890422092994,
+            "real": -1199.9775600143091
+          }
+        }
+      },
+      "step_number": null,
+      "success": true,
+      "target_phase": "A",
+      "technique": "inject_load",
+      "timestamp": "2025-07-01T14:16:55.505845"
+    },
+    {
+      "ai_objective": null,
+      "ai_rationale": null,
+      "attack_type": "command_blocking",
+      "blocking_enabled": true,
+      "duration": 15,
+      "impact": {
+        "power_impact": 0,
+        "system_health_impact": 0,
+        "total_impact_score": 2.8270256121104563e-12,
+        "voltage_impact": 7.0675640302761406e-12
+      },
+      "post_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 4.0,
+        "voltages": {
+          "gpk_voltage_Va": {
+            "angle": -0.00040895901732033974,
+            "imag": -0.017130367259703967,
+            "magnitude": 2399.9904732009963,
+            "real": 2399.990473139861
+          },
+          "gpk_voltage_Vb": {
+            "angle": -120.0003163347835,
+            "imag": -2078.448809227642,
+            "magnitude": 2399.9936092628027,
+            "real": -1200.0082799391394
+          },
+          "gpk_voltage_Vc": {
+            "angle": 119.99953254282603,
+            "imag": 2078.4612647780427,
+            "magnitude": 2399.989036590812,
+            "real": -1199.977560862432
+          }
+        }
+      },
+      "pre_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 3.0,
+        "voltages": {
+          "gpk_voltage_Va": {
+            "angle": -0.0004089590169132287,
+            "imag": -0.017130367242650896,
+            "magnitude": 2399.9904732009804,
+            "real": 2399.990473139845
+          },
+          "gpk_voltage_Vb": {
+            "angle": -120.00031633478187,
+            "imag": -2078.4488092275697,
+            "magnitude": 2399.99360926268,
+            "real": -1200.0082799390186
+          },
+          "gpk_voltage_Vc": {
+            "angle": 119.99953254284709,
+            "imag": 2078.4612647774547,
+            "magnitude": 2399.989036590642,
+            "real": -1199.9775608631116
+          }
+        }
+      },
+      "step_number": null,
+      "success": true,
+      "technique": "block_command",
+      "timestamp": "2025-07-01T14:17:13.701395"
+    }
+  ],
+  "duration": 60,
+  "effectiveness_score": 0.0,
+  "end_time": "2025-07-01T14:17:15.703465",
+  "final_grid_state": {
+    "powers": {},
+    "system_health": {
+      "issues": [],
+      "score": 100,
+      "status": "healthy",
+      "total_power_mva": 0.0
+    },
+    "timestamp": 4.0,
+    "voltages": {
+      "gpk_voltage_Va": {
+        "angle": -0.00040895901732033974,
+        "imag": -0.017130367259703967,
+        "magnitude": 2399.9904732009963,
+        "real": 2399.990473139861
+      },
+      "gpk_voltage_Vb": {
+        "angle": -120.0003163347835,
+        "imag": -2078.448809227642,
+        "magnitude": 2399.9936092628027,
+        "real": -1200.0082799391394
+      },
+      "gpk_voltage_Vc": {
+        "angle": 119.99953254282603,
+        "imag": 2078.4612647780427,
+        "magnitude": 2399.989036590812,
+        "real": -1199.977560862432
+      }
+    }
+  },
+  "initial_plan": {
+    "ai_plan": {
+      "assessment_sequence": [
+        {
+          "parameters": {
+            "duration": 10,
+            "methods": [
+              "topology_discovery",
+              "protocol_analysis"
+            ],
+            "targets": [
+              "Node650",
+              "Bus1",
+              "Bus2"
+            ]
+          },
+          "purpose": "Map system architecture and identify critical communication paths",
+          "technique": "reconnaissance",
+          "test_id": "RECON-001"
+        },
+        {
+          "parameters": {
+            "data_types": [
+              "voltage_readings",
+              "power_flow"
+            ],
+            "duration": 15,
+            "inject_values": {
+              "power_flow": "120% rated",
+              "voltage": "4.16kV \u00b115%"
+            },
+            "targets": [
+              "Node650"
+            ]
+          },
+          "purpose": "Test false data detection capabilities of monitoring systems",
+          "technique": "spoof_data",
+          "test_id": "SPOOF-002"
+        },
+        {
+          "parameters": {
+            "duration": 20,
+            "duration_profile": "5s pulse every 10s",
+            "load_profile": "step_increase(150% of nominal)",
+            "targets": [
+              "Bus1",
+              "Bus2"
+            ]
+          },
+          "purpose": "Evaluate overcurrent protection and voltage regulation systems",
+          "technique": "inject_load",
+          "test_id": "LOAD-003"
+        },
+        {
+          "parameters": {
+            "block_type": "message_delay(500ms)",
+            "duration": 15,
+            "frequency": "30% packet_loss",
+            "targets": [
+              "HELICS_communication"
+            ]
+          },
+          "purpose": "Assess system resilience to communication disruptions",
+          "technique": "block_command",
+          "test_id": "BLOCK-004"
+        }
+      ],
+      "expected_outcomes": {
+        "monitoring_systems": {
+          "anomaly_reporting": "Delayed by 2-3 seconds during communication blocks",
+          "false_data_detection": "Expected to fail under 30% spoofed data injection"
+        },
+        "protection_systems": {
+          "overcurrent_response": "Trip within 150ms of load surge",
+          "voltage_regulation": "Recovery within 2 seconds after disturbance"
+        },
+        "system_stability": {
+          "cascading_failure": "Potential for 2-stage failure if multiple nodes impacted",
+          "oscillation_risk": "Increased by 40% during combined load/communication attacks"
+        }
+      },
+      "situation_analysis": {
+        "critical_vulnerabilities": [
+          "HELICS communication interface latency",
+          "Voltage control system sensitivity",
+          "Power flow solver interface instability"
+        ],
+        "current_status": "System health is reported as 'healthy' with no visible issues, but vulnerability assessment identifies 'high' risk instability due to potential oscillations and control system failures.",
+        "key_targets": [
+          "Node650 (distribution/transmission interface)",
+          "Bus1 (transmission node)",
+          "Bus2 (transmission node)"
+        ],
+        "risk_factors": [
+          "Lack of real-time voltage monitoring feedback",
+          "Potential for cascading failures in power flow",
+          "Limited resilience to communication disruptions"
+        ]
+      },
+      "strategic_approach": {
+        "attack_vector_sequence": [
+          "Reconnaissance \u2192 Spoofed Data Injection \u2192 Load Manipulation \u2192 Communication Disruption",
+          "Progressive escalation from passive monitoring to active disruption"
+        ],
+        "defensive_testing_focus": "Validate protection systems against: 1) False data injection 2) Load imbalance 3) Communication latency 4) Control system overloads",
+        "overview": "Systematic exploitation of identified vulnerabilities through coordinated attack vectors to test grid resilience while maintaining simulation control."
+      },
+      "success_metrics": {
+        "defensive_effectiveness": {
+          "metrics": [
+            "false_data_correction_rate",
+            "communication_fallback_success"
+          ],
+          "thresholds": {
+            "correction_rate": ">85%",
+            "fallback_success": ">90%"
+          }
+        },
+        "resilience_measurement": {
+          "metrics": [
+            "stability_recovery_time",
+            "cascading_failure_rate"
+          ],
+          "thresholds": {
+            "failure_rate": "<15%",
+            "recovery_time": "<3s"
+          }
+        },
+        "vulnerability_discovery": {
+          "metrics": [
+            "time_to_detect_spoofed_data",
+            "load_disturbance_response_time"
+          ],
+          "thresholds": {
+            "detect_time": "<5s",
+            "response_time": "<200ms"
+          }
+        }
+      }
+    },
+    "generation_timestamp": "2025-07-01T14:16:34.813829",
+    "grid_context": {
+      "current_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 0.0,
+        "voltages": {}
+      },
+      "vulnerabilities": {
+        "overall_risk_level": "high",
+        "power_vulnerabilities": [],
+        "stability_vulnerabilities": [
+          {
+            "risk": "Oscillations, control system failures",
+            "severity": "high",
+            "stability_score": 0,
+            "type": "instability"
+          }
+        ],
+        "voltage_vulnerabilities": []
+      }
+    },
+    "raw_ai_response": "\n\n{\n  \"situation_analysis\": {\n    \"current_status\": \"System health is reported as 'healthy' with no visible issues, but vulnerability assessment identifies 'high' risk instability due to potential oscillations and control system failures.\",\n    \"critical_vulnerabilities\": [\n      \"HELICS communication interface latency\",\n      \"Voltage control system sensitivity\",\n      \"Power flow solver interface instability\"\n    ],\n    \"key_targets\": [\n      \"Node650 (distribution/transmission interface)\",\n      \"Bus1 (transmission node)\",\n      \"Bus2 (transmission node)\"\n    ],\n    \"risk_factors\": [\n      \"Lack of real-time voltage monitoring feedback\",\n      \"Potential for cascading failures in power flow\",\n      \"Limited resilience to communication disruptions\"\n    ]\n  },\n  \"strategic_approach\": {\n    \"overview\": \"Systematic exploitation of identified vulnerabilities through coordinated attack vectors to test grid resilience while maintaining simulation control.\",\n    \"attack_vector_sequence\": [\n      \"Reconnaissance \u2192 Spoofed Data Injection \u2192 Load Manipulation \u2192 Communication Disruption\",\n      \"Progressive escalation from passive monitoring to active disruption\"\n    ],\n    \"defensive_testing_focus\": \"Validate protection systems against: 1) False data injection 2) Load imbalance 3) Communication latency 4) Control system overloads\"\n  },\n  \"assessment_sequence\": [\n    {\n      \"test_id\": \"RECON-001\",\n      \"technique\": \"reconnaissance\",\n      \"parameters\": {\n        \"duration\": 10,\n        \"targets\": [\"Node650\", \"Bus1\", \"Bus2\"],\n        \"methods\": [\"topology_discovery\", \"protocol_analysis\"]\n      },\n      \"purpose\": \"Map system architecture and identify critical communication paths\"\n    },\n    {\n      \"test_id\": \"SPOOF-002\",\n      \"technique\": \"spoof_data\",\n      \"parameters\": {\n        \"duration\": 15,\n        \"targets\": [\"Node650\"],\n        \"data_types\": [\"voltage_readings\", \"power_flow\"],\n        \"inject_values\": {\"voltage\": \"4.16kV \u00b115%\", \"power_flow\": \"120% rated\"}\n      },\n      \"purpose\": \"Test false data detection capabilities of monitoring systems\"\n    },\n    {\n      \"test_id\": \"LOAD-003\",\n      \"technique\": \"inject_load\",\n      \"parameters\": {\n        \"duration\": 20,\n        \"targets\": [\"Bus1\", \"Bus2\"],\n        \"load_profile\": \"step_increase(150% of nominal)\",\n        \"duration_profile\": \"5s pulse every 10s\"\n      },\n      \"purpose\": \"Evaluate overcurrent protection and voltage regulation systems\"\n    },\n    {\n      \"test_id\": \"BLOCK-004\",\n      \"technique\": \"block_command\",\n      \"parameters\": {\n        \"duration\": 15,\n        \"targets\": [\"HELICS_communication\"],\n        \"block_type\": \"message_delay(500ms)\",\n        \"frequency\": \"30% packet_loss\"\n      },\n      \"purpose\": \"Assess system resilience to communication disruptions\"\n    }\n  ],\n  \"expected_outcomes\": {\n    \"monitoring_systems\": {\n      \"false_data_detection\": \"Expected to fail under 30% spoofed data injection\",\n      \"anomaly_reporting\": \"Delayed by 2-3 seconds during communication blocks\"\n    },\n    \"protection_systems\": {\n      \"overcurrent_response\": \"Trip within 150ms of load surge\",\n      \"voltage_regulation\": \"Recovery within 2 seconds after disturbance\"\n    },\n    \"system_stability\": {\n      \"oscillation_risk\": \"Increased by 40% during combined load/communication attacks\",\n      \"cascading_failure\": \"Potential for 2-stage failure if multiple nodes impacted\"\n    }\n  },\n  \"success_metrics\": {\n    \"vulnerability_discovery\": {\n      \"metrics\": [\"time_to_detect_spoofed_data\", \"load_disturbance_response_time\"],\n      \"thresholds\": {\"detect_time\": \"<5s\", \"response_time\": \"<200ms\"}\n    },\n    \"resilience_measurement\": {\n      \"metrics\": [\"stability_recovery_time\", \"cascading_failure_rate\"],\n      \"thresholds\": {\"recovery_time\": \"<3s\", \"failure_rate\": \"<15%\"}\n    },\n    \"defensive_effectiveness\": {\n      \"metrics\": [\"false_data_correction_rate\", \"communication_fallback_success\"],\n      \"thresholds\": {\"correction_rate\": \">85%\", \"fallback_success\": \">90%\"}\n    }\n  }\n}"
+  },
+  "overall_impact": {
+    "power_impact": 0,
+    "system_health_impact": 0,
+    "total_impact_score": 0.0,
+    "voltage_impact": 0
+  },
+  "start_time": "2025-07-01T14:16:16.465107",
+  "total_impact": 0,
+  "type": "ai_strategic_campaign"
+}

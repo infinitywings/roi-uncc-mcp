@@ -1,0 +1,76 @@
+services:
+  # HELICS broker service
+  helics-broker:
+    image: roi-uncc-img:latest
+    container_name: helics-broker
+    command: helics_broker -f 3 --loglevel=debug --port=23406 --local_interface=0.0.0.0
+    environment:
+      - ZMQ_INTERFACE=0.0.0.0
+      - HELICS_LOCAL_INTERFACE=0.0.0.0
+    ports:
+      - "23406:23406"
+    networks:
+      - grid-network
+    restart: unless-stopped
+
+  # GridPACK federate
+  gridpack-federate:
+    image: roi-uncc-img:latest
+    container_name: gridpack-federate
+    working_dir: /workspace/examples/2bus-13bus
+    command: ./build/gpk-left-fed.x
+    volumes:
+      - ./examples/2bus-13bus:/workspace/examples/2bus-13bus
+    environment:
+      - HELICS_BROKER_ADDRESS=tcp://helics-broker:23406
+    networks:
+      - grid-network
+    depends_on:
+      - helics-broker
+    restart: unless-stopped
+
+  # GridLAB-D federate
+  gridlabd-federate:
+    image: roi-uncc-img:latest
+    container_name: gridlabd-federate
+    working_dir: /workspace/examples/2bus-13bus
+    command: gridlabd IEEE13bus.glm
+    volumes:
+      - ./examples/2bus-13bus:/workspace/examples/2bus-13bus
+    environment:
+      - HELICS_BROKER_ADDRESS=tcp://helics-broker:23406
+    networks:
+      - grid-network
+    depends_on:
+      - helics-broker
+    restart: unless-stopped
+
+  # MCP Server with AI capabilities
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.mcp
+    container_name: mcp-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./demo_results:/app/demo_results
+      - ./API.txt:/app/API.txt:ro
+    environment:
+      - HELICS_BROKER_ADDRESS=tcp://helics-broker:23406
+      - PYTHONPATH=/app/mcp-server/src
+    networks:
+      - grid-network
+      - vllm_nginx
+    depends_on:
+      - helics-broker
+      - gridpack-federate
+      - gridlabd-federate
+    restart: unless-stopped
+
+networks:
+  grid-network:
+    driver: bridge
+  vllm_nginx:
+    external: true
+    name: vllm-docker_vllm_nginx

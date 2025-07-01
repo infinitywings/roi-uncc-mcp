@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Test</title>
+    <style>
+        body { background: #1e3c72; color: white; font-family: Arial; padding: 20px; }
+        .debug { background: rgba(255,255,255,0.1); padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Timeline Chart Debug Test</h1>
+    <div class="debug">
+        <h3>Debug Info:</h3>
+        <div id="debug-info"></div>
+    </div>
+    
+    <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px;">
+        <canvas id="timelineChart" width="800" height="400"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+    <script>
+        // Test data - simplified version of your AI campaign
+        const testData = {
+            ai_results: [{
+                attacks: [
+                    {
+                        technique: 'reconnaissance',
+                        timestamp: '2025-07-01T14:16:34.816339',
+                        impact: { total_impact_score: 0.0 },
+                        success: true
+                    },
+                    {
+                        technique: 'spoof_data',
+                        timestamp: '2025-07-01T14:16:36.818302',
+                        impact: { total_impact_score: 0.029813197613312494 },
+                        success: true,
+                        magnitude: 2041.51
+                    },
+                    {
+                        technique: 'inject_load',
+                        timestamp: '2025-07-01T14:16:55.505845',
+                        impact: { total_impact_score: 9.364471537839737e-08 },
+                        success: true,
+                        magnitude_va: 1500000
+                    },
+                    {
+                        technique: 'block_command',
+                        timestamp: '2025-07-01T14:17:13.701395',
+                        impact: { total_impact_score: 2.8270256121104563e-12 },
+                        success: true,
+                        duration: 15
+                    }
+                ],
+                start_time: '2025-07-01T14:16:16.465107',
+                duration: 60
+            }]
+        };
+
+        // Debug output
+        document.getElementById('debug-info').innerHTML = `
+            <p>Chart.js loaded: ${typeof Chart !== 'undefined' ? 'YES' : 'NO'}</p>
+            <p>Canvas found: ${document.getElementById('timelineChart') ? 'YES' : 'NO'}</p>
+            <p>Test data attacks: ${testData.ai_results[0].attacks.length}</p>
+        `;
+
+        // Simplified timeline chart creation
+        function createChart() {
+            const canvas = document.getElementById('timelineChart');
+            const ctx = canvas.getContext('2d');
+            
+            const aiData = testData.ai_results[0];
+            const startTime = new Date(aiData.start_time);
+            
+            const attackPoints = aiData.attacks.map(attack => {
+                const attackTime = new Date(attack.timestamp);
+                const timeOffset = (attackTime - startTime) / 1000;
+                return {
+                    x: timeOffset,
+                    y: Math.max(attack.impact.total_impact_score * 1000000, 0.1),
+                    label: attack.technique
+                };
+            });
+
+            console.log('Attack points:', attackPoints);
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Attack Events',
+                        type: 'scatter',
+                        data: attackPoints,
+                        backgroundColor: 'rgba(255, 107, 53, 0.8)',
+                        borderColor: 'rgba(255, 107, 53, 1)',
+                        pointRadius: 10,
+                        pointStyle: 'triangle'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Test Attack Timeline',
+                            color: 'white'
+                        },
+                        legend: { labels: { color: 'white' } }
+                    },
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: { display: true, text: 'Time (seconds)', color: 'white' },
+                            ticks: { color: 'white' },
+                            grid: { color: 'rgba(255,255,255,0.2)' }
+                        },
+                        y: {
+                            title: { display: true, text: 'Impact', color: 'white' },
+                            ticks: { color: 'white' },
+                            grid: { color: 'rgba(255,255,255,0.2)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Create chart when page loads
+        document.addEventListener('DOMContentLoaded', createChart);
+    </script>
+</body>
+</html>
