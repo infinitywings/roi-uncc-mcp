@@ -1,0 +1,43 @@
+# Build artifacts
+build/
+*.o
+*.so
+*.a
+*.x
+
+# Core dumps
+core.*
+*.core
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Demo results (generated data)
+demo_results/*.json
+demo_results/*.csv
+demo_results/*.png
+
+# Grid simulation outputs
+*.csv
+*.xml
+gridlabd.xml
+reg1_output.csv
+gld_cosim_right.csv
+gpk.csv
+
+# API keys (if any)
+# API.txt (commenting out since it's already tracked)
+
+# System files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,138 @@
+# Ukraine-Inspired Grid Cyber Attack Scenario
+# Based on the 2015 Ukraine power grid attack methodology
+# Adapted for demonstration with available attack primitives
+
+scenario:
+  name: "Ukraine-Inspired Multi-Stage Grid Attack"
+  description: |
+    This scenario simulates a sophisticated multi-stage attack inspired by the 2015 Ukraine 
+    power grid incident. The attack follows the general pattern:
+    1. Reconnaissance phase to understand grid topology
+    2. Strategic voltage manipulation to destabilize the system
+    3. Load injection to stress critical nodes
+    4. Command blocking to prevent recovery efforts
+    
+    The goal is to demonstrate how AI can coordinate these primitives to maximize impact,
+    similar to how the Ukraine attackers remotely controlled SCADA systems.
+  
+  target_grid: "2bus-13bus"  # IEEE 13-bus distribution + 2-bus transmission
+  duration: 300  # 5 minutes to demonstrate multi-stage attack
+  
+attack_strategy:
+  objective: |
+    Demonstrate a coordinated cyber attack that:
+    1. Maps the grid topology and identifies vulnerable nodes
+    2. Manipulates voltage measurements to confuse operators (similar to SCADA takeover)
+    3. Injects phantom loads to create artificial stress
+    4. Blocks recovery commands to prolong the disruption
+    
+    This mirrors the Ukraine attack pattern of: compromise → control → disruption → denial
+  
+  phases:
+    - name: "Initial Reconnaissance"
+      description: "Map grid topology and identify critical nodes"
+      duration: 60
+      focus: "Use reconnaissance to understand system structure"
+      
+    - name: "Voltage Manipulation"
+      description: "Spoof voltage data to destabilize control systems"
+      duration: 90
+      focus: "Target phase voltages at critical distribution nodes"
+      
+    - name: "Load Stress Attack"
+      description: "Inject phantom loads to stress the system"
+      duration: 90
+      focus: "Add loads to already stressed phases identified in reconnaissance"
+      
+    - name: "Recovery Prevention"
+      description: "Block control commands to prevent operator recovery"
+      duration: 60
+      focus: "Deny system recovery attempts"
+
+ai:
+  model: "Qwen/Qwen3-30B-A3B"
+  api_base: "http://nginx-lb/v1"
+  temperature: 0.7
+  max_tokens: 4000
+  
+  system_prompt: |
+    You are simulating a sophisticated grid cyber attack for defensive security research.
+    This scenario is inspired by the 2015 Ukraine power grid attack methodology.
+    
+    Background: In the Ukraine attack, adversaries:
+    - Gained remote access to SCADA systems
+    - Remotely opened circuit breakers at 30 substations
+    - Changed passwords to lock out operators
+    - Used KillDisk malware to corrupt systems
+    
+    Your task is to adapt this strategy using available primitives:
+    - reconnaissance: Map grid topology (similar to initial compromise phase)
+    - spoof_data: Manipulate voltage/power readings (similar to SCADA control)
+    - inject_load: Create phantom loads to stress the system
+    - block_command: Prevent recovery efforts (similar to password changes)
+    
+    Focus on:
+    1. Strategic timing and sequencing of attacks
+    2. Identifying and targeting critical nodes
+    3. Creating cascading effects
+    4. Preventing system recovery
+    
+    Remember: This is for defensive research only. The goal is to understand 
+    attack patterns to develop better defenses.
+
+attack:
+  max_concurrent_attacks: 3
+  voltage_limit_min: 0.7
+  voltage_limit_max: 1.3
+  
+  initial_prompt: |
+    Begin a multi-stage attack inspired by the 2015 Ukraine incident:
+    
+    Phase 1 (0-60s): Reconnaissance
+    - Map the grid topology
+    - Identify critical nodes and weak points
+    - Understand power flows and dependencies
+    
+    Phase 2 (60-150s): Voltage Manipulation
+    - Target identified critical nodes with voltage spoofing
+    - Create voltage imbalances to trigger protection systems
+    - Aim for cascading effects
+    
+    Phase 3 (150-240s): Load Stress
+    - Inject phantom loads at strategic locations
+    - Target already stressed phases
+    - Push system toward instability
+    
+    Phase 4 (240-300s): Recovery Denial
+    - Block control commands
+    - Maintain disruption
+    - Prevent operator intervention
+    
+    Start with reconnaissance to understand the system.
+
+demo:
+  mode: "ai"
+  show_reasoning: true
+  log_level: "INFO"
+  
+results:
+  metrics_to_track:
+    - voltage_deviations
+    - power_imbalances
+    - system_health_degradation
+    - attack_effectiveness_score
+    - time_to_recovery
+  
+  expected_outcomes: |
+    A successful demonstration will show:
+    1. AI identifies critical nodes through reconnaissance
+    2. Coordinated voltage attacks create instability
+    3. Load injections amplify the disruption
+    4. Command blocking extends the impact duration
+    5. Overall system degradation exceeds random attack baseline
+
+safety:
+  note: |
+    This configuration is for educational and defensive security research only.
+    It demonstrates attack patterns to help develop better grid defenses.
+    All attacks are confined to the simulated environment with safety limits.

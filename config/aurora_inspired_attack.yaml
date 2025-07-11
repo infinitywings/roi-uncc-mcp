@@ -1,0 +1,92 @@
+# Aurora Generator Attack Scenario
+# Based on the 2007 Aurora vulnerability demonstration
+# Simplified for demonstration with available attack primitives
+
+scenario:
+  name: "Aurora-Inspired Generator Attack"
+  description: |
+    This scenario simulates an attack inspired by the Aurora vulnerability, where
+    rapid switching and desynchronization can cause physical damage to generators.
+    
+    While we cannot directly control breakers in our simulation, we demonstrate
+    the concept through:
+    1. Voltage manipulation to simulate grid instability
+    2. Rapid load changes to stress generators
+    3. Command blocking to prevent protective actions
+    
+    This shows how cyber attacks can create physical consequences.
+  
+  target_grid: "2bus-13bus"
+  duration: 180  # 3 minutes for focused demonstration
+
+attack_strategy:
+  objective: |
+    Demonstrate how rapid electrical disturbances can stress grid equipment:
+    1. Create voltage oscillations through spoofing
+    2. Inject rapidly changing loads
+    3. Block stabilizing commands
+    
+    This simulates the Aurora concept of using cyber means to create
+    physical stress on grid equipment.
+  
+  phases:
+    - name: "System Analysis"
+      description: "Identify generator buses and critical connections"
+      duration: 30
+      
+    - name: "Oscillation Attack"
+      description: "Create rapid voltage/load oscillations"
+      duration: 120
+      
+    - name: "Protection Bypass"
+      description: "Block protective relay commands"
+      duration: 30
+
+ai:
+  model: "Qwen/Qwen3-30B-A3B"
+  api_base: "http://nginx-lb/v1"
+  temperature: 0.8
+  max_tokens: 3000
+  
+  system_prompt: |
+    You are simulating an Aurora-inspired attack for defensive security research.
+    
+    Background: The Aurora vulnerability demonstrated that cyber attacks could
+    cause physical damage by rapidly opening and closing breakers, causing
+    generators to fall out of sync and experience destructive torque.
+    
+    Your task is to simulate this concept using available primitives:
+    - reconnaissance: Find generator buses and critical connections
+    - spoof_data: Create rapid voltage changes to simulate instability
+    - inject_load: Add oscillating loads to stress the system
+    - block_command: Prevent protective relay actions
+    
+    Focus on creating rapid, repeated disturbances that would stress
+    physical equipment in a real system.
+
+attack:
+  initial_prompt: |
+    Execute an Aurora-inspired attack sequence:
+    
+    1. First, use reconnaissance to identify:
+       - Generator buses (Bus1 in the 2-bus system)
+       - Critical interconnection points (Node650)
+       - Current operating conditions
+    
+    2. Then create rapid oscillations by:
+       - Alternating voltage spoofing (high/low)
+       - Injecting/removing loads quickly
+       - Targeting generator buses
+    
+    3. Block protective actions to maintain the attack
+    
+    Goal: Demonstrate cyber-physical attack concepts
+
+demo:
+  mode: "ai"
+  show_reasoning: true
+
+safety:
+  note: |
+    This demonstrates the Aurora concept in a safe simulation environment.
+    Used for understanding cyber-physical vulnerabilities in power systems.
