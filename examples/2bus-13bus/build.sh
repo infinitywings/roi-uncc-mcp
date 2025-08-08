@@ -57,7 +57,7 @@ int main() {
     try {
         // Create federate
         auto fi = helicsCreateFederateInfo();
-        helicsFederateInfoSetBrokerAddress(fi, \"tcp://127.0.0.1:23404\", nullptr);
+        helicsFederateInfoSetBrokerAddress(fi, \"tcp://helics-broker:23406\", nullptr);
         helicsFederateInfoSetTimeDelta(fi, 1.0, nullptr);
         
         auto fed = helicsCreateCombinationFederate(\"gridpack\", fi, nullptr);

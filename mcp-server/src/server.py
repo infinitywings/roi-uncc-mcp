@@ -65,7 +65,7 @@ class MCPServer:
                 'debug': False
             },
             'helics': {
-                'broker_address': 'tcp://127.0.0.1:23404',
+                'broker_address': 'tcp://helics-broker:23406',
                 'federate_name': 'mcp_attacker',
                 'time_delta': 1.0,
                 'period': 1.0

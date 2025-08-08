@@ -224,7 +224,7 @@ server:
   debug: false
 
 helics:
-  broker_address: "tcp://127.0.0.1:23404"
+  broker_address: "tcp://helics-broker:23406"
   federate_name: "mcp_attacker"
   time_delta: 1.0
 
@@ -331,7 +331,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - HELICS_BROKER=helics-broker:23404
+      - HELICS_BROKER_ADDRESS=tcp://helics-broker:23406
     depends_on:
       - helics-broker
       - gridlabd
