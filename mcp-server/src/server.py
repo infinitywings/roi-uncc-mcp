@@ -367,7 +367,8 @@ class MCPServer:
             self.grid_monitor = GridMonitor(self.federate)
             
             # Initialize threat validator
-            self.threat_validator = ThreatModelValidator('config/threat_model.yaml')
+            config_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config')
+            self.threat_validator = ThreatModelValidator(os.path.join(config_dir, 'threat_model.yaml'))
             
             # Initialize AI strategist
             try:
