@@ -595,6 +595,8 @@ The framework implements several attack primitives targeting the configured grid
    - Target: Protection and control systems
    - Impact: Prevents automatic recovery
 
+These four techniques constitute the current set of supported attack primitives.
+
 ### AI Strategic Approach
 
 The DeepSeek AI strategist follows this methodology:

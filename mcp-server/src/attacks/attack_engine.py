@@ -23,8 +23,7 @@ class AttackEngine:
             'spoof_data': self._spoof_data,
             'inject_load': self._inject_load,
             'reconnaissance': self._reconnaissance,
-            'block_command': self._block_command,
-            'toggle_device': self._toggle_device
+            'block_command': self._block_command
         }
         
         # Attack parameters and constraints
@@ -228,27 +227,6 @@ class AttackEngine:
             
         except Exception as e:
             logger.error(f"Error in block_command attack: {e}")
-            return {'success': False, 'error': str(e)}
-    
-    def _toggle_device(self, params):
-        """Toggle device state (placeholder - would need specific device control)"""
-        try:
-            device = params.get('device', 'switch1')
-            state = params.get('state', 'open')
-            
-            # This is a placeholder - actual implementation would depend on
-            # specific GridLAB-D device control mechanisms
-            
-            return {
-                'success': True,
-                'attack_type': 'device_toggle',
-                'target_device': device,
-                'new_state': state,
-                'note': 'Placeholder implementation - requires specific device control integration'
-            }
-            
-        except Exception as e:
-            logger.error(f"Error in toggle_device attack: {e}")
             return {'success': False, 'error': str(e)}
     
     def _generate_strategic_voltage(self, current_state, phase):
@@ -666,11 +644,6 @@ class AttackEngine:
             return {
                 'enable': random.choice([True, False]),
                 'duration': random.uniform(5, 30)
-            }
-        elif technique == 'toggle_device':
-            return {
-                'device': random.choice(['switch1', 'breaker1', 'regulator1']),
-                'state': random.choice(['open', 'closed'])
             }
         else:
             return {}
