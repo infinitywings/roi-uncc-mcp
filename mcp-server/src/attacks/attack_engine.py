@@ -35,7 +35,65 @@ class AttackEngine:
         }
         
         logger.info("Attack engine initialized")
-    
+
+    def _validate_params(self, technique, params):
+        """Validate attack parameters against configured limits"""
+        voltage_limits = self.attack_params.get('voltage_limits', {})
+        power_limits = self.attack_params.get('power_limits', {})
+        timing_limits = self.attack_params.get('timing_limits', {})
+
+        try:
+            if technique == 'spoof_data':
+                target = params.get('target', '')
+                if 'voltage' in target and 'value' in params:
+                    value = params['value']
+                    if not (voltage_limits['min'] <= value <= voltage_limits['max']):
+                        return {
+                            'success': False,
+                            'error': (
+                                f"Voltage value {value} outside limits "
+                                f"{voltage_limits['min']}–{voltage_limits['max']} pu"
+                            )
+                        }
+                if 'power' in target and 'value' in params:
+                    value = params['value']
+                    if value < 0 or value > power_limits['max']:
+                        return {
+                            'success': False,
+                            'error': (
+                                f"Power value {value} outside limits 0–{power_limits['max']} VA"
+                            )
+                        }
+
+            elif technique == 'inject_load':
+                magnitude = params.get('magnitude')
+                if magnitude is not None:
+                    if magnitude < 0 or magnitude > power_limits['max']:
+                        return {
+                            'success': False,
+                            'error': (
+                                f"Load magnitude {magnitude} outside limits "
+                                f"0–{power_limits['max']} VA"
+                            )
+                        }
+
+            interval = params.get('interval')
+            if interval is not None:
+                min_interval = timing_limits.get('min_interval')
+                if min_interval is not None and interval < min_interval:
+                    return {
+                        'success': False,
+                        'error': (
+                            f"Interval {interval}s below minimum {min_interval}s"
+                        )
+                    }
+
+            return {'success': True}
+
+        except Exception as e:
+            logger.error(f"Parameter validation error: {e}")
+            return {'success': False, 'error': str(e)}
+
     def execute_attack(self, technique, params):
         """Execute a specific attack technique"""
         try:
@@ -45,7 +103,15 @@ class AttackEngine:
                     'error': f'Unknown attack technique: {technique}',
                     'available_techniques': list(self.techniques.keys())
                 }
-            
+
+            validation = self._validate_params(technique, params)
+            if not validation.get('success', False):
+                validation.update({
+                    'technique': technique,
+                    'timestamp': datetime.now().isoformat()
+                })
+                return validation
+
             # Get current grid state before attack
             pre_attack_state = self.federate.get_current_state()
             
@@ -97,10 +163,18 @@ class AttackEngine:
                     # Generate strategic voltage based on current state
                     current_state = self.federate.get_current_state()
                     voltage_mag = self._generate_strategic_voltage(current_state, phase)
-                
+
                 phase_angle = params.get('phase', 0)  # degrees
-                
-                # Convert to complex
+
+                limits = self.attack_params['voltage_limits']
+                original_mag = voltage_mag
+                voltage_mag = max(limits['min'], min(voltage_mag, limits['max']))
+                if voltage_mag != original_mag:
+                    logger.warning(
+                        f"Voltage magnitude {original_mag} clamped to {voltage_mag} pu"
+                    )
+
+                # Convert to complex using clamped magnitude
                 voltage_complex = {
                     'real': voltage_mag * np.cos(np.radians(phase_angle)),
                     'imag': voltage_mag * np.sin(np.radians(phase_angle))
@@ -126,11 +200,19 @@ class AttackEngine:
                     power_mag = params['value']
                 else:
                     power_mag = self._generate_strategic_power(phase)
-                
+
                 power_factor = params.get('power_factor', 0.9)
                 power_angle = np.arccos(power_factor)
-                
-                # Convert to complex
+
+                limits = self.attack_params['power_limits']
+                original_mag = power_mag
+                power_mag = max(0, min(power_mag, limits['max']))
+                if power_mag != original_mag:
+                    logger.warning(
+                        f"Power magnitude {original_mag} clamped to {power_mag} VA"
+                    )
+
+                # Convert to complex using clamped magnitude
                 power_complex = {
                     'real': power_mag * power_factor,
                     'imag': power_mag * np.sin(power_angle)
@@ -164,6 +246,14 @@ class AttackEngine:
             phase = params.get('phase', 'A')
             magnitude = params.get('magnitude', 1000000)  # 1 MVA default
             power_factor = params.get('power_factor', 0.9)
+
+            limits = self.attack_params['power_limits']
+            original_mag = magnitude
+            magnitude = max(0, min(magnitude, limits['max']))
+            if magnitude != original_mag:
+                logger.warning(
+                    f"Load magnitude {original_mag} clamped to {magnitude} VA"
+                )
             
             # Calculate power components
             real_power = magnitude * power_factor

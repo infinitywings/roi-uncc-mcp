@@ -595,6 +595,16 @@ The framework implements several attack primitives targeting the configured grid
    - Target: Protection and control systems
    - Impact: Prevents automatic recovery
 
+#### Supported Parameter Ranges
+
+The attack engine enforces safety limits on input parameters:
+
+- **Voltage spoofing**: 0.7–1.3 per-unit magnitude
+- **Power or load injection**: up to 5,000,000 VA
+- **Minimum attack interval**: 1 second between actions
+
+Requests outside these bounds will either be rejected or automatically clamped.
+
 ### AI Strategic Approach
 
 The DeepSeek AI strategist follows this methodology:
