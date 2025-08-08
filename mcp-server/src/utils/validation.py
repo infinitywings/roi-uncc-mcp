@@ -52,11 +52,14 @@ class ThreatModelValidator:
         try:
             if os.path.exists(self.config_path):
                 with open(self.config_path, 'r') as f:
-                    file_constraints = yaml.safe_load(f)
-                    # Merge with defaults
+                    file_constraints = yaml.safe_load(f) or {}
+                    # Merge with defaults, handling both dict and list sections
                     for section, values in file_constraints.items():
                         if section in default_constraints:
-                            default_constraints[section].update(values)
+                            if isinstance(default_constraints[section], dict) and isinstance(values, dict):
+                                default_constraints[section].update(values)
+                            else:
+                                default_constraints[section] = values
                         else:
                             default_constraints[section] = values
         except Exception as e:
