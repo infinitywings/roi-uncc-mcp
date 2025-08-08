@@ -2,10 +2,7 @@
 
 ROI UNCC MCP Project – research framework for studying power grid cybersecurity using AI-driven attack strategies.
 
-## Documentation
-- [Research Overview & Proposed Approach](docs/research_overview.md)
-- [Architecture and Setup Guide](docs/architecture_and_setup.md)
-- [Attack Scenario Demonstrations](ATTACK_SCENARIO_DEMO.md)
+
 
 ## Citation
 If you use this framework in your research, please cite:
