@@ -57,7 +57,7 @@ class DemoLauncher:
         
         # Demo configuration
         self.config = {
-            'helics_broker_port': 23404,
+            'helics_broker_port': 23406,
             'mcp_server_port': 5000,
             'simulation_duration': 60,  # seconds
             'comparison_trials': 3
