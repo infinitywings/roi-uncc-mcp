@@ -9,6 +9,7 @@ timing_limits:
   min_interval: 1.0  # seconds between attacks
   max_duration: 300  # maximum attack duration in seconds
 
+# Currently supported attack primitives
 allowed_techniques:
   - spoof_data
   - inject_load
