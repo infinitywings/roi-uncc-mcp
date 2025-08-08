@@ -65,7 +65,7 @@ class MCPServer:
                 'debug': False
             },
             'helics': {
-                'broker_address': 'tcp://127.0.0.1:23404',
+                'broker_address': 'tcp://helics-broker:23406',
                 'federate_name': 'mcp_attacker',
                 'time_delta': 1.0,
                 'period': 1.0
@@ -367,7 +367,8 @@ class MCPServer:
             self.grid_monitor = GridMonitor(self.federate)
             
             # Initialize threat validator
-            self.threat_validator = ThreatModelValidator('config/threat_model.yaml')
+            config_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config')
+            self.threat_validator = ThreatModelValidator(os.path.join(config_dir, 'threat_model.yaml'))
             
             # Initialize AI strategist
             try:

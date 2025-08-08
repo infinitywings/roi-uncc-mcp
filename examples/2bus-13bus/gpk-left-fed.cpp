@@ -26,8 +26,8 @@ int main(int argc, char **argv) {
     std::cout << "Using broker address: " << broker_addr << std::endl;
   } else {
     // For Docker deployment, use fixed broker address
-    fi.coreInitString = "--federates=1 --broker_address=tcp://helics-broker:23405";
-    std::cout << "Using default Docker broker address: tcp://helics-broker:23405" << std::endl;
+    fi.coreInitString = "--federates=1 --broker_address=tcp://helics-broker:23406";
+    std::cout << "Using default Docker broker address: tcp://helics-broker:23406" << std::endl;
   }
 
   // Logging in debug mode
@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
 
   // Create Value Federate
   helics::ValueFederate gpk_left("gridpack",fi);
-  std::cout << "HELICS GridPAKC Federate created successfully." << std::endl;
+  std::cout << "HELICS GridPACK Federate created successfully." << std::endl;
 
   // Registering Publications and subscriptions
   auto Va_id = gpk_left.registerPublication("Va", "complex", "V");
@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
   auto Sb_id = gpk_left.registerSubscription("gld_hlc_conn/Sb", "VA");
   auto Sc_id = gpk_left.registerSubscription("gld_hlc_conn/Sc", "VA");
 
-  // File to store simulatio signals
+  // File to store simulation signals
   std::ofstream outFile("gpk.csv");
 
   // Prepare GridPACK Environement
