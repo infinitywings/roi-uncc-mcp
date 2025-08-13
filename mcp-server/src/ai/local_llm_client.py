@@ -53,10 +53,10 @@ class LocalLLMStrategist:
             return "local-llm-key"
             
         try:
-            key_file = self.config.get('api_key_file', '../API.txt')
+            key_file = self.config.get('api_key_file', '/app/API.txt')
             if not os.path.isabs(key_file):
-                # Make relative to the mcp-server directory
-                key_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), key_file)
+                # Make relative to the app root directory in container
+                key_file = os.path.join('/app', key_file)
             
             with open(key_file, 'r') as f:
                 api_key = f.read().strip()

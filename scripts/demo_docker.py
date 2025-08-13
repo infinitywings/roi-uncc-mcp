@@ -19,7 +19,7 @@ class ContainerizedDemo:
     """Containerized demo launcher using Docker Compose"""
     
     def __init__(self, config_file=None):
-        self.demo_dir = os.path.dirname(os.path.abspath(__file__))
+        self.demo_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.results_dir = os.path.join(self.demo_dir, 'demo_results')
         
         # Load configuration

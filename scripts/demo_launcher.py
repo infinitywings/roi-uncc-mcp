@@ -16,7 +16,7 @@ from datetime import datetime
 import signal
 
 # Add paths for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'mcp-server', 'src'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'mcp-server', 'src'))
 
 def run_command(cmd, cwd=None, output_file=None):
     """Run a command and optionally capture output"""
@@ -47,7 +47,7 @@ class DemoLauncher:
     
     def __init__(self):
         self.processes = []
-        self.demo_dir = os.path.dirname(os.path.abspath(__file__))
+        self.demo_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.example_dir = os.path.join(self.demo_dir, 'examples', '2bus-13bus')
         self.mcp_dir = os.path.join(self.demo_dir, 'mcp-server')
         self.results_dir = os.path.join(self.demo_dir, 'demo_results')

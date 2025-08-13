@@ -2,11 +2,12 @@
 FROM roi-uncc-img:latest
 
 # Install additional Python packages for MCP server
-RUN pip install --no-cache-dir flask flask-cors pyyaml requests
+RUN pip install --no-cache-dir flask flask-cors pyyaml requests numpy scipy matplotlib
 
 # Copy MCP server code
 COPY mcp-server/ /app/mcp-server/
 COPY examples/2bus-13bus/ /app/examples/2bus-13bus/
+COPY config/ /app/config/
 COPY API.txt /app/API.txt
 
 # Set working directory

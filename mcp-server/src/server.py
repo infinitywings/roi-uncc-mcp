@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 class MCPServer:
     """Main MCP Server class"""
     
-    def __init__(self, config_path='config/mcp.yaml'):
+    def __init__(self, config_path='/app/mcp-server/config/mcp.yaml'):
         self.app = Flask(__name__)
         CORS(self.app)
         
@@ -81,19 +81,29 @@ class MCPServer:
                 'anomaly_detection': True
             },
             'ai': {
-                'api_base': 'http://host.docker.internal:8000/v1',
-                'api_key_file': '../API.txt',
+                'api_base': 'http://nginx-lb/v1',
+                'api_key_file': '/app/API.txt',
                 'model': 'Qwen/Qwen3-30B-A3B',
                 'temperature': 0.8,
                 'max_tokens': 2000
             }
         }
         
+        # Override with environment variables if available
+        if 'HELICS_BROKER_ADDRESS' in os.environ:
+            default_config['helics']['broker_address'] = os.environ['HELICS_BROKER_ADDRESS']
+        if 'PYTHONPATH' in os.environ:
+            logger.info(f"PYTHONPATH: {os.environ['PYTHONPATH']}")
+        
         # Try to load from file, fallback to defaults
         try:
             if os.path.exists(config_path):
                 with open(config_path, 'r') as f:
-                    import yaml
+                    try:
+                        import yaml
+                    except ImportError:
+                        logger.warning("PyYAML not available, using default configuration")
+                        return default_config
                     file_config = yaml.safe_load(f)
                     # Merge with defaults
                     for section, values in file_config.items():
@@ -367,7 +377,7 @@ class MCPServer:
             self.grid_monitor = GridMonitor(self.federate)
             
             # Initialize threat validator
-            config_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config')
+            config_dir = '/app/mcp-server/config'
             self.threat_validator = ThreatModelValidator(os.path.join(config_dir, 'threat_model.yaml'))
             
             # Initialize AI strategist

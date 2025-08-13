@@ -20,7 +20,7 @@ services:
     working_dir: /workspace/examples/2bus-13bus
     command: ./build/gpk-left-fed.x
     volumes:
-      - ./examples/2bus-13bus:/workspace/examples/2bus-13bus
+      - ../examples/2bus-13bus:/workspace/examples/2bus-13bus
     environment:
       - HELICS_BROKER_ADDRESS=tcp://helics-broker:23406
     networks:
@@ -36,7 +36,7 @@ services:
     working_dir: /workspace/examples/2bus-13bus
     command: gridlabd IEEE13bus.glm
     volumes:
-      - ./examples/2bus-13bus:/workspace/examples/2bus-13bus
+      - ../examples/2bus-13bus:/workspace/examples/2bus-13bus
     environment:
       - HELICS_BROKER_ADDRESS=tcp://helics-broker:23406
     networks:
@@ -48,20 +48,19 @@ services:
   # MCP Server with AI capabilities
   mcp-server:
     build:
-      context: .
-      dockerfile: Dockerfile.mcp
+      context: ..
+      dockerfile: docker/Dockerfile.mcp
     container_name: mcp-server
     ports:
       - "5000:5000"
     volumes:
-      - ./demo_results:/app/demo_results
-      - ./API.txt:/app/API.txt:ro
+      - ../demo_results:/app/demo_results
+      - ../API.txt:/app/API.txt:ro
     environment:
       - HELICS_BROKER_ADDRESS=tcp://helics-broker:23406
       - PYTHONPATH=/app/mcp-server/src
     networks:
       - grid-network
-      - vllm_nginx
     depends_on:
       - helics-broker
       - gridpack-federate
@@ -71,6 +70,3 @@ services:
 networks:
   grid-network:
     driver: bridge
-  vllm_nginx:
-    external: true
-    name: vllm-docker_vllm_nginx

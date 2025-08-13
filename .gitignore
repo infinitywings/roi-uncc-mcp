@@ -35,8 +35,8 @@ reg1_output.csv
 gld_cosim_right.csv
 gpk.csv
 
-# API keys (if any)
-# API.txt (commenting out since it's already tracked)
+# API keys
+API.txt
 
 # System files
 .DS_Store

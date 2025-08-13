@@ -61,7 +61,7 @@ grid:
 
 # Docker configuration
 docker:
-  compose_file: "docker-compose.demo.yml"
+  compose_file: "docker/docker-compose.demo.yml"
   build_on_start: false         # Build containers before running
   cleanup_on_exit: true         # Remove containers after demo
   startup_timeout: 120          # Timeout for service initialization (seconds)

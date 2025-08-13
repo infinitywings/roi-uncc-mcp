@@ -235,7 +235,7 @@ if [[ "$USE_DOCKER" == "true" ]]; then
         
         # Run containerized demo
         print_status "Using containerized demo launcher..."
-        CMD="python3 demo_docker.py"
+        CMD="python3 scripts/demo_docker.py"
         if [[ -n "$CONFIG_FILE" ]]; then
             CMD="$CMD --config \"$CONFIG_FILE\""
         fi
