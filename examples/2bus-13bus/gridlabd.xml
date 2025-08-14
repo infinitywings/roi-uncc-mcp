@@ -6,7 +6,7 @@
 	<version.patch>0</version.patch>
 	<version.build>20236</version.build>
 	<version.branch>e1841e1e:master:Modified</version.branch>
-	<command_line>"gridlabd IEEE13bus.glm"</command_line>
+	<command_line>"/usr/local/gridlabd/bin/gridlabd IEEE13bus.glm"</command_line>
 	<environment>batch</environment>
 	<quiet>FALSE</quiet>
 	<warn>TRUE</warn>
@@ -17,7 +17,7 @@
 	<verbose>FALSE</verbose>
 	<iteration_limit>100</iteration_limit>
 	<federation_reiteration>FALSE</federation_reiteration>
-	<workdir>/workspace/examples/2bus-13bus</workdir>
+	<workdir>/workspace/examples</workdir>
 	<lock>TRUE</lock>
 	<dumpfile>gridlabd.xml</dumpfile>
 	<savefile>""</savefile>
@@ -39,11 +39,11 @@
 	<object_tree_balance>FALSE</object_tree_balance>
 	<kmlfile>""</kmlfile>
 	<modelname>IEEE13bus.glm</modelname>
-	<execdir>gridlabd</execdir>
+	<execdir>/usr/local/gridlabd/bin</execdir>
 	<strictnames>TRUE</strictnames>
 	<website>http://www.gridlabd.org/</website>
 	<urlbase>http://www.gridlabd.org/</urlbase>
-	<randomseed>724397</randomseed>
+	<randomseed>12372495</randomseed>
 	<include>""</include>
 	<trace>""</trace>
 	<gdb_window>FALSE</gdb_window>
@@ -114,7 +114,7 @@
 	<deltamode_preferred_module_order>TRUE</deltamode_preferred_module_order>
 	<run_powerworld>FALSE</run_powerworld>
 	<bigranks>TRUE</bigranks>
-	<exename>gridlabd</exename>
+	<exename>/usr/local/gridlabd/bin/gridlabd</exename>
 	<wget_options>"maxsize:100MB;update:newer"</wget_options>
 	<svnroot>http://gridlab-d.svn.sourceforge.net/svnroot/gridlab-d</svnroot>
 	<allow_reinclude>FALSE</allow_reinclude>
