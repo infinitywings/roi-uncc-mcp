@@ -11,6 +11,14 @@ mkdir -p "${LOG_DIR}"
 
 cd "${WORKDIR}"
 
+# Verify existing build cache matches current workspace; rebuild if it does not.
+if [ -f build/CMakeCache.txt ]; then
+  if ! grep -q "/workspace/examples/2bus-13bus" build/CMakeCache.txt >/dev/null 2>&1; then
+    echo "[setup] Detected stale GridPACK build cache, rebuilding..."
+    rm -rf build
+  fi
+fi
+
 if [ ! -x build/gpk-left-fed.x ]; then
   echo "[setup] Building GridPACK federate..."
   mkdir -p build

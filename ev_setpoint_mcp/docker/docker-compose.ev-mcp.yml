@@ -10,4 +10,11 @@ services:
       - ../:/app/ev_setpoint_mcp
     ports:
       - "5100:5100"
+    environment:
+      RUN_AI_CAMPAIGN: "${RUN_AI_CAMPAIGN:-1}"
+      AI_CAMPAIGN_STEPS: "${AI_CAMPAIGN_STEPS:-3}"
+      AI_CAMPAIGN_INTERVAL: "${AI_CAMPAIGN_INTERVAL:-30}"
+      AI_CAMPAIGN_WAIT: "${AI_CAMPAIGN_WAIT:-60}"
+      LLM_API_BASE: "${LLM_API_BASE:-http://ccil1s26m8hj6lws:8000/v1}"
+      LLM_MODEL: "${LLM_MODEL:-openai/gpt-oss-120b}"
     restart: unless-stopped
