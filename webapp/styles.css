@@ -183,6 +183,11 @@ main {
   text-align: left;
 }
 
+.mono {
+  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.85rem;
+}
+
 #attack-table tbody tr:hover {
   background: rgba(79, 140, 247, 0.12);
 }
