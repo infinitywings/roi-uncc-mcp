@@ -29,6 +29,10 @@
 
 3. **LLM compliance evaluation**  
    - Logs now capture raw requests; analyse `llm_interactions.jsonl` to quantify how often the model respects ±4 MW limits.
+4. **Surface physical effects of attacks** *(TO-DO)*  
+   - Extend HELICS timing (`time_delta`/`period`) and AI cadence (e.g., `AI_CAMPAIGN_INTERVAL`) so GridLAB-D advances several minutes between setpoints and the blue-team controller has time to respond.  
+   - After each attack, keep polling `get_grid_status` / `monitor_protection_systems` to capture voltage shifts, feeder headroom, and switch toggles.  
+   - Consider targeting multiple EVs or higher setpoints so feeder load crosses the controller’s 4.2 MW threshold and storage islanding is triggered.
 
 ## 4. Quick Resume Checklist
 1. Ensure Docker daemon is running and `roi-img:latest` is built.
