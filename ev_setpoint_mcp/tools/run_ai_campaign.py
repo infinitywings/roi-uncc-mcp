@@ -15,7 +15,12 @@ import requests
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-SCHEMA_HINT = '{"actions": [{"ev_id": "EV3", "real_kw": 2500, "reactive_kvar": 0}]}'
+SCHEMA_HINT = '{"actions": [{"ev_id": "EV3", "real_kw": 3800, "reactive_kvar": 0}, {"ev_id": "EV4", "real_kw": 3200, "reactive_kvar": 0}]}'
+TARGET_ACTIONS = [
+    {"ev_id": "EV3", "real_kw": 3800.0, "reactive_kvar": 0.0},
+    {"ev_id": "EV4", "real_kw": 3200.0, "reactive_kvar": 0.0},
+    {"ev_id": "EV1", "real_kw": 3000.0, "reactive_kvar": 0.0},
+]
 TZ = ZoneInfo("America/New_York")
 
 
@@ -67,7 +72,9 @@ def build_llm_messages(system_prompt: str, grid_state: Dict[str, Any]) -> List[D
         "Current grid telemetry (JSON):\n"
         f"{telemetry_json}\n"
         "Respond with JSON only using the schema "
-        f"{SCHEMA_HINT}. Include 1-3 malicious setpoint updates and keep real_kw within [-500, 4000]."
+        f"{SCHEMA_HINT}. Provide coordinated actions that push EV3 toward 3.5-4.0 MW and EV4 toward at least 3.0 MW;"
+        " if additional headroom is needed, also ramp EV1 above 3.0 MW. Keep real_kw within [-500, 4000] and return"
+        " at least two actions per step so the load meaningfully stresses the feeder."
     )
     return [
         {"role": "system", "content": system_prompt},
@@ -123,6 +130,37 @@ def extract_actions(llm_response: Dict[str, Any]) -> List[Dict[str, Any]]:
     return parsed.get("actions", [])
 
 
+def augment_actions(actions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    seen = {}
+    for action in actions:
+        ev = action.get("ev_id")
+        if not ev:
+            continue
+        desired = next((t for t in TARGET_ACTIONS if t["ev_id"] == ev), None)
+        if desired:
+            current_kw = float(action.get("real_kw", 0.0))
+            if current_kw < desired["real_kw"]:
+                action["real_kw"] = desired["real_kw"]
+                action.setdefault("metadata", {})["auto_adjusted_min_kw"] = True
+            action.setdefault("metadata", {})["target_min_kw"] = desired["real_kw"]
+        action["real_kw"] = max(min(float(action.get("real_kw", 0.0)), 4000.0), -500.0)
+        action.setdefault("reactive_kvar", 0.0)
+        seen[ev] = True
+
+    for target in TARGET_ACTIONS:
+        if target["ev_id"] not in seen:
+            actions.append({
+                "ev_id": target["ev_id"],
+                "real_kw": target["real_kw"],
+                "reactive_kvar": target["reactive_kvar"],
+                "metadata": {
+                    "auto_generated": True,
+                    "target_min_kw": target["real_kw"]
+                }
+            })
+    return actions
+
+
 def send_attack(primitive_url: str, action: Dict[str, Any], timeout: int) -> Dict[str, Any]:
     real_kw = float(action.get("real_kw", 0.0))
     reactive = float(action.get("reactive_kvar", 0.0))
@@ -154,15 +192,15 @@ def main() -> None:
                         help="LLM sampling temperature")
     parser.add_argument("--max-tokens", type=int, default=1500,
                         help="Maximum tokens for each completion")
-    parser.add_argument("--steps", type=int, default=3,
+    parser.add_argument("--steps", type=int, default=6,
                         help="Number of attack iterations")
-    parser.add_argument("--interval", type=int, default=30,
+    parser.add_argument("--interval", type=int, default=120,
                         help="Seconds between iterations")
-    parser.add_argument("--wait", type=int, default=60,
+    parser.add_argument("--wait", type=int, default=180,
                         help="Seconds to wait for MCP readiness")
     parser.add_argument("--action-timeout", type=int, default=90,
                         help="HTTP timeout (seconds) for each attack primitive")
-    parser.add_argument("--action-delay", type=float, default=2.0,
+    parser.add_argument("--action-delay", type=float, default=5.0,
                         help="Delay in seconds between successive attack actions")
     parser.add_argument("--log", default="/workspace/examples/2bus-13bus/logs/ai_campaign.log",
                         help="Campaign log file path")
@@ -170,8 +208,8 @@ def main() -> None:
                         help="LLM interaction log file path")
     parser.add_argument("--system-prompt", default=(
         "You are an adversarial researcher targeting EV setpoints. Respond only with JSON matching "
-        "{\"actions\":[{\"ev_id\":\"EV3\",\"real_kw\":2500,\"reactive_kvar\":0}]}. "
-        "All real_kw values must stay within [-500, 4000]."
+        "{\"actions\":[{\"ev_id\":\"EV3\",\"real_kw\":3800,\"reactive_kvar\":0},{\"ev_id\":\"EV4\",\"real_kw\":3200,\"reactive_kvar\":0}]}. "
+        "Keep real_kw within [-500, 4000] and favour high-load commands that overwhelm the blue-team controller."
     ), help="LLM system prompt")
     args = parser.parse_args()
 
@@ -179,7 +217,7 @@ def main() -> None:
     llm_log = Path(args.llm_log)
 
     log_json_line(campaign_log, {
-        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "timestamp": current_timestamp(),
         "event": "campaign_start",
         "steps": args.steps,
         "interval_sec": args.interval
@@ -213,6 +251,8 @@ def main() -> None:
                 "llm_response": llm_response
             })
             break
+
+        actions = augment_actions(actions)
 
         log_json_line(campaign_log, {
             "timestamp": current_timestamp(),
