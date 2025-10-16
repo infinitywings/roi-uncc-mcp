@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EV MCP Run Visualizer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>EV MCP Run Visualizer</h1>
+    <p>Load an <code>ai_campaign.log</code> file to explore telemetry and attack activity.</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label class="file-input">
+        <span>Select campaign log</span>
+        <input type="file" id="log-file" accept=".log,.json,.jsonl,.txt" />
+      </label>
+
+      <div class="select-group">
+        <label for="metric-select">Metric</label>
+        <select id="metric-select">
+          <option value="ev">EV Setpoints (kW)</option>
+          <option value="power">Feeder Power (kW)</option>
+        </select>
+      </div>
+
+      <div class="select-group">
+        <span>Nodes</span>
+        <div id="node-options" class="chip-group"></div>
+      </div>
+    </section>
+
+    <section class="viz">
+      <div id="chart"></div>
+    </section>
+
+    <section class="summary">
+      <div class="panel">
+        <h2>Latest Switch States</h2>
+        <ul id="switch-list"></ul>
+      </div>
+      <div class="panel">
+        <h2>Recent EV Commands</h2>
+        <ul id="command-list"></ul>
+      </div>
+    </section>
+
+    <section class="attacks">
+      <h2>Attack Log</h2>
+      <table id="attack-table">
+        <thead>
+          <tr>
+            <th>Time (ET)</th>
+            <th>EV</th>
+            <th>Requested kW</th>
+            <th>Sequence</th>
+            <th>Step</th>
+            <th>Interaction ID</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

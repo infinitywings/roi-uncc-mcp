@@ -38,6 +38,7 @@ class ObservationService:
 
         return {
             "timestamp": snapshot.get("timestamp"),
+            "simulation_time_sec": snapshot.get("simulation_time_sec"),
             "grid_state": {
                 "voltages": voltages,
                 "powers": powers,

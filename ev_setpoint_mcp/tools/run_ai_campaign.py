@@ -12,8 +12,15 @@ import uuid
 from typing import Any, Dict, List
 
 import requests
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 SCHEMA_HINT = '{"actions": [{"ev_id": "EV3", "real_kw": 2500, "reactive_kvar": 0}]}'
+TZ = ZoneInfo("America/New_York")
+
+
+def current_timestamp() -> str:
+    return datetime.now(TZ).isoformat(timespec="seconds")
 
 
 def wait_for_server(base_url: str, timeout: int) -> None:
@@ -85,7 +92,7 @@ def call_llm(llm_base: str, model: str, messages: List[Dict[str, str]], temperat
     )
     elapsed = time.time() - start
     entry = {
-        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "timestamp": current_timestamp(),
         "request": payload,
         "status_code": response.status_code,
         "elapsed_sec": elapsed,
@@ -183,7 +190,7 @@ def main() -> None:
     for step in range(1, args.steps + 1):
         grid_state = fetch_grid_state(args.server)
         log_json_line(campaign_log, {
-            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "timestamp": current_timestamp(),
             "event": "grid_observation",
             "step": step,
             "data": grid_state
@@ -199,7 +206,7 @@ def main() -> None:
             actions = extract_actions(llm_response)
         except Exception as exc:
             log_json_line(campaign_log, {
-                "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                "timestamp": current_timestamp(),
                 "event": "llm_parse_error",
                 "step": step,
                 "error": str(exc),
@@ -208,7 +215,7 @@ def main() -> None:
             break
 
         log_json_line(campaign_log, {
-            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "timestamp": current_timestamp(),
             "event": "llm_decision",
             "step": step,
             "interaction_id": interaction_id,
@@ -224,7 +231,7 @@ def main() -> None:
             try:
                 result = send_attack(args.server, action, args.action_timeout)
                 log_json_line(campaign_log, {
-                    "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                    "timestamp": current_timestamp(),
                     "event": "attack_executed",
                     "step": step,
                     "sequence": idx,
@@ -234,7 +241,7 @@ def main() -> None:
                 })
             except Exception as exc:
                 log_json_line(campaign_log, {
-                    "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                    "timestamp": current_timestamp(),
                     "event": "attack_failed",
                     "step": step,
                     "sequence": idx,
@@ -248,7 +255,7 @@ def main() -> None:
             time.sleep(args.interval)
 
     log_json_line(campaign_log, {
-        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "timestamp": current_timestamp(),
         "event": "campaign_complete"
     })
 

@@ -6,12 +6,15 @@ import logging
 import threading
 import time
 from collections import deque
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from typing import Deque, Dict, Any, Optional
 
 import helics as h
 import numpy as np
 
 logger = logging.getLogger(__name__)
+TZ = ZoneInfo("America/New_York")
 
 
 def _complex_to_polar_dict(value: complex, unit: str) -> Dict[str, Any]:
@@ -219,17 +222,20 @@ class EVSetpointFederate:
 
         with self._lock:
             record = self.ev_setpoints[ev_id]
+            now = datetime.now(TZ)
+            updated_iso = now.isoformat(timespec="seconds")
             record.update({
                 "real_va": float(real_va),
                 "imag_va": float(imag_va),
-                "updated_at": time.time()
+                "updated_at": updated_iso,
+                "updated_epoch": now.timestamp()
             })
             # Mirror into grid_state for quick access
             current_ev_state = self.grid_state.setdefault("ev_setpoints", {})
             current_ev_state[ev_id] = {
                 "real_kw": float(real_va / 1000.0),
                 "imag_kvar": float(imag_va / 1000.0),
-                "timestamp": record["updated_at"]
+                "timestamp": updated_iso
             }
             snapshot = {
                 "status": "accepted",
@@ -238,10 +244,10 @@ class EVSetpointFederate:
                     "real": record["real_va"],
                     "imag": record["imag_va"]
                 },
-                "timestamp": record["updated_at"]
+                "timestamp": updated_iso
             }
             history_entry = {
-                "timestamp": record["updated_at"],
+                "timestamp": updated_iso,
                 "ev_id": ev_id,
                 "real_kw": record["real_va"] / 1000.0,
                 "imag_kvar": record["imag_va"] / 1000.0,
@@ -265,7 +271,8 @@ class EVSetpointFederate:
         self.current_time = h.helicsFederateRequestTime(self.federate, target_time)
 
         grid_state = {
-            "timestamp": self.current_time,
+            "timestamp": datetime.now(TZ).isoformat(timespec="seconds"),
+            "simulation_time_sec": self.current_time,
             "voltages": {},
             "powers": {},
             "ev_setpoints": {},
