@@ -46,6 +46,7 @@ class ActionService:
 
         real_kw = float(params.get("real_power_kw", 0.0))
         reactive_kvar = float(params.get("reactive_power_kvar", 0.0))
+        metadata = params.get("metadata") or {}
 
         limits = self._constraints.get("ev_limits", {}).get(ev_id, {})
 
@@ -69,12 +70,14 @@ class ActionService:
         # Log attack classification
         attack_type = self._classify_attack(ev_id, real_kw, reactive_kvar, limits, normal_max_kw)
         logger.warning(
-            "ATTACK INJECTION: %s | EV=%s | P=%s kW | Q=%s kvar | Type=%s",
+            "ATTACK INJECTION: %s | EV=%s | P=%s kW | Q=%s kvar | Type=%s | interaction_id=%s | sequence=%s",
             "MALICIOUS" if attack_type != "normal" else "BENIGN",
             ev_id,
             real_kw,
             reactive_kvar,
-            attack_type
+            attack_type,
+            metadata.get("interaction_id"),
+            metadata.get("sequence")
         )
 
         real_va = real_kw * 1000.0
@@ -87,12 +90,18 @@ class ActionService:
             real_kw,
             reactive_kvar
         )
-        result = self._federate.set_ev_capacity(ev_id, real_va=real_va, imag_va=imag_va)
+        result = self._federate.set_ev_capacity(
+            ev_id,
+            real_va=real_va,
+            imag_va=imag_va,
+            metadata=metadata
+        )
         latency = time.time() - start_ts
         logger.debug(
-            "set_ev_capacity dispatch finished | ev_id=%s | latency=%.3fs",
+            "set_ev_capacity dispatch finished | ev_id=%s | latency=%.3fs | interaction_id=%s",
             ev_id,
-            latency
+            latency,
+            metadata.get("interaction_id")
         )
         result.update({
             "requested_kw": real_kw,
@@ -102,7 +111,10 @@ class ActionService:
             "attack_mode": self._attack_mode,
             "phase": limits.get("phases", "unknown"),
             "has_storage": limits.get("has_storage", False),
-            "handler_latency_sec": latency
+            "handler_latency_sec": latency,
+            "interaction_id": metadata.get("interaction_id"),
+            "llm_sequence": metadata.get("sequence"),
+            "plan_step": metadata.get("step")
         })
         return result
 

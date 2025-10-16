@@ -8,6 +8,7 @@ import json
 import re
 import time
 from pathlib import Path
+import uuid
 from typing import Any, Dict, List
 
 import requests
@@ -69,6 +70,7 @@ def build_llm_messages(system_prompt: str, grid_state: Dict[str, Any]) -> List[D
 
 def call_llm(llm_base: str, model: str, messages: List[Dict[str, str]], temperature: float,
              max_tokens: int, log_path: Path) -> Dict[str, Any]:
+    interaction_id = str(uuid.uuid4())
     payload = {
         "model": model,
         "messages": messages,
@@ -86,7 +88,8 @@ def call_llm(llm_base: str, model: str, messages: List[Dict[str, str]], temperat
         "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "request": payload,
         "status_code": response.status_code,
-        "elapsed_sec": elapsed
+        "elapsed_sec": elapsed,
+        "interaction_id": interaction_id
     }
     try:
         entry["response"] = response.json()
@@ -94,7 +97,8 @@ def call_llm(llm_base: str, model: str, messages: List[Dict[str, str]], temperat
         entry["response"] = response.text
     log_json_line(log_path, entry)
     response.raise_for_status()
-    return response.json()
+    result = response.json()
+    return interaction_id, result
 
 
 def extract_actions(llm_response: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -120,6 +124,8 @@ def send_attack(primitive_url: str, action: Dict[str, Any], timeout: int) -> Dic
         "real_power_kw": real_kw,
         "reactive_power_kvar": reactive
     }
+    if "metadata" in action:
+        params["metadata"] = action["metadata"]
     resp = requests.post(
         primitive_url,
         json={"method": "set_ev_capacity", "params": params},
@@ -184,8 +190,10 @@ def main() -> None:
         })
 
         messages = build_llm_messages(args.system_prompt, grid_state)
-        llm_response = call_llm(args.llm_base, args.model, messages,
-                                args.temperature, args.max_tokens, llm_log)
+        interaction_id, llm_response = call_llm(
+            args.llm_base, args.model, messages,
+            args.temperature, args.max_tokens, llm_log
+        )
 
         try:
             actions = extract_actions(llm_response)
@@ -199,7 +207,20 @@ def main() -> None:
             })
             break
 
+        log_json_line(campaign_log, {
+            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "event": "llm_decision",
+            "step": step,
+            "interaction_id": interaction_id,
+            "actions": actions
+        })
+
         for idx, action in enumerate(actions, start=1):
+            action.setdefault("metadata", {})
+            action["metadata"]["interaction_id"] = interaction_id
+            action["metadata"]["sequence"] = idx
+            action["metadata"]["step"] = step
+            action_payload = dict(action)
             try:
                 result = send_attack(args.server, action, args.action_timeout)
                 log_json_line(campaign_log, {
@@ -207,7 +228,8 @@ def main() -> None:
                     "event": "attack_executed",
                     "step": step,
                     "sequence": idx,
-                    "action": action,
+                    "interaction_id": interaction_id,
+                    "action": action_payload,
                     "result": result
                 })
             except Exception as exc:
@@ -216,7 +238,8 @@ def main() -> None:
                     "event": "attack_failed",
                     "step": step,
                     "sequence": idx,
-                    "action": action,
+                    "interaction_id": interaction_id,
+                    "action": action_payload,
                     "error": str(exc)
                 })
             time.sleep(max(0.0, args.action_delay))

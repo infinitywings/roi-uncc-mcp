@@ -5,7 +5,8 @@ from __future__ import annotations
 import logging
 import threading
 import time
-from typing import Dict, Any, Optional
+from collections import deque
+from typing import Deque, Dict, Any, Optional
 
 import helics as h
 import numpy as np
@@ -55,6 +56,8 @@ class EVSetpointFederate:
         self._lock = threading.Lock()
         self._poll_thread: Optional[threading.Thread] = None
         self._running = False
+        history_length = int(config.get("history_length", 20))
+        self._setpoint_history: Deque[Dict[str, Any]] = deque(maxlen=history_length)
         self._refresh_event = threading.Event()
 
     # ------------------------------------------------------------------
@@ -180,7 +183,9 @@ class EVSetpointFederate:
                 "timestamp": self.grid_state.get("timestamp"),
                 "voltages": dict(self.grid_state.get("voltages", {})),
                 "powers": dict(self.grid_state.get("powers", {})),
-                "ev_setpoints": dict(self.grid_state.get("ev_setpoints", {}))
+                "switch_states": dict(self.grid_state.get("switch_states", {})),
+                "ev_setpoints": dict(self.grid_state.get("ev_setpoints", {})),
+                "recent_ev_commands": list(self._setpoint_history)
             }
 
     def get_ev_limits(self) -> Dict[str, Dict[str, float]]:
@@ -189,7 +194,8 @@ class EVSetpointFederate:
     # ------------------------------------------------------------------
     # Primitive support
     # ------------------------------------------------------------------
-    def set_ev_capacity(self, ev_id: str, real_va: float, imag_va: float = 0.0) -> Dict[str, Any]:
+    def set_ev_capacity(self, ev_id: str, real_va: float, imag_va: float = 0.0,
+                        metadata: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         if ev_id not in self.ev_endpoints:
             raise ValueError(f"Unknown EV identifier '{ev_id}'")
 
@@ -234,6 +240,16 @@ class EVSetpointFederate:
                 },
                 "timestamp": record["updated_at"]
             }
+            history_entry = {
+                "timestamp": record["updated_at"],
+                "ev_id": ev_id,
+                "real_kw": record["real_va"] / 1000.0,
+                "imag_kvar": record["imag_va"] / 1000.0,
+                "metadata": dict(metadata or {})
+            }
+            self._setpoint_history.appendleft(history_entry)
+        if metadata:
+            snapshot["metadata"] = metadata
         snapshot["helics_send_latency_sec"] = send_elapsed
         snapshot["refresh_queued"] = True
         return snapshot
@@ -252,7 +268,8 @@ class EVSetpointFederate:
             "timestamp": self.current_time,
             "voltages": {},
             "powers": {},
-            "ev_setpoints": {}
+            "ev_setpoints": {},
+            "switch_states": {}
         }
 
         for name, meta in self.subscriptions.items():
@@ -271,7 +288,7 @@ class EVSetpointFederate:
                 grid_state["powers"][name] = {"value": float(value), "unit": unit}
             elif meta_type == "string":
                 value = h.helicsInputGetString(handle)
-                grid_state["powers"][name] = {"value": value, "unit": unit}
+                grid_state["switch_states"][name] = value
 
         with self._lock:
             grid_state["ev_setpoints"] = {

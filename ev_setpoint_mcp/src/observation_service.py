@@ -23,6 +23,8 @@ class ObservationService:
         voltages = self._normalize_voltages(snapshot.get("voltages", {}))
         powers = self._normalize_powers(snapshot.get("powers", {}))
         ev_setpoints = snapshot.get("ev_setpoints", {})
+        switch_states = self._normalize_switch_states(snapshot.get("switch_states", {}))
+        recent_commands = self._format_recent_commands(snapshot.get("recent_ev_commands", []))
 
         total_kw = sum(val["real_kw"] for val in powers.values())
         total_kvar = sum(val["imag_kvar"] for val in powers.values())
@@ -42,6 +44,8 @@ class ObservationService:
                 "ev_setpoints_kw": {
                     ev: data.get("real_kw", 0.0) for ev, data in ev_setpoints.items()
                 },
+                "blue_team_switches": switch_states,
+                "recent_ev_commands": recent_commands
             },
             "system_metrics": {
                 "total_real_power_kw": total_kw,
@@ -184,3 +188,29 @@ class ObservationService:
                 }
         return formatted
 
+    @staticmethod
+    def _normalize_switch_states(raw: Dict[str, str]) -> Dict[str, Dict[str, Any]]:
+        normalized = {}
+        for name, value in raw.items():
+            label = name.replace("switch_", "")
+            status = (value or "").strip().upper()
+            normalized[label] = {
+                "status": status,
+                "is_closed": status in {"CLOSED", "1", "ON", "TRUE"}
+            }
+        return normalized
+
+    @staticmethod
+    def _format_recent_commands(history: Any) -> Any:
+        formatted = []
+        for entry in history or []:
+            formatted.append({
+                "timestamp": entry.get("timestamp"),
+                "ev_id": entry.get("ev_id"),
+                "real_kw": entry.get("real_kw"),
+                "imag_kvar": entry.get("imag_kvar"),
+                "interaction_id": (entry.get("metadata") or {}).get("interaction_id"),
+                "sequence": (entry.get("metadata") or {}).get("sequence"),
+                "step": (entry.get("metadata") or {}).get("step")
+            })
+        return formatted
