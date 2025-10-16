@@ -1,0 +1,455 @@
+{
+  "ai_decision_count": 0,
+  "ai_decisions": [],
+  "attack_count": 6,
+  "attacks": [
+    {
+      "ai_objective": null,
+      "ai_rationale": null,
+      "attack_surfaces": [
+        {
+          "attack_methods": [
+            "message_tampering",
+            "data_injection",
+            "replay_attacks"
+          ],
+          "description": "HELICS messages lack authentication and encryption",
+          "impact": "high",
+          "surface": "helics_messaging",
+          "type": "communication"
+        },
+        {
+          "attack_methods": [
+            "load_manipulation",
+            "power_injection"
+          ],
+          "description": "GridPACK-GridLAB-D power flow interface",
+          "impact": "high",
+          "surface": "power_flow_control",
+          "type": "control_system"
+        },
+        {
+          "attack_methods": [
+            "protection_blinding",
+            "false_trip_signals"
+          ],
+          "description": "Protection relay coordination points",
+          "impact": "critical",
+          "surface": "protection_coordination",
+          "type": "protection_system"
+        }
+      ],
+      "attack_type": "reconnaissance",
+      "grid_topology": {
+        "critical_nodes": [],
+        "identified_buses": [],
+        "power_flows": [],
+        "voltage_levels": []
+      },
+      "impact": {
+        "power_impact": 0,
+        "system_health_impact": 45,
+        "total_impact_score": 13.5,
+        "voltage_impact": 0
+      },
+      "post_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [
+            "Overvoltage: gpk_voltage_Va = 57.457 pu",
+            "Overvoltage: gpk_voltage_Vb = 57.457 pu",
+            "Overvoltage: gpk_voltage_Vc = 57.457 pu"
+          ],
+          "score": 55,
+          "status": "compromised",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 1.0,
+        "voltages": {
+          "gpk_voltage_Va": {
+            "angle": 0.0,
+            "imag": 0.0,
+            "magnitude": 138000.0,
+            "real": 138000.0
+          },
+          "gpk_voltage_Vb": {
+            "angle": -120.00001156757612,
+            "imag": -119511.45000000001,
+            "magnitude": 137999.95174311657,
+            "real": -69000.0
+          },
+          "gpk_voltage_Vc": {
+            "angle": 120.00001156757612,
+            "imag": 119511.45000000001,
+            "magnitude": 137999.95174311657,
+            "real": -69000.0
+          }
+        }
+      },
+      "pre_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 0.0,
+        "voltages": {}
+      },
+      "recommendations": [
+        {
+          "expected_impact": "Complete vulnerability assessment",
+          "objective": "Gather comprehensive grid intelligence",
+          "parameters": {},
+          "priority": "high",
+          "target": "all_systems",
+          "technique": "reconnaissance"
+        }
+      ],
+      "step_number": null,
+      "success": true,
+      "technique": "reconnaissance",
+      "timestamp": "2025-09-16T19:03:22.234084",
+      "vulnerabilities": []
+    },
+    {
+      "ai_objective": null,
+      "ai_rationale": null,
+      "error": "Voltage value 2041.51 outside limits 0.7\u20131.3 pu",
+      "step_number": null,
+      "success": false,
+      "technique": "spoof_data",
+      "timestamp": "2025-09-16T19:03:24.236003"
+    },
+    {
+      "ai_objective": null,
+      "ai_rationale": null,
+      "error": "Voltage value 2041.51 outside limits 0.7\u20131.3 pu",
+      "step_number": null,
+      "success": false,
+      "technique": "spoof_data",
+      "timestamp": "2025-09-16T19:03:26.238132"
+    },
+    {
+      "ai_objective": null,
+      "ai_rationale": null,
+      "attack_type": "load_injection",
+      "impact": {
+        "power_impact": 0,
+        "system_health_impact": 0,
+        "total_impact_score": 0.0,
+        "voltage_impact": 0
+      },
+      "injected_load": {
+        "imag": 653834.8415311009,
+        "real": 1350000.0
+      },
+      "magnitude_va": 1500000,
+      "post_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 2.0,
+        "voltages": {}
+      },
+      "power_factor": 0.9,
+      "pre_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [
+            "Overvoltage: gpk_voltage_Va = 57.457 pu",
+            "Overvoltage: gpk_voltage_Vb = 57.457 pu",
+            "Overvoltage: gpk_voltage_Vc = 57.457 pu"
+          ],
+          "score": 55,
+          "status": "compromised",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 1.0,
+        "voltages": {
+          "gpk_voltage_Va": {
+            "angle": 0.0,
+            "imag": 0.0,
+            "magnitude": 138000.0,
+            "real": 138000.0
+          },
+          "gpk_voltage_Vb": {
+            "angle": -120.00001156757612,
+            "imag": -119511.45000000001,
+            "magnitude": 137999.95174311657,
+            "real": -69000.0
+          },
+          "gpk_voltage_Vc": {
+            "angle": 120.00001156757612,
+            "imag": 119511.45000000001,
+            "magnitude": 137999.95174311657,
+            "real": -69000.0
+          }
+        }
+      },
+      "step_number": null,
+      "success": true,
+      "target_phase": "A",
+      "technique": "inject_load",
+      "timestamp": "2025-09-16T19:03:28.241458"
+    },
+    {
+      "ai_objective": null,
+      "ai_rationale": null,
+      "attack_type": "command_blocking",
+      "blocking_enabled": true,
+      "duration": 30,
+      "impact": {
+        "power_impact": 0,
+        "system_health_impact": 0,
+        "total_impact_score": 0.0,
+        "voltage_impact": 0
+      },
+      "post_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 3.0,
+        "voltages": {}
+      },
+      "pre_attack_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 2.0,
+        "voltages": {}
+      },
+      "step_number": null,
+      "success": true,
+      "technique": "block_command",
+      "timestamp": "2025-09-16T19:03:30.243545"
+    },
+    {
+      "ai_objective": null,
+      "ai_rationale": null,
+      "available_techniques": [
+        "spoof_data",
+        "inject_load",
+        "reconnaissance",
+        "block_command"
+      ],
+      "error": "Unknown attack technique: combined",
+      "step_number": null,
+      "success": false
+    }
+  ],
+  "duration": 30,
+  "effectiveness_score": 0.0,
+  "end_time": "2025-09-16T19:03:34.247200",
+  "final_grid_state": {
+    "powers": {},
+    "system_health": {
+      "issues": [],
+      "score": 100,
+      "status": "healthy",
+      "total_power_mva": 0.0
+    },
+    "timestamp": 3.0,
+    "voltages": {}
+  },
+  "initial_plan": {
+    "ai_plan": {
+      "assessment_sequence": [
+        {
+          "expected_defensive_response": "Logging of discovery events; baseline topology stored for later comparison.",
+          "name": "Topology Discovery",
+          "parameters": {
+            "duration_sec": 3,
+            "tools": [
+              "nmap\u2011like scanner for HELICS ports",
+              "API schema query"
+            ]
+          },
+          "step_id": 1,
+          "targets": [
+            "HELICS broker address",
+            "GridPACK API endpoints"
+          ],
+          "technique": "reconnaissance"
+        },
+        {
+          "expected_defensive_response": "Over\u2011voltage alarm, automatic voltage regulator corrective action, IDS flag for abnormal telemetry.",
+          "name": "Voltage Set\u2011Point Spoofing \u2013 Node650",
+          "parameters": {
+            "duration_sec": 4,
+            "injection_rate_hz": 10,
+            "spoofed_voltage_pu": 1.15
+          },
+          "step_id": 2,
+          "targets": [
+            "Node650 voltage regulation interface"
+          ],
+          "technique": "spoof_data"
+        },
+        {
+          "expected_defensive_response": "Solver convergence warning, deviation alert in state estimator, possible temporary load shedding.",
+          "name": "Power\u2011Flow Input Corruption",
+          "parameters": {
+            "corruption_type": "random perturbation \u00b15\u202f% on line impedances",
+            "duration_sec": 3
+          },
+          "step_id": 3,
+          "targets": [
+            "GridPACK power\u2011flow exchange buffer"
+          ],
+          "technique": "spoof_data"
+        },
+        {
+          "expected_defensive_response": "Over\u2011current protection check, line loading metrics rise, protective relay logs.",
+          "name": "Controlled Load Injection \u2013 Bus2",
+          "parameters": {
+            "additional_load_mw": 2.0,
+            "hold_sec": 2,
+            "power_factor": 0.95,
+            "ramp_down_sec": 1,
+            "ramp_up_sec": 2
+          },
+          "step_id": 4,
+          "targets": [
+            "Bus2"
+          ],
+          "technique": "inject_load"
+        },
+        {
+          "expected_defensive_response": "Timeout alerts, fallback to local control loops, detection of communication loss.",
+          "name": "HELICS Message Blocking \u2013 Critical Control Channel",
+          "parameters": {
+            "block_duration_sec": 5,
+            "packet_drop_rate_percent": 100
+          },
+          "step_id": 5,
+          "targets": [
+            "HELICS topic: voltage_control"
+          ],
+          "technique": "block_command"
+        },
+        {
+          "expected_defensive_response": "Cascading event detection, coordination of protection schemes, activation of emergency control (e.g., load shedding, islanding).",
+          "name": "Multi\u2011Vector Coordinated Attack",
+          "parameters": {
+            "synchronization_offset_ms": 200,
+            "total_duration_sec": 6
+          },
+          "step_id": 6,
+          "substeps": [
+            2,
+            4,
+            5
+          ],
+          "technique": "combined"
+        }
+      ],
+      "expected_outcomes": {
+        "phase_1": "Accurate map of communication endpoints and data flow paths for future hardening.",
+        "phase_2": "Verification that voltage regulation alarms trigger within <\u202f1\u202fs and that corrective set\u2011point actions are logged.",
+        "phase_3": "Demonstration of load\u2011injection impact on line loading and over\u2011current relay response times.",
+        "phase_4": "Confirmation that HELICS\u2011based IDS can detect complete message loss and raise a high\u2011severity alert.",
+        "phase_5": "Assessment of coordinated protection strategy effectiveness against simultaneous voltage, load, and communication disturbances."
+      },
+      "situation_analysis": {
+        "critical_nodes": [
+          "Node650",
+          "Bus1",
+          "Bus2"
+        ],
+        "key_vulnerabilities": [
+          {
+            "category": "communication",
+            "component": "HELICS messaging layer",
+            "risk": "Message tampering or delay could destabilize coordinated control loops."
+          },
+          {
+            "category": "voltage_control",
+            "component": "Voltage regulation set\u2011points on critical nodes (Node650, Bus1, Bus2)",
+            "risk": "Improper set\u2011point values can trigger over\u2011voltage or undervoltage trips."
+          },
+          {
+            "category": "power_flow_interface",
+            "component": "GridPACK solver data exchange",
+            "risk": "Corrupted power\u2011flow inputs may cause solver divergence and cascade warnings."
+          }
+        ],
+        "overall_state": "The simulated IEEE\u201113\u2011bus + 2\u2011bus system is currently healthy with a perfect health score, but automated analysis flags a high\u2011severity stability vulnerability (potential oscillations and control system failures). No voltage or power\u2011flow anomalies are reported yet.",
+        "time_window": "30\u2011second campaign duration for coordinated tests."
+      },
+      "strategic_approach": {
+        "objective": "Perform a staged, defensive\u2011focused security assessment that validates detection, containment, and recovery capabilities for the identified communication and control\u2011system weaknesses.",
+        "phases": [
+          "Phase\u202f1 \u2013 Reconnaissance & Baseline Mapping",
+          "Phase\u202f2 \u2013 Controlled Data\u2011Spoofing (voltage & power\u2011flow)",
+          "Phase\u202f3 \u2013 Load\u2011Injection Stress Test",
+          "Phase\u202f4 \u2013 Communication\u2011Disruption (blocking) Test",
+          "Phase\u202f5 \u2013 Integrated Multi\u2011Vector Scenario"
+        ],
+        "principles": [
+          "All actions are confined to the isolated simulation environment.",
+          "Each test is limited in duration (\u2264\u202f5\u202fs) and magnitude to avoid irreversible simulation crashes.",
+          "Defensive monitoring (IDS alerts, protection log entries, state\u2011estimator residuals) is captured for every step."
+        ]
+      },
+      "success_metrics": {
+        "coverage_percent": "Portion of identified vulnerability classes exercised by the test sequence (target \u2265\u202f90\u202f%).",
+        "detection_latency_ms": "Time from anomaly injection to first IDS/alert entry (target \u2264\u202f500\u202fms).",
+        "false_positive_rate_percent": "Number of alerts generated during benign operation / total alerts (target \u2264\u202f2\u202f%).",
+        "mitigation_response_time_ms": "Time from alert to protective action execution (target \u2264\u202f1\u202fs).",
+        "recovery_time_sec": "Time to return to healthy state after each test (target \u2264\u202f10\u202fs).",
+        "system_stability_score": "Post\u2011test state\u2011estimator residual norm compared to baseline (target \u2264\u202f1.2\u00d7 baseline)."
+      }
+    },
+    "generation_timestamp": "2025-09-16T19:03:22.231245",
+    "grid_context": {
+      "current_state": {
+        "powers": {},
+        "system_health": {
+          "issues": [],
+          "score": 100,
+          "status": "healthy",
+          "total_power_mva": 0.0
+        },
+        "timestamp": 0.0,
+        "voltages": {}
+      },
+      "vulnerabilities": {
+        "overall_risk_level": "high",
+        "power_vulnerabilities": [],
+        "stability_vulnerabilities": [
+          {
+            "risk": "Oscillations, control system failures",
+            "severity": "high",
+            "stability_score": 0,
+            "type": "instability"
+          }
+        ],
+        "voltage_vulnerabilities": []
+      }
+    },
+    "raw_ai_response": "```json\n{\n  \"situation_analysis\": {\n    \"overall_state\": \"The simulated IEEE\u201113\u2011bus + 2\u2011bus system is currently healthy with a perfect health score, but automated analysis flags a high\u2011severity stability vulnerability (potential oscillations and control system failures). No voltage or power\u2011flow anomalies are reported yet.\",\n    \"key_vulnerabilities\": [\n      {\n        \"category\": \"communication\",\n        \"component\": \"HELICS messaging layer\",\n        \"risk\": \"Message tampering or delay could destabilize coordinated control loops.\"\n      },\n      {\n        \"category\": \"voltage_control\",\n        \"component\": \"Voltage regulation set\u2011points on critical nodes (Node650, Bus1, Bus2)\",\n        \"risk\": \"Improper set\u2011point values can trigger over\u2011voltage or undervoltage trips.\"\n      },\n      {\n        \"category\": \"power_flow_interface\",\n        \"component\": \"GridPACK solver data exchange\",\n        \"risk\": \"Corrupted power\u2011flow inputs may cause solver divergence and cascade warnings.\"\n      }\n    ],\n    \"critical_nodes\": [\"Node650\", \"Bus1\", \"Bus2\"],\n    \"time_window\": \"30\u2011second campaign duration for coordinated tests.\"\n  },\n  \"strategic_approach\": {\n    \"objective\": \"Perform a staged, defensive\u2011focused security assessment that validates detection, containment, and recovery capabilities for the identified communication and control\u2011system weaknesses.\",\n    \"phases\": [\n      \"Phase\u202f1 \u2013 Reconnaissance & Baseline Mapping\",\n      \"Phase\u202f2 \u2013 Controlled Data\u2011Spoofing (voltage & power\u2011flow)\",\n      \"Phase\u202f3 \u2013 Load\u2011Injection Stress Test\",\n      \"Phase\u202f4 \u2013 Communication\u2011Disruption (blocking) Test\",\n      \"Phase\u202f5 \u2013 Integrated Multi\u2011Vector Scenario\"\n    ],\n    \"principles\": [\n      \"All actions are confined to the isolated simulation environment.\",\n      \"Each test is limited in duration (\u2264\u202f5\u202fs) and magnitude to avoid irreversible simulation crashes.\",\n      \"Defensive monitoring (IDS alerts, protection log entries, state\u2011estimator residuals) is captured for every step.\"\n    ]\n  },\n  \"assessment_sequence\": [\n    {\n      \"step_id\": 1,\n      \"name\": \"Topology Discovery\",\n      \"technique\": \"reconnaissance\",\n      \"targets\": [\"HELICS broker address\", \"GridPACK API endpoints\"],\n      \"parameters\": {\n        \"duration_sec\": 3,\n        \"tools\": [\"nmap\u2011like scanner for HELICS ports\", \"API schema query\"]\n      },\n      \"expected_defensive_response\": \"Logging of discovery events; baseline topology stored for later comparison.\"\n    },\n    {\n      \"step_id\": 2,\n      \"name\": \"Voltage Set\u2011Point Spoofing \u2013 Node650\",\n      \"technique\": \"spoof_data\",\n      \"targets\": [\"Node650 voltage regulation interface\"],\n      \"parameters\": {\n        \"spoofed_voltage_pu\": 1.15,\n        \"injection_rate_hz\": 10,\n        \"duration_sec\": 4\n      },\n      \"expected_defensive_response\": \"Over\u2011voltage alarm, automatic voltage regulator corrective action, IDS flag for abnormal telemetry.\"\n    },\n    {\n      \"step_id\": 3,\n      \"name\": \"Power\u2011Flow Input Corruption\",\n      \"technique\": \"spoof_data\",\n      \"targets\": [\"GridPACK power\u2011flow exchange buffer\"],\n      \"parameters\": {\n        \"corruption_type\": \"random perturbation \u00b15\u202f% on line impedances\",\n        \"duration_sec\": 3\n      },\n      \"expected_defensive_response\": \"Solver convergence warning, deviation alert in state estimator, possible temporary load shedding.\"\n    },\n    {\n      \"step_id\": 4,\n      \"name\": \"Controlled Load Injection \u2013 Bus2\",\n      \"technique\": \"inject_load\",\n      \"targets\": [\"Bus2\"],\n      \"parameters\": {\n        \"additional_load_mw\": 2.0,\n        \"power_factor\": 0.95,\n        \"ramp_up_sec\": 2,\n        \"hold_sec\": 2,\n        \"ramp_down_sec\": 1\n      },\n      \"expected_defensive_response\": \"Over\u2011current protection check, line loading metrics rise, protective relay logs.\"\n    },\n    {\n      \"step_id\": 5,\n      \"name\": \"HELICS Message Blocking \u2013 Critical Control Channel\",\n      \"technique\": \"block_command\",\n      \"targets\": [\"HELICS topic: voltage_control\"],\n      \"parameters\": {\n        \"block_duration_sec\": 5,\n        \"packet_drop_rate_percent\": 100\n      },\n      \"expected_defensive_response\": \"Timeout alerts, fallback to local control loops, detection of communication loss.\"\n    },\n    {\n      \"step_id\": 6,\n      \"name\": \"Multi\u2011Vector Coordinated Attack\",\n      \"technique\": \"combined\",\n      \"substeps\": [2, 4, 5],\n      \"parameters\": {\n        \"synchronization_offset_ms\": 200,\n        \"total_duration_sec\": 6\n      },\n      \"expected_defensive_response\": \"Cascading event detection, coordination of protection schemes, activation of emergency control (e.g., load shedding, islanding).\"\n    }\n  ],\n  \"expected_outcomes\": {\n    \"phase_1\": \"Accurate map of communication endpoints and data flow paths for future hardening.\",\n    \"phase_2\": \"Verification that voltage regulation alarms trigger within <\u202f1\u202fs and that corrective set\u2011point actions are logged.\",\n    \"phase_3\": \"Demonstration of load\u2011injection impact on line loading and over\u2011current relay response times.\",\n    \"phase_4\": \"Confirmation that HELICS\u2011based IDS can detect complete message loss and raise a high\u2011severity alert.\",\n    \"phase_5\": \"Assessment of coordinated protection strategy effectiveness against simultaneous voltage, load, and communication disturbances.\"\n  },\n  \"success_metrics\": {\n    \"detection_latency_ms\": \"Time from anomaly injection to first IDS/alert entry (target \u2264\u202f500\u202fms).\",\n    \"mitigation_response_time_ms\": \"Time from alert to protective action execution (target \u2264\u202f1\u202fs).\",\n    \"false_positive_rate_percent\": \"Number of alerts generated during benign operation / total alerts (target \u2264\u202f2\u202f%).\",\n    \"system_stability_score\": \"Post\u2011test state\u2011estimator residual norm compared to baseline (target \u2264\u202f1.2\u00d7 baseline).\",\n    \"recovery_time_sec\": \"Time to return to healthy state after each test (target \u2264\u202f10\u202fs).\",\n    \"coverage_percent\": \"Portion of identified vulnerability classes exercised by the test sequence (target \u2265\u202f90\u202f%).\"\n  }\n}\n```"
+  },
+  "overall_impact": {
+    "power_impact": 0,
+    "system_health_impact": 0,
+    "total_impact_score": 0.0,
+    "voltage_impact": 0
+  },
+  "start_time": "2025-09-16T19:03:04.792503",
+  "total_impact": 0,
+  "type": "ai_strategic_campaign"
+}

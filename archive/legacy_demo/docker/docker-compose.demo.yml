@@ -1,0 +1,40 @@
+services:
+  # HELICS Federation Runner - runs all grid components together
+  helics-federation:
+    image: roi-img:latest
+    container_name: helics-federation
+    working_dir: /workspace/examples
+    command: bash -c "export HELICS_BROKER_PORT=23408 && helics run --path=gpk-gld-cosim.json"
+    volumes:
+      - ../examples/2bus-13bus:/workspace/examples
+    ports:
+      - "23408:23408"
+    environment:
+      - HELICS_BROKER_PORT=23408
+    networks:
+      - grid-network
+    restart: unless-stopped
+
+  # MCP Server with AI capabilities
+  mcp-server:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.mcp
+    container_name: mcp-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../demo_results:/app/demo_results
+      - ../API.txt:/app/API.txt:ro
+    environment:
+      - HELICS_BROKER_ADDRESS=tcp://helics-federation:23408
+      - PYTHONPATH=/app/mcp-server/src
+    networks:
+      - grid-network
+    depends_on:
+      - helics-federation
+    restart: unless-stopped
+
+networks:
+  grid-network:
+    driver: bridge

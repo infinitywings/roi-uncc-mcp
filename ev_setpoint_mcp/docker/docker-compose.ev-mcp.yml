@@ -1,0 +1,13 @@
+services:
+  grid-attack-demo:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: grid-attack-demo
+    working_dir: /workspace/examples/2bus-13bus
+    volumes:
+      - ../../examples/2bus-13bus:/workspace/examples/2bus-13bus
+      - ../:/app/ev_setpoint_mcp
+    ports:
+      - "5100:5100"
+    restart: unless-stopped
