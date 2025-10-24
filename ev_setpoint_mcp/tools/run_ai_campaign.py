@@ -164,7 +164,7 @@ def main() -> None:
                         help="Maximum tokens for each completion")
     parser.add_argument("--steps", type=int, default=0,
                         help="Maximum attack iterations (0 = unlimited until duration reached)")
-    parser.add_argument("--interval", type=int, default=20,
+    parser.add_argument("--interval", type=int, default=5,
                         help="Real seconds to sleep between evaluations (simulation steps still advance by time_delta)")
     parser.add_argument("--wait", type=int, default=120,
                         help="Seconds to wait for MCP readiness")
@@ -180,7 +180,8 @@ def main() -> None:
                         help="LLM interaction log file path")
     parser.add_argument("--system-prompt", default=(
         "You are an adversarial researcher targeting EV setpoints. "
-        "Respond only with JSON matching {\"actions\":[{\"ev_id\":\"EV3\",\"real_kw\":3000,\"reactive_kvar\":0}]} or {\"actions\":[]}. "
+        "Respond only with JSON matching {\"actions\":[{\"ev_id\":\"EVn\",\"real_kw\":value,\"reactive_kvar\":value}]} or {\"actions\":[]}. "
+        "You may modify any EV station (EV1 through EV6); use whichever combination best stresses the grid. "
         "Assess risk first; if the grid is already stressed or an attack would be ineffective, return an empty actions list."
     ), help="LLM system prompt")
     args = parser.parse_args()
