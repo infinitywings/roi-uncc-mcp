@@ -184,6 +184,7 @@ class EVSetpointFederate:
         with self._lock:
             return {
                 "timestamp": self.grid_state.get("timestamp"),
+                "simulation_time_sec": self.grid_state.get("simulation_time_sec", self.current_time),
                 "voltages": dict(self.grid_state.get("voltages", {})),
                 "powers": dict(self.grid_state.get("powers", {})),
                 "switch_states": dict(self.grid_state.get("switch_states", {})),
