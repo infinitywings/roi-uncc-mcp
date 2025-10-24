@@ -164,13 +164,13 @@ def main() -> None:
                         help="Maximum tokens for each completion")
     parser.add_argument("--steps", type=int, default=0,
                         help="Maximum attack iterations (0 = unlimited until duration reached)")
-    parser.add_argument("--interval", type=int, default=5,
+    parser.add_argument("--interval", type=float, default=5.0,
                         help="Real seconds to sleep between evaluations (simulation steps still advance by time_delta)")
     parser.add_argument("--wait", type=int, default=120,
                         help="Seconds to wait for MCP readiness")
     parser.add_argument("--action-timeout", type=int, default=90,
                         help="HTTP timeout (seconds) for each attack primitive")
-    parser.add_argument("--action-delay", type=float, default=2.0,
+    parser.add_argument("--action-delay", type=float, default=1.0,
                         help="Delay in seconds between successive attack actions")
     parser.add_argument("--duration-seconds", type=int, default=86400,
                         help="Total simulated duration to cover before stopping (default: 24h)")
