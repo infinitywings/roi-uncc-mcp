@@ -164,8 +164,8 @@ def main() -> None:
                         help="Maximum tokens for each completion")
     parser.add_argument("--steps", type=int, default=0,
                         help="Maximum attack iterations (0 = unlimited until duration reached)")
-    parser.add_argument("--interval", type=int, default=60,
-                        help="Seconds between evaluations")
+    parser.add_argument("--interval", type=int, default=30,
+                        help="Real seconds to sleep between evaluations (simulation steps still advance by time_delta)")
     parser.add_argument("--wait", type=int, default=120,
                         help="Seconds to wait for MCP readiness")
     parser.add_argument("--action-timeout", type=int, default=90,
