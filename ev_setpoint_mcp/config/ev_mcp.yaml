@@ -7,9 +7,9 @@ helics:
   broker_address: tcp://grid-simulation:23405
   federate_name: ev_attacker_mcp
   core_type: zmq
-  time_delta: 300.0
-  period: 300.0
-  poll_interval: 5.0
+  time_delta: 600.0
+  period: 600.0
+  poll_interval: 10.0
 
   # Subscribe to actual publications from the simulation
   subscriptions:
