@@ -61,16 +61,17 @@ python /app/ev_setpoint_mcp/run_server.py --config /app/ev_setpoint_mcp/config/e
   >"${LOG_DIR}/attacker.log" 2>&1 &
 
 if [ "${RUN_AI_CAMPAIGN:-1}" != "0" ]; then
-  echo "[startup] Scheduling AI campaign (steps=${AI_CAMPAIGN_STEPS:-3}, interval=${AI_CAMPAIGN_INTERVAL:-30}s)"
+  echo "[startup] Scheduling AI campaign (steps=${AI_CAMPAIGN_STEPS:-0}, interval=${AI_CAMPAIGN_INTERVAL:-60}s, duration=${AI_CAMPAIGN_DURATION:-86400}s)"
   LLM_API_BASE=${LLM_API_BASE:-http://ccil1s26m8hj6lws:8000/v1}
   LLM_MODEL=${LLM_MODEL:-openai/gpt-oss-120b}
   python /app/ev_setpoint_mcp/tools/run_ai_campaign.py \
     --server http://localhost:5100/primitive \
     --llm-base "${LLM_API_BASE}" \
     --model "${LLM_MODEL}" \
-    --steps "${AI_CAMPAIGN_STEPS:-3}" \
-    --interval "${AI_CAMPAIGN_INTERVAL:-30}" \
-    --wait "${AI_CAMPAIGN_WAIT:-60}" \
+    --steps "${AI_CAMPAIGN_STEPS:-0}" \
+    --interval "${AI_CAMPAIGN_INTERVAL:-60}" \
+    --wait "${AI_CAMPAIGN_WAIT:-120}" \
+    --duration-seconds "${AI_CAMPAIGN_DURATION:-86400}" \
     --log "${LOG_DIR}/ai_campaign.log" \
     --llm-log "${LOG_DIR}/llm_interactions.jsonl" &
 fi

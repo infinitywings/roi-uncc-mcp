@@ -15,12 +15,7 @@ import requests
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-SCHEMA_HINT = '{"actions": [{"ev_id": "EV3", "real_kw": 3800, "reactive_kvar": 0}, {"ev_id": "EV4", "real_kw": 3200, "reactive_kvar": 0}]}'
-TARGET_ACTIONS = [
-    {"ev_id": "EV3", "real_kw": 3800.0, "reactive_kvar": 0.0},
-    {"ev_id": "EV4", "real_kw": 3200.0, "reactive_kvar": 0.0},
-    {"ev_id": "EV1", "real_kw": 3000.0, "reactive_kvar": 0.0},
-]
+SCHEMA_HINT = '{"actions":[{"ev_id":"EV3","real_kw":3000,"reactive_kvar":0}]} or {"actions":[]}'
 TZ = ZoneInfo("America/New_York")
 
 
@@ -72,9 +67,8 @@ def build_llm_messages(system_prompt: str, grid_state: Dict[str, Any]) -> List[D
         "Current grid telemetry (JSON):\n"
         f"{telemetry_json}\n"
         "Respond with JSON only using the schema "
-        f"{SCHEMA_HINT}. Provide coordinated actions that push EV3 toward 3.5-4.0 MW and EV4 toward at least 3.0 MW;"
-        " if additional headroom is needed, also ramp EV1 above 3.0 MW. Keep real_kw within [-500, 4000] and return"
-        " at least two actions per step so the load meaningfully stresses the feeder."
+        f"{SCHEMA_HINT}. Evaluate whether an attack is warranted; if not, return an empty list (e.g., {{\"actions\": []}})."
+        " When you choose to attack, target combinations that meaningfully stress the feeder, keeping real_kw within [-500, 4000]."
     )
     return [
         {"role": "system", "content": system_prompt},
@@ -131,33 +125,9 @@ def extract_actions(llm_response: Dict[str, Any]) -> List[Dict[str, Any]]:
 
 
 def augment_actions(actions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    seen = {}
     for action in actions:
-        ev = action.get("ev_id")
-        if not ev:
-            continue
-        desired = next((t for t in TARGET_ACTIONS if t["ev_id"] == ev), None)
-        if desired:
-            current_kw = float(action.get("real_kw", 0.0))
-            if current_kw < desired["real_kw"]:
-                action["real_kw"] = desired["real_kw"]
-                action.setdefault("metadata", {})["auto_adjusted_min_kw"] = True
-            action.setdefault("metadata", {})["target_min_kw"] = desired["real_kw"]
         action["real_kw"] = max(min(float(action.get("real_kw", 0.0)), 4000.0), -500.0)
         action.setdefault("reactive_kvar", 0.0)
-        seen[ev] = True
-
-    for target in TARGET_ACTIONS:
-        if target["ev_id"] not in seen:
-            actions.append({
-                "ev_id": target["ev_id"],
-                "real_kw": target["real_kw"],
-                "reactive_kvar": target["reactive_kvar"],
-                "metadata": {
-                    "auto_generated": True,
-                    "target_min_kw": target["real_kw"]
-                }
-            })
     return actions
 
 
@@ -192,24 +162,26 @@ def main() -> None:
                         help="LLM sampling temperature")
     parser.add_argument("--max-tokens", type=int, default=1500,
                         help="Maximum tokens for each completion")
-    parser.add_argument("--steps", type=int, default=6,
-                        help="Number of attack iterations")
-    parser.add_argument("--interval", type=int, default=120,
-                        help="Seconds between iterations")
-    parser.add_argument("--wait", type=int, default=180,
+    parser.add_argument("--steps", type=int, default=0,
+                        help="Maximum attack iterations (0 = unlimited until duration reached)")
+    parser.add_argument("--interval", type=int, default=60,
+                        help="Seconds between evaluations")
+    parser.add_argument("--wait", type=int, default=120,
                         help="Seconds to wait for MCP readiness")
     parser.add_argument("--action-timeout", type=int, default=90,
                         help="HTTP timeout (seconds) for each attack primitive")
-    parser.add_argument("--action-delay", type=float, default=5.0,
+    parser.add_argument("--action-delay", type=float, default=2.0,
                         help="Delay in seconds between successive attack actions")
+    parser.add_argument("--duration-seconds", type=int, default=86400,
+                        help="Total simulated duration to cover before stopping (default: 24h)")
     parser.add_argument("--log", default="/workspace/examples/2bus-13bus/logs/ai_campaign.log",
                         help="Campaign log file path")
     parser.add_argument("--llm-log", default="/workspace/examples/2bus-13bus/logs/llm_interactions.jsonl",
                         help="LLM interaction log file path")
     parser.add_argument("--system-prompt", default=(
-        "You are an adversarial researcher targeting EV setpoints. Respond only with JSON matching "
-        "{\"actions\":[{\"ev_id\":\"EV3\",\"real_kw\":3800,\"reactive_kvar\":0},{\"ev_id\":\"EV4\",\"real_kw\":3200,\"reactive_kvar\":0}]}. "
-        "Keep real_kw within [-500, 4000] and favour high-load commands that overwhelm the blue-team controller."
+        "You are an adversarial researcher targeting EV setpoints. "
+        "Respond only with JSON matching {\"actions\":[{\"ev_id\":\"EV3\",\"real_kw\":3000,\"reactive_kvar\":0}]} or {\"actions\":[]}. "
+        "Assess risk first; if the grid is already stressed or an attack would be ineffective, return an empty actions list."
     ), help="LLM system prompt")
     args = parser.parse_args()
 
@@ -220,19 +192,42 @@ def main() -> None:
         "timestamp": current_timestamp(),
         "event": "campaign_start",
         "steps": args.steps,
-        "interval_sec": args.interval
+        "interval_sec": args.interval,
+        "duration_sec": args.duration_seconds
     })
 
+    start_sim_time = None
+    end_sim_time = None
+    step = 0
+    last_sim_time = 0.0
     wait_for_server(args.server, args.wait)
 
-    for step in range(1, args.steps + 1):
+    while True:
         grid_state = fetch_grid_state(args.server)
+        result_payload = grid_state.get("result", {})
+        sim_time = result_payload.get("simulation_time_sec")
+        if sim_time is None:
+            sim_time = last_sim_time + args.interval
+        last_sim_time = sim_time
+
+        if start_sim_time is None:
+            start_sim_time = sim_time
+            if args.duration_seconds > 0:
+                end_sim_time = start_sim_time + args.duration_seconds
+
+        step += 1
         log_json_line(campaign_log, {
             "timestamp": current_timestamp(),
             "event": "grid_observation",
             "step": step,
+            "simulation_time_sec": sim_time,
             "data": grid_state
         })
+
+        if end_sim_time is not None and sim_time >= end_sim_time:
+            break
+        if args.steps and step > args.steps:
+            break
 
         messages = build_llm_messages(args.system_prompt, grid_state)
         interaction_id, llm_response = call_llm(
@@ -262,41 +257,50 @@ def main() -> None:
             "actions": actions
         })
 
-        for idx, action in enumerate(actions, start=1):
-            action.setdefault("metadata", {})
-            action["metadata"]["interaction_id"] = interaction_id
-            action["metadata"]["sequence"] = idx
-            action["metadata"]["step"] = step
-            action_payload = dict(action)
-            try:
-                result = send_attack(args.server, action, args.action_timeout)
-                log_json_line(campaign_log, {
-                    "timestamp": current_timestamp(),
-                    "event": "attack_executed",
-                    "step": step,
-                    "sequence": idx,
-                    "interaction_id": interaction_id,
-                    "action": action_payload,
-                    "result": result
-                })
-            except Exception as exc:
-                log_json_line(campaign_log, {
-                    "timestamp": current_timestamp(),
-                    "event": "attack_failed",
-                    "step": step,
-                    "sequence": idx,
-                    "interaction_id": interaction_id,
-                    "action": action_payload,
-                    "error": str(exc)
-                })
-            time.sleep(max(0.0, args.action_delay))
+        if not actions:
+            log_json_line(campaign_log, {
+                "timestamp": current_timestamp(),
+                "event": "attack_skipped",
+                "step": step,
+                "interaction_id": interaction_id
+            })
+        else:
+            for idx, action in enumerate(actions, start=1):
+                action.setdefault("metadata", {})
+                action["metadata"]["interaction_id"] = interaction_id
+                action["metadata"]["sequence"] = idx
+                action["metadata"]["step"] = step
+                action_payload = dict(action)
+                try:
+                    result = send_attack(args.server, action, args.action_timeout)
+                    log_json_line(campaign_log, {
+                        "timestamp": current_timestamp(),
+                        "event": "attack_executed",
+                        "step": step,
+                        "sequence": idx,
+                        "interaction_id": interaction_id,
+                        "action": action_payload,
+                        "result": result
+                    })
+                except Exception as exc:
+                    log_json_line(campaign_log, {
+                        "timestamp": current_timestamp(),
+                        "event": "attack_failed",
+                        "step": step,
+                        "sequence": idx,
+                        "interaction_id": interaction_id,
+                        "action": action_payload,
+                        "error": str(exc)
+                    })
+                time.sleep(max(0.0, args.action_delay))
 
-        if step < args.steps:
-            time.sleep(args.interval)
+        time.sleep(max(0.0, args.interval))
 
     log_json_line(campaign_log, {
         "timestamp": current_timestamp(),
-        "event": "campaign_complete"
+        "event": "campaign_complete",
+        "steps": step,
+        "simulation_time_sec": last_sim_time
     })
 
 

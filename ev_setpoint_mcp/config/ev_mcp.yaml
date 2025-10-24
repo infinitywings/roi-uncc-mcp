@@ -7,9 +7,9 @@ helics:
   broker_address: tcp://grid-simulation:23405
   federate_name: ev_attacker_mcp
   core_type: zmq
-  time_delta: 300.0  # Stretch time so attacks can propagate through the grid
-  period: 300.0      # Keep attacker in sync with the longer timestep
-  poll_interval: 5.0  # Poll less frequently to match the slower cadence
+  time_delta: 60.0
+  period: 60.0
+  poll_interval: 1.0
 
   # Subscribe to actual publications from the simulation
   subscriptions:
