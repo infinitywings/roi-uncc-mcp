@@ -1,21 +1,57 @@
 services:
-  grid-attack-demo:
+  grid-sim:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    container_name: grid-attack-demo
+    container_name: grid-sim
+    command: /app/ev_setpoint_mcp/docker/run_grid_stack.sh
     working_dir: /workspace/examples/2bus-13bus
     volumes:
       - ../../examples/2bus-13bus:/workspace/examples/2bus-13bus
       - ../:/app/ev_setpoint_mcp
     ports:
-      - "5100:5100"
+      - "23404:23404"
+    restart: unless-stopped
+
+  ev-mcp:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: ev-mcp
+    command: /app/ev_setpoint_mcp/docker/run_mcp_server.sh
     environment:
-      RUN_AI_CAMPAIGN: "${RUN_AI_CAMPAIGN:-1}"
-      AI_CAMPAIGN_STEPS: "${AI_CAMPAIGN_STEPS:-0}"
-      AI_CAMPAIGN_INTERVAL: "${AI_CAMPAIGN_INTERVAL:-20}"
-      AI_CAMPAIGN_WAIT: "${AI_CAMPAIGN_WAIT:-600}"
-      AI_CAMPAIGN_DURATION: "${AI_CAMPAIGN_DURATION:-86400}"
+      HELICS_BROKER_ADDRESS: "tcp://grid-sim:23404"
+      MCP_CONFIG_PATH: "${MCP_CONFIG_PATH:-/app/ev_setpoint_mcp/config/ev_mcp_local.yaml}"
+      MCP_LOG_PATH: "${MCP_LOG_PATH:-/workspace/examples/2bus-13bus/logs/attacker.log}"
+    volumes:
+      - ../../examples/2bus-13bus:/workspace/examples/2bus-13bus
+      - ../:/app/ev_setpoint_mcp
+    ports:
+      - "5100:5100"
+    depends_on:
+      - grid-sim
+    restart: unless-stopped
+
+  attack-agent:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: attack-agent
+    command: /app/ev_setpoint_mcp/docker/run_modular_agent.sh
+    environment:
+      AGENT_PRIMITIVE_URL: "http://ev-mcp:5100/primitive"
       LLM_API_BASE: "${LLM_API_BASE:-http://ccil1s26m8hj6lws:8000/v1}"
       LLM_MODEL: "${LLM_MODEL:-openai/gpt-oss-120b}"
+      AI_AGENT_INTERVAL: "${AI_AGENT_INTERVAL:-5}"
+      AI_AGENT_ACTION_DELAY: "${AI_AGENT_ACTION_DELAY:-1}"
+      AI_AGENT_STEPS: "${AI_AGENT_STEPS:-0}"
+      AI_AGENT_WAIT: "${AI_AGENT_WAIT:-120}"
+      AI_AGENT_DURATION: "${AI_AGENT_DURATION:-86400}"
+      AI_AGENT_TOOLS: "${AI_AGENT_TOOLS:-discover_topology monitor_protection_systems analyze_power_flow set_ev_capacity}"
+      AI_AGENT_INSTRUCTIONS: "${AI_AGENT_INSTRUCTIONS:-}"
+    volumes:
+      - ../../examples/2bus-13bus:/workspace/examples/2bus-13bus
+      - ../:/app/ev_setpoint_mcp
+    depends_on:
+      - ev-mcp
     restart: unless-stopped
