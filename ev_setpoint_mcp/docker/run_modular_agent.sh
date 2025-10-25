@@ -17,5 +17,6 @@ python /app/ev_setpoint_mcp/tools/run_agent.py \
   --duration-seconds "${AI_AGENT_DURATION:-86400}" \
   --log "${LOG_DIR}/ai_campaign.log" \
   --llm-log "${LOG_DIR}/llm_interactions.jsonl" \
+  ${AI_AGENT_HARMONY_LOG:+--harmony-log "${AI_AGENT_HARMONY_LOG}"} \
   --tools "${AI_AGENT_TOOLS:-discover_topology monitor_protection_systems analyze_power_flow set_ev_capacity}" \
   ${AI_AGENT_INSTRUCTIONS:+--instructions "${AI_AGENT_INSTRUCTIONS}"}

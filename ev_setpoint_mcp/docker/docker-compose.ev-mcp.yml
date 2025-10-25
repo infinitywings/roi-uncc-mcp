@@ -49,6 +49,7 @@ services:
       AI_AGENT_DURATION: "${AI_AGENT_DURATION:-86400}"
       AI_AGENT_TOOLS: "${AI_AGENT_TOOLS:-discover_topology monitor_protection_systems analyze_power_flow set_ev_capacity}"
       AI_AGENT_INSTRUCTIONS: "${AI_AGENT_INSTRUCTIONS:-}"
+      AI_AGENT_HARMONY_LOG: "${AI_AGENT_HARMONY_LOG:-/workspace/examples/2bus-13bus/logs/harmony_log.jsonl}"
     volumes:
       - ../../examples/2bus-13bus:/workspace/examples/2bus-13bus
       - ../:/app/ev_setpoint_mcp

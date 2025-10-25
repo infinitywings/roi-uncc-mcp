@@ -18,20 +18,30 @@ Tools are declared as simple dataclasses (`Tool`) describing a MCP method,
 validation schema, and executor. Additional primitives can be introduced by
 registering new `Tool` instances or by extending `ToolRegistry`.
 
-### Agent Loop
+### Event-Driven Agent Loop
 
-1. **Observe** – `MCPAgent` gathers the latest grid snapshot (and optionally
-   caches topology) while recording the event in the shared memory buffer.
-2. **Reason** – A prompt is assembled from the recent memory summary,
-   observation payload, and tool catalogue. The LLM response must return a JSON
-   `actions` array, enabling the ReAct-style planning highlighted in
-   `AI-INTEGRATION.md`.
-3. **Act** – `ToolRegistry` invokes each requested primitive (e.g.
-   `discover_topology`, `monitor_protection_systems`, `set_ev_capacity`). Results
-   and errors are appended to memory, supporting iterative refinement and the
-   quantitative logging required by `RESEARCH-GUIDE.md`.
-4. **Evaluate** – The loop sleeps for the configured interval, optionally
-   refreshes topology, and records the next observation.
+1. **Monitor** – A background thread polls the MCP server on a configurable
+   cadence and pushes new grid snapshots (or telemetry deltas) into an internal
+   event queue. Topology is refreshed opportunistically according to the
+   `topology_refresh_seconds` setting.
+2. **Reason** – Whenever the planner receives a fresh observation and the
+   decision cool-down has expired it assembles a prompt from the memory summary,
+   a Harmony formatted history tail, the latest grid status, and the advertised
+   tool catalogue (mirroring the intelligence-gathering and vulnerability
+   assessment steps in `AI-INTEGRATION.md`).
+3. **Act** – The LLM returns a structured `actions` array. For each entry the
+   registry validates parameters and invokes the corresponding primitive
+   (`discover_topology`, `monitor_protection_systems`, `set_ev_capacity`, etc.).
+   Outcomes are appended to memory and written to the Harmony log so research
+   metrics from `RESEARCH-GUIDE.md` can be computed post-run.
+4. **Evaluate** – Cool-down timers, max-step limits, and simulated duration
+   checks determine whether further planning is warranted; otherwise the agent
+   awaits the next observation event.
+
+All campaign events, Harmony transcript entries, and raw LLM exchanges are
+persisted to JSONL files. This satisfies the reproducibility and statistical
+analysis requirements outlined in `RESEARCH-GUIDE.md`, while also enabling
+mid-campaign hand-offs to other agents or operators.
 
 All campaign events and raw LLM exchanges are persisted to JSONL files so that
 experimental runs can be reproduced and statistically analysed (see the
@@ -64,6 +74,9 @@ its own container.
 - **Context Providers** – Extend `MCPAgent` to register additional cacheable
   context (e.g., schedule data, past disruption metrics) or implement specialised
   memory summaries aligned with specific research campaigns.
+- **Harmony Transcript** – Point `--harmony-log` (or `AI_AGENT_HARMONY_LOG`) at a
+  desired location to capture the full conversation history in Harmony format for
+  later replay or debugging.
 
 By aligning the implementation with the conceptual flow documented in the legacy
 `archive/old_docs` manuals, the attacker stack is now modular enough to support

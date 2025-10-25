@@ -12,10 +12,11 @@ from ev_setpoint_mcp.agent.config import AgentConfig, LLMConfig, LoggingConfig, 
 
 def build_config(args: argparse.Namespace) -> AgentConfig:
     logging_cfg = None
-    if args.log or args.llm_log:
+    if args.log or args.llm_log or args.harmony_log:
         logging_cfg = LoggingConfig(
             campaign_log=Path(args.log).resolve(),
             llm_log=Path(args.llm_log).resolve(),
+            harmony_log=Path(args.harmony_log).resolve() if args.harmony_log else None,
             max_memory_events=args.max_memory_events,
         )
 
@@ -67,6 +68,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--log", default="/workspace/examples/2bus-13bus/logs/ai_campaign.log", help="Campaign log path")
     parser.add_argument("--llm-log", default="/workspace/examples/2bus-13bus/logs/llm_interactions.jsonl",
                         help="LLM interaction log path")
+    parser.add_argument("--harmony-log", default=None,
+                        help="Harmony formatted conversation log path (optional)")
     parser.add_argument("--max-memory-events", type=int, default=50, help="Maximum events stored in agent memory")
     parser.add_argument("--tools", nargs="*", default=["discover_topology", "monitor_protection_systems",
                                                        "analyze_power_flow", "set_ev_capacity"],

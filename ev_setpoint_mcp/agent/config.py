@@ -22,8 +22,10 @@ class LLMConfig:
 class RuntimeConfig:
     """Controls loop pacing and duration."""
 
-    interval_seconds: float = 5.0
+    interval_seconds: float = 5.0  # legacy compatibility
+    observation_interval_seconds: float = 5.0
     action_delay_seconds: float = 1.0
+    decision_cooldown_seconds: float = 60.0
     max_steps: int = 0  # 0 == unlimited
     duration_seconds: int = 86_400  # 24h default
     wait_for_server: int = 120
@@ -35,6 +37,7 @@ class LoggingConfig:
 
     campaign_log: Path
     llm_log: Path
+    harmony_log: Optional[Path] = None
     max_memory_events: int = 50
 
 

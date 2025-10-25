@@ -17,14 +17,22 @@ class MemoryEvent:
     """Represents a single agent event."""
 
     event_type: str
+    channel: str
+    content: str
     payload: Dict[str, object]
     timestamp: str = _ts()
 
     def short(self) -> str:
-        base = f"[{self.timestamp}] {self.event_type}"
-        if "summary" in self.payload:
-            return f"{base}: {self.payload['summary']}"
-        return base
+        return f"[{self.timestamp}] ({self.channel}) {self.content}"
+
+    def to_harmony(self) -> Dict[str, object]:
+        return {
+            "type": self.event_type,
+            "channel": self.channel,
+            "timestamp": self.timestamp,
+            "content": self.content,
+            "metadata": self.payload,
+        }
 
 
 class MemoryBuffer:
@@ -33,8 +41,10 @@ class MemoryBuffer:
     def __init__(self, max_events: int = 50):
         self._events: Deque[MemoryEvent] = deque(maxlen=max_events)
 
-    def add(self, event_type: str, **payload: object) -> None:
-        self._events.append(MemoryEvent(event_type=event_type, payload=payload))
+    def add(self, event_type: str, channel: str, content: str, **payload: object) -> MemoryEvent:
+        event = MemoryEvent(event_type=event_type, channel=channel, content=content, payload=payload)
+        self._events.append(event)
+        return event
 
     def extend(self, events: Iterable[MemoryEvent]) -> None:
         for event in events:
@@ -50,4 +60,7 @@ class MemoryBuffer:
         return "\n".join(lines) if lines else "No prior events recorded."
 
     def to_dict(self) -> List[Dict[str, object]]:
-        return [dict(event_type=e.event_type, payload=e.payload, timestamp=e.timestamp) for e in self._events]
+        return [e.to_harmony() for e in self._events]
+
+    def harmony_tail(self, limit: int = 12) -> List[Dict[str, object]]:
+        return [event.to_harmony() for event in self.recent(limit)]
