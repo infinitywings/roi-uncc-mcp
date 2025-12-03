@@ -1,0 +1,16 @@
+Three factors of the prompt: 
+1. simulation grid model topology: 
+    1)detailed description with list of nodes and buses and the capacities and restrictions.
+    2)brief description of the overall grid model topology
+    3)barely any description of the topology, only said it is a running grid simulator using gridpack and gridpab-d and ask the AI to learn the necesary info from mcp server.
+
+2. ev controller logic:
+    1) detailed description of the ev controller logic, with presenting the code at examples/2bus-13bus/1bc_EV_Controller_2.py
+    2) with brief the summarization of the ev controller logic
+    3) no description of ev controller logic, only indicate there is an ev controller and its purpose
+
+3. the attack strategy:
+    1) detailed attack strategy with step-by-step and timing instruction
+    2) brief descrption of the attack strategy and the attacking goal and ask the aI model to fill the details
+    3) only presetn the goal and ask the AI to figure out the strategy 
+

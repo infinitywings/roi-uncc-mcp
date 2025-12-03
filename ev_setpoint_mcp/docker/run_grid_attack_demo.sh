@@ -11,6 +11,12 @@ mkdir -p "${LOG_DIR}"
 
 cd "${WORKDIR}"
 
+UNITFILE=/usr/local/gridlabd/share/unitfile.txt
+if ! grep -q '^utility' "${UNITFILE}" >/dev/null 2>&1; then
+  echo "[setup] Adding placeholder unit 'utility' to GridLAB-D unitfile"
+  echo "utility = 1.0;" >> "${UNITFILE}"
+fi
+
 # Verify existing build cache matches current workspace; rebuild if it does not.
 if [ -f build/CMakeCache.txt ]; then
   if ! grep -q "/workspace/examples/2bus-13bus" build/CMakeCache.txt >/dev/null 2>&1; then
@@ -61,7 +67,7 @@ python /app/ev_setpoint_mcp/run_server.py --config /app/ev_setpoint_mcp/config/e
   >"${LOG_DIR}/attacker.log" 2>&1 &
 
 if [ "${RUN_AI_CAMPAIGN:-1}" != "0" ]; then
-  echo "[startup] Scheduling AI campaign (steps=${AI_CAMPAIGN_STEPS:-0}, interval=${AI_CAMPAIGN_INTERVAL:-30}s, duration=${AI_CAMPAIGN_DURATION:-86400}s)"
+  echo "[startup] Scheduling AI campaign (steps=${AI_CAMPAIGN_STEPS:-0}, interval=${AI_CAMPAIGN_INTERVAL:-5}s, duration=${AI_CAMPAIGN_DURATION:-86400}s, action_delay=${AI_CAMPAIGN_ACTION_DELAY:-0.1}s)"
   LLM_API_BASE=${LLM_API_BASE:-http://ccil1s26m8hj6lws:8000/v1}
   LLM_MODEL=${LLM_MODEL:-openai/gpt-oss-120b}
   python /app/ev_setpoint_mcp/tools/run_ai_campaign.py \
@@ -69,9 +75,10 @@ if [ "${RUN_AI_CAMPAIGN:-1}" != "0" ]; then
     --llm-base "${LLM_API_BASE}" \
     --model "${LLM_MODEL}" \
     --steps "${AI_CAMPAIGN_STEPS:-0}" \
-    --interval "${AI_CAMPAIGN_INTERVAL:-30}" \
-    --wait "${AI_CAMPAIGN_WAIT:-120}" \
+    --interval "${AI_CAMPAIGN_INTERVAL:-5}" \
+    --wait "${AI_CAMPAIGN_WAIT:-600}" \
     --duration-seconds "${AI_CAMPAIGN_DURATION:-86400}" \
+    --action-delay "${AI_CAMPAIGN_ACTION_DELAY:-0.1}" \
     --log "${LOG_DIR}/ai_campaign.log" \
     --llm-log "${LOG_DIR}/llm_interactions.jsonl" &
 fi
