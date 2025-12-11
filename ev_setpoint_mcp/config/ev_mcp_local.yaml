@@ -7,8 +7,8 @@ helics:
   broker_address: tcp://localhost:23404
   federate_name: ev_attacker_mcp
   core_type: zmq
-  time_delta: 600.0
-  period: 600.0
+  time_delta: 120.0
+  period: 120.0
   poll_interval: 10.0
 
   subscriptions:

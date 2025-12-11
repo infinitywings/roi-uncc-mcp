@@ -57,6 +57,7 @@ def fetch_grid_state(primitive_url: str) -> Dict[str, Any]:
 
 def build_llm_messages(system_prompt: str, grid_state: Dict[str, Any],
                        recent_actions: List[Dict[str, Any]],
+                       recent_timeline: List[Dict[str, Any]],
                        cooldown_min: float,
                        next_allowed_sim_time: float | None) -> List[Dict[str, str]]:
     result = grid_state.get("result", {})
@@ -64,10 +65,13 @@ def build_llm_messages(system_prompt: str, grid_state: Dict[str, Any],
         "total_real_power_kw": result.get("system_metrics", {}).get("total_real_power_kw", 0),
         "ev_setpoints_kw": result.get("grid_state", {}).get("ev_setpoints_kw", {}),
         "powers": result.get("grid_state", {}).get("powers", {}),
+        "controller_state": result.get("grid_state", {}).get("blue_team_switches", {})
     }
     prompt_recent = recent_actions[-5:]
+    timeline_recent = recent_timeline[-8:]
     telemetry_json = json.dumps(telemetry, ensure_ascii=False, indent=2)
     history_json = json.dumps(prompt_recent, ensure_ascii=False, indent=2)
+    timeline_json = json.dumps(timeline_recent, ensure_ascii=False, indent=2)
     next_allowed_str = "now" if next_allowed_sim_time is None else next_allowed_sim_time
     quota_text = (
         f"One attack attempt allowed every {cooldown_min} minutes of simulation time. "
@@ -78,6 +82,8 @@ def build_llm_messages(system_prompt: str, grid_state: Dict[str, Any],
         f"{telemetry_json}\n"
         "Recent attack history (most recent first):\n"
         f"{history_json}\n"
+        "Recent timeline (observations and outcomes):\n"
+        f"{timeline_json}\n"
         f"{quota_text}\n"
         "Respond with JSON only using the schema "
         f"{SCHEMA_HINT}. Evaluate whether an attack is warranted; if not, return an empty list (e.g., {{\"actions\": []}})."
@@ -140,11 +146,11 @@ def extract_actions(llm_response: Dict[str, Any]) -> List[Dict[str, Any]]:
 def augment_actions(actions: List[Dict[str, Any]], sim_time: float) -> List[Dict[str, Any]]:
     """Clamp actions based on simulation time to avoid early hard shocks."""
     if sim_time < 1800:        # first 30 minutes sim time
-        max_kw = 400.0
+        max_kw = 200.0
     elif sim_time < 7200:      # first 2 hours sim time
-        max_kw = 1200.0
+        max_kw = 600.0
     else:
-        max_kw = 2500.0
+        max_kw = 1200.0
 
     for action in actions:
         action["real_kw"] = max(min(float(action.get("real_kw", 0.0)), max_kw), -500.0)
@@ -227,6 +233,7 @@ def main() -> None:
     last_sim_time = 0.0
     last_attack_sim_time = None
     recent_actions: List[Dict[str, Any]] = []
+    recent_timeline: List[Dict[str, Any]] = []
     cooldown_sec = args.attack_cooldown_minutes * 60.0
     wait_for_server(args.server, args.wait)
 
@@ -244,6 +251,15 @@ def main() -> None:
                 end_sim_time = start_sim_time + args.duration_seconds
 
         step += 1
+        # Record observation for timeline
+        recent_timeline.append({
+            "event": "observation",
+            "step": step,
+            "simulation_time_sec": sim_time,
+            "total_real_power_kw": result_payload.get("system_metrics", {}).get("total_real_power_kw", 0),
+            "ev_setpoints_kw": result_payload.get("grid_state", {}).get("ev_setpoints_kw", {})
+        })
+        recent_timeline = recent_timeline[-20:]
         log_json_line(campaign_log, {
             "timestamp": current_timestamp(),
             "event": "grid_observation",
@@ -259,7 +275,7 @@ def main() -> None:
 
         next_allowed = None if last_attack_sim_time is None else last_attack_sim_time + cooldown_sec
         messages = build_llm_messages(args.system_prompt, grid_state, recent_actions,
-                                      args.attack_cooldown_minutes, next_allowed)
+                                      recent_timeline, args.attack_cooldown_minutes, next_allowed)
         interaction_id, llm_response = call_llm(
             args.llm_base, args.model, messages,
             args.temperature, args.max_tokens, llm_log
@@ -297,6 +313,13 @@ def main() -> None:
                 "next_allowed_sim_time": last_attack_sim_time + cooldown_sec,
                 "interaction_id": interaction_id
             })
+            recent_timeline.append({
+                "event": "attack_rate_limited",
+                "step": step,
+                "simulation_time_sec": sim_time,
+                "next_allowed_sim_time": last_attack_sim_time + cooldown_sec
+            })
+            recent_timeline = recent_timeline[-20:]
             time.sleep(max(0.0, args.interval))
             continue
 
@@ -306,6 +329,11 @@ def main() -> None:
                 "event": "attack_skipped",
                 "step": step,
                 "interaction_id": interaction_id
+            })
+            recent_timeline.append({
+                "event": "attack_skipped",
+                "step": step,
+                "simulation_time_sec": sim_time
             })
         else:
             for idx, action in enumerate(actions, start=1):
@@ -332,6 +360,13 @@ def main() -> None:
                         "action": action_payload,
                         "result": "executed"
                     })
+                    recent_timeline.append({
+                        "event": "attack_executed",
+                        "step": step,
+                        "simulation_time_sec": sim_time,
+                        "action": action_payload
+                    })
+                    recent_timeline = recent_timeline[-20:]
                     last_attack_sim_time = sim_time
                 except Exception as exc:
                     log_json_line(campaign_log, {
@@ -349,6 +384,14 @@ def main() -> None:
                         "action": action_payload,
                         "result": f"failed: {exc}"
                     })
+                    recent_timeline.append({
+                        "event": "attack_failed",
+                        "step": step,
+                        "simulation_time_sec": sim_time,
+                        "action": action_payload,
+                        "error": str(exc)
+                    })
+                    recent_timeline = recent_timeline[-20:]
                 time.sleep(max(0.0, args.action_delay))
 
         time.sleep(max(0.0, args.interval))
