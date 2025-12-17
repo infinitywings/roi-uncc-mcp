@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 import logging
-from typing import Dict, Any
+from datetime import datetime
+from typing import Dict, Any, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -16,6 +17,10 @@ class ObservationService:
         self._topology_cfg = config.get("observation", {}).get("topology", {})
         self._vulnerability_cfg = config.get("observation", {}).get("vulnerabilities", {})
         self._protection_cfg = config.get("protection", {})
+        self._observation_history: List[Dict[str, Any]] = []
+        self._max_history_length = 100
+        self._controller_action_history: List[Dict[str, Any]] = []
+        self._attack_outcome_history: List[Dict[str, Any]] = []
 
     # --------------------------------------------------------------
     def get_grid_status(self, params: Dict[str, Any]) -> Dict[str, Any]:
@@ -36,9 +41,31 @@ class ObservationService:
             if avg:
                 imbalance_pct = max(abs(v - avg) / avg for v in voltage_mags) * 100.0
 
+        sim_time = snapshot.get("simulation_time_sec", 0)
+
+        self._observation_history.append(
+            {
+                "simulation_time_sec": sim_time,
+                "total_real_power_kw": total_kw,
+                "timestamp": snapshot.get("timestamp"),
+            }
+        )
+        if len(self._observation_history) > self._max_history_length:
+            self._observation_history = self._observation_history[-self._max_history_length:]
+
+        controller_timing = self._infer_controller_timing(
+            snapshot.get("recent_ev_commands", []), sim_time
+        )
+        load_patterns = self._analyze_load_patterns()
+        attack_opportunity = self._calculate_attack_opportunity(
+            total_kw, controller_timing, load_patterns
+        )
+
+        threshold_kw = self._protection_cfg.get("feeder_load_upper_kw", 4200)
+
         return {
             "timestamp": snapshot.get("timestamp"),
-            "simulation_time_sec": snapshot.get("simulation_time_sec"),
+            "simulation_time_sec": sim_time,
             "grid_state": {
                 "voltages": voltages,
                 "powers": powers,
@@ -51,8 +78,14 @@ class ObservationService:
             "system_metrics": {
                 "total_real_power_kw": total_kw,
                 "total_reactive_power_kvar": total_kvar,
-                "voltage_imbalance_pct": imbalance_pct
-            }
+                "voltage_imbalance_pct": imbalance_pct,
+                "threshold_kw": threshold_kw,
+                "headroom_kw": threshold_kw - total_kw
+            },
+            "defender_timing": controller_timing,
+            "load_patterns": load_patterns,
+            "attack_opportunity": attack_opportunity,
+            "observation_history_length": len(self._observation_history)
         }
 
     # --------------------------------------------------------------
@@ -135,6 +168,191 @@ class ObservationService:
             "power_flow": power_flow,
             "constraints": constraints,
             "sensitivities": {}
+        }
+
+    # --------------------------------------------------------------
+    def _infer_controller_timing(
+        self, recent_commands: List[Dict[str, Any]], current_sim_time: float
+    ) -> Dict[str, Any]:
+        """Infer controller timing from recent commands."""
+        if not recent_commands or len(recent_commands) < 2:
+            return {
+                "last_action_sim_time": None,
+                "inferred_interval_sec": None,
+                "next_expected_action_sim_time": None,
+                "time_until_next_action_sec": None,
+                "confidence": "low"
+            }
+
+        controller_timestamps: List[float] = []
+        for cmd in recent_commands:
+            ts = cmd.get("timestamp")
+            if not ts:
+                continue
+            if cmd.get("real_kw", 0) <= 300:
+                if isinstance(ts, str):
+                    try:
+                        controller_timestamps.append(
+                            datetime.fromisoformat(ts.replace("Z", "+00:00")).timestamp()
+                        )
+                    except Exception:
+                        continue
+                elif isinstance(ts, (int, float)):
+                    controller_timestamps.append(float(ts))
+
+        if len(controller_timestamps) < 2:
+            return {
+                "last_action_sim_time": controller_timestamps[0] if controller_timestamps else None,
+                "inferred_interval_sec": 60.0,
+                "next_expected_action_sim_time": None,
+                "time_until_next_action_sec": None,
+                "confidence": "low"
+            }
+
+        intervals: List[float] = []
+        for i in range(len(controller_timestamps) - 1):
+            t1 = controller_timestamps[i]
+            t2 = controller_timestamps[i + 1]
+            intervals.append(abs(t2 - t1))
+
+        inferred_interval = sum(intervals) / len(intervals) if intervals else 60.0
+        confidence = "high" if len(intervals) >= 3 else "medium"
+        last_action_time = controller_timestamps[-1]
+        next_expected = last_action_time + inferred_interval
+        time_until_next = max(0, next_expected - current_sim_time)
+
+        return {
+            "last_action_sim_time": last_action_time,
+            "inferred_interval_sec": inferred_interval,
+            "next_expected_action_sim_time": next_expected,
+            "time_until_next_action_sec": time_until_next,
+            "confidence": confidence
+        }
+
+    # --------------------------------------------------------------
+    def _analyze_load_patterns(self) -> Dict[str, Any]:
+        """Analyze historical load to find peaks and trend."""
+        if len(self._observation_history) < 5:
+            return {
+                "peak_hours_detected": [15, 16, 17],
+                "current_trend": "unknown",
+                "load_percentile": None,
+                "attack_window_quality": "unknown",
+                "current_hour": 0,
+                "headroom_kw": None
+            }
+
+        load_data = []
+        for obs in self._observation_history[-50:]:
+            total_kw = obs.get("total_real_power_kw", 0)
+            sim_time = obs.get("simulation_time_sec", 0)
+            hour = int((sim_time / 3600) % 24)
+            load_data.append({"hour": hour, "load_kw": total_kw, "sim_time": sim_time})
+
+        hourly_loads: Dict[int, List[float]] = {}
+        for d in load_data:
+            hourly_loads.setdefault(d["hour"], []).append(d["load_kw"])
+        hourly_avg = {h: sum(v) / len(v) for h, v in hourly_loads.items()}
+        sorted_hours = sorted(hourly_avg.keys(), key=lambda h: hourly_avg[h], reverse=True)
+        peak_hours = sorted_hours[:3] if len(sorted_hours) >= 3 else sorted_hours
+
+        all_loads = [d["load_kw"] for d in load_data]
+        current_load = load_data[-1]["load_kw"]
+        loads_below = sum(1 for l in all_loads if l < current_load)
+        load_percentile = (loads_below / len(all_loads)) * 100 if all_loads else 50
+
+        recent_loads = [d["load_kw"] for d in load_data[-5:]]
+        if len(recent_loads) >= 3:
+            if recent_loads[-1] > recent_loads[0] * 1.05:
+                trend = "increasing"
+            elif recent_loads[-1] < recent_loads[0] * 0.95:
+                trend = "decreasing"
+            else:
+                trend = "stable"
+        else:
+            trend = "unknown"
+
+        threshold_kw = self._protection_cfg.get("feeder_load_upper_kw", 4200)
+        headroom = threshold_kw - current_load
+        current_hour = load_data[-1]["hour"]
+
+        if current_hour in peak_hours and headroom < 1500:
+            window_quality = "excellent"
+        elif current_hour in peak_hours:
+            window_quality = "good"
+        elif headroom < 1000:
+            window_quality = "moderate"
+        else:
+            window_quality = "poor"
+
+        return {
+            "peak_hours_detected": peak_hours,
+            "current_trend": trend,
+            "load_percentile": load_percentile,
+            "current_hour": current_hour,
+            "headroom_kw": headroom,
+            "attack_window_quality": window_quality
+        }
+
+    # --------------------------------------------------------------
+    def _calculate_attack_opportunity(
+        self,
+        current_load_kw: float,
+        controller_timing: Dict[str, Any],
+        load_patterns: Dict[str, Any]
+    ) -> Dict[str, Any]:
+        """Combine macro- and micro-timing to score attack opportunity."""
+        threshold = self._protection_cfg.get("feeder_load_upper_kw", 4200)
+        headroom = threshold - current_load_kw
+
+        if headroom <= 0:
+            macro_score = 100
+        elif headroom < 500:
+            macro_score = 90
+        elif headroom < 1000:
+            macro_score = 70
+        elif headroom < 1500:
+            macro_score = 50
+        elif headroom < 2000:
+            macro_score = 30
+        else:
+            macro_score = 10
+
+        time_until_next = controller_timing.get("time_until_next_action_sec")
+        interval = controller_timing.get("inferred_interval_sec") or 60
+        if time_until_next is None:
+            micro_score = 50
+        elif interval > 0:
+            cycle_position = time_until_next / interval
+            micro_score = min(100, cycle_position * 100)
+        else:
+            micro_score = 50
+
+        combined_score = (macro_score * 0.6) + (micro_score * 0.4)
+
+        if combined_score >= 70 and macro_score >= 50:
+            recommendation = "ATTACK_NOW"
+            reasoning = "High load + good timing window"
+        elif combined_score >= 50 and macro_score >= 40:
+            recommendation = "ATTACK_POSSIBLE"
+            reasoning = "Moderate conditions, attack may succeed"
+        elif micro_score >= 80 and macro_score >= 30:
+            recommendation = "WAIT_FOR_LOAD"
+            reasoning = "Good timing but load too low"
+        else:
+            recommendation = "WAIT"
+            reasoning = "Poor conditions, conserve attack budget"
+
+        return {
+            "macro_score": macro_score,
+            "micro_score": micro_score,
+            "combined_score": combined_score,
+            "recommendation": recommendation,
+            "reasoning": reasoning,
+            "current_load_kw": current_load_kw,
+            "threshold_kw": threshold,
+            "headroom_kw": headroom,
+            "attack_window_quality": load_patterns.get("attack_window_quality")
         }
 
     # --------------------------------------------------------------
