@@ -1,0 +1,18 @@
+# Example experiment configuration (optional).
+#
+# This file is not consumed directly by the server yet; it is a place to
+# centralize experiment parameters for scripts.
+
+experiment:
+  duration_sec: 7200
+  controller_interval_sec: 60
+
+random_baseline:
+  seed: 42
+  attack_probability: 0.3
+
+ai_campaign:
+  llm_base_url: "http://ccil1s26m8hj6lws:8000/v1"
+  llm_model: "openai/gpt-oss-120b"
+  temperature: 0.3
+

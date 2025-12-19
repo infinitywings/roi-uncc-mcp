@@ -1,0 +1,26 @@
+server:
+  host: "0.0.0.0"
+  port: 5100
+
+helics:
+  name: "llm_grid_eval_attacker"
+  broker_address: "tcp://localhost:23404"
+  core_type: "zmq"
+  # Simulation time step to request on each observation.
+  period_sec: 30.0
+
+grid:
+  threshold_kw: 4200.0
+  nominal_voltage_v: 2401.7771
+  # Used to translate simulation_time_sec into a wallclock-like timestamp for peak-hour logic.
+  simulation_start_iso: "2013-08-28T00:00:00-05:00"
+
+timing:
+  controller_interval_sec: 60.0
+  macro_weight: 0.6
+  micro_weight: 0.4
+  history_size: 200
+
+logging:
+  level: "INFO"
+

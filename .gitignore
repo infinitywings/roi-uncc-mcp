@@ -26,6 +26,8 @@ __pycache__/
 demo_results/*.json
 demo_results/*.csv
 demo_results/*.png
+results/
+llm_grid_eval/results/
 
 # Grid simulation outputs
 *.csv
