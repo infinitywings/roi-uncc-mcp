@@ -57,7 +57,7 @@ This guide explains how to deploy the EV Setpoint MCP server as an adversarial i
 
 ```bash
 cd /home/cfu6/roi-uncc-mcp
-docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build
+docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build
 ```
 
 - Builds the attacker image (extends `roi-img`) and mounts the simulation/attacker directories.
@@ -82,7 +82,7 @@ Use `-d` for detached mode, then follow with `docker compose ... logs -f` to str
 
 ### Step 2: Confirm Startup
 
-`docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml logs grid-attack-demo` should include:
+`docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml logs grid-attack-demo` should include:
 - `HELICS federate ev_attacker_mcp entered execution mode`
 - `Running on http://127.0.0.1:5100`
 
@@ -122,7 +122,7 @@ The response should show `"attack_type": "normal"`, confirming that the safety c
 
 ```bash
 # Terminal 1: Follow container output (all services)
-docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml logs -f grid-attack-demo
+docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml logs -f grid-attack-demo
 
 # Terminal 2: Follow LLM interaction log
 tail -f examples/2bus-13bus/logs/llm_interactions.jsonl | jq
@@ -244,11 +244,11 @@ watch -n 5 'curl -s http://localhost:5100/primitive \
 
 ```bash
 # Count attack types
-jq -r '.attack_type' ev_setpoint_mcp/output/interaction_log.jsonl | sort | uniq -c
+jq -r '.attack_type' archive/ev_setpoint_mcp/output/interaction_log.jsonl | sort | uniq -c
 
 # Find overload attacks
 jq 'select(.attack_type == "overload_attack")' \
-  ev_setpoint_mcp/output/interaction_log.jsonl
+  archive/ev_setpoint_mcp/output/interaction_log.jsonl
 
 # Calculate attack success rate
 # (attacks that triggered protection / total attacks)
@@ -265,7 +265,7 @@ jq 'select(.attack_type == "overload_attack")' \
 
 ## Troubleshooting
 
-> **Note:** The commands below were originally written for the multi-container deployment. When using the new `grid-attack-demo` compose service, replace container names such as `grid-simulation` or `ev-setpoint-mcp` with `grid-attack-demo` and inspect logs via `docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml logs -f`.
+> **Note:** The commands below were originally written for the multi-container deployment. When using the `grid-attack-demo` compose service, replace container names such as `grid-simulation` or `ev-setpoint-mcp` with `grid-attack-demo` and inspect logs via `docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml logs -f`.
 
 ### Issue: MCP Server Can't Connect to HELICS
 
@@ -322,13 +322,13 @@ docker logs IEEE123bus_fed | grep "publication"
 
 ```bash
 # Stop attack MCP server
-docker-compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml down
+docker-compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml down
 
 # Stop entire simulation
 docker-compose -f docker/docker-compose.demo.yml down
 
 # Clean up logs and outputs
-rm -rf ev_setpoint_mcp/output/*.jsonl
+rm -rf archive/ev_setpoint_mcp/output/*.jsonl
 ```
 
 ---

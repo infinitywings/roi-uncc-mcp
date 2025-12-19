@@ -110,12 +110,12 @@ Source: [examples/2bus-13bus/include/players/load_shape_player.player](examples/
   - `gridlabd 1c_IEEE_123_feeder_2.glm` → `IEEE123bus_fed_2` (Feeder B).
   - `python 1bc_EV_Controller.py -c 1c` → `1c_Controller` (legit EV control).
   - `./build/gpk-left-fed.x` → `gridpack` (transmission).
-  - Attacker MCP runs separately via ev_setpoint_mcp docker compose when used.
+  - Attacker MCP runs separately via `archive/ev_setpoint_mcp` docker compose when used.
 - Launch command (native):
   - `cd examples/2bus-13bus && helics run --path=gpk-gld-cosim.json`
 - Docker orchestration note:
   - A previously used multi-container “demo stack” compose file is archived under [archive/legacy_demo/docker/docker-compose.demo.yml](archive/legacy_demo/docker/docker-compose.demo.yml).
-  - The currently supported and simplest Docker path is the single-container `grid-attack-demo` service in [ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml](ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml), which launches the broker + 2× GridLAB-D + controller + GridPACK + MCP server in one container.
+  - The simplest Docker path is the single-container `grid-attack-demo` service in [archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml](archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml), which launches the broker + 2× GridLAB-D + controller + GridPACK + MCP server in one container (archived).
 - Build prerequisites:
   - GridPACK: `mkdir build && cd build && cmake .. && make` in [examples/2bus-13bus](examples/2bus-13bus); produces `build/gpk-left-fed.x`.
   - Python deps: `pip install helics matplotlib pandas numpy` (use same interpreter as controller run).
@@ -247,10 +247,10 @@ Notes:
 
 ```bash
 cd /path/to/roi-uncc-mcp
-docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build
+docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build
 ```
 
-What this does (via [ev_setpoint_mcp/docker/run_grid_attack_demo.sh](ev_setpoint_mcp/docker/run_grid_attack_demo.sh)):
+What this does (via [archive/ev_setpoint_mcp/docker/run_grid_attack_demo.sh](archive/ev_setpoint_mcp/docker/run_grid_attack_demo.sh)):
 - Ensures `examples/2bus-13bus/build/gpk-left-fed.x` exists; runs `cmake .. && make` if missing or stale.
 - Starts a local HELICS broker on `tcp://localhost:23404` (inside the container).
 - Launches:
@@ -304,7 +304,7 @@ helics run --path=gpk-gld-cosim.json
 If you want the attacker interface in native mode, run the MCP server separately:
 
 ```bash
-cd ev_setpoint_mcp
+cd archive/ev_setpoint_mcp
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python run_server.py --config config/ev_mcp_local.yaml
@@ -321,7 +321,7 @@ python run_server.py --config config/ev_mcp_local.yaml
 - `examples/2bus-13bus` exists and contains the model files (cloned from `Grid-Simulation-Models`).
 - Docker path:
   - `roi-img:latest` exists locally (`docker images | grep roi-img`).
-  - `docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build` runs to completion.
+  - `docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build` runs to completion.
   - `http://localhost:5100/primitive` responds.
   - `examples/2bus-13bus/logs/` contains `broker.log`, `gld1.log`, `gld2.log`, `controller.log`, `gridpack.log`, `attacker.log`.
 - Native path:

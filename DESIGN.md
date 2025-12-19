@@ -38,7 +38,7 @@
 - **Reference**: Full feeder/phase diagrams live in `examples/2bus-13bus/GRID_DIAGRAM.md`.
 
 ## 3. Container Workflow
-1. `docker-compose.ev-mcp.yml` builds the image from `ev_setpoint_mcp/docker/Dockerfile` (base `roi-img:latest`).
+1. `docker-compose.ev-mcp.yml` builds the image from `archive/ev_setpoint_mcp/docker/Dockerfile` (base `roi-img:latest`).
 2. `CMD` executes `docker/run_grid_attack_demo.sh`, which:
    - Builds GridPACK artifacts on first run (`cmake && make`).
    - Starts a local HELICS broker on `tcp://localhost:23404`.
@@ -91,6 +91,6 @@
 
 ## 8. Observability & Artefacts
 - `examples/2bus-13bus/logs/` — broker, federate, controller, attacker, and AI campaign logs.
-- `ev_setpoint_mcp/output/interaction_log.jsonl` — per-request audit trail when enabled.
+- `archive/ev_setpoint_mcp/output/interaction_log.jsonl` — per-request audit trail when enabled.
 - `examples/2bus-13bus/build/` — GridPACK executable (`gpk-left-fed.x`).
 - Use `docker logs grid-attack-demo` for aggregate view if needed.

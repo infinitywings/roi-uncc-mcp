@@ -2,7 +2,7 @@
 
 **Last updated:** 2025-10-15  
 **Maintainer:** Codex session (AI assistant)  
-**Environment:** Single-container EV attacker demo (`ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml`)
+**Environment:** Single-container EV attacker demo (archived at `archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml`)
 
 ---
 
@@ -15,7 +15,7 @@
 
 ## 2. What Changed in This Session
 - Archived legacy multi-container assets under `archive/legacy_demo/` to reduce clutter.
-- Updated `ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml` to build from `ev_setpoint_mcp/docker/Dockerfile` (path fix after archival move).
+- Updated `archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml` to build from `archive/ev_setpoint_mcp/docker/Dockerfile` (path fix after archival move).
 - Reworked documentation into three concise files: `README.md`, `DESIGN.md`, `STATUS.md`.
 - Adjusted AI helper defaults (`run_ai_campaign.py`) earlier to mitigate timeouts (90 s per request, 2 s delay).
 - Instrumented `set_ev_capacity` path (ActionService + EV federate + Flask handler) so logs capture per-request latency, HELICS send time, and whether a refresh was queued.
@@ -36,7 +36,7 @@
 
 ## 4. Quick Resume Checklist
 1. Ensure Docker daemon is running and `roi-img:latest` is built.
-2. `docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build`.
+2. `docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build`.
 3. Wait for the “[startup] All federates launched” message in container logs.
 4. Hit `/health` and `/primitive` endpoints to confirm readiness.
 5. Tail `examples/2bus-13bus/logs/ai_campaign.log` to monitor AI activity.

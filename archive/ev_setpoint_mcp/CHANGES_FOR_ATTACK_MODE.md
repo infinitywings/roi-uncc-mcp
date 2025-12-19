@@ -7,7 +7,7 @@ The EV Setpoint MCP server has been reconfigured from a normal operation mode to
 **Date**: 2025-01-07
 **Purpose**: Enable red team attacks while blue team (legitimate controller) continues operation
 
-> Legacy assets referenced in this changelog (e.g., `mcp-server/…`, `run_demo.sh`) now live under `archive/legacy_demo/`. The active implementation remains in `ev_setpoint_mcp/`.
+> Legacy assets referenced in this changelog (e.g., `mcp-server/…`, `run_demo.sh`) now live under `archive/legacy_demo/`. This implementation is archived under `archive/ev_setpoint_mcp/`.
 
 ---
 

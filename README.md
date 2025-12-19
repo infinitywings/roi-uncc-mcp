@@ -40,8 +40,8 @@ Critical power systems increasingly blend cyber control with distributed energy 
 - **Defender insights:** Use controller logs and feeder overload warnings to identify detection signals and potential automated mitigations.
 
 ## How to Run
-- With attacker (default): `docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build -d`
-- Without attacker: `RUN_AI_CAMPAIGN=0 docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build -d`
+- With attacker (archived): `docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build -d`
+- Without attacker (archived): `RUN_AI_CAMPAIGN=0 docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build -d`
 - Monitor logs: `examples/2bus-13bus/logs/{controller,gld1,gld2,ai_campaign,attacker,broker}.log`
 
 ## Notes & Future Work
