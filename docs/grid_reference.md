@@ -8,12 +8,12 @@ A comprehensive reference consolidating all documentation for the AI-assisted re
 - `examples/2bus-13bus/QUICK_REFERENCE.txt` — Operational commands
 - `docs/ai_red_team_framework_summary.md` — Research framework overview
 - `docs/attack_vs_baseline_report.md` — Experimental comparison results
-- `ev_setpoint_mcp/README.md` — MCP server documentation
-- `ev_setpoint_mcp/ATTACK_STRATEGIES.md` — Attack strategy catalog
-- `ev_setpoint_mcp/CONFIG_VALIDATION.md` — Configuration validation
-- `ev_setpoint_mcp/DEPLOYMENT_ATTACK_MODE.md` — Deployment guide
-- `ev_setpoint_mcp/CHANGES_FOR_ATTACK_MODE.md` — Implementation changelog
-- `ev_setpoint_mcp/SUMMARY.md` — Quick reference summary
+- `archive/ev_setpoint_mcp/README.md` — archived MCP server documentation
+- `archive/ev_setpoint_mcp/ATTACK_STRATEGIES.md` — archived attack strategy catalog
+- `archive/ev_setpoint_mcp/CONFIG_VALIDATION.md` — archived configuration validation
+- `archive/ev_setpoint_mcp/DEPLOYMENT_ATTACK_MODE.md` — archived deployment guide
+- `archive/ev_setpoint_mcp/CHANGES_FOR_ATTACK_MODE.md` — archived implementation changelog
+- `archive/ev_setpoint_mcp/SUMMARY.md` — archived quick reference summary
 
 ---
 
@@ -540,7 +540,7 @@ curl -X POST http://localhost:5100/primitive -H "Content-Type: application/json"
 
 ```bash
 cd /home/cfu6/roi-uncc-mcp
-docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build
+docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build
 ```
 
 This:
@@ -563,7 +563,7 @@ This:
 ### Verify Startup
 
 ```bash
-docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml logs grid-attack-demo
+docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml logs grid-attack-demo
 ```
 
 Should show:
@@ -746,10 +746,10 @@ netstat -an | grep 23406
 | HELICS Config | `examples/2bus-13bus/mainglm.json` |
 | Blue-Team Controller | `examples/2bus-13bus/1bc_EV_Controller.py` |
 | Simulation Runner | `examples/2bus-13bus/gpk-gld-cosim.json` |
-| MCP Config | `ev_setpoint_mcp/config/ev_mcp.yaml` |
-| AI Campaign | `ev_setpoint_mcp/tools/run_ai_campaign.py` |
-| Docker Compose | `ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml` |
-| Attack Strategies | `ev_setpoint_mcp/ATTACK_STRATEGIES.md` |
+| MCP Config | `archive/ev_setpoint_mcp/config/ev_mcp.yaml` |
+| AI Campaign | `archive/ev_setpoint_mcp/tools/run_ai_campaign.py` |
+| Docker Compose | `archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml` |
+| Attack Strategies | `archive/ev_setpoint_mcp/ATTACK_STRATEGIES.md` |
 
 ---
 

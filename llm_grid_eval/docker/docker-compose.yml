@@ -1,0 +1,13 @@
+services:
+  llm-grid-eval:
+    build:
+      context: ../..
+      dockerfile: llm_grid_eval/docker/Dockerfile
+    container_name: llm-grid-eval
+    ports:
+      - "5100:5100"
+    environment:
+      # Override as needed to reach your broker (e.g., tcp://helics-broker:23404 inside a compose network).
+      HELICS_BROKER_ADDRESS: "${HELICS_BROKER_ADDRESS:-tcp://localhost:23404}"
+    restart: unless-stopped
+

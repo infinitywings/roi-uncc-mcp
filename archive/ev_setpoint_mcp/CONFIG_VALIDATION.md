@@ -181,7 +181,7 @@ ev_endpoints:
 ```bash
 # Start simulation and MCP server
 docker-compose -f docker/docker-compose.demo.yml up -d
-docker-compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up -d
+docker-compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up -d
 
 # Query grid status
 curl -s http://localhost:5100/primitive \

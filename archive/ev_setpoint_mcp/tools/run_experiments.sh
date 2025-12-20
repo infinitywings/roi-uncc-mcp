@@ -28,7 +28,7 @@ run_experiment() {
 
     export CONTROLLER_INTERVAL_SEC="$controller_interval"
     cd "$PROJECT_ROOT"
-    docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up -d --build
+    docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up -d --build
     sleep 30
 
     case "$attacker_type" in
@@ -59,7 +59,7 @@ run_experiment() {
     esac
 
     cp -r "${PROJECT_ROOT}/examples/2bus-13bus/logs/"* "$log_dir/" 2>/dev/null || true
-    docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml down
+    docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml down
     echo "[$(date)] Completed ${exp_name}"
 }
 

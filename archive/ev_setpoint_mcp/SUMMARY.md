@@ -85,7 +85,7 @@ Grid Simulation (Docker)
 - Spin up the one-container demo and run an AI campaign:
   ```bash
   cd /home/cfu6/roi-uncc-mcp
-  docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build
+  docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build
   ```
   This:
   - Builds GridPACK if needed.
@@ -134,7 +134,7 @@ curl -s http://localhost:5100/primitive \
 docker logs -f ev-setpoint-mcp
 
 # Watch interaction log (AI audit trail)
-tail -f ev_setpoint_mcp/output/interaction_log.jsonl | jq
+tail -f archive/ev_setpoint_mcp/output/interaction_log.jsonl | jq
 
 # Watch legitimate controller response
 docker logs -f 1c_Controller

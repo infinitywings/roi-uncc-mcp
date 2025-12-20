@@ -1,9 +1,9 @@
 # EV Setpoint Attack vs. Baseline Run
 
 ## Shared Configuration
-- **Runtime stack** – launched via `docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build -d`, which mounts the `examples/2bus-13bus` workspace into the container and exposes the primitive API on port 5100 (`ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml:1-22`).
-- **AI campaign parameters** – by default the container starts the helper with unlimited steps, a 5 s wall-clock interval, 600 s warm-up wait, 24 h target duration, and 0.1 s between successive actions (`ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml:14-21`).
-- **Attacker HELICS settings** – the MCP federate advances HELICS time in 600 s quanta (`time_delta`/`period`) while polling every 10 s, and can target six EV endpoints capped at ±4 MW (`ev_setpoint_mcp/config/ev_mcp_local.yaml:6-80`).
+- **Runtime stack** – launched via `docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build -d`, which mounts the `examples/2bus-13bus` workspace into the container and exposes the primitive API on port 5100 (`archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml:1-22`).
+- **AI campaign parameters** – by default the container starts the helper with unlimited steps, a 5 s wall-clock interval, 600 s warm-up wait, 24 h target duration, and 0.1 s between successive actions (`archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml:14-21`).
+- **Attacker HELICS settings** – the MCP federate advances HELICS time in 600 s quanta (`time_delta`/`period`) while polling every 10 s, and can target six EV endpoints capped at ±4 MW (`archive/ev_setpoint_mcp/config/ev_mcp_local.yaml:6-80`).
 - **Blue-team controller** – `examples/2bus-13bus/1bc_EV_Controller.py` runs a 24 h loop with 20-minute evaluation intervals, enforcing feeder limits of 2.6–4.2 MW (`examples/2bus-13bus/1bc_EV_Controller.py:75-84`).
 
 ## Run 1 – AI attacker enabled (2025‑11‑11 15:27 EST)
@@ -39,4 +39,3 @@ When the attacker is idle, the feeder cruises within the 4.2 MW upper bound, a
 - **Simulation progress** – Baseline run continued indefinitely, whereas the attack run halted at 600 s due to a GridLAB-D convergence failure. This highlights that the current attack configuration is too aggressive to showcase downstream protection effects.
 - **Controller visibility** – In baseline mode the controller samples and logs every 20 minutes; under attack it only produced the first log entry before HELICS errored out. Showing a meaningful difference therefore requires either throttling the attack steps or hardening the feeder model so the controller can react.
 - **Data for visualization** – Use `examples/2bus-13bus/logs_baseline/gld1.log` as the reference trace and `examples/2bus-13bus/logs/gld1.log` / `ai_campaign.log` for the attack case when plotting feeder load, line overloads, or campaign events side-by-side.
-

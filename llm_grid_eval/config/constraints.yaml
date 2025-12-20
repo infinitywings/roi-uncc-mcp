@@ -1,0 +1,21 @@
+# Attacker Constraints - MUST be identical for AI and Random
+# This ensures fair comparison: only decision logic differs.
+
+observation:
+  interval_sec: 5.0
+
+action:
+  min_cooldown_sec: 30.0
+  max_attacks_per_hour: 60
+
+power:
+  # Reduced from 1500-3500 to avoid immediate overload (3.2MW controller limit)
+  min_kw: 200.0
+  max_kw: 800.0
+
+targets:
+  valid_ev_ids: ["EV1", "EV2", "EV3", "EV4", "EV5", "EV6"]
+
+grid:
+  threshold_kw: 4200.0
+

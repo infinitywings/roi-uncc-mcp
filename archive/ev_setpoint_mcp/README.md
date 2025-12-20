@@ -58,14 +58,14 @@ If the 2bus-13bus co-simulation is running inside Docker, you can launch the MCP
 docker compose -f docker/docker-compose.demo.yml up -d
 
 # Build and start the EV MCP container, attaching to the shared grid-network
-docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build -d
+docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build -d
 ```
 
 The compose file expects an external `grid-network` (created automatically by the main demo stack). Environment variables are provided to the container so it reaches the HELICS broker at `tcp://helics-broker:23406`. To override at runtime:
 
 ```bash
 EV_MCP_SERVER_PORT=5200 HELICS_BROKER_ADDRESS=tcp://helics-broker:23406 \
-  docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up -d
+  docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up -d
 ```
 
 The container exposes the REST API on port `5100` by default for AI clients (or the port you override via `EV_MCP_SERVER_PORT`).
@@ -169,7 +169,7 @@ Follow these steps after cloning the repository to run the complete demonstratio
 
 3. **Launch the EV MCP server container** on the same network:
    ```bash
-   docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build -d
+   docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml up --build -d
    ```
 
 4. **Verify connectivity** by issuing observation primitives from the host (replace `localhost` with the appropriate host/IP if running remotely):
@@ -188,13 +188,13 @@ Follow these steps after cloning the repository to run the complete demonstratio
 
 6. **Monitor AI activity** by tailing the interaction log and container output:
    ```bash
-   tail -f ev_setpoint_mcp/output/interaction_log.jsonl
-   docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml logs -f
+   tail -f archive/ev_setpoint_mcp/output/interaction_log.jsonl
+   docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml logs -f
    ```
 
 7. **Shut everything down** once the campaign completes (~5 minutes):
    ```bash
-   docker compose -f ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml down
+   docker compose -f archive/ev_setpoint_mcp/docker/docker-compose.ev-mcp.yml down
    docker compose -f docker/docker-compose.demo.yml down
    ```
 

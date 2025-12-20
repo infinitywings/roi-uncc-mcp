@@ -9,4 +9,4 @@ This folder preserves the original multi-container MCP server workflow. It conta
 - `scripts/`, `demo.py`, `run_demo.sh` – orchestration helpers for the legacy workflow.
 - `API.txt`, `CLAUDE.md`, `PROJECT_STRUCTURE.md` – historical documentation notes.
 
-The current supported demo lives under `ev_setpoint_mcp/`. The assets here are read-only references kept for posterity and should not be modified unless you are intentionally reviving the legacy workflow.
+The current (previous) single-container demo has been archived under `archive/ev_setpoint_mcp/`. The assets here are read-only references kept for posterity and should not be modified unless you are intentionally reviving the legacy workflow.
