@@ -15,6 +15,11 @@ class Voltages:
     VB_pu: float
     VC_pu: float
 
+    @property
+    def is_within_limits(self) -> bool:
+        """Check if all phase voltages are within acceptable limits (0.95-1.05 pu)."""
+        return all(0.95 <= v <= 1.05 for v in [self.VA_pu, self.VB_pu, self.VC_pu])
+
 
 @dataclass(frozen=True)
 class EVStation:
@@ -60,6 +65,7 @@ class GridState:
                     "VA_pu": self.voltages.VA_pu,
                     "VB_pu": self.voltages.VB_pu,
                     "VC_pu": self.voltages.VC_pu,
+                    "within_limits": self.voltages.is_within_limits,
                 },
                 "total_real_power_kw": self.total_real_power_kw,
                 "total_reactive_power_kvar": self.total_reactive_power_kvar,

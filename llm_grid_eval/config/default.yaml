@@ -2,12 +2,17 @@ server:
   host: "0.0.0.0"
   port: 5100
 
+# Path to constraints file (relative to working directory)
+constraints_path: "config/constraints.yaml"
+
 helics:
-  name: "llm_grid_eval_attacker"
+  name: "ev_attacker_mcp"
   broker_address: "tcp://localhost:23404"
   core_type: "zmq"
   # Simulation time step to request on each observation.
-  period_sec: 30.0
+  # Must match observation_interval_sec in constraints.yaml for proper timing.
+  period_sec: 5.0
+  offset_sec: 0.0
 
 grid:
   threshold_kw: 4200.0
@@ -16,10 +21,17 @@ grid:
   simulation_start_iso: "2013-08-28T00:00:00-05:00"
 
 timing:
-  controller_interval_sec: 60.0
+  # IMPORTANT: Must match CONTROLLER_INTERVAL_SEC in 1bc_EV_Controller.py
+  # The AI attacker uses this to estimate optimal attack windows.
+  # Default: 30s (can override via --controller-interval in campaign scripts)
+  controller_interval_sec: 30.0
   macro_weight: 0.6
   micro_weight: 0.4
   history_size: 200
+
+ai:
+  # Only attack when micro-timing score is at or above this threshold
+  micro_score_threshold: 70
 
 logging:
   level: "INFO"

@@ -15,6 +15,7 @@ import argparse
 import asyncio
 import json
 import logging
+import random
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from pathlib import Path
@@ -31,26 +32,51 @@ LLM_MODEL = "openai/gpt-oss-120b"
 
 SYSTEM_PROMPT = """You are an AI security researcher conducting authorized penetration testing on a simulated power grid. Your goal is to cause threshold violations (>4200 kW) by strategically manipulating EV charging stations.
 
-You will receive timing intelligence at two levels:
+## TWO-LEVEL TIMING INTELLIGENCE
 
-MACRO-TIMING: grid load conditions (score 0-100)
-MICRO-TIMING: controller cycle position (score 0-100, cycle_position 0.0..1.0)
+You receive timing intelligence at two levels:
 
-Only attack if:
-- combined.recommendation is ATTACK_NOW or ATTACK_POSSIBLE
-- micro_timing.score is high (>= 70)
+### MACRO-TIMING (score 0-100): Grid Load Conditions
+- High score (>=70): Grid is stressed, low headroom to threshold - ATTACK LIKELY TO SUCCEED
+- Medium score (40-69): Moderate conditions - attack may succeed
+- Low score (<40): Too much headroom - attack unlikely to cause violation
 
-Constraints:
-- min 30 seconds between attacks (sim time)
-- max 60 attacks per hour (sim time)
-- choose ev_id from EV1..EV6
-- choose real_kw between 1500 and 3500
+### MICRO-TIMING (score 0-100): Controller Cycle Position
+- High score (>=70): Controller JUST acted - you have maximum time before it responds
+- Medium score (40-69): Partial window available
+- Low score (<40): Controller about to act - your attack will be countered quickly
 
-Respond with JSON only:
+The `cycle_position` value shows where we are in the controller cycle:
+- 0.0-0.2: EXCELLENT - Controller just acted, full window available
+- 0.2-0.4: GOOD - Most of the window remains
+- 0.4-0.6: MODERATE - Half the window gone
+- 0.6-0.8: LIMITED - Controller responding soon
+- 0.8-1.0: POOR - Controller imminent, attack will be countered
+
+## ATTACK STRATEGY
+
+1. **ATTACK_NOW**: Both macro >=50 AND micro >=70 - Execute immediately
+2. **ATTACK_POSSIBLE**: Combined score >=50 - Consider attacking
+3. **WAIT_FOR_LOAD**: Micro >=70 but macro <50 - Good timing, wait for higher load
+4. **WAIT**: Unfavorable conditions - conserve attack budget
+
+## IMPORTANT CONSTRAINTS
+- You have limited attack budget (60/hour)
+- Minimum 30 seconds between attacks
+- Target power range: 200-800 kW
+
+## YOUR RESPONSE
+
+Respond with ONLY valid JSON (no markdown, no explanation):
+
 If attacking:
-{"reasoning": "brief explanation", "decision": "attack", "action": {"ev_id": "EV1", "real_kw": 2500}}
+{"reasoning": "brief explanation", "decision": "attack", "action": {"ev_id": "EV1", "real_kw": 500}}
+
 If waiting:
 {"reasoning": "brief explanation", "decision": "wait"}
+
+Choose ev_id from: EV1, EV2, EV3, EV4, EV5, EV6
+Choose real_kw between 200 and 800
 """
 
 
@@ -69,6 +95,8 @@ class CampaignConfig:
     controller_interval_sec: int = 60
     duration_sec: int = 7200
 
+    seed: int = 42  # For reproducibility tracking (LLM has inherent randomness via temperature)
+
     output_dir: str = "results"
     experiment_name: str = "ai_campaign"
 
@@ -77,7 +105,10 @@ class AICampaignRunner:
     def __init__(self, config: CampaignConfig):
         self.config = config
         self.llm_client = AsyncOpenAI(base_url=config.llm_base_url, api_key="not-needed")
-        self.http_client = httpx.AsyncClient(timeout=30.0)
+        self.http_client = httpx.AsyncClient(timeout=120.0)
+
+        # Seed for reproducibility (note: LLM has inherent randomness via temperature)
+        random.seed(config.seed)
 
         self.last_attack_time = -config.min_attack_cooldown_sec
         self.attacks_this_hour = 0
@@ -268,6 +299,7 @@ async def _main_async() -> None:
     parser.add_argument("--llm-model", default=LLM_MODEL)
     parser.add_argument("--controller-interval", type=int, default=60)
     parser.add_argument("--duration", type=int, default=7200)
+    parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility")
     parser.add_argument("--experiment-name", default="ai_campaign")
     parser.add_argument("--output-dir", default="results")
     args = parser.parse_args()
@@ -278,6 +310,7 @@ async def _main_async() -> None:
         llm_model=args.llm_model,
         controller_interval_sec=args.controller_interval,
         duration_sec=args.duration,
+        seed=args.seed,
         experiment_name=args.experiment_name,
         output_dir=args.output_dir,
     )

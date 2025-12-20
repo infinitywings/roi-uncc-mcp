@@ -100,7 +100,11 @@ def create_app(config: AppConfig) -> FastAPI:
                 "federate_name": state.config.helics.name,
                 "broker_address": state.config.helics.broker_address,
                 "period_sec": state.config.helics.period_sec,
+                "offset_sec": state.config.helics.offset_sec,
                 "current_time_sec": state.federate.current_time,
+            },
+            "ai": {
+                "micro_score_threshold": state.config.ai.micro_score_threshold,
             },
         }
 
@@ -161,6 +165,14 @@ def create_app(config: AppConfig) -> FastAPI:
         final_time = latest.simulation_time_sec if latest else state.federate.current_time
         state.metrics.finalize(final_time)
         return {"status": "ok", "final_metrics": state.metrics.get_metrics()}
+
+    @app.on_event("startup")
+    def startup():
+        """Initialize HELICS federate on server startup (not lazily)."""
+        state: AppState = app.state.llm_grid_eval
+        logging.getLogger(__name__).info("Initializing HELICS federate on startup...")
+        state.federate.initialize()
+        logging.getLogger(__name__).info("HELICS federate initialized successfully")
 
     @app.on_event("shutdown")
     def shutdown():

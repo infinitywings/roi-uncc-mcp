@@ -18,10 +18,11 @@ class ServerConfig:
 
 @dataclass(frozen=True)
 class HelicsConfig:
-    name: str = "llm_grid_eval_attacker"
+    name: str = "ev_attacker_mcp"
     broker_address: str = "tcp://localhost:23404"
     core_type: str = "zmq"
-    period_sec: float = 30.0
+    period_sec: float = 5.0
+    offset_sec: float = 0.0
 
 
 @dataclass(frozen=True)
@@ -40,11 +41,18 @@ class TimingConfig:
 
 
 @dataclass(frozen=True)
+class AIConfig:
+    """AI attacker configuration."""
+    micro_score_threshold: int = 70
+
+
+@dataclass(frozen=True)
 class AppConfig:
     server: ServerConfig
     helics: HelicsConfig
     grid: GridConfig
     timing: TimingConfig
+    ai: AIConfig
     logging_level: str = "INFO"
     constraints_path: str = "llm_grid_eval/config/constraints.yaml"
 
@@ -57,6 +65,7 @@ def load_app_config(config_path: str | Path) -> AppConfig:
     helics_raw = raw.get("helics", {}) or {}
     grid_raw = raw.get("grid", {}) or {}
     timing_raw = raw.get("timing", {}) or {}
+    ai_raw = raw.get("ai", {}) or {}
     logging_raw = raw.get("logging", {}) or {}
 
     broker_override = os.getenv("HELICS_BROKER_ADDRESS") or os.getenv("HELICS_BROKER")
@@ -75,10 +84,11 @@ def load_app_config(config_path: str | Path) -> AppConfig:
             port=int(server_raw.get("port", 5100)),
         ),
         helics=HelicsConfig(
-            name=str(helics_raw.get("name", "llm_grid_eval_attacker")),
+            name=str(helics_raw.get("name", "ev_attacker_mcp")),
             broker_address=str(helics_raw.get("broker_address", "tcp://localhost:23404")),
             core_type=str(helics_raw.get("core_type", "zmq")),
-            period_sec=float(helics_raw.get("period_sec", 30.0)),
+            period_sec=float(helics_raw.get("period_sec", 5.0)),
+            offset_sec=float(helics_raw.get("offset_sec", 0.0)),
         ),
         grid=GridConfig(
             threshold_kw=float(grid_raw.get("threshold_kw", 4200.0)),
@@ -90,6 +100,9 @@ def load_app_config(config_path: str | Path) -> AppConfig:
             macro_weight=float(timing_raw.get("macro_weight", 0.6)),
             micro_weight=float(timing_raw.get("micro_weight", 0.4)),
             history_size=int(timing_raw.get("history_size", 200)),
+        ),
+        ai=AIConfig(
+            micro_score_threshold=int(ai_raw.get("micro_score_threshold", 70)),
         ),
         logging_level=str(logging_raw.get("level", "INFO")),
         constraints_path=str(raw.get("constraints_path", "llm_grid_eval/config/constraints.yaml")),

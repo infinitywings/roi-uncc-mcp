@@ -22,8 +22,9 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 EV_IDS = ["EV1", "EV2", "EV3", "EV4", "EV5", "EV6"]
-MIN_POWER_KW = 1500.0
-MAX_POWER_KW = 3500.0
+# Reduced from 1500-3500 to avoid immediate overload (3.2MW controller limit)
+MIN_POWER_KW = 200.0
+MAX_POWER_KW = 800.0
 
 
 @dataclass
@@ -46,7 +47,7 @@ class BaselineConfig:
 class RandomBaselineRunner:
     def __init__(self, config: BaselineConfig):
         self.config = config
-        self.http_client = httpx.AsyncClient(timeout=30.0)
+        self.http_client = httpx.AsyncClient(timeout=120.0)
         random.seed(config.seed)
 
         self.last_attack_time = -config.min_attack_cooldown_sec

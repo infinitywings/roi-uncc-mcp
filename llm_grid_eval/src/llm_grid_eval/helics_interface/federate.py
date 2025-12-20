@@ -53,6 +53,7 @@ class GridFederate:
         h.helicsFederateInfoSetBroker(fi, self._config.broker_address)
         h.helicsFederateInfoSetTimeProperty(fi, h.HELICS_PROPERTY_TIME_DELTA, self.period_sec)
         h.helicsFederateInfoSetTimeProperty(fi, h.HELICS_PROPERTY_TIME_PERIOD, self.period_sec)
+        h.helicsFederateInfoSetTimeProperty(fi, h.HELICS_PROPERTY_TIME_OFFSET, self._config.offset_sec)
 
         with self._lock:
             self._fed = h.helicsCreateCombinationFederate(self._config.name, fi)
