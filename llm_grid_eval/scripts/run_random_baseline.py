@@ -22,9 +22,9 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 EV_IDS = ["EV1", "EV2", "EV3", "EV4", "EV5", "EV6"]
-# Original power range restored - rate-limited ramping prevents GridLAB-D crashes
-MIN_POWER_KW = 1500.0
-MAX_POWER_KW = 3500.0
+# Reduced power range to prevent controller-triggered crashes
+MIN_POWER_KW = 500.0
+MAX_POWER_KW = 1500.0
 
 
 @dataclass
@@ -32,10 +32,10 @@ class BaselineConfig:
     mcp_url: str = "http://localhost:5100"
 
     observation_interval_sec: float = 5.0
-    min_attack_cooldown_sec: float = 30.0
-    max_attacks_per_hour: int = 60
+    min_attack_cooldown_sec: float = 90.0  # 1.5x controller interval for scarce budget
+    max_attacks_per_hour: int = 20  # Reduced budget forces strategic timing
 
-    attack_probability: float = 0.3
+    attack_probability: float = 0.6  # Higher probability, but limited by cooldown/budget
 
     duration_sec: int = 7200
     seed: int = 42
@@ -176,7 +176,7 @@ async def _main_async() -> None:
     parser = argparse.ArgumentParser(description="Random Attack Baseline")
     parser.add_argument("--mcp-url", default="http://localhost:5100")
     parser.add_argument("--duration", type=int, default=7200)
-    parser.add_argument("--attack-probability", type=float, default=0.3)
+    parser.add_argument("--attack-probability", type=float, default=0.6)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--experiment-name", default="random_baseline")
     parser.add_argument("--output-dir", default="results")

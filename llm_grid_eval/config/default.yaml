@@ -21,10 +21,9 @@ grid:
   simulation_start_iso: "2013-08-28T00:00:00-05:00"
 
 timing:
-  # IMPORTANT: Must match CONTROLLER_INTERVAL_SEC in 1bc_EV_Controller.py
+  # IMPORTANT: Must match update_interval in 1bc_EV_Controller.py (currently 60s)
   # The AI attacker uses this to estimate optimal attack windows.
-  # Default: 30s (can override via --controller-interval in campaign scripts)
-  controller_interval_sec: 30.0
+  controller_interval_sec: 60.0
   macro_weight: 0.6
   micro_weight: 0.4
   history_size: 200

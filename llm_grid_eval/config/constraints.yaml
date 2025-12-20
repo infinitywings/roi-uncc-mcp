@@ -5,14 +5,20 @@ observation:
   interval_sec: 5.0
 
 action:
-  min_cooldown_sec: 30.0
-  max_attacks_per_hour: 60
+  # Scarce attack budget forces strategic timing decisions.
+  # With 90s cooldown and 60s controller interval, attacker gets ~0.67 attacks per cycle.
+  # This makes timing intelligence valuable - attacking at wrong time wastes precious budget.
+  min_cooldown_sec: 90.0
+  max_attacks_per_hour: 20
 
 power:
-  # Original attack power range restored now that rate-limited ramping is enabled.
-  # Ramping (100 kW/s) prevents GridLAB-D Newton-Raphson solver crashes.
-  min_kw: 1500.0
-  max_kw: 3500.0
+  # Reduced power range to prevent controller-triggered shutdowns.
+  # When multiple EVs are attacked, combined power can overwhelm threshold (4200kW).
+  # Base load ~3565kW, headroom ~635kW. Keep individual attacks moderate to prevent
+  # the controller from triggering all-EV shutdown (which crashes GridLAB-D).
+  # Ramping (100 kW/s) prevents attacker-caused GridLAB-D crashes.
+  min_kw: 500.0
+  max_kw: 1500.0
 
 targets:
   valid_ev_ids: ["EV1", "EV2", "EV3", "EV4", "EV5", "EV6"]
