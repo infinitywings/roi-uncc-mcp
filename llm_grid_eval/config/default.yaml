@@ -33,6 +33,15 @@ ai:
   # Only attack when micro-timing score is at or above this threshold
   micro_score_threshold: 70
 
+ramping:
+  # Rate-limited power ramping to prevent GridLAB-D Newton-Raphson solver crashes.
+  # When enabled, power changes are gradual (100 kW/s) instead of step changes.
+  enabled: true
+  # Maximum power change rate in kW per second.
+  # At 5s interval: max 500 kW per step.
+  # Time to ramp from 200 kW to 2500 kW: ~23 seconds (5 timesteps).
+  ramp_rate_kw_per_sec: 100.0
+
 logging:
   level: "INFO"
 

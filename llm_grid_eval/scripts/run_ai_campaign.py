@@ -63,20 +63,21 @@ The `cycle_position` value shows where we are in the controller cycle:
 ## IMPORTANT CONSTRAINTS
 - You have limited attack budget (60/hour)
 - Minimum 30 seconds between attacks
-- Target power range: 200-800 kW
+- Target power range: 1500-3500 kW
+- Power changes are rate-limited (100 kW/s) - higher power targets need more time to reach
 
 ## YOUR RESPONSE
 
 Respond with ONLY valid JSON (no markdown, no explanation):
 
 If attacking:
-{"reasoning": "brief explanation", "decision": "attack", "action": {"ev_id": "EV1", "real_kw": 500}}
+{"reasoning": "brief explanation", "decision": "attack", "action": {"ev_id": "EV1", "real_kw": 2500}}
 
 If waiting:
 {"reasoning": "brief explanation", "decision": "wait"}
 
 Choose ev_id from: EV1, EV2, EV3, EV4, EV5, EV6
-Choose real_kw between 200 and 800
+Choose real_kw between 1500 and 3500
 """
 
 

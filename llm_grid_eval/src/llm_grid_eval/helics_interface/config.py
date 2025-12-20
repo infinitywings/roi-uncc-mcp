@@ -47,12 +47,22 @@ class AIConfig:
 
 
 @dataclass(frozen=True)
+class RampingConfig:
+    """Rate-limited power ramping configuration."""
+    enabled: bool = True
+    ramp_rate_kw_per_sec: float = 100.0
+    # At 5s interval: max 500 kW per step
+    # Time to reach 2500 kW from 200 kW: ~23 seconds
+
+
+@dataclass(frozen=True)
 class AppConfig:
     server: ServerConfig
     helics: HelicsConfig
     grid: GridConfig
     timing: TimingConfig
     ai: AIConfig
+    ramping: RampingConfig
     logging_level: str = "INFO"
     constraints_path: str = "llm_grid_eval/config/constraints.yaml"
 
@@ -66,6 +76,7 @@ def load_app_config(config_path: str | Path) -> AppConfig:
     grid_raw = raw.get("grid", {}) or {}
     timing_raw = raw.get("timing", {}) or {}
     ai_raw = raw.get("ai", {}) or {}
+    ramping_raw = raw.get("ramping", {}) or {}
     logging_raw = raw.get("logging", {}) or {}
 
     broker_override = os.getenv("HELICS_BROKER_ADDRESS") or os.getenv("HELICS_BROKER")
@@ -103,6 +114,10 @@ def load_app_config(config_path: str | Path) -> AppConfig:
         ),
         ai=AIConfig(
             micro_score_threshold=int(ai_raw.get("micro_score_threshold", 70)),
+        ),
+        ramping=RampingConfig(
+            enabled=bool(ramping_raw.get("enabled", True)),
+            ramp_rate_kw_per_sec=float(ramping_raw.get("ramp_rate_kw_per_sec", 100.0)),
         ),
         logging_level=str(logging_raw.get("level", "INFO")),
         constraints_path=str(raw.get("constraints_path", "llm_grid_eval/config/constraints.yaml")),

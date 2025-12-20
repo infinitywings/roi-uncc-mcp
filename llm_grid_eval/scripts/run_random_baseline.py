@@ -22,9 +22,9 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 EV_IDS = ["EV1", "EV2", "EV3", "EV4", "EV5", "EV6"]
-# Reduced from 1500-3500 to avoid immediate overload (3.2MW controller limit)
-MIN_POWER_KW = 200.0
-MAX_POWER_KW = 800.0
+# Original power range restored - rate-limited ramping prevents GridLAB-D crashes
+MIN_POWER_KW = 1500.0
+MAX_POWER_KW = 3500.0
 
 
 @dataclass
