@@ -36,8 +36,8 @@ NOMINAL_VOLTAGE_V = 2401.7771
 DURATION_S = 840
 CONFIG_PATH = REPO / "v3" / "configs" / "der_devices.yaml"
 SOURCE_GLM = REPO / "examples" / "2bus-13bus" / "1c_IEEE_123_feeder.glm"
-START_TIME = "2001-08-01 07:00:00"
-STOP_TIME = "2001-08-01 07:14:00"  # START + 840 s
+START_TIME = "2013-08-28 07:00:00"
+STOP_TIME = "2013-08-28 07:14:00"  # GLM clock start (2013-08-28 07:00) + 840 s
 
 
 def load_devices() -> list[dict[str, Any]]:
@@ -102,18 +102,27 @@ def build_multi_der_glm(devices: list[dict[str, Any]], step_s: int) -> str:
     text, sc = re.subn(r"stoptime\s+'[^']+';", f"stoptime '{STOP_TIME}';", text, count=1)
     if mc != 1 or sc != 1:
         raise RuntimeError("cadence/stoptime replacement not unique")
-    # remove each device's legacy storage tree (if declared) then add its coupling
-    coupling_blocks = []
+    # per device: legacy BESS -> insert coupling at the legacy switch location (as
+    # G3 does) then remove the 4 legacy objects; PV (no legacy) -> append at end.
+    pv_blocks = []
     for dev in devices:
         excl = dev.get("legacy_storage_exclusion")
         if excl:
             sw = excl["switch"]
             k = sw.replace("sw", "").replace("_storage", "")  # e.g. EV1
+            marker = f"name {sw};"
+            pos = text.find(marker)
+            if pos < 0:
+                raise RuntimeError(f"legacy switch {sw} not found")
+            start = text.rfind("object", 0, pos)
+            text = text[:start] + coupling_object(dev, step_s) + "\n" + text[start:]
             for name in (sw, f"storage_{k}", f"battery_inv_{k}", f"battery_{k}"):
                 text = remove_glm_object(text, name)
-        coupling_blocks.append(coupling_object(dev, step_s))
-    # insert all coupling objects before the final line
-    text = text.rstrip() + "\n\n// ===== v3 decentralized DER couplings =====\n" + "".join(coupling_blocks)
+        else:
+            pv_blocks.append(coupling_object(dev, step_s))
+    if pv_blocks:
+        text = text.rstrip() + "\n\n// ===== v3 decentralized PV couplings =====\n" + "".join(pv_blocks)
+
     # sanity: each coupling present exactly once; each legacy switch gone
     for dev in devices:
         if text.count(f"name {dev['id']}_COUPLING;") != 1:
@@ -128,14 +137,16 @@ def gridlabd_helics_config(devices: list[dict[str, Any]], step_s: int, run: str)
     pubs, subs = [], []
     for dev in devices:
         ph, node, cid = dev["phase"], dev["node"], dev["id"]
-        pubs.append({"global": True, "key": f"gld/{cid}_voltage", "type": "complex",
+        pubs.append({"global": True, "key": f"g3_gridlabd/{cid.lower()}_voltage", "type": "complex",
                      "unit": "V", "info": {"object": node, "property": f"measured_voltage_{ph}"}})
-        subs.append({"required": True, "key": f"opender/{cid}_load", "type": "complex",
+        pubs.append({"global": True, "key": f"g3_gridlabd/{cid.lower()}_coupling_load", "type": "complex",
                      "unit": "VA", "info": {"object": f"{cid}_COUPLING", "property": f"constant_power_{ph}"}})
-    pubs.append({"global": True, "key": "gld/source_power_c", "type": "complex", "unit": "VA",
+        subs.append({"required": True, "key": f"g3_opender/{cid.lower()}_load", "type": "complex",
+                     "unit": "VA", "info": {"object": f"{cid}_COUPLING", "property": f"constant_power_{ph}"}})
+    pubs.append({"global": True, "key": "g3_gridlabd/source_power_c", "type": "complex", "unit": "VA",
                  "info": {"object": "Node650", "property": "measured_power_C"}})
-    return {"coreInit": "--federates=1", "coreName": f"multi_der_gld_{run}_core",
-            "coreType": "zmq", "name": f"multi_der_gld_{run}", "period": step_s,
+    return {"coreInit": "--federates=1", "coreName": f"g3_gridlabd_{run}_core",
+            "coreType": "zmq", "name": f"g3_gridlabd_{run}", "period": step_s, "logfile": f"g3_gridlabd_{run}_helics.log",
             "log_level": "warning", "publications": pubs, "subscriptions": subs, "endpoints": []}
 
 
@@ -143,11 +154,12 @@ def opender_helics_config(devices: list[dict[str, Any]], step_s: int, run: str, 
     pubs, subs = [], []
     for dev in devices:
         cid = dev["id"]
-        pubs.append({"global": True, "key": f"opender/{cid}_load", "type": "complex", "unit": "VA"})
-        subs.append({"global": True, "key": f"gld/{cid}_voltage", "type": "complex", "unit": "V"})
+        pubs.append({"global": True, "key": f"g3_opender/{cid.lower()}_load", "type": "complex", "unit": "VA"})
+        subs.append({"global": True, "key": f"g3_gridlabd/{cid.lower()}_voltage", "type": "complex", "unit": "V"})
+        subs.append({"global": True, "key": f"g3_gridlabd/{cid.lower()}_coupling_load", "type": "complex", "unit": "VA"})
     # trailing subscription: feeder source power (not required; for power-balance check)
-    subs.append({"global": True, "key": "gld/source_power_c", "type": "complex", "unit": "VA"})
-    return {"name": f"multi_der_opender_{run}", "coreName": f"multi_der_opender_{run}_core",
+    subs.append({"global": True, "key": "g3_gridlabd/source_power_c", "type": "complex", "unit": "VA"})
+    return {"name": f"g3_opender_{run}", "coreName": f"g3_opender_{run}_core",
             "coreType": "zmq", "coreInit": "--federates=1", "broker": broker, "period": step_s,
             "log_level": "warning", "publications": pubs, "subscriptions": subs}
 
@@ -166,9 +178,13 @@ def device_schedule(dev_index: int, t_s: int) -> tuple[float, float]:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--coupling-step", type=int, default=10)
+    ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--output-dir", type=Path, required=True)
     ap.add_argument("--gen-only", action="store_true", help="generate+validate GLM/configs, no run")
     args = ap.parse_args()
+    global CONFIG_PATH
+    if args.config:
+        CONFIG_PATH = args.config.resolve()
     devices = load_devices()
     out = args.output_dir.resolve()
     out.mkdir(parents=True, exist_ok=False)
@@ -212,14 +228,8 @@ def main() -> int:
     models = {d["id"]: make_scheduled_der(d["der_type"], step_s=float(d.get("model_step_s", 1.0)))
               for d in devices}
     # subscriptions/publications in declared (device) order
-    subs = {d["id"]: h.helicsFederateGetInputByIndex(fed, i) for i, d in enumerate(devices)}
-    source_sub = h.helicsFederateGetInputByIndex(fed, len(devices))
-    # explicitly bind each input to its source publication (force the connection)
-    for d in devices:
-        try:
-            h.helicsInputAddTarget(subs[d["id"]], f"gld/{d['id']}_voltage")
-        except Exception:
-            pass
+    subs = {d["id"]: h.helicsFederateGetInputByIndex(fed, 2 * i) for i, d in enumerate(devices)}
+    source_sub = h.helicsFederateGetInputByIndex(fed, 2 * len(devices))
     pubs = {d["id"]: h.helicsFederateGetPublicationByIndex(fed, i) for i, d in enumerate(devices)}
     traces = {d["id"]: [] for d in devices}
     source_trace = []
