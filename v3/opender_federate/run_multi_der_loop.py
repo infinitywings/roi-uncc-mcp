@@ -145,6 +145,8 @@ def opender_helics_config(devices: list[dict[str, Any]], step_s: int, run: str, 
         cid = dev["id"]
         pubs.append({"global": True, "key": f"opender/{cid}_load", "type": "complex", "unit": "VA"})
         subs.append({"key": f"gld/{cid}_voltage", "type": "complex", "unit": "V", "required": True})
+    # trailing subscription: feeder source power (not required; for power-balance check)
+    subs.append({"key": "gld/source_power_c", "type": "complex", "unit": "VA", "required": False})
     return {"name": f"multi_der_opender_{run}", "coreType": "zmq", "coreInit": "--federates=1",
             "broker": broker, "period": step_s, "publications": pubs, "subscriptions": subs}
 
@@ -210,11 +212,14 @@ def main() -> int:
               for d in devices}
     # subscriptions/publications in declared (device) order
     subs = {d["id"]: h.helicsFederateGetInputByIndex(fed, i) for i, d in enumerate(devices)}
+    source_sub = h.helicsFederateGetInputByIndex(fed, len(devices))
     pubs = {d["id"]: h.helicsFederateGetPublicationByIndex(fed, i) for i, d in enumerate(devices)}
     traces = {d["id"]: [] for d in devices}
+    source_trace = []
     # set input defaults (voltage) BEFORE executing mode
     for d in devices:
         h.helicsInputSetDefaultComplex(subs[d["id"]], d.get("nominal_voltage_v", NOMINAL_VOLTAGE_V), 0.0)
+    h.helicsInputSetDefaultComplex(source_sub, 0.0, 0.0)
     h.helicsFederateEnterExecutingMode(fed)
     # publish an initial load so gridlabd's required subscription is satisfied at t=0
     for d in devices:
@@ -224,6 +229,9 @@ def main() -> int:
         nxt = min(DURATION_S, granted + step_s)
         granted = h.helicsFederateRequestTime(fed, nxt)
         t = int(granted)
+        sp = h.helicsInputGetComplex(source_sub)
+        sp_c = complex(sp[0], sp[1]) if isinstance(sp, (list, tuple)) else complex(sp)
+        source_trace.append({"t": granted, "source_p_w": sp_c.real, "source_q_var": sp_c.imag})
         for i, d in enumerate(devices):
             cid = d["id"]
             v = h.helicsInputGetComplex(subs[cid])
@@ -252,6 +260,7 @@ def main() -> int:
     gld_log.close()
     h.helicsCloseLibrary()
     (out / "multi_der_traces.json").write_text(json.dumps(traces, indent=2))
+    (out / "multi_der_source.json").write_text(json.dumps(source_trace, indent=2))
     # basic validation: per-device sign (P pulse -> P out matches; power balance placeholder)
     summary["returncodes"] = {"gridlabd": gld.returncode}
     summary["per_device_applied"] = {cid: sum(1 for r in tr if abs(r["p_kw"]) > 1e-6 or abs(r["q_kvar"]) > 1e-6)
