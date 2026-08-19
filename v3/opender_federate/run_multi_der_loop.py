@@ -168,7 +168,7 @@ def device_schedule(dev_index: int, t_s: int) -> tuple[float, float]:
     """Simple staggered pulse per device: +10kW / -10kW / +10kvar / -10kvar
     windows, offset by device index so coordination/superposition is visible."""
     base = [(60, 180, 10.0, 0.0), (240, 360, -10.0, 0.0),
-            (420, 540, 0.0, 10.0), (600, 720, 0.0, -10.0)]
+            (420, 540, 10.0, 0.0), (600, 720, -10.0, 0.0)]  # P-only (Q from autonomy)
     for a, b, p, q in base:
         if a <= t_s < b:
             return (p, q)
@@ -179,6 +179,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--coupling-step", type=int, default=10)
     ap.add_argument("--config", type=Path, default=None)
+    ap.add_argument("--volt-var", action="store_true", help="enable IEEE-1547 volt-var Q(V)")
     ap.add_argument("--output-dir", type=Path, required=True)
     ap.add_argument("--gen-only", action="store_true", help="generate+validate GLM/configs, no run")
     args = ap.parse_args()
@@ -227,6 +228,12 @@ def main() -> int:
     fed = h.helicsCreateValueFederateFromConfig(str(out / "multi_der_opender.json"))
     models = {d["id"]: make_scheduled_der(d["der_type"], step_s=float(d.get("model_step_s", 1.0)))
               for d in devices}
+    vv_on = {d["id"]: bool(args.volt_var) for d in devices}  # --volt-var enables Q(V) on all
+    for d in devices:
+        if vv_on[d["id"]]:
+            df = models[d["id"]].model.der_file
+            df.QV_MODE_ENABLE = "ENABLED"        # IEEE-1547 volt-var Q(V), default curve
+            df.CONST_Q_MODE_ENABLE = "DISABLED"  # reactive comes from Q(V), not command
     # subscriptions/publications in declared (device) order
     subs = {d["id"]: h.helicsFederateGetInputByIndex(fed, 2 * i) for i, d in enumerate(devices)}
     source_sub = h.helicsFederateGetInputByIndex(fed, 2 * len(devices))
@@ -264,8 +271,9 @@ def main() -> int:
             # reactive command via constant-Q mode (pu of nameplate kVA)
             dev_model = models[cid]
             rating_kva = d.get("rating_va", 200000) / 1000.0
-            dev_model.model.der_file.CONST_Q_MODE_ENABLE = "ENABLED" if q_cmd else "DISABLED"
-            dev_model.model.der_file.CONST_Q = q_cmd / rating_kva
+            if not vv_on[cid]:
+                dev_model.model.der_file.CONST_Q_MODE_ENABLE = "ENABLED" if q_cmd else "DISABLED"
+                dev_model.model.der_file.CONST_Q = q_cmd / rating_kva
             while dev_model.time_s < granted - 1e-9:
                 dout, _ = dev_model.step(v_pu=v_pu, frequency_hz=60.0, demand_kw=demand)
             s_va = complex(-1000.0 * dout.p_out_kw, -1000.0 * dout.q_out_kvar)
