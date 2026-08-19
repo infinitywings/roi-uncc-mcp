@@ -180,6 +180,7 @@ def main() -> int:
     ap.add_argument("--coupling-step", type=int, default=10)
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--volt-var", action="store_true", help="enable IEEE-1547 volt-var Q(V)")
+    ap.add_argument("--volt-watt", action="store_true", help="enable IEEE-1547 volt-watt P(V) [demo curve]")
     ap.add_argument("--output-dir", type=Path, required=True)
     ap.add_argument("--gen-only", action="store_true", help="generate+validate GLM/configs, no run")
     args = ap.parse_args()
@@ -234,6 +235,11 @@ def main() -> int:
             df = models[d["id"]].model.der_file
             df.QV_MODE_ENABLE = "ENABLED"        # IEEE-1547 volt-var Q(V), default curve
             df.CONST_Q_MODE_ENABLE = "DISABLED"  # reactive comes from Q(V), not command
+        if args.volt_watt and d["der_type"] == "pv":
+            df = models[d["id"]].model.der_file
+            df.PV_MODE_ENABLE = "ENABLED"        # IEEE-1547 volt-watt P(V)
+            df.PV_CURVE_V1 = 1.02; df.PV_CURVE_P1 = 1.0   # demo curve in achievable range
+            df.PV_CURVE_V2 = 1.04; df.PV_CURVE_P2 = 0.2
     # subscriptions/publications in declared (device) order
     subs = {d["id"]: h.helicsFederateGetInputByIndex(fed, 2 * i) for i, d in enumerate(devices)}
     source_sub = h.helicsFederateGetInputByIndex(fed, 2 * len(devices))
