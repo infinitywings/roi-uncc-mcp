@@ -164,11 +164,15 @@ def opender_helics_config(devices: list[dict[str, Any]], step_s: int, run: str, 
             "log_level": "warning", "publications": pubs, "subscriptions": subs}
 
 
+P_CMD_KW = 10.0  # per-device P pulse magnitude (set from --p-command-kw)
+
+
 def device_schedule(dev_index: int, t_s: int) -> tuple[float, float]:
     """Simple staggered pulse per device: +10kW / -10kW / +10kvar / -10kvar
     windows, offset by device index so coordination/superposition is visible."""
-    base = [(60, 180, 10.0, 0.0), (240, 360, -10.0, 0.0),
-            (420, 540, 10.0, 0.0), (600, 720, -10.0, 0.0)]  # P-only (Q from autonomy)
+    m = P_CMD_KW
+    base = [(60, 180, m, 0.0), (240, 360, -m, 0.0),
+            (420, 540, m, 0.0), (600, 720, -m, 0.0)]  # P-only (Q from autonomy)
     for a, b, p, q in base:
         if a <= t_s < b:
             return (p, q)
@@ -181,12 +185,15 @@ def main() -> int:
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--volt-var", action="store_true", help="enable IEEE-1547 volt-var Q(V)")
     ap.add_argument("--volt-watt", action="store_true", help="enable IEEE-1547 volt-watt P(V) [demo curve]")
+    ap.add_argument("--p-command-kw", type=float, default=10.0, help="per-device P pulse magnitude")
     ap.add_argument("--output-dir", type=Path, required=True)
     ap.add_argument("--gen-only", action="store_true", help="generate+validate GLM/configs, no run")
     args = ap.parse_args()
     global CONFIG_PATH
     if args.config:
         CONFIG_PATH = args.config.resolve()
+    global P_CMD_KW
+    P_CMD_KW = args.p_command_kw
     devices = load_devices()
     out = args.output_dir.resolve()
     out.mkdir(parents=True, exist_ok=False)
