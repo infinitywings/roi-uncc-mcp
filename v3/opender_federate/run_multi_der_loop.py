@@ -144,11 +144,12 @@ def opender_helics_config(devices: list[dict[str, Any]], step_s: int, run: str, 
     for dev in devices:
         cid = dev["id"]
         pubs.append({"global": True, "key": f"opender/{cid}_load", "type": "complex", "unit": "VA"})
-        subs.append({"key": f"gld/{cid}_voltage", "type": "complex", "unit": "V", "required": True})
+        subs.append({"global": True, "key": f"gld/{cid}_voltage", "type": "complex", "unit": "V"})
     # trailing subscription: feeder source power (not required; for power-balance check)
-    subs.append({"key": "gld/source_power_c", "type": "complex", "unit": "VA", "required": False})
-    return {"name": f"multi_der_opender_{run}", "coreType": "zmq", "coreInit": "--federates=1",
-            "broker": broker, "period": step_s, "publications": pubs, "subscriptions": subs}
+    subs.append({"global": True, "key": "gld/source_power_c", "type": "complex", "unit": "VA"})
+    return {"name": f"multi_der_opender_{run}", "coreName": f"multi_der_opender_{run}_core",
+            "coreType": "zmq", "coreInit": "--federates=1", "broker": broker, "period": step_s,
+            "log_level": "warning", "publications": pubs, "subscriptions": subs}
 
 
 def device_schedule(dev_index: int, t_s: int) -> tuple[float, float]:
@@ -213,6 +214,12 @@ def main() -> int:
     # subscriptions/publications in declared (device) order
     subs = {d["id"]: h.helicsFederateGetInputByIndex(fed, i) for i, d in enumerate(devices)}
     source_sub = h.helicsFederateGetInputByIndex(fed, len(devices))
+    # explicitly bind each input to its source publication (force the connection)
+    for d in devices:
+        try:
+            h.helicsInputAddTarget(subs[d["id"]], f"gld/{d['id']}_voltage")
+        except Exception:
+            pass
     pubs = {d["id"]: h.helicsFederateGetPublicationByIndex(fed, i) for i, d in enumerate(devices)}
     traces = {d["id"]: [] for d in devices}
     source_trace = []
