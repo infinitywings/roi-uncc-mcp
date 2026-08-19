@@ -87,6 +87,7 @@ def main() -> int:
     ap.add_argument("--label", required=True)
     ap.add_argument("--output-dir", type=Path, required=True)
     ap.add_argument("--image", default="grideval/natig:g5-hardened-r1")
+    ap.add_argument("--controller-override", type=Path, default=None)
     ap.add_argument("--timeout-s", type=int, default=1800)
     args = ap.parse_args()
     jn = int(round(args.delay_ms * 1_000_000))
@@ -98,6 +99,9 @@ def main() -> int:
     contract_path = g5.build_g5_source(g5_dir, jn, jn, args.label)
     contract = json.loads(contract_path.read_text())
     stage = rlb.stage_overlay(contract, contract_path, out)  # builds effective/
+    if args.controller_override:
+        import shutil as _sh
+        _sh.copy2(args.controller_override, out / "effective" / "runtime" / "live_controller_federate.py")
     image_id = rlb._run(["docker", "image", "inspect", "--format", "{{.Id}}", args.image],
                         check=True).stdout.strip()
     manifest = json.loads(MANIFEST.read_text())

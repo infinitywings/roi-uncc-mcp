@@ -42,62 +42,50 @@ PYTHONPATH=. python3 v3/natig_adapter/run_live_g5_impairment.py \
   --execute --image-manifest v3/natig_adapter/locked_runtime_result_base_r24_r1/live_image_manifest.json
 ```
 
-## First result — impairment screen (reproducible; stack-sensitivity found)
+## Status: network-impairment arm DEFERRED (NATIG stack limitation)
 
-All runs `rc=0` on image `sha256:85b09515` (grideval/g4-derived-runtime:base-r24-r1),
-seed 777, 840 s, single OpenDER BESS at l92, analyzed with
-[`analyze_g5_impairment.py`](natig_adapter/analyze_g5_impairment.py).
+The tooling above is sound and the impairment overlay/preflight work, but the
+**measurement is blocked by a defect in the NATIG DNP3 co-simulation stack**, and
+the arm is deferred to future work behind a hardened transport.
 
-| arm | 0 ms *(control)* | delay 1–1000 ms | jitter [0,100] ms | bandwidth 1–8 kb/s |
-|---|---|---|---|---|
-| OPERATEs applied / 18 | **18** | 10 | 10 | 10 |
+### What we established (reproducible)
+On the immutable r24 runtime, seed 777, single OpenDER BESS at l92:
 
-- **Control valid & bimodal:** the exact nominal channel applies 18/18 (== benign);
-  **any** modeled non-ideality — delay as small as 1 ms, bounded jitter, or a few
-  kb/s bandwidth — drops the **same** 8 OPERATEs to 10/18. Threshold-near-zero,
-  saturating, reproducible.
-- **Where the loss is:** the controller originates all 18 commands and all 18 DNP3
-  **SELECTs** reach the gateway in every arm, but 8 **OPERATEs** never reach the
-  gateway (no gateway reject reason) — they are lost inside the compiled NATIG
-  ns-3/DNP3 transport (`grideval-natig-g4`).
-- **Physical consequence (nominal vs perturbed):** 24/84 coupling steps diverge;
-  max |ΔP| = 10 kW (full command magnitude); integrated |ΔP| = 2400 kW·s. Dropped
-  OPERATEs are predominantly the P-axis; Q-axis survives.
+| channel | OPERATEs applied / 18 |
+|---|---|
+| nominal (jitter 0, 60 Mb/s) | **18** |
+| any delay 1 ms–1 s | 10 |
+| bounded jitter [0,100] ms | 10 |
+| bandwidth 1–8 kb/s (jitter 0) | 10 |
 
-**Corrected interpretation (supersedes an earlier SBO-timeout reading).** A 1 ms
-delay cannot exhaust the 5 s SELECT-before-OPERATE window, and bandwidth-only arms
-(jitter = 0) drop the identical 8 — so the loss is **not** a physical timing
-effect. It is a **sensitivity of the NATIG DNP3 master's SELECT/OPERATE scheduling
-to any departure from the default channel** — an implementation characteristic of
-the co-simulation stack, not a fundamental grid property. It must be root-caused at
-the ns-3 source level (instrument/rebuild the DNP3 master) before impairment
-magnitudes — or the delay/loss/jitter/bandwidth contrast the campaign needs — can
-be trusted. It also compounds the open G1 numeric-non-repeatability debt.
+Delivery is **bimodal**: the DNP3/ns-3 path delivers all 18 remote-DER OPERATEs
+only at the *exact* nominal channel; under **any** modeled non-ideality it
+deterministically drops the same 8 (the ao0/active-power OPERATE in windows 2–9),
+with a measurable physical control error (max ΔP = 10 kW over 24/84 steps). The
+controller originates all 18 commands and all 18 DNP3 SELECTs reach the gateway;
+the OPERATEs are lost inside the ns-3/DNP3 transport.
 
-**G5 status.** Impairment is measurable and reproducible (gate criterion met in the
-trivial sense), but the arms are currently indistinguishable because the transport
-is not robust to any perturbation; separating the availability factors is a
-precondition before H2 magnitudes or any attacker (G6) inference.
+### Why it is deferred, not fixed
+- **Not a 5 s SBO timeout** (1 ms triggers it; falsified).
+- **Not the two-OPERATE-per-window race**: a split-schedule controller emitting
+  P and Q in separate poll cycles made it *worse* (1/18 at 200 ms), falsifying it.
+- **The true mechanism** is a subtler per-command interaction between the periodic
+  DNP3 poll and the control SELECT/OPERATE in the NATIG master under any
+  non-instant channel — needs source-level instrumentation to resolve.
+- **The NATIG build system blocks the fix**: edited `dnplib` sources
+  (`master.cpp`/`outstation.cpp`/`station.cpp`) do **not** recompile into the
+  runtime `libns3.35-dnp3-optimized.so` — incremental `waf` skips them and even
+  `waf clean` produced a `.so` without the instrumentation strings. Fixing this
+  is dedicated ns-3 build-system engineering.
 
-## Caveats
+### To resume
+1. Fix the NATIG build so edited `dnplib` sources actually rebuild into the
+   runtime `.so` (untangle the prebuilt-lib / install path).
+2. Instrument `Station::changeState` + the master poll/control paths, trace one
+   dropped command, and identify the poll/control interleave.
+3. Fix it, re-verify 18/18 at nominal + *graceful* delay-dependent degradation,
+   then run the delay/loss/jitter/DDoS arms through `run_live_g5_impairment.py`.
 
-- Magnitude is conditioned on the current 5 s SBO timeout + 10 s poll/coupling
-  cadence — a realistic but specific configuration.
-- Only the **delay** lever has been run. Remaining impairment factors:
-  bounded jitter (`min < max`), bandwidth (`Channel.P2PRate`), packet loss
-  (requires a `Node[]`/`UseCSMA` `RateErrorModel` topology restructure), link
-  outage, and bounded-DDoS congestion (declared environmental, not an attacker).
-- This is **pilot/screening** evidence, not the preregistered confirmatory
-  campaign. Phase C requires ≥ 5 paired reps per contrast and a frozen analysis
-  plan (primary outcome VVI, monitored nodes, seeds, exclusions) before any
-  confirmatory or attacker-effect (G6) claim.
-
-## Next steps
-
-1. Bounded-jitter and bandwidth arms (config-only, same runner).
-2. A `Node[]` topology variant to enable packet-loss and link-outage arms.
-3. A G5 metric extractor (cyber latency + command-lifecycle counts + physical
-   control-error/VVI) replacing the ad-hoc trace diff, per protocol §8.
-4. Characterize which 8 commands drop per window and whether an adaptive
-   attacker could time OPERATEs to survive the SBO window (feeds the G6 EVG-under-
-   -mediation question).
+Until then the expanded paper relies on the **direct-path EVG**, the **G4 benign
+network equivalence** (the DNP3/ns-3 path is faithful at the nominal channel),
+and **OpenDER IEEE-1547 device behavior** — not on impairment magnitudes.

@@ -117,3 +117,7 @@ archive/paper_v1/figures/flow.png
 v3/natig_adapter/g5src_*/
 v3/natig_adapter/g5_impairment_*/
 v3/natig_adapter/g5_impairment_*.log
+v3/natig_adapter/g5split_*/
+v3/natig_adapter/g5hsrc_*/
+v3/natig_adapter/g5_hardened_*/
+v3/natig_adapter/g5_dbg_*/
