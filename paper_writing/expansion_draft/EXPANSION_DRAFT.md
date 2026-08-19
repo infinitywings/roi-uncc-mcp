@@ -92,12 +92,34 @@ This licenses the network-mediated arm as a faithful substrate *at the nominal
 channel* and cleanly separates "the network carried the command" from "the device
 tracked it."
 
-**Device behavior (OpenDER, established).** Replacing the linear additive EV load
-with a pinned IEEE-1547 OpenDER BESS makes the device layer standards-based:
-active-power limiting, ramp limits, autonomous volt-var, ride-through/trip, and
-SOC bounds. Identical accepted remote settings can therefore produce different
-physical outcomes depending on the device's autonomous functions — an axis the
-linear model cannot express and the basis for the device-autonomy contrasts.
+**Decentralized DER and device autonomy (OpenDER, established).** We replace the
+workshop's linear additive EV load with a decentralized fleet of pinned IEEE-1547
+OpenDER inverters distributed across the feeder — two BESS (phase C, nodes l92 and
+l5) and two PV (phase A/B, nodes l88 and l107) — each with standards-based
+autonomous functions (active-power limiting, volt-var, volt-watt, ride-through,
+SOC). The federation couples every device to its feeder node over HELICS
+(signed P/Q against live terminal voltage) and passes a per-device simultaneous
+convergence, sign, independence, and bit-repeatability gate.
+
+*Autonomous functions change the physical consequence of the same command (H3).*
+With identical accepted active-power commands, enabling an IEEE-1547 function
+alters the physical outcome in a voltage-dependent way. At a PV whose terminal
+voltage is driven to 1.026 pu, **volt-var** autonomously absorbs 3.8 kvar (vs 0 in
+the disabled baseline) and lowers local voltage, while **volt-watt** instead
+curtails active power (80 to 77.5 kW); a device whose voltage stays inside the
+1.02 deadband correctly does nothing. The same accepted setpoint therefore yields
+a different physical state once the device's local autonomy is active — a
+distinction the linear-load model cannot express.
+
+*Coordination is node- and metric-dependent (H5).* Under equal aggregate command
+authority, concentrating 20 kW at a voltage-sensitive node produces a larger peak
+local excursion (0.0112 pu) than splitting it 10 kW/10 kW across two nodes
+(worst node 0.0069 pu); coordination instead spreads a smaller change across more
+nodes. Whether coordinated multi-site action is "more severe" than single-site is
+thus metric- and location-dependent — a nuance only a decentralized, node-resolved
+model can surface. (These are mechanism/demonstration results on the direct path;
+the confirmatory coordination and attacker-under-autonomy campaigns are future
+work with a preregistered voltage-impact primary metric.)
 
 **Network impairment (deferred — a co-simulation-stack limitation).** We attempted
 to screen delay/jitter/bandwidth on the DNP3/ns-3 path and uncovered a limitation
