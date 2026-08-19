@@ -1,0 +1,9 @@
+arm	select_ok	operate_ok	operates_dropped	divergent_steps	int_abs_dP_kWs	max_dP_kW	max_dV_V
+delay1ms	18	10	8	24	2400.0	10.0	17.200647
+delay5ms	18	10	8	24	2400.0	10.0	17.200647
+delay10ms	18	10	8	24	2400.0	10.0	17.200647
+delay20ms	18	10	8	24	2400.0	10.0	17.200647
+delay40ms	18	10	8	24	2400.0	10.0	17.200647
+jit0_100ms	18	10	8	24	2400.0	10.0	17.200647
+bw8kb	18	10	8	24	2400.0	10.0	17.200647
+bw1kb	18	10	8	24	2400.0	10.0	17.200647

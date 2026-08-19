@@ -81,7 +81,7 @@ def _load(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_g5_source(g5_dir: Path, jmin_ns: int, jmax_ns: int, label: str) -> Path:
+def build_g5_source(g5_dir: Path, jmin_ns: int, jmax_ns: int, label: str, bandwidth: str | None = None) -> Path:
     """Create the G5 impairment contract dir; return the contract path."""
     if g5_dir.exists():
         raise G5Error(f"create-once G5 source already exists: {g5_dir}")
@@ -97,16 +97,24 @@ def build_g5_source(g5_dir: Path, jmin_ns: int, jmax_ns: int, label: str) -> Pat
     topo = _load(BENIGN_DIR / "topology.json")
     topo["Channel"][0]["jitterMin"] = jmin_ns
     topo["Channel"][0]["jitterMax"] = jmax_ns
+    if bandwidth is not None:
+        topo["Channel"][0]["P2PRate"] = bandwidth
     (g5_dir / "topology.json").write_text(
         json.dumps(topo, indent=2) + "\n", encoding="utf-8"
     )
 
     # 3. Patch natig.json — declare the impairment (adapter-level provenance).
+    kinds = []
+    if jmin_ns or jmax_ns:
+        kinds.append("deterministic_delay" if jmin_ns == jmax_ns else "bounded_jitter")
+    if bandwidth is not None:
+        kinds.append("bandwidth_limit")
     impair = {
-        "kind": "deterministic_delay" if jmin_ns == jmax_ns else "bounded_jitter",
-        "mechanism": "ns3_dnp3_application_delay",
+        "kind": "+".join(kinds) if kinds else "none",
+        "mechanism": "ns3_dnp3_channel",
         "jitter_min_ns": jmin_ns,
         "jitter_max_ns": jmax_ns,
+        "p2p_rate": bandwidth,
         "applies_to": "dnp3_over_ns3",
         "attacker": False,
         "label": label,
@@ -146,7 +154,7 @@ def build_g5_source(g5_dir: Path, jmin_ns: int, jmax_ns: int, label: str) -> Pat
     return contract_path
 
 
-def _delta_errors(g5_dir: Path, jmin_ns: int, jmax_ns: int, label: str) -> list[str]:
+def _delta_errors(g5_dir: Path, jmin_ns: int, jmax_ns: int, label: str, bandwidth: str | None = None) -> list[str]:
     """Assert the G5 overlay differs from benign ONLY in permitted ways."""
     errors: list[str] = []
     benign_contract = _load(BENIGN_CONTRACT)
@@ -189,11 +197,15 @@ def _delta_errors(g5_dir: Path, jmin_ns: int, jmax_ns: int, label: str) -> list[
     g_topo = _load(g5_dir / "topology.json")
     b_ch = copy.deepcopy(b_topo["Channel"][0])
     g_ch = copy.deepcopy(g_topo["Channel"][0])
-    for fld in ("jitterMin", "jitterMax"):
+    for fld in ("jitterMin", "jitterMax", "P2PRate"):
         b_ch.pop(fld, None)
         g_ch.pop(fld, None)
     if b_ch != g_ch or b_topo.get("Gridlayout") != g_topo.get("Gridlayout"):
-        errors.append("topology.json changed outside jitterMin/jitterMax")
+        errors.append("topology.json changed outside jitter/P2PRate")
+    g_rate = g_topo["Channel"][0].get("P2PRate")
+    exp_rate = bandwidth if bandwidth is not None else b_topo["Channel"][0].get("P2PRate")
+    if g_rate != exp_rate or not isinstance(g_rate, str) or not g_rate:
+        errors.append("topology P2PRate does not match requested bandwidth")
     gj_min = g_topo["Channel"][0].get("jitterMin")
     gj_max = g_topo["Channel"][0].get("jitterMax")
     if gj_min != jmin_ns or gj_max != jmax_ns:
@@ -231,23 +243,24 @@ def _delta_errors(g5_dir: Path, jmin_ns: int, jmax_ns: int, label: str) -> list[
     return errors
 
 
-def make_g5_validator(g5_dir: Path, jmin_ns: int, jmax_ns: int, label: str):
+def make_g5_validator(g5_dir: Path, jmin_ns: int, jmax_ns: int, label: str, bandwidth: str | None = None):
     def g5_validate_contract(contract, contract_path):
         errors: list[str] = []
         # (1) base integrity: pristine benign contract must still validate.
         errors += [f"base: {e}" for e in _ORIG_VALIDATE(_load(BENIGN_CONTRACT), BENIGN_CONTRACT)]
         # (2)+(3) full lock re-verify + benign-delta on the G5 overlay.
-        errors += _delta_errors(g5_dir, jmin_ns, jmax_ns, label)
+        errors += _delta_errors(g5_dir, jmin_ns, jmax_ns, label, bandwidth)
         return errors
     return g5_validate_contract
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="G5 network-impairment runner")
-    g = parser.add_mutually_exclusive_group(required=True)
+    g = parser.add_mutually_exclusive_group(required=False)
     g.add_argument("--delay-ms", type=float, help="deterministic delay (ms)")
     g.add_argument("--jitter-min-ms", type=float, help="bounded jitter lower (ms)")
     parser.add_argument("--jitter-max-ms", type=float, help="bounded jitter upper (ms)")
+    parser.add_argument("--bandwidth", type=str, default=None, help="Channel P2PRate, e.g. 1kb/s")
     parser.add_argument("--label", required=True, help="impairment label (a-z0-9._-)")
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--image-manifest", type=Path)
@@ -257,11 +270,15 @@ def main() -> int:
 
     if args.delay_ms is not None:
         jmin_ns = jmax_ns = int(round(args.delay_ms * 1_000_000))
-    else:
+    elif args.jitter_min_ms is not None:
         if args.jitter_max_ms is None:
             raise SystemExit("--jitter-min-ms requires --jitter-max-ms")
         jmin_ns = int(round(args.jitter_min_ms * 1_000_000))
         jmax_ns = int(round(args.jitter_max_ms * 1_000_000))
+    else:
+        if args.bandwidth is None:
+            raise SystemExit("specify --delay-ms, --jitter-min-ms/max, and/or --bandwidth")
+        jmin_ns = jmax_ns = 0
     if not (0 <= jmin_ns <= jmax_ns <= MAX_DELAY_NS):
         raise SystemExit("delay/jitter out of bounds (0..60000 ms, min<=max)")
     if args.timeout_s <= 0:
@@ -269,10 +286,10 @@ def main() -> int:
 
     output_dir = args.output_dir.resolve()
     g5_dir = output_dir.parent / f"g5src_{args.label}"
-    contract_path = build_g5_source(g5_dir, jmin_ns, jmax_ns, args.label)
+    contract_path = build_g5_source(g5_dir, jmin_ns, jmax_ns, args.label, args.bandwidth)
 
     # Swap in the G5-aware validator, then reuse the frozen benign machinery.
-    rlb.validate_contract = make_g5_validator(g5_dir, jmin_ns, jmax_ns, args.label)
+    rlb.validate_contract = make_g5_validator(g5_dir, jmin_ns, jmax_ns, args.label, args.bandwidth)
     try:
         result = rlb.prepare(
             contract_path=contract_path,

@@ -42,30 +42,42 @@ PYTHONPATH=. python3 v3/natig_adapter/run_live_g5_impairment.py \
   --execute --image-manifest v3/natig_adapter/locked_runtime_result_base_r24_r1/live_image_manifest.json
 ```
 
-## First result — delay arm (screening, reproducible)
+## First result — impairment screen (reproducible; stack-sensitivity found)
 
 All runs `rc=0` on image `sha256:85b09515` (grideval/g4-derived-runtime:base-r24-r1),
-seed 777, 840 s, single OpenDER BESS at l92.
+seed 777, 840 s, single OpenDER BESS at l92, analyzed with
+[`analyze_g5_impairment.py`](natig_adapter/analyze_g5_impairment.py).
 
-| delay (ms) | 0 (control) | 50 | 100 | 200 | 500 | 1000 |
-|---|---|---|---|---|---|---|
-| OPERATEs applied / 18 | **18** | 10 | 10 | 10 | 10 | 10 |
+| arm | 0 ms *(control)* | delay 1–1000 ms | jitter [0,100] ms | bandwidth 1–8 kb/s |
+|---|---|---|---|---|
+| OPERATEs applied / 18 | **18** | 10 | 10 | 10 |
 
-- **Control valid:** 0 ms reproduces benign exactly (18/18) → the G5 harness is
-  neutral; drops are caused by the delay, not the wrapper.
-- **Reproducible & threshold-shaped:** any delay ≥ 50 ms drops the same 8
-  commands (flat 50–1000 ms; 200 ms r1==r2).
-- **Mechanism (SELECT-before-OPERATE timeout):** every arm accepts all 18 DNP3
-  SELECTs, but ≥ 50 ms transport delay makes 8 OPERATEs arrive after their 5 s
-  SELECT window (`select_expires_at_s = receive + 5 s`) → rejected → not actuated.
-- **Physical consequence (0 ms vs 200 ms):** 24/84 coupling steps diverge;
-  max |ΔP| = 10 kW (full command magnitude); integrated |ΔP| = 2400 kW·s. The
-  BESS holds stale setpoints because fresh commands never apply. Dropped OPERATEs
-  are predominantly the P-axis (AO0); Q-axis (AO1) survives (deterministic
-  intra-window ordering).
+- **Control valid & bimodal:** the exact nominal channel applies 18/18 (== benign);
+  **any** modeled non-ideality — delay as small as 1 ms, bounded jitter, or a few
+  kb/s bandwidth — drops the **same** 8 OPERATEs to 10/18. Threshold-near-zero,
+  saturating, reproducible.
+- **Where the loss is:** the controller originates all 18 commands and all 18 DNP3
+  **SELECTs** reach the gateway in every arm, but 8 **OPERATEs** never reach the
+  gateway (no gateway reject reason) — they are lost inside the compiled NATIG
+  ns-3/DNP3 transport (`grideval-natig-g4`).
+- **Physical consequence (nominal vs perturbed):** 24/84 coupling steps diverge;
+  max |ΔP| = 10 kW (full command magnitude); integrated |ΔP| = 2400 kW·s. Dropped
+  OPERATEs are predominantly the P-axis; Q-axis survives.
 
-This establishes **H2 (network mediation measurably degrades command delivery and
-physical control)** at the screening tier.
+**Corrected interpretation (supersedes an earlier SBO-timeout reading).** A 1 ms
+delay cannot exhaust the 5 s SELECT-before-OPERATE window, and bandwidth-only arms
+(jitter = 0) drop the identical 8 — so the loss is **not** a physical timing
+effect. It is a **sensitivity of the NATIG DNP3 master's SELECT/OPERATE scheduling
+to any departure from the default channel** — an implementation characteristic of
+the co-simulation stack, not a fundamental grid property. It must be root-caused at
+the ns-3 source level (instrument/rebuild the DNP3 master) before impairment
+magnitudes — or the delay/loss/jitter/bandwidth contrast the campaign needs — can
+be trusted. It also compounds the open G1 numeric-non-repeatability debt.
+
+**G5 status.** Impairment is measurable and reproducible (gate criterion met in the
+trivial sense), but the arms are currently indistinguishable because the transport
+is not robust to any perturbation; separating the availability factors is a
+precondition before H2 magnitudes or any attacker (G6) inference.
 
 ## Caveats
 
