@@ -1,0 +1,45 @@
+\section{Problem Statement and System/Threat Model}
+\label{sec:problem}
+%==================================================
+\subsection{Problem Statement}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=1\linewidth]{figures/flow.png}
+%     \caption{Conceptual view of defense evaluation with static and adaptive attackers in LLM-GridEval.}
+%     \label{fig:eval-flow}
+% \end{figure}
+
+%We consider a cyber physical power system instrumented with a defense mechanism \(M\), which can represent an intrusion detection system, an anomaly detector, a controller with protective logic, or a combination of these components. The goal is to evaluate the performance of \(M\) when the system is subjected to adversarial activity. Let \(E(M, A)\) denote an evaluation functional that maps a defense \(M\) and an attack process \(A\) to performance metrics, which can include cyber metrics such as detection rates and latency, physical metrics such as voltage violations and line overload counts, and stability or resilience metrics.
+
+%We model the interaction between the attacker and the defended grid as a partially observable process. At each discrete time step \(t\), the global system state is \(S_t\) and the attacker chooses an action \(A^A_t\) from an attack primitive catalog. Informally, we write this process as a tuple \(\langle S, A, T, R, \Omega, O \rangle\), where \(S\) is the joint cyber physical state space, \(A\) is the attacker action space defined by the primitive catalog, \(T\) is a black box transition implemented by the co simulation \(T(S_t, A^A_t, A^D_t) = \text{Sim}(S_t, A^D_t, A^A_t)\), \(\Omega\) is the space of attacker observations, and \(O: S \rightarrow \Omega\) maps internal system states to observations (e.g., MCP status) available to the attacker. The reward functional \(R\) captures attacker objectives such as overload duration, constraint violations, or defender utility degradation, but is left abstract in this work.
+
+%An attacker policy \(\pi\) selects actions based on observations and knowledge. We write \(A^A_t = \pi(O_t, K, G)\), where \(O_t = O(S_t)\), \(K\) is a knowledge base including protocol specifications and system documentation, and \(G\) is a goal specification encoding objectives such as maximizing overload duration or avoiding detection. Static attackers can be represented as fixed policies \(\pi_{\text{static}}\) in which \(A^A_t\) depends only on time or a predefined script, while adaptive attackers implement policies \(\pi_{\text{adapt}}\) that react to observations and feedback from the co simulation. When \(\pi_{\text{adapt}}\) is implemented by a large language model equipped with tools, the policy can incorporate pattern recognition and symbolic reasoning, as demonstrated in recent LLM based attack agents \cite{deng2024pentestgpt,attackllm,fang2024llmagents}.
+
+%Within this formalism, we define the evaluation validity gap for a defense \(M\) as
+%\begin{equation}
+%  \Delta E(M) = E(M, A_{\text{static}}) - E(M, A_{\text{adapt}}),
+%\end{equation}
+%where \(A_{\text{static}}\) denotes the attack process induced by a static policy \(\pi_{\text{static}}\) and \(A_{\text{adapt}}\) denotes the process induced by an adaptive policy \(\pi_{\text{adapt}}\) under comparable resource and access constraints. If \(E\) measures a utility in which larger values indicate better performance, a positive \(\Delta E(M)\) means that the defense appears more effective under static evaluation than under adaptive evaluation, quantifying the evaluation validity gap between traditional benchmarks and realistic, feedback driven attackers.
+
+We consider a cyber physical power system instrumented with a defense mechanism \(M\), which can represent an intrusion detection system, an anomaly detector, and a controller with protective logic. The goal is to evaluate the performance of \(M\) when the system is subjected to adversarial activity. Let \(E(M, A)\) denote an evaluation functional that maps a defense \(M\) and an attack process \(A\) to performance metrics, which can include cyber metrics such as detection rates and latency, physical metrics such as voltage violations and line overload counts, and stability or resilience metrics.
+%
+An attacker policy \(\pi\) selects actions based on observations and knowledge. Let \(O_t\) denote the attacker-visible observation at time \(t\) (e.g., the subset of system state returned by \texttt{get\_grid\_status()}). We define \(A^A_t = \pi(O_t, K, G)\), where \(K\) is a knowledge base including protocol specifications and system documentation, and \(G\) is a goal specification encoding objectives such as maximizing overload duration or avoiding detection. Static attackers can be represented as fixed policies \(\pi_{\text{static}}\) in which \(A^A_t\) depends only on time or a predefined script, while adaptive attackers implement policies \(\pi_{\text{adapt}}\) that react to observations and feedback from the co-simulation. 
+
+In this work, \(\pi_{\text{adapt}}\) is implemented by an LLM equipped with tools, and the policy can incorporate pattern recognition and symbolic reasoning, as discussed in \cite{deng2024pentestgpt,attackllm,fang2024llmagents}.
+%
+We define the evaluation validity gap for a defense \(M\) as
+\begin{equation}
+  \Delta E(M) = E(M, A_{\text{adapt}}) - E(M, A_{\text{static}}),
+\end{equation}
+where \(A_{\text{static}}\) denotes the attack process induced by a static policy \(\pi_{\text{static}}\) and \(A_{\text{adapt}}\) denotes the process induced by an adaptive policy \(\pi_{\text{adapt}}\) under comparable resource and access constraints. We interpret \(E(M, A)\) as a stress (harm) functional where larger values indicate worse grid performance, such as longer threshold violation duration or higher overload counts. Under this convention, \(\Delta E(M) > 0\) indicates the adaptive attacker induces greater harm than the static baseline, implying that static evaluations underestimate adversarial risk. For example, if \(E\) measures TVD (threshold violation duration in seconds), then \(\Delta E(M) > 0\) reveals that the adaptive attacker achieves longer violation durations than the random baseline, exposing a gap between static and adaptive threat models.
+
+
+
+%==================================================
+\subsection{System Model and Threat Model}
+We model the smart grid as a discrete-time cyber-physical system. The power system combines an IEEE 9-bus transmission network (GridPACK \cite{gridpack}) with IEEE 123-node distribution feeders (GridLAB-D \cite{gridlabd}), integrated via HELICS co-simulation \cite{hardy2024helics}. Six controllable EV charging stations on Feeder A serve as attack targets; two are co-located with storage for islanding capability.
+
+At time step $t$, the system state $S_t = (P_t, C_t)$ comprises physical state (voltages, power injections, switch statuses) and cyber state (SCADA measurements, control application states). The defense mechanism $M$ outputs actions $A^D_t = M(S_{t-k}, \ldots, S_t)$, while the attacker issues actions $A^A_t$ from a primitive catalog. System evolution follows $S_{t+1} = \text{Sim}(S_t, A^D_t, A^A_t)$ via HELICS federation.
+
+The cyber infrastructure includes an EV management and control platform (MCP) server that exposes HTTP endpoints. The threat model assumes an adversary who has compromised the MCP interface, for example through vulnerabilities in backend applications or cloud misconfigurations. The adversary has read access to aggregate feeder measurements and EV setpoints via \texttt{get\_grid\_status()}, and write access to EV charging capacities within configured bounds via \texttt{set\_ev\_capacity(ev\_id, P)}. The adversary cannot directly observe transmission system internal states or protection relay settings. To enforce physical realizability, attack actions are subject to per-device capacity bounds, rate limits, and action budgets. The defender is a threshold-based feeder controller that monitors total power and adjusts EV charging when thresholds are exceeded.
