@@ -1,0 +1,53 @@
+{
+  "name": "LLM_GridEval_v2",
+  "broker": true,
+  "brokerargs": "-f5 --port=23404 --loglevel=warning",
+  "federates": [
+    {
+      "directory": "/app/examples/2bus-13bus",
+      "exec": "gridlabd 1c_IEEE_123_feeder.glm",
+      "host": "localhost",
+      "name": "IEEE123bus_fed",
+      "environment": {
+        "HELICS_BROKER": "tcp://localhost:23404"
+      }
+    },
+    {
+      "directory": "/app/examples/2bus-13bus",
+      "exec": "gridlabd 1c_IEEE_123_feeder_2.glm",
+      "host": "localhost",
+      "name": "IEEE123bus_fed_2",
+      "environment": {
+        "HELICS_BROKER": "tcp://localhost:23404"
+      }
+    },
+    {
+      "directory": "/app/v2/controller",
+      "exec": "python ev_controller_v2.py --config v2_control.json",
+      "host": "localhost",
+      "name": "EV_Controller_v2",
+      "environment": {
+        "HELICS_BROKER": "tcp://localhost:23404"
+      }
+    },
+    {
+      "directory": "/app/examples/2bus-13bus",
+      "exec": "/app/examples/2bus-13bus/build/gpk-left-fed.x",
+      "host": "localhost",
+      "name": "gridpack",
+      "environment": {
+        "HELICS_BROKER": "tcp://localhost:23404"
+      }
+    },
+    {
+      "directory": "/app/llm_grid_eval",
+      "exec": "bash -c 'PYTHONPATH=/app/llm_grid_eval/src python -m llm_grid_eval.server --config /app/v2/configs/server.yaml'",
+      "host": "localhost",
+      "name": "ev_attacker_mcp",
+      "environment": {
+        "HELICS_BROKER": "tcp://localhost:23404",
+        "HELICS_BROKER_ADDRESS": "tcp://localhost:23404"
+      }
+    }
+  ]
+}

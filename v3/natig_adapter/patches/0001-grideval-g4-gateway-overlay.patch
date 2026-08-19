@@ -1,0 +1,1178 @@
+diff --git a/RC/code/dnp3/dnplib/common.cpp b/RC/code/dnp3/dnplib/common.cpp
+index c8b8038..394a355 100644
+--- a/RC/code/dnp3/dnplib/common.cpp
++++ b/RC/code/dnp3/dnplib/common.cpp
+@@ -26,6 +26,7 @@
+ 
+ #include <assert.h>
+ #include <stdlib.h>
++#include <cstring>
+ #include <iostream>
+ //#include "ns3/wrap.h"
+ #include "ns3/common.hpp"
+@@ -173,38 +174,24 @@ void appendINT16(Bytes& data, int16_t val)
+ }
+ 
+ void appendFloat(Bytes& data, float val) {
+-    unsigned char* c = reinterpret_cast<unsigned char*>(&val);
+-    //cout << "I will be adding " << val << endl;
+-    //cout << "The deque value is " << data.size() << endl;
+-    /*if (data.size() > 4){
+-      data[-4] = c[0];
+-      data[-3] = c[1];
+-      data[-2] = c[2];
+-      data[-1] = c[3];
+-    }*/
+-    //if(val == 0.0){
+-    //  data.clear();
+-    //}
+-
+-    data.push_back(c[0]);
+-    data.push_back(c[1]);
+-    data.push_back(c[2]);
+-    data.push_back(c[3]);
++    uint32_t bits;
++    static_assert(sizeof(bits) == sizeof(val), "DNP3 G30V5 requires float32");
++    std::memcpy(&bits, &val, sizeof(bits));
++    appendUINT32(data, bits);
+ }
+ 
+ uint64_t removeUINT48(Bytes& data) noexcept(true)
+ {
+-    uint64_t val;
+-
+-    if(data.size() < 6)
+-	//throw(__LINE__);
+-
+-    val = ((uint64_t) data[5]) << 40;
+-    val |= ((uint64_t) data[4]) << 32;
+-    val |= ((uint64_t) data[3]) << 24;
+-    val |= ((uint64_t) data[2]) << 16;
+-    val |= ((uint64_t) data[1]) << 8;
+-    val |= ((uint64_t) data[0]);
++    if(data.size() < 6) {
++        return 0;
++    }
++    uint64_t val = 0;
++    val |= static_cast<uint64_t>(data[5]) << 40;
++    val |= static_cast<uint64_t>(data[4]) << 32;
++    val |= static_cast<uint64_t>(data[3]) << 24;
++    val |= static_cast<uint64_t>(data[2]) << 16;
++    val |= static_cast<uint64_t>(data[1]) << 8;
++    val |= static_cast<uint64_t>(data[0]);
+     data.pop_front();
+     data.pop_front();
+     data.pop_front();
+@@ -217,15 +204,14 @@ uint64_t removeUINT48(Bytes& data) noexcept(true)
+ 
+ uint32_t removeUINT32(Bytes& data) noexcept(true)
+ {
+-    uint32_t val;
+-
+-    if(data.size() < 4)
+-	//throw(__LINE__);
+-
+-    val = data[3] << 24;
+-    val |= data[2] << 16;
+-    val |= data[1] << 8;
+-    val |= data[0];
++    if(data.size() < 4) {
++        return 0;
++    }
++    uint32_t val = 0;
++    val |= static_cast<uint32_t>(data[3]) << 24;
++    val |= static_cast<uint32_t>(data[2]) << 16;
++    val |= static_cast<uint32_t>(data[1]) << 8;
++    val |= static_cast<uint32_t>(data[0]);
+     data.pop_front();
+     data.pop_front();
+     data.pop_front();
+@@ -236,14 +222,13 @@ uint32_t removeUINT32(Bytes& data) noexcept(true)
+ 
+ uint32_t removeUINT24(Bytes& data) noexcept(true)
+ {
+-    uint32_t val;
+-
+-    if(data.size() < 3)
+-	//throw(__LINE__);
+-
+-    val = data[2] << 16;
+-    val |= data[1] << 8;
+-    val |= data[0];
++    if(data.size() < 3) {
++        return 0;
++    }
++    uint32_t val = 0;
++    val |= static_cast<uint32_t>(data[2]) << 16;
++    val |= static_cast<uint32_t>(data[1]) << 8;
++    val |= static_cast<uint32_t>(data[0]);
+     data.pop_front();
+     data.pop_front();
+     data.pop_front();
+@@ -253,13 +238,12 @@ uint32_t removeUINT24(Bytes& data) noexcept(true)
+ 
+ uint16_t removeUINT16(Bytes& data) noexcept(true)
+ {
+-    uint16_t val;
+-
+-    if(data.size() < 2)
+-	//throw(__LINE__);
+-
+-    val = data[1] << 8;
+-    val |= data[0];
++    if(data.size() < 2) {
++        return 0;
++    }
++    uint16_t val = 0;
++    val |= static_cast<uint16_t>(data[1]) << 8;
++    val |= static_cast<uint16_t>(data[0]);
+     data.pop_front();
+     data.pop_front();
+ 
+@@ -268,12 +252,10 @@ uint16_t removeUINT16(Bytes& data) noexcept(true)
+ 
+ uint8_t removeUINT8(Bytes& data) noexcept(true)
+ {
+-    uint8_t val;
+-
+-    if(data.size() < 1)
+-	//throw(__LINE__);
+-
+-    val = data[0];
++    if(data.size() < 1) {
++        return 0;
++    }
++    uint8_t val = data[0];
+     data.pop_front();
+     return val;
+ }
+@@ -289,6 +271,15 @@ int16_t removeINT16(Bytes& data) noexcept(true)
+     return (int16_t) removeUINT16(data);
+ }
+ 
++float removeFloat(Bytes& data) noexcept(true)
++{
++    uint32_t bits = removeUINT32(data);
++    float val;
++    static_assert(sizeof(bits) == sizeof(val), "DNP3 G30V5 requires float32");
++    std::memcpy(&val, &bits, sizeof(val));
++    return val;
++}
++
+ 
+ 
+ void moveBytes(Bytes& data, Bytes& val, unsigned int len) noexcept(true)
+diff --git a/RC/code/dnp3/dnplib/common.hpp b/RC/code/dnp3/dnplib/common.hpp
+index da6fd86..50be30e 100644
+--- a/RC/code/dnp3/dnplib/common.hpp
++++ b/RC/code/dnp3/dnplib/common.hpp
+@@ -99,6 +99,7 @@ uint8_t removeUINT8(Bytes& data) noexcept(true);
+ 
+ int32_t removeINT32(Bytes& data) noexcept(true);
+ int16_t removeINT16(Bytes& data) noexcept(true);
++float removeFloat(Bytes& data) noexcept(true);
+ 
+ // takes the first len bytes of data and adds them to the end of val
+ void moveBytes(Bytes& data, Bytes& val, unsigned int len) noexcept(true);
+diff --git a/RC/code/dnp3/dnplib/event_interface.hpp b/RC/code/dnp3/dnplib/event_interface.hpp
+index d1216c6..a843490 100644
+--- a/RC/code/dnp3/dnplib/event_interface.hpp
++++ b/RC/code/dnp3/dnplib/event_interface.hpp
+@@ -59,10 +59,22 @@ public:
+   };     // Statistic
+  
+     virtual void changePoint(    DnpAddr_t      addr,
+-			         DnpIndex_t     index,
+-			         PointType_t    pointType,
+-			         int            value,
+-			         DnpTime_t      timestamp=0 )=0;
++				         DnpIndex_t     index,
++				         PointType_t    pointType,
++				         int            value,
++				         DnpTime_t      timestamp=0 )=0;
++
++    // G30V5 carries an IEEE-754 float.  The legacy integer callback silently
++    // discarded that value in Factory::create_float.  Keep a default adapter
++    // for legacy applications while allowing the G4 master to preserve it.
++    virtual void changeFloatPoint(DnpAddr_t      addr,
++                                  DnpIndex_t     index,
++                                  PointType_t    pointType,
++                                  float          value,
++                                  DnpTime_t      timestamp=0)
++    {
++        changePoint(addr, index, pointType, static_cast<int>(value), timestamp);
++    }
+ 
+     // use this method if you want the name of a unique dnp point
+     // to be something other than the default
+diff --git a/RC/code/dnp3/dnplib/factory.cpp b/RC/code/dnp3/dnplib/factory.cpp
+index bc5b497..3523bfd 100644
+--- a/RC/code/dnp3/dnplib/factory.cpp
++++ b/RC/code/dnp3/dnplib/factory.cpp
+@@ -286,11 +286,14 @@ void Factory::create_float(uint8_t grp, uint8_t var, Bytes& data,
+      }
+     else {
+         DnpFloatObject* f_p = fMap[ key( grp, var)];
+-        for (int i=startIndex; i<stopIndex+1; i++)
+-        {
+-            //cout << "trying here" << endl;
+-            f_p->decode(data);    // init instance
+-        }
++        for (int i=startIndex; i<stopIndex+1; i++)
++        {
++            f_p->decode(data);
++            f_p->index = i;
++            db_p->changeFloatPoint(addr, i, f_p->pointType,
++                                   f_p->value, f_p->timestamp);
++            lastFloatObjectParsed = f_p;
++        }
+     }
+ }
+ 
+diff --git a/RC/code/dnp3/dnplib/object.cpp b/RC/code/dnp3/dnplib/object.cpp
+index 1d8a5fe..b24a36d 100644
+--- a/RC/code/dnp3/dnplib/object.cpp
++++ b/RC/code/dnp3/dnplib/object.cpp
+@@ -305,10 +305,10 @@ void Bit16AnalogFloatInput::encode(Bytes& data) const
+     //cout << "Analog2: " << value << endl;
+ }
+ 
+-void Bit16AnalogFloatInput::decode(Bytes& data) noexcept(true)
+-{
+-    flag  = removeUINT8(data);
+-    value = removeINT32(data);
++void Bit16AnalogFloatInput::decode(Bytes& data) noexcept(true)
++{
++    flag  = removeUINT8(data);
++    value = removeFloat(data);
+ }
+ 
+ // Counter Inputs //////////////////////////////////////////////
+@@ -379,19 +379,11 @@ void Bit32AnalogOutput::encode(Bytes& data) const
+     appendUINT8  (data, status);
+ }
+ 
+-void Bit32AnalogOutput::decode(Bytes& data) noexcept(true)
+-{
+-    //request = removeINT32(data);
+-    request = static_cast<float>(data[3] << 24 | data[2] << 16 | data[1] << 8 | data[0]);
+-    data.pop_front();
+-    data.pop_front();
+-    data.pop_front();
+-    data.pop_front();
+-    //request = removeINT16(data);
+-    //request = removeINT16(data);
+-    status  = (Status) removeUINT8(data);
+-    //value = request;
+-}
++void Bit32AnalogOutput::decode(Bytes& data) noexcept(true)
++{
++    request = static_cast<float>(removeINT32(data));
++    status  = (Status) removeUINT8(data);
++}
+ 
+ // Other Objects //////////////////////////////////////////////
+ 
+diff --git a/RC/code/dnp3/dnplib/outstation.cpp b/RC/code/dnp3/dnplib/outstation.cpp
+index 628c066..fbb0dae 100644
+--- a/RC/code/dnp3/dnplib/outstation.cpp
++++ b/RC/code/dnp3/dnplib/outstation.cpp
+@@ -102,10 +102,14 @@ Outstation::Outstation( OutstationConfig& outstationConfig,
+ 		 outstationConfig.userNum, datalinkConfig,
+ 		 eventInterface_p, timerInterface_p ),
+ #ifdef SECURITY_ENABLED
+-    secAuth(this),
+-#endif
+-    masterAddr(outstationConfig.masterAddr),
+-    broadcast(false)
++    secAuth(this),
++#endif
++    masterAddr(outstationConfig.masterAddr),
++    broadcast(false),
++    g4OutstationAddr(outstationConfig.addr),
++    g4AoSelectValid(false),
++    g4AoSelectIndex(0),
++    g4AoSelectCount(0)
+ {
+     LogComponentEnable ("outstation", LOG_LEVEL_INFO);
+ 
+@@ -716,8 +720,81 @@ void Outstation::write()
+     }
+ }
+ 
+-void Outstation::control(AppHeader::FunctionCode fn)
+-{
++void Outstation::control(AppHeader::FunctionCode fn)
++{
++    initResponse(1, 1, 0, 0);
++    oh.decode(session.rxFragment, stats);
++    DnpObject* obj_p = of.decode(oh, session.rxFragment, addr, stats);
++    Bit32AnalogOutput* command = dynamic_cast<Bit32AnalogOutput*>(obj_p);
++
++    // GridEval G4 is deliberately narrower than the stock NATIG control
++    // surface: only one G41V1 object for AO0 or AO1, status=ACCEPTED, and
++    // SELECT-before-OPERATE. BO and either direct-operate form fail closed.
++    if (oh.grp != 41 || oh.var != 1 || oh.count != 1 ||
++        command == NULL || command->index > 1 ||
++        command->status != Bit32AnalogOutput::ACCEPTED ||
++        fn == AppHeader::DIR_OPERATE ||
++        fn == AppHeader::DIR_OPERATE_NO_RESP) {
++        g4AoSelectValid = false;
++        sendParameterError();
++        return;
++    }
++
++    const int32_t rawCount = static_cast<int32_t>(command->request);
++    const char* operation = NULL;
++    if (fn == AppHeader::SELECT) {
++        g4AoSelectValid = true;
++        g4AoSelectIndex = command->index;
++        g4AoSelectCount = rawCount;
++        operation = "select";
++    } else if (fn == AppHeader::OPERATE) {
++        if (!g4AoSelectValid ||
++            g4AoSelectIndex != command->index ||
++            g4AoSelectCount != rawCount) {
++            g4AoSelectValid = false;
++            sendParameterError();
++            return;
++        }
++        g4AoSelectValid = false; // consume exactly once, including callback failure
++        operation = "operate";
++    } else {
++        g4AoSelectValid = false;
++        sendFunctionUnknown();
++        return;
++    }
++
++    std::ostringstream event;
++    event << "{\"schema_version\":\"grideval-g4-dnp3-object-0.1\","
++          << "\"group\":41,\"variation\":1,"
++          << "\"operation\":\"" << operation << "\","
++          << "\"master_address\":" << masterAddr << ","
++          << "\"outstation_address\":" << g4OutstationAddr << ","
++          << "\"point_index\":" << command->index << ","
++          << "\"raw_count\":" << rawCount << ",\"status\":0}";
++
++    // DNP3 SBO requires the SELECT and OPERATE responses to echo the exact
++    // object bytes.  The master compares this response against its request
++    // before it will advance SELECT -> OPERATE.
++    ObjectHeader responseObject(41, 1, 0x28, 1);
++    responseObject.encode(txFragment);
++    appendUINT16(txFragment, command->index);
++    command->encode(txFragment);
++    transmit();
++    publishCallback("gateway/der_ev4", event.str(),
++                    "grideval-g4-dnp3-object");
++    if (fn == AppHeader::SELECT) {
++        stats.increment(TX_SELECT_RESP);
++    } else {
++        stats.increment(TX_OPERATE_RESP);
++    }
++}
++
++// The generic GLD-oriented control mapper is intentionally excluded by the
++// v3 overlay. It remains below only to keep this patch reviewable against the
++// pinned upstream source.
++#if 0
++void Outstation::controlLegacyGldMapper(AppHeader::FunctionCode fn)
++{
+     //std::cout << "Entering control function at time " << Simulator::Now().GetSeconds() << "s" << std::endl;
+     initResponse(1, 1, 0, 0); // Initialize response with default parameters
+ 
+@@ -882,10 +959,11 @@ void Outstation::control(AppHeader::FunctionCode fn)
+     } else {
+         std::cout << "ERROR: Unsupported function code received: " << fn << std::endl;
+         assert(0); // Fail on unsupported function code
+-    }
+-}
+-
+-void Outstation::sendNullResponse()
++    }
++}
++#endif
++
++void Outstation::sendNullResponse()
+ {
+     NS_LOG_INFO("Sending Null response");
+     initResponse( 1, 1, 0, 0);
+diff --git a/RC/code/dnp3/dnplib/outstation.hpp b/RC/code/dnp3/dnplib/outstation.hpp
+index b43a645..95acf46 100644
+--- a/RC/code/dnp3/dnplib/outstation.hpp
++++ b/RC/code/dnp3/dnplib/outstation.hpp
+@@ -211,10 +211,14 @@ private:
+     AppSeqNum_t             lastMIMRxSeqNum;
+     AppSeqNum_t             lastMIMTxSeqNum;
+     DnpAddr_t               masterAddr;
+-    DnpAddr_t               destAddr;     // addr to send responses to
+-    bool                    broadcast; // true if last rxd frag was broadcast
+-
+-    int poll_cnt;
++    DnpAddr_t               destAddr;     // addr to send responses to
++    bool                    broadcast; // true if last rxd frag was broadcast
++    DnpAddr_t               g4OutstationAddr;
++    bool                    g4AoSelectValid;
++    DnpIndex_t              g4AoSelectIndex;
++    int32_t                 g4AoSelectCount;
++
++    int poll_cnt;
+     int point_num;
+     bool m_offline;
+     float m_multiplier;
+diff --git a/RC/code/dnp3/dnplib/transport.cpp b/RC/code/dnp3/dnplib/transport.cpp
+index 5630a03..a455fb0 100644
+--- a/RC/code/dnp3/dnplib/transport.cpp
++++ b/RC/code/dnp3/dnplib/transport.cpp
+@@ -123,7 +123,7 @@ Uptime_t TransportFunction::transmit( DnpAddr_t destAddr,
+ 	    i = fragment.end();
+ 	    stats.increment(TransportStats::TX_FRAGMENT);
+ 	    stats.increment(TransportStats::TX_SEGMENT);
+-	    if(srcAddr == -1) {
++	    if(srcAddr == USE_LOCAL_DATALINK_ADDRESS) {
+ 		NS_LOG_INFO("Unknown source address");
+ 	    	return dl.transmit( destAddr, segment);
+ 	    } else {
+@@ -142,7 +142,7 @@ Uptime_t TransportFunction::transmit( DnpAddr_t destAddr,
+ 	    segment.insert( segment.end(), i, i+Lpdu::MAX_APP_DATA);
+ 	    i += Lpdu::MAX_APP_DATA;
+ 	    stats.increment(TransportStats::TX_SEGMENT);
+-	    if(srcAddr == -1) {
++	    if(srcAddr == USE_LOCAL_DATALINK_ADDRESS) {
+ 		NS_LOG_INFO("Unknown source address");
+ 	        dl.transmit( destAddr, segment);
+ 	    }else {
+diff --git a/RC/code/dnp3/dnplib/transport.hpp b/RC/code/dnp3/dnplib/transport.hpp
+index c89a605..b76bc89 100644
+--- a/RC/code/dnp3/dnplib/transport.hpp
++++ b/RC/code/dnp3/dnplib/transport.hpp
+@@ -69,13 +69,17 @@ class TransportFunction
+ {
+ 
+ public:
++    // DNP broadcast is not a valid source, so reserve it as the API sentinel
++    // that requests the address configured on the local datalink.
++    static const DnpAddr_t USE_LOCAL_DATALINK_ADDRESS = 0xffff;
++
+     TransportFunction( Datalink&               datalink,
+ 		       const StationInfoMap&   stationInfoMap);
+ 
+     Uptime_t transmit( DnpAddr_t destAddr,
+ 				      const Bytes&      fragment,
+ 				      Stats&            stats,
+-				      DnpAddr_t srcAddr=1);
++				      DnpAddr_t srcAddr=USE_LOCAL_DATALINK_ADDRESS);
+ 
+     // this is a reserved DNP address that we will use internally
+     // if the DNP protocol is ammended to use this address for something
+diff --git a/RC/code/helics/dnp3-application-new-Docker.cc b/RC/code/helics/dnp3-application-new-Docker.cc
+index 16e8416..1809f22 100644
+--- a/RC/code/helics/dnp3-application-new-Docker.cc
++++ b/RC/code/helics/dnp3-application-new-Docker.cc
+@@ -21,10 +21,14 @@
+ #include <iostream>
+ #include <fstream>
+ #include <vector>
+-#include <map>
+-#include <sstream>
+-#include <algorithm>
+-#include <string>
++#include <map>
++#include <sstream>
++#include <algorithm>
++#include <cmath>
++#include <cstdlib>
++#include <iomanip>
++#include <limits>
++#include <string>
+ 
+ #include <sys/stat.h>
+ #include <unistd.h>
+@@ -308,11 +312,23 @@ Dnp3ApplicationNew::GetTypeId (void)
+   return tid;
+ }
+ 
+-Dnp3ApplicationNew::Dnp3ApplicationNew ()
+-{
+-  NS_LOG_FUNCTION (this);
+-  m_socket = 0;
+-  mim_socket = 0;
++Dnp3ApplicationNew::Dnp3ApplicationNew ()
++{
++  NS_LOG_FUNCTION (this);
++  m_socket = 0;
++  mim_socket = 0;
++  m_p = NULL;
++  o_p = NULL;
++  running = false;
++  g4_dispatch_scheduled = false;
++  for (int i = 0; i < 4; ++i) {
++    g4_analog[i] = 0.0;
++    g4_analog_seen[i] = false;
++  }
++  for (int i = 0; i < 2; ++i) {
++    g4_binary[i] = 0;
++    g4_binary_seen[i] = false;
++  }
+   //Setting up jitter random variable stream
+   m_rand_delay_ns = CreateObject<UniformRandomVariable> ();
+   m_rand_delay_ns->SetAttribute ("Min", DoubleValue  (m_jitterMinNs));
+@@ -898,19 +914,21 @@ void Dnp3ApplicationNew::initConfig(void)
+ }
+ 
+ 
+-void Dnp3ApplicationNew::store_points(std::string name, std::string value)
++void Dnp3ApplicationNew::store_points(std::string name, std::string value)
+ {
+ 
+     if (!analog_points.empty()) {
+         if (analog_points.find(name) != analog_points.end()) {
+             analog_points[name] = atof(value.c_str());
+             //cout << "analog point found: " << name << "New item:" << analog_points[name] << endl;
+-        } else if (bin_points.find(name) != bin_points.end()) {
+-            if(value.compare("CLOSED") == 0) {
+-                bin_points[name] = 1;
+-            } else{
+-                bin_points[name] = 0;
+-            }
++        } else if (bin_points.find(name) != bin_points.end()) {
++            if (value == "CLOSED" || value == "1") {
++                bin_points[name] = 1;
++            } else if (value == "OPEN" || value == "0") {
++                bin_points[name] = 0;
++            } else {
++                NS_LOG_WARN("Rejected invalid binary point value for " << name);
++            }
+           //  cout << "bin point found: " << name << "New item:" << bin_points[name] << endl;
+         } else {
+             //cout << "point not found: " << name << endl;
+@@ -941,12 +959,70 @@ void Dnp3ApplicationNew::HandleAccept (Ptr<Socket> s, const Address& from)
+ 
+ 
+ // implementation of EventInterface
+-void Dnp3ApplicationNew::changePoint(        DnpAddr_t addr, DnpIndex_t index,
+-				     PointType_t    pointType,
+-				     int value, DnpTime_t timestamp)
+-{
+-
+-}
++void Dnp3ApplicationNew::changePoint(        DnpAddr_t addr, DnpIndex_t index,
++					     PointType_t    pointType,
++					     int value, DnpTime_t timestamp)
++{
++    if (!m_isMaster || addr != 4 || pointType != EventInterface::BI ||
++        index > 1 || (value != 0 && value != 1)) {
++        return;
++    }
++    g4_binary[index] = value;
++    g4_binary_seen[index] = true;
++
++    EmitG4TelemetryIfComplete();
++}
++
++void Dnp3ApplicationNew::EmitG4TelemetryIfComplete()
++{
++    bool complete = true;
++    for (int i = 0; i < 4; ++i) {
++        complete = complete && g4_analog_seen[i];
++    }
++    for (int i = 0; i < 2; ++i) {
++        complete = complete && g4_binary_seen[i];
++    }
++    if (!complete) {
++        return;
++    }
++
++    Json::Value root(Json::objectValue);
++    root["wire_schema"] = "grideval-g4-dnp3-telemetry-decoded/1.0";
++    root["master_address"] = 1;
++    root["outstation_address"] = 4;
++    root["received_time_s"] = Simulator::Now().GetSeconds();
++    root["analog_g30v5"] = Json::Value(Json::arrayValue);
++    root["binary_g1v2"] = Json::Value(Json::arrayValue);
++    for (int i = 0; i < 4; ++i) {
++        root["analog_g30v5"].append(g4_analog[i]);
++        g4_analog_seen[i] = false;
++    }
++    for (int i = 0; i < 2; ++i) {
++        root["binary_g1v2"].append(g4_binary[i] != 0);
++        g4_binary_seen[i] = false;
++    }
++    Json::FastWriter writer;
++    auto msg = std::make_unique<helics::Message>();
++    msg->data = writer.write(root);
++    msg->dest = "controller/der_ev4";
++    msg->time = helics::Time::epsilon();
++    DoRead(std::move(msg));
++}
++
++void Dnp3ApplicationNew::changeFloatPoint(DnpAddr_t addr,
++                                          DnpIndex_t index,
++                                          PointType_t pointType,
++                                          float value,
++                                          DnpTime_t timestamp)
++{
++    if (!m_isMaster || addr != 4 || pointType != EventInterface::AI ||
++        index > 3 || !std::isfinite(value)) {
++        return;
++    }
++    g4_analog[index] = value;
++    g4_analog_seen[index] = true;
++    EmitG4TelemetryIfComplete();
++}
+             // NS_LOG_INFO("Binary name: " << name);
+ void  Dnp3ApplicationNew::registerName(       DnpAddr_t      addr,
+ 				      DnpIndex_t     index,
+@@ -1019,7 +1095,7 @@ void Dnp3ApplicationNew::attack_data(int freq)
+     }
+ }
+ 
+-void Dnp3ApplicationNew::periodic_poll(int count)
++void Dnp3ApplicationNew::periodic_poll(int count)
+ {
+ //    cout << count << endl;
+ //    if (count == 0) {
+@@ -1027,10 +1103,9 @@ void Dnp3ApplicationNew::periodic_poll(int count)
+ //    }
+ //    else{
+ 
+-        if(running) {
+-            m_p->poll(Master::INTEGRITY);
+-            Simulator::Schedule(MilliSeconds(count), &Dnp3ApplicationNew::periodic_poll, this, count); //virtual method
+-        }
++        if(running) {
++            m_p->poll(Master::INTEGRITY);
++        }
+ //    }
+ }
+ 
+@@ -1089,7 +1164,7 @@ void Dnp3ApplicationNew::send_control_binary(Dnp3ApplicationNew::ControlType typ
+     }
+ }
+ 
+-void Dnp3ApplicationNew::send_control_analog(Dnp3ApplicationNew::ControlType type, DnpIndex_t index, double value) {
++void Dnp3ApplicationNew::send_control_analog(Dnp3ApplicationNew::ControlType type, DnpIndex_t index, double value) {
+     NS_LOG_INFO ("DNP3Application::send_control_analog");
+     Bit32AnalogOutput ao(value, index);
+     if(type == Dnp3ApplicationNew::SELECT_OPERATE) {
+@@ -1098,8 +1173,38 @@ void Dnp3ApplicationNew::send_control_analog(Dnp3ApplicationNew::ControlType typ
+         m_p->direct_operate(true, ao);
+     } else {
+         NS_LOG_INFO ("Call to Dnp3Application::send_control_analog with bad control type");
+-    }
+-}
++    }
++}
++
++void Dnp3ApplicationNew::DispatchG4Control()
++{
++    if (g4_control_queue.empty()) {
++        g4_dispatch_scheduled = false;
++        return;
++    }
++    const double now = Simulator::Now().GetSeconds();
++    if (now > g4_control_queue.front().deadline_s) {
++        NS_LOG_WARN("Dropped GridEval command after 5-second queue deadline");
++        g4_control_queue.pop_front();
++        Simulator::ScheduleNow(&Dnp3ApplicationNew::DispatchG4Control, this);
++        return;
++    }
++    if (!running || m_p == NULL || m_p->getState() != Station::IDLE) {
++        Simulator::Schedule(MilliSeconds(10),
++                            &Dnp3ApplicationNew::DispatchG4Control, this);
++        return;
++    }
++    G4ControlRequest request = g4_control_queue.front();
++    g4_control_queue.pop_front();
++    send_control_analog(Dnp3ApplicationNew::SELECT_OPERATE,
++                        request.index, request.raw_count);
++    if (g4_control_queue.empty()) {
++        g4_dispatch_scheduled = false;
++    } else {
++        Simulator::Schedule(MilliSeconds(10),
++                            &Dnp3ApplicationNew::DispatchG4Control, this);
++    }
++}
+ 
+ void Dnp3ApplicationNew::send_device_attribute_request(DnpIndex_t index) {
+     NS_LOG_INFO ("DNP3Application::send_device_attribute_request");
+@@ -2014,16 +2119,15 @@ Dnp3ApplicationNew::Record (Ptr<Packet> packet, Address from)
+ }
+ 
+ void
+-Dnp3ApplicationNew::SetEndpointName (const std::string &name, bool is_global)
+-{
+-    NS_LOG_FUNCTION (this << name << is_global);
+-    SetName(name);
+-    if (is_global) {
+-         m_endpoint_id = helics_federate->registerGlobalEndpoint (name);
+-    }
+-    else {
+-         m_endpoint_id = helics_federate->registerEndpoint (name);
+-    }
++Dnp3ApplicationNew::SetEndpointName (const std::string &name, bool is_global)
++{
++    NS_LOG_FUNCTION (this << name << is_global);
++    SetName(name);
++    if (name != "cc_der_ev4" && name != "der_ev4") {
++         NS_FATAL_ERROR("GridEval G4 rejected undeclared NATIG endpoint " << name);
++    }
++    m_endpoint_id = helics_federate->registerGlobalEndpoint (
++        "natig/" + name);
+     using std::placeholders::_1;
+     using std::placeholders::_2;
+     std::function<void(helics::Endpoint,helics::Time)> func;
+@@ -2031,12 +2135,25 @@ Dnp3ApplicationNew::SetEndpointName (const std::string &name, bool is_global)
+     helics_federate->setMessageNotificationCallback(m_endpoint_id, func);
+ }
+ 
+-void 
+-Dnp3ApplicationNew::EndpointCallback (helics::Endpoint id, helics::Time time)
+-{
+-	  NS_LOG_FUNCTION (this << m_name << id.getName() << time);
+-	  DoEndpoint (id, time);
+-}
++void
++Dnp3ApplicationNew::EndpointCallback (helics::Endpoint id, helics::Time time)
++{
++	  NS_LOG_FUNCTION (this << m_name << id.getName() << time);
++	  const double now = Simulator::Now().GetSeconds();
++	  const double delivery = static_cast<double>(time);
++	  if (delivery + 1e-9 < now) {
++	      NS_FATAL_ERROR("GridEval HELICS endpoint delivery regressed in time");
++	  }
++	  Simulator::Schedule(
++	      Seconds(std::max(0.0, delivery - now)),
++	      &Dnp3ApplicationNew::DispatchEndpoint, this, id, time);
++}
++
++void
++Dnp3ApplicationNew::DispatchEndpoint (helics::Endpoint id, helics::Time time)
++{
++	  DoEndpoint(id, time);
++}
+  
+ void 
+ Dnp3ApplicationNew::DoEndpoint (helics::Endpoint id, helics::Time time)
+@@ -2047,8 +2164,141 @@ Dnp3ApplicationNew::DoEndpoint (helics::Endpoint id, helics::Time time)
+ }
+ 
+ void
+-Dnp3ApplicationNew::DoEndpoint (helics::Endpoint id, helics::Time time, std::unique_ptr<helics::Message> message)
+-{
++Dnp3ApplicationNew::DoEndpoint (helics::Endpoint id, helics::Time time, std::unique_ptr<helics::Message> message)
++{
++	          NS_LOG_FUNCTION (this << id.getName() << time << message->to_string());
++	          std::istringstream input(message->data.to_string());
++	          Json::Reader reader;
++	          Json::Value root;
++	          if (!reader.parse(input, root, false) || !root.isObject()) {
++	              NS_LOG_WARN("Rejected malformed GridEval endpoint JSON");
++	              return;
++	          }
++
++	          if (m_isMaster) {
++	              if (root.size() != 4 ||
++	                  root["wire_schema"].asString() !=
++	                      "grideval-g4-controller-command/1.0" ||
++	                  root["operation"].asString() != "select_operate" ||
++	                  !root["point_index"].isIntegral() ||
++	                  !root["semantic_message"].isObject()) {
++	                  NS_LOG_WARN("Rejected malformed GridEval controller command");
++	                  return;
++	              }
++	              const int point = root["point_index"].asInt();
++	              const Json::Value& semantic = root["semantic_message"];
++	              const Json::Value& payload = semantic["payload"];
++	              const char* expectedType = point == 0
++	                  ? "active_power_setpoint" : "reactive_setpoint";
++	              const char* expectedUnit = point == 0 ? "kW" : "kvar";
++	              if ((point != 0 && point != 1) ||
++	                  semantic.size() != 9 ||
++	                  semantic["schema_version"].asString() != "0.1" ||
++	                  semantic["kind"].asString() != "command" ||
++	                  semantic["source"].asString() != "ev_controller_v3" ||
++	                  semantic["target"].asString() != "DER_EV4_BESS" ||
++	                  semantic["type"].asString() != expectedType ||
++	                  !semantic["message_id"].isString() ||
++	                  semantic["message_id"].asString().empty() ||
++	                  !semantic["sequence"].isIntegral() ||
++	                  semantic["sequence"].asInt() < 1 ||
++	                  !semantic["event_time_s"].isNumeric() ||
++	                  !std::isfinite(semantic["event_time_s"].asDouble()) ||
++	                  semantic["event_time_s"].asDouble() < 0.0 ||
++	                  semantic["event_time_s"].asDouble() > 840.0 ||
++	                  !payload.isObject() || payload.size() != 4 ||
++	                  !payload["value"].isNumeric() ||
++	                  !std::isfinite(payload["value"].asDouble()) ||
++	                  payload["unit"].asString() != expectedUnit ||
++	                  !payload["valid_until_s"].isNumeric() ||
++	                  !std::isfinite(payload["valid_until_s"].asDouble()) ||
++	                  payload["valid_until_s"].asDouble() <
++	                      semantic["event_time_s"].asDouble() ||
++	                  !payload["quality"].isArray() ||
++	                  payload["quality"].size() != 1 ||
++	                  payload["quality"][0].asString() != "online") {
++	                  NS_LOG_WARN("Rejected invalid GridEval command semantics");
++	                  return;
++	              }
++	              const double value = payload["value"].asDouble();
++	              const double limit = point == 0 ? 200.0 : 88.0;
++	              const double scaled = value / 0.001;
++	              const long long raw = std::llround(scaled);
++	              if (std::fabs(value) > limit ||
++	                  std::fabs(scaled - static_cast<double>(raw)) > 1e-6 ||
++	                  std::llabs(raw) > (point == 0 ? 200000 : 88000)) {
++	                  NS_LOG_WARN("Rejected non-representable G41V1 command");
++	                  return;
++	              }
++		              G4ControlRequest request;
++		              request.index = point;
++		              request.raw_count = static_cast<double>(raw);
++		              request.deadline_s =
++		                  Simulator::Now().GetSeconds() + 5.0;
++		              g4_control_queue.push_back(request);
++		              if (!g4_dispatch_scheduled) {
++		                  g4_dispatch_scheduled = true;
++		                  Simulator::ScheduleNow(
++		                      &Dnp3ApplicationNew::DispatchG4Control, this);
++		              }
++		              return;
++	          }
++
++	          if (root.size() != 4 ||
++	              !root["schema_version"].isString() ||
++              !root["target"].isString() ||
++              root["schema_version"].asString() != "grideval-g4-telemetry-0.1" ||
++              root["target"].asString() != "DER_EV4_BESS" ||
++              !root["analog"].isArray() || root["analog"].size() != 4 ||
++              !root["binary"].isArray() || root["binary"].size() != 2) {
++              NS_LOG_WARN("Rejected non-GridEval or malformed DER_EV4 telemetry");
++              return;
++          }
++
++          const char* analogNames[] = {
++              "DER_EV4_BESS.P_APPLIED_KW",
++              "DER_EV4_BESS.Q_APPLIED_KVAR",
++              "DER_EV4_BESS.V_PU",
++              "DER_EV4_BESS.SOC_PU"
++          };
++          for (Json::ArrayIndex i = 0; i < 4; ++i) {
++              if (!root["analog"][i].isNumeric() ||
++                  !std::isfinite(root["analog"][i].asDouble())) {
++                  NS_LOG_WARN("Rejected non-finite DER_EV4 analog telemetry");
++                  return;
++              }
++          }
++          for (Json::ArrayIndex i = 0; i < 2; ++i) {
++              if ((!root["binary"][i].isBool() &&
++                   !root["binary"][i].isIntegral()) ||
++                  (root["binary"][i].asInt() != 0 &&
++                   root["binary"][i].asInt() != 1)) {
++                  NS_LOG_WARN("Rejected non-binary DER_EV4 status telemetry");
++                  return;
++              }
++          }
++
++          // Store only after complete validation so a malformed frame cannot
++          // partially update a DNP3 static poll.
++          for (Json::ArrayIndex i = 0; i < 4; ++i) {
++              std::ostringstream encoded;
++              encoded
++                  << std::setprecision(std::numeric_limits<double>::max_digits10)
++                  << root["analog"][i].asDouble();
++              Store(analogNames[i], encoded.str());
++          }
++          Store("DER_EV4_BESS.CONNECTED",
++                std::to_string(root["binary"][0].asInt()));
++          Store("DER_EV4_BESS.COMMAND_ACCEPTED",
++                std::to_string(root["binary"][1].asInt()));
++}
++
++// The stock endpoint parser accepts an open-ended GLD object/property shape.
++// Exclude it in the GridEval build: accepting it would bypass the fixed map.
++#if 0
++void
++Dnp3ApplicationNew::DoEndpointLegacyGld (helics::Endpoint id, helics::Time time, std::unique_ptr<helics::Message> message)
++{
+ 	  NS_LOG_FUNCTION (this << id.getName() << time << message->to_string());
+ 	  NS_LOG_INFO("DOEndPoint");
+           std::string text = message->data.to_string();
+@@ -2125,13 +2375,33 @@ Dnp3ApplicationNew::DoEndpoint (helics::Endpoint id, helics::Time time, std::uni
+ 
+ 		     }
+ 	     }
+-	  }
+-}
+-
+-
+-void
+-Dnp3ApplicationNew::DoMessage (std::string target_endpoint, const std::string content, const std::string content_type)
+-{
++	  }
++}
++#endif
++
++
++void
++Dnp3ApplicationNew::DoMessage (std::string target_endpoint, const std::string content, const std::string content_type)
++{
++          NS_LOG_FUNCTION (this << target_endpoint << content);
++          if (target_endpoint != "gateway/der_ev4" ||
++              content_type != "grideval-g4-dnp3-object") {
++              NS_LOG_WARN("Rejected outstation callback outside gateway/der_ev4");
++              return;
++          }
++          auto msg = std::make_unique<helics::Message>();
++          msg->data = content;
++          msg->dest = "gateway/der_ev4";
++          msg->time = helics::Time::epsilon();
++          DoRead(std::move(msg));
++}
++
++// The stock callback dynamically constructs a GLD destination. Excluding it
++// prevents AO/BO callbacks from bypassing the semantic gateway.
++#if 0
++void
++Dnp3ApplicationNew::DoMessageLegacyGld (std::string target_endpoint, const std::string content, const std::string content_type)
++{
+ 	  NS_LOG_FUNCTION (this << target_endpoint << content);
+ 	  std::string property_delimiter = "$";
+ 	  std::vector<std::string> tokens = split2(target_endpoint, property_delimiter);
+@@ -2164,10 +2434,11 @@ Dnp3ApplicationNew::DoMessage (std::string target_endpoint, const std::string co
+ 	  msg->dest = m_gld_federate_name + "/" + new_target_endpoint;
+ 	  msg->time = helics::Time::epsilon();
+ 	  
+-	  DoRead(std::move(msg));
+-}
+-void
+-Dnp3ApplicationNew::DoRead (std::unique_ptr<helics::Message> message)
++	  DoRead(std::move(msg));
++}
++#endif
++void
++Dnp3ApplicationNew::DoRead (std::unique_ptr<helics::Message> message)
+ {
+     NS_LOG_FUNCTION (this << message->to_string());
+     NS_LOG_INFO ("sending message " << message->to_string() + " to " + message->dest);
+diff --git a/RC/code/helics/dnp3-application-new-Docker.h b/RC/code/helics/dnp3-application-new-Docker.h
+index a5d2e60..b8ae194 100644
+--- a/RC/code/helics/dnp3-application-new-Docker.h
++++ b/RC/code/helics/dnp3-application-new-Docker.h
+@@ -34,8 +34,9 @@
+ #include "ns3/ptr.h"
+ #include "ns3/application.h"
+ 
+-#include <list>
+-#include <map>
++#include <list>
++#include <map>
++#include <deque>
+ #include "ns3/endpoint.hpp"
+ #include "ns3/station.hpp"
+ #include "ns3/common.hpp"
+@@ -155,9 +156,12 @@ public:
+   void Store(std::string point, std::string value);
+ 
+   // implementation of EventInterface
+-    void changePoint(DnpAddr_t addr, DnpIndex_t index,
+-                 PointType_t    pointType,
+-                 int value, DnpTime_t timestamp=0);
++    void changePoint(DnpAddr_t addr, DnpIndex_t index,
++                 PointType_t    pointType,
++                 int value, DnpTime_t timestamp=0);
++    void changeFloatPoint(DnpAddr_t addr, DnpIndex_t index,
++                 PointType_t pointType,
++                 float value, DnpTime_t timestamp=0);
+ 
+     void registerName(       DnpAddr_t      addr,
+                  DnpIndex_t index,
+@@ -256,8 +260,17 @@ private:
+   void readMicroGridConfig(std::string fpath, Json::Value& configobj);
+   void handle_normal(Ptr<Socket> socket);
+   void set_attack(bool state);
+-  void send_directly(Ptr<Packet> packet);
+-  void send_directly_server(Ptr<Packet> packet);
++  void send_directly(Ptr<Packet> packet);
++  void send_directly_server(Ptr<Packet> packet);
++  void DispatchG4Control();
++  void EmitG4TelemetryIfComplete();
++  void DispatchEndpoint(helics::Endpoint id, helics::Time time);
++
++  struct G4ControlRequest {
++    DnpIndex_t index;
++    double raw_count;
++    double deadline_s;
++  };
+ 
+   // In the case of TCP, each socket accept returns a new socket, so the
+   // listening socket is stored separately from the accepted sockets
+@@ -320,8 +333,14 @@ private:
+   std::string configFile; 
+   bool m_attack_on;
+   bool m_respond;
+-  bool m_offline;
+-};
++  bool m_offline;
++  double g4_analog[4];
++  int g4_binary[2];
++  bool g4_analog_seen[4];
++  bool g4_binary_seen[2];
++  std::deque<G4ControlRequest> g4_control_queue;
++  bool g4_dispatch_scheduled;
++};
+ 
+ } // namespace ns3
+ 
+diff --git a/RC/code/helics/helics-helper.cc b/RC/code/helics/helics-helper.cc
+index 99d4e2a..787cc6e 100644
+--- a/RC/code/helics/helics-helper.cc
++++ b/RC/code/helics/helics-helper.cc
+@@ -37,7 +37,7 @@ HelicsHelper::HelicsHelper()
+ //NATIG code
+ HelicsHelper::HelicsHelper(int port)
+ : broker("")
+-, name("ns3")
++, name("g4_natig_der_ev4")
+ , core("zmq")
+ , port(port)
+ , timedelta(1.0)
+@@ -103,7 +103,6 @@ void
+ HelicsHelper::SetupApplicationFederate(void)
+ {
+   SetupFederate ();
+-  helics_endpoint = helics_federate->registerEndpoint ("fout");
+ 
+   GlobalValue::Bind ("SimulatorImplementationType", StringValue ("ns3::HelicsSimulatorImpl"));
+ }
+@@ -218,4 +217,3 @@ HelicsHelper::InstallStaticSource (Ptr<Node> node, const std::string &name, cons
+ }
+ 
+ }
+-
+diff --git a/RC/code/helics/helics-simulator-impl.cc b/RC/code/helics/helics-simulator-impl.cc
+index a759982..2b1b7e2 100644
+--- a/RC/code/helics/helics-simulator-impl.cc
++++ b/RC/code/helics/helics-simulator-impl.cc
+@@ -268,12 +268,6 @@ HelicsSimulatorImpl::Run (void)
+           NS_LOG_INFO ("Request: Granted time helics: " << granted);
+           grantedTime = Time::FromDouble (granted, Time::S);
+           NS_LOG_INFO ("Request:   Granted time ns-3: " << grantedTime);
+-          while (helics_federate->hasMessage()) {
+-              NS_LOG_INFO ("Request: message detected");
+-              auto msg = helics_federate->getMessage();
+-              std::cout << "Request: received message from " << msg->source << " at " << static_cast<double>(msg->time) << " ::" << msg->data.to_string() << '\n';
+-
+-          }
+           // A time request may have triggered new events, so update nextTime.
+           nextTime = Next ();
+         }
+diff --git a/RC/code/helics/wscript b/RC/code/helics/wscript
+index 68780a2..f04d083 100644
+--- a/RC/code/helics/wscript
++++ b/RC/code/helics/wscript
+@@ -127,6 +127,11 @@ int main()
+                 break
+         print(conf.env['CXXFLAGS'])
+ 
++    # NATIG's DNP3 and scratch sources use the system jsoncpp API.  Append the
++    # library only after all configure probes so C feature checks are not
++    # contaminated, and keep it in LDFLAGS so Waf places it after link inputs.
++    conf.env.append_value('LDFLAGS', '-ljsoncpp')
++
+ def build(bld):
+     if 'helics' in bld.env['MODULES_NOT_BUILT']:
+         return
+@@ -179,4 +184,3 @@ def build(bld):
+         bld.recurse('examples')
+ 
+     # bld.ns3_python_bindings()
+-
+diff --git a/RC/code/ns3-helics-grid-dnp3-Docker.cc b/RC/code/ns3-helics-grid-dnp3-Docker.cc
+index ec035b9..0bd9388 100644
+--- a/RC/code/ns3-helics-grid-dnp3-Docker.cc
++++ b/RC/code/ns3-helics-grid-dnp3-Docker.cc
+@@ -770,7 +770,7 @@ main (int argc, char *argv[])
+   NodeContainer botNodes;
+   botNodes.Create(numBots);
+   int numThreads = std::stoi(configObject["DDoS"][0]["threadsPerAttacker"].asString());
+-  NetDeviceContainer botDeviceContainer[numBots];
++  std::vector<NetDeviceContainer> botDeviceContainer(numBots);
+   for (int i = 0; i < numBots; ++i)
+   {
+           if (configObject["DDoS"][0]["NodeType"][0].asString().find("CC") != std::string::npos){
+@@ -868,7 +868,7 @@ main (int argc, char *argv[])
+     dnp3Master.SetAttribute("Name", StringValue (cc_name+ep_name)); //"_SS_"+std::to_string(i+1)));
+     dnp3Master.SetAttribute("PointsFilename", StringValue (pointFileDir+"/points_"+ep_name+".csv")); //pointFileDir+"/points_SS_"+std::to_string(i+1)+".csv"));
+     dnp3Master.SetAttribute("MasterDeviceAddress", UintegerValue(1));
+-    dnp3Master.SetAttribute("StationDeviceAddress", UintegerValue(i+2));
++    dnp3Master.SetAttribute("StationDeviceAddress", UintegerValue(4));
+     dnp3Master.SetAttribute("IntegrityPollInterval", UintegerValue(10));
+     dnp3Master.SetAttribute("EnableTCP", BooleanValue (false));
+   
+@@ -883,17 +883,28 @@ main (int argc, char *argv[])
+     dnp3Outstation.SetAttribute("Name", StringValue (ep_name)); //"SS_"+std::to_string(i+1)));
+     dnp3Outstation.SetAttribute("PointsFilename", StringValue (pointFileDir+"/points_"+ep_name+".csv")); //pointFileDir+"/points_SS_"+std::to_string(i+1)+".csv"));
+     dnp3Outstation.SetAttribute("MasterDeviceAddress", UintegerValue(1));
+-    dnp3Outstation.SetAttribute("StationDeviceAddress", UintegerValue(i+2));
++    dnp3Outstation.SetAttribute("StationDeviceAddress", UintegerValue(4));
+     dnp3Outstation.SetAttribute("EnableTCP", BooleanValue (false));
+ 
+     Ptr<Dnp3ApplicationNew> slave = dnp3Outstation.Install (tempnode1, std::string(ep_name)); //"SS_"+std::to_string(i+1)));
+     dnpOutstationApp.Add(slave);
+-    Simulator::Schedule(MilliSeconds(1005), &Dnp3ApplicationNew::periodic_poll, master, std::stoi(configObject["Simulation"][0]["PollReqFreq"].asString()));
++    const int pollPeriod =
++        std::stoi(configObject["Simulation"][0]["PollReqFreq"].asString());
++    const int durationSeconds =
++        std::stoi(configObject["Simulation"][0]["SimTime"].asString());
++    for (int pollTime = pollPeriod;
++         pollTime <= durationSeconds;
++         pollTime += pollPeriod) {
++      // HELICS telemetry for the boundary is scheduled when the time grant
++      // arrives. Poll one millisecond later so equal-time event insertion
++      // order cannot sample the previous physical step.
++      Simulator::Schedule(Seconds(pollTime) + MilliSeconds(1),
++                          &Dnp3ApplicationNew::periodic_poll,
++                          master, pollPeriod);
++    }
+     // Simulator::Schedule(MilliSeconds(2005), &Dnp3HelicsApplication::send_control_binary, master,
+     //   Dnp3HelicsApplication::DIRECT, 0, ControlOutputRelayBlock::CLOSE);
+       // Dnp3HelicsApplication::DIRECT, 0, ControlOutputRelayBlock::TRIP);
+-    Simulator::Schedule(MilliSeconds(3005), &Dnp3ApplicationNew::send_control_analog, master, 
+-      Dnp3ApplicationNew::DIRECT, 0, -16);
+     master_port += 1;
+ 
+   }
+@@ -1015,10 +1026,11 @@ main (int argc, char *argv[])
+ 
+ 
+ 
++  Time settleTime = simTime + MilliSeconds(100);
+   dnpMasterApp.Start (Seconds (start));
+-  dnpMasterApp.Stop (simTime);
++  dnpMasterApp.Stop (settleTime);
+   dnpOutstationApp.Start (Seconds (start));
+-  dnpOutstationApp.Stop (simTime);
++  dnpOutstationApp.Stop (settleTime);
+ 
+ 
+   std::cout << "Setting up Bots" << std::endl;
+@@ -1164,9 +1176,9 @@ main (int argc, char *argv[])
+     flowMonitor->SetAttribute("JitterBinWidth", DoubleValue(0.5));
+     flowMonitor->SetAttribute("PacketSizeBinWidth", DoubleValue(50));
+     int mon = std::stoi(configObject["Simulation"][0]["MonitorPerf"].asString());
+-    Simulator::Schedule (Seconds (0.2), &Throughput);
+ 
+     if (mon) {
++        Simulator::Schedule (Seconds (0.2), &Throughput);
+         if (DDoS){
+             p2p.EnablePcapAll (pcapFileDir+"p2p-DDoS", false);
+             csma2.EnablePcapAll (pcapFileDir+"csma-DDoS", false);
+@@ -1179,7 +1191,7 @@ main (int argc, char *argv[])
+     }
+ 
+ 
+-  Simulator::Stop (simTime);
++  Simulator::Stop (settleTime);
+   Simulator::Run ();
+ 
+   //flowMonitor->SerializeToXmlFile("stats.xml", true, true);

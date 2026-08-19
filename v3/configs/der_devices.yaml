@@ -1,0 +1,104 @@
+schema_version: "0.1"
+sign_convention:
+  feeder_p_positive: consumption
+  feeder_q_positive: inductive_consumption
+  opender_p_positive: generation
+  opender_q_positive: injection
+  note: "Adapters convert once at the OpenDER/GridLAB-D boundary."
+
+frequency_source:
+  mode: nominal_for_interface_test_only
+  nominal_hz: 60.0
+  scientific_frequency_functions_enabled: false
+
+setting_execution:
+  mechanism: v3_gateway_simulation_time_queue
+  opender_np_set_exe_time_s: 0
+  delay_source: scenario_or_point_map
+  note: "OpenDER 2.2.0 internal delay is bypassed by mutable settings; all remote changes use the validated v3 queue."
+
+devices:
+  - id: DER_EV4_BESS
+    enabled: true
+    model: opender
+    der_type: bess
+    feeder: A
+    node: l92
+    phase: C
+    nominal_voltage_v: 2401.7771
+    rating_va: 200000
+    energy_capacity_wh: 205000
+    initial_soc_pu: 0.50
+    reserve_soc_pu: 0.10
+    model_step_s: 1.0
+    opender_parameters:
+      np_phase: SINGLE
+      np_v_dc_v: 3602.66565
+      np_efficiency_pu: 0.95
+      np_mode_transition_time_s: 15
+      np_bess_p_ramp_time_s: 0
+      np_q_max_inj_var: 88000
+      np_q_max_abs_var: 88000
+      active_power_limit_enable: ENABLED
+      active_power_limit_pu: 1.0
+      pf_mode_enable: DISABLED
+      constant_pf_mode_enable: DISABLED
+      constant_q_mode_default: DISABLED
+      volt_var_mode_enable: DISABLED
+      watt_var_mode_enable: DISABLED
+      volt_watt_mode_enable: DISABLED
+    field_node: rtu_ev4
+    dnp3_outstation_address: 4
+    legacy_storage_exclusion:
+      switch: swEV4_storage
+      required_status: OPEN
+      forbidden_active_objects:
+        - battery_inv_EV4
+        - battery_EV4
+    functions:
+      active_power_limit: true
+      setting_execution_delay: true
+      volt_var: false
+      volt_watt: false
+      watt_var: false
+      frequency_droop: false
+      voltage_ride_through: true
+      frequency_ride_through: false
+      enter_service_and_trip: true
+      ramping: true
+    validation:
+      max_pq_steady_state_error_fraction: 0.01
+      max_power_balance_error_w: 2000
+
+  - id: DER_EV1_SECOND_STAGE
+    enabled: false
+    model: opender
+    der_type: bess
+    feeder: A
+    node: l5
+    phase: C
+    nominal_voltage_v: 2401.7771
+    rating_va: 200000
+    energy_capacity_wh: 205000
+    initial_soc_pu: 0.50
+    reserve_soc_pu: 0.10
+    model_step_s: 1.0
+    field_node: rtu_ev1
+    dnp3_outstation_address: 1
+    legacy_storage_exclusion:
+      switch: swEV1_storage
+      required_status: OPEN
+      forbidden_active_objects:
+        - battery_inv_EV1
+        - battery_EV1
+    functions:
+      active_power_limit: true
+      setting_execution_delay: true
+      volt_var: false
+      volt_watt: false
+      watt_var: false
+      frequency_droop: false
+      voltage_ride_through: true
+      frequency_ride_through: false
+      enter_service_and_trip: true
+      ramping: true

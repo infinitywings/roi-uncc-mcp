@@ -1,0 +1,16 @@
+{
+  "name": "g4_live_direct_controller_der_ev4",
+  "coreType": "zmq",
+  "broker": "tcp://127.0.0.1:9000",
+  "period": 10,
+  "log_level": "warning",
+  "endpoints": [
+    {
+      "name": "controller/der_ev4",
+      "type": "json",
+      "global": true
+    }
+  ],
+  "publications": [],
+  "subscriptions": []
+}

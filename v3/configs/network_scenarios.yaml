@@ -1,0 +1,94 @@
+schema_version: "0.1"
+topology:
+  kind: star
+  control_center: control_center
+  aggregation_node: aggregation_switch
+  field_nodes:
+    - rtu_ev4
+    - rtu_ev1
+  link_type: csma
+  protocol: dnp3
+
+defaults:
+  random_seed: required
+  pcap_enabled: true
+  event_log_enabled: true
+  external_network_access: false
+  select_before_operate: true
+  command_freshness_limit_s: 10.0
+
+scenarios:
+  - id: direct_reference
+    enabled: true
+    network_mediated: false
+    purpose: implementation reference only
+
+  - id: natig_benign
+    enabled: true
+    network_mediated: true
+    propagation_delay_ms: 1.0
+    jitter_ms: 0.0
+    random_loss_fraction: 0.0
+    bandwidth_mbps: 100.0
+    attack: none
+
+  - id: natig_delay_fixed
+    enabled: false
+    network_mediated: true
+    propagation_delay_ms: 500.0
+    jitter_ms: 0.0
+    random_loss_fraction: 0.0
+    bandwidth_mbps: 100.0
+    attack: delay
+
+  - id: natig_delay_jitter
+    enabled: false
+    network_mediated: true
+    propagation_delay_ms: 100.0
+    jitter_ms: 100.0
+    jitter_distribution: bounded_normal
+    random_loss_fraction: 0.0
+    bandwidth_mbps: 100.0
+    attack: delay
+
+  - id: natig_loss
+    enabled: false
+    network_mediated: true
+    propagation_delay_ms: 1.0
+    jitter_ms: 0.0
+    random_loss_fraction: 0.05
+    bandwidth_mbps: 100.0
+    attack: drop
+
+  - id: natig_mitm_modify
+    enabled: false
+    network_mediated: true
+    propagation_delay_ms: 1.0
+    jitter_ms: 0.0
+    random_loss_fraction: 0.0
+    bandwidth_mbps: 100.0
+    attack: dnp3_payload_modification
+    attack_location: aggregation_switch_to_rtu_ev4
+
+  - id: natig_replay
+    enabled: false
+    network_mediated: true
+    propagation_delay_ms: 1.0
+    jitter_ms: 0.0
+    random_loss_fraction: 0.0
+    bandwidth_mbps: 100.0
+    attack: replay
+    attack_location: aggregation_switch_to_rtu_ev4
+
+  - id: natig_ddos
+    enabled: false
+    network_mediated: true
+    propagation_delay_ms: 1.0
+    jitter_ms: 0.0
+    random_loss_fraction: 0.0
+    bandwidth_mbps: 10.0
+    queue_limit_packets: 100
+    attack: bounded_ddos
+    attacker_rate_mbps: 20.0
+    attack_location: aggregation_switch
+

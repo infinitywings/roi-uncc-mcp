@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-07-29T06:02:16.370399+00:00",
+  "scope": "G1 bounded NATIG IEEE-123/DNP3 no-attack component proof; not locked-build, G4-equivalence, or attack evidence",
+  "source": {
+    "commit": "e163b350e243c6386477e35dead979a4cb2b7c60",
+    "tree": "9f10cb55d5eaa4c20a95f292b84a266e9992bc1a",
+    "dirty": false
+  },
+  "image_id": "sha256:662e1ae46656de8a97195d7a6a6f7cfef84bd0baa997fedbea859e9d76978f7c",
+  "verdict": "partial_pass_with_blockers",
+  "assertions": {
+    "source_commit_matches": true,
+    "source_tree_matches": true,
+    "source_clean": true,
+    "upstream_build_completed": true,
+    "built_image_matches": true,
+    "upstream_launch_failure_retained": true,
+    "run_r2_completed": true,
+    "run_r3_completed": true,
+    "same_image_and_effective_config": true,
+    "same_dnp3_trace": true,
+    "exact_reproducibility_failure_retained": true,
+    "posthoc_numeric_diagnostic_passed": true,
+    "evidence_files_present": true
+  },
+  "evidence": {
+    "natig/G1_VALIDATION_REPORT.md": {
+      "sha256": "2265ba0bcaf66ae0830446a7ba1717af4b74ea72be213b6932ae596871c3e998",
+      "bytes": 5865
+    },
+    "natig/README.md": {
+      "sha256": "9eee8e893a539df45f867bf0b7a3afbcfdcada88bffc7b43e2256484c540f355",
+      "bytes": 4445
+    },
+    "SELF_AUDIT.md": {
+      "sha256": "c3488a2764bdecf21a4fcb762f0bcd20d7f983ae54202f0403ef5ec3c32382d1",
+      "bytes": 11235
+    },
+    "IMPLEMENTATION_PLAN.md": {
+      "sha256": "7a4b004c12a7862bfcaf3abba158b79fa8824271d9be54c26b0a21a53bbe8a64",
+      "bytes": 7450
+    },
+    "natig/DEPENDENCY_LOCK.md": {
+      "sha256": "5a74d840c52fd27ada80f74eb75e41c970dac096ae9ab1ee7d3da62c66e3d0c8",
+      "bytes": 2244
+    },
+    "natig/locked_dependencies.json": {
+      "sha256": "b3785795975b6ff6466a167b3b3bf386ff9977b58f8e2f98e6c1f97e2b75aa72",
+      "bytes": 1886
+    },
+    "natig/audit_upstream.py": {
+      "sha256": "b21e2c977fafc880e0c5ca9ab0f33567ba7ae4f6c16c26de13ed914bcc878b6d",
+      "bytes": 5872
+    },
+    "natig/upstream_audit_r5/audit.json": {
+      "sha256": "bd4755c99c3175fe7877d1ebe257224b50b80fc106e79ba3840b029fdf4aab01",
+      "bytes": 6045
+    },
+    "natig/upstream_audit_r6/audit.json": {
+      "sha256": "bd4755c99c3175fe7877d1ebe257224b50b80fc106e79ba3840b029fdf4aab01",
+      "bytes": 6045
+    },
+    "natig/run_docker_build.py": {
+      "sha256": "4853d9cf3e97a0b32c03ef4c5073856eb7c3c5b1cd55ec6c1d2bc255db9931fe",
+      "bytes": 3467
+    },
+    "natig/upstream_build_r1/natig_build_attempt.json": {
+      "sha256": "1aa0997745c4bbc0bf48482293f121a773612dc9bd583b94de0af27f27313988",
+      "bytes": 2476
+    },
+    "natig/upstream_build_r1/docker_build.log": {
+      "sha256": "92652c4c4250fd801da1d4674360387e93502c2e1862c148b1c20d9a14139542",
+      "bytes": 3969582
+    },
+    "natig/make_benign_overlay.py": {
+      "sha256": "f64018b7159c230fd018d29d733fed2ae25a8d4a8ae3088b4544bf3eb4e281d6",
+      "bytes": 4164
+    },
+    "natig/benign_overlay_r5/grid.json": {
+      "sha256": "1c5e5abcf97ded95cdfb19c0391f4fb21deea10d27706b62b51749f77f655a8c",
+      "bytes": 6196
+    },
+    "natig/benign_overlay_r5/overlay_manifest.json": {
+      "sha256": "1d7c9eb82a2b89be8d2dad9e8893729aeb14e568b6d209fecd9b8bd9e40bc771",
+      "bytes": 997
+    },
+    "natig/benign_overlay_r6/grid.json": {
+      "sha256": "1c5e5abcf97ded95cdfb19c0391f4fb21deea10d27706b62b51749f77f655a8c",
+      "bytes": 6196
+    },
+    "natig/benign_overlay_r6/overlay_manifest.json": {
+      "sha256": "1d7c9eb82a2b89be8d2dad9e8893729aeb14e568b6d209fecd9b8bd9e40bc771",
+      "bytes": 997
+    },
+    "natig/run_benign_ieee123.py": {
+      "sha256": "433c39094b6ef25636dbc74ce92e766b56c1eb50cfb491cd5cdd0520bb20207c",
+      "bytes": 25927
+    },
+    "natig/run_benign_federation.sh": {
+      "sha256": "9e190e52b4e3f57ae9fd7f2a82e3a25c889d366e5845623c998fc63b75165483",
+      "bytes": 1971
+    },
+    "natig/benign_ieee123_r1/natig_benign_result.json": {
+      "sha256": "df9422c050b3711b7cf27b28ab0fae647888696197efc47ff5bd18fd04972c1f",
+      "bytes": 20686
+    },
+    "natig/benign_ieee123_r2/natig_benign_result.json": {
+      "sha256": "a9703745fb3c31c09c3d5ccc5d161b0c55286c9e7f34a57993da85ec7e4dd76f",
+      "bytes": 32772
+    },
+    "natig/benign_ieee123_r2/dnp3_perf.txt": {
+      "sha256": "da73f333cd3ae03d1176bc4ea8901e866f91bc19deb0ad89fc8b37d29fe86e92",
+      "bytes": 2322005
+    },
+    "natig/benign_ieee123_r3/natig_benign_result.json": {
+      "sha256": "adad57a96bcef2d7223ab87fffc6a22dea992898978b404d22c28abed7baf881",
+      "bytes": 32772
+    },
+    "natig/benign_ieee123_r3/dnp3_perf.txt": {
+      "sha256": "da73f333cd3ae03d1176bc4ea8901e866f91bc19deb0ad89fc8b37d29fe86e92",
+      "bytes": 2322005
+    },
+    "natig/compare_benign_runs.py": {
+      "sha256": "7ec1b098ee7d1f266622889caed1935892ed8be797513a9e81d416a4ca7263c5",
+      "bytes": 2451
+    },
+    "natig/benign_reproducibility_r2_r3.json": {
+      "sha256": "775346affae4c3a4f5134c5843f3e0e581a8c39fe9ddbb3c231598a41478714f",
+      "bytes": 7477
+    },
+    "natig/analyze_numeric_reproducibility.py": {
+      "sha256": "9a33e04248e834ced22d3ef4c51547b41d49e4ea7fe0cefd8eb1c510b39df6f1",
+      "bytes": 12841
+    },
+    "natig/benign_numeric_reproducibility_r2_r3_v3.json": {
+      "sha256": "b6665b69fce0a51470ca508797f2a2b6532ce045026060ed12b4c50e2fa5c5c8",
+      "bytes": 32449
+    }
+  },
+  "success": true
+}

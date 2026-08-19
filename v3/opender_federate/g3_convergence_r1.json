@@ -1,0 +1,440 @@
+{
+  "arms": {
+    "1": {
+      "convergence_vs_1s": {
+        "max_device_p_error_kw": 0.0,
+        "max_device_q_error_kvar": 0.0,
+        "max_source_p_error_w": 0.0,
+        "max_source_q_error_var": 0.0,
+        "max_voltage_error_pu": 0.0,
+        "reference_arm": true
+      },
+      "declared_pulse_error": {
+        "max_p_error_kw": 0.0,
+        "max_q_error_kvar": 5.069722419648315e-12
+      },
+      "gates": {
+        "all_common_samples_present": true,
+        "device_p_converges_to_1s": true,
+        "device_p_matches_declared_pulses": true,
+        "device_q_converges_to_1s": true,
+        "device_q_matches_declared_pulses": true,
+        "internal_device_step_is_1s": true,
+        "null_local_mapping_residual_within_tolerance": true,
+        "null_run_success": true,
+        "null_schedule_is_zero": true,
+        "pulse_local_mapping_residual_within_tolerance": true,
+        "pulse_null_identity_match": true,
+        "pulse_null_segment_names_match": true,
+        "pulse_run_success": true,
+        "source_p_response_converges_to_1s": true,
+        "source_q_response_converges_to_1s": true,
+        "voltage_response_converges_to_1s": true
+      },
+      "inputs": {
+        "null": {
+          "arm": "null_coupling1",
+          "path": "/home/cfu6/roi-uncc-mcp/v3/opender_federate/null_coupling1_r1/g3_physical_loop.json",
+          "sha256": "607b71037f879f725dc03838dc4ff0530ebe70af85914f34a748bf0c8d3826f2"
+        },
+        "pulse": {
+          "arm": "pulse_coupling1",
+          "path": "/home/cfu6/roi-uncc-mcp/v3/opender_federate/pulse_coupling1_r1/g3_physical_loop.json",
+          "sha256": "ad7993ce0715d4061e7b6c00b90befe1c2f87e60d037b1115a3af019f1dab4e5"
+        }
+      },
+      "local_mapping": {
+        "null_max_applied_va_residual": 0.0,
+        "pulse_max_applied_va_residual": 0.004903373999695759
+      },
+      "paired_responses": [
+        {
+          "device_p_delta_kw": 10.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "p_inject",
+          "source_p_delta_w": -10464.414068328915,
+          "source_q_delta_var": -1289.1744989647414,
+          "terminal_voltage_delta_pu": 0.0011186685824177145,
+          "time_s": 120
+        },
+        {
+          "device_p_delta_kw": -10.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "p_absorb",
+          "source_p_delta_w": 8378.599586571334,
+          "source_q_delta_var": 424.12392599036684,
+          "terminal_voltage_delta_pu": -0.0071616333237385366,
+          "time_s": 300
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": 9.99999999999493,
+          "segment": "q_inject",
+          "source_p_delta_w": 220.64724434982054,
+          "source_q_delta_var": -10026.539358687587,
+          "terminal_voltage_delta_pu": 0.0020395375045327846,
+          "time_s": 480
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": -9.99999999999493,
+          "segment": "q_absorb",
+          "source_p_delta_w": -191.45705721667036,
+          "source_q_delta_var": 10070.877131333516,
+          "terminal_voltage_delta_pu": -0.0020494489293707563,
+          "time_s": 660
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "final_recovery",
+          "source_p_delta_w": 0.0,
+          "source_q_delta_var": 0.0,
+          "terminal_voltage_delta_pu": 0.0,
+          "time_s": 780
+        }
+      ],
+      "passes": true,
+      "run_success": {
+        "null": true,
+        "pulse": true
+      },
+      "step_s": 1
+    },
+    "10": {
+      "convergence_vs_1s": {
+        "max_device_p_error_kw": 0.0,
+        "max_device_q_error_kvar": 0.0,
+        "max_source_p_error_w": 9.20216552913189e-06,
+        "max_source_q_error_var": 7.954711327329278e-05,
+        "max_voltage_error_pu": 1.9148016505710075e-11,
+        "reference_arm": false
+      },
+      "declared_pulse_error": {
+        "max_p_error_kw": 0.0,
+        "max_q_error_kvar": 5.069722419648315e-12
+      },
+      "gates": {
+        "all_common_samples_present": true,
+        "device_p_converges_to_1s": true,
+        "device_p_matches_declared_pulses": true,
+        "device_q_converges_to_1s": true,
+        "device_q_matches_declared_pulses": true,
+        "internal_device_step_is_1s": true,
+        "null_local_mapping_residual_within_tolerance": true,
+        "null_run_success": true,
+        "null_schedule_is_zero": true,
+        "pulse_local_mapping_residual_within_tolerance": true,
+        "pulse_null_identity_match": true,
+        "pulse_null_segment_names_match": true,
+        "pulse_run_success": true,
+        "source_p_response_converges_to_1s": true,
+        "source_q_response_converges_to_1s": true,
+        "voltage_response_converges_to_1s": true
+      },
+      "inputs": {
+        "null": {
+          "arm": "null_coupling10",
+          "path": "/home/cfu6/roi-uncc-mcp/v3/opender_federate/null_coupling10_r1/g3_physical_loop.json",
+          "sha256": "770baa0f9ad641781c5fa26aa002eded909869ab2c7d4d80e66da62f256fe904"
+        },
+        "pulse": {
+          "arm": "pulse_coupling10",
+          "path": "/home/cfu6/roi-uncc-mcp/v3/opender_federate/pulse_coupling10_r2/g3_physical_loop.json",
+          "sha256": "d7a19550e66f358e67e4614cb86e35f82d0694d184172b3c0609af8c740afd47"
+        }
+      },
+      "local_mapping": {
+        "null_max_applied_va_residual": 0.0,
+        "pulse_max_applied_va_residual": 0.004715779245088925
+      },
+      "paired_responses": [
+        {
+          "device_p_delta_kw": 10.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "p_inject",
+          "source_p_delta_w": -10464.41406832845,
+          "source_q_delta_var": -1289.1744989700383,
+          "terminal_voltage_delta_pu": 0.0011186685824166043,
+          "time_s": 120
+        },
+        {
+          "device_p_delta_kw": -10.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "p_absorb",
+          "source_p_delta_w": 8378.599586569937,
+          "source_q_delta_var": 424.12392599735176,
+          "terminal_voltage_delta_pu": -0.0071616333237383145,
+          "time_s": 300
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": 9.99999999999493,
+          "segment": "q_inject",
+          "source_p_delta_w": 220.64723561657593,
+          "source_q_delta_var": -10026.539279236342,
+          "terminal_voltage_delta_pu": 0.002039537485384768,
+          "time_s": 480
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": -9.99999999999493,
+          "segment": "q_absorb",
+          "source_p_delta_w": -191.45704801450484,
+          "source_q_delta_var": 10070.877051786403,
+          "terminal_voltage_delta_pu": -0.002049448910532936,
+          "time_s": 660
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "final_recovery",
+          "source_p_delta_w": -1.1641532182693481e-09,
+          "source_q_delta_var": 1.0419171303510666e-08,
+          "terminal_voltage_delta_pu": 2.220446049250313e-16,
+          "time_s": 780
+        }
+      ],
+      "passes": true,
+      "run_success": {
+        "null": true,
+        "pulse": true
+      },
+      "step_s": 10
+    },
+    "5": {
+      "convergence_vs_1s": {
+        "max_device_p_error_kw": 0.0,
+        "max_device_q_error_kvar": 0.0,
+        "max_source_p_error_w": 1.7462298274040222e-08,
+        "max_source_q_error_var": 5.592592060565948e-07,
+        "max_voltage_error_pu": 1.1335377081422848e-13,
+        "reference_arm": false
+      },
+      "declared_pulse_error": {
+        "max_p_error_kw": 0.0,
+        "max_q_error_kvar": 5.069722419648315e-12
+      },
+      "gates": {
+        "all_common_samples_present": true,
+        "device_p_converges_to_1s": true,
+        "device_p_matches_declared_pulses": true,
+        "device_q_converges_to_1s": true,
+        "device_q_matches_declared_pulses": true,
+        "internal_device_step_is_1s": true,
+        "null_local_mapping_residual_within_tolerance": true,
+        "null_run_success": true,
+        "null_schedule_is_zero": true,
+        "pulse_local_mapping_residual_within_tolerance": true,
+        "pulse_null_identity_match": true,
+        "pulse_null_segment_names_match": true,
+        "pulse_run_success": true,
+        "source_p_response_converges_to_1s": true,
+        "source_q_response_converges_to_1s": true,
+        "voltage_response_converges_to_1s": true
+      },
+      "inputs": {
+        "null": {
+          "arm": "null_coupling5",
+          "path": "/home/cfu6/roi-uncc-mcp/v3/opender_federate/null_coupling5_r1/g3_physical_loop.json",
+          "sha256": "e3f85d173f7fea2ccab56f51d94f23f9be369b9ee26ac4ce441f6698a57bbd72"
+        },
+        "pulse": {
+          "arm": "pulse_coupling5",
+          "path": "/home/cfu6/roi-uncc-mcp/v3/opender_federate/pulse_coupling5_r1/g3_physical_loop.json",
+          "sha256": "36cca5b5652b5ed8ade40f8d614ecbb1d1609764f31d646eba198c11dddfc3aa"
+        }
+      },
+      "local_mapping": {
+        "null_max_applied_va_residual": 0.0,
+        "pulse_max_applied_va_residual": 0.004715779245088925
+      },
+      "paired_responses": [
+        {
+          "device_p_delta_kw": 10.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "p_inject",
+          "source_p_delta_w": -10464.414068328915,
+          "source_q_delta_var": -1289.1744989647414,
+          "terminal_voltage_delta_pu": 0.0011186685824177145,
+          "time_s": 120
+        },
+        {
+          "device_p_delta_kw": -10.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "p_absorb",
+          "source_p_delta_w": 8378.599586571334,
+          "source_q_delta_var": 424.12392599036684,
+          "terminal_voltage_delta_pu": -0.0071616333237385366,
+          "time_s": 300
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": 9.99999999999493,
+          "segment": "q_inject",
+          "source_p_delta_w": 220.64724433235824,
+          "source_q_delta_var": -10026.539358132344,
+          "terminal_voltage_delta_pu": 0.002039537504420208,
+          "time_s": 480
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": -9.99999999999493,
+          "segment": "q_absorb",
+          "source_p_delta_w": -191.45705720223486,
+          "source_q_delta_var": 10070.877130774257,
+          "terminal_voltage_delta_pu": -0.0020494489292574025,
+          "time_s": 660
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "final_recovery",
+          "source_p_delta_w": 0.0,
+          "source_q_delta_var": 0.0,
+          "terminal_voltage_delta_pu": 0.0,
+          "time_s": 780
+        }
+      ],
+      "passes": true,
+      "run_success": {
+        "null": true,
+        "pulse": true
+      },
+      "step_s": 5
+    },
+    "60": {
+      "convergence_vs_1s": {
+        "max_device_p_error_kw": 0.0,
+        "max_device_q_error_kvar": 0.0,
+        "max_source_p_error_w": 10481.523642960936,
+        "max_source_q_error_var": 10976.44635952654,
+        "max_voltage_error_pu": 0.003987827878111583,
+        "reference_arm": false
+      },
+      "declared_pulse_error": {
+        "max_p_error_kw": 0.0,
+        "max_q_error_kvar": 5.069722419648315e-12
+      },
+      "gates": {
+        "all_common_samples_present": true,
+        "device_p_converges_to_1s": true,
+        "device_p_matches_declared_pulses": true,
+        "device_q_converges_to_1s": true,
+        "device_q_matches_declared_pulses": true,
+        "internal_device_step_is_1s": true,
+        "null_local_mapping_residual_within_tolerance": true,
+        "null_run_success": true,
+        "null_schedule_is_zero": true,
+        "pulse_local_mapping_residual_within_tolerance": true,
+        "pulse_null_identity_match": true,
+        "pulse_null_segment_names_match": true,
+        "pulse_run_success": true,
+        "source_p_response_converges_to_1s": false,
+        "source_q_response_converges_to_1s": false,
+        "voltage_response_converges_to_1s": false
+      },
+      "inputs": {
+        "null": {
+          "arm": "null_coupling60",
+          "path": "/home/cfu6/roi-uncc-mcp/v3/opender_federate/null_coupling60_r1/g3_physical_loop.json",
+          "sha256": "0007c3f54f02530f1ea4e2880c7ea69c7acce00b875cd6868f3bd5ebab8d785e"
+        },
+        "pulse": {
+          "arm": "pulse_coupling60",
+          "path": "/home/cfu6/roi-uncc-mcp/v3/opender_federate/pulse_coupling60_r1/g3_physical_loop.json",
+          "sha256": "ac21a9be3e91516efb2f51c85bd9cec98ff4a344ce3d3e52fd6aae93f0da81be"
+        }
+      },
+      "local_mapping": {
+        "null_max_applied_va_residual": 0.0,
+        "pulse_max_applied_va_residual": 0.0013008180808355974
+      },
+      "paired_responses": [
+        {
+          "device_p_delta_kw": 10.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "p_inject",
+          "source_p_delta_w": 0.0,
+          "source_q_delta_var": 0.0,
+          "terminal_voltage_delta_pu": 0.0,
+          "time_s": 120
+        },
+        {
+          "device_p_delta_kw": -10.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "p_absorb",
+          "source_p_delta_w": -2102.924056389602,
+          "source_q_delta_var": -928.5937494462705,
+          "terminal_voltage_delta_pu": -0.006033902030117222,
+          "time_s": 300
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": 9.99999999999493,
+          "segment": "q_inject",
+          "source_p_delta_w": 2153.437766070012,
+          "source_q_delta_var": 949.9070008389535,
+          "terminal_voltage_delta_pu": 0.006027365382644367,
+          "time_s": 480
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": -9.99999999999493,
+          "segment": "q_absorb",
+          "source_p_delta_w": 0.49843713897280395,
+          "source_q_delta_var": -0.8048618098255247,
+          "terminal_voltage_delta_pu": -1.4903663814180845e-07,
+          "time_s": 660
+        },
+        {
+          "device_p_delta_kw": 0.0,
+          "device_q_delta_kvar": 0.0,
+          "segment": "final_recovery",
+          "source_p_delta_w": -191.19467410515063,
+          "source_q_delta_var": 10076.905946011946,
+          "terminal_voltage_delta_pu": -0.0020499536530280693,
+          "time_s": 780
+        }
+      ],
+      "passes": false,
+      "run_success": {
+        "null": true,
+        "pulse": true
+      },
+      "step_s": 60
+    }
+  },
+  "common_sample_times_s": [
+    120,
+    300,
+    480,
+    660,
+    780
+  ],
+  "gate": "G3 coupling-step convergence",
+  "gate_pass": true,
+  "passing_steps_s": [
+    1,
+    5,
+    10
+  ],
+  "reference_step_s": 1,
+  "required_steps_s": [
+    1,
+    5,
+    10,
+    60
+  ],
+  "schema_version": "1.0",
+  "scope": "Paired pulse/null OpenDER physical-loop convergence; no NATIG, DNP3, cyber impairment, or attacker-effect claim",
+  "selected_coarsest_step_s": 10,
+  "tolerances": {
+    "device_p_error_kw": 0.1,
+    "device_q_error_kvar": 0.1,
+    "local_mapping_residual_va": 0.1,
+    "source_p_error_w": 2000.0,
+    "source_q_error_var": 2000.0,
+    "voltage_error_pu": 0.0001
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "Simulation": [
+    {
+      "SimTime": 840,
+      "StartTime": 0.0,
+      "PollReqFreq": 10,
+      "includeMIM": 0,
+      "UseDynTop": 0,
+      "MonitorPerf": 0,
+      "StaticSeed": 1,
+      "RandomSeed": 777
+    }
+  ],
+  "microgrid": [
+    {
+      "name": "der_ev4"
+    }
+  ],
+  "controlCenter": {
+    "name": "cc_"
+  },
+  "Controller": [
+    {
+      "use": 0,
+      "actionFile": ""
+    }
+  ],
+  "DDoS": [
+    {
+      "Rate": "1kb/s",
+      "PacketSize": 64,
+      "NumberOfBots": 0,
+      "threadsPerAttacker": 1,
+      "Active": 0,
+      "usePing": 0,
+      "Start": 0,
+      "End": 0,
+      "TimeOn": 0.0,
+      "TimeOff": 1.0,
+      "NodeType": [],
+      "NodeID": [],
+      "endPoint": ""
+    }
+  ],
+  "MIM": [
+    {
+      "listMIM": ""
+    }
+  ]
+}

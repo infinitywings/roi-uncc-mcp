@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0",
+  "scope": "G4 benign live direct-reference arm using the canonical IEEE 123-bus/OpenDER physical loop; no NATIG, attacker, or impairment",
+  "seed": 777,
+  "simulation": {
+    "duration_s": 840,
+    "controller_period_s": 10,
+    "physical_coupling_period_s": 10,
+    "opender_internal_step_s": 1
+  },
+  "broker": {
+    "core_type": "zmq",
+    "port": 9000,
+    "federate_count": 3
+  },
+  "federates": [
+    {
+      "owner": "controller",
+      "name": "g4_live_direct_controller_der_ev4",
+      "config": "controller.json"
+    },
+    {
+      "owner": "gateway",
+      "name": "g4_live_direct_gateway_der_ev4",
+      "config": "gateway.json"
+    },
+    {
+      "owner": "gridlabd",
+      "name": "g4_gridlabd_der_ev4",
+      "config": "../live_benign/gridlabd.json"
+    }
+  ],
+  "cyber_routes": [
+    {
+      "stream": "command",
+      "source": "controller/der_ev4",
+      "destination": "gateway/der_ev4",
+      "transport": "helics_message"
+    },
+    {
+      "stream": "telemetry",
+      "source": "gateway/der_ev4",
+      "destination": "controller/der_ev4",
+      "transport": "helics_message"
+    }
+  ],
+  "physical_values": [
+    {
+      "key": "gridlabd/ev4_voltage_c",
+      "publisher": "gridlabd",
+      "subscriber": "gateway",
+      "type": "complex",
+      "unit": "V"
+    },
+    {
+      "key": "gateway/feeder_load_va",
+      "publisher": "gateway",
+      "subscriber": "gridlabd",
+      "type": "complex",
+      "unit": "VA"
+    }
+  ],
+  "security_condition": {
+    "name": "benign",
+    "attacker_processes": [],
+    "network_impairments": [],
+    "natig_processes": []
+  },
+  "g3_physical_overlay": {
+    "model": "../../opender_federate/g3_canonical_r1/pulse_coupling10/effective/1c_IEEE_123_feeder.glm",
+    "model_sha256": "d6008f376371ff18b548f5f93971f162121ac7c91555c8b07358c27697983202",
+    "support_tree": "../../../examples/2bus-13bus/include",
+    "support_tree_sha256": "23aa30bcd0b8685f2bcc19c2290d1d63fba35a8b04475c643eb2ba4a1a35ff94",
+    "gridlabd_config": "../live_benign/gridlabd.json",
+    "gridlabd_config_sha256": "d27b6015db96da7101aa5c5795ee24470120bc769605efe32b487617b2485a31",
+    "coupling_object": "DER_EV4_BESS_COUPLING",
+    "parent_bus": "l92",
+    "minimum_timestep_s": 10
+  },
+  "source_locks": [
+    {
+      "path": "../run_live_direct.py",
+      "sha256": "6ec31f7ad19ab39084e7e7dd3a7aa71978904d0566fc445943c875266182e377"
+    },
+    {
+      "path": "live_controller_federate.py",
+      "sha256": "2ed26418b7cee0c1d45befa9e92b9f6877f6383ebdd5fad7257d7f0596b46186"
+    },
+    {
+      "path": "live_gateway_federate.py",
+      "sha256": "bacca8a3714de3eaa075323a1f906058a7989b1991166b768ac29effe1e223ce"
+    },
+    {
+      "path": "controller.json",
+      "sha256": "a024fb8b10fd20d0c6be1a6e567a81f3b9cef72a44aa7c23f036cd7905faf70b"
+    },
+    {
+      "path": "gateway.json",
+      "sha256": "b6e0c0e7fb6002d27cdc62ab81cd726f0ab80fd29901a3296ef6ba8654b82771"
+    },
+    {
+      "path": "../live_benign/gridlabd.json",
+      "sha256": "d27b6015db96da7101aa5c5795ee24470120bc769605efe32b487617b2485a31"
+    },
+    {
+      "path": "../../cyber_gateway/dnp3_point_map.yaml",
+      "sha256": "f42d995e08dc23ed557bc1164a990a358aa96edab16b685d460b556d8d48afee"
+    },
+    {
+      "path": "../../cyber_gateway/gateway.py",
+      "sha256": "376672be176cc0a1e14c4c70608b3d1d563ea366ab4e90ef08129017b57af2ef"
+    },
+    {
+      "path": "../dnp3_codec.py",
+      "sha256": "186f615e88fb66412ebb9eb04004c5939fc2e9a7d9d2eef172aefbf254f84d14"
+    },
+    {
+      "path": "../gateway_bridge.py",
+      "sha256": "ce90e88d226ab654393dc10079673f7f5d157a0750b3187e9129b4b5e72a40da"
+    },
+    {
+      "path": "../run_offline_conformance.py",
+      "sha256": "fefdd2025c4949d354c579110f6530122967d41fcf5ef27e92c3fff6b784842f"
+    },
+    {
+      "path": "../../opender/device.py",
+      "sha256": "082c202c5bab046f2a9ef988381bb4a8cc8dcfde6a33e7c3d840aa25cc8825f9"
+    },
+    {
+      "path": "../run_live_benign.py",
+      "sha256": "1e4564eebec9b886fb9e5937195bec1fcc73b2ecf2956d077efe12e8580ae2c9"
+    }
+  ],
+  "external_image_gate": {
+    "manifest_required_for_execution": true,
+    "schema_version": "1.0",
+    "required_natig_commit": "e163b350e243c6386477e35dead979a4cb2b7c60",
+    "required_natig_tree": "9f10cb55d5eaa4c20a95f292b84a266e9992bc1a",
+    "required_patch_set": "g4-der-ev4"
+  },
+  "r24_image_manifest": {
+    "path": "../locked_runtime_result_base_r24_r1/live_image_manifest.json",
+    "sha256": "1d26c9f1ccf853c9a3ff0f6db7ef7f8077a6becb0caff4023284cd483f8b3e24"
+  },
+  "required_processes": [
+    "broker",
+    "controller",
+    "gateway",
+    "gridlabd"
+  ],
+  "required_runtime_outputs": [
+    "controller_trace.json",
+    "gateway_trace.json",
+    "broker.log",
+    "controller.log",
+    "gateway.log",
+    "gridlabd.log"
+  ]
+}

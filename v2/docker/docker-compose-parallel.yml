@@ -1,0 +1,157 @@
+# LLM-GridEval v2 — Parallel Execution (3 containers, one per operating point)
+#
+# Usage:
+#   docker compose -f v2/docker/docker-compose-parallel.yml up -d
+#   # Container hr4 on :5101, hr7 on :5102, hr14 on :5103
+#
+# Each container gets its own copy of the sim dir to avoid GLM file conflicts.
+
+x-cosim-base: &cosim-base
+  image: roi-img:latest
+  volumes:
+    - ../..:/app
+  working_dir: /app
+  entrypoint: ["bash", "-c"]
+  restart: "no"
+
+services:
+  hr4:
+    <<: *cosim-base
+    container_name: grideval-hr4
+    ports:
+      - "5101:5100"
+    environment:
+      BROKER_PORT: "23404"
+      SIM_START_HOUR: "04"
+    command:
+      - |
+        set -uo pipefail
+        pip install --quiet fastapi uvicorn pyyaml httpx openai numpy 2>/dev/null
+
+        UNITFILE=/usr/local/gridlabd/share/unitfile.txt
+        grep -q "^utility" "$$UNITFILE" 2>/dev/null || echo "utility = 1.0;" >> "$$UNITFILE"
+
+        # Create isolated sim directory with modified clock
+        SIM=/tmp/sim_hr4
+        cp -r /app/examples/2bus-13bus "$$SIM"
+        sed -i "s/starttime '2013-08-28 07:00:00'/starttime '2013-08-28 04:00:00'/" "$$SIM/1c_IEEE_123_feeder.glm"
+        sed -i "s/starttime '2013-08-28 07:00:00'/starttime '2013-08-28 04:00:00'/" "$$SIM/1c_IEEE_123_feeder_2.glm"
+
+        cd "$$SIM"
+        if [ ! -x build/gpk-left-fed.x ]; then
+          mkdir -p build && cd build && cmake .. && make -j$$(nproc) && cd "$$SIM"
+        fi
+
+        BROKER=tcp://localhost:23404
+        helics_broker -f5 --port=23404 &
+        sleep 3
+
+        HELICS_BROKER=$$BROKER gridlabd 1c_IEEE_123_feeder.glm >/dev/null 2>&1 &
+        sleep 1
+        HELICS_BROKER=$$BROKER gridlabd 1c_IEEE_123_feeder_2.glm >/dev/null 2>&1 &
+        sleep 1
+        HELICS_BROKER=$$BROKER ./build/gpk-left-fed.x >/dev/null 2>&1 &
+        sleep 1
+
+        cd /app/v2/controller
+        HELICS_BROKER=$$BROKER python ev_controller_v2.py --config v2_control.json --duration 86400 >/dev/null 2>&1 &
+        sleep 1
+
+        cd /app/llm_grid_eval
+        HELICS_BROKER=$$BROKER HELICS_BROKER_ADDRESS=$$BROKER \
+        PYTHONPATH=/app/llm_grid_eval/src \
+          python -m llm_grid_eval.server --config /app/v2/configs/server.yaml &
+        wait
+
+  hr7:
+    <<: *cosim-base
+    container_name: grideval-hr7
+    ports:
+      - "5102:5100"
+    environment:
+      BROKER_PORT: "23404"
+      SIM_START_HOUR: "07"
+    command:
+      - |
+        set -uo pipefail
+        pip install --quiet fastapi uvicorn pyyaml httpx openai numpy 2>/dev/null
+
+        UNITFILE=/usr/local/gridlabd/share/unitfile.txt
+        grep -q "^utility" "$$UNITFILE" 2>/dev/null || echo "utility = 1.0;" >> "$$UNITFILE"
+
+        # Hour 7 — use original GLM files (no modification needed)
+        SIM=/tmp/sim_hr7
+        cp -r /app/examples/2bus-13bus "$$SIM"
+
+        cd "$$SIM"
+        if [ ! -x build/gpk-left-fed.x ]; then
+          mkdir -p build && cd build && cmake .. && make -j$$(nproc) && cd "$$SIM"
+        fi
+
+        BROKER=tcp://localhost:23404
+        helics_broker -f5 --port=23404 &
+        sleep 3
+
+        HELICS_BROKER=$$BROKER gridlabd 1c_IEEE_123_feeder.glm >/dev/null 2>&1 &
+        sleep 1
+        HELICS_BROKER=$$BROKER gridlabd 1c_IEEE_123_feeder_2.glm >/dev/null 2>&1 &
+        sleep 1
+        HELICS_BROKER=$$BROKER ./build/gpk-left-fed.x >/dev/null 2>&1 &
+        sleep 1
+
+        cd /app/v2/controller
+        HELICS_BROKER=$$BROKER python ev_controller_v2.py --config v2_control.json --duration 86400 >/dev/null 2>&1 &
+        sleep 1
+
+        cd /app/llm_grid_eval
+        HELICS_BROKER=$$BROKER HELICS_BROKER_ADDRESS=$$BROKER \
+        PYTHONPATH=/app/llm_grid_eval/src \
+          python -m llm_grid_eval.server --config /app/v2/configs/server.yaml &
+        wait
+
+  hr14:
+    <<: *cosim-base
+    container_name: grideval-hr14
+    ports:
+      - "5103:5100"
+    environment:
+      BROKER_PORT: "23404"
+      SIM_START_HOUR: "14"
+    command:
+      - |
+        set -uo pipefail
+        pip install --quiet fastapi uvicorn pyyaml httpx openai numpy 2>/dev/null
+
+        UNITFILE=/usr/local/gridlabd/share/unitfile.txt
+        grep -q "^utility" "$$UNITFILE" 2>/dev/null || echo "utility = 1.0;" >> "$$UNITFILE"
+
+        SIM=/tmp/sim_hr14
+        cp -r /app/examples/2bus-13bus "$$SIM"
+        sed -i "s/starttime '2013-08-28 07:00:00'/starttime '2013-08-28 14:00:00'/" "$$SIM/1c_IEEE_123_feeder.glm"
+        sed -i "s/starttime '2013-08-28 07:00:00'/starttime '2013-08-28 14:00:00'/" "$$SIM/1c_IEEE_123_feeder_2.glm"
+
+        cd "$$SIM"
+        if [ ! -x build/gpk-left-fed.x ]; then
+          mkdir -p build && cd build && cmake .. && make -j$$(nproc) && cd "$$SIM"
+        fi
+
+        BROKER=tcp://localhost:23404
+        helics_broker -f5 --port=23404 &
+        sleep 3
+
+        HELICS_BROKER=$$BROKER gridlabd 1c_IEEE_123_feeder.glm >/dev/null 2>&1 &
+        sleep 1
+        HELICS_BROKER=$$BROKER gridlabd 1c_IEEE_123_feeder_2.glm >/dev/null 2>&1 &
+        sleep 1
+        HELICS_BROKER=$$BROKER ./build/gpk-left-fed.x >/dev/null 2>&1 &
+        sleep 1
+
+        cd /app/v2/controller
+        HELICS_BROKER=$$BROKER python ev_controller_v2.py --config v2_control.json --duration 86400 >/dev/null 2>&1 &
+        sleep 1
+
+        cd /app/llm_grid_eval
+        HELICS_BROKER=$$BROKER HELICS_BROKER_ADDRESS=$$BROKER \
+        PYTHONPATH=/app/llm_grid_eval/src \
+          python -m llm_grid_eval.server --config /app/v2/configs/server.yaml &
+        wait

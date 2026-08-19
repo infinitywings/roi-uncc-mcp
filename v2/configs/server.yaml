@@ -1,0 +1,35 @@
+# v2 MCP Server Configuration
+
+server:
+  host: "0.0.0.0"
+  port: 5100
+
+constraints_path: "/app/v2/configs/constraints.yaml"
+
+helics:
+  name: "ev_attacker_mcp"
+  broker_address: "tcp://localhost:23404"
+  core_type: "zmq"
+  period_sec: 5.0
+  offset_sec: 0.0
+
+grid:
+  threshold_kw: 4200.0
+  nominal_voltage_v: 2401.7771
+  simulation_start_iso: "2013-08-28T07:00:00-05:00"
+
+timing:
+  controller_interval_sec: 10.0
+  macro_weight: 0.6
+  micro_weight: 0.4
+  history_size: 200
+
+ai:
+  micro_score_threshold: 70
+
+ramping:
+  enabled: true
+  ramp_rate_kw_per_sec: 100.0
+
+logging:
+  level: "INFO"

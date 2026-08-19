@@ -1,0 +1,30 @@
+# v2 Experiment Configuration
+# Central place for all experiment parameters.
+
+experiment:
+  # Phase 2: 300s (5 min), Phase 3: 3600s (1 hour)
+  short_duration_sec: 300
+  long_duration_sec: 3600
+  controller_interval_sec: 10
+  seeds: [1, 2, 3]
+
+random_baseline:
+  attack_probability: 0.3  # Matches paper Section V-B1
+
+ai_v1:
+  # Timing-only: no strategic context in prompt
+  include_strategic_context: false
+  include_accumulation_model: false
+  include_diversification: false
+
+ai_v2:
+  # Timing + strategy: full domain knowledge
+  include_strategic_context: true
+  include_accumulation_model: true
+  include_diversification: true
+
+llm:
+  base_url: "http://cci-siscluster1.charlotte.edu:8000/v1"
+  model: "cyankiwi/Qwen3.5-122B-A10B-AWQ-4bit"
+  temperature: 0.3
+  max_tokens: 300

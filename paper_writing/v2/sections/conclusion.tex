@@ -1,0 +1,6 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We introduced LLM-GridEval, a framework coupling adaptive, tool-using LLM attackers with physics-accurate grid co-simulation through schema-constrained attack primitives for adversarial security evaluation.
+A 37-experiment campaign across three grid operating points demonstrated a statistically significant evaluation validity gap of $2.25$--$2.40\times$ ($p < 0.05$, $d = 1.85$--$4.95$): adaptive LLM attackers achieve over twice the violation duration of random baselines where the defender can respond, while the gap vanishes at a ceiling operating point where the defender is overwhelmed.
+The AI-V2 prompt package, combining domain knowledge, diversification guidance, dynamic attack history, and fixed max-power behavior, substantially outperforms timing-only intelligence, while the timing-only variant underperforms the Random baseline at low load (EVG $= 0.80\times$). These findings raise practical questions: at what EVG threshold should a defense benchmark be considered inadequate, and how does the gap scale with defender sophistication? Answering these requires larger-scale campaigns with diverse topologies, RL-based attacker baselines, and ML-based defenders, directions we are actively pursuing.

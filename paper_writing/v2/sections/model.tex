@@ -1,0 +1,47 @@
+\section{System and Threat Model}
+\label{sec:model}
+
+\subsection{System Model}
+\label{sec:model:system}
+
+We model the smart grid as a discrete-time cyber-physical system comprising an IEEE 9-bus transmission network simulated by GridPACK~\cite{palmer2016gridpack} and two IEEE 123-node distribution feeders~\cite{schneider2018testfeeders} simulated by GridLAB-D~\cite{chassin2014gridlabd}, integrated via the HELICS co-simulation framework~\cite{hardy2024helics} with conservative time advancement.
+Feeder~A hosts six EV charging stations (EV1--EV6) distributed across phases A, B, and C at different nodes, with nominal power of 200~kW each and a maximum attack-settable capacity of 1500~kW.
+Feeder~B contains only uncontrollable background loads and provides demand diversity but no controllable EV stations.
+The federation operates with a multi-rate timing hierarchy: GridPACK advances at 5-second intervals, the MCP attacker server at 5~seconds, the defensive controller at 10~seconds, and GridLAB-D's power flow solver at 60-second intervals for Feeder~A and 120-second intervals for Feeder~B---creating a 2:1 attacker-to-controller observation ratio that forms the basis of the micro-timing exploit.
+To study condition-dependence, we evaluate at three operating points corresponding to different simulation clock start times, spanning from low base load (${\sim}3480$~kW, ${\sim}720$~kW headroom below the 4200~kW protection threshold) through medium load (${\sim}3703$~kW, ${\sim}497$~kW headroom) to high load (${\sim}5490$~kW, already exceeding the threshold)---see Table~\ref{tab:operating-points}.
+
+\begin{table}[t]
+\caption{Operating points used in the evaluation campaign. Headroom is $P_{\max} - P_{\text{base}}$ where $P_{\max} = 4200$~kW.}
+\label{tab:operating-points}
+\centering
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Operating Point} & \textbf{Hour~4 (Low)} & \textbf{Hour~7 (Med)} & \textbf{Hour~14 (High)} \\
+\midrule
+Base load (kW)     & ${\sim}3480$ & ${\sim}3703$ & ${\sim}5490$ \\
+Headroom (kW)      & ${\sim}720$  & ${\sim}497$  & $-1290$ \\
+Controller capacity & Full         & Partial      & Overwhelmed \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Threat Model}
+\label{sec:model:threat}
+
+The adversary has compromised the EV Management and Control Platform (MCP) server that provides programmatic control over the EV charging fleet, a threat model grounded in the documented real-world vulnerabilities of OCPP-based backends~\cite{sarieddine2024ocpp} and DER management platforms.
+The adversary has read access to aggregate feeder measurements and individual EV setpoints via a \texttt{get\_grid\_status()} primitive, and write access to EV charging capacities within the range $[500, 1500]$~kW via a \texttt{set\_ev\_capacity(ev\_id, P)} primitive.
+The adversary cannot directly observe transmission system internal states or protection relay settings, cannot modify relay configurations, and cannot exceed per-device capacity bounds.
+To ensure fair comparison across attacker variants, all attackers operate under identical resource constraints: a minimum 90-second cooldown between consecutive attacks (upper-bounding the rate to approximately 3--4 attacks per 300-second experiment), a power ramping rate limit of 100~kW/s to prevent solver instability, and a budget of 20 attacks per hour.
+
+\subsection{Evaluation Validity Gap Definition}
+\label{sec:model:evg}
+
+For a defense $M$ evaluated under stress metric $\mathcal{E}$ (where higher values indicate greater grid stress) and attack budget $B$, we define the Evaluation Validity Gap as:
+\begin{equation}
+\label{eq:evg}
+\text{EVG}(\mathcal{E}, M, B) = \frac{\mathcal{E}(M, \pi_{\text{adapt}}, B)}{\mathcal{E}(M, \pi_{\text{static}}, B)}
+\end{equation}
+where $\pi_{\text{adapt}}$ and $\pi_{\text{static}}$ denote adaptive and static attack policies respectively.
+We instantiate $\mathcal{E}$ as Threshold Violation Duration (TVD): cumulative seconds during which feeder power exceeds the protection threshold $P_{\max} = 4200$~kW, so that $\text{EVG} > 1.0$ indicates the adaptive attacker achieves longer violation durations than the static baseline under equal resource constraints.
+In this paper, we estimate EVG using the Random policy ($\pi_{\text{static}}$) as the static comparator, representing the class of non-adaptive attacks commonly used in evaluation. We do not claim this bounds the gap for all possible static baselines; a stronger hand-crafted attack could reduce the measured EVG. When both policies saturate the metric (e.g., baseline TVD equals the experiment duration), $\text{EVG} = 1.0$ by construction, indicating a ceiling effect rather than attacker equivalence.

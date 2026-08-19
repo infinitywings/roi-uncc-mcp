@@ -1,0 +1,76 @@
+\documentclass[sigconf,9pt]{acmart}
+
+% Packages
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{balance}
+\usepackage{multirow}
+\usepackage{enumitem}
+
+% Remove ACM-specific fields for workshop submission
+\settopmatter{printacmref=false, printfolios=true}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+\fancyfoot{}  % clear footer if fancyhdr loaded by acmart
+
+\acmConference[EnergySP '26]{ACM Workshop on Sustainable and Intelligent Energy Systems}{June 22, 2026}{Banff, AB, Canada}
+\acmYear{2026}
+
+\begin{document}
+
+\title{LLM-GridEval: Measuring the Evaluation Validity Gap in Smart Grid Security with Adaptive LLM Attackers}
+
+\author{Chenglong Fu}
+\affiliation{%
+  \institution{Univ. of North Carolina at Charlotte}
+  \department{Department of Software and Information Systems}
+  \city{Charlotte}
+  \state{NC}
+  \country{USA}}
+\email{chenglong.fu@charlotte.edu}
+
+\author{Shirin Besati}
+\affiliation{%
+  \institution{Univ. of North Carolina at Charlotte}
+  \department{Department of Electrical and Computer Engineering}
+  \city{Charlotte}
+  \state{NC}
+  \country{USA}}
+\email{sbesati@charlotte.edu}
+
+\author{Miao Wang}
+\affiliation{%
+  \institution{Univ. of North Carolina at Charlotte}
+  \department{Department of Electrical and Computer Engineering}
+  \city{Charlotte}
+  \state{NC}
+  \country{USA}}
+\email{mwang25@charlotte.edu}
+
+\begin{abstract}
+Cloud-hosted EV management platforms expose programmatic control interfaces over charging fleets, creating API-level attack surfaces through which adversaries can coordinate load-altering attacks that propagate from distribution feeders into the bulk transmission system.
+Yet security evaluations for grid defenses overwhelmingly rely on static datasets or pre-scripted attack scenarios, producing an \emph{evaluation validity gap} (EVG): a discrepancy between a defense's measured performance against static benchmarks and its actual robustness against adaptive, observation-driven adversaries.
+We introduce LLM-GridEval, a framework that embeds adaptive, tool-using large language model (LLM) attackers into a HELICS-based transmission--distribution co-simulation through a schema-constrained attack primitive interface, enabling direct comparison of static and adaptive attack processes under identical physical conditions and resource constraints.
+In a 37-experiment campaign across three grid operating points, a strategy-aware LLM attacker achieves 2.25--2.40$\times$ the threshold violation duration of a random baseline, while a timing-only LLM attacker appears counterproductive in this setup, partly due to safety refusals and single-target fixation.
+In our experimental setup, a random static baseline understates violation duration by up to 2.4$\times$ relative to a strategy-aware adaptive attacker, suggesting that static evaluations may substantially underestimate adversarial risk in API-driven, EV/DER-rich grids.
+\end{abstract}
+
+\maketitle
+
+\input{sections/introduction}
+\input{sections/related}
+\input{sections/model}
+\input{sections/framework}
+\input{sections/evaluation}
+\input{sections/conclusion}
+
+\balance
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{ref}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}

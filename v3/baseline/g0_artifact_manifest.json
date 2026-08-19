@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.0",
+  "gate": "G0",
+  "created_date": "2026-07-29",
+  "status": "pass_with_carried_limitations",
+  "reason": "The frozen fresh-10-second-feedback claim is falsified and carried forward. A v3-only GridPACK phase repair and full two-feeder cadence experiment validate 10-second internal actuation, 20-second controller-visible feedback, and bounded effect equivalence. G1/G2 component proofs may begin; attack comparison remains prohibited.",
+  "source_campaign": {
+    "path": "v2/results/campaign",
+    "file_count": 44,
+    "tree_sha256": "666715d9c77550928bcfb02ffcc06cd3532277cb50cc09722dda1abff9f3053d"
+  },
+  "reproducibility_audit": {
+    "fresh_output_byte_identical": true,
+    "fresh_cadence_probe_byte_identical": true,
+    "fresh_value_probe_byte_identical": true,
+    "gridlabd_frozen_arm_repeat_byte_identical": true,
+    "gridlabd_physical10_arm_repeat_byte_identical": true,
+    "gridlabd_analysis_repeat_byte_identical": true,
+    "repaired_full_frozen_repeat_byte_identical": true,
+    "repaired_full_physical10_benign_repeat_byte_identical": true,
+    "full_coupling_clean_control_pulse_checks_pass": true,
+    "completed_results": 37,
+    "failed_slots": 8,
+    "planned_slots": 45
+  },
+  "artifacts": [
+    {
+      "path": "v3/baseline/reanalyze_v2.py",
+      "sha256": "17953d633ced9dde9f286810fd314ac26065ecdbcfc2ce99bfeb0c817cf5fd9a"
+    },
+    {
+      "path": "v3/baseline/reanalysis_r4/v2_reanalysis.json",
+      "sha256": "f57d36e59e7c299a92165a39f19e0a8fca033c2ac841159cd110cf7c3e256b12"
+    },
+    {
+      "path": "v3/baseline/reanalysis_r4/completion_matrix.csv",
+      "sha256": "3691dc8336c17e4a44a25b86d4ee2987b5e1c27d7acbf01a872455f1ffda174e"
+    },
+    {
+      "path": "v3/baseline/run_helics_cadence_probe.py",
+      "sha256": "af78ac1176a971c8eb7e5d32d744bf6d3ccdf596b5c2b70f57c35739a8aceed2"
+    },
+    {
+      "path": "v3/baseline/cadence_probe_r1/cadence_probe.json",
+      "sha256": "3ee309fd8e2e7e58fc0d024a28067ec095992937b3155a33c9e0bcfdeb5a52f7"
+    },
+    {
+      "path": "v3/baseline/run_helics_value_freshness_probe.py",
+      "sha256": "15cfaffb47183c9a8b18e6be1fb95fa5393040d06cfc18757d76f67e6df3da94"
+    },
+    {
+      "path": "v3/baseline/value_freshness_probe_r2/value_freshness_probe.json",
+      "sha256": "d09f1eb0ac482e7f1fd31cff172eb0cc3076fccebbbe7b172294fe1f9acd67eb"
+    },
+    {
+      "path": "v3/baseline/run_gridlabd_cadence_arm.py",
+      "sha256": "60204e4e6b8ed5184b1bef81bd35095040143b98d931bed89793e5153a65b20a"
+    },
+    {
+      "path": "v3/baseline/analyze_gridlabd_cadence_probe.py",
+      "sha256": "e8f5aef26d3c08ed360146fdda1209c2dcce45a7f9f87f75ba36a46837c62b9f"
+    },
+    {
+      "path": "v3/baseline/gridlabd_cadence_frozen60_r1/gridlabd_cadence_arm.json",
+      "sha256": "14a0a34e370b7422bf32db8b8453aed44af9c4fe937dc135c68ca0bdbf74eb2f"
+    },
+    {
+      "path": "v3/baseline/gridlabd_cadence_frozen60_r2/gridlabd_cadence_arm.json",
+      "sha256": "bc9f080cd149d30414383de800bf050558f36c82c515050e069c25de5307e1a7"
+    },
+    {
+      "path": "v3/baseline/gridlabd_cadence_frozen60_r5/gridlabd_cadence_arm.json",
+      "sha256": "a7af500e7da07e6463ae623c6ce3cf10ff87e8b7e15d5cd233568f86ef0a2b10"
+    },
+    {
+      "path": "v3/baseline/gridlabd_cadence_frozen60_r6/gridlabd_cadence_arm.json",
+      "sha256": "a7af500e7da07e6463ae623c6ce3cf10ff87e8b7e15d5cd233568f86ef0a2b10"
+    },
+    {
+      "path": "v3/baseline/gridlabd_cadence_physical10_r3/gridlabd_cadence_arm.json",
+      "sha256": "af8863aff49cc57c0bf79772577f1e10c3f389e02629e78df77ffd427c70f43e"
+    },
+    {
+      "path": "v3/baseline/gridlabd_cadence_physical10_r4/gridlabd_cadence_arm.json",
+      "sha256": "af8863aff49cc57c0bf79772577f1e10c3f389e02629e78df77ffd427c70f43e"
+    },
+    {
+      "path": "v3/baseline/gridlabd_cadence_analysis_r3/gridlabd_cadence_analysis.json",
+      "sha256": "f35485d3072a0622bac36b4223a8eb9c99eef6d31e23c22be4dbeecd9fb6d081"
+    },
+    {
+      "path": "v3/baseline/GRIDLABD_CADENCE_REPORT.md",
+      "sha256": "2b5ada5b2691fcee5ccf82f5830ebe7610eff396d2d9a263e5b95faa5630cb23"
+    },
+    {
+      "path": "v3/baseline/run_full_coupling_cadence_arm.py",
+      "sha256": "4ce56c9424c2a6da28ce8d31bb932738eda4266cf2e4547f21027ea420cd1157"
+    },
+    {
+      "path": "v3/baseline/analyze_full_coupling_blocker.py",
+      "sha256": "4df1f009c3029cb2c6f273c7530d1942f7817292633f11ada5f56ca2c9be46e5"
+    },
+    {
+      "path": "v3/baseline/full_coupling_frozen60_nopulse_roi_pacer_r6/full_coupling_cadence_arm.json",
+      "sha256": "d6684f2591a518df338bd1cdc40ec8759fb1fd8848a1d448b50436e5dfaa5a7c"
+    },
+    {
+      "path": "v3/baseline/full_coupling_frozen60_nopulse_roi_pacer_r7/full_coupling_cadence_arm.json",
+      "sha256": "74f162e2fd54737867fdb8fa8278eb9829922131791b77c201862b4142283d23"
+    },
+    {
+      "path": "v3/baseline/full_coupling_blocker_analysis_r1/full_coupling_blocker_analysis.json",
+      "sha256": "1cd21234114a7f8dee95a866ca5b79ff26da0a32b9a510c7bd8c4333d0a50f46"
+    },
+    {
+      "path": "v3/baseline/FULL_COUPLING_BLOCKER_REPORT.md",
+      "sha256": "2dccadfd3a14bcd7479c7dc1498ab0deec2d2143e6dea2f71f31d7528ce26c68"
+    },
+    {
+      "path": "v3/baseline/run_voltage_boundary_replay.py",
+      "sha256": "d604f451ce15acfb37055c21615e4a162488677af2609a87adee5c203149df06"
+    },
+    {
+      "path": "v3/baseline/voltage_replay_balanced_r1/voltage_boundary_replay.json",
+      "sha256": "721bda8d99c56468d109cc82eb7da89d7fa0050a2c467cec06be317531fd6801"
+    },
+    {
+      "path": "v3/baseline/voltage_replay_captured_cophasal_r1/voltage_boundary_replay.json",
+      "sha256": "83b32a6c3cbca49fe7b6a82877d2a3cbca40e3a73d5009c6efd349004f0c0df9"
+    },
+    {
+      "path": "v3/baseline/build_gridpack_adapter_repair.py",
+      "sha256": "494c11e1eb3c51db571505e553b6efc9b80f095ce999504486dcc3bff632d003"
+    },
+    {
+      "path": "v3/baseline/gridpack_adapter_repair_r2/build_manifest.json",
+      "sha256": "6bf463e39fd260babfc097994bee66bf438ee1bd4df44a8f19715bee357c70e7"
+    },
+    {
+      "path": "v3/baseline/gridpack_adapter_repair_r2/build/gpk-left-fed.x",
+      "sha256": "e2023dd97904fdfeb090055beb9546d4d92d9b4b61ce16c93550013b876fe7cd"
+    },
+    {
+      "path": "v3/baseline/full_coupling_frozen60_repaired_gridpack_r9/full_coupling_cadence_arm.json",
+      "sha256": "70e41e03230bab4cf805dc69273ca738cb9d1ac7ef8356efd88c531f39489c35"
+    },
+    {
+      "path": "v3/baseline/full_coupling_frozen60_repaired_gridpack_r10/full_coupling_cadence_arm.json",
+      "sha256": "70e41e03230bab4cf805dc69273ca738cb9d1ac7ef8356efd88c531f39489c35"
+    },
+    {
+      "path": "v3/baseline/full_coupling_physical10_repaired_gridpack_benign_r1/full_coupling_cadence_arm.json",
+      "sha256": "f219d5cd6746155d4b9bf21aeb0a65e5d3719c73b90047ba84d3cf8cf73a53ea"
+    },
+    {
+      "path": "v3/baseline/full_coupling_physical10_repaired_gridpack_benign_r2/full_coupling_cadence_arm.json",
+      "sha256": "f219d5cd6746155d4b9bf21aeb0a65e5d3719c73b90047ba84d3cf8cf73a53ea"
+    },
+    {
+      "path": "v3/baseline/full_coupling_frozen60_repaired_gridpack_control_r1/full_coupling_cadence_arm.json",
+      "sha256": "9dfa1fb683d6288fc476361e49e24911c4434a1670039e2678338f567a5ff32e"
+    },
+    {
+      "path": "v3/baseline/full_coupling_frozen60_repaired_gridpack_pulse_r1/full_coupling_cadence_arm.json",
+      "sha256": "e3b7ed542eb0489a7745a335e79da77f777de68a81651ec7d3c12ae50c03954d"
+    },
+    {
+      "path": "v3/baseline/full_coupling_physical10_repaired_gridpack_control_r1/full_coupling_cadence_arm.json",
+      "sha256": "6d12b3b5330a420c385ff8c7954c5996f19edc3be16ae9b9cbc925460dfb2d7b"
+    },
+    {
+      "path": "v3/baseline/full_coupling_physical10_repaired_gridpack_pulse_r1/full_coupling_cadence_arm.json",
+      "sha256": "b11aca50bbd83cb93a74ffe3176b7852a48693de9879f978064236b84faf3be0"
+    },
+    {
+      "path": "v3/baseline/analyze_full_coupling_cadence.py",
+      "sha256": "814290cfa9d469d652363e6d58368fa8499bc3d452fdf098c101e3554ad81ff6"
+    },
+    {
+      "path": "v3/baseline/full_coupling_cadence_analysis_r1/full_coupling_cadence_analysis.json",
+      "sha256": "9cedb53f0c3144ce0b67812982d0ce5ccc6a777941707b55b461b563f1c74776"
+    },
+    {
+      "path": "v3/baseline/FULL_COUPLING_CADENCE_REPORT.md",
+      "sha256": "be81fed6b32ff73ea73326712c7e2b94443d3c0a73e144a0d6a8e0c4018e2418"
+    },
+    {
+      "path": "v3/baseline/G0_VALIDATION_REPORT.md",
+      "sha256": "c8773ff059ef8e64eac51a5431ea878a7b33fd32de0ebc2cf5f3877578bafa21"
+    },
+    {
+      "path": "v3/baseline/v2_freeze_manifest.json",
+      "sha256": "e046149944b42ff7535da4a128fb09d7a720935ca6feaa20b0aa9c0fc175ff02"
+    }
+  ]
+}

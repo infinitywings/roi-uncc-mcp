@@ -1,0 +1,161 @@
+{
+  "schema_version": "0.1",
+  "campaign_stage": "G4",
+  "device_id": "DER_EV4_BESS",
+  "outstation": {
+    "field_node": "rtu_ev4",
+    "dnp3_address": 4
+  },
+  "sign_convention": {
+    "active_power_positive": "generation",
+    "reactive_power_positive": "injection",
+    "soc": "fraction_of_nameplate_energy"
+  },
+  "select_before_operate": {
+    "required": true,
+    "timeout_s": 5.0,
+    "exact_value_match": true
+  },
+  "freshness": {
+    "maximum_age_s": 10.0,
+    "maximum_future_skew_s": 0.0
+  },
+  "authority": {
+    "ev_controller_v3": [
+      "active_power_setpoint",
+      "reactive_setpoint"
+    ]
+  },
+  "commands": {
+    "active_power_setpoint": {
+      "enabled": true,
+      "dnp3_group": "analog_output",
+      "index": 0,
+      "dnp3_object": "G41V1",
+      "wire_type": "int32",
+      "value_type": "number",
+      "unit": "kW",
+      "minimum": -200.0,
+      "maximum": 200.0,
+      "raw_minimum": -200000,
+      "raw_maximum": 200000,
+      "raw_scale": 0.001,
+      "execution_delay_s": 0.0,
+      "opender_mapping": "active_power_demand"
+    },
+    "reactive_setpoint": {
+      "enabled": true,
+      "dnp3_group": "analog_output",
+      "index": 1,
+      "dnp3_object": "G41V1",
+      "wire_type": "int32",
+      "value_type": "number",
+      "unit": "kvar",
+      "minimum": -88.0,
+      "maximum": 88.0,
+      "raw_minimum": -88000,
+      "raw_maximum": 88000,
+      "raw_scale": 0.001,
+      "opender_scale": 0.005,
+      "execution_delay_s": 0.0,
+      "opender_mapping": "reactive_setpoint"
+    },
+    "active_power_limit": {
+      "enabled": false,
+      "dnp3_group": "analog_output",
+      "index": 2,
+      "value_type": "number",
+      "unit": "pu",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "raw_minimum": 0,
+      "raw_maximum": 10000,
+      "raw_scale": 0.0001,
+      "execution_delay_s": 0.0,
+      "opender_mapping": "active_power_limit",
+      "disabled_reason": "Outside the minimal G4 AO0/AO1 wire contract."
+    },
+    "reactive_mode": {
+      "enabled": false,
+      "dnp3_group": "analog_output",
+      "index": 3,
+      "value_type": "enum",
+      "unit": "enum",
+      "values": {
+        "disabled": 0,
+        "constant_q": 1
+      },
+      "execution_delay_s": 0.0,
+      "opender_mapping": "reactive_mode",
+      "disabled_reason": "Outside the minimal G4 AO0/AO1 wire contract."
+    },
+    "autonomous_curve": {
+      "enabled": false,
+      "dnp3_group": "octet_string",
+      "index": 0,
+      "value_type": "object",
+      "unit": "json",
+      "execution_delay_s": 0.0,
+      "disabled_reason": "No approved versioned curve payload has passed component tests."
+    }
+  },
+  "telemetry": {
+    "active_power": {
+      "dnp3_group": "analog_input",
+      "index": 0,
+      "dnp3_object": "G30V5",
+      "wire_type": "float32",
+      "value_type": "number",
+      "unit": "kW",
+      "minimum": -200.0,
+      "maximum": 200.0
+    },
+    "reactive_power": {
+      "dnp3_group": "analog_input",
+      "index": 1,
+      "dnp3_object": "G30V5",
+      "wire_type": "float32",
+      "value_type": "number",
+      "unit": "kvar",
+      "minimum": -88.0,
+      "maximum": 88.0
+    },
+    "terminal_voltage": {
+      "dnp3_group": "analog_input",
+      "index": 2,
+      "dnp3_object": "G30V5",
+      "wire_type": "float32",
+      "value_type": "number",
+      "unit": "pu",
+      "minimum": 0.0,
+      "maximum": 2.0
+    },
+    "state_of_charge": {
+      "dnp3_group": "analog_input",
+      "index": 3,
+      "dnp3_object": "G30V5",
+      "wire_type": "float32",
+      "value_type": "number",
+      "unit": "pu",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "connected": {
+      "dnp3_group": "binary_input",
+      "index": 0,
+      "dnp3_object": "G1V2",
+      "wire_type": "boolean",
+      "value_type": "boolean",
+      "unit": "boolean"
+    },
+    "command_accepted": {
+      "dnp3_group": "binary_input",
+      "index": 1,
+      "dnp3_object": "G1V2",
+      "wire_type": "boolean",
+      "value_type": "boolean",
+      "unit": "boolean",
+      "semantics": "gateway_validation_and_queue_acceptance"
+    }
+  }
+}

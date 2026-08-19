@@ -1,0 +1,2186 @@
+{
+  "schema_version": "0.1",
+  "analysis_identity": {
+    "script": "v3/baseline/reanalyze_v2.py",
+    "script_sha256_before_run": "5936f08bd6d6be018b48fcc5b1aa08149bbe138ed0481336c9371206b790d2f3",
+    "frozen_campaign_tree_sha256": "666715d9c77550928bcfb02ffcc06cd3532277cb50cc09722dda1abff9f3053d",
+    "observed_campaign_tree_sha256": "666715d9c77550928bcfb02ffcc06cd3532277cb50cc09722dda1abff9f3053d",
+    "campaign_tree_file_count": 44,
+    "python": "3.10.12 (main, Jun 22 2026, 18:55:27) [GCC 11.4.0]",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "bootstrap_repetitions": 50000
+  },
+  "validation": {
+    "completed_result_count": 37,
+    "unique_result_count": 37,
+    "issues": []
+  },
+  "runs": [
+    {
+      "name": "ai_v1_hr14_s1",
+      "path": "v2/results/campaign/hr14/ai_v1_hr14_s1.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr14",
+      "seed": 1,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 2,
+      "successful_attacks": 2,
+      "unique_evs": 1,
+      "asr_pct": 0.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr14_s2",
+      "path": "v2/results/campaign/hr14/ai_v1_hr14_s2.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr14",
+      "seed": 2,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 1,
+      "asr_pct": 0.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr14_s3",
+      "path": "v2/results/campaign/hr14/ai_v1_hr14_s3.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr14",
+      "seed": 3,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 2,
+      "successful_attacks": 2,
+      "unique_evs": 1,
+      "asr_pct": 0.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr14_s4",
+      "path": "v2/results/campaign/hr14/ai_v1_hr14_s4.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr14",
+      "seed": 4,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 2,
+      "successful_attacks": 2,
+      "unique_evs": 1,
+      "asr_pct": 0.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr14_s5",
+      "path": "v2/results/campaign/hr14/ai_v1_hr14_s5.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr14",
+      "seed": 5,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 1,
+      "successful_attacks": 1,
+      "unique_evs": 1,
+      "asr_pct": 0.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr4_s1",
+      "path": "v2/results/campaign/hr4/ai_v1_hr4_s1.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr4",
+      "seed": 1,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 60.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 66.67,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr4_s2",
+      "path": "v2/results/campaign/hr4/ai_v1_hr4_s2.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr4",
+      "seed": 2,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 60.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 33.33,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr4_s3",
+      "path": "v2/results/campaign/hr4/ai_v1_hr4_s3.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr4",
+      "seed": 3,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 60.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 66.67,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr4_s4",
+      "path": "v2/results/campaign/hr4/ai_v1_hr4_s4.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr4",
+      "seed": 4,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 0.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 1,
+      "asr_pct": 0.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr4_s5",
+      "path": "v2/results/campaign/hr4/ai_v1_hr4_s5.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr4",
+      "seed": 5,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 60.0,
+      "total_attacks": 2,
+      "successful_attacks": 2,
+      "unique_evs": 1,
+      "asr_pct": 50.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr7_s1",
+      "path": "v2/results/campaign/hr7/ai_v1_hr7_s1.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr7",
+      "seed": 1,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 120.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 1,
+      "asr_pct": 33.33,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr7_s2",
+      "path": "v2/results/campaign/hr7/ai_v1_hr7_s2.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr7",
+      "seed": 2,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 120.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 1,
+      "asr_pct": 33.33,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr7_s3",
+      "path": "v2/results/campaign/hr7/ai_v1_hr7_s3.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr7",
+      "seed": 3,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 120.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 1,
+      "asr_pct": 33.33,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr7_s4",
+      "path": "v2/results/campaign/hr7/ai_v1_hr7_s4.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr7",
+      "seed": 4,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 120.0,
+      "total_attacks": 2,
+      "successful_attacks": 2,
+      "unique_evs": 1,
+      "asr_pct": 50.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v1_hr7_s5",
+      "path": "v2/results/campaign/hr7/ai_v1_hr7_s5.json",
+      "attacker": "ai_v1",
+      "operating_point": "hr7",
+      "seed": 5,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 120.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 1,
+      "asr_pct": 33.33,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr14_s1",
+      "path": "v2/results/campaign/hr14/ai_v2_hr14_s1.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr14",
+      "seed": 1,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 4,
+      "successful_attacks": 4,
+      "unique_evs": 4,
+      "asr_pct": 0.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr14_s3",
+      "path": "v2/results/campaign/hr14/ai_v2_hr14_s3.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr14",
+      "seed": 3,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 4,
+      "successful_attacks": 4,
+      "unique_evs": 4,
+      "asr_pct": 0.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr14_s5",
+      "path": "v2/results/campaign/hr14/ai_v2_hr14_s5.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr14",
+      "seed": 5,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 4,
+      "successful_attacks": 4,
+      "unique_evs": 4,
+      "asr_pct": 0.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr4_s1",
+      "path": "v2/results/campaign/hr4/ai_v2_hr4_s1.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr4",
+      "seed": 1,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 180.0,
+      "total_attacks": 4,
+      "successful_attacks": 4,
+      "unique_evs": 4,
+      "asr_pct": 50.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr4_s3",
+      "path": "v2/results/campaign/hr4/ai_v2_hr4_s3.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr4",
+      "seed": 3,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 120.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 3,
+      "asr_pct": 66.67,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr4_s4",
+      "path": "v2/results/campaign/hr4/ai_v2_hr4_s4.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr4",
+      "seed": 4,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 120.0,
+      "total_attacks": 4,
+      "successful_attacks": 4,
+      "unique_evs": 4,
+      "asr_pct": 50.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr4_s5",
+      "path": "v2/results/campaign/hr4/ai_v2_hr4_s5.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr4",
+      "seed": 5,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 120.0,
+      "total_attacks": 4,
+      "successful_attacks": 4,
+      "unique_evs": 4,
+      "asr_pct": 50.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr7_s1",
+      "path": "v2/results/campaign/hr7/ai_v2_hr7_s1.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr7",
+      "seed": 1,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 180.0,
+      "total_attacks": 4,
+      "successful_attacks": 4,
+      "unique_evs": 4,
+      "asr_pct": 50.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr7_s2",
+      "path": "v2/results/campaign/hr7/ai_v2_hr7_s2.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr7",
+      "seed": 2,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 180.0,
+      "total_attacks": 4,
+      "successful_attacks": 4,
+      "unique_evs": 4,
+      "asr_pct": 50.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr7_s3",
+      "path": "v2/results/campaign/hr7/ai_v2_hr7_s3.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr7",
+      "seed": 3,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 180.0,
+      "total_attacks": 4,
+      "successful_attacks": 4,
+      "unique_evs": 4,
+      "asr_pct": 50.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "ai_v2_hr7_s4",
+      "path": "v2/results/campaign/hr7/ai_v2_hr7_s4.json",
+      "attacker": "ai_v2",
+      "operating_point": "hr7",
+      "seed": 4,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 180.0,
+      "total_attacks": 4,
+      "successful_attacks": 4,
+      "unique_evs": 4,
+      "asr_pct": 50.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "random_hr14_s1",
+      "path": "v2/results/campaign/hr14/random_hr14_s1.json",
+      "attacker": "random",
+      "operating_point": "hr14",
+      "seed": 1,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 0.0,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "random_hr14_s3",
+      "path": "v2/results/campaign/hr14/random_hr14_s3.json",
+      "attacker": "random",
+      "operating_point": "hr14",
+      "seed": 3,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 0.0,
+      "cycle_position": 0.167
+    },
+    {
+      "name": "random_hr14_s4",
+      "path": "v2/results/campaign/hr14/random_hr14_s4.json",
+      "attacker": "random",
+      "operating_point": "hr14",
+      "seed": 4,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 295.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 0.0,
+      "cycle_position": 0.167
+    },
+    {
+      "name": "random_hr4_s1",
+      "path": "v2/results/campaign/hr4/random_hr4_s1.json",
+      "attacker": "random",
+      "operating_point": "hr4",
+      "seed": 1,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 60.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 33.33,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "random_hr4_s3",
+      "path": "v2/results/campaign/hr4/random_hr4_s3.json",
+      "attacker": "random",
+      "operating_point": "hr4",
+      "seed": 3,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 0.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 0.0,
+      "cycle_position": 0.167
+    },
+    {
+      "name": "random_hr4_s4",
+      "path": "v2/results/campaign/hr4/random_hr4_s4.json",
+      "attacker": "random",
+      "operating_point": "hr4",
+      "seed": 4,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 60.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 33.33,
+      "cycle_position": 0.167
+    },
+    {
+      "name": "random_hr4_s5",
+      "path": "v2/results/campaign/hr4/random_hr4_s5.json",
+      "attacker": "random",
+      "operating_point": "hr4",
+      "seed": 5,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 120.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 66.67,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "random_hr7_s1",
+      "path": "v2/results/campaign/hr7/random_hr7_s1.json",
+      "attacker": "random",
+      "operating_point": "hr7",
+      "seed": 1,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 60.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 33.33,
+      "cycle_position": 0.0
+    },
+    {
+      "name": "random_hr7_s3",
+      "path": "v2/results/campaign/hr7/random_hr7_s3.json",
+      "attacker": "random",
+      "operating_point": "hr7",
+      "seed": 3,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 60.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 33.33,
+      "cycle_position": 0.167
+    },
+    {
+      "name": "random_hr7_s4",
+      "path": "v2/results/campaign/hr7/random_hr7_s4.json",
+      "attacker": "random",
+      "operating_point": "hr7",
+      "seed": 4,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 60.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 66.67,
+      "cycle_position": 0.167
+    },
+    {
+      "name": "random_hr7_s5",
+      "path": "v2/results/campaign/hr7/random_hr7_s5.json",
+      "attacker": "random",
+      "operating_point": "hr7",
+      "seed": 5,
+      "duration_sec": 300.0,
+      "controller_interval_sec": 10.0,
+      "tvd_sec": 120.0,
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "unique_evs": 2,
+      "asr_pct": 66.67,
+      "cycle_position": 0.0
+    }
+  ],
+  "cells": {
+    "hr4": {
+      "random": {
+        "tvd": {
+          "n": 4,
+          "values": [
+            60.0,
+            0.0,
+            60.0,
+            120.0
+          ],
+          "mean": 60.0,
+          "sd": 48.98979485566356,
+          "mean_95ci_t": [
+            -17.95369581752024,
+            137.95369581752024
+          ],
+          "min": 0.0,
+          "max": 120.0
+        },
+        "unique_evs": {
+          "n": 4,
+          "values": [
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "mean": 2.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            2.0,
+            2.0
+          ],
+          "min": 2.0,
+          "max": 2.0
+        },
+        "total_attacks": {
+          "n": 4,
+          "values": [
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "mean": 3.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            3.0,
+            3.0
+          ],
+          "min": 3.0,
+          "max": 3.0
+        },
+        "cycle_position": {
+          "n": 4,
+          "values": [
+            0.0,
+            0.167,
+            0.167,
+            0.0
+          ],
+          "mean": 0.0835,
+          "sd": 0.09641749495466752,
+          "mean_95ci_t": [
+            -0.06992175029162286,
+            0.23692175029162288
+          ],
+          "min": 0.0,
+          "max": 0.167
+        },
+        "seeds_completed": [
+          1,
+          3,
+          4,
+          5
+        ]
+      },
+      "ai_v1": {
+        "tvd": {
+          "n": 5,
+          "values": [
+            60.0,
+            60.0,
+            60.0,
+            0.0,
+            60.0
+          ],
+          "mean": 48.0,
+          "sd": 26.832815729997478,
+          "mean_95ci_t": [
+            14.682658737626419,
+            81.31734126237359
+          ],
+          "min": 0.0,
+          "max": 60.0
+        },
+        "unique_evs": {
+          "n": 5,
+          "values": [
+            2.0,
+            2.0,
+            2.0,
+            1.0,
+            1.0
+          ],
+          "mean": 1.6,
+          "sd": 0.5477225575051661,
+          "mean_95ci_t": [
+            0.9199126193417432,
+            2.280087380658257
+          ],
+          "min": 1.0,
+          "max": 2.0
+        },
+        "total_attacks": {
+          "n": 5,
+          "values": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            2.0
+          ],
+          "mean": 2.8,
+          "sd": 0.4472135954999579,
+          "mean_95ci_t": [
+            2.2447109789604403,
+            3.3552890210395594
+          ],
+          "min": 2.0,
+          "max": 3.0
+        },
+        "cycle_position": {
+          "n": 5,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            0.0,
+            0.0
+          ],
+          "min": 0.0,
+          "max": 0.0
+        },
+        "seeds_completed": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "ai_v2": {
+        "tvd": {
+          "n": 4,
+          "values": [
+            180.0,
+            120.0,
+            120.0,
+            120.0
+          ],
+          "mean": 135.0,
+          "sd": 30.0,
+          "mean_95ci_t": [
+            87.26330542073606,
+            182.73669457926394
+          ],
+          "min": 120.0,
+          "max": 180.0
+        },
+        "unique_evs": {
+          "n": 4,
+          "values": [
+            4.0,
+            3.0,
+            4.0,
+            4.0
+          ],
+          "mean": 3.75,
+          "sd": 0.5,
+          "mean_95ci_t": [
+            2.9543884236789344,
+            4.545611576321066
+          ],
+          "min": 3.0,
+          "max": 4.0
+        },
+        "total_attacks": {
+          "n": 4,
+          "values": [
+            4.0,
+            3.0,
+            4.0,
+            4.0
+          ],
+          "mean": 3.75,
+          "sd": 0.5,
+          "mean_95ci_t": [
+            2.9543884236789344,
+            4.545611576321066
+          ],
+          "min": 3.0,
+          "max": 4.0
+        },
+        "cycle_position": {
+          "n": 4,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            0.0,
+            0.0
+          ],
+          "min": 0.0,
+          "max": 0.0
+        },
+        "seeds_completed": [
+          1,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "hr7": {
+      "random": {
+        "tvd": {
+          "n": 4,
+          "values": [
+            60.0,
+            60.0,
+            60.0,
+            120.0
+          ],
+          "mean": 75.0,
+          "sd": 30.0,
+          "mean_95ci_t": [
+            27.26330542073606,
+            122.73669457926394
+          ],
+          "min": 60.0,
+          "max": 120.0
+        },
+        "unique_evs": {
+          "n": 4,
+          "values": [
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "mean": 2.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            2.0,
+            2.0
+          ],
+          "min": 2.0,
+          "max": 2.0
+        },
+        "total_attacks": {
+          "n": 4,
+          "values": [
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "mean": 3.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            3.0,
+            3.0
+          ],
+          "min": 3.0,
+          "max": 3.0
+        },
+        "cycle_position": {
+          "n": 4,
+          "values": [
+            0.0,
+            0.167,
+            0.167,
+            0.0
+          ],
+          "mean": 0.0835,
+          "sd": 0.09641749495466752,
+          "mean_95ci_t": [
+            -0.06992175029162286,
+            0.23692175029162288
+          ],
+          "min": 0.0,
+          "max": 0.167
+        },
+        "seeds_completed": [
+          1,
+          3,
+          4,
+          5
+        ]
+      },
+      "ai_v1": {
+        "tvd": {
+          "n": 5,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ],
+          "mean": 120.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            120.0,
+            120.0
+          ],
+          "min": 120.0,
+          "max": 120.0
+        },
+        "unique_evs": {
+          "n": 5,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "mean": 1.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            1.0,
+            1.0
+          ],
+          "min": 1.0,
+          "max": 1.0
+        },
+        "total_attacks": {
+          "n": 5,
+          "values": [
+            3.0,
+            3.0,
+            3.0,
+            2.0,
+            3.0
+          ],
+          "mean": 2.8,
+          "sd": 0.4472135954999579,
+          "mean_95ci_t": [
+            2.2447109789604403,
+            3.3552890210395594
+          ],
+          "min": 2.0,
+          "max": 3.0
+        },
+        "cycle_position": {
+          "n": 5,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            0.0,
+            0.0
+          ],
+          "min": 0.0,
+          "max": 0.0
+        },
+        "seeds_completed": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "ai_v2": {
+        "tvd": {
+          "n": 4,
+          "values": [
+            180.0,
+            180.0,
+            180.0,
+            180.0
+          ],
+          "mean": 180.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            180.0,
+            180.0
+          ],
+          "min": 180.0,
+          "max": 180.0
+        },
+        "unique_evs": {
+          "n": 4,
+          "values": [
+            4.0,
+            4.0,
+            4.0,
+            4.0
+          ],
+          "mean": 4.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            4.0,
+            4.0
+          ],
+          "min": 4.0,
+          "max": 4.0
+        },
+        "total_attacks": {
+          "n": 4,
+          "values": [
+            4.0,
+            4.0,
+            4.0,
+            4.0
+          ],
+          "mean": 4.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            4.0,
+            4.0
+          ],
+          "min": 4.0,
+          "max": 4.0
+        },
+        "cycle_position": {
+          "n": 4,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            0.0,
+            0.0
+          ],
+          "min": 0.0,
+          "max": 0.0
+        },
+        "seeds_completed": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "hr14": {
+      "random": {
+        "tvd": {
+          "n": 3,
+          "values": [
+            295.0,
+            295.0,
+            295.0
+          ],
+          "mean": 295.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            295.0,
+            295.0
+          ],
+          "min": 295.0,
+          "max": 295.0
+        },
+        "unique_evs": {
+          "n": 3,
+          "values": [
+            2.0,
+            2.0,
+            2.0
+          ],
+          "mean": 2.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            2.0,
+            2.0
+          ],
+          "min": 2.0,
+          "max": 2.0
+        },
+        "total_attacks": {
+          "n": 3,
+          "values": [
+            3.0,
+            3.0,
+            3.0
+          ],
+          "mean": 3.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            3.0,
+            3.0
+          ],
+          "min": 3.0,
+          "max": 3.0
+        },
+        "cycle_position": {
+          "n": 3,
+          "values": [
+            0.0,
+            0.167,
+            0.167
+          ],
+          "mean": 0.11133333333333334,
+          "sd": 0.0964174949546675,
+          "mean_95ci_t": [
+            -0.12818100195308524,
+            0.3508476686197519
+          ],
+          "min": 0.0,
+          "max": 0.167
+        },
+        "seeds_completed": [
+          1,
+          3,
+          4
+        ]
+      },
+      "ai_v1": {
+        "tvd": {
+          "n": 5,
+          "values": [
+            295.0,
+            295.0,
+            295.0,
+            295.0,
+            295.0
+          ],
+          "mean": 295.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            295.0,
+            295.0
+          ],
+          "min": 295.0,
+          "max": 295.0
+        },
+        "unique_evs": {
+          "n": 5,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "mean": 1.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            1.0,
+            1.0
+          ],
+          "min": 1.0,
+          "max": 1.0
+        },
+        "total_attacks": {
+          "n": 5,
+          "values": [
+            2.0,
+            3.0,
+            2.0,
+            2.0,
+            1.0
+          ],
+          "mean": 2.0,
+          "sd": 0.7071067811865476,
+          "mean_95ci_t": [
+            1.1220109669149156,
+            2.8779890330850844
+          ],
+          "min": 1.0,
+          "max": 3.0
+        },
+        "cycle_position": {
+          "n": 5,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            0.0,
+            0.0
+          ],
+          "min": 0.0,
+          "max": 0.0
+        },
+        "seeds_completed": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "ai_v2": {
+        "tvd": {
+          "n": 3,
+          "values": [
+            295.0,
+            295.0,
+            295.0
+          ],
+          "mean": 295.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            295.0,
+            295.0
+          ],
+          "min": 295.0,
+          "max": 295.0
+        },
+        "unique_evs": {
+          "n": 3,
+          "values": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "mean": 4.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            4.0,
+            4.0
+          ],
+          "min": 4.0,
+          "max": 4.0
+        },
+        "total_attacks": {
+          "n": 3,
+          "values": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "mean": 4.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            4.0,
+            4.0
+          ],
+          "min": 4.0,
+          "max": 4.0
+        },
+        "cycle_position": {
+          "n": 3,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean": 0.0,
+          "sd": 0.0,
+          "mean_95ci_t": [
+            0.0,
+            0.0
+          ],
+          "min": 0.0,
+          "max": 0.0
+        },
+        "seeds_completed": [
+          1,
+          3,
+          5
+        ]
+      }
+    }
+  },
+  "comparisons": {
+    "hr4:tvd_v2_gt_random": {
+      "label": "hr4:tvd_v2_gt_random",
+      "n_a": 4,
+      "n_b": 4,
+      "mean_a": 135.0,
+      "mean_b": 60.0,
+      "mean_difference": 75.0,
+      "ratio_of_means": 2.25,
+      "welch_one_sided_greater": {
+        "status": "defined",
+        "t": 2.6111648393354674,
+        "df": 4.972602739726027,
+        "p_one_sided": 0.023928309820426725,
+        "mean_difference_95ci": [
+          1.043133678936087,
+          148.9568663210639
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 75.0,
+        "p_one_sided_exact": 0.05714285714285714,
+        "extreme_assignments": 4,
+        "total_assignments": 70
+      },
+      "cohens_d_pooled": 1.8463723646899908,
+      "hedges_g_pooled": 1.6055411866869485,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          30.0,
+          120.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          1.2857142857142858,
+          8.0
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0036800000000000166
+      }
+    },
+    "hr4:tvd_v2_gt_v1": {
+      "label": "hr4:tvd_v2_gt_v1",
+      "n_a": 4,
+      "n_b": 5,
+      "mean_a": 135.0,
+      "mean_b": 48.0,
+      "mean_difference": 87.0,
+      "ratio_of_means": 2.8125,
+      "welch_one_sided_greater": {
+        "status": "defined",
+        "t": 4.529039094769576,
+        "df": 6.172582619339045,
+        "p_one_sided": 0.0018537583705693637,
+        "mean_difference_95ci": [
+          40.313093418774976,
+          133.68690658122503
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 87.0,
+        "p_one_sided_exact": 0.007936507936507936,
+        "extreme_assignments": 1,
+        "total_assignments": 126
+      },
+      "cohens_d_pooled": 3.0814219591485004,
+      "hedges_g_pooled": 2.7390417414653334,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          60.0,
+          126.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          2.0,
+          5.625
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.00029999999999996696
+      }
+    },
+    "hr4:tvd_v1_gt_random": {
+      "label": "hr4:tvd_v1_gt_random",
+      "n_a": 5,
+      "n_b": 4,
+      "mean_a": 48.0,
+      "mean_b": 60.0,
+      "mean_difference": -12.0,
+      "ratio_of_means": 0.8,
+      "welch_one_sided_greater": {
+        "status": "defined",
+        "t": -0.4399413450640599,
+        "df": 4.421779141104294,
+        "p_one_sided": 0.6596804683568667,
+        "mean_difference_95ci": [
+          -84.96574374933356,
+          60.965743749333555
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": -12.0,
+        "p_one_sided_exact": 0.8412698412698413,
+        "extreme_assignments": 106,
+        "total_assignments": 126
+      },
+      "cohens_d_pooled": -0.31622776601683794,
+      "hedges_g_pooled": -0.2810913475705226,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          -57.0,
+          33.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          0.34285714285714286,
+          2.4
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0041999999999999815
+      }
+    },
+    "hr4:unique_evs_v2_gt_v1": {
+      "label": "hr4:unique_evs_v2_gt_v1",
+      "n_a": 4,
+      "n_b": 5,
+      "mean_a": 3.75,
+      "mean_b": 1.6,
+      "mean_difference": 2.15,
+      "ratio_of_means": 2.34375,
+      "welch_one_sided_greater": {
+        "status": "defined",
+        "t": 6.142857142857143,
+        "df": 6.814569536423841,
+        "p_one_sided": 0.0002615121572386864,
+        "mean_difference_95ci": [
+          1.3177942974384618,
+          2.9822057025615383
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 2.15,
+        "p_one_sided_exact": 0.007936507936507936,
+        "extreme_assignments": 1,
+        "total_assignments": 126
+      },
+      "cohens_d_pooled": 4.0735230137547696,
+      "hedges_g_pooled": 3.620909345559795,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          1.5,
+          2.8
+        ],
+        "ratio_of_means_95ci_percentile": [
+          1.8055555555555556,
+          3.3333333333333335
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0
+      }
+    },
+    "hr7:tvd_v2_gt_random": {
+      "label": "hr7:tvd_v2_gt_random",
+      "n_a": 4,
+      "n_b": 4,
+      "mean_a": 180.0,
+      "mean_b": 75.0,
+      "mean_difference": 105.0,
+      "ratio_of_means": 2.4,
+      "welch_one_sided_greater": {
+        "status": "defined",
+        "t": 7.0,
+        "df": 3.0,
+        "p_one_sided": 0.00299312784885355,
+        "mean_difference_95ci": [
+          57.26330542073606,
+          152.73669457926394
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 105.0,
+        "p_one_sided_exact": 0.014285714285714285,
+        "extreme_assignments": 1,
+        "total_assignments": 70
+      },
+      "cohens_d_pooled": 4.949747468305833,
+      "hedges_g_pooled": 4.304128233309419,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          75.0,
+          120.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          1.7142857142857142,
+          3.0
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0
+      }
+    },
+    "hr7:tvd_v2_gt_v1": {
+      "label": "hr7:tvd_v2_gt_v1",
+      "n_a": 4,
+      "n_b": 5,
+      "mean_a": 180.0,
+      "mean_b": 120.0,
+      "mean_difference": 60.0,
+      "ratio_of_means": 1.5,
+      "welch_one_sided_greater": {
+        "status": "degenerate_zero_variance_separation",
+        "t": null,
+        "t_limit": "positive_infinity",
+        "df": null,
+        "p_one_sided": 0.0,
+        "mean_difference_95ci": [
+          60.0,
+          60.0
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 60.0,
+        "p_one_sided_exact": 0.007936507936507936,
+        "extreme_assignments": 1,
+        "total_assignments": 126
+      },
+      "cohens_d_pooled": null,
+      "hedges_g_pooled": null,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          60.0,
+          60.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          1.5,
+          1.5
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0
+      }
+    },
+    "hr7:tvd_v1_gt_random": {
+      "label": "hr7:tvd_v1_gt_random",
+      "n_a": 5,
+      "n_b": 4,
+      "mean_a": 120.0,
+      "mean_b": 75.0,
+      "mean_difference": 45.0,
+      "ratio_of_means": 1.6,
+      "welch_one_sided_greater": {
+        "status": "defined",
+        "t": 3.0,
+        "df": 3.0,
+        "p_one_sided": 0.028834442811218657,
+        "mean_difference_95ci": [
+          -2.73669457926394,
+          92.73669457926394
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 45.0,
+        "p_one_sided_exact": 0.047619047619047616,
+        "extreme_assignments": 6,
+        "total_assignments": 126
+      },
+      "cohens_d_pooled": 2.29128784747792,
+      "hedges_g_pooled": 2.036700308869262,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          15.0,
+          60.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          1.1428571428571428,
+          2.0
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0
+      }
+    },
+    "hr7:unique_evs_v2_gt_v1": {
+      "label": "hr7:unique_evs_v2_gt_v1",
+      "n_a": 4,
+      "n_b": 5,
+      "mean_a": 4.0,
+      "mean_b": 1.0,
+      "mean_difference": 3.0,
+      "ratio_of_means": 4.0,
+      "welch_one_sided_greater": {
+        "status": "degenerate_zero_variance_separation",
+        "t": null,
+        "t_limit": "positive_infinity",
+        "df": null,
+        "p_one_sided": 0.0,
+        "mean_difference_95ci": [
+          3.0,
+          3.0
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 3.0,
+        "p_one_sided_exact": 0.007936507936507936,
+        "extreme_assignments": 1,
+        "total_assignments": 126
+      },
+      "cohens_d_pooled": null,
+      "hedges_g_pooled": null,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          3.0,
+          3.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          4.0,
+          4.0
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0
+      }
+    },
+    "hr14:tvd_v2_gt_random": {
+      "label": "hr14:tvd_v2_gt_random",
+      "n_a": 3,
+      "n_b": 3,
+      "mean_a": 295.0,
+      "mean_b": 295.0,
+      "mean_difference": 0.0,
+      "ratio_of_means": 1.0,
+      "welch_one_sided_greater": {
+        "status": "undefined_equal_constant_groups",
+        "t": null,
+        "df": null,
+        "p_one_sided": 1.0,
+        "mean_difference_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 0.0,
+        "p_one_sided_exact": 1.0,
+        "extreme_assignments": 20,
+        "total_assignments": 20
+      },
+      "cohens_d_pooled": 0.0,
+      "hedges_g_pooled": 0.0,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          0.0,
+          0.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          1.0,
+          1.0
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0
+      }
+    },
+    "hr14:tvd_v2_gt_v1": {
+      "label": "hr14:tvd_v2_gt_v1",
+      "n_a": 3,
+      "n_b": 5,
+      "mean_a": 295.0,
+      "mean_b": 295.0,
+      "mean_difference": 0.0,
+      "ratio_of_means": 1.0,
+      "welch_one_sided_greater": {
+        "status": "undefined_equal_constant_groups",
+        "t": null,
+        "df": null,
+        "p_one_sided": 1.0,
+        "mean_difference_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 0.0,
+        "p_one_sided_exact": 1.0,
+        "extreme_assignments": 56,
+        "total_assignments": 56
+      },
+      "cohens_d_pooled": 0.0,
+      "hedges_g_pooled": 0.0,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          0.0,
+          0.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          1.0,
+          1.0
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0
+      }
+    },
+    "hr14:tvd_v1_gt_random": {
+      "label": "hr14:tvd_v1_gt_random",
+      "n_a": 5,
+      "n_b": 3,
+      "mean_a": 295.0,
+      "mean_b": 295.0,
+      "mean_difference": 0.0,
+      "ratio_of_means": 1.0,
+      "welch_one_sided_greater": {
+        "status": "undefined_equal_constant_groups",
+        "t": null,
+        "df": null,
+        "p_one_sided": 1.0,
+        "mean_difference_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 0.0,
+        "p_one_sided_exact": 1.0,
+        "extreme_assignments": 56,
+        "total_assignments": 56
+      },
+      "cohens_d_pooled": 0.0,
+      "hedges_g_pooled": 0.0,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          0.0,
+          0.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          1.0,
+          1.0
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0
+      }
+    },
+    "hr14:unique_evs_v2_gt_v1": {
+      "label": "hr14:unique_evs_v2_gt_v1",
+      "n_a": 3,
+      "n_b": 5,
+      "mean_a": 4.0,
+      "mean_b": 1.0,
+      "mean_difference": 3.0,
+      "ratio_of_means": 4.0,
+      "welch_one_sided_greater": {
+        "status": "degenerate_zero_variance_separation",
+        "t": null,
+        "t_limit": "positive_infinity",
+        "df": null,
+        "p_one_sided": 0.0,
+        "mean_difference_95ci": [
+          3.0,
+          3.0
+        ]
+      },
+      "exact_independent_permutation": {
+        "statistic_mean_difference": 3.0,
+        "p_one_sided_exact": 0.017857142857142856,
+        "extreme_assignments": 1,
+        "total_assignments": 56
+      },
+      "cohens_d_pooled": null,
+      "hedges_g_pooled": null,
+      "bootstrap": {
+        "repetitions": 50000,
+        "mean_difference_95ci_percentile": [
+          3.0,
+          3.0
+        ],
+        "ratio_of_means_95ci_percentile": [
+          4.0,
+          4.0
+        ],
+        "ratio_invalid_zero_denominator_fraction": 0.0
+      }
+    }
+  },
+  "holm_adjustment_primary_responsive_h1": {
+    "family": [
+      "hr4:tvd_v2_gt_random",
+      "hr7:tvd_v2_gt_random"
+    ],
+    "welch_one_sided": {
+      "hr7:tvd_v2_gt_random": 0.0059862556977071,
+      "hr4:tvd_v2_gt_random": 0.023928309820426725
+    },
+    "exact_permutation_one_sided": {
+      "hr7:tvd_v2_gt_random": 0.02857142857142857,
+      "hr4:tvd_v2_gt_random": 0.05714285714285714
+    }
+  },
+  "missingness": {
+    "planned": 45,
+    "completed": 37,
+    "failed": 8,
+    "missing_slots": [
+      "ai_v2_hr14_s2",
+      "ai_v2_hr14_s4",
+      "ai_v2_hr4_s2",
+      "ai_v2_hr7_s5",
+      "random_hr14_s2",
+      "random_hr14_s5",
+      "random_hr4_s2",
+      "random_hr7_s2"
+    ],
+    "failure_log_reconciliation": "exact",
+    "by_attacker": {
+      "ai_v1": {
+        "planned": 15,
+        "completed": 15,
+        "failed": 0,
+        "completion_fraction": 1.0
+      },
+      "ai_v2": {
+        "planned": 15,
+        "completed": 11,
+        "failed": 4,
+        "completion_fraction": 0.7333333333333333
+      },
+      "random": {
+        "planned": 15,
+        "completed": 11,
+        "failed": 4,
+        "completion_fraction": 0.7333333333333333
+      }
+    },
+    "by_operating_point": {
+      "hr14": {
+        "planned": 15,
+        "completed": 11,
+        "failed": 4,
+        "completion_fraction": 0.7333333333333333
+      },
+      "hr4": {
+        "planned": 15,
+        "completed": 13,
+        "failed": 2,
+        "completion_fraction": 0.8666666666666667
+      },
+      "hr7": {
+        "planned": 15,
+        "completed": 13,
+        "failed": 2,
+        "completion_fraction": 0.8666666666666667
+      }
+    },
+    "by_seed": {
+      "1": {
+        "planned": 9,
+        "completed": 9,
+        "failed": 0,
+        "completion_fraction": 1.0
+      },
+      "2": {
+        "planned": 9,
+        "completed": 4,
+        "failed": 5,
+        "completion_fraction": 0.4444444444444444
+      },
+      "3": {
+        "planned": 9,
+        "completed": 9,
+        "failed": 0,
+        "completion_fraction": 1.0
+      },
+      "4": {
+        "planned": 9,
+        "completed": 8,
+        "failed": 1,
+        "completion_fraction": 0.8888888888888888
+      },
+      "5": {
+        "planned": 9,
+        "completed": 7,
+        "failed": 2,
+        "completion_fraction": 0.7777777777777778
+      }
+    },
+    "seed2_vs_other_completion_fisher_exact": {
+      "table": [
+        [
+          4,
+          5
+        ],
+        [
+          33,
+          3
+        ]
+      ],
+      "odds_ratio": 0.07272727272727272,
+      "p_two_sided": 0.004425195367667828
+    },
+    "failure_log_evidence": {
+      "random_hr4_s2": {
+        "operating_point": "hr4",
+        "last_logged_sim_second": 115,
+        "logged_attack_count_before_failure": 2,
+        "wrapper_failure_marker": true,
+        "exception_or_root_cause_in_run_log": false
+      },
+      "ai_v2_hr4_s2": {
+        "operating_point": "hr4",
+        "last_logged_sim_second": 270,
+        "logged_attack_count_before_failure": 4,
+        "wrapper_failure_marker": true,
+        "exception_or_root_cause_in_run_log": false
+      },
+      "random_hr7_s2": {
+        "operating_point": "hr7",
+        "last_logged_sim_second": 115,
+        "logged_attack_count_before_failure": 2,
+        "wrapper_failure_marker": true,
+        "exception_or_root_cause_in_run_log": false
+      },
+      "ai_v2_hr7_s5": {
+        "operating_point": "hr7",
+        "last_logged_sim_second": 270,
+        "logged_attack_count_before_failure": 4,
+        "wrapper_failure_marker": true,
+        "exception_or_root_cause_in_run_log": false
+      },
+      "random_hr14_s2": {
+        "operating_point": "hr14",
+        "last_logged_sim_second": 115,
+        "logged_attack_count_before_failure": 2,
+        "wrapper_failure_marker": true,
+        "exception_or_root_cause_in_run_log": false
+      },
+      "random_hr14_s5": {
+        "operating_point": "hr14",
+        "last_logged_sim_second": 210,
+        "logged_attack_count_before_failure": 3,
+        "wrapper_failure_marker": true,
+        "exception_or_root_cause_in_run_log": false
+      },
+      "ai_v2_hr14_s2": {
+        "operating_point": "hr14",
+        "last_logged_sim_second": 270,
+        "logged_attack_count_before_failure": 4,
+        "wrapper_failure_marker": true,
+        "exception_or_root_cause_in_run_log": false
+      },
+      "ai_v2_hr14_s4": {
+        "operating_point": "hr14",
+        "last_logged_sim_second": 270,
+        "logged_attack_count_before_failure": 4,
+        "wrapper_failure_marker": true,
+        "exception_or_root_cause_in_run_log": false
+      }
+    },
+    "root_cause_status": "The run logs preserve wrapper failure markers and partial progress but no exception/root-cause text for the eight campaign failures. The campaign report labels them HELICS timeouts; that mechanism is not independently recoverable from the retained per-condition logs."
+  },
+  "worst_case_missing_tvd_bounds": {
+    "hr4": {
+      "assumption": "Each missing TVD is bounded only by [0, 300] seconds.",
+      "ai_v2_mean_bounds": [
+        108.0,
+        168.0
+      ],
+      "random_mean_bounds": [
+        48.0,
+        108.0
+      ],
+      "v2_minus_random_mean_difference_bounds": [
+        0.0,
+        120.0
+      ],
+      "evg_ratio_bounds": [
+        1.0,
+        3.5
+      ]
+    },
+    "hr7": {
+      "assumption": "Each missing TVD is bounded only by [0, 300] seconds.",
+      "ai_v2_mean_bounds": [
+        144.0,
+        204.0
+      ],
+      "random_mean_bounds": [
+        60.0,
+        120.0
+      ],
+      "v2_minus_random_mean_difference_bounds": [
+        24.0,
+        144.0
+      ],
+      "evg_ratio_bounds": [
+        1.2,
+        3.4
+      ]
+    },
+    "hr14": {
+      "assumption": "Each missing TVD is bounded only by [0, 300] seconds.",
+      "ai_v2_mean_bounds": [
+        177.0,
+        297.0
+      ],
+      "random_mean_bounds": [
+        177.0,
+        297.0
+      ],
+      "v2_minus_random_mean_difference_bounds": [
+        -120.0,
+        120.0
+      ],
+      "evg_ratio_bounds": [
+        0.5959595959595959,
+        1.6779661016949152
+      ]
+    }
+  },
+  "timing_and_config_audit": {
+    "controller": {
+      "helics_period_s": 60,
+      "logical_update_interval_s": 10,
+      "source_has_range_update_interval_loop": true,
+      "source_requests_logical_t": true,
+      "source_skips_request_when_grant_ahead": true,
+      "official_helics_period_semantics": "Granted times are constrained to n*period + offset. Requests at invalid times advance to the next allowed time.",
+      "static_300s_grant_mapping": [
+        {
+          "logical_decision_time_s": 0,
+          "request_made_s": 0,
+          "allowed_grant_s_under_period_semantics": 0
+        },
+        {
+          "logical_decision_time_s": 10,
+          "request_made_s": 10,
+          "allowed_grant_s_under_period_semantics": 60
+        },
+        {
+          "logical_decision_time_s": 20,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 60
+        },
+        {
+          "logical_decision_time_s": 30,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 60
+        },
+        {
+          "logical_decision_time_s": 40,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 60
+        },
+        {
+          "logical_decision_time_s": 50,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 60
+        },
+        {
+          "logical_decision_time_s": 60,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 60
+        },
+        {
+          "logical_decision_time_s": 70,
+          "request_made_s": 70,
+          "allowed_grant_s_under_period_semantics": 120
+        },
+        {
+          "logical_decision_time_s": 80,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 120
+        },
+        {
+          "logical_decision_time_s": 90,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 120
+        },
+        {
+          "logical_decision_time_s": 100,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 120
+        },
+        {
+          "logical_decision_time_s": 110,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 120
+        },
+        {
+          "logical_decision_time_s": 120,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 120
+        },
+        {
+          "logical_decision_time_s": 130,
+          "request_made_s": 130,
+          "allowed_grant_s_under_period_semantics": 180
+        },
+        {
+          "logical_decision_time_s": 140,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 180
+        },
+        {
+          "logical_decision_time_s": 150,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 180
+        },
+        {
+          "logical_decision_time_s": 160,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 180
+        },
+        {
+          "logical_decision_time_s": 170,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 180
+        },
+        {
+          "logical_decision_time_s": 180,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 180
+        },
+        {
+          "logical_decision_time_s": 190,
+          "request_made_s": 190,
+          "allowed_grant_s_under_period_semantics": 240
+        },
+        {
+          "logical_decision_time_s": 200,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 240
+        },
+        {
+          "logical_decision_time_s": 210,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 240
+        },
+        {
+          "logical_decision_time_s": 220,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 240
+        },
+        {
+          "logical_decision_time_s": 230,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 240
+        },
+        {
+          "logical_decision_time_s": 240,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 240
+        },
+        {
+          "logical_decision_time_s": 250,
+          "request_made_s": 250,
+          "allowed_grant_s_under_period_semantics": 300
+        },
+        {
+          "logical_decision_time_s": 260,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 300
+        },
+        {
+          "logical_decision_time_s": 270,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 300
+        },
+        {
+          "logical_decision_time_s": 280,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 300
+        },
+        {
+          "logical_decision_time_s": 290,
+          "request_made_s": null,
+          "allowed_grant_s_under_period_semantics": 300
+        }
+      ],
+      "distinct_allowed_grants_used_by_loop": [
+        0,
+        60,
+        120,
+        180,
+        240,
+        300
+      ],
+      "decisions_per_allowed_grant": {
+        "0": 1,
+        "60": 6,
+        "120": 6,
+        "180": 6,
+        "240": 6,
+        "300": 5
+      },
+      "verdict": "The source executes 10-second logical decisions, but period=60 constrains HELICS grants to 60-second multiples. The loop can execute multiple logical decisions against one granted time and stale physical inputs. Retained campaign artifacts contain no successful controller grant/decision trace to demonstrate an actual 10-second physical defender cadence."
+    },
+    "llm_max_tokens": {
+      "experiment_yaml": 300,
+      "ai_v1_source_literals": [
+        4000
+      ],
+      "ai_v2_source_literals": [
+        4000
+      ],
+      "effective_campaign_attacker_value": 4000,
+      "verdict": "The campaign attacker implementations hard-code 4000 and do not read experiment.yaml's 300 value; the YAML is stale/misleading rather than the effective campaign token limit."
+    },
+    "source_hashes": {
+      "v2/controller/v2_control.json": "15b7388bad915e9f57c7db4f566b1cea0c4c9b31157671bfcd201c7daced8911",
+      "v2/controller/ev_controller_v2.py": "c470d9bbacd1f9a2a4bf4ae41ebd145803900216534e372bde7fc5c4c481bde7",
+      "v2/configs/experiment.yaml": "1472456e20e691459c13cc83ee5bca81ee9531dd94e8267768d27d87682aeba3",
+      "v2/attackers/ai_v1_timing.py": "54dbfbf9a6f55266cf234f03130fed7cb5568779f4c0a131551d0f871172e84f",
+      "v2/attackers/ai_v2_strategy.py": "5727219d09dbd794fab96fcec75bc05cf32c7f8b6db8ef95f5cbeab8eaac6e44"
+    }
+  },
+  "interpretation_limits": [
+    "Run is the experimental unit; timesteps are not treated as independent.",
+    "The campaign is unbalanced and lacks complete paired seeds across attacker cells.",
+    "Exact permutation tests are independent-label tests, not paired tests.",
+    "Bootstrap intervals are descriptive with N=3-5 and should not be read as precise.",
+    "Hour 14 is a ceiling/negative-control condition and excluded from responsive H1 multiplicity adjustment.",
+    "No missing TVD is imputed; worst-case bounds use only the physical [0, 300] range.",
+    "The controller timing verdict is based on source/config semantics because successful granted-time traces were not retained."
+  ]
+}

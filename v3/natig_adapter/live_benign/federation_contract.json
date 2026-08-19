@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0",
+  "scope": "G4 benign live-federation preparation; no attacker or impairment and no runtime-equivalence claim until every process completes",
+  "seed": 777,
+  "simulation": {
+    "duration_s": 840,
+    "controller_period_s": 10,
+    "dnp3_poll_period_s": 10,
+    "physical_coupling_period_s": 10,
+    "opender_internal_step_s": 1
+  },
+  "broker": {
+    "core_type": "zmq",
+    "port": 9000,
+    "federate_count": 4
+  },
+  "federates": [
+    {
+      "owner": "controller",
+      "name": "g4_controller_der_ev4",
+      "config": "controller.json"
+    },
+    {
+      "owner": "natig",
+      "name": "g4_natig_der_ev4",
+      "config": "natig.json"
+    },
+    {
+      "owner": "gateway",
+      "name": "g4_gateway_der_ev4",
+      "config": "gateway.json"
+    },
+    {
+      "owner": "gridlabd",
+      "name": "g4_gridlabd_der_ev4",
+      "config": "gridlabd.json"
+    }
+  ],
+  "cyber_routes": [
+    {
+      "stream": "command",
+      "stage": 1,
+      "source": "controller/der_ev4",
+      "destination": "natig/cc_der_ev4",
+      "transport": "helics_message"
+    },
+    {
+      "stream": "command",
+      "stage": 2,
+      "source": "natig/cc_der_ev4",
+      "destination": "natig/der_ev4",
+      "transport": "dnp3_over_ns3"
+    },
+    {
+      "stream": "command",
+      "stage": 3,
+      "source": "natig/der_ev4",
+      "destination": "gateway/der_ev4",
+      "transport": "helics_message"
+    },
+    {
+      "stream": "telemetry",
+      "stage": 1,
+      "source": "gateway/der_ev4",
+      "destination": "natig/der_ev4",
+      "transport": "helics_message"
+    },
+    {
+      "stream": "telemetry",
+      "stage": 2,
+      "source": "natig/der_ev4",
+      "destination": "natig/cc_der_ev4",
+      "transport": "dnp3_over_ns3"
+    },
+    {
+      "stream": "telemetry",
+      "stage": 3,
+      "source": "natig/cc_der_ev4",
+      "destination": "controller/der_ev4",
+      "transport": "helics_message"
+    }
+  ],
+  "physical_values": [
+    {
+      "key": "gridlabd/ev4_voltage_c",
+      "publisher": "gridlabd",
+      "subscriber": "gateway",
+      "type": "complex",
+      "unit": "V"
+    },
+    {
+      "key": "gateway/feeder_load_va",
+      "publisher": "gateway",
+      "subscriber": "gridlabd",
+      "type": "complex",
+      "unit": "VA"
+    }
+  ],
+  "security_condition": {
+    "name": "benign",
+    "attacker_processes": [],
+    "network_impairments": []
+  },
+  "g3_physical_overlay": {
+    "model": "../../opender_federate/g3_canonical_r1/pulse_coupling10/effective/1c_IEEE_123_feeder.glm",
+    "model_sha256": "d6008f376371ff18b548f5f93971f162121ac7c91555c8b07358c27697983202",
+    "support_tree": "../../../examples/2bus-13bus/include",
+    "support_tree_sha256": "23aa30bcd0b8685f2bcc19c2290d1d63fba35a8b04475c643eb2ba4a1a35ff94",
+    "coupling_object": "DER_EV4_BESS_COUPLING",
+    "parent_bus": "l92",
+    "minimum_timestep_s": 10
+  },
+  "source_locks": [
+    {
+      "path": "../endpoint_graph.json",
+      "sha256": "4c577673fc5c576bfb8e04ac6592955d282bcd4d6ac07db3506c3164d577714a"
+    },
+    {
+      "path": "../../cyber_gateway/dnp3_point_map.yaml",
+      "sha256": "f42d995e08dc23ed557bc1164a990a358aa96edab16b685d460b556d8d48afee"
+    },
+    {
+      "path": "../../cyber_gateway/gateway.py",
+      "sha256": "376672be176cc0a1e14c4c70608b3d1d563ea366ab4e90ef08129017b57af2ef"
+    },
+    {
+      "path": "../dnp3_codec.py",
+      "sha256": "186f615e88fb66412ebb9eb04004c5939fc2e9a7d9d2eef172aefbf254f84d14"
+    },
+    {
+      "path": "../gateway_bridge.py",
+      "sha256": "ce90e88d226ab654393dc10079673f7f5d157a0750b3187e9129b4b5e72a40da"
+    },
+    {
+      "path": "../../opender/device.py",
+      "sha256": "082c202c5bab046f2a9ef988381bb4a8cc8dcfde6a33e7c3d840aa25cc8825f9"
+    },
+    {
+      "path": "../../opender_federate/run_physical_loop.py",
+      "sha256": "4e6e6f03ab6e0ccc43377449dcab83ac6daaac8c3df2462b9b425701c4d64a34"
+    },
+    {
+      "path": "../patches/0001-grideval-g4-gateway-overlay.patch",
+      "sha256": "dec88aff64c24679f8aae03d5337cda90b9ba4d5149988e6a7273d2e99357d2a"
+    },
+    {
+      "path": "../run_live_benign.py",
+      "sha256": "1e4564eebec9b886fb9e5937195bec1fcc73b2ecf2956d077efe12e8580ae2c9"
+    },
+    {
+      "path": "image_manifest.schema.json",
+      "sha256": "15b82cc233b0bdbf8a62f95664c4e7b3b136bef4fe9b165bc99dfa68c4a989cf"
+    },
+    {
+      "path": "live_controller_federate.py",
+      "sha256": "27b5d3fe3c6cfb5fadd3f9667db184ae634f3be83513a046e5dae72bcec55341"
+    },
+    {
+      "path": "live_gateway_federate.py",
+      "sha256": "8f89d47a4d1fdd72a8c08dda685342e0ee5f4db35a179e10dfa123cb8c568dfc"
+    },
+    {
+      "path": "controller.json",
+      "sha256": "f1eea81cd197e12ef9abc6ab0d4dc7b3e213269bcaf2d33216539795d1e7fea8"
+    },
+    {
+      "path": "natig.json",
+      "sha256": "c910ac881e6420764a5c09918cb4289bd9f0a68bb3a1fee1d096a8f5d5298355"
+    },
+    {
+      "path": "gateway.json",
+      "sha256": "bcd0f8606f78bdb367e4c9d02e1135ae12661d00db1b44cab037978bde36f8cf"
+    },
+    {
+      "path": "gridlabd.json",
+      "sha256": "d27b6015db96da7101aa5c5795ee24470120bc769605efe32b487617b2485a31"
+    },
+    {
+      "path": "microgrid.json",
+      "sha256": "3ab643e929272cf975ad91596e30a794fac3493bdf6d8197e381e26edb57da72"
+    },
+    {
+      "path": "topology.json",
+      "sha256": "d3fb16fb2dab3b625a88e941353d5d84c6435320b757f53bae37fb9f309414bb"
+    },
+    {
+      "path": "points_der_ev4.csv",
+      "sha256": "5dcf8ce058e6559c4690db3e91a20407b4b0bdf90ce573edcd255edfb49a0577"
+    }
+  ],
+  "external_image_gate": {
+    "manifest_required_for_execution": true,
+    "schema_version": "1.0",
+    "required_natig_commit": "e163b350e243c6386477e35dead979a4cb2b7c60",
+    "required_natig_tree": "9f10cb55d5eaa4c20a95f292b84a266e9992bc1a",
+    "required_patch_set": "g4-der-ev4"
+  },
+  "runtime_paths": {
+    "container_stage": "/g4/effective",
+    "natig_config": "/g4/effective/config/natig.json",
+    "controller_config": "/g4/effective/config/controller.json",
+    "gateway_config": "/g4/effective/config/gateway.json",
+    "gridlabd_config": "/g4/effective/model/mainglm.json",
+    "model": "/g4/effective/model/1c_IEEE_123_feeder.glm",
+    "runtime_output": "/g4/effective/runtime_output"
+  },
+  "required_processes": [
+    "broker",
+    "controller",
+    "natig",
+    "gateway",
+    "gridlabd"
+  ],
+  "required_runtime_outputs": [
+    "controller_trace.json",
+    "gateway_trace.json",
+    "broker.log",
+    "controller.log",
+    "natig.log",
+    "gateway.log",
+    "gridlabd.log"
+  ]
+}
