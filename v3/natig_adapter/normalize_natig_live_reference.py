@@ -312,7 +312,7 @@ def _validate_inventory(
     return actual_paths
 
 
-def _validate_contract(contract: dict[str, Any]) -> str:
+def _validate_contract(contract: dict[str, Any], allow_declared_impairment: bool = False) -> str:
     if contract.get("schema_version") != "1.0":
         raise NormalizationError("effective contract schema is unsupported")
     if contract.get("seed") != 777 or contract.get("simulation") != {
@@ -324,12 +324,22 @@ def _validate_contract(contract: dict[str, Any]) -> str:
     }:
         raise NormalizationError("effective contract timing or seed changed")
     security = contract.get("security_condition")
-    if security != {
-        "name": "benign",
-        "attacker_processes": [],
-        "network_impairments": [],
-    }:
-        raise NormalizationError("effective contract is not benign")
+    benign = {"name": "benign", "attacker_processes": [], "network_impairments": []}
+    if security != benign:
+        # G5 opt-in: accept a single DECLARED, bounded network impairment with NO
+        # attacker process. Default (allow_declared_impairment=False) keeps the
+        # frozen G4 strict-benign behavior byte-for-byte.
+        ok = (
+            allow_declared_impairment
+            and isinstance(security, dict)
+            and isinstance(security.get("name"), str)
+            and security.get("name", "").startswith("impairment_")
+            and security.get("attacker_processes") == []
+            and isinstance(security.get("network_impairments"), list)
+            and len(security.get("network_impairments", [])) == 1
+        )
+        if not ok:
+            raise NormalizationError("effective contract is not benign")
     if set(contract.get("required_processes", [])) != EXPECTED_PROCESSES:
         raise NormalizationError("effective required-process set changed")
     if set(contract.get("required_runtime_outputs", [])) != EXPECTED_RUNTIME_OUTPUTS:
@@ -836,7 +846,7 @@ def _validate_controller_telemetry(
     return samples
 
 
-def normalize(*, run_dir: Path, repo_root: Path) -> dict[str, Any]:
+def normalize(*, run_dir: Path, repo_root: Path, allow_declared_impairment: bool = False) -> dict[str, Any]:
     """Normalize one completed create-once live-run directory."""
 
     run_dir = run_dir.resolve()
@@ -852,7 +862,7 @@ def normalize(*, run_dir: Path, repo_root: Path) -> dict[str, Any]:
     preflight = load_json(preflight_path)
     identity, inventoried = _validate_preflight(run_dir, preflight)
     contract = load_json(contract_path)
-    runner_sha = _validate_contract(contract)
+    runner_sha = _validate_contract(contract, allow_declared_impairment)
     controller = load_json(controller_path)
     gateway = load_json(gateway_path)
     _exact(controller, CONTROLLER_TRACE_KEYS, "controller trace")
@@ -959,11 +969,16 @@ def main() -> int:
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--repo-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--allow-declared-impairment",
+        action="store_true",
+        help="G5: accept one declared, no-attacker network impairment",
+    )
     args = parser.parse_args()
     if args.output.exists():
         parser.error(f"refusing existing output: {args.output}")
     try:
-        result = normalize(run_dir=args.run_dir, repo_root=args.repo_root)
+        result = normalize(run_dir=args.run_dir, repo_root=args.repo_root, allow_declared_impairment=args.allow_declared_impairment)
     except NormalizationError as exc:
         parser.error(str(exc))
     args.output.parent.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,7 @@
+label	delay_ms	exec_status	returncodes_ok	cmd_msg_count	applied	step_count
+delay0ms_r1	0	PASS	True	36	18	84
+delay50ms_r1	50	PASS	True	28	10	84
+delay100ms_r1	100	PASS	True	28	10	84
+delay200ms_r2	200	PASS	True	28	10	84
+delay500ms_r1	500	PASS	True	28	10	84
+delay1000ms_r1	1000	PASS	True	28	10	84

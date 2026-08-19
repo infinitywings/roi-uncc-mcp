@@ -112,3 +112,8 @@ v3/natig_adapter/locked_runtime_result_*/
 archive/paper_v1/main.pdf
 archive/paper_v1/figures/system.png
 archive/paper_v1/figures/flow.png
+
+# G5 network-impairment run inputs/outputs (regenerable); keep runner + plan doc
+v3/natig_adapter/g5src_*/
+v3/natig_adapter/g5_impairment_*/
+v3/natig_adapter/g5_impairment_*.log
