@@ -70,8 +70,8 @@ devices:
       max_pq_steady_state_error_fraction: 0.01
       max_power_balance_error_w: 2000
 
-  - id: DER_EV1_SECOND_STAGE
-    enabled: false
+  - id: DER_EV1_BESS
+    enabled: true          # Tier 1: second BESS for the RQ8 one-vs-two-site pair
     model: opender
     der_type: bess
     feeder: A
@@ -83,6 +83,22 @@ devices:
     initial_soc_pu: 0.50
     reserve_soc_pu: 0.10
     model_step_s: 1.0
+    opender_parameters:
+      np_phase: SINGLE
+      np_v_dc_v: 3602.66565
+      np_efficiency_pu: 0.95
+      np_mode_transition_time_s: 15
+      np_bess_p_ramp_time_s: 0
+      np_q_max_inj_var: 88000
+      np_q_max_abs_var: 88000
+      active_power_limit_enable: ENABLED
+      active_power_limit_pu: 1.0
+      pf_mode_enable: DISABLED
+      constant_pf_mode_enable: DISABLED
+      constant_q_mode_default: DISABLED
+      volt_var_mode_enable: DISABLED
+      watt_var_mode_enable: DISABLED
+      volt_watt_mode_enable: DISABLED
     field_node: rtu_ev1
     dnp3_outstation_address: 1
     legacy_storage_exclusion:
@@ -102,3 +118,6 @@ devices:
       frequency_ride_through: false
       enter_service_and_trip: true
       ramping: true
+    validation:
+      max_pq_steady_state_error_fraction: 0.01
+      max_power_balance_error_w: 2000

@@ -1,4 +1,4 @@
-"""Minimal standalone OpenDER BESS wrapper with explicit setting scheduling."""
+"""Standalone OpenDER wrapper (BESS or PV) with explicit setting scheduling."""
 
 from __future__ import annotations
 
@@ -9,6 +9,7 @@ from typing import Any
 
 import opender
 from opender.der_bess import DER_BESS
+from opender.der_pv import DER_PV
 
 
 @dataclass(frozen=True)
@@ -17,10 +18,18 @@ class DeviceOutput:
     p_out_kw: float
     q_out_kvar: float
     status: str
-    soc: float
+    soc: float | None
 
 
-class ScheduledOpenDERBESS:
+class ScheduledOpenDER:
+    """Wrap any OpenDER device (BESS or PV) with deterministic, simulation-time
+    setting execution. Subclasses bind the model class, the power-input kwarg,
+    and whether the device exposes SOC. Everything else is device-agnostic
+    (base ``opender.der.DER`` surface)."""
+
+    _MODEL_CLS: type = DER_BESS
+    _POWER_KWARG: str = "p_dem_kw"   # BESS: signed AC demand; PV: available DC
+    _HAS_SOC: bool = True
     """Wrap OpenDER with deterministic, simulation-time setting execution.
 
     OpenDER 2.2.0's internal ``NP_SET_EXE_TIME`` path holds the same mutable
@@ -35,7 +44,7 @@ class ScheduledOpenDERBESS:
             raise ValueError("step_s must be positive")
         self.step_s = float(step_s)
         self.time_s = 0.0
-        self.model = DER_BESS(der_file_obj=der_file_obj)
+        self.model = self._MODEL_CLS(der_file_obj=der_file_obj)
         self.model.der_file.NP_SET_EXE_TIME = 0
         self._demand_kw = 0.0
         self._gateway_controls_demand = False
@@ -212,8 +221,8 @@ class ScheduledOpenDERBESS:
         self.model.update_der_input(
             v_pu=v_pu,
             f=frequency_hz,
-            p_dem_kw=self._demand_kw,
             theta=voltage_angle_deg,
+            **{self._POWER_KWARG: self._demand_kw},
         )
         self.model.run()
         self.time_s = next_time_s
@@ -223,7 +232,36 @@ class ScheduledOpenDERBESS:
                 p_out_kw=float(self.model.p_out_kw),
                 q_out_kvar=float(self.model.q_out_kvar),
                 status=str(self.model.der_status),
-                soc=float(self.model.bess_soc),
+                soc=(float(self.model.bess_soc) if self._HAS_SOC else None),
             ),
             applied,
         )
+
+
+class ScheduledOpenDERBESS(ScheduledOpenDER):
+    """Battery energy storage system (signed AC demand, SOC-limited)."""
+
+    _MODEL_CLS = DER_BESS
+    _POWER_KWARG = "p_dem_kw"
+    _HAS_SOC = True
+
+
+class ScheduledOpenDERPV(ScheduledOpenDER):
+    """Photovoltaic DER (generation-only; input is available DC power, no SOC)."""
+
+    _MODEL_CLS = DER_PV
+    _POWER_KWARG = "p_dc_kw"
+    _HAS_SOC = False
+
+
+_DER_KINDS = {"bess": ScheduledOpenDERBESS, "pv": ScheduledOpenDERPV}
+
+
+def make_scheduled_der(
+    der_type: str, step_s: float = 1.0, *, der_file_obj: Any | None = None
+) -> ScheduledOpenDER:
+    """Factory: build a ScheduledOpenDER of the given kind ('bess' or 'pv')."""
+    kind = str(der_type).lower()
+    if kind not in _DER_KINDS:
+        raise ValueError(f"unknown der_type {der_type!r}; expected bess or pv")
+    return _DER_KINDS[kind](step_s=step_s, der_file_obj=der_file_obj)
