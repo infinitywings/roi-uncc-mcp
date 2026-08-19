@@ -1,0 +1,38 @@
+\section{Discussion and Limitations}
+\label{sec:discussion}
+
+\subsection{Implications for Practice}
+\label{sec:implications}
+
+% Sub-point 1: For defense evaluation
+These results suggest that grid security benchmarks should complement static dataset evaluations with adaptive adversary testing and report the EVG alongside traditional metrics; an EVG of $2.4\times$ at a given operating point means the defense is $2.4\times$ less effective against adaptive threats than its static benchmark suggests, providing a quantitative basis for assessing evaluation adequacy.
+%
+% Sub-point 2: For CPS red teaming
+The schema-constrained primitive interface pattern (where LLMs \emph{select} actions from a validated catalog rather than \emph{generate} arbitrary commands) is applicable beyond EV scenarios to any CPS with a programmable API (SCADA systems, building management, industrial IoT) and addresses the core LLM reliability concern identified by Sen et al.~\cite{sen2024aiattacker}.
+%
+% Sub-point 3: For attacker modeling
+The V1 counterproductivity result demonstrates that naive LLM agent design (providing ``intelligence'' without physical grounding) can produce \emph{worse} outcomes than random, cautioning against uncritical deployment of LLM-based red-teaming tools in CPS domains where physical dynamics couple actions across time and space.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+% Item 1: Sample size
+The sample sizes ($N = 3$--$5$ per cell) are adequate for the observed large effect sizes ($d > 1.8$) but preclude precise confidence interval estimation; the systematic seed-2 failure pattern reduces some cells to $N = 3$.
+%
+% Item 2: Scope — single topology, single LLM, single defense
+All experiments use a single grid topology (IEEE 123-node feeder), a single LLM (Qwen 3.5-122B), and a single defense mechanism (threshold-based progressive shedding); different configurations may yield different EVG magnitudes.
+%
+% Item 3: Attack surface scope
+The current primitive catalog is limited to two primitives (observe and set capacity), capturing only one attack modality; real adversaries may combine load manipulation with measurement spoofing, firmware compromise, or V2G discharge exploitation.
+%
+% Item 4: Defender sophistication
+The threshold-based controller lacks anomaly detection capabilities; a more sophisticated defender incorporating ML-based intrusion detection would likely \emph{increase} the EVG by reducing the random attacker's success rate more than the adaptive attacker's.
+%
+% Item 5: V1 safety refusal confound
+AI-V1 experienced approximately 30\% safety refusal rate from Qwen~3.5's guardrails, reducing its effective attack rate; V1's lower TVD is partly an artifact of missed attack opportunities, though its single-target fixation is visible even in successful attacks.
+%
+% Item 6: Power model simplification
+The additive per-EV power model is a simplification of real OCPP hierarchical profile stacking with per-site power caps; the model captures the relative advantage of diversification but may overestimate individual attack impact.
+%
+% Item 7 (future work)
+Ongoing work extends the evaluation with an RL-based attacker baseline for comparison against the dominant adaptive paradigm, an ML-based anomaly-detecting defender to study how EVG scales with defender sophistication, a richer attack primitive catalog including false data injection, and longer campaigns to test sustained attack resource management.

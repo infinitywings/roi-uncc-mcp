@@ -1,0 +1,15 @@
+diff --git a/wscript b/wscript
+index 4126f68..95f3694 100644
+--- a/wscript
++++ b/wscript
+@@ -636,8 +636,8 @@ def create_config(bld, name, version=0, version_fields=0, includ
+         if Options.options.build_profile == 'release':
+             env.append_value('CXXFLAGS', '-fomit-frame-pointer')
+         if Options.options.build_profile == 'optimized':
+-            if conf.check_compilation_flag('-march=native'):
+-                env.append_value('CXXFLAGS', '-march=native')
++            if conf.check_compilation_flag('-march=x86-64'):
++                env.append_value('CXXFLAGS', '-march=x86-64')
+             env.append_value('CXXFLAGS', '-fstrict-overflow')
+             if conf.env['CXX_NAME'] in ['gcc']:
+                 env.append_value('CXXFLAGS', '-Wstrict-overflow=2')

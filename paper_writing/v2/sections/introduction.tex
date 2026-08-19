@@ -1,0 +1,31 @@
+\section{Introduction}
+\label{sec:introduction}
+
+% Para 1 -- The converging attack surface
+In 2024, researchers discovered six zero-day vulnerabilities in each of 16 EV charging management systems~\cite{sarieddine2024ocpp}, one symptom of a broader shift toward software-managed power grids where cloud APIs control charging fleets, DER setpoints, and demand response across thousands of devices.
+Adversaries who compromise an EV or DER management platform gain programmatic control over aggregate load, enabling coordinated load-altering attacks that can propagate from distribution feeders into the transmission system.
+In the DER domain, the Forescout SUN:DOWN report identified 129 CVEs across major solar inverter management platforms exposing over 1~TW of capacity to remote control, and Kuroptev et al.~\cite{kuroptev2026evgrid} demonstrated using real German charging station data that compromising just two Charging Station Operators suffices to overload transmission grid branches beyond N-1 security margins.
+As these programmatic attack surfaces proliferate, the question of how to evaluate grid defenses against adversaries who exploit them becomes increasingly urgent.
+
+% Para 2 -- The evaluation problem and EVG concept
+The smart grid security community has developed a rich ecosystem of co-simulation frameworks and intrusion detection testbeds~\cite{cintuglu2017testbeds, smadi2021testbeds}, but most evaluation methodologies still rely on static datasets---widely used traces such as SWaT~\cite{goh2017swat}, WADI~\cite{ahmed2017wadi}, EPIC~\cite{adepu2019epic}, and HAI~\cite{shin2020hai} capture fixed attack trajectories under specific operating conditions---or on a small number of pre-scripted attack scenarios as in GridAttackSim~\cite{le2020gridattacksim}.
+Static traces and scripts cannot capture the action--reaction dynamics between adaptive attackers and responsive defenses. When a controller sheds load in response to an attack, a static attacker continues its pre-programmed sequence regardless, while an adaptive attacker can observe the defensive response and adjust its strategy in real time.
+We term the resulting discrepancy the \emph{evaluation validity gap} (EVG): the ratio of a defense's stress under an adaptive attacker to its stress under a comparable static attacker, where EVG $> 1.0$ indicates that static evaluations underestimate adversarial risk.
+This phenomenon has been extensively documented in adversarial machine learning (Carlini et al.~\cite{carlini2019evaluating} established best practices for adaptive evaluation, and Nasr et al.~\cite{nasr2025attacker} recently demonstrated that 12 LLM defenses reporting near-zero attack success rates under static evaluation were bypassed at over 90\% success under adaptive attacks) but has not been formally studied or quantified in smart grid security evaluation.
+This paper asks: does a measurable evaluation validity gap exist in smart grid security, and if so, what attacker capabilities drive it?
+
+% Para 3 -- Our approach: LLMs as adaptive attackers
+To answer this question, we introduce LLM-GridEval, a framework that embeds tool-using LLM agents as adaptive attackers inside a HELICS-based transmission--distribution co-simulation~\cite{hardy2024helics}, connecting them to the grid through a schema-constrained catalog of attack primitives that ensures all actions are physically realizable.
+We use tool-using LLMs as a practical way to instantiate adaptive attackers without environment-specific training, unlike reinforcement learning approaches that demand scenario-specific reward shaping and state representations~\cite{sahani2023mlids}.
+A critical architectural choice is the schema-constrained primitive interface, which sidesteps the LLM code-generation reliability problem identified by Sen et al.~\cite{sen2024aiattacker}, who found that current LLMs produce only ``partially usable'' attack code for grid systems; by constraining the LLM to \emph{select} validated actions rather than \emph{generate} arbitrary commands, we make LLM-driven grid attacks feasible and reproducible.
+We emphasize that LLMs are not proposed as optimal attackers but as a practical, explainable, and generalizable approach to adaptive adversary modeling that complements existing static and RL-based methods.
+
+% Para 4 -- Contributions
+We make the following contributions:
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Framework.} We present LLM-GridEval, to our knowledge the first framework coupling tool-using LLM agents with physics-accurate T\&D co-simulation via schema-constrained attack primitives for adversarial security evaluation. The framework's layered architecture enables controlled experimentation by allowing researchers to swap attacker implementations (scripted, RL-based, or LLM-based) while holding the co-simulation and tool interface fixed.
+
+\item \textbf{Empirical results.} We conduct a 37-experiment campaign across three grid operating points (low, medium, and high base load) comparing three attacker variants---a random static baseline, an LLM attacker with timing intelligence only, and an LLM attacker with the full AI-V2 prompt package (timing, domain knowledge, diversification guidance, attack history, and fixed max-power behavior)---against a progressive-shedding controller. The strategy-aware attacker achieves EVG $= 2.25$--$2.40\times$ at operating points where the controller can respond ($p < 0.05$, $d = 1.85$--$4.95$), while EVG equals $1.0\times$ at a ceiling operating point where the controller is overwhelmed.
+
+\item \textbf{Insight on attacker capabilities.} We show that the AI-V2 prompt package, combining domain knowledge, diversification guidance, and dynamic attack history, substantially outperforms timing-only intelligence, while timing intelligence alone appears counterproductive at low-load conditions in this setup (EVG $= 0.80\times$), partly due to safety refusals and single-target fixation, providing guidance for both prompt engineering of CPS red-teaming agents and the design of adaptive-aware defense evaluations.
+\end{enumerate}

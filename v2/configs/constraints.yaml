@@ -1,0 +1,22 @@
+# v2 Attacker Constraints
+# MUST be identical for all attacker variants (Random, AI-V1, AI-V2).
+# Only decision logic differs between variants.
+
+observation:
+  interval_sec: 5.0
+
+action:
+  # Scarce budget: 90s cooldown + 20/hour max
+  # With 10s controller interval, attacker waits ~9 controller cycles between attacks.
+  min_cooldown_sec: 90.0
+  max_attacks_per_hour: 20
+
+power:
+  min_kw: 500.0
+  max_kw: 1500.0
+
+targets:
+  valid_ev_ids: ["EV1", "EV2", "EV3", "EV4", "EV5", "EV6"]
+
+grid:
+  threshold_kw: 4200.0

@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "gate": "G2",
+  "created_date": "2026-07-29",
+  "status": "pass_with_wrapper_limitation",
+  "reason": "Pinned OpenDER 2.2.0 passes 565 upstream tests, the official trip/enter-service example, and all GridEval standalone behavior checks. Its internal setting delay is bypassed for in-place mutations, so downstream work must keep NP_SET_EXE_TIME disabled and use the validated v3 setting queue.",
+  "source": {
+    "repository": "https://github.com/epri-dev/OpenDER.git",
+    "commit": "fe7877c664bc6c5eb3832499bf05e0f1dd1825c8",
+    "tree": "1579d6978e166d9a1b178f5fb5f59ff073986d4b",
+    "package_version": "2.2.0"
+  },
+  "reproducibility": {
+    "upstream_tests_passed": 565,
+    "official_example_returncode": 0,
+    "canonical_json_repeat_byte_identical": true,
+    "canonical_json_sha256": "eb5fdcfc4e16ce7af9ab3cb8c525a5f598a3138baa12e8d4ace6e021b8f73ac2"
+  },
+  "artifacts": [
+    {
+      "path": "v3/deps/opender-src/setup.py",
+      "sha256": "d3e9833ad2fe8c09b43da70a9c909f7a35a169168a9e984228f11315e0705667"
+    },
+    {
+      "path": "v3/deps/opender-src/requirements.txt",
+      "sha256": "c2aa6771caa6f3e97cb174a2960d9f51fa492dcc514140b37889a42bd957bafb"
+    },
+    {
+      "path": "v3/deps/opender-src/main.py",
+      "sha256": "ec682d4e2e467c57b8f81d0bf8eaf6ad91544d2999bc3331127b43866eab2089"
+    },
+    {
+      "path": "v3/opender/device.py",
+      "sha256": "6b94914e1a2a9b89f0e244e7bdc7e9cee93290bb201f254bcb7cc3fca46aeab8"
+    },
+    {
+      "path": "v3/opender/run_component_conformance.py",
+      "sha256": "b6ad72aa1ebc3dc52fc974215a27314f176016910932cd0006169ce891d3c9ba"
+    },
+    {
+      "path": "v3/opender/conformance_r7/opender_component_conformance.json",
+      "sha256": "eb5fdcfc4e16ce7af9ab3cb8c525a5f598a3138baa12e8d4ace6e021b8f73ac2"
+    },
+    {
+      "path": "v3/opender/conformance_r7/upstream_pytest.log",
+      "sha256": "04b46ea1be74da403e728e406bc3d41783f6ce5ce5639770dac907f65a770349"
+    },
+    {
+      "path": "v3/opender/conformance_r7/official_main_example.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "v3/opender/conformance_r8/opender_component_conformance.json",
+      "sha256": "eb5fdcfc4e16ce7af9ab3cb8c525a5f598a3138baa12e8d4ace6e021b8f73ac2"
+    },
+    {
+      "path": "v3/opender/conformance_r8/upstream_pytest.log",
+      "sha256": "2d51cf66d4b19b2f233c7463831abbccefc5bb2e0af0300448e007c9dc8cfa46"
+    },
+    {
+      "path": "v3/opender/conformance_r8/official_main_example.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "v3/opender/G2_VALIDATION_REPORT.md",
+      "sha256": "b55b37f4b845b54fb20aa1b1690d0eb11e0824bc1a4779880d13bcb328de3be0"
+    }
+  ]
+}

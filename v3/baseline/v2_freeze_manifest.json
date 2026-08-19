@@ -1,0 +1,492 @@
+{
+  "schema_version": "0.1",
+  "generated_at_utc": "2026-07-28T23:34:40.922477+00:00",
+  "purpose": "Identity freeze for the v2 comparison evidence; not approval of its claims.",
+  "repository": {
+    "root": "/home/cfu6/roi-uncc-mcp",
+    "head": "76551605a11aab8b12d06015f68748b19fed61b1",
+    "worktree_dirty": true,
+    "status_short": [
+      "m examples",
+      " M llm_grid_eval/config/constraints.yaml",
+      " M llm_grid_eval/config/default.yaml",
+      " M llm_grid_eval/config/experiment.yaml",
+      " M llm_grid_eval/scripts/run_ai_campaign.py",
+      " M llm_grid_eval/src/llm_grid_eval/helics_interface/config.py",
+      " M llm_grid_eval/src/llm_grid_eval/services/timing_analyzer.py",
+      " M run_validation.sh",
+      "?? .claude/",
+      "?? AI_Grid_Attack.pdf",
+      "?? cs-research-plugin.zip",
+      "?? paper_writing/",
+      "?? results.md",
+      "?? v2/",
+      "?? v3/",
+      "?? validation_results/"
+    ]
+  },
+  "runtime": {
+    "python": "3.10.12 (main, Jun 22 2026, 18:55:27) [GCC 11.4.0]",
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.35",
+    "tools": {
+      "gridlabd": {
+        "available": false
+      },
+      "helics_broker": {
+        "available": true,
+        "returncode": 0,
+        "output": "3.6.1-main-ge437060a1 (2025-08-14)",
+        "path": "/usr/local/bin/helics_broker"
+      },
+      "docker": {
+        "available": true,
+        "returncode": 0,
+        "output": "Docker version 29.6.2, build dfc4efb",
+        "path": "/usr/bin/docker"
+      }
+    }
+  },
+  "canonical_files": [
+    {
+      "path": "paper_writing/v2/main.tex",
+      "status": "present",
+      "size_bytes": 3268,
+      "sha256": "3acd4e82f7c48a3ad01d8c9af23df4248341255b4275ec36a254fbd631d07ad6"
+    },
+    {
+      "path": "paper_writing/v2/main.pdf",
+      "status": "present",
+      "size_bytes": 1509216,
+      "sha256": "ded95283129bbfcabf7589a41cf6f689bf8db2922f79d4ded20037822d473b20"
+    },
+    {
+      "path": "paper_writing/v2/ref.bib",
+      "status": "present",
+      "size_bytes": 15117,
+      "sha256": "3f38b997496ec9fad5b68e86ed669da1be644acfb6fd6d0e5d0328cb01f624db"
+    },
+    {
+      "path": "paper_writing/v2/sections/evaluation.tex",
+      "status": "present",
+      "size_bytes": 11853,
+      "sha256": "ede0fc96c6eb9b923611ac569746ae50d3f3c3faf851fb361198f80e6832ec83"
+    },
+    {
+      "path": "paper_writing/v2/sections/framework.tex",
+      "status": "present",
+      "size_bytes": 8404,
+      "sha256": "769bc8dfd8224e28cc2b5c223bb0e33a2994f7af8e90786d44708e967cccdcf6"
+    },
+    {
+      "path": "paper_writing/v2/sections/discussion.tex",
+      "status": "present",
+      "size_bytes": 3466,
+      "sha256": "2ebb7ae3ef029c9f7aa31ec40f369e2fe00d7849faa92ef09db874face7f3684"
+    },
+    {
+      "path": "v2/results/CAMPAIGN_REPORT.md",
+      "status": "present",
+      "size_bytes": 27106,
+      "sha256": "a85701d7093dd0e63efc63fa04b468d69ab41d7ab9db3ceac2e4e490282a6ca4"
+    },
+    {
+      "path": "v2/results/campaign/analysis.json",
+      "status": "present",
+      "size_bytes": 2086,
+      "sha256": "47bcfa56f1677dfd26c57b5c9d87f2904384b73c303065b7926bd89d618d0d2e"
+    },
+    {
+      "path": "v2/analysis/analyze_v2.py",
+      "status": "present",
+      "size_bytes": 10608,
+      "sha256": "df9e31f129f6f55e6c8133647fd647ec9346dbbc5184161df65d1cf5f6bce31b"
+    },
+    {
+      "path": "v2/configs/experiment.yaml",
+      "status": "present",
+      "size_bytes": 779,
+      "sha256": "1472456e20e691459c13cc83ee5bca81ee9531dd94e8267768d27d87682aeba3"
+    },
+    {
+      "path": "v2/configs/constraints.yaml",
+      "status": "present",
+      "size_bytes": 512,
+      "sha256": "2dfaba835870b96145d8c7dce8c69a5483e2633cb9e39f8002614a72ae940b85"
+    },
+    {
+      "path": "v2/helics/federation.json",
+      "status": "present",
+      "size_bytes": 1527,
+      "sha256": "0979394d265a389cdb91ba681a9522182f9c75ca5e73ebc72f25a600fa232f81"
+    },
+    {
+      "path": "v2/helics/v2_cosim.json",
+      "status": "present",
+      "size_bytes": 1534,
+      "sha256": "3e5e741652509737e18d174902cdd5e22f6d00c117a193a9270fa422a83a0f78"
+    },
+    {
+      "path": "v2/controller/ev_controller_v2.py",
+      "status": "present",
+      "size_bytes": 12641,
+      "sha256": "c470d9bbacd1f9a2a4bf4ae41ebd145803900216534e372bde7fc5c4c481bde7"
+    },
+    {
+      "path": "v2/controller/v2_control.json",
+      "status": "present",
+      "size_bytes": 1691,
+      "sha256": "15b7388bad915e9f57c7db4f566b1cea0c4c9b31157671bfcd201c7daced8911"
+    },
+    {
+      "path": "v2/run_experiments.py",
+      "status": "present",
+      "size_bytes": 7270,
+      "sha256": "24a445f33b3c61be2cb5a63f4794bb44e33a724663b1d098525bb3541cc6d35c"
+    },
+    {
+      "path": "v2/docker/docker-compose.yml",
+      "status": "present",
+      "size_bytes": 2537,
+      "sha256": "367737ee9516aac6ab378062ff53deaa9527586dd87778f5888b4eb311b73b5c"
+    },
+    {
+      "path": "examples/2bus-13bus/1c_IEEE_123_feeder.glm",
+      "status": "present",
+      "size_bytes": 159441,
+      "sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+    },
+    {
+      "path": "examples/2bus-13bus/1c_IEEE_123_feeder_2.glm",
+      "status": "present",
+      "size_bytes": 152350,
+      "sha256": "b2277453f34ea3da5bc2f08c4bc0e89c3ab7cda363ce1afbbc1410752e06f02c"
+    },
+    {
+      "path": "examples/2bus-13bus/mainglm.json",
+      "status": "present",
+      "size_bytes": 5540,
+      "sha256": "b12a953b4182db0de97ca0d2a160919fcca642d68219d7ccd9fc5bdf718454f2"
+    }
+  ],
+  "campaign_tree": {
+    "path": "v2/results/campaign",
+    "file_count": 44,
+    "tree_sha256": "666715d9c77550928bcfb02ffcc06cd3532277cb50cc09722dda1abff9f3053d",
+    "files": [
+      {
+        "path": "v2/results/campaign/analysis.json",
+        "status": "present",
+        "size_bytes": 2086,
+        "sha256": "47bcfa56f1677dfd26c57b5c9d87f2904384b73c303065b7926bd89d618d0d2e"
+      },
+      {
+        "path": "v2/results/campaign/hr14/ai_v1_hr14_s1.json",
+        "status": "present",
+        "size_bytes": 12403,
+        "sha256": "4ed15b5212b356b3bef292abb26c8d5ed8eaf632e12798764d51bb81aac498f6"
+      },
+      {
+        "path": "v2/results/campaign/hr14/ai_v1_hr14_s2.json",
+        "status": "present",
+        "size_bytes": 12829,
+        "sha256": "ec3e1930bf75a4873e9f1be6ebfc6b368b3d40d34c764064d9c84c9192b2a100"
+      },
+      {
+        "path": "v2/results/campaign/hr14/ai_v1_hr14_s3.json",
+        "status": "present",
+        "size_bytes": 12593,
+        "sha256": "25b5f10c2dcc08dcff3ef7bcc0d5c0314c918a670033f6fc4da60017dba65ea7"
+      },
+      {
+        "path": "v2/results/campaign/hr14/ai_v1_hr14_s4.json",
+        "status": "present",
+        "size_bytes": 12382,
+        "sha256": "d80712c9da66eb6b85ea99664b51e42b1004de4cffcb2623b243e575c790bc7c"
+      },
+      {
+        "path": "v2/results/campaign/hr14/ai_v1_hr14_s5.json",
+        "status": "present",
+        "size_bytes": 14564,
+        "sha256": "61ec226aad8c897d146c8b13c9a6935b4a25e41abb42352a6bbebd6b675e84fb"
+      },
+      {
+        "path": "v2/results/campaign/hr14/ai_v2_hr14_s1.json",
+        "status": "present",
+        "size_bytes": 16939,
+        "sha256": "ed33651875029df375e4c76e8f32a3c772f80c5e9d6f420fde11fe4c201613d6"
+      },
+      {
+        "path": "v2/results/campaign/hr14/ai_v2_hr14_s3.json",
+        "status": "present",
+        "size_bytes": 17606,
+        "sha256": "060a3fa14ee2836da411be5af0caf08dcc36e0d6d3edbc5c8aa8ffe44cbf73ad"
+      },
+      {
+        "path": "v2/results/campaign/hr14/ai_v2_hr14_s5.json",
+        "status": "present",
+        "size_bytes": 17376,
+        "sha256": "65c30875bcd5e7640869cb11af3a0f53bfd38f7ff220adcff8397cdd9577e7f1"
+      },
+      {
+        "path": "v2/results/campaign/hr14/analysis.json",
+        "status": "present",
+        "size_bytes": 2047,
+        "sha256": "2bc411f39dc4e6f6e718117d42e15c5e48a5b6d4ac77231e391190b143650665"
+      },
+      {
+        "path": "v2/results/campaign/hr14/random_hr14_s1.json",
+        "status": "present",
+        "size_bytes": 7191,
+        "sha256": "5caec640b23f4c9353e8cb066be54a122708ae4f2787ee9f5a2ff78dce24a12f"
+      },
+      {
+        "path": "v2/results/campaign/hr14/random_hr14_s3.json",
+        "status": "present",
+        "size_bytes": 7207,
+        "sha256": "f2717cc3a1dfe428c0f2af1676d5ce3f27c07158b992f659e45df81b98b4b2e3"
+      },
+      {
+        "path": "v2/results/campaign/hr14/random_hr14_s4.json",
+        "status": "present",
+        "size_bytes": 7175,
+        "sha256": "80a2202c85229dc241391ab89ecd891447dd9657d2c134d7c4a89420738099bf"
+      },
+      {
+        "path": "v2/results/campaign/hr14_run.log",
+        "status": "present",
+        "size_bytes": 14415,
+        "sha256": "f47a54fc8ec33aefcde7e192d7b3bb4216cec5fc4877253bbedd451470bd3808"
+      },
+      {
+        "path": "v2/results/campaign/hr4/ai_v1_hr4_s1.json",
+        "status": "present",
+        "size_bytes": 12122,
+        "sha256": "87452657ab2f7b43c8610ac9fe11608427b6afe9ebd0db8a775ba06a9f84bbc0"
+      },
+      {
+        "path": "v2/results/campaign/hr4/ai_v1_hr4_s2.json",
+        "status": "present",
+        "size_bytes": 11768,
+        "sha256": "86662a7bdba83083ce61fde973a7d108d9c711cedeeaa41e10e57367d68265cb"
+      },
+      {
+        "path": "v2/results/campaign/hr4/ai_v1_hr4_s3.json",
+        "status": "present",
+        "size_bytes": 11000,
+        "sha256": "7897f5fa3cc94e780451d360625135ac861b27f7f20b9e6219505631d73dc3f4"
+      },
+      {
+        "path": "v2/results/campaign/hr4/ai_v1_hr4_s4.json",
+        "status": "present",
+        "size_bytes": 11085,
+        "sha256": "2f9bb363da5a5effb13ed266144ebbe3074501a6c481cfb8c51fd5f2e927a88a"
+      },
+      {
+        "path": "v2/results/campaign/hr4/ai_v1_hr4_s5.json",
+        "status": "present",
+        "size_bytes": 12705,
+        "sha256": "387ab9213f7b1aa6a23c8c4e43cca14f17ceb449049ff3b221a0e795b2619dd4"
+      },
+      {
+        "path": "v2/results/campaign/hr4/ai_v2_hr4_s1.json",
+        "status": "present",
+        "size_bytes": 17524,
+        "sha256": "8de772e2594306fc9a59288ed501c687dbd0ad3c237ddcd76f788a7106085bef"
+      },
+      {
+        "path": "v2/results/campaign/hr4/ai_v2_hr4_s3.json",
+        "status": "present",
+        "size_bytes": 15486,
+        "sha256": "be111d882756bd60f1837959fe8a33b873b91b16b5424c346bc73efcc3793401"
+      },
+      {
+        "path": "v2/results/campaign/hr4/ai_v2_hr4_s4.json",
+        "status": "present",
+        "size_bytes": 16360,
+        "sha256": "f7fc9c22518b6a1feebd5f327d202ff114fd3064819c70d8baa35d9890fc5107"
+      },
+      {
+        "path": "v2/results/campaign/hr4/ai_v2_hr4_s5.json",
+        "status": "present",
+        "size_bytes": 15943,
+        "sha256": "22e6b4b933ba167999c8bd86f085c8fb8c8107b0ebbc871c7c318ae3372f02a2"
+      },
+      {
+        "path": "v2/results/campaign/hr4/analysis.json",
+        "status": "present",
+        "size_bytes": 1905,
+        "sha256": "a76a81dd227b31f36af7c11de12bf5d51145823681a0fb11cbc44cbbf713a4a4"
+      },
+      {
+        "path": "v2/results/campaign/hr4/random_hr4_s1.json",
+        "status": "present",
+        "size_bytes": 7125,
+        "sha256": "9c74a0076072ff4611a05d04e752ee4c53ecccbc2632ac6d1ac591d32244495a"
+      },
+      {
+        "path": "v2/results/campaign/hr4/random_hr4_s3.json",
+        "status": "present",
+        "size_bytes": 7131,
+        "sha256": "4e2cfdc77bc722d1e42e626ecccea4b943ea454e1602fbe4fb2aa43f4e06cbb2"
+      },
+      {
+        "path": "v2/results/campaign/hr4/random_hr4_s4.json",
+        "status": "present",
+        "size_bytes": 7122,
+        "sha256": "2841a1c9e7ef495a162de4a61d09410d19bdd37616c7364f392987d220af312a"
+      },
+      {
+        "path": "v2/results/campaign/hr4/random_hr4_s5.json",
+        "status": "present",
+        "size_bytes": 7154,
+        "sha256": "84dc1ff8e51b06c060ef5c01d29188830154ec5e85ad0da566b0548ca725406b"
+      },
+      {
+        "path": "v2/results/campaign/hr4_run.log",
+        "status": "present",
+        "size_bytes": 15061,
+        "sha256": "0331d6aee27c4270ba68c2b092b7be1ed6806c2e6b3d9bb065d1ab8e74fad830"
+      },
+      {
+        "path": "v2/results/campaign/hr7/ai_v1_hr7_s1.json",
+        "status": "present",
+        "size_bytes": 10679,
+        "sha256": "628ebd5a0f9682e84e7e561bdf146b930ad59024750e02822ec3065708ce5e72"
+      },
+      {
+        "path": "v2/results/campaign/hr7/ai_v1_hr7_s2.json",
+        "status": "present",
+        "size_bytes": 12183,
+        "sha256": "a1966eb7a495342ce54070cff2aa0f3be1ad8308f391a7c225d9d8d539332b64"
+      },
+      {
+        "path": "v2/results/campaign/hr7/ai_v1_hr7_s3.json",
+        "status": "present",
+        "size_bytes": 11264,
+        "sha256": "db712b86a11b6403a8ee842afa8a62df88ed4de8f3c2726d097ca00e37747eca"
+      },
+      {
+        "path": "v2/results/campaign/hr7/ai_v1_hr7_s4.json",
+        "status": "present",
+        "size_bytes": 11823,
+        "sha256": "a4493c4ee71f8170e74ca5c7c7e971eb22b9bfda3fc27f6dfb2f3421ee33d3be"
+      },
+      {
+        "path": "v2/results/campaign/hr7/ai_v1_hr7_s5.json",
+        "status": "present",
+        "size_bytes": 10775,
+        "sha256": "589906f8673f46841c811ba70be749def59f0a940085c5f57593b33c239c7adf"
+      },
+      {
+        "path": "v2/results/campaign/hr7/ai_v2_hr7_s1.json",
+        "status": "present",
+        "size_bytes": 16461,
+        "sha256": "fd12b83a71e485c80206a2929ed5be529570362564ea57d4095cf3d6b0219920"
+      },
+      {
+        "path": "v2/results/campaign/hr7/ai_v2_hr7_s2.json",
+        "status": "present",
+        "size_bytes": 16483,
+        "sha256": "ba86628bf28745eed049ca371096a959374839aed277500eb3fc4bdb8932afe6"
+      },
+      {
+        "path": "v2/results/campaign/hr7/ai_v2_hr7_s3.json",
+        "status": "present",
+        "size_bytes": 16008,
+        "sha256": "e6f922e2e2ec40ef9ceff892879fbe84d7f3ad6f542c4730e57835263ed6ff18"
+      },
+      {
+        "path": "v2/results/campaign/hr7/ai_v2_hr7_s4.json",
+        "status": "present",
+        "size_bytes": 16438,
+        "sha256": "e4f736d30c63e48217d7d1be38c8b08cae692f290aa22435c2c84526de77061a"
+      },
+      {
+        "path": "v2/results/campaign/hr7/analysis.json",
+        "status": "present",
+        "size_bytes": 2060,
+        "sha256": "9cb7af16d237705df43aff22f2d941d7dc92baa788eb6d0a8db772bf955825d1"
+      },
+      {
+        "path": "v2/results/campaign/hr7/random_hr7_s1.json",
+        "status": "present",
+        "size_bytes": 7151,
+        "sha256": "f56b28be051ce8489ec7462cf5ceacd6b7ea8fae7712196bddf598e57c191f2b"
+      },
+      {
+        "path": "v2/results/campaign/hr7/random_hr7_s3.json",
+        "status": "present",
+        "size_bytes": 7138,
+        "sha256": "0320118c1d722d673ec1d658092604358d3a3061abd1e98bce8536a2d00c69b5"
+      },
+      {
+        "path": "v2/results/campaign/hr7/random_hr7_s4.json",
+        "status": "present",
+        "size_bytes": 7127,
+        "sha256": "7c955e5b5425fb711b6b79373413a9cd538c6ec0816a3285d6498ef85865a112"
+      },
+      {
+        "path": "v2/results/campaign/hr7/random_hr7_s5.json",
+        "status": "present",
+        "size_bytes": 7160,
+        "sha256": "b6151b983deeb74614265dd01e62b8bd6e60f272da715d253c9bf8435ccd83bf"
+      },
+      {
+        "path": "v2/results/campaign/hr7_run.log",
+        "status": "present",
+        "size_bytes": 15153,
+        "sha256": "d57dc0498116a40188a01e6f522339d917417c480809d49395231f0cdd777364"
+      }
+    ]
+  },
+  "campaign_counts": {
+    "planned_runs_from_report": 45,
+    "observed_result_files": 37,
+    "reported_completed_runs": 37,
+    "reported_timeout_failures": 8,
+    "observed_by_condition_and_attacker": {
+      "hr4": {
+        "ai_v2": 4,
+        "random": 4,
+        "ai_v1": 5
+      },
+      "hr14": {
+        "random": 3,
+        "ai_v1": 5,
+        "ai_v2": 3
+      },
+      "hr7": {
+        "ai_v1": 5,
+        "random": 4,
+        "ai_v2": 4
+      }
+    }
+  },
+  "audit_flags": [
+    {
+      "id": "STAT_TEST_MISMATCH",
+      "status": "open",
+      "detail": "Manuscript/report describe Welch testing while analyze_v2.py does not pass equal_var=False."
+    },
+    {
+      "id": "INFORMATIVE_TIMEOUTS",
+      "status": "open",
+      "detail": "Eight of 45 planned runs timed out, with systematic seed/attacker patterns."
+    },
+    {
+      "id": "CONTROLLER_CADENCE",
+      "status": "open",
+      "detail": "Controller logic/config documentation mixes a 10 s decision cadence with a 60 s HELICS period."
+    },
+    {
+      "id": "LLM_MAX_TOKENS",
+      "status": "open",
+      "detail": "v2/configs/experiment.yaml declares 300 while the campaign report states 4000."
+    },
+    {
+      "id": "HOUR14_CEILING",
+      "status": "classified",
+      "detail": "Hour 14 is retained as a negative-control ceiling condition, not a responsive primary block."
+    }
+  ]
+}

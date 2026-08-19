@@ -1,0 +1,91 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{LLM-GridEval: Adaptive Co-Simulation for Smart Grid Security}
+
+\author{\IEEEauthorblockN{ Chenglong Fu}
+\IEEEauthorblockA{\textit{\small{Software and Information Systems Dept.}} \\
+\textit{\small{Univ. of North Carolina at Charlotte}}\\
+\small{Charlotte, USA} \\
+chenglong.fu@charlotte.edu}
+\and
+\IEEEauthorblockN{Shirin Besati}
+\IEEEauthorblockA{\textit{\small{Electrical and Computer Engineering Dept.}} \\
+\textit{\small{Univ. of North Carolina at Charlotte}}\\
+\small{Charlotte, USA} \\
+sbesati@charlotte.edu}
+\and
+\IEEEauthorblockN{ Miao Wang}
+\IEEEauthorblockA{\textit{\small{Electrical and Computer Engineering Dept.}} \\
+\textit{\small{Univ. of North Carolina at Charlotte}}\\
+\small{Charlotte, USA} \\
+mwang25@charlotte.edu}
+% \and
+% \IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
+% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+% \textit{name of organization (of Aff.)}\\
+% City, Country \\
+% email address or ORCID}
+% \and
+% \IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
+% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+% \textit{name of organization (of Aff.)}\\
+% City, Country \\
+% email address or ORCID}
+% \and
+% \IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
+% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+% \textit{name of organization (of Aff.)}\\
+% City, Country \\
+% email address or ORCID}
+}
+
+\maketitle
+
+\begin{abstract}
+Rapid ``API-fication" of electric vehicle (EV) fleets and distributed energy resources (DERs) is transforming the power grid into a software exposed, nonlinearly coupled cyber physical system. Cloud hosted management platforms and programmatic control interfaces create logic level attack surfaces where adversaries can coordinate load altering attacks on EV/DER fleets and induce cascading transmission and distribution (T\&D) effects. Yet most security evaluations for intrusion detection and control based defenses still rely on fixed datasets or pre scripted attack scenarios, leading to an \emph{evaluation validity gap}: a discrepancy between a defense's reported performance against static benchmarks and its true robustness against adaptive, feedback driven adversaries. This paper introduces LLM-GridEval, a formal evaluation framework that embeds an adaptive, tool using large language model (LLM) attacker into a HELICS based T\&D co simulation, exposes a physically constrained attack primitive interface, and enables direct comparison between static and adaptive attackers. The framework models the grid as a multi domain dynamical system, defines attacker policies that act through a schema constrained catalog of primitives, and couples these actions to a co simulation of an IEEE 9 bus transmission system and IEEE 123 node distribution feeders. We instantiate LLM-GridEval in a proof of concept EV capacity manipulation scenario where adaptive attackers issue capacity changes via an EV management and control platform. In this setting, a timing-only adaptive agent underperforms a random baseline, while a strategy-aware adaptive agent matches the baseline's violation duration with fewer actions by diversifying targets and accumulating load. This highlights how attacker adaptivity, modeling assumptions, and domain knowledge can materially affect measured risk, demonstrating that static evaluations may misestimate both the severity and efficiency of adversarial threats in API driven, EV/DER rich grids.
+\end{abstract}
+
+
+\begin{IEEEkeywords}
+smart grid security, cyber-physical systems, LLM-based attacks, co-simulation, electric vehicles, intrusion detection, load-altering attacks, HELICS
+\end{IEEEkeywords}
+
+\input{sections/intro}
+
+\input{sections/background}
+
+\input{sections/problem.tex}
+
+\input{sections/system.tex}
+
+\input{sections/evaluation.tex}
+
+\input{sections/conclusion.tex}
+
+
+% \section*{Acknowledgment}
+
+% \section*{References}
+
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+
+
+%\bibliographystyle{IEEEtranS}
+%\bibliography{ref}
+
+
+
+\end{document}

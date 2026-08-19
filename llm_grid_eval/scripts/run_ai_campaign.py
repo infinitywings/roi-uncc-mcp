@@ -63,20 +63,22 @@ The `cycle_position` value shows where we are in the controller cycle:
 ## IMPORTANT CONSTRAINTS
 - You have limited attack budget (60/hour)
 - Minimum 30 seconds between attacks
-- Target power range: 200-800 kW
+- Target power range: 500-1500 kW
+- Power changes are rate-limited (100 kW/s)
+- Multiple simultaneous attacks can combine to exceed threshold
 
 ## YOUR RESPONSE
 
 Respond with ONLY valid JSON (no markdown, no explanation):
 
 If attacking:
-{"reasoning": "brief explanation", "decision": "attack", "action": {"ev_id": "EV1", "real_kw": 500}}
+{"reasoning": "brief explanation", "decision": "attack", "action": {"ev_id": "EV1", "real_kw": 1200}}
 
 If waiting:
 {"reasoning": "brief explanation", "decision": "wait"}
 
 Choose ev_id from: EV1, EV2, EV3, EV4, EV5, EV6
-Choose real_kw between 200 and 800
+Choose real_kw between 500 and 1500
 """
 
 
@@ -88,8 +90,8 @@ class CampaignConfig:
     llm_temperature: float = 0.3
 
     observation_interval_sec: float = 5.0
-    min_attack_cooldown_sec: float = 30.0
-    max_attacks_per_hour: int = 60
+    min_attack_cooldown_sec: float = 90.0  # 1.5x controller interval for scarce budget
+    max_attacks_per_hour: int = 20  # Reduced budget forces strategic timing
 
     micro_score_threshold: int = 70
     controller_interval_sec: int = 60

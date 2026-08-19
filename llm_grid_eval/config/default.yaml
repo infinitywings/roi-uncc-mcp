@@ -21,10 +21,9 @@ grid:
   simulation_start_iso: "2013-08-28T00:00:00-05:00"
 
 timing:
-  # IMPORTANT: Must match CONTROLLER_INTERVAL_SEC in 1bc_EV_Controller.py
+  # IMPORTANT: Must match update_interval in 1bc_EV_Controller.py (currently 60s)
   # The AI attacker uses this to estimate optimal attack windows.
-  # Default: 30s (can override via --controller-interval in campaign scripts)
-  controller_interval_sec: 30.0
+  controller_interval_sec: 60.0
   macro_weight: 0.6
   micro_weight: 0.4
   history_size: 200
@@ -32,6 +31,15 @@ timing:
 ai:
   # Only attack when micro-timing score is at or above this threshold
   micro_score_threshold: 70
+
+ramping:
+  # Rate-limited power ramping to prevent GridLAB-D Newton-Raphson solver crashes.
+  # When enabled, power changes are gradual (100 kW/s) instead of step changes.
+  enabled: true
+  # Maximum power change rate in kW per second.
+  # At 5s interval: max 500 kW per step.
+  # Time to ramp from 200 kW to 2500 kW: ~23 seconds (5 timesteps).
+  ramp_rate_kw_per_sec: 100.0
 
 logging:
   level: "INFO"

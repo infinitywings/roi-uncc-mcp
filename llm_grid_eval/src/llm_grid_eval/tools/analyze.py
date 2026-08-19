@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from typing import Optional
+
+from ..services.action_executor import ActionExecutor
 from ..services.grid_observer import GridObserver
 from ..services.history_store import HistoryStore
 from ..services.metrics_collector import MetricsCollector
@@ -15,10 +18,15 @@ def analyze(
     analyzer: TimingAnalyzer,
     *,
     controller_interval_sec: float | None = None,
+    executor: Optional[ActionExecutor] = None,
 ) -> dict:
     state = observer.observe(step=True)
     history.append(state)
     metrics.update_violation_state(state.is_in_violation, state.simulation_time_sec)
+
+    # Update ramp controller on each timestep (if executor provided)
+    if executor is not None:
+        executor.update()
 
     interval = float(controller_interval_sec or analyzer.controller_interval_sec)
     if interval <= 0:

@@ -1,0 +1,23 @@
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Smart Grid Security Evaluation}
+\label{sec:related:eval}
+
+HELICS~\cite{hardy2024helics} has emerged as the dominant open-source framework for multi-domain grid co-simulation, supporting time-coordinated interaction between transmission solvers, distribution simulators, and control applications.
+Security evaluation in this space has traditionally relied on static attack datasets: SWaT~\cite{goh2017swat}, WADI~\cite{ahmed2017wadi}, EPIC~\cite{adepu2019epic}, and HAI~\cite{shin2020hai} provide recordings of scripted attack campaigns against industrial control and power systems, while survey work~\cite{sahani2023mlids} highlights that evaluation results from such traces may not generalize to adaptive adversaries.
+Security-focused co-simulation platforms such as GridAttackSim~\cite{le2020gridattacksim} combine power system and network simulation but rely on predefined attack profiles fixed before execution, representing what we term Generation~1 evaluation tools with high-fidelity environments but adversary logic fixed in advance.
+No existing framework couples \emph{adaptive}, observation-driven adversary agents with physics-accurate T\&D co-simulation to study how defense performance changes under dynamic attack strategies.
+
+\subsection{LLM-Based Offensive Security and Grid AI}
+\label{sec:related:llm}
+
+LLM-based offensive tools have been applied to penetration testing~\cite{deng2024pentestgpt,xu2024autoattacker}, vulnerability exploitation~\cite{fang2024llmexploit}, ICS attack pattern generation~\cite{ahmed2025attackllm}, and autonomous network compromise~\cite{janjusevic2025mcp}; Xu et al.~\cite{xu2025forewarned} provide a comprehensive survey. In power systems, LLM agents have been coupled with grid simulators for control~\cite{zhang2025gridagent} and analysis~\cite{chen2025xgridagent}, but these focus on operations rather than adversarial testing. The closest prior work is Sen et al.~\cite{sen2024aiattacker}, who developed AI-based attacker models for smart grid co-simulation but found that current LLMs produce unreliable attack code; our schema-constrained primitive interface addresses this by constraining the LLM to validated action selection.
+
+\subsection{Load-Altering Attacks and EV Infrastructure Security}
+\label{sec:related:laa}
+
+Maleki et al.~\cite{maleki2025laa} provide a comprehensive taxonomy of load-altering attacks against power grids covering attack impact, detection, and mitigation, while Reda et al.~\cite{reda2022fdia} survey false data injection attacks---both attack modalities that can exploit the programmatic interfaces of modern EV and DER management platforms.
+The EV charging ecosystem presents a particularly rich attack surface: Sarieddine et al.~\cite{sarieddine2024ocpp} demonstrated OCPP backend vulnerabilities in live systems, Kaur et al.~\cite{kaur2025evcsur} provide a comprehensive survey of cybersecurity challenges across the EV charging stack, and Kuroptev et al.~\cite{kuroptev2026evgrid} quantified the transmission-level impact of EV charging attacks using real infrastructure data.
+Ibrahim and Kashef~\cite{ibrahim2025llmgrid} survey the emerging intersection of LLMs and smart grid cybersecurity, identifying both offensive and defensive applications but noting the lack of frameworks that embed LLM agents directly into grid co-simulation for adversarial evaluation.
+Among the systems we surveyed, none combine (i)~tool-using LLM agents, (ii)~physics-accurate T\&D co-simulation via HELICS, and (iii)~schema-constrained attack primitives for adversarial security evaluation of smart grids.

@@ -1,0 +1,56 @@
+{
+  "comparison_qualifications": [
+    "NATIG reconstructs semantic command identity and event time at the DNP3 outstation; controller schedule lineage is therefore established by strict point/value/order matching, not an end-to-end transported message ID",
+    "cross-version HELICS comparison: direct_reference=3.6.1 (2025-02-24); natig=2.7.1",
+    "direct control and NATIG arms use independently executed federations in the same r24-derived HELICS/OpenDER runtime",
+    "normalization is evidence transformation only and does not assert equivalence",
+    "the live runner retains the immutable image ID and exact live-image-manifest bytes together with in-container commit, tree, binary, source, module, and package identities"
+  ],
+  "equivalence": {
+    "errors": [],
+    "metrics": {
+      "acceptance_latency_delta_s": 0.0,
+      "accepted_operation_count": 18,
+      "application_latency_delta_s": 0.0,
+      "application_lineage_count": 18,
+      "direct_acceptance_latency_s": 10.0,
+      "direct_application_latency_s": 11.0,
+      "natig_acceptance_latency_s": 10.0,
+      "natig_application_latency_s": 11.0,
+      "p_abs_kw": 0.0,
+      "paired_sample_count": 84,
+      "q_abs_kvar": 4.6747021009707623e-07,
+      "soc_abs_pu": 1.1585591819240904e-08,
+      "voltage_abs_pu": 5.817324244539179e-08
+    },
+    "status": "PASS"
+  },
+  "equivalence_claim_permitted": true,
+  "execution": {
+    "direct_reference_errors": [],
+    "natig_errors": [],
+    "status": "PASS"
+  },
+  "input_traces": {
+    "direct_reference": {
+      "path": "/home/cfu6/roi-uncc-mcp/v3/natig_adapter/live_direct_run_r1/g4_direct_trace.json",
+      "sha256": "a5d3d368ce4ca2a57fed0a85c72c7aba505520913166b9af60d56ea8a7f3184d"
+    },
+    "natig": {
+      "path": "/home/cfu6/roi-uncc-mcp/v3/natig_adapter/live_benign_run_r6/g4_natig_trace.json",
+      "sha256": "9b8e52ffc486caed93c0cfdd59fb564f13522d84db9d5d4a9201a6171f86f5ac"
+    }
+  },
+  "schema_version": "grideval-g4-equivalence-report/1.0",
+  "scope": "G4 benign post-run analysis; execution and equivalence are separate gates",
+  "tolerances": {
+    "acceptance_latency_delta_s": 10.0,
+    "application_latency_delta_s": 10.0,
+    "max_acceptance_latency_s": 10.0,
+    "max_application_latency_s": 12.0,
+    "p_abs_kw": 0.001,
+    "q_abs_kvar": 0.001,
+    "soc_abs_pu": 1e-06,
+    "voltage_abs_pu": 0.0001
+  }
+}

@@ -37,6 +37,12 @@ class AttackResult:
     # Attribution: true if this attack is credited with starting a violation
     caused_violation: bool = False
 
+    # Ramping fields - power ramps gradually to prevent GridLAB-D crashes
+    ramping: bool = False
+    current_kw: float = 0.0
+    target_kw: float = 0.0
+    estimated_ramp_time_sec: float = 0.0
+
     def to_dict(self) -> dict:
         return {
             "timestamp": self.timestamp,
@@ -58,6 +64,12 @@ class AttackResult:
                 "total_real_power_kw": self.post_attack_total_real_power_kw,
                 "in_violation": self.post_attack_in_violation,
                 "caused_violation": self.caused_violation,
+            },
+            "ramping": {
+                "active": self.ramping,
+                "current_kw": self.current_kw,
+                "target_kw": self.target_kw,
+                "estimated_time_sec": self.estimated_ramp_time_sec,
             },
         }
 

@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g4-patched-image-manifest-1.0.json",
+  "title": "GridEval G4 patched NATIG image manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "ready",
+    "image_reference",
+    "image_id",
+    "platform",
+    "natig_repo_path",
+    "natig_commit",
+    "natig_tree",
+    "patch_set",
+    "patches",
+    "binary",
+    "source",
+    "python_runtime",
+    "runtime_command"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "ready": {
+      "const": true
+    },
+    "image_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "image_id": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "platform": {
+      "const": "linux/amd64"
+    },
+    "natig_repo_path": {
+      "$ref": "#/$defs/absolute_path"
+    },
+    "natig_commit": {
+      "const": "e163b350e243c6386477e35dead979a4cb2b7c60"
+    },
+    "natig_tree": {
+      "const": "9f10cb55d5eaa4c20a95f292b84a266e9992bc1a"
+    },
+    "patch_set": {
+      "const": "g4-der-ev4"
+    },
+    "patches": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/hashed_path"
+      }
+    },
+    "binary": {
+      "$ref": "#/$defs/hashed_path"
+    },
+    "source": {
+      "$ref": "#/$defs/hashed_path"
+    },
+    "python_runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "executable",
+        "python_version",
+        "helics_version",
+        "helics_module",
+        "opender_version",
+        "opender_module",
+        "numpy_version",
+        "numpy_module",
+        "pandas_version",
+        "pandas_module"
+      ],
+      "properties": {
+        "executable": {
+          "$ref": "#/$defs/absolute_path"
+        },
+        "python_version": {
+          "const": "3.9.2"
+        },
+        "helics_version": {
+          "const": "2.7.1"
+        },
+        "helics_module": {
+          "$ref": "#/$defs/hashed_path"
+        },
+        "opender_version": {
+          "const": "2.2.0"
+        },
+        "opender_module": {
+          "$ref": "#/$defs/hashed_path"
+        },
+        "numpy_version": {
+          "const": "2.0.2"
+        },
+        "numpy_module": {
+          "$ref": "#/$defs/hashed_path"
+        },
+        "pandas_version": {
+          "const": "2.2.3"
+        },
+        "pandas_module": {
+          "$ref": "#/$defs/hashed_path"
+        }
+      }
+    },
+    "runtime_command": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "$defs": {
+    "absolute_path": {
+      "type": "string",
+      "pattern": "^/[^\\u0000]+$"
+    },
+    "hashed_path": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/absolute_path"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}

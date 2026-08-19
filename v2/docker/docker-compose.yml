@@ -1,0 +1,73 @@
+# LLM-GridEval v2 — Docker Compose
+#
+# Usage:
+#   cd /path/to/roi-uncc-mcp
+#   docker compose -f v2/docker/docker-compose.yml up -d
+#
+# Then run campaigns from the host:
+#   python3 v2/attackers/random_baseline.py --mcp-url http://localhost:5100
+
+services:
+  cosim:
+    image: roi-img:latest
+    container_name: llm-grideval-v2
+    ports:
+      - "5100:5100"
+    volumes:
+      - ../..:/app
+    working_dir: /app
+    environment:
+      CTRL_INTERVAL_SEC: "${CTRL_INTERVAL_SEC:-10}"
+      CTRL_SEED: "${CTRL_SEED:-42}"
+      SIM_DURATION_SEC: "${SIM_DURATION_SEC:-86400}"
+      BROKER_PORT: "${BROKER_PORT:-23404}"
+    entrypoint: ["bash", "-c"]
+    command:
+      - |
+        set -uo pipefail
+        pip install --quiet fastapi uvicorn pyyaml httpx openai numpy 2>/dev/null
+
+        UNITFILE=/usr/local/gridlabd/share/unitfile.txt
+        grep -q "^utility" "$$UNITFILE" 2>/dev/null || echo "utility = 1.0;" >> "$$UNITFILE"
+
+        cd /app/examples/2bus-13bus
+        if [ -f build/CMakeCache.txt ]; then
+          grep -q "/app/examples/2bus-13bus" build/CMakeCache.txt 2>/dev/null || rm -rf build
+        fi
+        if [ ! -x build/gpk-left-fed.x ]; then
+          echo "[setup] Building GridPACK..."
+          mkdir -p build && cd build && cmake .. && make -j$$(nproc) && cd ..
+          echo "[setup] Build complete"
+        fi
+
+        BROKER=tcp://localhost:$${BROKER_PORT:-23404}
+
+        helics_broker -f5 --port=$${BROKER_PORT:-23404} &
+        sleep 3
+
+        cd /app/examples/2bus-13bus
+        HELICS_BROKER=$$BROKER gridlabd 1c_IEEE_123_feeder.glm >/dev/null 2>&1 &
+        sleep 1
+        HELICS_BROKER=$$BROKER gridlabd 1c_IEEE_123_feeder_2.glm >/dev/null 2>&1 &
+        sleep 1
+        HELICS_BROKER=$$BROKER ./build/gpk-left-fed.x >/dev/null 2>&1 &
+        sleep 1
+
+        cd /app/v2/controller
+        HELICS_BROKER=$$BROKER python ev_controller_v2.py --config v2_control.json \
+          --interval $${CTRL_INTERVAL_SEC:-10} --seed $${CTRL_SEED:-42} \
+          --duration $${SIM_DURATION_SEC:-86400} >/dev/null 2>&1 &
+        sleep 1
+
+        echo "============================================="
+        echo "  LLM-GridEval v2 Federation Running"
+        echo "  MCP: http://localhost:5100/health"
+        echo "============================================="
+
+        cd /app/llm_grid_eval
+        HELICS_BROKER=$$BROKER HELICS_BROKER_ADDRESS=$$BROKER \
+        PYTHONPATH=/app/llm_grid_eval/src \
+          python -m llm_grid_eval.server --config /app/v2/configs/server.yaml &
+
+        wait
+    restart: "no"

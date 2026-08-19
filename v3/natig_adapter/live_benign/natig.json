@@ -1,0 +1,34 @@
+{
+  "name": "g4_natig_der_ev4",
+  "brokerPort": 9000,
+  "coreType": "zmq",
+  "broker": "tcp://127.0.0.1:9000",
+  "period": 1,
+  "log_level": "warning",
+  "seed": 777,
+  "dnp3": {
+    "master_address": 1,
+    "outstation_address": 4,
+    "poll_period_s": 10,
+    "command_object": "G41V1",
+    "analog_input_object": "G30V5",
+    "binary_input_object": "G1V2",
+    "point_map": "/g4/effective/python/v3/cyber_gateway/dnp3_point_map.yaml"
+  },
+  "endpoints": [
+    {
+      "name": "natig/cc_der_ev4",
+      "type": "json",
+      "global": true
+    },
+    {
+      "name": "natig/der_ev4",
+      "type": "json",
+      "global": true
+    }
+  ],
+  "publications": [],
+  "subscriptions": [],
+  "attacker": null,
+  "network_impairment": null
+}

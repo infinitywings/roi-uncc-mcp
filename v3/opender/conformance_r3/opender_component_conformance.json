@@ -1,0 +1,449 @@
+{
+  "schema_version": "1.0",
+  "gate": "G2",
+  "source": {
+    "repository": "https://github.com/epri-dev/OpenDER.git",
+    "commit": "fe7877c664bc6c5eb3832499bf05e0f1dd1825c8",
+    "tree": "1579d6978e166d9a1b178f5fb5f59ff073986d4b",
+    "setup_py_sha256": "d3e9833ad2fe8c09b43da70a9c909f7a35a169168a9e984228f11315e0705667",
+    "version": "2.2.0",
+    "runner_sha256": "70d36ad5dbb3c5d6b7e77734d984f4db96fce12df60abde10cb66e3abe2637bf"
+  },
+  "environment": {
+    "python": "3.10.12",
+    "numpy": "2.2.6",
+    "pandas": "2.3.2",
+    "matplotlib": "3.10.8",
+    "pip_freeze": [
+      "WARNING: The directory '/home/cfu6/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.",
+      "annotated-types==0.7.0",
+      "anyio==4.10.0",
+      "apparmor==3.0.4",
+      "apturl==0.5.2",
+      "bcrypt==3.2.0",
+      "beautifulsoup4==4.13.5",
+      "blinker==1.9.0",
+      "Brlapi==0.8.3",
+      "certifi==2020.6.20",
+      "cffi==2.0.0",
+      "chardet==4.0.0",
+      "charset-normalizer==3.4.3",
+      "click==8.2.1",
+      "colorama==0.4.4",
+      "contourpy==1.3.2",
+      "cryptography==46.0.6",
+      "cupshelpers==1.0",
+      "cycler==0.12.1",
+      "dbus-python==1.2.18",
+      "defer==1.0.6",
+      "distro==1.7.0",
+      "distro-info==1.1+ubuntu0.2",
+      "duplicity==0.8.21",
+      "exceptiongroup==1.3.0",
+      "fasteners==0.14.1",
+      "Flask==3.1.2",
+      "fonttools==4.62.1",
+      "future==0.18.2",
+      "google-auth==2.49.1",
+      "google-genai==1.70.0",
+      "gyp==0.1",
+      "h11==0.16.0",
+      "httpcore==1.0.9",
+      "httplib2==0.20.2",
+      "httpx==0.28.1",
+      "idna==3.3",
+      "importlib-metadata==4.6.4",
+      "iniconfig==2.3.0",
+      "itsdangerous==2.2.0",
+      "jeepney==0.7.1",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "keyring==23.5.0",
+      "kiwisolver==1.5.0",
+      "language-selector==0.1",
+      "launchpadlib==1.10.16",
+      "lazr.restfulclient==0.14.4",
+      "lazr.uri==1.0.6",
+      "LibAppArmor==3.0.4",
+      "lockfile==0.12.2",
+      "louis==3.20.0",
+      "macaroonbakery==1.3.1",
+      "Mako==1.1.3",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "matplotlib==3.10.8",
+      "mdurl==0.1.2",
+      "monotonic==1.6",
+      "more-itertools==8.10.0",
+      "netifaces==0.11.0",
+      "numpy==2.2.6",
+      "oauthlib==3.2.0",
+      "olefile==0.46",
+      "openai==1.107.3",
+      "-e git+https://github.com/epri-dev/OpenDER.git@fe7877c664bc6c5eb3832499bf05e0f1dd1825c8#egg=opender",
+      "packaging==26.0",
+      "pandas==2.3.2",
+      "paramiko==2.9.3",
+      "passlib==1.7.4",
+      "pexpect==4.8.0",
+      "Pillow==9.0.1",
+      "pluggy==1.6.0",
+      "protobuf==3.12.4",
+      "ptyprocess==0.7.0",
+      "pyasn1==0.6.3",
+      "pyasn1_modules==0.4.2",
+      "pycairo==1.20.1",
+      "pycparser==3.0",
+      "pycups==2.0.1",
+      "pydantic==2.11.9",
+      "pydantic-settings==2.10.1",
+      "pydantic_core==2.33.2",
+      "Pygments==2.19.2",
+      "PyGObject==3.42.1",
+      "PyJWT==2.3.0",
+      "pymacaroons==0.13.0",
+      "PyNaCl==1.5.0",
+      "pyparsing==3.3.2",
+      "pyRFC3339==1.1",
+      "pytest==8.4.2",
+      "python-apt==2.4.0+ubuntu4.1",
+      "python-dateutil==2.9.0.post0",
+      "python-debian==0.1.43+ubuntu1.1",
+      "python-dotenv==1.1.1",
+      "pytz==2022.1",
+      "pyxdg==0.27",
+      "PyYAML==5.4.1",
+      "reportlab==3.6.8",
+      "requests==2.32.5",
+      "requests-unixsocket==0.2.0",
+      "rich==14.1.0",
+      "scipy==1.15.3",
+      "screen-resolution-extra==0.0.0",
+      "SecretStorage==3.3.1",
+      "six==1.16.0",
+      "sniffio==1.3.1",
+      "soupsieve==2.8",
+      "ssh-import-id==5.11",
+      "systemd-python==234",
+      "tenacity==9.1.4",
+      "tomli==2.4.1",
+      "tqdm==4.67.1",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.15.0",
+      "tzdata==2025.2",
+      "ubuntu-drivers-common==0.0.0",
+      "ubuntu-pro-client==8001",
+      "ufw==0.36.1",
+      "unattended-upgrades==0.1",
+      "urllib3==1.26.5",
+      "usb-creator==0.3.7",
+      "uv==0.11.3",
+      "wadllib==1.3.6",
+      "websockets==16.0",
+      "Werkzeug==3.1.3",
+      "xdg==5",
+      "xkit==0.0.0",
+      "zipp==1.0.0"
+    ]
+  },
+  "api": {
+    "DER.update_der_input": "(self, p_dc_kw: float = None, v: Union[List[float], float] = None, theta: Union[List[float], float] = None, v_symm_pu: List[complex] = None, f: float = None, v_pu: Union[List[float], float] = None, p_dc_pu: float = None, p_dc_w: float = None) -> None",
+    "DER.run": "(self) -> Tuple[float, float]",
+    "DER.get_der_output": "(self, output: str = 'PQ_pu', i_meas=None) -> Union[Tuple[Any, Any], Tuple[List[Any], List[Any]]]",
+    "DER_BESS.update_der_input": "(self, p_dem_w: float = None, v: Union[List[float], float] = None, theta: Union[List[float], float] = None, v_symm_pu: List[complex] = None, f: float = None, v_pu: Union[List[float], float] = None, p_dem_pu: float = None, p_dem_kw: float = None) -> None",
+    "DER_BESS.bess_soc": "read-only property"
+  },
+  "upstream_tests": {
+    "returncode": 0,
+    "passed": true,
+    "passed_count": 565,
+    "summary": "565 passed",
+    "log": "upstream_pytest.log"
+  },
+  "scenarios": {
+    "bess_sign_and_active_limit": {
+      "description": "Positive output is BESS discharge/injection; negative output is BESS charge/absorption.",
+      "trace": [
+        {
+          "demand_kw": 100.0,
+          "p_out_kw": 50.0,
+          "q_out_kvar": -0.0,
+          "status": "Continuous Operation"
+        },
+        {
+          "demand_kw": -50.0,
+          "p_out_kw": -50.0,
+          "q_out_kvar": -0.0,
+          "status": "Continuous Operation"
+        }
+      ],
+      "checks": {
+        "positive_discharge_limited_to_50kw": true,
+        "negative_charge_preserved_at_minus_50kw": true,
+        "zero_reactive_output": true
+      },
+      "executed": true,
+      "passed": true
+    },
+    "reactive_modes_and_capability": {
+      "trace": [
+        {
+          "mode": "constant_q",
+          "constant_q_pu": 0.44,
+          "p_out_kw": 50.0,
+          "q_out_kvar": 44.0
+        },
+        {
+          "mode": "constant_q",
+          "constant_q_pu": -0.44,
+          "p_out_kw": 50.0,
+          "q_out_kvar": -44.0
+        },
+        {
+          "mode": "volt_var_q_priority",
+          "v_pu": 0.95,
+          "p_out_kw": 97.54998718605756,
+          "q_out_kvar": 22.00000000000008,
+          "apparent_power_kva": 99.99999999999999
+        }
+      ],
+      "checks": {
+        "constant_q_injection": true,
+        "constant_q_absorption": true,
+        "volt_var_q_priority": true,
+        "capability_limited_to_100kva": true
+      },
+      "executed": true,
+      "passed": true
+    },
+    "bess_ramp": {
+      "trace": [
+        {
+          "time_s": 0,
+          "p_out_kw": 0.0
+        },
+        {
+          "time_s": 1,
+          "p_out_kw": 10.0
+        },
+        {
+          "time_s": 2,
+          "p_out_kw": 20.0
+        },
+        {
+          "time_s": 3,
+          "p_out_kw": 30.000000000000004
+        },
+        {
+          "time_s": 4,
+          "p_out_kw": 40.0
+        },
+        {
+          "time_s": 5,
+          "p_out_kw": 50.0
+        }
+      ],
+      "checks": {
+        "ten_kw_per_second_ramp": true
+      },
+      "executed": true,
+      "passed": true
+    },
+    "setting_execution_delay": {
+      "configured_setting_execution_delay_s": 3,
+      "trace": [
+        {
+          "time_s": 0,
+          "p_out_kw": 100.0,
+          "active_limit_executed": false
+        },
+        {
+          "time_s": 1,
+          "p_out_kw": 50.0,
+          "active_limit_executed": true
+        },
+        {
+          "time_s": 2,
+          "p_out_kw": 50.0,
+          "active_limit_executed": true
+        },
+        {
+          "time_s": 3,
+          "p_out_kw": 50.0,
+          "active_limit_executed": true
+        },
+        {
+          "time_s": 4,
+          "p_out_kw": 50.0,
+          "active_limit_executed": true
+        }
+      ],
+      "expected_p_out_kw": [
+        100.0,
+        100.0,
+        100.0,
+        50.0,
+        50.0
+      ],
+      "observed_p_out_kw": [
+        100.0,
+        50.0,
+        50.0,
+        50.0,
+        50.0
+      ],
+      "checks": {
+        "setting_change_delayed_three_seconds": false
+      },
+      "diagnosis": "SettingExecutionDelay passes one mutable DERCommonFileFormat object to TimeDelay; in-place changes are visible through both the held and current references, so the configured delay is bypassed.",
+      "executed": true,
+      "passed": false
+    },
+    "voltage_trip": {
+      "configured_ov2_trip_time_s": 0.16,
+      "trace": [
+        {
+          "v_pu": 1.0,
+          "status": "Continuous Operation",
+          "p_out_kw": 100.0
+        },
+        {
+          "elapsed_s": 0.01,
+          "v_pu": 1.21,
+          "status": "Cease to Energize",
+          "p_out_kw": 113.33333333333333
+        },
+        {
+          "elapsed_s": 0.02,
+          "v_pu": 1.21,
+          "status": "Cease to Energize",
+          "p_out_kw": 103.59788359788364
+        },
+        {
+          "elapsed_s": 0.05,
+          "v_pu": 1.21,
+          "status": "Cease to Energize",
+          "p_out_kw": 100.07069231830978
+        },
+        {
+          "elapsed_s": 0.1,
+          "v_pu": 1.21,
+          "status": "Cease to Energize",
+          "p_out_kw": 100.00010113793545
+        },
+        {
+          "elapsed_s": 0.16,
+          "v_pu": 1.21,
+          "status": "Trip",
+          "p_out_kw": 0.0
+        },
+        {
+          "elapsed_s": 0.2,
+          "v_pu": 1.21,
+          "status": "Trip",
+          "p_out_kw": 0.0
+        },
+        {
+          "elapsed_s": 0.25,
+          "v_pu": 1.21,
+          "status": "Trip",
+          "p_out_kw": 0.0
+        }
+      ],
+      "checks": {
+        "normal_voltage_operates": true,
+        "severe_overvoltage_enters_cease_state": true,
+        "severe_overvoltage_trips_after_configured_delay": true
+      },
+      "executed": true,
+      "passed": true
+    },
+    "bess_soc": {
+      "trace": [
+        {
+          "step": 1,
+          "mode": "discharge",
+          "p_out_kw": 50.0,
+          "soc": 0.5
+        },
+        {
+          "step": 2,
+          "mode": "discharge",
+          "p_out_kw": 50.0,
+          "soc": 0.49444444444444446
+        },
+        {
+          "step": 3,
+          "mode": "discharge",
+          "p_out_kw": 50.0,
+          "soc": 0.48888888888888893
+        },
+        {
+          "step": 4,
+          "mode": "discharge",
+          "p_out_kw": 50.0,
+          "soc": 0.4833333333333334
+        },
+        {
+          "step": 5,
+          "mode": "discharge",
+          "p_out_kw": 50.0,
+          "soc": 0.47777777777777786
+        },
+        {
+          "step": 6,
+          "mode": "discharge",
+          "p_out_kw": 50.0,
+          "soc": 0.4722222222222223
+        },
+        {
+          "step": 7,
+          "mode": "charge",
+          "p_out_kw": -50.0,
+          "soc": 0.4666666666666668
+        },
+        {
+          "step": 8,
+          "mode": "charge",
+          "p_out_kw": -50.0,
+          "soc": 0.4722222222222223
+        },
+        {
+          "step": 9,
+          "mode": "charge",
+          "p_out_kw": -50.0,
+          "soc": 0.47777777777777786
+        },
+        {
+          "step": 10,
+          "mode": "charge",
+          "p_out_kw": -50.0,
+          "soc": 0.4833333333333334
+        },
+        {
+          "step": 11,
+          "mode": "charge",
+          "p_out_kw": -50.0,
+          "soc": 0.48888888888888893
+        },
+        {
+          "step": 12,
+          "mode": "charge",
+          "p_out_kw": -50.0,
+          "soc": 0.49444444444444446
+        }
+      ],
+      "checks": {
+        "soc_stays_bounded": true,
+        "discharge_decreases_soc_after_first_step": true,
+        "charge_increases_soc_after_transition_step": true
+      },
+      "executed": true,
+      "passed": true
+    }
+  },
+  "required_checks_pass": false,
+  "g2_pass": false,
+  "verdict": "HOLD: upstream suite passes, but configured setting execution delay is bypassed for in-place setting changes",
+  "scope_limit": "Standalone behavioral-device component evidence only; no GridLAB-D, NATIG, DNP3, or attack integration."
+}

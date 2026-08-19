@@ -1,0 +1,22 @@
+{
+  "Channel": [
+    {
+      "P2PRate": "60Mb/s",
+      "CSMAdelay": 0,
+      "jitterMin": 0,
+      "jitterMax": 0,
+      "delay": 0
+    }
+  ],
+  "Gridlayout": [
+    {
+      "MinX": 0,
+      "MinY": 0,
+      "DeltaX": 10,
+      "DeltaY": 10,
+      "GridWidth": 2,
+      "GridLayout": 2,
+      "LayoutType": "RowFirst"
+    }
+  ]
+}

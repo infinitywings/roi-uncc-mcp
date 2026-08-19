@@ -43,3 +43,72 @@ API.txt
 # System files
 .DS_Store
 Thumbs.db
+
+# =====================================================================
+# GridEval v3 (NATIG + OpenDER) — reorg 2026-08: pin+reproduce, never vendor
+# =====================================================================
+# Upstream source clones & virtualenvs (fetched via v3/deps/fetch_deps.sh)
+v3/deps/natig-src/
+v3/deps/opender-src/
+v3/deps/opender-venv/
+**/.git/
+
+# Regenerable NATIG build-image trees and run outputs (489MB / 415MB each)
+v3/natig/locked_build_r*/
+v3/natig/locked_build_result_r*/
+v3/natig/benign_ieee123_r*/
+v3/natig/benign_overlay_r*/
+v3/natig/upstream_build_r*/
+v3/natig/upstream_audit_r*/
+
+# NATIG adapter run outputs (timestamped rounds); keep source + canonical configs
+v3/natig_adapter/locked_runtime/
+v3/natig_adapter/locked_runtime_context_*/
+v3/natig_adapter/live_benign_run_r*/
+v3/natig_adapter/live_benign_preflight_r*/
+v3/natig_adapter/live_benign_ready_preflight_r*/
+v3/natig_adapter/live_direct_run_r*/
+v3/natig_adapter/live_direct_ready_preflight_r*/
+v3/natig_adapter/offline_conformance_r*/
+v3/natig_adapter/direct_reference_r*/
+
+# Baseline / OpenDER-federate coupling run outputs (keep *.py, *.md)
+v3/baseline/*_r*/
+v3/opender_federate/*_r*/
+
+# Python / test caches, envs, build metadata
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# LaTeX build intermediates (keep .tex/.bib/figures)
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz
+**/acmart.zip
+
+# Vendored LaTeX template PDFs (archived v1 draft)
+archive/paper_v1/IEEEtran_HOWTO.pdf
+archive/paper_v1/conference_101719.pdf
+
+# Local agent / tooling / scratch dirs
+.claude/
+.codex/
+.agents/
+logs/
+
+# Unrelated packaged tooling / stray PDFs (kept on disk, not tracked)
+cs-research-plugin.zip
+AI_Grid_Attack.pdf
+
+# Tightening (per reorg dry-run): per-round build validations & runtime results
+v3/natig/locked_build_r*_validation.json
+v3/natig/locked_build_result_*.json
+v3/natig_adapter/locked_runtime_result_*/
+# Heavy vendored/compiled binaries in archived v1 paper draft
+archive/paper_v1/main.pdf
+archive/paper_v1/figures/system.png
+archive/paper_v1/figures/flow.png

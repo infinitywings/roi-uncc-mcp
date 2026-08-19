@@ -1,0 +1,588 @@
+{
+  "comparator": {
+    "path": "/home/cfu6/roi-uncc-mcp/v3/opender_federate/compare_selected_repeat.py",
+    "sha256": "2bfac8f649452e6ce8c152f358635572331f08e2ceb6e103e03828db11c6919c"
+  },
+  "pairs": [
+    {
+      "adapter_trace": {
+        "discrete_exact": true,
+        "max_abs_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "mismatch_examples": [],
+        "numeric_exact": true,
+        "numeric_fields": {
+          "$.adapter_trace[].desired_p_kw": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].desired_q_kvar": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].feeder_load_var": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].feeder_load_w": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].observed_gridlabd_load_var": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].observed_gridlabd_load_w": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].p_out_kw": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].q_out_kvar": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].soc_pu": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].source_power_c_var": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].source_power_c_w": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].terminal_voltage_pu": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].terminal_voltage_v": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].time_s": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          }
+        },
+        "numeric_mismatch_count": 0,
+        "numeric_nonexact_count": 0,
+        "numeric_value_count": 1176,
+        "numeric_within_tolerance": true,
+        "structure_exact": true
+      },
+      "assertions": {
+        "left_all_true": true,
+        "left_count": 28,
+        "right_all_true": true,
+        "right_count": 28,
+        "sets_and_values_exact": true
+      },
+      "checks": {
+        "adapter_discrete_exact": true,
+        "adapter_numeric_within_tolerance": true,
+        "adapter_structure_exact": true,
+        "all_assertions_true": true,
+        "assertion_sets_and_values_exact": true,
+        "both_processes_successful": true,
+        "identity_ok": true,
+        "physical_discrete_exact": true,
+        "physical_numeric_within_tolerance": true,
+        "physical_structure_exact": true,
+        "scenario_matches_expected": true,
+        "selected_coupling_cadence": true,
+        "timing_parameters_exact": true
+      },
+      "expected_scenario": "pulse",
+      "identity": {
+        "effective_config_hash_exception": {
+          "allowed": true,
+          "allowed_paths_only": false,
+          "normalized_config_equal": true,
+          "policy": "A differing effective_config_sha256 is allowed only when the parsed effective configurations differ exclusively at coreName, name, and/or logfile, and become identical after those execution-label values are normalized.",
+          "raw_config_difference_paths": [],
+          "used": false
+        },
+        "exact": true,
+        "exact_by_field": {
+          "der_devices_config_sha256": true,
+          "device_wrapper_sha256": true,
+          "effective_config_sha256": true,
+          "effective_glm_sha256": true,
+          "expected_container_image_id": true,
+          "helics_version": true,
+          "legacy_block_sha256": true,
+          "opender_commit": true,
+          "opender_version": true,
+          "runner_sha256": true,
+          "source_config_sha256": true,
+          "source_glm_sha256": true
+        },
+        "ok": true
+      },
+      "label": "pulse coupling10 r2 vs r3",
+      "left": {
+        "arm": "pulse_coupling10",
+        "path": "v3/opender_federate/pulse_coupling10_r2/g3_physical_loop.json",
+        "scenario": "pulse",
+        "sha256": "d7a19550e66f358e67e4614cb86e35f82d0694d184172b3c0609af8c740afd47",
+        "success": true
+      },
+      "physical_traces": {
+        "discrete_exact": true,
+        "max_abs_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "mismatch_examples": [],
+        "numeric_exact": true,
+        "numeric_fields": {
+          "$.physical_traces.1c_IEEE_123_feeder_0_EV4.csv[].constant_power_C.imag": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.1c_IEEE_123_feeder_0_EV4.csv[].constant_power_C.real": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.1c_IEEE_123_feeder_0_EV4.csv[].measured_frequency_C.imag": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.1c_IEEE_123_feeder_0_EV4.csv[].measured_frequency_C.real": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.1c_IEEE_123_feeder_0_EV4.csv[].simulation_time_s": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_der_ev4_coupling.csv[].constant_power_C.imag": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_der_ev4_coupling.csv[].constant_power_C.real": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_der_ev4_coupling.csv[].simulation_time_s": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_node650_phase_c.csv[].measured_power_C.imag": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_node650_phase_c.csv[].measured_power_C.real": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_node650_phase_c.csv[].simulation_time_s": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_swEV4_status.csv[].simulation_time_s": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          }
+        },
+        "numeric_mismatch_count": 0,
+        "numeric_nonexact_count": 0,
+        "numeric_value_count": 1008,
+        "numeric_within_tolerance": true,
+        "structure_exact": true
+      },
+      "process": {
+        "left_successful": true,
+        "process_objects_exact": true,
+        "right_successful": true
+      },
+      "right": {
+        "arm": "pulse_coupling10",
+        "path": "v3/opender_federate/pulse_coupling10_r3/g3_physical_loop.json",
+        "scenario": "pulse",
+        "sha256": "b5874c606c943d7d40bc436ce90533168e0eb8f6027756e658045794675f195a",
+        "success": true
+      },
+      "success": true,
+      "tolerance": {
+        "absolute": 1e-12,
+        "relative": 1e-12
+      }
+    },
+    {
+      "adapter_trace": {
+        "discrete_exact": true,
+        "max_abs_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "mismatch_examples": [],
+        "numeric_exact": true,
+        "numeric_fields": {
+          "$.adapter_trace[].desired_p_kw": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].desired_q_kvar": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].feeder_load_var": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].feeder_load_w": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].observed_gridlabd_load_var": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].observed_gridlabd_load_w": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].p_out_kw": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].q_out_kvar": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].soc_pu": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].source_power_c_var": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].source_power_c_w": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].terminal_voltage_pu": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].terminal_voltage_v": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.adapter_trace[].time_s": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          }
+        },
+        "numeric_mismatch_count": 0,
+        "numeric_nonexact_count": 0,
+        "numeric_value_count": 1176,
+        "numeric_within_tolerance": true,
+        "structure_exact": true
+      },
+      "assertions": {
+        "left_all_true": true,
+        "left_count": 21,
+        "right_all_true": true,
+        "right_count": 21,
+        "sets_and_values_exact": true
+      },
+      "checks": {
+        "adapter_discrete_exact": true,
+        "adapter_numeric_within_tolerance": true,
+        "adapter_structure_exact": true,
+        "all_assertions_true": true,
+        "assertion_sets_and_values_exact": true,
+        "both_processes_successful": true,
+        "identity_ok": true,
+        "physical_discrete_exact": true,
+        "physical_numeric_within_tolerance": true,
+        "physical_structure_exact": true,
+        "scenario_matches_expected": true,
+        "selected_coupling_cadence": true,
+        "timing_parameters_exact": true
+      },
+      "expected_scenario": "null",
+      "identity": {
+        "effective_config_hash_exception": {
+          "allowed": true,
+          "allowed_paths_only": false,
+          "normalized_config_equal": true,
+          "policy": "A differing effective_config_sha256 is allowed only when the parsed effective configurations differ exclusively at coreName, name, and/or logfile, and become identical after those execution-label values are normalized.",
+          "raw_config_difference_paths": [],
+          "used": false
+        },
+        "exact": true,
+        "exact_by_field": {
+          "der_devices_config_sha256": true,
+          "device_wrapper_sha256": true,
+          "effective_config_sha256": true,
+          "effective_glm_sha256": true,
+          "expected_container_image_id": true,
+          "helics_version": true,
+          "legacy_block_sha256": true,
+          "opender_commit": true,
+          "opender_version": true,
+          "runner_sha256": true,
+          "source_config_sha256": true,
+          "source_glm_sha256": true
+        },
+        "ok": true
+      },
+      "label": "null coupling10 r1 vs r2",
+      "left": {
+        "arm": "null_coupling10",
+        "path": "v3/opender_federate/null_coupling10_r1/g3_physical_loop.json",
+        "scenario": "null",
+        "sha256": "770baa0f9ad641781c5fa26aa002eded909869ab2c7d4d80e66da62f256fe904",
+        "success": true
+      },
+      "physical_traces": {
+        "discrete_exact": true,
+        "max_abs_difference": 0.0,
+        "max_relative_difference": 0.0,
+        "mismatch_examples": [],
+        "numeric_exact": true,
+        "numeric_fields": {
+          "$.physical_traces.1c_IEEE_123_feeder_0_EV4.csv[].constant_power_C.imag": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.1c_IEEE_123_feeder_0_EV4.csv[].constant_power_C.real": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.1c_IEEE_123_feeder_0_EV4.csv[].measured_frequency_C.imag": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.1c_IEEE_123_feeder_0_EV4.csv[].measured_frequency_C.real": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.1c_IEEE_123_feeder_0_EV4.csv[].simulation_time_s": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_der_ev4_coupling.csv[].constant_power_C.imag": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_der_ev4_coupling.csv[].constant_power_C.real": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_der_ev4_coupling.csv[].simulation_time_s": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_node650_phase_c.csv[].measured_power_C.imag": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_node650_phase_c.csv[].measured_power_C.real": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_node650_phase_c.csv[].simulation_time_s": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          },
+          "$.physical_traces.g3_swEV4_status.csv[].simulation_time_s": {
+            "count": 84,
+            "max_abs_difference": 0.0,
+            "max_relative_difference": 0.0,
+            "nonexact_count": 0,
+            "outside_tolerance_count": 0
+          }
+        },
+        "numeric_mismatch_count": 0,
+        "numeric_nonexact_count": 0,
+        "numeric_value_count": 1008,
+        "numeric_within_tolerance": true,
+        "structure_exact": true
+      },
+      "process": {
+        "left_successful": true,
+        "process_objects_exact": true,
+        "right_successful": true
+      },
+      "right": {
+        "arm": "null_coupling10",
+        "path": "v3/opender_federate/null_coupling10_r2/g3_physical_loop.json",
+        "scenario": "null",
+        "sha256": "8cc3a64a45c6aa5f99cd53db7f3d9365af1b9a875264c87ce3586a50762f3b2f",
+        "success": true
+      },
+      "success": true,
+      "tolerance": {
+        "absolute": 1e-12,
+        "relative": 1e-12
+      }
+    }
+  ],
+  "schema_version": "g3-selected-cadence-repeatability-v1",
+  "scope": "Selected-cadence repeatability of pulse and null G3 physical-loop runs; no Docker execution is performed by this comparator.",
+  "selected_coupling_step_s": 10.0,
+  "success": true,
+  "tolerance": {
+    "absolute": 1e-12,
+    "relative": 1e-12
+  }
+}

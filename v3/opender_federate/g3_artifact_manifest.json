@@ -1,0 +1,507 @@
+{
+  "artifacts": {
+    "v3/IMPLEMENTATION_PLAN.md": {
+      "bytes": 7659,
+      "sha256": "f1979b2d0465b0b646b8d7d9994f6987634e8e561a4d92a37d78636681119dd3"
+    },
+    "v3/SELF_AUDIT.md": {
+      "bytes": 12708,
+      "sha256": "2af3ebf45ef24a3012021f07b18de84bbce33fcc1a7c5e8f34ac9671a1833e0f"
+    },
+    "v3/configs/der_devices.yaml": {
+      "bytes": 2873,
+      "sha256": "68865984820ef99c766cb44e8d3e3f9ccd1c8d43eeb953b7b08c575b2b366451"
+    },
+    "v3/opender/conformance_r11/opender_component_conformance.json": {
+      "bytes": 14302,
+      "sha256": "eb5fdcfc4e16ce7af9ab3cb8c525a5f598a3138baa12e8d4ace6e021b8f73ac2"
+    },
+    "v3/opender/device.py": {
+      "bytes": 3587,
+      "sha256": "e3882462e7b3efce21c2102e10acedf472394e229d8579e58a26bb08922f9015"
+    },
+    "v3/opender_federate/G3_VALIDATION_REPORT.md": {
+      "bytes": 7524,
+      "sha256": "6b9d8565b3d104942620d516577b569030bb124ab73d81022851b840e67ff267"
+    },
+    "v3/opender_federate/README.md": {
+      "bytes": 1649,
+      "sha256": "e82fc1daff2142395bb0b8891688b1d6c368dbd221a7910a393225aee6ed451f"
+    },
+    "v3/opender_federate/analyze_physical_loop_convergence.py": {
+      "bytes": 21045,
+      "sha256": "edb468531643bea15acc7c6dd863bb3afd40b559fe55e8d2b52f5fec99d68006"
+    },
+    "v3/opender_federate/compare_selected_repeat.py": {
+      "bytes": 20833,
+      "sha256": "be633ed0ba72807878e8a22a46ae4e569a5a87f7ba07369234cfa03a1eeaf543"
+    },
+    "v3/opender_federate/g3_canonical_r1/CONVERGENCE.md": {
+      "bytes": 1435,
+      "sha256": "28917f2cc3afed54a3343a353f09fb392097dcc276eb3fa8589ddf86c7e3c464"
+    },
+    "v3/opender_federate/g3_canonical_r1/REPEATABILITY.md": {
+      "bytes": 2183,
+      "sha256": "f28277cad3d82a0ace208d58ef7418d2e68a27db6aa9c0257cf6103d5c08728d"
+    },
+    "v3/opender_federate/g3_canonical_r1/REPEATABILITY_V2.md": {
+      "bytes": 2183,
+      "sha256": "f28277cad3d82a0ace208d58ef7418d2e68a27db6aa9c0257cf6103d5c08728d"
+    },
+    "v3/opender_federate/g3_canonical_r1/convergence.json": {
+      "bytes": 16453,
+      "sha256": "d8872a781a55ca506074e1e7dcdde052d51d63a58ccbc0f501dab101c88f0712"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling1/1c_IEEE_123_feeder_0_EV4.csv": {
+      "bytes": 47848,
+      "sha256": "26d63a1a927589226b5400781841d9e7c6db32ed08bb826dc53396db0e9b3b77"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling1/effective/1c_IEEE_123_feeder.glm": {
+      "bytes": 158192,
+      "sha256": "4b40320a07d1be1d14e1b4857f9baf0a7f49d7daec77ac8172397212f80b8bbb"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling1/effective/g3_opender.json": {
+      "bytes": 757,
+      "sha256": "1b44627a03a959dfdc6d487bcbe54718c0331ee1e69ccf42bccbebe20d750d3d"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling1/effective/mainglm.json": {
+      "bytes": 1195,
+      "sha256": "5f589f8e895ad52fe41250466e5e6522a0fc1a59a6af476a23f3adc0b05f13f4"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling1/g3_der_ev4_coupling.csv": {
+      "bytes": 40262,
+      "sha256": "ca32e9cf38049a678b4bbe14ad85d7f2dcbfda5125c323ab1202ce474af6e72d"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling1/g3_node650_phase_c.csv": {
+      "bytes": 37901,
+      "sha256": "ad131b9695f7e13f17e11f330636becaefad0f40ff6f0570fbb3e8370a8fc51d"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling1/g3_physical_loop.json": {
+      "bytes": 1326906,
+      "sha256": "8b74816e03b8ac7a83177f2c00d61e8a31e57145b70d434bd4ec57be0053c288"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling1/g3_swEV4_status.csv": {
+      "bytes": 26251,
+      "sha256": "c8b2670f2a583d06e79f57cd6bb59221103fc91e02e3564f056ee611db4733e7"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling1/gridlabd.log": {
+      "bytes": 244003,
+      "sha256": "4b85f3cd2ae9b06da6c7f31f0c1e9fd6548923107611ac95cccd05603c801e80"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling10/1c_IEEE_123_feeder_0_EV4.csv": {
+      "bytes": 5027,
+      "sha256": "506a32e13c97eabaf5435b91d33961e3a0b559e68e67065314624b70d2a03fea"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling10/effective/1c_IEEE_123_feeder.glm": {
+      "bytes": 158197,
+      "sha256": "d6008f376371ff18b548f5f93971f162121ac7c91555c8b07358c27697983202"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling10/effective/g3_opender.json": {
+      "bytes": 760,
+      "sha256": "a8414b8e831dfb48af4db3b1482f6848f2b92df1585ba11f69eadf5e9aa98879"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling10/effective/mainglm.json": {
+      "bytes": 1199,
+      "sha256": "3e47f913bd1ffcab418eb373bee3ce47b318db61952238dfb9b86e9a8b2d14fe"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling10/g3_der_ev4_coupling.csv": {
+      "bytes": 4245,
+      "sha256": "665f26ec79f78a5395bcb27926f7daa70479db425d9ae7db0cb34c5e5426e6f9"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling10/g3_node650_phase_c.csv": {
+      "bytes": 3990,
+      "sha256": "3322a5fc6a49cbe33b27c26793fee86c6b0a0ab8c76e751e12f6af4077e66217"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling10/g3_physical_loop.json": {
+      "bytes": 163388,
+      "sha256": "558e01956598b8835492d8c94cc6d4d85e31d32d3cb48bfe81b4f6ae4c0ff001"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling10/g3_swEV4_status.csv": {
+      "bytes": 2816,
+      "sha256": "bf663c61f0acb8b86ff1b05ecfded5b3bf5b6f736905071a5470e313f41b4350"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling10/gridlabd.log": {
+      "bytes": 26839,
+      "sha256": "5f78947fda1668d1ca5c09a753c57eaff0de803ec291abb1b6d63ff413b6f6b9"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling5/1c_IEEE_123_feeder_0_EV4.csv": {
+      "bytes": 9784,
+      "sha256": "c32a31ec0f07a3b0c01d09053b3f23720ca2c50d28845432dbd57758f452b4a0"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling5/effective/1c_IEEE_123_feeder.glm": {
+      "bytes": 158192,
+      "sha256": "daec67a0d28c23ac3bb606c43be7ffe477c7252f6ab7b787a169a2281faa42c7"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling5/effective/g3_opender.json": {
+      "bytes": 757,
+      "sha256": "0f65e5fd4c837747b9aff233cf943d88a5c71ebd2f7e4547961396423ab7cf2b"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling5/effective/mainglm.json": {
+      "bytes": 1195,
+      "sha256": "b62b11c7e36285e76e2ede09ed1c16ad5d08021a0788754ca4ce94188a17fb45"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling5/g3_der_ev4_coupling.csv": {
+      "bytes": 8246,
+      "sha256": "9a1cd24ead8dd5e26bf8f028956d8a874f923b363e6f863ff1e066e349ca61bb"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling5/g3_node650_phase_c.csv": {
+      "bytes": 7757,
+      "sha256": "738b67f1973c7cd6c70f484727f1486c26cab6fa6f042820c8feaa0062c40c78"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling5/g3_physical_loop.json": {
+      "bytes": 296637,
+      "sha256": "68bc6980e90d65093c8b32d028ffca609abc291bc7dce76b4dda093ad5eb28c2"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling5/g3_swEV4_status.csv": {
+      "bytes": 5419,
+      "sha256": "fc1727b5bdb3a85ec84a4563891700ebf6f90f3c6a090d6638d1d06ba8e73905"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling5/gridlabd.log": {
+      "bytes": 50985,
+      "sha256": "e41168d0ec9c28c8483cdc7ff74650d72aea02778b7990424986a4e69c588c85"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling60/1c_IEEE_123_feeder_0_EV4.csv": {
+      "bytes": 1062,
+      "sha256": "ff0459e7113b0e914a6a76302564df04fba4043df2f93c4ea1eacc72f9de003e"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling60/effective/1c_IEEE_123_feeder.glm": {
+      "bytes": 158197,
+      "sha256": "4ed97d0abe263953fed45955f7af7f2355814083e83e742667c2fe05543f1d87"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling60/effective/g3_opender.json": {
+      "bytes": 760,
+      "sha256": "809214e0ba4acbab842c6cd8e8aab2684f37f4294140c92647899dc8d12838ad"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling60/effective/mainglm.json": {
+      "bytes": 1199,
+      "sha256": "2b87c7b7637b599476bb2816197e3bb10ee505e6c4dfa7bf87153447f697965b"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling60/g3_der_ev4_coupling.csv": {
+      "bytes": 910,
+      "sha256": "14945a1afdfa3fd8a18591f64e03cb6ecc6fcae6d66c35cee986294cd6a77fef"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling60/g3_node650_phase_c.csv": {
+      "bytes": 850,
+      "sha256": "3274f016f0002c003d042dc0a18126517bce6b0fd6a5d4b9ab02520fa95c6d53"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling60/g3_physical_loop.json": {
+      "bytes": 34684,
+      "sha256": "65b6cc3779fb37a620fa93fb15a250864637de5c92aa1297f0cf966669389696"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling60/g3_swEV4_status.csv": {
+      "bytes": 646,
+      "sha256": "0081201cac9eaa6134e3d79f415e1097d5882213f50bcb7624580b6ad9981758"
+    },
+    "v3/opender_federate/g3_canonical_r1/null_coupling60/gridlabd.log": {
+      "bytes": 6749,
+      "sha256": "a54a12052d2f0e3dfde7e049a4016608dcdc149df7f8560ee83cb247104be93b"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling1/1c_IEEE_123_feeder_0_EV4.csv": {
+      "bytes": 47966,
+      "sha256": "fb02043cad3dcc3d3fdc232a626862250ecb904fca76694fa3a4b7d5b1c4e100"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling1/effective/1c_IEEE_123_feeder.glm": {
+      "bytes": 158192,
+      "sha256": "4b40320a07d1be1d14e1b4857f9baf0a7f49d7daec77ac8172397212f80b8bbb"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling1/effective/g3_opender.json": {
+      "bytes": 759,
+      "sha256": "81d38cc7fe811c2f5a82bb9b6d2caa5b5a893f8c180759b17fc0114d0566730b"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling1/effective/mainglm.json": {
+      "bytes": 1198,
+      "sha256": "6b53b8d1589c002dd0c7faeca9da4afb22c232d6fe54f851567903b644cfb493"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling1/g3_der_ev4_coupling.csv": {
+      "bytes": 42424,
+      "sha256": "84c4a285044dbc70a01560867cafbd97e3aecb794458a9a13d15944580eecc6f"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling1/g3_node650_phase_c.csv": {
+      "bytes": 37957,
+      "sha256": "e7e23e0ea4c9c5371227e83185c04217fe820a9107d1df6319204d8f8c636f99"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling1/g3_physical_loop.json": {
+      "bytes": 1351633,
+      "sha256": "33cc10454cbb9a6469e942a0452094b323a5602012ebc5a30bb4ed8fd5043052"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling1/g3_swEV4_status.csv": {
+      "bytes": 26251,
+      "sha256": "9ab39e9096f3a768f684592191d8029ffb7dde54812c781b749fb322099f2083"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling1/gridlabd.log": {
+      "bytes": 244047,
+      "sha256": "8b99d9e2b20c9bc178f3972b720e3ff69b802a576d836fe588062e94d4e98abd"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling10/1c_IEEE_123_feeder_0_EV4.csv": {
+      "bytes": 5039,
+      "sha256": "36705a50156e3311c32cff2e70c12242b1654a71c0ac4ef64002320e6af24d59"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling10/effective/1c_IEEE_123_feeder.glm": {
+      "bytes": 158197,
+      "sha256": "d6008f376371ff18b548f5f93971f162121ac7c91555c8b07358c27697983202"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling10/effective/g3_opender.json": {
+      "bytes": 762,
+      "sha256": "712d3f5f72107cef4e43d8935bec90d2c0c5c33d22bea9cfba6e39aeacebb7bd"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling10/effective/mainglm.json": {
+      "bytes": 1202,
+      "sha256": "2dd5a895d0eb0885835988ed845fe4d83e2417df13fd7b5b90d2a45057a5dac9"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling10/g3_der_ev4_coupling.csv": {
+      "bytes": 4465,
+      "sha256": "78f418940ca1fda49359e93b97dba44321277b271acf6e73fbc4037b11d989bc"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling10/g3_node650_phase_c.csv": {
+      "bytes": 3996,
+      "sha256": "5eb34fdbd264772d36124db44e17d259f031423562f9155d2af515a9c7a3cc21"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling10/g3_physical_loop.json": {
+      "bytes": 166273,
+      "sha256": "6b95c4136ca54548b0f5605330323f8db30adbdd178501082f30fc8c333a1b54"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling10/g3_swEV4_status.csv": {
+      "bytes": 2816,
+      "sha256": "0818b73adc4edde381a21a8c7fd8174e7d90d3c51ea6610fcb044a9b82592c9b"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling10/gridlabd.log": {
+      "bytes": 26794,
+      "sha256": "ef70caebc6b2f9b81f3634fb944fd7956da457da6f9e3ae4c962a1b911ea43f1"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling5/1c_IEEE_123_feeder_0_EV4.csv": {
+      "bytes": 9807,
+      "sha256": "115b266631473ae86ffeb4b0b5d9f961ed46a7bcfebc251a05fa1d46e27955df"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling5/effective/1c_IEEE_123_feeder.glm": {
+      "bytes": 158192,
+      "sha256": "daec67a0d28c23ac3bb606c43be7ffe477c7252f6ab7b787a169a2281faa42c7"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling5/effective/g3_opender.json": {
+      "bytes": 759,
+      "sha256": "8ffca6067c0513b0b13ed8ac7cfaaf5a5cf460a8f323ef7de24c04940153d33a"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling5/effective/mainglm.json": {
+      "bytes": 1198,
+      "sha256": "a2a1f48483298c0b41588a4506faa67c71b8cef745217b6b2b77c474f3db1fd0"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling5/g3_der_ev4_coupling.csv": {
+      "bytes": 8681,
+      "sha256": "d5570161b514f4ee739087a0c3af86864351e379dbb92b59fe356c6114e9ed33"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling5/g3_node650_phase_c.csv": {
+      "bytes": 7767,
+      "sha256": "15b2671663cf09db9924a507ec9947630e62ee51985bdde2a0a66d9a317d48bc"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling5/g3_physical_loop.json": {
+      "bytes": 301981,
+      "sha256": "afcebaf24ee20451d417f8e88d375c54a4d7e1f553bd9e69da587c6a3d71dfad"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling5/g3_swEV4_status.csv": {
+      "bytes": 5419,
+      "sha256": "f8cf388b8bc7fffd2dd30938e18a2523c1b7aaeac29073eb39b3e800e62602b5"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling5/gridlabd.log": {
+      "bytes": 50902,
+      "sha256": "b8db96d5cb51ecdc6043e39fda29f2917aed2ebe491136c2dbb12e5fb1e3a4a8"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling60/1c_IEEE_123_feeder_0_EV4.csv": {
+      "bytes": 1064,
+      "sha256": "1e0e042ce2aae79d8dc6f94e36a24ddde877c02f30f0b70203f9a2f76a6305fe"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling60/effective/1c_IEEE_123_feeder.glm": {
+      "bytes": 158197,
+      "sha256": "4ed97d0abe263953fed45955f7af7f2355814083e83e742667c2fe05543f1d87"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling60/effective/g3_opender.json": {
+      "bytes": 762,
+      "sha256": "42f2a2570c9a7e3d64516263155b5b53b5bec28c10fed3dbd6bfff9c083991c7"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling60/effective/mainglm.json": {
+      "bytes": 1202,
+      "sha256": "8146a13f6ec1d9a750eb8694ee352d2f46c519001a5956d4d3bc4b03749f1953"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling60/g3_der_ev4_coupling.csv": {
+      "bytes": 948,
+      "sha256": "d7be5b6d55731d1380bccb23e78e9e2b673fe20d163c3a1c1366464ee766c391"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling60/g3_node650_phase_c.csv": {
+      "bytes": 850,
+      "sha256": "09a2fe87dd3d543eab21a5bd7b20d0b9c124e2256fb2a7a0be8a042740153b7d"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling60/g3_physical_loop.json": {
+      "bytes": 35582,
+      "sha256": "b5a70444176c2cc9493d2b63a2d493719d2b43d96f128edbef1abb0bb5ce09cb"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling60/g3_swEV4_status.csv": {
+      "bytes": 646,
+      "sha256": "47488c0ceaf864298559fe06eb6de3671fa000f963c011af1dffa21e42eb74f0"
+    },
+    "v3/opender_federate/g3_canonical_r1/pulse_coupling60/gridlabd.log": {
+      "bytes": 6749,
+      "sha256": "641841701776b36d1aeca89a80d6d7cdf94472e2bdb709a6e9324b6e07d4d27e"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/null_coupling10/1c_IEEE_123_feeder_0_EV4.csv": {
+      "bytes": 5027,
+      "sha256": "71b8925a352678d13be74fbef5908d56480d838ff1d049e4ebe33a2769960931"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/null_coupling10/effective/1c_IEEE_123_feeder.glm": {
+      "bytes": 158197,
+      "sha256": "d6008f376371ff18b548f5f93971f162121ac7c91555c8b07358c27697983202"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/null_coupling10/effective/g3_opender.json": {
+      "bytes": 760,
+      "sha256": "a8414b8e831dfb48af4db3b1482f6848f2b92df1585ba11f69eadf5e9aa98879"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/null_coupling10/effective/mainglm.json": {
+      "bytes": 1199,
+      "sha256": "3e47f913bd1ffcab418eb373bee3ce47b318db61952238dfb9b86e9a8b2d14fe"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/null_coupling10/g3_der_ev4_coupling.csv": {
+      "bytes": 4245,
+      "sha256": "aaa805e48925816031e61dd2cf480c27b098edc93077759d4cad0c6ce0d61ff1"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/null_coupling10/g3_node650_phase_c.csv": {
+      "bytes": 3990,
+      "sha256": "63ca5b81e615331090b0b260ac163e796d7dd135f960bd45e1a64e7ee15c6156"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/null_coupling10/g3_physical_loop.json": {
+      "bytes": 163388,
+      "sha256": "af48df844108bfbad6c9d048b6e2021967f25112d03e55bb52d83b0fddff151d"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/null_coupling10/g3_swEV4_status.csv": {
+      "bytes": 2816,
+      "sha256": "c33145ce1628d5c55e8b7ea53996c729068ea04a4ab4c8cf2d65d799b47bc5bf"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/null_coupling10/gridlabd.log": {
+      "bytes": 26795,
+      "sha256": "203f4564eb5e12c8d021e22a7b8d7257bd0c73f860c5b74d88242bdf89753bca"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/pulse_coupling10/1c_IEEE_123_feeder_0_EV4.csv": {
+      "bytes": 5039,
+      "sha256": "fde2c75774f07015aea7524caef14313dee268c866db18f977bccd0624f00fa2"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/pulse_coupling10/effective/1c_IEEE_123_feeder.glm": {
+      "bytes": 158197,
+      "sha256": "d6008f376371ff18b548f5f93971f162121ac7c91555c8b07358c27697983202"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/pulse_coupling10/effective/g3_opender.json": {
+      "bytes": 762,
+      "sha256": "712d3f5f72107cef4e43d8935bec90d2c0c5c33d22bea9cfba6e39aeacebb7bd"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/pulse_coupling10/effective/mainglm.json": {
+      "bytes": 1202,
+      "sha256": "2dd5a895d0eb0885835988ed845fe4d83e2417df13fd7b5b90d2a45057a5dac9"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/pulse_coupling10/g3_der_ev4_coupling.csv": {
+      "bytes": 4465,
+      "sha256": "85561e0b3c8009231d6440d1b6fa2f370c569ff9901fb8c315f02fe3fa779317"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/pulse_coupling10/g3_node650_phase_c.csv": {
+      "bytes": 3996,
+      "sha256": "1ffd47ca620ec849764af3d2618495291568360ffd2d1a9fc0cdaac7debbf1c4"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/pulse_coupling10/g3_physical_loop.json": {
+      "bytes": 166273,
+      "sha256": "a30b29f42bbe9b58f9876111bb763b03968f749b1fad128ac9858db71e03fee3"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/pulse_coupling10/g3_swEV4_status.csv": {
+      "bytes": 2816,
+      "sha256": "4d552aa581ae9a839af59c35e3e8fe922e445f91d72c773f4e75b403c4c1ec4c"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeat/pulse_coupling10/gridlabd.log": {
+      "bytes": 26839,
+      "sha256": "4b58c3cd5e3723157df14d8b2fd3045065b779dd9bc234598202e7e1d101ede7"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeatability.json": {
+      "bytes": 21191,
+      "sha256": "56e1ef0ee2150f53cbd17d8af3b9dbc110ee57e76fe17055acd9a74de5b42f3d"
+    },
+    "v3/opender_federate/g3_canonical_r1/repeatability_v2.json": {
+      "bytes": 21191,
+      "sha256": "56e1ef0ee2150f53cbd17d8af3b9dbc110ee57e76fe17055acd9a74de5b42f3d"
+    },
+    "v3/opender_federate/run_physical_loop.py": {
+      "bytes": 37400,
+      "sha256": "4e6e6f03ab6e0ccc43377449dcab83ac6daaac8c3df2462b9b425701c4d64a34"
+    }
+  },
+  "canonical_matrix": {
+    "all_individual_arms_pass": true,
+    "arms": [
+      {
+        "coupling_step_s": 1,
+        "failed_assertions": [],
+        "gridlabd_returncode": 0,
+        "scenario": "pulse",
+        "success": true
+      },
+      {
+        "coupling_step_s": 1,
+        "failed_assertions": [],
+        "gridlabd_returncode": 0,
+        "scenario": "null",
+        "success": true
+      },
+      {
+        "coupling_step_s": 5,
+        "failed_assertions": [],
+        "gridlabd_returncode": 0,
+        "scenario": "pulse",
+        "success": true
+      },
+      {
+        "coupling_step_s": 5,
+        "failed_assertions": [],
+        "gridlabd_returncode": 0,
+        "scenario": "null",
+        "success": true
+      },
+      {
+        "coupling_step_s": 10,
+        "failed_assertions": [],
+        "gridlabd_returncode": 0,
+        "scenario": "pulse",
+        "success": true
+      },
+      {
+        "coupling_step_s": 10,
+        "failed_assertions": [],
+        "gridlabd_returncode": 0,
+        "scenario": "null",
+        "success": true
+      },
+      {
+        "coupling_step_s": 60,
+        "failed_assertions": [],
+        "gridlabd_returncode": 0,
+        "scenario": "pulse",
+        "success": true
+      },
+      {
+        "coupling_step_s": 60,
+        "failed_assertions": [],
+        "gridlabd_returncode": 0,
+        "scenario": "null",
+        "success": true
+      }
+    ],
+    "convergence_gate_pass": true,
+    "passing_steps_s": [
+      1,
+      5,
+      10
+    ],
+    "repeatability_pass": true,
+    "selected_coarsest_step_s": 10
+  },
+  "gate": "G3 OpenDER physical-loop adapter",
+  "preserved_noncanonical_failures": [
+    "physical_loop_coupling1_r1: runner stdout-pipe deadlock/truncation",
+    "physical_loop_coupling60_r1: superseded short-window evaluator",
+    "pulse_coupling10_r1: transition-boundary evaluator contamination",
+    "physical_loop_coupling*_r*: superseded parent-EV4 topology"
+  ],
+  "schema_version": "1.0",
+  "scope": "One OpenDER BESS at IEEE-123 Feeder A bus l92; no NATIG, DNP3, cyber impairment, GridPACK, or attacker-effect claim",
+  "verdict": "PASS_WITH_SELECTED_10S_CADENCE"
+}

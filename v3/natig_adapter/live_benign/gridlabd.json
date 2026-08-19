@@ -1,0 +1,35 @@
+{
+  "coreInit": "--federates=1",
+  "coreName": "g4_gridlabd_der_ev4_core",
+  "coreType": "zmq",
+  "broker": "tcp://127.0.0.1:9000",
+  "name": "g4_gridlabd_der_ev4",
+  "period": 10,
+  "logfile": "g4_gridlabd_helics.log",
+  "log_level": "warning",
+  "publications": [
+    {
+      "global": true,
+      "key": "gridlabd/ev4_voltage_c",
+      "type": "complex",
+      "unit": "V",
+      "info": {
+        "object": "l92",
+        "property": "measured_voltage_C"
+      }
+    }
+  ],
+  "subscriptions": [
+    {
+      "required": true,
+      "key": "gateway/feeder_load_va",
+      "type": "complex",
+      "unit": "VA",
+      "info": {
+        "object": "DER_EV4_BESS_COUPLING",
+        "property": "constant_power_C"
+      }
+    }
+  ],
+  "endpoints": []
+}

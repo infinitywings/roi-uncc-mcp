@@ -77,7 +77,13 @@ def create_app(config: AppConfig) -> FastAPI:
         micro_weight=config.timing.micro_weight,
     )
     metrics = MetricsCollector(experiment_id="")
-    executor = ActionExecutor(federate, observer, constraints)
+    executor = ActionExecutor(
+        federate,
+        observer,
+        constraints,
+        ramp_rate_kw_per_sec=config.ramping.ramp_rate_kw_per_sec if config.ramping.enabled else float("inf"),
+        update_interval_sec=config.helics.period_sec,
+    )
 
     app.state.llm_grid_eval = AppState(
         config=config,
@@ -116,7 +122,7 @@ def create_app(config: AppConfig) -> FastAPI:
     @app.post("/tools/observe")
     def tools_observe():
         state: AppState = app.state.llm_grid_eval
-        return tool_observe(state.observer, state.history, state.metrics)
+        return tool_observe(state.observer, state.history, state.metrics, state.executor)
 
     @app.post("/tools/analyze")
     def tools_analyze(payload: AnalyzeRequest):
@@ -127,6 +133,7 @@ def create_app(config: AppConfig) -> FastAPI:
             state.metrics,
             state.analyzer,
             controller_interval_sec=payload.controller_interval_sec,
+            executor=state.executor,
         )
 
     @app.post("/tools/attack")

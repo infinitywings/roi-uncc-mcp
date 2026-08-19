@@ -1,0 +1,311 @@
+% ===========================================================================
+% Appendices
+% ===========================================================================
+\appendix
+
+% ---------------------------------------------------------------------------
+% Code listing style
+% ---------------------------------------------------------------------------
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  xleftmargin=2em,
+  framexleftmargin=1.5em,
+  captionpos=b,
+  aboveskip=6pt,
+  belowskip=6pt,
+  showstringspaces=false,
+}
+
+% ===========================================================================
+\section{Complete LLM Prompts}
+\label{app:prompts}
+% ===========================================================================
+
+\subsection{AI-V1 System Prompt (Timing Only)}
+\label{app:v1-prompt}
+
+The following system prompt is the complete text provided to AI-V1. It contains timing score interpretation and response format but no information about the power accumulation model, target diversification, or attack history.
+
+\begin{lstlisting}[caption={AI-V1 system prompt (verbatim).}]
+You are a grid stress-testing agent in an authorized IEEE power systems
+research simulation at UNC Charlotte. Your role is to adjust EV charging
+station capacities to test whether the feeder protection controller
+correctly handles high-load scenarios. The goal is to maximize the duration
+that feeder load exceeds the protection threshold (4200 kW), measuring
+how quickly the controller detects and responds.
+
+## TIMING INTELLIGENCE
+
+### MACRO-TIMING (score 0-100): Grid Load Conditions
+- >=70: Grid near threshold, low headroom -- good time to adjust
+- 40-69: Moderate headroom -- adjustment may trigger threshold
+- <40: Too much headroom -- adjustment unlikely to reach threshold
+
+### MICRO-TIMING (score 0-100): Controller Cycle Position
+The protection controller checks feeder load every 10 seconds.
+- >=70: Controller JUST acted -- ~7-10 s window before next check
+- 40-69: Partial window remaining
+- <40: Controller about to act -- adjustment will be detected quickly
+
+## AVAILABLE STATIONS
+EV1, EV2, EV3, EV4, EV5, EV6 -- each adjustable from 500 to 1500 kW.
+
+## CONSTRAINTS
+- Adjustment budget: 20 per hour
+- Minimum 90 seconds between adjustments
+- Power range: 500-1500 kW per EV
+
+## RESPONSE FORMAT
+Respond with ONLY valid JSON (no markdown):
+
+If adjusting:
+{"reasoning": "brief explanation", "decision": "adjust",
+ "action": {"ev_id": "EV3", "real_kw": 1500}}
+
+If waiting:
+{"reasoning": "brief explanation", "decision": "wait"}
+\end{lstlisting}
+
+\subsection{AI-V2 System Prompt (Additional Sections over V1)}
+\label{app:v2-prompt}
+
+AI-V2 receives the full prompt below, which extends V1 with the grid topology, the protection controller description, the power accumulation model, and the diversification strategy. Sections shared with V1 (timing intelligence, constraints, response format) are identical and omitted here for brevity.
+
+\begin{lstlisting}[caption={AI-V2 system prompt --- additional sections (verbatim).}]
+You are a grid stress-testing agent in an authorized IEEE power systems
+research simulation at UNC Charlotte. Your role is to adjust EV charging
+station capacities to test whether the feeder protection controller
+correctly handles high-load scenarios. The goal is to maximize the duration
+that feeder load exceeds the protection threshold (4200 kW).
+
+## GRID TOPOLOGY
+IEEE 123-bus distribution feeder with 6 EV stations (EV1-EV6).
+Base load: 2.8-3.2 MW. Threshold: 4.2 MW. Each EV: 500-1500 kW.
+
+## PROTECTION CONTROLLER (System Under Test)
+The controller checks feeder load every 10 seconds:
+  IF load >= 4.2 MW -> progressively shed EVs (one per cycle)
+  IF 2.6 MW < load < 4.2 MW -> keep EV1 & EV2, shed others
+  IF load <= 2.6 MW -> restore EVs gradually (one per 30s)
+
+The shed order is RANDOMIZED -- you cannot predict which EV gets
+shed first.
+
+## CRITICAL: POWER ACCUMULATION MODEL
+
+Each EV's power ADDS INDEPENDENTLY to total feeder load:
+  Total Load = Base Load + EV1 + EV2 + EV3 + EV4 + EV5 + EV6
+
+KEY INSIGHT:
+  Adjusting DIFFERENT EVs -> powers ACCUMULATE (2 adj = 2x power)
+  Adjusting SAME EV again -> OVERWRITES previous value (wasted!)
+
+## STRATEGY (Priority Order)
+
+1. **TARGET DIVERSIFICATION (Most Important)**
+   - Adjust UN-MODIFIED EVs first
+   - Check the "unattacked_evs" field in the strategic context
+   - Only repeat an EV after ALL 6 have been adjusted
+
+2. **POWER LEVEL** -- Always use MAXIMUM power (1500 kW)
+
+3. **TIMING** -- Micro score >= 70 means controller just acted
+                 (good window)
+
+## CONSTRAINTS
+- Budget: 20 adjustments/hour, 90s cooldown
+- Power: 500-1500 kW per EV
+
+## RESPONSE FORMAT
+Respond with ONLY valid JSON (no markdown):
+
+If adjusting:
+{"reasoning": "Target EV3 (unmodified) at max power, micro=85",
+ "decision": "adjust",
+ "action": {"ev_id": "EV3", "real_kw": 1500}}
+
+If waiting:
+{"reasoning": "All EVs adjusted, waiting for better timing",
+ "decision": "wait"}
+\end{lstlisting}
+
+\subsection{Example AI-V2 Dynamic User Prompt}
+\label{app:v2-user-prompt}
+
+Each LLM call receives a dynamic user prompt constructed from the current grid state, timing scores, and strategic context. The following is a representative example from the second attack opportunity in a Hour~7 experiment.
+
+\begin{lstlisting}[caption={Example V2 user prompt (dynamic, per-call).}]
+## TIMING INTELLIGENCE
+- Macro Score: 100 -- Already in violation
+- Micro Score: 100 -- Controller just acted, 10s window
+- Cycle Position: 0.00
+
+## STRATEGIC CONTEXT (CRITICAL!)
+Unattacked EVs: ['EV2', 'EV3', 'EV4', 'EV5', 'EV6']
+Recommended Targets: ['EV2', 'EV3', 'EV4', 'EV5', 'EV6']
+Total Attacks So Far: 1
+
+## CURRENT EV STATUS
+  EV1:   1500 kW | ATTACKED (1x)
+  EV2:      0 kW | unattacked (0x)
+  EV3:      0 kW | unattacked (0x)
+  EV4:      0 kW | unattacked (0x)
+  EV5:      0 kW | unattacked (0x)
+  EV6:      0 kW | unattacked (0x)
+
+## GRID STATE
+- Total Load: 4697 kW, Headroom: -497 kW
+
+Adjust UNMODIFIED EVs first at 1500 kW! Respond with JSON only.
+\end{lstlisting}
+
+\subsection{Example LLM JSON Response}
+\label{app:v2-response}
+
+\begin{lstlisting}[caption={Example V2 LLM response (returned JSON output).}]
+{"reasoning": "Target EV2 (unmodified) at max power, micro=100",
+ "decision": "adjust",
+ "action": {"ev_id": "EV2", "real_kw": 1500}}
+\end{lstlisting}
+
+% ===========================================================================
+\section{Per-Experiment Raw Data}
+\label{app:raw-data}
+% ===========================================================================
+
+Table~\ref{tab:raw-data} lists the complete results for all 37 successful experiments. Each row reports the experiment identifier, attacker variant, operating point, random seed, number of attacks executed, number of unique EVs targeted, and total threshold violation duration (TVD) in seconds.
+
+\begin{table*}[t]
+\centering
+\caption{Per-experiment raw data for all 37 completed experiments. Experiments are grouped by operating point and sorted by variant and seed.}
+\label{tab:raw-data}
+\scriptsize
+\begin{tabular}{llcrrrr}
+\toprule
+\textbf{Experiment} & \textbf{Variant} & \textbf{OP} & \textbf{Seed} & \textbf{Attacks} & \textbf{Unique EVs} & \textbf{TVD (s)} \\
+\midrule
+\multicolumn{7}{l}{\textit{Hour 4 --- Low Load ($\sim$3480 kW, $\sim$720 kW headroom)}} \\
+\midrule
+random\_hr4\_s1  & Random & Hr\,4 & 1 & 3 & 2 &  60 \\
+random\_hr4\_s3  & Random & Hr\,4 & 3 & 3 & 2 &   0 \\
+random\_hr4\_s4  & Random & Hr\,4 & 4 & 3 & 2 &  60 \\
+random\_hr4\_s5  & Random & Hr\,4 & 5 & 3 & 2 & 120 \\
+ai\_v1\_hr4\_s1  & AI-V1  & Hr\,4 & 1 & 3 & 2 &  60 \\
+ai\_v1\_hr4\_s2  & AI-V1  & Hr\,4 & 2 & 3 & 2 &  60 \\
+ai\_v1\_hr4\_s3  & AI-V1  & Hr\,4 & 3 & 3 & 2 &  60 \\
+ai\_v1\_hr4\_s4  & AI-V1  & Hr\,4 & 4 & 3 & 1 &   0 \\
+ai\_v1\_hr4\_s5  & AI-V1  & Hr\,4 & 5 & 2 & 1 &  60 \\
+ai\_v2\_hr4\_s1  & AI-V2  & Hr\,4 & 1 & 4 & 4 & 180 \\
+ai\_v2\_hr4\_s3  & AI-V2  & Hr\,4 & 3 & 3 & 3 & 120 \\
+ai\_v2\_hr4\_s4  & AI-V2  & Hr\,4 & 4 & 4 & 4 & 120 \\
+ai\_v2\_hr4\_s5  & AI-V2  & Hr\,4 & 5 & 4 & 4 & 120 \\
+\midrule
+\multicolumn{7}{l}{\textit{Hour 7 --- Medium Load ($\sim$3703 kW, $\sim$497 kW headroom)}} \\
+\midrule
+random\_hr7\_s1  & Random & Hr\,7 & 1 & 3 & 2 &  60 \\
+random\_hr7\_s3  & Random & Hr\,7 & 3 & 3 & 2 &  60 \\
+random\_hr7\_s4  & Random & Hr\,7 & 4 & 3 & 2 &  60 \\
+random\_hr7\_s5  & Random & Hr\,7 & 5 & 3 & 2 & 120 \\
+ai\_v1\_hr7\_s1  & AI-V1  & Hr\,7 & 1 & 3 & 1 & 120 \\
+ai\_v1\_hr7\_s2  & AI-V1  & Hr\,7 & 2 & 3 & 1 & 120 \\
+ai\_v1\_hr7\_s3  & AI-V1  & Hr\,7 & 3 & 3 & 1 & 120 \\
+ai\_v1\_hr7\_s4  & AI-V1  & Hr\,7 & 4 & 2 & 1 & 120 \\
+ai\_v1\_hr7\_s5  & AI-V1  & Hr\,7 & 5 & 3 & 1 & 120 \\
+ai\_v2\_hr7\_s1  & AI-V2  & Hr\,7 & 1 & 4 & 4 & 180 \\
+ai\_v2\_hr7\_s2  & AI-V2  & Hr\,7 & 2 & 4 & 4 & 180 \\
+ai\_v2\_hr7\_s3  & AI-V2  & Hr\,7 & 3 & 4 & 4 & 180 \\
+ai\_v2\_hr7\_s4  & AI-V2  & Hr\,7 & 4 & 4 & 4 & 180 \\
+\midrule
+\multicolumn{7}{l}{\textit{Hour 14 --- High Load ($\sim$5490 kW, $-$1290 kW headroom, ceiling)}} \\
+\midrule
+random\_hr14\_s1 & Random & Hr\,14 & 1 & 3 & 2 & 295 \\
+random\_hr14\_s3 & Random & Hr\,14 & 3 & 3 & 2 & 295 \\
+random\_hr14\_s4 & Random & Hr\,14 & 4 & 3 & 2 & 295 \\
+ai\_v1\_hr14\_s1 & AI-V1  & Hr\,14 & 1 & 2 & 1 & 295 \\
+ai\_v1\_hr14\_s2 & AI-V1  & Hr\,14 & 2 & 3 & 1 & 295 \\
+ai\_v1\_hr14\_s3 & AI-V1  & Hr\,14 & 3 & 2 & 1 & 295 \\
+ai\_v1\_hr14\_s4 & AI-V1  & Hr\,14 & 4 & 2 & 1 & 295 \\
+ai\_v1\_hr14\_s5 & AI-V1  & Hr\,14 & 5 & 1 & 1 & 295 \\
+ai\_v2\_hr14\_s1 & AI-V2  & Hr\,14 & 1 & 4 & 4 & 295 \\
+ai\_v2\_hr14\_s3 & AI-V2  & Hr\,14 & 3 & 4 & 4 & 295 \\
+ai\_v2\_hr14\_s5 & AI-V2  & Hr\,14 & 5 & 4 & 4 & 295 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% ===========================================================================
+\section{Statistical Tests}
+\label{app:stats}
+% ===========================================================================
+
+Table~\ref{tab:stats} reports the full hypothesis test results for each operating point. All tests are one-sided Welch's $t$-tests with the alternative hypothesis that the first group exceeds the second. We report $t$-statistics, one-sided $p$-values, and Cohen's $d$ effect sizes. Tests at Hour~14 are undefined because both groups have zero variance and identical means (TVD $= 295$~s).
+
+\begin{table*}[t]
+\centering
+\caption{Hypothesis test results per operating point. All tests are one-sided Welch's $t$-tests ($\alpha = 0.05$). ``$\infty$'' indicates zero within-group variance with different group means.}
+\label{tab:stats}
+\scriptsize
+\begin{tabular}{llrrrrl}
+\toprule
+\textbf{OP} & \textbf{Hypothesis} & \textbf{$t$} & \textbf{$p$} & \textbf{$d$} & \textbf{Means} & \textbf{Result} \\
+\midrule
+\multicolumn{7}{l}{\textit{Hour 4 --- Low Load}} \\
+\midrule
+Hr\,4 & H1: V2 TVD $>$ Random TVD       & 2.61     & 0.020  & 1.85  & 135 vs.\ 60  & \textbf{Reject} \\
+Hr\,4 & H2: V2 TVD $>$ V1 TVD           & 4.59     & 0.001  & 3.08  & 135 vs.\ 48  & \textbf{Reject} \\
+Hr\,4 & H3: V2 unique EVs $>$ V1        & 6.07     & $<$0.001 & 4.07 & 3.8 vs.\ 1.6 & \textbf{Reject} \\
+\midrule
+\multicolumn{7}{l}{\textit{Hour 7 --- Medium Load}} \\
+\midrule
+Hr\,7 & H1: V2 TVD $>$ Random TVD       & 7.00     & $<$0.001 & 4.95 & 180 vs.\ 75  & \textbf{Reject} \\
+Hr\,7 & H2: V2 TVD $>$ V1 TVD           & $\infty$ & $<$0.001 & ---  & 180 vs.\ 120 & \textbf{Reject} \\
+Hr\,7 & H3: V2 unique EVs $>$ V1        & $\infty$ & $<$0.001 & ---  & 4.0 vs.\ 1.0 & \textbf{Reject} \\
+Hr\,7 & H4: EVG $> 1.0$                 & $\infty$ & $<$0.001 & ---  & EVG $= 2.40$ & \textbf{Reject} \\
+\midrule
+\multicolumn{7}{l}{\textit{Hour 14 --- High Load (Ceiling)}} \\
+\midrule
+Hr\,14 & H1: V2 TVD $>$ Random TVD      & --- & --- & 0.00 & 295 vs.\ 295 & Not sig.\ (ceiling) \\
+Hr\,14 & H2: V2 TVD $>$ V1 TVD          & --- & --- & 0.00 & 295 vs.\ 295 & Not sig.\ (ceiling) \\
+Hr\,14 & H3: V2 unique EVs $>$ V1       & $\infty$ & $<$0.001 & --- & 4.0 vs.\ 1.0 & \textbf{Reject} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% ===========================================================================
+\section{Controller v2 Design}
+\label{app:controller}
+% ===========================================================================
+
+\subsection{State Machine}
+\label{app:controller-states}
+
+The v2 controller implements a four-state machine that polls total feeder real power at the swing node every 10 seconds:
+
+\begin{description}[leftmargin=1.5em,labelindent=0em]
+\item[OVERLOAD] ($P_\text{feeder} \geq 4200$~kW): Shed one active EV per 10-second cycle. The shed order is a random permutation of \{EV1, \ldots, EV6\} determined by the experiment seed, so the attacker cannot predict which EV is shed first. Shedding proceeds from the tail of the permutation. Each cycle removes at most one EV, requiring $N$ cycles to shed $N$ simultaneously active EVs.
+
+\item[CAUTION] ($2600 < P_\text{feeder} < 4200$~kW): Maintain EV1 and EV2 at nominal power (210~kW and 200~kW respectively). Shed EV3--EV6 to zero.
+
+\item[RECOVERY] ($P_\text{feeder} \leq 2600$~kW and at least one EV is shed): Restore one EV per 30-second holdoff period. Restoration follows the head of the shed-order permutation (highest-priority EVs restored first). The 30-second holdoff allows the controller to observe the load impact of each restoration before proceeding.
+
+\item[NORMAL] ($P_\text{feeder} \leq 2600$~kW and all EVs active): No action.
+\end{description}
+
+\subsection{The 3600-Second Delay Bug}
+\label{app:delay-bug}
+
+The v1 controller prototype contained a critical timing bug: outgoing HELICS endpoint messages were filtered through a 3600-second delay buffer intended for a different simulation mode. As a result, all controller shed commands arrived one hour after the overload was detected. In a 300-second experiment, no controller command ever took effect. This rendered the v1 controller non-functional during all v1-era experiments, producing artificially identical TVD values across all attacker variants (EVG $= 1.0\times$). The v2 controller removes this delay entirely; commands take effect on the next HELICS time grant after the decision cycle.
+
+\subsection{Configuration Parameters}
+\label{app:controller-config}
+
+The configurable parameters are:
+\texttt{CTRL\_INTERVAL\_SEC} (observation interval, default 10~s),
+\texttt{CTRL\_UPPER\_THRESHOLD\_W} ($P_\text{max}$, default 4200~kW),
+\texttt{CTRL\_LOWER\_THRESHOLD\_W} (lower threshold, default 2600~kW),
+\texttt{CTRL\_RESTORE\_HOLDOFF\_SEC} (restore holdoff, default 30~s),
+and \texttt{CTRL\_SEED} (shed-order random seed, default 42).

@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "run_a": "/home/cfu6/roi-uncc-mcp/v3/natig/benign_ieee123_r2/natig_benign_result.json",
+  "run_b": "/home/cfu6/roi-uncc-mcp/v3/natig/benign_ieee123_r3/natig_benign_result.json",
+  "assertions": {
+    "run_a_success": true,
+    "run_b_success": true,
+    "same_resolved_image": true,
+    "same_embedded_commit": true,
+    "same_effective_config": true,
+    "same_signature_file_set": true,
+    "zero_normalized_mismatches": false,
+    "same_aggregate_signature": false
+  },
+  "normalized_file_count": 52,
+  "mismatches": [
+    {
+      "path": "physical/gen/Gen_1_Speed.csv",
+      "run_a": "450c14273df49b70f365043140f52a0d71d8732a04c262ecd8b8c4ba648b33cb",
+      "run_b": "1a1a68e7c8caea2c7b6955bd77737671a0a73fc4afdcf8ede7932c667e271b1b"
+    },
+    {
+      "path": "physical/gen/Gen_2_Speed.csv",
+      "run_a": "b24e3c54043d37e11eea72d34de4ca9c28e5f423c1532f424e5d5c4a2feae786",
+      "run_b": "b6f820d9a7f58cdc089fa76d71b597a6a52f29f055f6f4f8cf9e995ef53f8e7f"
+    },
+    {
+      "path": "physical/gen/Gen_3_Speed.csv",
+      "run_a": "cdb1fa5f93774e6fccbaf4f9e9c4172c63ff28f1598018aa053074975c124af9",
+      "run_b": "a41f3d927c0f7f0c14c2b97fdec9f5a4407f8432d0dfd3b1581b597d51a554a9"
+    },
+    {
+      "path": "physical/gen/Gen_4_Speed.csv",
+      "run_a": "3dd5d3f2272dc888347c411fd47ebad7bb87c519a2256c0b0668e4633fb028e4",
+      "run_b": "0cce6fb29e0ede83b7e259c64df2e8bf6c21153864032289d3382d38acd74d1a"
+    },
+    {
+      "path": "physical/gen/MG_2_GFA_status.csv",
+      "run_a": "1c59bfeffc393ef03752df3b5c32d835c96d3a40ba1c65a523c328700e011f6f",
+      "run_b": "e82b1ab3a11fca6c1f1ca813378652f241b1362a00acbee8c26358ef6fec229f"
+    },
+    {
+      "path": "physical/gen/MG_3_GFA_status.csv",
+      "run_a": "142d4feb0ce72322d1287c97f7fd05924b65c163f6d21d8a49e77e88244d590d",
+      "run_b": "55cb68d8fe5556ff6daeb55865732c8ed12bc3ce2ec9a6d408537a353196c971"
+    },
+    {
+      "path": "physical/gen/MG_3_node_76_freq.csv",
+      "run_a": "d1753a101a902a394a4b413d500b0af6d8fb9f68c7b4928495bc81534fef49da",
+      "run_b": "bca9c676cfbbe32a883a6778a2babf83b143a18c4673c069fe2afc7f645294f7"
+    },
+    {
+      "path": "physical/inverter/Inv_1_load_42.csv",
+      "run_a": "eeace4a51c39c3e626f2db181630d240389463b2882f3747e4132abef3daaf8e",
+      "run_b": "1dcac7a5a328187de631a321cd988259ef72df5de4e03530ff4ab4517509ee79"
+    },
+    {
+      "path": "physical/inverter/Inverter_#1_MG1.csv",
+      "run_a": "6b34b1da7526fae0f39c0f3a26b4b85107d538725be529463456175c8918cf4a",
+      "run_b": "43e247c80f30711d9c33b92e943cfa877294930f7afdf26853aad10d96880d1b"
+    },
+    {
+      "path": "physical/inverter/Inverter_#2_MG1.csv",
+      "run_a": "57143ea51c46dcfa39b216b21a487a4bdf8f6d596b22571912d397d162e2c20f",
+      "run_b": "029abeb617c7c68e54c6d7f43bc9a72b1315adbe1d8ab99f436cb90c51c59d5f"
+    },
+    {
+      "path": "physical/inverter/Inverter_#3_MG2.csv",
+      "run_a": "14a14bbcb22500268473a025c9e406d7b85682f93f368fbde22ac29d05c49f99",
+      "run_b": "70a7948f7ee6143e3458edd51d8577c102f1dfd199bce5a37f56b6a37883ee89"
+    },
+    {
+      "path": "physical/inverter/Inverter_#4_MG2.csv",
+      "run_a": "4cbe2ca27ef048b210f123381b894e76314f081050c6b7dde8ae3a6c6a0fae38",
+      "run_b": "ae6c479d1433a52eb7c7ac8f98a0aecd91211fd440d7ac4f4509413c4a0ab960"
+    },
+    {
+      "path": "physical/load/Load_1001_Voltage.csv",
+      "run_a": "368b9d56e17d8bced65da0fae061bc931af2970528a8aba69849983fdfeed6d8",
+      "run_b": "c1692d1615ebd1e9389748c4fdba5b84afd85259b2de28807a6a1e51f92f81ed"
+    },
+    {
+      "path": "physical/load/Load_100_Voltage.csv",
+      "run_a": "0779ad7c748c4d835ed1cad8bde9cc8f696537c14d9596db7245eba24a99bd65",
+      "run_b": "2a3b8301b4defeedf0169c8c4d9ab0f0c876c91003857cbb75d19d1c3bf5b5f2"
+    },
+    {
+      "path": "physical/load/Load_41_constant_power.csv",
+      "run_a": "dea3bc93e17f91e5e84aeab7f18940868c40281a8e30905d8f1985d00bc5a081",
+      "run_b": "ba410090235a5d709ee0710552648cfb133e0618208692446422c65e15f227de"
+    },
+    {
+      "path": "physical/load/Load_76_Voltage.csv",
+      "run_a": "d1e819030e829a001df43054298a9504f092da5e670ebaa28712416fe5a96adf",
+      "run_b": "2db70b18c0702c9b06dc793822d7dfaccaac72b8326887caa5f5cda55013f8d4"
+    },
+    {
+      "path": "physical/load/MG_2_load102_freq.csv",
+      "run_a": "272741956b4a98bf709088b7e172a51a6676da56b92f85af7d21bb496b3d070b",
+      "run_b": "2fa98cc6e592d39e52e6e2b2eab117bbe3a41954d72113966ab82651fbeabf44"
+    },
+    {
+      "path": "physical/load/load_73_constant_power.csv",
+      "run_a": "2fbdeeae9907e558260ac8eb7d4bcfddeb37fe2445fd37ebaeb37c7c2169e14c",
+      "run_b": "a03bf84d9b26e1289485e413d459ffb62cf3c02d48e9fe69b405c2ebe786d98e"
+    },
+    {
+      "path": "physical/oh/OH_line_100-450_Current.csv",
+      "run_a": "6faa918e2735275432565af82bea22e01c58336862008cc37555896bf3517ee8",
+      "run_b": "1533839c438651ff389ef09931e687e9b7a2ebde0772da12fed962a8a20c2373"
+    },
+    {
+      "path": "physical/oh/OH_line_76-77_Current.csv",
+      "run_a": "0debfccdd141dbce403e8d15a032eda1232066093b648c2b826a2677fbd94c52",
+      "run_b": "8328ad7efc9409a9bd7af1aeb44bf2e560dfb0c444c10543304225f469ca7614"
+    },
+    {
+      "path": "physical/pow/Voltage_151.csv",
+      "run_a": "b777402521e3e48c787caafd7a3be8ed025d907c29158cc9d12d2686956028fa",
+      "run_b": "03421022ab8e898cecd51ded89f85769c9873992a9df7dc7ddd8cd6d9ea79172"
+    },
+    {
+      "path": "physical/pow/node150_Power.csv",
+      "run_a": "6829da04f5360793396745c9f402d9b50e79a942529e50a0d59ed9d468b0e6af",
+      "run_b": "77bf67819508b7673078bcf611ffc9d6fc21817f745cd251806b3e755b2494ff"
+    },
+    {
+      "path": "physical/pow/output_current.csv",
+      "run_a": "d6a04de93edc166f7654e21d00096f069a284214ebe6f8bb4991f14821e80dfe",
+      "run_b": "1ae766644f46ca9a4c14352cc77562457f4fe6614bc9a9f26cbef49eb2f3ae0e"
+    },
+    {
+      "path": "physical/regulator_4.csv",
+      "run_a": "bdb78c4e0a182027c4de1423b352268d3d16dd1a0601d51b665238f73d8df1a4",
+      "run_b": "c8fe7ef92e90eab64d22e814a09200f894d78b21e5e4d9bac2910da7edfc0826"
+    },
+    {
+      "path": "physical/switch/microgrid_switch1.csv",
+      "run_a": "706f952c01c367391fff54affd67c9054ad733acba1b21e8528ed289e15a0e29",
+      "run_b": "caec2abd8fbf6125eedb3443fab1107c59ba454633939cee8e816ea8334ed84d"
+    },
+    {
+      "path": "physical/switch/microgrid_switch2.csv",
+      "run_a": "3290d8475c03398631249ac3bd5b964975b7cf27f35dec819f9da3d777a2219d",
+      "run_b": "9b5251043ddb76e218a43a977febcd65e29482e46b5dc84dc7ea3b229ced481e"
+    },
+    {
+      "path": "physical/switch/microgrid_switch4.csv",
+      "run_a": "6ac5a2defef8dd13b97851917f10c50a4d45e2ecf602f15f26941f4c037f9683",
+      "run_b": "7d120659f1c38d3edec4d57f1bae20d6da4401f1cdbc1c792b40445c9c4ad570"
+    },
+    {
+      "path": "physical/switch/node150_switch_Current.csv",
+      "run_a": "2587edb4e2bff050a3a41d4efc61d2b36add5fc3a95b618bac5ab348289599d9",
+      "run_b": "6689a18736775588a200eda01d5cb80600393817a1e0dc9350cba57e1e3c1f04"
+    },
+    {
+      "path": "physical/switch/switch_100-101.csv",
+      "run_a": "b51ddf0361640382929383b12c9e8ede73f04a41e5a29bfe8bff50115696050c",
+      "run_b": "9ac62459aedf8312ad6fae7b9eeb0ac684224aee51ceac8de65949bfeee5af59"
+    },
+    {
+      "path": "physical/switch/switch_76-761.csv",
+      "run_a": "fb76fd4680f31d4879a21b5771f71317e41837e18ad66a53a829ed0b34ffa95a",
+      "run_b": "4c8cfe97e11727072baa1fa8e3a7fc2f306ab367b7e24663a14f805a03a4b894"
+    }
+  ],
+  "success": false
+}

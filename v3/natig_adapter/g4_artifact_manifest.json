@@ -1,0 +1,135 @@
+{
+  "artifacts": {
+    "v3/IMPLEMENTATION_PLAN.md": {
+      "bytes": 7911,
+      "sha256": "2a0d0f20e829d03c1bafd3191f3a7241354c8f930671e9d4164a292d9d90259a"
+    },
+    "v3/README.md": {
+      "bytes": 6233,
+      "sha256": "1223330e138ba35679773952a5ebbf63fc7618bfd6c0c8ea9085e886b603bfae"
+    },
+    "v3/SELF_AUDIT.md": {
+      "bytes": 14551,
+      "sha256": "6b54747a5e83ea8129d06575aaf54bd2dc72706ccd56b7b17ace38f0a31c6017"
+    },
+    "v3/cyber_gateway/README.md": {
+      "bytes": 4208,
+      "sha256": "91793aa6a69caf4799deb04931faddafe1c65d8d5d74c3c0ae97f6514a6b03aa"
+    },
+    "v3/cyber_gateway/dnp3_point_map.yaml": {
+      "bytes": 4081,
+      "sha256": "f42d995e08dc23ed557bc1164a990a358aa96edab16b685d460b556d8d48afee"
+    },
+    "v3/cyber_gateway/gateway.py": {
+      "bytes": 38031,
+      "sha256": "376672be176cc0a1e14c4c70608b3d1d563ea366ab4e90ef08129017b57af2ef"
+    },
+    "v3/cyber_gateway/tests/test_gateway.py": {
+      "bytes": 19324,
+      "sha256": "65f52ae423916d9e5615bc1f6ba04543daee792e2a71e5b4f44d8a3adfe0798c"
+    },
+    "v3/cyber_gateway/tests/test_real_opender_sink.py": {
+      "bytes": 4946,
+      "sha256": "423277a4577ebd23494126be36196ddb01ad177501fce124106c423aa3f6e77b"
+    },
+    "v3/interfaces/README.md": {
+      "bytes": 1819,
+      "sha256": "dcda8a29988ee79c08fbd94e1206e9bfadca1563b0a86e088c07b4f8fb9f742d"
+    },
+    "v3/interfaces/cyber_message.schema.json": {
+      "bytes": 2520,
+      "sha256": "98ae350489e048ef2b29b538e35cf2fdd97050e002a5475ae87a67dcbf5fcc63"
+    },
+    "v3/natig_adapter/POINT_MAP_AUDIT.md": {
+      "bytes": 12469,
+      "sha256": "d1a8a0cb39d2c6833db92ad548b18cfcf57c139bde51e4fde291064df3f0bbe7"
+    },
+    "v3/natig_adapter/README.md": {
+      "bytes": 3713,
+      "sha256": "53f25ac9200adc48661d60d99d06ce9985ffa309f7576ceb81aa72fc2f40ee4b"
+    },
+    "v3/natig_adapter/dnp3_codec.py": {
+      "bytes": 10679,
+      "sha256": "186f615e88fb66412ebb9eb04004c5939fc2e9a7d9d2eef172aefbf254f84d14"
+    },
+    "v3/natig_adapter/endpoint_graph.json": {
+      "bytes": 3678,
+      "sha256": "4c577673fc5c576bfb8e04ac6592955d282bcd4d6ac07db3506c3164d577714a"
+    },
+    "v3/natig_adapter/gateway_bridge.py": {
+      "bytes": 7138,
+      "sha256": "ce90e88d226ab654393dc10079673f7f5d157a0750b3187e9129b4b5e72a40da"
+    },
+    "v3/natig_adapter/offline_conformance_r2/OFFLINE_CONFORMANCE_REPORT.md": {
+      "bytes": 2494,
+      "sha256": "93afbe9ceeb05f65d6f484facbc90cc8c2612ef49c671573a853829d0066d31f"
+    },
+    "v3/natig_adapter/offline_conformance_r2/offline_conformance.json": {
+      "bytes": 1320366,
+      "sha256": "34d9e5b37a1f864670872e239fc6ec41f3d0edc1baa33bf170e198ba20e66d60"
+    },
+    "v3/natig_adapter/run_offline_conformance.py": {
+      "bytes": 23767,
+      "sha256": "fefdd2025c4949d354c579110f6530122967d41fcf5ef27e92c3fff6b784842f"
+    },
+    "v3/natig_adapter/tests/test_dnp3_codec.py": {
+      "bytes": 6091,
+      "sha256": "3ad520c8fae86700affe2eccf51ffd58ba146bd0db2bd1505a2d96af3650a1f9"
+    },
+    "v3/natig_adapter/tests/test_endpoint_graph.py": {
+      "bytes": 7504,
+      "sha256": "0a15dd6cf5f1f552f5ce99af78251d9b6610ee020d923b48346660327ead7344"
+    },
+    "v3/natig_adapter/tests/test_gateway_bridge.py": {
+      "bytes": 5643,
+      "sha256": "bfcdbe4c5e53e097157d6f1243b63968f4bb9bcccc356df5d896ecb47fe00922"
+    },
+    "v3/natig_adapter/tests/test_offline_conformance.py": {
+      "bytes": 1965,
+      "sha256": "0f40de453d51fa8e81a551ddd04ae890702a3a4161566eba74483447d3a2206d"
+    },
+    "v3/natig_adapter/validate_endpoint_graph.py": {
+      "bytes": 13306,
+      "sha256": "555945d9f542690bbb4d7368e55318637a6cf52594a1e306c201b3d01c514e2b"
+    },
+    "v3/opender/device.py": {
+      "bytes": 7496,
+      "sha256": "082c202c5bab046f2a9ef988381bb4a8cc8dcfde6a33e7c3d840aa25cc8825f9"
+    }
+  },
+  "gate": "G4 benign cyber-path equivalence preparation",
+  "not_proven": [
+    "live NATIG DNP3 transport",
+    "ns-3 network behavior",
+    "HELICS endpoint timing",
+    "GridLAB-D physical equivalence through NATIG",
+    "network impairment or attacker effect"
+  ],
+  "open_blockers": [
+    "locked-source NATIG image is not built",
+    "stock NATIG direct GridLAB-D callback must be replaced",
+    "undeclared CC/Monitor and auxiliary endpoint debt must be removed",
+    "live benign direct-reference versus NATIG equivalence is unrun"
+  ],
+  "schema_version": "1.0",
+  "scope": "offline adapter conformance only; no NATIG, ns-3, HELICS, or GridLAB-D equivalence",
+  "verdict": "PASS_OFFLINE_PREPARATION_ONLY",
+  "verification": {
+    "commands_per_path": 18,
+    "design_validation_passed": true,
+    "embedded_source_hashes_match": true,
+    "endpoint_graph_passed": true,
+    "gateway_and_adapter_tests_passed": 119,
+    "lifecycle_records": 36,
+    "offline_run_verdict": "PASS",
+    "run_signature_sha256": "5b01561c3926ae694c6ac8e7396867a602678f711c94c20bd4322da9f149a170",
+    "steps_per_path": 840,
+    "telemetry_objects_encoded_decoded": 5040,
+    "trace_max_abs_difference": {
+      "p_out_kw": 0.0,
+      "q_out_kvar": 0.0,
+      "soc_pu": 0.0
+    },
+    "two_run_exact_match": true
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "scope": "G4 one-DER benign cyber-path endpoint contract; no attack or direct cyber-to-physical message path",
+  "cyber_messages": {
+    "endpoints": [
+      {
+        "id": "controller/der_ev4",
+        "owner": "controller",
+        "function": "command_source_and_telemetry_sink",
+        "kind": "helics_endpoint",
+        "plane": "cyber_message",
+        "global": true
+      },
+      {
+        "id": "natig/cc_der_ev4",
+        "owner": "natig",
+        "function": "dnp3_master_adapter",
+        "kind": "helics_endpoint",
+        "plane": "cyber_message",
+        "global": true
+      },
+      {
+        "id": "natig/der_ev4",
+        "owner": "natig",
+        "function": "dnp3_outstation_adapter",
+        "kind": "helics_endpoint",
+        "plane": "cyber_message",
+        "global": true
+      },
+      {
+        "id": "gateway/der_ev4",
+        "owner": "gateway",
+        "function": "validated_opender_command_sink_and_telemetry_source",
+        "kind": "helics_endpoint",
+        "plane": "cyber_message",
+        "global": true
+      }
+    ],
+    "edges": [
+      {
+        "id": "command-controller-to-master",
+        "stream": "command",
+        "stage": 1,
+        "source": "controller/der_ev4",
+        "destination": "natig/cc_der_ev4",
+        "transport": "helics_message"
+      },
+      {
+        "id": "command-master-to-outstation",
+        "stream": "command",
+        "stage": 2,
+        "source": "natig/cc_der_ev4",
+        "destination": "natig/der_ev4",
+        "transport": "dnp3_over_ns3"
+      },
+      {
+        "id": "command-outstation-to-gateway",
+        "stream": "command",
+        "stage": 3,
+        "source": "natig/der_ev4",
+        "destination": "gateway/der_ev4",
+        "transport": "helics_message"
+      },
+      {
+        "id": "telemetry-gateway-to-outstation",
+        "stream": "telemetry",
+        "stage": 1,
+        "source": "gateway/der_ev4",
+        "destination": "natig/der_ev4",
+        "transport": "helics_message"
+      },
+      {
+        "id": "telemetry-outstation-to-master",
+        "stream": "telemetry",
+        "stage": 2,
+        "source": "natig/der_ev4",
+        "destination": "natig/cc_der_ev4",
+        "transport": "dnp3_over_ns3"
+      },
+      {
+        "id": "telemetry-master-to-controller",
+        "stream": "telemetry",
+        "stage": 3,
+        "source": "natig/cc_der_ev4",
+        "destination": "controller/der_ev4",
+        "transport": "helics_message"
+      }
+    ]
+  },
+  "physical_values": {
+    "transport": "helics_value",
+    "gridlabd_message_endpoints": [],
+    "links": [
+      {
+        "key": "gridlabd/ev4_voltage_c",
+        "publisher": "gridlabd",
+        "subscriber": "gateway",
+        "type": "complex",
+        "unit": "V",
+        "purpose": "OpenDER terminal-voltage input"
+      },
+      {
+        "key": "gateway/feeder_load_va",
+        "publisher": "gateway",
+        "subscriber": "gridlabd",
+        "type": "complex",
+        "unit": "VA",
+        "purpose": "OpenDER output mapped to the sole DER_EV4_BESS physical coupling object"
+      }
+    ]
+  },
+  "policies": {
+    "all_cyber_edge_sources_and_destinations_must_be_declared": true,
+    "gridlabd_message_endpoints_must_be_empty": true,
+    "cyber_and_physical_planes_must_be_disjoint": true,
+    "forbidden_direct_edges": [
+      {
+        "source": "controller/der_ev4",
+        "destination": "gateway/der_ev4"
+      }
+    ],
+    "forbidden_owner_edges": [
+      {
+        "source_owner": "natig",
+        "destination_owner": "gridlabd"
+      }
+    ],
+    "banned_endpoint_names": [
+      "CC/Monitor",
+      "fout",
+      "trip_shad_inv1$Pref"
+    ]
+  }
+}

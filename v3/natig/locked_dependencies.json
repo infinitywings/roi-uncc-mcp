@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "scope": "NATIG 3G IEEE-123 G4 locked toolchain base",
+  "live_ready": false,
+  "live_readiness_blockers": [
+    "single Python runtime with importable HELICS 2.7.1 bindings is not installed",
+    "OpenDER 2.2.0 and its locked numeric dependencies are not installed",
+    "live image manifest and binary/source hashes are not produced"
+  ],
+  "platform": "linux/amd64",
+  "base_image": {
+    "reference": "python:3.6-slim@sha256:28028f6c3ce569a6405909ca76e85469fbb85c9ee93acd2fe5fe13f5e5e2c412",
+    "multiarch_index": "sha256:2cfebc27956e6a55f78606864d91fe527696f9e32a724e6f9702b5f9602d0474"
+  },
+  "apt": {
+    "snapshot_utc": "20260728T000000Z",
+    "sources": [
+      "https://snapshot.debian.org/archive/debian/20260728T000000Z",
+      "https://snapshot.debian.org/archive/debian-security/20260728T000000Z"
+    ],
+    "inrelease": {
+      "bullseye": {
+        "url": "https://snapshot.debian.org/archive/debian/20260728T000000Z/dists/bullseye/InRelease",
+        "sha256": "7917d4598768bfc4a25776eb0f6bf2f7d1f13301c2dc1e16467ef170dd752d40"
+      },
+      "bullseye-security": {
+        "url": "https://snapshot.debian.org/archive/debian-security/20260728T000000Z/dists/bullseye-security/InRelease",
+        "sha256": "6fa0bc4b170e67c805d858518768e3ca75a8e4fe3752f5d03a1eb7307173164a"
+      }
+    },
+    "direct_packages": {
+      "autoconf": "2.69-14",
+      "automake": "1:1.16.3-2",
+      "build-essential": "12.9",
+      "ca-certificates": "20230311+deb12u1~deb11u1",
+      "curl": "7.74.0-1.3+deb11u16",
+      "g++": "4:10.2.1-1",
+      "gcc": "4:10.2.1-1",
+      "git": "1:2.30.2-1+deb11u5",
+      "libboost-dev": "1.74.0.3",
+      "libgmp-dev": "2:6.2.1+dfsg-1+deb11u1",
+      "libgtk2.0-dev": "2.24.33-2+deb11u1",
+      "libisl-dev": "0.23-1",
+      "libmpc-dev": "1.2.0-1",
+      "libmpfr-dev": "4.1.0-3",
+      "libssl-dev": "1.1.1w-0+deb11u8",
+      "libtool": "2.4.6-15",
+      "m4": "1.4.18-5",
+      "make": "4.3-4.1",
+      "procps": "2:3.3.17-5",
+      "python3": "3.9.2-3",
+      "python3-pip": "20.3.4-4+deb11u2"
+    }
+  },
+  "git": {
+    "natig": {
+      "url": "https://github.com/pnnl/NATIG.git",
+      "commit": "e163b350e243c6386477e35dead979a4cb2b7c60",
+      "tree": "9f10cb55d5eaa4c20a95f292b84a266e9992bc1a"
+    },
+    "helics": {
+      "url": "https://github.com/GMLC-TDC/HELICS.git",
+      "commit": "5518b5b5307a25c63c3c925746101129fbfd14a7",
+      "tree": "1789b37863d18eb2c834e9e4c5e3e78d0a73b801",
+      "submodules": {
+        "ThirdParty/asio": {
+          "commit": "b84e6c16b2ea907dbad94206b7510d85aafc0b42",
+          "tree": "f7be48d2f50c747c6f471e1868a79aa975719dc7"
+        },
+        "ThirdParty/concurrency": {
+          "commit": "1ffdb2b7d9894d8dd4e3f284dff1a7052a785ac9",
+          "tree": "20e0b3a28197026036c49c4387573570ac71b84d"
+        },
+        "ThirdParty/containers": {
+          "commit": "22992583278d2f156c1c5a4ded17ef2de24cb937",
+          "tree": "c9af45406c80f9ad4adad04d9e7821f772e3a868"
+        },
+        "ThirdParty/fmtlib": {
+          "commit": "7bdf0628b1276379886c7f6dda2cef2b3b374f0b",
+          "tree": "94cfe229787a6015dce97a501bbde9dcaed869a7"
+        },
+        "ThirdParty/jsoncpp": {
+          "commit": "8875b448e4f5bfa03a7380d2d29a71019c5ed06f",
+          "tree": "da70afeb4f5ec7dbc37352cb923f7c614338e5fa"
+        },
+        "ThirdParty/netif": {
+          "commit": "72de54d70f026d2ed7bfd5f1227f175e3d2879e0",
+          "tree": "cd7e58c33e224b944a5a28dc9749d6ba472754fc"
+        },
+        "ThirdParty/spdlog": {
+          "commit": "53e1c9ab112aa97062ba3df8fede91c3acd248d5",
+          "tree": "06b3293a7297eb74371f8d134c152f42a430234e"
+        },
+        "ThirdParty/toml11": {
+          "commit": "9f0a6fd6551dd355499fc05b88e13e6de10b7317",
+          "tree": "1879fd35a22b2141f68e23209c0e5ec56d09e9d4"
+        },
+        "ThirdParty/units": {
+          "commit": "63ff89167919c1fe05caaf03c329026ea06f805b",
+          "tree": "3438f21d85fbe27ab57f1b424d869cb7757e3e6d"
+        },
+        "ThirdParty/utilities": {
+          "commit": "8bbab6f01f144609872c01e8385380f48523a965",
+          "tree": "9ae8d405a676044994a9834825bc295d44f290aa"
+        }
+      }
+    },
+    "gridlabd": {
+      "url": "https://github.com/gridlab-d/gridlab-d.git",
+      "commit": "bb825249c40ef5d6b240d3e4fd809c5a9db7d034",
+      "tree": "7d5a92bbc7e05b814323fc3ee47deb48ffa5ceff"
+    },
+    "ns3": {
+      "url": "https://github.com/nsnam/ns-3-dev-git.git",
+      "tag_object": "020c5f533253c98ee805b715d3efbd559a0ac7b4",
+      "commit": "ac88b75eac1818c673cf2c939a96ac3005b1f051",
+      "tree": "7248e1f85b4b3b41d8a1b1b98be594642dfbd438"
+    },
+    "helics_ns3_waf": {
+      "url": "https://github.com/GMLC-TDC/helics-ns3.git",
+      "commit": "11e91ab01178bb82c98bd168527ded820631cd63",
+      "tree": "5623022f1cfcc305b54c30cf2cd0db9357434732",
+      "natig_overlay_tree_g1": "6f17d114ee1fb7450a54870d4f513bb5c4a2876c",
+      "natig_overlay_tree_g4": "7efe4eafa013b14c27ed749f7ac579f2ae5edd2a"
+    }
+  },
+  "archives": {
+    "gcc-8.4.0.tar.gz": {
+      "url": "https://ftp.gnu.org/gnu/gcc/gcc-8.4.0/gcc-8.4.0.tar.gz",
+      "sha256": "41e8b145832fc0b2b34c798ed25fb54a881b0cee4cd581b77c7dc92722c116a8"
+    },
+    "cmake-3.20.3.tar.gz": {
+      "url": "https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3.tar.gz",
+      "sha256": "4d008ac3461e271fcfac26a05936f77fc7ab64402156fb371d41284851a651b8"
+    },
+    "zeromq-4.3.1.tar.gz": {
+      "url": "https://github.com/zeromq/libzmq/releases/download/v4.3.1/zeromq-4.3.1.tar.gz",
+      "sha256": "bcbabe1e2c7d0eec4ed612e10b94b112dd5f06fcefa994a0c79a45d835cd21eb"
+    },
+    "czmq-4.2.0.tar.gz": {
+      "url": "https://github.com/zeromq/czmq/releases/download/v4.2.0/czmq-4.2.0.tar.gz",
+      "sha256": "cfab29c2b3cc8a845749758a51e1dd5f5160c1ef57e2a41ea96e4c2dcc8feceb"
+    },
+    "xerces-c-3.2.0.tar.gz": {
+      "source": "gridlabd:third_party/xerces-c-3.2.0.tar.gz",
+      "sha256": "b6c2234787bc1f8315b7402d53778bbf0de7fbc452d10be15b323810a4773aa7"
+    },
+    "helics_apps-2.7.1-py2.py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl": {
+      "url": "https://files.pythonhosted.org/packages/7a/2a/5e0569dc898b9e35b43aff3cffe3e8e6c0ad0dfd2b12a93501109c66cab1/helics_apps-2.7.1-py2.py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl",
+      "sha256": "7d4ab52b786fa70a5eda6dbc7f5943b655c9a4ab461cf1225c317b51dbd32ebe"
+    }
+  },
+  "g4_overlay": {
+    "applicator": "v3/natig_adapter/apply_overlay.py",
+    "applicator_sha256": "c6318bad193634df56b4e0ab0a8b4b9dc11ce30b2f3542a07902288d2e2801d3",
+    "patch": "v3/natig_adapter/patches/0001-grideval-g4-gateway-overlay.patch",
+    "patch_sha256": "dec88aff64c24679f8aae03d5337cda90b9ba4d5149988e6a7273d2e99357d2a",
+    "result_tree": "a952f3363f4242339c9931b49e11f8ef5e21457b"
+  },
+  "excluded": [
+    "5G-LENA",
+    "Java",
+    "patch/helics-backup"
+  ],
+  "source_date_epoch": 1757796209
+}
