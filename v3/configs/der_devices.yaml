@@ -121,3 +121,63 @@ devices:
     validation:
       max_pq_steady_state_error_fraction: 0.01
       max_power_balance_error_w: 2000
+
+  - id: DER_EV3_PV
+    enabled: true          # Tier 2: PV at pure-load node (no legacy storage)
+    model: opender
+    der_type: pv
+    feeder: A
+    node: l88
+    phase: A
+    nominal_voltage_v: 2401.7771
+    rating_va: 100000
+    available_power_kw: 80.0   # declared irradiance / available DC (constant for MVP)
+    model_step_s: 1.0
+    opender_parameters:
+      np_phase: SINGLE
+      np_efficiency_pu: 1.0
+      np_q_max_inj_var: 44000
+      np_q_max_abs_var: 44000
+      active_power_limit_enable: ENABLED
+      active_power_limit_pu: 1.0
+      volt_var_mode_enable: DISABLED
+      volt_watt_mode_enable: DISABLED
+    functions:
+      active_power_limit: true
+      volt_var: false
+      volt_watt: false
+      voltage_ride_through: true
+      enter_service_and_trip: true
+    validation:
+      max_pq_steady_state_error_fraction: 0.01
+      max_power_balance_error_w: 2000
+
+  - id: DER_EV5_PV
+    enabled: true          # Tier 2: PV on phase B for cross-phase decentralization
+    model: opender
+    der_type: pv
+    feeder: A
+    node: l107
+    phase: B
+    nominal_voltage_v: 2401.7771
+    rating_va: 100000
+    available_power_kw: 80.0
+    model_step_s: 1.0
+    opender_parameters:
+      np_phase: SINGLE
+      np_efficiency_pu: 1.0
+      np_q_max_inj_var: 44000
+      np_q_max_abs_var: 44000
+      active_power_limit_enable: ENABLED
+      active_power_limit_pu: 1.0
+      volt_var_mode_enable: DISABLED
+      volt_watt_mode_enable: DISABLED
+    functions:
+      active_power_limit: true
+      volt_var: false
+      volt_watt: false
+      voltage_ride_through: true
+      enter_service_and_trip: true
+    validation:
+      max_pq_steady_state_error_fraction: 0.01
+      max_power_balance_error_w: 2000

@@ -238,8 +238,12 @@ def main() -> int:
             v_mag = abs(complex(v[0], v[1])) if isinstance(v, (list, tuple)) else abs(v)
             v_pu = (v_mag / d.get("nominal_voltage_v", NOMINAL_VOLTAGE_V)) if v_mag > 0 else 1.0
             p_cmd, q_cmd = device_schedule(i, t)
-            # BESS: demand_kw signed; PV: available DC (use |p| as available, floor 0)
-            demand = p_cmd if d["der_type"] == "bess" else max(0.0, p_cmd)
+            if d["der_type"] == "pv":
+                # PV: available DC power (declared irradiance); generation-only
+                demand = float(d.get("available_power_kw", d.get("rating_va", 100000) / 1000.0))
+                p_cmd = demand
+            else:
+                demand = p_cmd  # BESS: signed AC demand (charge/discharge)
             # reactive command via constant-Q mode (pu of nameplate kVA)
             dev_model = models[cid]
             rating_kva = d.get("rating_va", 200000) / 1000.0
