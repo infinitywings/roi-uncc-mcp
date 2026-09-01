@@ -1,0 +1,257 @@
+{
+  "audit_scope": {
+    "absence_claim": "bounded_to_declared_scan_scope",
+    "methods": [
+      "Git_tracking_status",
+      "JSON_structure_and_lineage_inspection",
+      "RKA_targeted_retrieval",
+      "SHA256_and_byte_count",
+      "read_only_numeric_consistency_check",
+      "targeted_content_scan",
+      "targeted_filename_scan"
+    ],
+    "scanned_roots": [
+      "RKA_project_prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+      "v3/g7_condition_freeze/20260830_r1",
+      "v3/g7_confirmatory",
+      "v3/opender_federate"
+    ],
+    "writes_performed": false
+  },
+  "candidate_source_audit": {
+    "M": {
+      "associated_script": {
+        "bytes": 5159,
+        "git_tracked": false,
+        "path": "v3/opender_federate/g7_l5b_search.py",
+        "sha256": "748f284fe7b90b25b8aea1328cbc72626a0dd0cf1f266720081bc33cdcfba4fb"
+      },
+      "candidate_status": "INADMISSIBLE_EXPLORATORY_REFERENCE_ONLY",
+      "disqualifiers": [
+        "candidate_space_not_M9_library",
+        "detector_outcomes_used_for_search",
+        "no_frozen_read_only_ranking_artifact",
+        "no_independent_ranking_validation_partition",
+        "treatment_outcomes_used_for_search",
+        "untracked_source_bytes"
+      ],
+      "eligible_candidate_found_in_scope": false,
+      "exploratory_trace": {
+        "bytes": 1729,
+        "contains_detector_informed_treatment_outcomes": true,
+        "episodes": 5,
+        "git_tracked": false,
+        "path": "v3/opender_federate/g7_l5b_search_trace.json",
+        "ranks_exact_M9_candidate_library": false,
+        "sha256": "f41f40c610336b00bbc815d34d68831aa65f85e70508cb2df71ac1d57691a670"
+      },
+      "historical_use": "retain_for_exploratory_L5b_lineage_not_CAREER_admission"
+    },
+    "S": {
+      "artifact": {
+        "bytes": 16497,
+        "freeze_copy_byte_identical": true,
+        "git_tracked": false,
+        "path": "v3/opender_federate/sensitivity_g7.json",
+        "sha256": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+      },
+      "candidate_status": "INADMISSIBLE_EXPLORATORY_REFERENCE_ONLY",
+      "declared_structure": {
+        "Sp_shape": [
+          4,
+          4
+        ],
+        "Sq_nonzero_entries": 0,
+        "Sq_shape": [
+          4,
+          4
+        ],
+        "device_ids": [
+          "DER_EV4_BESS",
+          "DER_EV1_BESS",
+          "DER_EV3_PV",
+          "DER_EV5_PV"
+        ],
+        "probe_based": true,
+        "reference_rows": 84,
+        "source_runs": [
+          "g7_pilot_sm",
+          "g7_pilot_llm",
+          "g7_pilot_rnd1",
+          "g7_pilot_rnd2",
+          "g7_pilot_rnd_s1003",
+          "g7_pilot_rnd_s1004",
+          "g7_pilot_rnd_s1005"
+        ]
+      },
+      "disqualifiers": [
+        "all_zero_Q_channel_not_validated_as_intentional_scope",
+        "four_device_authority_does_not_match_single_aggregator_core",
+        "generator_not_found_in_scoped_scan",
+        "probe_traces_not_content_bound_by_artifact",
+        "run_seed_and_operating_condition_lineage_incomplete",
+        "source_runs_omit_exact_baseline",
+        "untracked_source_bytes"
+      ],
+      "historical_use": "retain_for_exploratory_L2_lineage_not_CAREER_admission",
+      "observed_lineage": {
+        "generator_found_in_scoped_scan": false,
+        "probe_paths_named_in_source_runs": false,
+        "probe_trace_hashes": {
+          "DER_EV1_BESS": "6071faf8b0ca7ea66f9842820d7c963f2238d415364edc5e61602324d5f5212a",
+          "DER_EV3_PV": "2416dee47304f263773059517414a440676d9647db495fe3ea4d9d7589ea77e3",
+          "DER_EV4_BESS": "5aad2a1681383d5e7cb8d5387b1dea10e1ed6708df75e52621fd7f2d809261d5",
+          "DER_EV5_PV": "1498c2324919d0703569f62f62329bb13f7f48eb1ac29ca8b020b4d2777b1357"
+        },
+        "reference_arrays_exactly_match_unlisted_baseline": true,
+        "unlisted_baseline_path": "v3/opender_federate/g7_pilot_b0/multi_der_traces.json",
+        "unlisted_baseline_sha256": "3945f0bc0bbe638c255d6284e6116661a116a415e93d45ee56cbd703cae5ab14"
+      }
+    }
+  },
+  "canonical_status": {
+    "M_real_resource": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+    "M_scientific_threshold": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+    "S_real_resource": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+    "S_scientific_threshold": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+    "campaign": "HOLD",
+    "evaluation": "SEALED"
+  },
+  "contract_id": "careerthresholdhold_4ff524e10e76cc36a68aec92ac6fcddda99802cf0699e419f930ad1f03588468",
+  "governance": {
+    "actuator_accessed": false,
+    "campaign_authorized": false,
+    "detector_accessed": false,
+    "detector_calibration_authorized": false,
+    "development_only": true,
+    "embedding_service_accessed": false,
+    "evaluation_sealed": true,
+    "live_runtime_authorized": false,
+    "model_transport_authorized": false,
+    "real_resource_admission_authorized": false,
+    "real_tool_execution_authorized": false,
+    "scientific_threshold_freeze_authorized": false,
+    "simulator_accessed": false
+  },
+  "limitations": [
+    "estimator_skeletons_not_final_analysis_plans",
+    "exploratory_sources_preserved_not_promoted",
+    "no_physical_ranking_or_factor_effect_claim",
+    "no_real_resource_validated_or_admitted",
+    "no_runtime_or_campaign_authorization",
+    "no_scientific_threshold_selected",
+    "scoped_audit_does_not_prove_global_source_absence"
+  ],
+  "milestone": "M11",
+  "next_gate": {
+    "id": "M12_clean_candidate_source_freeze_design",
+    "model_or_embedding_call": false,
+    "requires_independent_review": true,
+    "runtime_authorized": false,
+    "scope": "offline_source_manifest_and_partition_design_only",
+    "simulator_or_detector_access": false
+  },
+  "required_repairs": {
+    "M": [
+      "exact_M9_candidate_library",
+      "tracked_frozen_read_only_ranker",
+      "content_addressed_derivation_manifest",
+      "separate_threshold_design_and_validation_partitions",
+      "independent_source_and_metric_review",
+      "no_online_update",
+      "no_treatment_detector_or_evaluation_outcomes"
+    ],
+    "S": [
+      "single_ev_aggregator_setpoint",
+      "tracked_deterministic_source_generator",
+      "content_addressed_input_and_output_manifests",
+      "explicit_development_seed_and_operating_condition_lineage",
+      "separate_threshold_design_and_validation_partitions",
+      "independent_source_and_metric_review",
+      "no_treatment_detector_or_evaluation_outcomes"
+    ]
+  },
+  "schema_version": "grideval-career-threshold-hold/v1",
+  "source_lineage": {
+    "frozen_experiment_spec_sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d",
+    "frozen_roadmap_report_sha256": "c4fc1168708c0d47d1162754296d3f731c51028650aaeab739aca42fb3aa827b",
+    "governing_draft_sha256": "a87158fdf6ad7ffb4c783ecd9b2a8b7d47886f234464a07571a5a41c659f5d8c",
+    "m10_contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+    "m11_decision": "dec_01M1DMKWJ9BM6YV2E0MNDJZRDJ",
+    "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+    "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36"
+  },
+  "threshold_preregistration": {
+    "M": {
+      "factor": "M",
+      "metrics": {
+        "normalized_simple_regret": {
+          "estimator_skeleton": "block_gap_between_observed_best_and_top_ranked_candidate_scaled_by_frozen_outcome_range",
+          "estimator_status": "draft_requires_source_freeze_and_independent_review",
+          "scientific_threshold": null,
+          "threshold_status": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED"
+        },
+        "pairwise_order_accuracy": {
+          "estimator_skeleton": "block_fraction_of_preregistered_candidate_pairs_ranked_in_observed_order",
+          "estimator_status": "draft_requires_source_freeze_and_independent_review",
+          "scientific_threshold": null,
+          "threshold_status": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED"
+        },
+        "top_k_candidate_recall": {
+          "estimator_skeleton": "block_recall_of_observed_best_candidates_with_k_frozen_before_validation",
+          "estimator_status": "draft_requires_source_freeze_and_independent_review",
+          "scientific_threshold": null,
+          "threshold_status": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED"
+        }
+      },
+      "missing_data_policy": "invalid_or_missing_block_fails_admission_completeness",
+      "sample_unit": "independent_validation_block_not_window",
+      "status": "DRAFT_PREREQUISITES_REQUIRED",
+      "threshold_design_partition": null,
+      "uncertainty_plan": "cluster_aware_interval_over_independent_blocks_method_unselected",
+      "validation_partition": null
+    },
+    "S": {
+      "factor": "S",
+      "metrics": {
+        "directional_response_agreement": {
+          "estimator_skeleton": "block_fraction_of_preregistered_action_response_pairs_with_correct_signed_response",
+          "estimator_status": "draft_requires_source_freeze_and_independent_review",
+          "scientific_threshold": null,
+          "threshold_status": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED"
+        },
+        "normalized_response_error": {
+          "estimator_skeleton": "block_response_error_scaled_by_frozen_engineering_tolerance",
+          "estimator_status": "draft_requires_source_freeze_and_independent_review",
+          "scientific_threshold": null,
+          "threshold_status": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED"
+        },
+        "operating_envelope_coverage": {
+          "estimator_skeleton": "fraction_of_preregistered_operating_cells_with_complete_valid_evidence",
+          "estimator_status": "draft_requires_source_freeze_and_independent_review",
+          "scientific_threshold": null,
+          "threshold_status": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED"
+        }
+      },
+      "missing_data_policy": "invalid_or_missing_block_fails_admission_completeness",
+      "sample_unit": "independent_validation_block_not_window",
+      "status": "DRAFT_PREREQUISITES_REQUIRED",
+      "threshold_design_partition": null,
+      "uncertainty_plan": "cluster_aware_interval_over_independent_blocks_method_unselected",
+      "validation_partition": null
+    },
+    "shared_rules": {
+      "exploratory_outcomes_may_select_thresholds": false,
+      "failed_factor_policy": "reduce_factorial_prospectively",
+      "independent_review_before_freeze": true,
+      "missing_or_invalid_evidence_policy": "factor_not_admitted",
+      "synthetic_M10_values_may_be_reused": false,
+      "threshold_design_and_validation_partitions_disjoint": true,
+      "threshold_design_partition_required": true,
+      "threshold_values_must_be_null_in_M11": true,
+      "treatment_or_evaluation_outcomes_may_be_read": false
+    }
+  },
+  "title": "CAREER S/M source-lineage and threshold prerequisite HOLD",
+  "verdict": "HOLD_PREREQUISITES_NOT_MET"
+}

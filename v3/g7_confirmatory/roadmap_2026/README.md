@@ -36,6 +36,11 @@ fail-closed matrix are documented in
 on HOLD: `S` still needs independently reviewed action-validity evidence and
 `M` still needs independently reviewed candidate-ranking evidence after
 prospective threshold preregistration. M10 does not amend the frozen report.
+The offline M11 source-lineage audit and threshold HOLD are documented in
+`../M11_CAREER_THRESHOLD_HOLD_REPORT.md`. The available candidate sources are
+preserved as exploratory evidence but cannot support threshold selection or
+resource admission. The canonical artifact records exact hashes, null
+thresholds, and M12 repair requirements without amending the frozen report.
 This separation avoids rewriting the report's original source manifest while
 keeping current protocol evidence explicit.
 

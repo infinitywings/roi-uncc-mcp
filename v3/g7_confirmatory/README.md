@@ -49,7 +49,10 @@ The harness provides:
 - an offline M10 admission framework that keeps real `S` and `M` resources on
   HOLD while testing separate process-relationship and predictive-ranking
   profiles against partition, threshold-order, parity, leakage, and update
-  failures.
+  failures; and
+- an offline M11 content-addressed source-lineage audit that preserves the
+  available `S` and `M` inputs as exploratory evidence, keeps every scientific
+  threshold unset, and identifies the clean-source repairs required by M12.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -92,6 +95,11 @@ The M10 admission-validator design is documented in
 evidence and schema are `artifacts/career_resource_admission_m10.json` and
 `career_resource_admission.schema.json`. Passing M10 does not validate or admit
 a real `S` or `M` resource.
+The M11 source-lineage decision is documented in
+`M11_CAREER_THRESHOLD_HOLD_REPORT.md`; its canonical HOLD artifact and schema
+are `artifacts/career_threshold_hold_m11.json` and
+`career_threshold_hold.schema.json`. M11 selects no scientific threshold and
+authorizes no resource admission or runtime access.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the

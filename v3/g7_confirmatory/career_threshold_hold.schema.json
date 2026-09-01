@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_threshold_hold.schema.json",
+  "title": "GridEval M11 CAREER threshold-prerequisite HOLD",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_id",
+    "milestone",
+    "title",
+    "verdict",
+    "governance",
+    "source_lineage",
+    "audit_scope",
+    "candidate_source_audit",
+    "threshold_preregistration",
+    "required_repairs",
+    "canonical_status",
+    "limitations",
+    "next_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-career-threshold-hold/v1"
+    },
+    "contract_id": {
+      "type": "string",
+      "pattern": "^careerthresholdhold_[0-9a-f]{64}$"
+    },
+    "milestone": { "const": "M11" },
+    "title": { "type": "string", "minLength": 1 },
+    "verdict": { "const": "HOLD_PREREQUISITES_NOT_MET" },
+    "governance": { "$ref": "#/$defs/governance" },
+    "source_lineage": { "type": "object" },
+    "audit_scope": {
+      "type": "object",
+      "required": [
+        "scanned_roots",
+        "methods",
+        "absence_claim",
+        "writes_performed"
+      ],
+      "properties": {
+        "scanned_roots": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "methods": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "absence_claim": { "const": "bounded_to_declared_scan_scope" },
+        "writes_performed": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "candidate_source_audit": {
+      "type": "object",
+      "required": ["S", "M"],
+      "properties": {
+        "S": { "$ref": "#/$defs/sourceAudit" },
+        "M": { "$ref": "#/$defs/sourceAudit" }
+      },
+      "additionalProperties": false
+    },
+    "threshold_preregistration": {
+      "type": "object",
+      "required": ["S", "M", "shared_rules"],
+      "properties": {
+        "S": { "$ref": "#/$defs/metricPlan" },
+        "M": { "$ref": "#/$defs/metricPlan" },
+        "shared_rules": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "required_repairs": {
+      "type": "object",
+      "required": ["S", "M"],
+      "properties": {
+        "S": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "M": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "canonical_status": {
+      "$ref": "#/$defs/canonicalStatus"
+    },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "next_gate": { "type": "object" }
+  },
+  "$defs": {
+    "governance": {
+      "type": "object",
+      "required": [
+        "development_only",
+        "campaign_authorized",
+        "evaluation_sealed",
+        "detector_calibration_authorized",
+        "live_runtime_authorized",
+        "model_transport_authorized",
+        "real_tool_execution_authorized",
+        "embedding_service_accessed",
+        "simulator_accessed",
+        "detector_accessed",
+        "actuator_accessed",
+        "scientific_threshold_freeze_authorized",
+        "real_resource_admission_authorized"
+      ],
+      "properties": {
+        "development_only": { "const": true },
+        "campaign_authorized": { "const": false },
+        "evaluation_sealed": { "const": true },
+        "detector_calibration_authorized": { "const": false },
+        "live_runtime_authorized": { "const": false },
+        "model_transport_authorized": { "const": false },
+        "real_tool_execution_authorized": { "const": false },
+        "embedding_service_accessed": { "const": false },
+        "simulator_accessed": { "const": false },
+        "detector_accessed": { "const": false },
+        "actuator_accessed": { "const": false },
+        "scientific_threshold_freeze_authorized": { "const": false },
+        "real_resource_admission_authorized": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "sourceAudit": {
+      "type": "object",
+      "required": [
+        "candidate_status",
+        "disqualifiers",
+        "historical_use"
+      ],
+      "properties": {
+        "candidate_status": {
+          "const": "INADMISSIBLE_EXPLORATORY_REFERENCE_ONLY"
+        },
+        "artifact": { "type": "object" },
+        "declared_structure": { "type": "object" },
+        "observed_lineage": { "type": "object" },
+        "eligible_candidate_found_in_scope": { "type": "boolean" },
+        "exploratory_trace": { "type": "object" },
+        "associated_script": { "type": "object" },
+        "disqualifiers": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "historical_use": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "metricPlan": {
+      "type": "object",
+      "required": [
+        "factor",
+        "status",
+        "sample_unit",
+        "threshold_design_partition",
+        "validation_partition",
+        "metrics",
+        "uncertainty_plan",
+        "missing_data_policy"
+      ],
+      "properties": {
+        "factor": { "enum": ["S", "M"] },
+        "status": { "const": "DRAFT_PREREQUISITES_REQUIRED" },
+        "sample_unit": {
+          "const": "independent_validation_block_not_window"
+        },
+        "threshold_design_partition": { "type": "null" },
+        "validation_partition": { "type": "null" },
+        "metrics": {
+          "type": "object",
+          "minProperties": 3,
+          "maxProperties": 3,
+          "additionalProperties": { "$ref": "#/$defs/metric" }
+        },
+        "uncertainty_plan": {
+          "const": "cluster_aware_interval_over_independent_blocks_method_unselected"
+        },
+        "missing_data_policy": {
+          "const": "invalid_or_missing_block_fails_admission_completeness"
+        }
+      },
+      "additionalProperties": false
+    },
+    "metric": {
+      "type": "object",
+      "required": [
+        "estimator_skeleton",
+        "estimator_status",
+        "scientific_threshold",
+        "threshold_status"
+      ],
+      "properties": {
+        "estimator_skeleton": { "type": "string", "minLength": 1 },
+        "estimator_status": {
+          "const": "draft_requires_source_freeze_and_independent_review"
+        },
+        "scientific_threshold": { "type": "null" },
+        "threshold_status": {
+          "const": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED"
+        }
+      },
+      "additionalProperties": false
+    },
+    "canonicalStatus": {
+      "type": "object",
+      "required": [
+        "S_real_resource",
+        "M_real_resource",
+        "S_scientific_threshold",
+        "M_scientific_threshold",
+        "evaluation",
+        "campaign"
+      ],
+      "properties": {
+        "S_real_resource": {
+          "const": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE"
+        },
+        "M_real_resource": {
+          "const": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE"
+        },
+        "S_scientific_threshold": {
+          "const": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED"
+        },
+        "M_scientific_threshold": {
+          "const": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED"
+        },
+        "evaluation": { "const": "SEALED" },
+        "campaign": { "const": "HOLD" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
