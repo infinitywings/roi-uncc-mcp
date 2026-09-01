@@ -1,0 +1,320 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_resource_admission.schema.json",
+  "title": "GridEval M10 CAREER resource admission artifact",
+  "type": "object",
+  "required": [
+    "contract",
+    "synthetic_fixture_evidence"
+  ],
+  "properties": {
+    "contract": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "contract_id",
+        "milestone",
+        "title",
+        "governance",
+        "source_lineage",
+        "parity_anchor",
+        "shared_admission_rules",
+        "resource_profiles",
+        "state_machine",
+        "canonical_real_resource_status",
+        "synthetic_fixture_gate",
+        "limitations",
+        "next_gate"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-career-resource-admission/v1"
+        },
+        "contract_id": {
+          "type": "string",
+          "pattern": "^careerresource_[0-9a-f]{64}$"
+        },
+        "milestone": { "const": "M10" },
+        "title": { "type": "string", "minLength": 1 },
+        "governance": { "$ref": "#/$defs/governance" },
+        "source_lineage": { "type": "object" },
+        "parity_anchor": { "type": "object" },
+        "shared_admission_rules": { "type": "object" },
+        "resource_profiles": {
+          "type": "object",
+          "required": ["S", "M"],
+          "properties": {
+            "S": { "$ref": "#/$defs/resourceProfile" },
+            "M": { "$ref": "#/$defs/resourceProfile" }
+          },
+          "additionalProperties": false
+        },
+        "state_machine": { "type": "object" },
+        "canonical_real_resource_status": {
+          "$ref": "#/$defs/realResourceStatus"
+        },
+        "synthetic_fixture_gate": { "type": "object" },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "next_gate": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "synthetic_fixture_evidence": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "matrix_id",
+        "contract_id",
+        "envelopes",
+        "receipts",
+        "checks",
+        "verdict",
+        "canonical_real_resource_status"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-career-admission-fixtures/v1"
+        },
+        "matrix_id": {
+          "type": "string",
+          "pattern": "^m10matrix_[0-9a-f]{64}$"
+        },
+        "contract_id": {
+          "type": "string",
+          "pattern": "^careerresource_[0-9a-f]{64}$"
+        },
+        "envelopes": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": { "$ref": "#/$defs/envelope" }
+        },
+        "receipts": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": { "$ref": "#/$defs/receipt" }
+        },
+        "checks": {
+          "type": "object",
+          "minProperties": 11,
+          "maxProperties": 11,
+          "additionalProperties": { "const": true }
+        },
+        "verdict": {
+          "const": "PASS_ADMISSION_VALIDATOR_STRUCTURE_ONLY"
+        },
+        "canonical_real_resource_status": {
+          "$ref": "#/$defs/realResourceStatus"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "governance": {
+      "type": "object",
+      "required": [
+        "development_only",
+        "campaign_authorized",
+        "evaluation_sealed",
+        "detector_calibration_authorized",
+        "live_runtime_authorized",
+        "model_transport_authorized",
+        "real_tool_execution_authorized",
+        "embedding_service_accessed",
+        "simulator_accessed",
+        "detector_accessed",
+        "actuator_accessed",
+        "real_resource_admission_authorized"
+      ],
+      "properties": {
+        "development_only": { "const": true },
+        "campaign_authorized": { "const": false },
+        "evaluation_sealed": { "const": true },
+        "detector_calibration_authorized": { "const": false },
+        "live_runtime_authorized": { "const": false },
+        "model_transport_authorized": { "const": false },
+        "real_tool_execution_authorized": { "const": false },
+        "embedding_service_accessed": { "const": false },
+        "simulator_accessed": { "const": false },
+        "detector_accessed": { "const": false },
+        "actuator_accessed": { "const": false },
+        "real_resource_admission_authorized": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "resourceProfile": {
+      "type": "object",
+      "required": [
+        "factor",
+        "resource_type",
+        "payload_schema",
+        "allowed_information",
+        "forbidden_information",
+        "validation_evidence_role",
+        "required_metrics",
+        "threshold_status",
+        "resource_behavior"
+      ],
+      "properties": {
+        "factor": { "enum": ["S", "M"] },
+        "resource_type": { "type": "string" },
+        "payload_schema": { "type": "string" },
+        "allowed_information": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "forbidden_information": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "validation_evidence_role": { "type": "string" },
+        "required_metrics": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "threshold_status": {
+          "const": "uninstantiated_pending_development_preregistration"
+        },
+        "resource_behavior": {
+          "const": "frozen_read_only_no_online_update"
+        }
+      },
+      "additionalProperties": false
+    },
+    "realResourceStatus": {
+      "type": "object",
+      "required": ["S", "M"],
+      "properties": {
+        "S": {
+          "const": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE"
+        },
+        "M": {
+          "const": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE"
+        }
+      },
+      "additionalProperties": false
+    },
+    "envelope": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "envelope_id",
+        "contract_id",
+        "fixture_id",
+        "factor",
+        "synthetic_fixture",
+        "resource_manifest",
+        "validation_protocol",
+        "validation_evidence",
+        "parity_assertion",
+        "external_access"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-career-resource-envelope/v1"
+        },
+        "envelope_id": {
+          "type": "string",
+          "pattern": "^resourceenv_[0-9a-f]{64}$"
+        },
+        "contract_id": {
+          "type": "string",
+          "pattern": "^careerresource_[0-9a-f]{64}$"
+        },
+        "fixture_id": { "type": "string", "minLength": 1 },
+        "factor": { "enum": ["S", "M"] },
+        "synthetic_fixture": { "const": true },
+        "resource_manifest": { "type": "object" },
+        "validation_protocol": { "type": "object" },
+        "validation_evidence": { "type": "object" },
+        "parity_assertion": { "type": "object" },
+        "external_access": { "$ref": "#/$defs/externalAccess" }
+      },
+      "additionalProperties": false
+    },
+    "receipt": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "receipt_id",
+        "contract_id",
+        "fixture_id",
+        "envelope_id",
+        "factor",
+        "accepted",
+        "verdict",
+        "reason_codes",
+        "real_resource_status_after",
+        "external_access",
+        "interpretation"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-career-admission-receipt/v1"
+        },
+        "receipt_id": {
+          "type": "string",
+          "pattern": "^m10receipt_[0-9a-f]{64}$"
+        },
+        "contract_id": { "type": "string" },
+        "fixture_id": { "type": "string" },
+        "envelope_id": { "type": "string" },
+        "factor": { "enum": ["S", "M"] },
+        "accepted": { "type": "boolean" },
+        "verdict": {
+          "enum": [
+            "PASS_SYNTHETIC_STRUCTURE_ONLY",
+            "REJECTED_FAIL_CLOSED"
+          ]
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "real_resource_status_after": {
+          "const": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE"
+        },
+        "external_access": { "$ref": "#/$defs/externalAccess" },
+        "interpretation": {
+          "const": "admission_validator_structure_only"
+        }
+      },
+      "additionalProperties": false
+    },
+    "externalAccess": {
+      "type": "object",
+      "required": [
+        "model_calls",
+        "real_tool_calls",
+        "simulator_calls",
+        "detector_calls",
+        "embedding_calls",
+        "actuator_calls",
+        "evaluation_records_read"
+      ],
+      "properties": {
+        "model_calls": { "const": 0 },
+        "real_tool_calls": { "const": 0 },
+        "simulator_calls": { "const": 0 },
+        "detector_calls": { "const": 0 },
+        "embedding_calls": { "const": 0 },
+        "actuator_calls": { "const": 0 },
+        "evaluation_records_read": { "const": 0 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

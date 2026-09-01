@@ -45,7 +45,11 @@ The harness provides:
   extensions; and
 - an offline M9 two-interval state machine and mirrored fixture pair that
   isolates revision permission, keeps all parity bytes fixed, rejects invalid
-  transitions, and emits four content-addressed protocol-only receipts.
+  transitions, and emits four content-addressed protocol-only receipts; and
+- an offline M10 admission framework that keeps real `S` and `M` resources on
+  HOLD while testing separate process-relationship and predictive-ranking
+  profiles against partition, threshold-order, parity, leakage, and update
+  failures.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -83,6 +87,11 @@ and schema are `artifacts/career_two_interval_fixture_m9.json` and
 `career_two_interval_fixture.schema.json`. M9 uses only qualitative synthetic
 tokens and does not access a model, tool, simulator, detector, embedding
 service, actuator, or evaluation record.
+The M10 admission-validator design is documented in
+`M10_CAREER_RESOURCE_ADMISSION_REPORT.md`; its canonical synthetic-fixture
+evidence and schema are `artifacts/career_resource_admission_m10.json` and
+`career_resource_admission.schema.json`. Passing M10 does not validate or admit
+a real `S` or `M` resource.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the

@@ -1,0 +1,1114 @@
+{
+  "contract": {
+    "canonical_real_resource_status": {
+      "M": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "S": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE"
+    },
+    "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+    "governance": {
+      "actuator_accessed": false,
+      "campaign_authorized": false,
+      "detector_accessed": false,
+      "detector_calibration_authorized": false,
+      "development_only": true,
+      "embedding_service_accessed": false,
+      "evaluation_sealed": true,
+      "live_runtime_authorized": false,
+      "model_transport_authorized": false,
+      "real_resource_admission_authorized": false,
+      "real_tool_execution_authorized": false,
+      "simulator_accessed": false
+    },
+    "limitations": [
+      "no_A_factor_outcome_claim",
+      "no_llm_or_tool_use_claim",
+      "no_physical_or_ranking_performance_claim",
+      "no_real_M_resource_validated_or_admitted",
+      "no_real_S_resource_validated_or_admitted",
+      "no_runtime_or_campaign_authorization",
+      "no_scientific_threshold_selected"
+    ],
+    "milestone": "M10",
+    "next_gate": {
+      "id": "M11_development_only_threshold_preregistration",
+      "model_call": false,
+      "real_tool_execution": false,
+      "requires_independent_review": true,
+      "scope": "source_lineage_and_metric_threshold_plan_only",
+      "simulator_or_detector_access": false
+    },
+    "parity_anchor": {
+      "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+      "held_fixed_across_S_and_M": [
+        "action_authority",
+        "budgets",
+        "candidate_library",
+        "confirmation_rule",
+        "evaluation_partition",
+        "raw_observation_interface",
+        "revision_permission",
+        "safety_shield"
+      ],
+      "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+      "m9_parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671"
+    },
+    "resource_profiles": {
+      "M": {
+        "allowed_information": [
+          "candidate_identifier",
+          "model_version_identifier",
+          "read_only_predicted_score",
+          "read_only_rank"
+        ],
+        "factor": "M",
+        "forbidden_information": [
+          "A_treatment_outcomes",
+          "detector_scores",
+          "evaluation_outcomes",
+          "new_action_authority",
+          "new_raw_observations",
+          "online_updates"
+        ],
+        "payload_schema": "candidate_ranking_resource/v1",
+        "required_metrics": [
+          "normalized_simple_regret",
+          "pairwise_order_accuracy",
+          "top_k_candidate_recall"
+        ],
+        "resource_behavior": "frozen_read_only_no_online_update",
+        "resource_type": "validated_predictive_candidate_ranking",
+        "threshold_status": "uninstantiated_pending_development_preregistration",
+        "validation_evidence_role": "independent_held_out_candidate_ranking"
+      },
+      "S": {
+        "allowed_information": [
+          "action_family",
+          "operating_envelope_reference",
+          "qualitative_response_direction",
+          "relationship_identifier"
+        ],
+        "factor": "S",
+        "forbidden_information": [
+          "A_treatment_outcomes",
+          "detector_scores",
+          "evaluation_outcomes",
+          "new_action_authority",
+          "new_raw_observations",
+          "online_updates"
+        ],
+        "payload_schema": "process_relationship_resource/v1",
+        "required_metrics": [
+          "directional_response_agreement",
+          "normalized_response_error",
+          "operating_envelope_coverage"
+        ],
+        "resource_behavior": "frozen_read_only_no_online_update",
+        "resource_type": "validated_process_relationships",
+        "threshold_status": "uninstantiated_pending_development_preregistration",
+        "validation_evidence_role": "independent_held_out_action_validity"
+      }
+    },
+    "schema_version": "grideval-career-resource-admission/v1",
+    "shared_admission_rules": {
+      "automatic_real_resource_admission": false,
+      "evaluation_records_may_be_read": false,
+      "failed_resource_policy": "reduce_factorial_prospectively",
+      "metric_profile_substitution": "prohibited",
+      "resource_derivation_and_validation_partitions_disjoint": true,
+      "resource_update_policy": "frozen_read_only",
+      "synthetic_fixture_role": "validator_structure_only",
+      "thresholds_frozen_before_validation_evidence": true,
+      "treatment_outcomes_may_select_thresholds": false,
+      "validation_and_A_confirmation_partitions_disjoint": true
+    },
+    "source_lineage": {
+      "frozen_experiment_spec_sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d",
+      "frozen_roadmap_report_sha256": "c4fc1168708c0d47d1162754296d3f731c51028650aaeab739aca42fb3aa827b",
+      "governing_draft_sha256": "a87158fdf6ad7ffb4c783ecd9b2a8b7d47886f234464a07571a5a41c659f5d8c",
+      "m10_design_decision": "dec_01M1DKWNJPFEM5FZDSGMAMS9GB",
+      "m8_contract_id": "careerstealth_3091a0e686e43b483906a37733f26dfb4cef9fd90d2ae56226e47003b3cdd394",
+      "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+      "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36"
+    },
+    "state_machine": {
+      "invalid_transition_policy": "rejected_fail_closed_no_retry",
+      "real_admission_terminal_state_present": false,
+      "states": [
+        "draft",
+        "thresholds_frozen",
+        "evidence_attached",
+        "eligible_for_independent_review",
+        "rejected_fail_closed"
+      ],
+      "synthetic_terminal_state": "eligible_for_independent_review"
+    },
+    "synthetic_fixture_gate": {
+      "passing_interpretation": "admission_validator_structure_only",
+      "required_checks": [
+        "M_positive_structure_passes",
+        "S_positive_structure_passes",
+        "all_external_access_zero",
+        "all_receipts_content_addressed",
+        "candidate_library_drift_rejected",
+        "online_update_rejected",
+        "parity_expansion_rejected",
+        "partition_overlap_rejected",
+        "post_evidence_threshold_freeze_rejected",
+        "real_resource_status_remains_hold",
+        "treatment_outcome_leak_rejected"
+      ]
+    },
+    "title": "Offline CAREER S and M independent resource admission"
+  },
+  "synthetic_fixture_evidence": {
+    "canonical_real_resource_status": {
+      "M": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "S": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE"
+    },
+    "checks": {
+      "M_positive_structure_passes": true,
+      "S_positive_structure_passes": true,
+      "all_external_access_zero": true,
+      "all_receipts_content_addressed": true,
+      "candidate_library_drift_rejected": true,
+      "online_update_rejected": true,
+      "parity_expansion_rejected": true,
+      "partition_overlap_rejected": true,
+      "post_evidence_threshold_freeze_rejected": true,
+      "real_resource_status_remains_hold": true,
+      "treatment_outcome_leak_rejected": true
+    },
+    "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+    "envelopes": [
+      {
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_ffbf1f8f59537104d07350d9dc7205f447c713a3370be46d8d7350f2bb8723e4",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "S",
+        "fixture_id": "S_positive_structure",
+        "parity_assertion": {
+          "assertions": {
+            "action_authority_unchanged": true,
+            "budget_unchanged": true,
+            "candidate_library_unchanged": true,
+            "confirmation_rule_unchanged": true,
+            "evaluation_partition_sealed": true,
+            "raw_observation_interface_unchanged": true,
+            "revision_permission_unchanged": true,
+            "safety_shield_unchanged": true
+          },
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+          "m9_parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671"
+        },
+        "resource_manifest": {
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "contains_executable_actions": false,
+          "derivation_partition_id": "synthetic_S_resource_derivation",
+          "information_grant": [
+            "action_family",
+            "operating_envelope_reference",
+            "qualitative_response_direction",
+            "relationship_identifier"
+          ],
+          "payload_schema": "process_relationship_resource/v1",
+          "resource_id": "synthetic_S_structure_only",
+          "resource_type": "validated_process_relationships",
+          "update_policy": "frozen_read_only"
+        },
+        "schema_version": "grideval-career-resource-envelope/v1",
+        "synthetic_fixture": true,
+        "validation_evidence": {
+          "evaluation_records_accessed": false,
+          "evidence_sequence": 2,
+          "metric_observations": {
+            "directional_response_agreement": {
+              "synthetic": true,
+              "value": 0.9
+            },
+            "normalized_response_error": {
+              "synthetic": true,
+              "value": 0.1
+            },
+            "operating_envelope_coverage": {
+              "synthetic": true,
+              "value": 0.9
+            }
+          },
+          "source": "synthetic_structural_fixture",
+          "treatment_outcomes_accessed": false,
+          "validation_partition_id": "synthetic_S_independent_validation"
+        },
+        "validation_protocol": {
+          "disjoint_from_partition_ids": [
+            "synthetic_S_resource_derivation",
+            "A_confirmation_partition"
+          ],
+          "evidence_role": "independent_held_out_action_validity",
+          "metric_thresholds": {
+            "directional_response_agreement": {
+              "direction": "at_least",
+              "value": 0.8
+            },
+            "normalized_response_error": {
+              "direction": "at_most",
+              "value": 0.2
+            },
+            "operating_envelope_coverage": {
+              "direction": "at_least",
+              "value": 0.8
+            }
+          },
+          "threshold_basis": "synthetic_fixture_only_not_scientific_threshold",
+          "threshold_freeze_sequence": 1,
+          "validation_partition_id": "synthetic_S_independent_validation"
+        }
+      },
+      {
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_31263d5571428ffc6e34a9c94aa3e5909d49dea10178086292b373f0c9de6978",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "M",
+        "fixture_id": "M_positive_structure",
+        "parity_assertion": {
+          "assertions": {
+            "action_authority_unchanged": true,
+            "budget_unchanged": true,
+            "candidate_library_unchanged": true,
+            "confirmation_rule_unchanged": true,
+            "evaluation_partition_sealed": true,
+            "raw_observation_interface_unchanged": true,
+            "revision_permission_unchanged": true,
+            "safety_shield_unchanged": true
+          },
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+          "m9_parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671"
+        },
+        "resource_manifest": {
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "contains_executable_actions": false,
+          "derivation_partition_id": "synthetic_M_resource_derivation",
+          "information_grant": [
+            "candidate_identifier",
+            "model_version_identifier",
+            "read_only_predicted_score",
+            "read_only_rank"
+          ],
+          "payload_schema": "candidate_ranking_resource/v1",
+          "resource_id": "synthetic_M_structure_only",
+          "resource_type": "validated_predictive_candidate_ranking",
+          "update_policy": "frozen_read_only"
+        },
+        "schema_version": "grideval-career-resource-envelope/v1",
+        "synthetic_fixture": true,
+        "validation_evidence": {
+          "evaluation_records_accessed": false,
+          "evidence_sequence": 2,
+          "metric_observations": {
+            "normalized_simple_regret": {
+              "synthetic": true,
+              "value": 0.15
+            },
+            "pairwise_order_accuracy": {
+              "synthetic": true,
+              "value": 0.85
+            },
+            "top_k_candidate_recall": {
+              "synthetic": true,
+              "value": 0.85
+            }
+          },
+          "source": "synthetic_structural_fixture",
+          "treatment_outcomes_accessed": false,
+          "validation_partition_id": "synthetic_M_independent_validation"
+        },
+        "validation_protocol": {
+          "disjoint_from_partition_ids": [
+            "synthetic_M_resource_derivation",
+            "A_confirmation_partition"
+          ],
+          "evidence_role": "independent_held_out_candidate_ranking",
+          "metric_thresholds": {
+            "normalized_simple_regret": {
+              "direction": "at_most",
+              "value": 0.25
+            },
+            "pairwise_order_accuracy": {
+              "direction": "at_least",
+              "value": 0.75
+            },
+            "top_k_candidate_recall": {
+              "direction": "at_least",
+              "value": 0.75
+            }
+          },
+          "threshold_basis": "synthetic_fixture_only_not_scientific_threshold",
+          "threshold_freeze_sequence": 1,
+          "validation_partition_id": "synthetic_M_independent_validation"
+        }
+      },
+      {
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_3572b5c92d5c053db43a69d4ffffb73854f0c2ef88fef41c9bf7a13f84fe7f84",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "S",
+        "fixture_id": "S_partition_overlap",
+        "parity_assertion": {
+          "assertions": {
+            "action_authority_unchanged": true,
+            "budget_unchanged": true,
+            "candidate_library_unchanged": true,
+            "confirmation_rule_unchanged": true,
+            "evaluation_partition_sealed": true,
+            "raw_observation_interface_unchanged": true,
+            "revision_permission_unchanged": true,
+            "safety_shield_unchanged": true
+          },
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+          "m9_parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671"
+        },
+        "resource_manifest": {
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "contains_executable_actions": false,
+          "derivation_partition_id": "synthetic_S_resource_derivation",
+          "information_grant": [
+            "action_family",
+            "operating_envelope_reference",
+            "qualitative_response_direction",
+            "relationship_identifier"
+          ],
+          "payload_schema": "process_relationship_resource/v1",
+          "resource_id": "synthetic_S_structure_only",
+          "resource_type": "validated_process_relationships",
+          "update_policy": "frozen_read_only"
+        },
+        "schema_version": "grideval-career-resource-envelope/v1",
+        "synthetic_fixture": true,
+        "validation_evidence": {
+          "evaluation_records_accessed": false,
+          "evidence_sequence": 2,
+          "metric_observations": {
+            "directional_response_agreement": {
+              "synthetic": true,
+              "value": 0.9
+            },
+            "normalized_response_error": {
+              "synthetic": true,
+              "value": 0.1
+            },
+            "operating_envelope_coverage": {
+              "synthetic": true,
+              "value": 0.9
+            }
+          },
+          "source": "synthetic_structural_fixture",
+          "treatment_outcomes_accessed": false,
+          "validation_partition_id": "synthetic_S_resource_derivation"
+        },
+        "validation_protocol": {
+          "disjoint_from_partition_ids": [
+            "synthetic_S_resource_derivation",
+            "A_confirmation_partition"
+          ],
+          "evidence_role": "independent_held_out_action_validity",
+          "metric_thresholds": {
+            "directional_response_agreement": {
+              "direction": "at_least",
+              "value": 0.8
+            },
+            "normalized_response_error": {
+              "direction": "at_most",
+              "value": 0.2
+            },
+            "operating_envelope_coverage": {
+              "direction": "at_least",
+              "value": 0.8
+            }
+          },
+          "threshold_basis": "synthetic_fixture_only_not_scientific_threshold",
+          "threshold_freeze_sequence": 1,
+          "validation_partition_id": "synthetic_S_resource_derivation"
+        }
+      },
+      {
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_77884d57b7b4418d1ff46bd57eb0d24dc12229ff13f67aebc75bb08a2e03d2db",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "M",
+        "fixture_id": "M_post_evidence_threshold_freeze",
+        "parity_assertion": {
+          "assertions": {
+            "action_authority_unchanged": true,
+            "budget_unchanged": true,
+            "candidate_library_unchanged": true,
+            "confirmation_rule_unchanged": true,
+            "evaluation_partition_sealed": true,
+            "raw_observation_interface_unchanged": true,
+            "revision_permission_unchanged": true,
+            "safety_shield_unchanged": true
+          },
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+          "m9_parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671"
+        },
+        "resource_manifest": {
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "contains_executable_actions": false,
+          "derivation_partition_id": "synthetic_M_resource_derivation",
+          "information_grant": [
+            "candidate_identifier",
+            "model_version_identifier",
+            "read_only_predicted_score",
+            "read_only_rank"
+          ],
+          "payload_schema": "candidate_ranking_resource/v1",
+          "resource_id": "synthetic_M_structure_only",
+          "resource_type": "validated_predictive_candidate_ranking",
+          "update_policy": "frozen_read_only"
+        },
+        "schema_version": "grideval-career-resource-envelope/v1",
+        "synthetic_fixture": true,
+        "validation_evidence": {
+          "evaluation_records_accessed": false,
+          "evidence_sequence": 2,
+          "metric_observations": {
+            "normalized_simple_regret": {
+              "synthetic": true,
+              "value": 0.15
+            },
+            "pairwise_order_accuracy": {
+              "synthetic": true,
+              "value": 0.85
+            },
+            "top_k_candidate_recall": {
+              "synthetic": true,
+              "value": 0.85
+            }
+          },
+          "source": "synthetic_structural_fixture",
+          "treatment_outcomes_accessed": false,
+          "validation_partition_id": "synthetic_M_independent_validation"
+        },
+        "validation_protocol": {
+          "disjoint_from_partition_ids": [
+            "synthetic_M_resource_derivation",
+            "A_confirmation_partition"
+          ],
+          "evidence_role": "independent_held_out_candidate_ranking",
+          "metric_thresholds": {
+            "normalized_simple_regret": {
+              "direction": "at_most",
+              "value": 0.25
+            },
+            "pairwise_order_accuracy": {
+              "direction": "at_least",
+              "value": 0.75
+            },
+            "top_k_candidate_recall": {
+              "direction": "at_least",
+              "value": 0.75
+            }
+          },
+          "threshold_basis": "synthetic_fixture_only_not_scientific_threshold",
+          "threshold_freeze_sequence": 3,
+          "validation_partition_id": "synthetic_M_independent_validation"
+        }
+      },
+      {
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_676dba828451c208ba4bb80545668b4c6cc92c26851ba9b660b320db4ad36b69",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "S",
+        "fixture_id": "S_parity_expansion",
+        "parity_assertion": {
+          "assertions": {
+            "action_authority_unchanged": true,
+            "budget_unchanged": true,
+            "candidate_library_unchanged": true,
+            "confirmation_rule_unchanged": true,
+            "evaluation_partition_sealed": true,
+            "raw_observation_interface_unchanged": false,
+            "revision_permission_unchanged": true,
+            "safety_shield_unchanged": true
+          },
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+          "m9_parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671"
+        },
+        "resource_manifest": {
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "contains_executable_actions": false,
+          "derivation_partition_id": "synthetic_S_resource_derivation",
+          "information_grant": [
+            "action_family",
+            "operating_envelope_reference",
+            "qualitative_response_direction",
+            "relationship_identifier"
+          ],
+          "payload_schema": "process_relationship_resource/v1",
+          "resource_id": "synthetic_S_structure_only",
+          "resource_type": "validated_process_relationships",
+          "update_policy": "frozen_read_only"
+        },
+        "schema_version": "grideval-career-resource-envelope/v1",
+        "synthetic_fixture": true,
+        "validation_evidence": {
+          "evaluation_records_accessed": false,
+          "evidence_sequence": 2,
+          "metric_observations": {
+            "directional_response_agreement": {
+              "synthetic": true,
+              "value": 0.9
+            },
+            "normalized_response_error": {
+              "synthetic": true,
+              "value": 0.1
+            },
+            "operating_envelope_coverage": {
+              "synthetic": true,
+              "value": 0.9
+            }
+          },
+          "source": "synthetic_structural_fixture",
+          "treatment_outcomes_accessed": false,
+          "validation_partition_id": "synthetic_S_independent_validation"
+        },
+        "validation_protocol": {
+          "disjoint_from_partition_ids": [
+            "synthetic_S_resource_derivation",
+            "A_confirmation_partition"
+          ],
+          "evidence_role": "independent_held_out_action_validity",
+          "metric_thresholds": {
+            "directional_response_agreement": {
+              "direction": "at_least",
+              "value": 0.8
+            },
+            "normalized_response_error": {
+              "direction": "at_most",
+              "value": 0.2
+            },
+            "operating_envelope_coverage": {
+              "direction": "at_least",
+              "value": 0.8
+            }
+          },
+          "threshold_basis": "synthetic_fixture_only_not_scientific_threshold",
+          "threshold_freeze_sequence": 1,
+          "validation_partition_id": "synthetic_S_independent_validation"
+        }
+      },
+      {
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_8ab1a330e00f6e0f5d4ed067d3db92d27d08e6de9e1ea1a32d5f147207d99b71",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "M",
+        "fixture_id": "M_candidate_library_drift",
+        "parity_assertion": {
+          "assertions": {
+            "action_authority_unchanged": true,
+            "budget_unchanged": true,
+            "candidate_library_unchanged": true,
+            "confirmation_rule_unchanged": true,
+            "evaluation_partition_sealed": true,
+            "raw_observation_interface_unchanged": true,
+            "revision_permission_unchanged": true,
+            "safety_shield_unchanged": true
+          },
+          "candidate_library_fingerprint": "sha256_0000000000000000000000000000000000000000000000000000000000000000",
+          "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+          "m9_parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671"
+        },
+        "resource_manifest": {
+          "candidate_library_fingerprint": "sha256_0000000000000000000000000000000000000000000000000000000000000000",
+          "contains_executable_actions": false,
+          "derivation_partition_id": "synthetic_M_resource_derivation",
+          "information_grant": [
+            "candidate_identifier",
+            "model_version_identifier",
+            "read_only_predicted_score",
+            "read_only_rank"
+          ],
+          "payload_schema": "candidate_ranking_resource/v1",
+          "resource_id": "synthetic_M_structure_only",
+          "resource_type": "validated_predictive_candidate_ranking",
+          "update_policy": "frozen_read_only"
+        },
+        "schema_version": "grideval-career-resource-envelope/v1",
+        "synthetic_fixture": true,
+        "validation_evidence": {
+          "evaluation_records_accessed": false,
+          "evidence_sequence": 2,
+          "metric_observations": {
+            "normalized_simple_regret": {
+              "synthetic": true,
+              "value": 0.15
+            },
+            "pairwise_order_accuracy": {
+              "synthetic": true,
+              "value": 0.85
+            },
+            "top_k_candidate_recall": {
+              "synthetic": true,
+              "value": 0.85
+            }
+          },
+          "source": "synthetic_structural_fixture",
+          "treatment_outcomes_accessed": false,
+          "validation_partition_id": "synthetic_M_independent_validation"
+        },
+        "validation_protocol": {
+          "disjoint_from_partition_ids": [
+            "synthetic_M_resource_derivation",
+            "A_confirmation_partition"
+          ],
+          "evidence_role": "independent_held_out_candidate_ranking",
+          "metric_thresholds": {
+            "normalized_simple_regret": {
+              "direction": "at_most",
+              "value": 0.25
+            },
+            "pairwise_order_accuracy": {
+              "direction": "at_least",
+              "value": 0.75
+            },
+            "top_k_candidate_recall": {
+              "direction": "at_least",
+              "value": 0.75
+            }
+          },
+          "threshold_basis": "synthetic_fixture_only_not_scientific_threshold",
+          "threshold_freeze_sequence": 1,
+          "validation_partition_id": "synthetic_M_independent_validation"
+        }
+      },
+      {
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_48b694c7a38e9328e781f82abf0323f123ddae906f76840ded6925e58d55ce45",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "M",
+        "fixture_id": "M_online_update",
+        "parity_assertion": {
+          "assertions": {
+            "action_authority_unchanged": true,
+            "budget_unchanged": true,
+            "candidate_library_unchanged": true,
+            "confirmation_rule_unchanged": true,
+            "evaluation_partition_sealed": true,
+            "raw_observation_interface_unchanged": true,
+            "revision_permission_unchanged": true,
+            "safety_shield_unchanged": true
+          },
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+          "m9_parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671"
+        },
+        "resource_manifest": {
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "contains_executable_actions": false,
+          "derivation_partition_id": "synthetic_M_resource_derivation",
+          "information_grant": [
+            "candidate_identifier",
+            "model_version_identifier",
+            "read_only_predicted_score",
+            "read_only_rank"
+          ],
+          "payload_schema": "candidate_ranking_resource/v1",
+          "resource_id": "synthetic_M_structure_only",
+          "resource_type": "validated_predictive_candidate_ranking",
+          "update_policy": "online_update"
+        },
+        "schema_version": "grideval-career-resource-envelope/v1",
+        "synthetic_fixture": true,
+        "validation_evidence": {
+          "evaluation_records_accessed": false,
+          "evidence_sequence": 2,
+          "metric_observations": {
+            "normalized_simple_regret": {
+              "synthetic": true,
+              "value": 0.15
+            },
+            "pairwise_order_accuracy": {
+              "synthetic": true,
+              "value": 0.85
+            },
+            "top_k_candidate_recall": {
+              "synthetic": true,
+              "value": 0.85
+            }
+          },
+          "source": "synthetic_structural_fixture",
+          "treatment_outcomes_accessed": false,
+          "validation_partition_id": "synthetic_M_independent_validation"
+        },
+        "validation_protocol": {
+          "disjoint_from_partition_ids": [
+            "synthetic_M_resource_derivation",
+            "A_confirmation_partition"
+          ],
+          "evidence_role": "independent_held_out_candidate_ranking",
+          "metric_thresholds": {
+            "normalized_simple_regret": {
+              "direction": "at_most",
+              "value": 0.25
+            },
+            "pairwise_order_accuracy": {
+              "direction": "at_least",
+              "value": 0.75
+            },
+            "top_k_candidate_recall": {
+              "direction": "at_least",
+              "value": 0.75
+            }
+          },
+          "threshold_basis": "synthetic_fixture_only_not_scientific_threshold",
+          "threshold_freeze_sequence": 1,
+          "validation_partition_id": "synthetic_M_independent_validation"
+        }
+      },
+      {
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_35d75f4805e6995bfc5f153e7622cd3f8a04477fef3e0e8f79e43d8cf0a3d98c",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "S",
+        "fixture_id": "S_treatment_outcome_leak",
+        "parity_assertion": {
+          "assertions": {
+            "action_authority_unchanged": true,
+            "budget_unchanged": true,
+            "candidate_library_unchanged": true,
+            "confirmation_rule_unchanged": true,
+            "evaluation_partition_sealed": true,
+            "raw_observation_interface_unchanged": true,
+            "revision_permission_unchanged": true,
+            "safety_shield_unchanged": true
+          },
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+          "m9_parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671"
+        },
+        "resource_manifest": {
+          "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+          "contains_executable_actions": false,
+          "derivation_partition_id": "synthetic_S_resource_derivation",
+          "information_grant": [
+            "action_family",
+            "operating_envelope_reference",
+            "qualitative_response_direction",
+            "relationship_identifier"
+          ],
+          "payload_schema": "process_relationship_resource/v1",
+          "resource_id": "synthetic_S_structure_only",
+          "resource_type": "validated_process_relationships",
+          "update_policy": "frozen_read_only"
+        },
+        "schema_version": "grideval-career-resource-envelope/v1",
+        "synthetic_fixture": true,
+        "validation_evidence": {
+          "evaluation_records_accessed": false,
+          "evidence_sequence": 2,
+          "metric_observations": {
+            "directional_response_agreement": {
+              "synthetic": true,
+              "value": 0.9
+            },
+            "normalized_response_error": {
+              "synthetic": true,
+              "value": 0.1
+            },
+            "operating_envelope_coverage": {
+              "synthetic": true,
+              "value": 0.9
+            }
+          },
+          "source": "synthetic_structural_fixture",
+          "treatment_outcomes_accessed": true,
+          "validation_partition_id": "synthetic_S_independent_validation"
+        },
+        "validation_protocol": {
+          "disjoint_from_partition_ids": [
+            "synthetic_S_resource_derivation",
+            "A_confirmation_partition"
+          ],
+          "evidence_role": "independent_held_out_action_validity",
+          "metric_thresholds": {
+            "directional_response_agreement": {
+              "direction": "at_least",
+              "value": 0.8
+            },
+            "normalized_response_error": {
+              "direction": "at_most",
+              "value": 0.2
+            },
+            "operating_envelope_coverage": {
+              "direction": "at_least",
+              "value": 0.8
+            }
+          },
+          "threshold_basis": "synthetic_fixture_only_not_scientific_threshold",
+          "threshold_freeze_sequence": 1,
+          "validation_partition_id": "synthetic_S_independent_validation"
+        }
+      }
+    ],
+    "matrix_id": "m10matrix_407d4406d6fa06ec18df691364e49a17b873054c6279d116e0ec998c52f0b6f7",
+    "receipts": [
+      {
+        "accepted": true,
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_ffbf1f8f59537104d07350d9dc7205f447c713a3370be46d8d7350f2bb8723e4",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "S",
+        "fixture_id": "S_positive_structure",
+        "interpretation": "admission_validator_structure_only",
+        "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+        "reason_codes": [],
+        "receipt_id": "m10receipt_8bcd666bd7672db2cf4defe3111cc46d8c0c86ba738a623eacfb0beb7c59a28f",
+        "schema_version": "grideval-career-admission-receipt/v1",
+        "verdict": "PASS_SYNTHETIC_STRUCTURE_ONLY"
+      },
+      {
+        "accepted": true,
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_31263d5571428ffc6e34a9c94aa3e5909d49dea10178086292b373f0c9de6978",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "M",
+        "fixture_id": "M_positive_structure",
+        "interpretation": "admission_validator_structure_only",
+        "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+        "reason_codes": [],
+        "receipt_id": "m10receipt_8e245304d7f36181e0fe2640466c73f9e107cd3974d06bc1f5e9feb0703d1779",
+        "schema_version": "grideval-career-admission-receipt/v1",
+        "verdict": "PASS_SYNTHETIC_STRUCTURE_ONLY"
+      },
+      {
+        "accepted": false,
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_3572b5c92d5c053db43a69d4ffffb73854f0c2ef88fef41c9bf7a13f84fe7f84",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "S",
+        "fixture_id": "S_partition_overlap",
+        "interpretation": "admission_validator_structure_only",
+        "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+        "reason_codes": [
+          "validation_partition_not_independent"
+        ],
+        "receipt_id": "m10receipt_27d1b96d244b0555e7b08d1a632cd1418ea01010de5cb5f810e98feda8418354",
+        "schema_version": "grideval-career-admission-receipt/v1",
+        "verdict": "REJECTED_FAIL_CLOSED"
+      },
+      {
+        "accepted": false,
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_77884d57b7b4418d1ff46bd57eb0d24dc12229ff13f67aebc75bb08a2e03d2db",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "M",
+        "fixture_id": "M_post_evidence_threshold_freeze",
+        "interpretation": "admission_validator_structure_only",
+        "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+        "reason_codes": [
+          "threshold_not_frozen_before_evidence"
+        ],
+        "receipt_id": "m10receipt_3839e4bc0b7f27c60368c2fe86dc5acb2832c867467a52f1c36e14a81df904e6",
+        "schema_version": "grideval-career-admission-receipt/v1",
+        "verdict": "REJECTED_FAIL_CLOSED"
+      },
+      {
+        "accepted": false,
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_676dba828451c208ba4bb80545668b4c6cc92c26851ba9b660b320db4ad36b69",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "S",
+        "fixture_id": "S_parity_expansion",
+        "interpretation": "admission_validator_structure_only",
+        "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+        "reason_codes": [
+          "parity_expansion_or_drift"
+        ],
+        "receipt_id": "m10receipt_2f51d2969551bf2ab56377d163d43d9242d243088e6789c807d09abf191992e4",
+        "schema_version": "grideval-career-admission-receipt/v1",
+        "verdict": "REJECTED_FAIL_CLOSED"
+      },
+      {
+        "accepted": false,
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_8ab1a330e00f6e0f5d4ed067d3db92d27d08e6de9e1ea1a32d5f147207d99b71",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "M",
+        "fixture_id": "M_candidate_library_drift",
+        "interpretation": "admission_validator_structure_only",
+        "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+        "reason_codes": [
+          "candidate_library_drift"
+        ],
+        "receipt_id": "m10receipt_2b7486ba970d812ab906b4c881301fadd564e10dd16b1ff51a1c9f9e0ff5f1e5",
+        "schema_version": "grideval-career-admission-receipt/v1",
+        "verdict": "REJECTED_FAIL_CLOSED"
+      },
+      {
+        "accepted": false,
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_48b694c7a38e9328e781f82abf0323f123ddae906f76840ded6925e58d55ce45",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "M",
+        "fixture_id": "M_online_update",
+        "interpretation": "admission_validator_structure_only",
+        "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+        "reason_codes": [
+          "online_update_or_mutation_enabled"
+        ],
+        "receipt_id": "m10receipt_48f7505fa154530ed307c646942c8705ca0b153901b324b93413c561d73cdd4d",
+        "schema_version": "grideval-career-admission-receipt/v1",
+        "verdict": "REJECTED_FAIL_CLOSED"
+      },
+      {
+        "accepted": false,
+        "contract_id": "careerresource_f3b0033341368b5eca92d350d4f06906eb969dffd5855f5829e26a0f5a97c2ca",
+        "envelope_id": "resourceenv_35d75f4805e6995bfc5f153e7622cd3f8a04477fef3e0e8f79e43d8cf0a3d98c",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "factor": "S",
+        "fixture_id": "S_treatment_outcome_leak",
+        "interpretation": "admission_validator_structure_only",
+        "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+        "reason_codes": [
+          "treatment_outcome_leak"
+        ],
+        "receipt_id": "m10receipt_2499892dc79f79450fc0dfacc239e733f0b1d6b8e81864d170f9763e8664e8d1",
+        "schema_version": "grideval-career-admission-receipt/v1",
+        "verdict": "REJECTED_FAIL_CLOSED"
+      }
+    ],
+    "schema_version": "grideval-career-admission-fixtures/v1",
+    "verdict": "PASS_ADMISSION_VALIDATOR_STRUCTURE_ONLY"
+  }
+}

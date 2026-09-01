@@ -30,6 +30,12 @@ fixture, and content-addressed receipts are documented in
 isolation only and leaves model, tool, simulator, detector, embedding,
 evaluation, and campaign access disabled. This evidence is also maintained
 outside the frozen r2 portable report.
+The offline M10 independent resource-admission profiles and synthetic
+fail-closed matrix are documented in
+`../M10_CAREER_RESOURCE_ADMISSION_REPORT.md`. Both real CAREER resources remain
+on HOLD: `S` still needs independently reviewed action-validity evidence and
+`M` still needs independently reviewed candidate-ranking evidence after
+prospective threshold preregistration. M10 does not amend the frozen report.
 This separation avoids rewriting the report's original source manifest while
 keeping current protocol evidence explicit.
 

@@ -2,7 +2,7 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M9 for the research roadmap. M1–M3
+This document defines milestones M1–M10 for the research roadmap. M1–M3
 are development-only offline contracts. M4 adds separately bounded model-output
 parsing receipts. M5 returns to an offline-only, content-addressed interactive
 tool-loop protocol. M6 adds a two-turn model replay with an injected read-only
@@ -12,8 +12,10 @@ with the governing CAREER project description: the committed core becomes a
 single-aggregator, two-interval, one-midpoint-revision capability comparison,
 while the richer IA0–IA5 ladder is retained as an extension. M9 implements the
 offline two-interval state machine and mirrored revision-permission witness.
-No milestone calls an embedding service, simulator, detector, calibration
-pipeline, or evaluation partition, and none authorizes a campaign.
+M10 adds independent admission profiles for the `S` and `M` resources while
+keeping both real resources on HOLD. No milestone calls an embedding service,
+simulator, detector, calibration pipeline, or evaluation partition, and none
+authorizes a campaign.
 
 The frozen `experiment_spec.yaml` remains byte-identical with SHA-256
 `79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d`.
@@ -82,6 +84,38 @@ response rule, physical consequence, stealth, detector evasion, LLM or tool
 competence, runtime readiness, or campaign authorization. The next offline gate
 defines independent admission contracts for validated process relationships
 (`S`) and validated predictive ranking (`M`).
+
+## M10 independent S/M resource admission
+
+M10 separates process-relationship resource `S` from predictive-ranking
+resource `M`. `S` is limited to frozen read-only relationship information and
+requires independent held-out action-validity evidence. `M` is limited to
+frozen read-only scores and ranks over the unchanged candidate library and
+requires independent held-out ranking evidence. Their information grants and
+metric profiles cannot be substituted.
+
+Both profiles bind the M9 contract, parity fingerprint, and candidate-library
+fingerprint. Adding either resource cannot change the raw observation
+interface, action authority, candidate library, budgets, revision permission,
+safety shield, independent-confirmation rule, or evaluation partition.
+Thresholds must be frozen before validation evidence; derivation, validation,
+and later `A` confirmation partitions must remain disjoint; treatment outcomes
+and evaluation records cannot participate in admission.
+
+The canonical artifact `artifacts/career_resource_admission_m10.json` contains
+two positive and six negative synthetic structural envelopes. The positive
+envelopes use arbitrary synthetic metric values and thresholds solely to test
+validator mechanics. Negative fixtures cover partition overlap, post-evidence
+threshold choice, parity expansion, candidate drift, online updates, and
+treatment-outcome leakage. Every receipt leaves the corresponding real
+resource at
+`HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE`.
+
+Passing M10 establishes admission-validator structure only. It validates no
+real process relationship, predictive model, or scientific threshold. Full
+interpretation is in `M10_CAREER_RESOURCE_ADMISSION_REPORT.md`; semantic
+validation is implemented by `g7confirm.career_resource_admission`, and the
+interchange schema is `career_resource_admission.schema.json`.
 
 ## Research contract
 
@@ -480,6 +514,7 @@ python3 -m unittest discover -s tests -p 'test_ia4_interactive_model.py' -v
 python3 -m unittest discover -s tests -p 'test_ia4_counterfactual.py' -v
 python3 -m unittest discover -s tests -p 'test_career_stealth_contract.py' -v
 python3 -m unittest discover -s tests -p 'test_career_two_interval.py' -v
+python3 -m unittest discover -s tests -p 'test_career_resource_admission.py' -v
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q g7confirm tests
 sha256sum experiment_spec.yaml
@@ -498,6 +533,7 @@ jq empty artifacts/ai_v2_component_matrix.json \
   artifacts/ia4_counterfactual_model_smoke_m7_attempt2_transport_provenance.json \
   artifacts/career_stealth_contract_m8.json \
   artifacts/career_two_interval_fixture_m9.json \
+  artifacts/career_resource_admission_m10.json \
   candidate_space_receipt.schema.json \
   search_surface.schema.json \
   ia4_request.schema.json \
@@ -510,15 +546,17 @@ jq empty artifacts/ai_v2_component_matrix.json \
   ia4_counterfactual_model_smoke.schema.json \
   career_stealth_contract.schema.json \
   career_two_interval_fixture.schema.json \
+  career_resource_admission.schema.json \
   tests/fixtures/ia4_plan_response.json \
   tests/fixtures/ia4_refusal_response.json \
   tests/fixtures/ia4_no_action_response.json
 ```
 
-All tests, M5 fixture generation, M7 preregistration, M8 design, and M9 fixture
-generation are offline. The two M4
+All tests, M5 fixture generation, M7 preregistration, and M8–M10 contract and
+fixture generation are offline. The two M4
 receipts, three M6 receipts, and two M7 paired receipts required model network
-access; M6 and M7 executed no real tool. The next gate is the offline M10
-validated-resource admission contract for `S` and `M`. Any later model, live-
-tool, or one-window development smoke still requires its own execution overlay,
-bounded reward metric, and scientific gate and would not open evaluation.
+access; M6 and M7 executed no real tool. The next gate is the offline M11
+development-only source-lineage and scientific-threshold preregistration for
+`S` and `M`. Any later model, live-tool, or one-window development smoke still
+requires its own execution overlay, bounded reward metric, and scientific gate
+and would not open evaluation.
