@@ -1,0 +1,194 @@
+{
+  "created_at_utc": "2026-08-31T03:34:55.488328+00:00",
+  "files": [
+    {
+      "bytes": 159441,
+      "path": "examples/2bus-13bus/1c_IEEE_123_feeder.glm",
+      "sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+    },
+    {
+      "bytes": 5272,
+      "path": "v3/configs/der_devices.yaml",
+      "sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c"
+    },
+    {
+      "bytes": 40745,
+      "path": "v3/g7_condition_freeze/20260830_r1/formal_uninformed/run_g7_attack_loop.py",
+      "sha256": "79fd8f821477dd6beab9b9ccb28cd65a2a5ddfb4f2d2b462e1e84b89d82f8c69"
+    },
+    {
+      "bytes": 21645,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py",
+      "sha256": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536"
+    },
+    {
+      "bytes": 316,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/g7_pilot_b0/g7_summary.json",
+      "sha256": "11a8bcd85e265f254fe1e0fea7d61b31b05170a8a5894d1b10fa9181ba7e7a6b"
+    },
+    {
+      "bytes": 80108,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/g7_pilot_b0/multi_der_traces.json",
+      "sha256": "3945f0bc0bbe638c255d6284e6116661a116a415e93d45ee56cbd703cae5ab14"
+    },
+    {
+      "bytes": 15441,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py",
+      "sha256": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb"
+    },
+    {
+      "bytes": 16497,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json",
+      "sha256": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+    },
+    {
+      "bytes": 6126,
+      "path": "v3/g7_confirmatory/DETECTOR_PAIRING_REPORT.md",
+      "sha256": "43ebecd26e2c4cc40d9509f4092db7f512f142628049bc96fbb89ee4d63bb941"
+    },
+    {
+      "bytes": 3832,
+      "path": "v3/g7_confirmatory/README.md",
+      "sha256": "36103ee2454822c9185daa1752c78df33398b2bdb88c355f90fb5087f8851195"
+    },
+    {
+      "bytes": 5618,
+      "path": "v3/g7_confirmatory/RESEARCH_PROTOCOL.md",
+      "sha256": "c3b4d3d4ecef19e7b21a4656f4b12e8d105d63ad50fd1a3c4c9af242cd16c813"
+    },
+    {
+      "bytes": 161294,
+      "path": "v3/g7_confirmatory/artifacts/detector_pairing/benign_calibration_plan.json",
+      "sha256": "e66e25b8f4d7502e33a28c8b67030aadacdd627ff23c6b7c18604e1d6244a0ae"
+    },
+    {
+      "bytes": 5002,
+      "path": "v3/g7_confirmatory/artifacts/detector_pairing/detector_provenance_audit.json",
+      "sha256": "5631d32d74ac0e7098a3207f298de117024eef5b78fe01289931635b63c52dd6"
+    },
+    {
+      "bytes": 12445,
+      "path": "v3/g7_confirmatory/artifacts/detector_pairing/paired_development_smoke_plan.json",
+      "sha256": "c074bcef2523dfa8048d0fe7aae7048b50b7e6db6966190ff20f056daf678db8"
+    },
+    {
+      "bytes": 2512,
+      "path": "v3/g7_confirmatory/experiment_spec.schema.json",
+      "sha256": "bd4e08b98cce495da51934438adf32fc775ddb52ab1e4364b8dc192461257712"
+    },
+    {
+      "bytes": 5433,
+      "path": "v3/g7_confirmatory/experiment_spec.yaml",
+      "sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d"
+    },
+    {
+      "bytes": 97,
+      "path": "v3/g7_confirmatory/g7confirm/__init__.py",
+      "sha256": "36290c7a8c099234c41bf7f3b666b4cd4f5efa629927a143c0da823b27c84117"
+    },
+    {
+      "bytes": 8242,
+      "path": "v3/g7_confirmatory/g7confirm/budget.py",
+      "sha256": "a845647cc31dc3437d73eec95b2b5d4b5c65fd24aa1251b34e20623294a3ac25"
+    },
+    {
+      "bytes": 4479,
+      "path": "v3/g7_confirmatory/g7confirm/campaign.py",
+      "sha256": "4ab3579002290b87da3d80a34e85b5d667d7a14144a79d643dfd6427f61c0e4f"
+    },
+    {
+      "bytes": 9884,
+      "path": "v3/g7_confirmatory/g7confirm/cli.py",
+      "sha256": "53aa8d69900ad2d1777e0feab49ddbce445cb274870035395fb35b771cc32c82"
+    },
+    {
+      "bytes": 10453,
+      "path": "v3/g7_confirmatory/g7confirm/detector_freeze.py",
+      "sha256": "26d30de8dc623593d87690e4bc4e431f5e57f55836b2b9b5a489447d6bad5df1"
+    },
+    {
+      "bytes": 2162,
+      "path": "v3/g7_confirmatory/g7confirm/manifest.py",
+      "sha256": "26afef96f7534d74ce45121ff5891844bc3b4bee4c3dfb7db8355065cac7dcce"
+    },
+    {
+      "bytes": 7854,
+      "path": "v3/g7_confirmatory/g7confirm/model_client.py",
+      "sha256": "6417d62579551300ff7930eda698b50679f220f451361a4f5a815e7daefe55cb"
+    },
+    {
+      "bytes": 4211,
+      "path": "v3/g7_confirmatory/g7confirm/operating_points.py",
+      "sha256": "0d6a72689480fee8443c36b685cf8cbd73b78ad28ebdbcbc554e6edfade6711c"
+    },
+    {
+      "bytes": 7223,
+      "path": "v3/g7_confirmatory/g7confirm/pairing.py",
+      "sha256": "74074504664bacd0e0611c8702bedda455424fe29a67047625414e87025676ce"
+    },
+    {
+      "bytes": 3925,
+      "path": "v3/g7_confirmatory/g7confirm/partitions.py",
+      "sha256": "7da26baf40ae8330acb946624449bc0b8a57da6c187c04b56309a2fb6d0db481"
+    },
+    {
+      "bytes": 4305,
+      "path": "v3/g7_confirmatory/g7confirm/prompt_audit.py",
+      "sha256": "fbfa4c7533713120968b7ef1ed8e75a3f8010482bd9b6478322ffe0331a79e40"
+    },
+    {
+      "bytes": 14413,
+      "path": "v3/g7_confirmatory/g7confirm/runtime.py",
+      "sha256": "a1ef3f87864222a3e8abb48f5c8fd738396dc0d4dbb1c664a97fdc16b8ef48ec"
+    },
+    {
+      "bytes": 9303,
+      "path": "v3/g7_confirmatory/g7confirm/spec.py",
+      "sha256": "9072ae90f7eee6d063f5904f7d586353ce6c9fcbaa766b8b8fcf54909bb17fc6"
+    },
+    {
+      "bytes": 4961,
+      "path": "v3/g7_confirmatory/tests/test_budget.py",
+      "sha256": "177b8b634398aa5c57a567ebb516190ec052129f3f4604aae5e4f46cfae1f160"
+    },
+    {
+      "bytes": 3174,
+      "path": "v3/g7_confirmatory/tests/test_manifest_and_model.py",
+      "sha256": "8af5d87e3718b859566d534cb7e65ecfdff0bd418b7f137a339884318a48fe62"
+    },
+    {
+      "bytes": 1955,
+      "path": "v3/g7_confirmatory/tests/test_operating_points.py",
+      "sha256": "0abecf64171742c2dd89b5807275487f4d42143acd3548daf779e6356bb6e889"
+    },
+    {
+      "bytes": 6082,
+      "path": "v3/g7_confirmatory/tests/test_partitions_pairing_detector.py",
+      "sha256": "b12a4345f3157304d944ced1d042e5f8a66f37e6fca07e543dd77b03ef4e2d84"
+    },
+    {
+      "bytes": 2495,
+      "path": "v3/g7_confirmatory/tests/test_prompt_audit.py",
+      "sha256": "d291af5931df031f7e7e077c8aa1ea040187cfd37490a5220a7cb5352546e30c"
+    },
+    {
+      "bytes": 4169,
+      "path": "v3/g7_confirmatory/tests/test_runtime_integration.py",
+      "sha256": "4f6bc70fe5661c9527f23ba7401a4b69f9fa65b7850b8a7f3e112f8ba9c08080"
+    },
+    {
+      "bytes": 2439,
+      "path": "v3/g7_confirmatory/tests/test_spec_and_campaign.py",
+      "sha256": "0830e4bc97056d338e558617e80fa8a350c0299039693a4b50c765e65f420e5e"
+    }
+  ],
+  "metadata": {
+    "campaign_authorized": false,
+    "decision_id": "dec_01M1AX97BM3KVBA0DV9KCX72BJ",
+    "mission_id": "mis_01M1AX9Z8V40TDNQK6ZH9RZ2YM",
+    "phase": "detector_source_freeze_pairing_controls",
+    "protocol_id": "g7-confirmatory-20260831-r1"
+  },
+  "root": "/home/cfu6/roi-uncc-mcp",
+  "schema_version": "grideval-create-once-manifest/v1"
+}

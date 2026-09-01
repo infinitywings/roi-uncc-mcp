@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g7-ia4-request-v1.json",
+  "title": "GridEval G7 offline IA4 request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "development_only",
+    "campaign_authorized",
+    "evaluation_sealed",
+    "search_surface_id",
+    "task",
+    "search_surface",
+    "observation",
+    "visible_history"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-ia4-request/v1"
+    },
+    "development_only": {"const": true},
+    "campaign_authorized": {"const": false},
+    "evaluation_sealed": {"const": true},
+    "search_surface_id": {
+      "type": "string",
+      "pattern": "^surface_[0-9a-f]{64}$"
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "instruction", "allowed_decisions", "plan_policy", "tool_policy"
+      ],
+      "properties": {
+        "instruction": {"type": "string", "minLength": 1},
+        "allowed_decisions": {
+          "const": ["plan", "safety_refusal", "no_action"]
+        },
+        "plan_policy": {
+          "const": "select_one_candidate_id_without_modification"
+        },
+        "tool_policy": {
+          "const": "use_only_declared_tools_within_all_caps"
+        }
+      }
+    },
+    "search_surface": {
+      "$ref": "search_surface.schema.json"
+    },
+    "observation": {
+      "$ref": "#/$defs/observation"
+    },
+    "visible_history": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/outcome"}
+    }
+  },
+  "$defs": {
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "window", "time_s", "values"],
+      "properties": {
+        "schema_version": {"const": "grideval-g7-observation/v1"},
+        "window": {"type": "integer", "minimum": 0},
+        "time_s": {"type": "integer", "minimum": 0},
+        "values": {
+          "type": "object",
+          "additionalProperties": {
+            "type": ["number", "integer", "boolean", "string"]
+          }
+        }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version", "window", "strategy_id", "candidate_id", "reward", "status"
+      ],
+      "properties": {
+        "schema_version": {"const": "grideval-g7-outcome-history/v1"},
+        "window": {"type": "integer", "minimum": 0},
+        "strategy_id": {"type": "string", "minLength": 1},
+        "candidate_id": {
+          "type": ["string", "null"],
+          "pattern": "^cand_[0-9a-f]{20}$"
+        },
+        "reward": {"type": ["number", "null"]},
+        "status": {
+          "enum": [
+            "accepted_effective",
+            "accepted_benign",
+            "safety_refusal",
+            "no_action",
+            "contract_rejection",
+            "budget_rejection"
+          ]
+        }
+      }
+    }
+  }
+}

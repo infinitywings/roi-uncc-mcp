@@ -1,0 +1,85 @@
+{
+  "schema_version": "grideval-g7-ia3-candidate-space-contract/v1",
+  "contract_id": "grideval-g7-ia3-candidate-space-20260831-r1",
+  "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36",
+  "status": "offline_reference_contract",
+  "development_only": true,
+  "executable": false,
+  "campaign_authorized": false,
+  "evaluation_sealed": true,
+  "frozen_experiment_spec": {
+    "path": "v3/g7_confirmatory/experiment_spec.yaml",
+    "sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d",
+    "modified_by_this_contract": false
+  },
+  "candidate_unit": {
+    "identity": "content_addressed_strategy_steps",
+    "axes": [
+      "strategy_card",
+      "bounded_numeric_parameters",
+      "strategy_to_target_assignment",
+      "same_strategy_target_set",
+      "active_and_reactive_action_values",
+      "non_overlapping_strategy_composition"
+    ],
+    "rung_independent": true,
+    "shared_by": ["IA3", "IA4"],
+    "final_validator": "PlanValidator"
+  },
+  "reference_generation_spec": {
+    "candidate_cap": 64,
+    "candidate_cap_role": "engineering_reference_ceiling_not_experiment_allocation",
+    "enumeration_cap": 10000,
+    "parameter_fractions": [0.0, 0.5, 1.0],
+    "action_fractions": [0.0, 0.5, 1.0],
+    "composition_orders": [1, 2],
+    "selection_seed": "grideval-g7-candidate-space-v1",
+    "include_card_defaults": true,
+    "overflow_policy": "required_defaults_then_stratified_hash_round_robin",
+    "benign_command_source": "same_condition_same_window_benign_command"
+  },
+  "adaptive_comparator": {
+    "id": "IA3_candidate_ucb",
+    "algorithm": "deterministic_UCB1",
+    "credit_unit": "candidate_id",
+    "history_order": "bounded_observed_order",
+    "missing_reward_policy": "no_credit_update",
+    "unknown_or_mismatched_candidate_policy": "fail_closed",
+    "reward_contract": "A finite metric name, direction, and bounds must be preregistered before any runtime comparison.",
+    "current_evidence_status": "offline_contract_tests_only"
+  },
+  "parity_requirements": [
+    "same_capability_profile_fingerprint",
+    "same_candidate_library_fingerprint",
+    "same_candidate_order",
+    "same_reward_contract_fingerprint",
+    "same_tool_schema_fingerprint",
+    "same_history_and_feedback_delay",
+    "same_outer_rollout_budget",
+    "same_dual_budget",
+    "same_plan_validator"
+  ],
+  "coverage_requirements": [
+    "retain_each_declared_card_default",
+    "retain_each_strategy_to_target_coverage_group",
+    "retain_each_feasible_declared_composition_group",
+    "record_raw_and_retained_group_counts",
+    "record_candidate_library_fingerprint"
+  ],
+  "hard_stops": [
+    "candidate_enumeration_cap_exceeded",
+    "candidate_cap_cannot_retain_each_coverage_group",
+    "candidate_cap_differs_from_capability_profile",
+    "impossible_composition_order",
+    "missing_same_condition_benign_command",
+    "candidate_or_reward_parity_mismatch",
+    "reward_outside_preregistered_bounds",
+    "candidate_lineage_mismatch",
+    "runtime_or_evaluation_access_in_offline_stage"
+  ],
+  "limitations": [
+    "The reference candidate generator does not encode mechanism-specific equations linking parameters to materialized actions.",
+    "The engineering candidate cap is not a sample-size decision or campaign authorization.",
+    "No runtime reward, grid harm, detector response, or superiority claim is established by this contract."
+  ]
+}

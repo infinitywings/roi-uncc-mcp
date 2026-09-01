@@ -1,0 +1,268 @@
+{
+  "campaign_authorized": false,
+  "evaluation_opened": false,
+  "executable": false,
+  "pair_count": 3,
+  "pairs": [
+    {
+      "campaign_run_id": "g7c_b94ed04e19ac11fe27f6",
+      "evaluation_opened": false,
+      "executable": false,
+      "pair_id": "g7pair_d5d3b6a6f491b4efb405",
+      "runs": [
+        {
+          "controlled_lineage": {
+            "component_seeds": {
+              "attacker_policy_seed": 8101,
+              "gridlabd_random_seed": 10,
+              "measurement_noise_seed": 98101,
+              "replicate_seed": 8101
+            },
+            "dependency_hashes": {
+              "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+              "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+              "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+              "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+              "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+            },
+            "detector_package_id": "g7det_57ee48fcf6887a010437",
+            "duration_seconds": 840.0,
+            "measurement_noise_pu": 0.002,
+            "operating_point": "responsive_morning",
+            "partition": "development",
+            "protocol_id": "g7-confirmatory-20260831-r1",
+            "replicate_seed": 8101,
+            "spec_sha256": "44b66724c0cee55f382e736f925909934e92f06973e38e340272a938dbdb6d6a",
+            "total_windows": 84,
+            "volt_var": false,
+            "window_seconds": 10.0
+          },
+          "intervention": {
+            "apparent_energy_cap_kvah": 0.0,
+            "kind": "benign",
+            "perturbation_policy": "none",
+            "perturbed_window_cap": 0
+          },
+          "run_id": "g7run_693017216762be258918",
+          "treatment": "benign"
+        },
+        {
+          "controlled_lineage": {
+            "component_seeds": {
+              "attacker_policy_seed": 8101,
+              "gridlabd_random_seed": 10,
+              "measurement_noise_seed": 98101,
+              "replicate_seed": 8101
+            },
+            "dependency_hashes": {
+              "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+              "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+              "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+              "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+              "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+            },
+            "detector_package_id": "g7det_57ee48fcf6887a010437",
+            "duration_seconds": 840.0,
+            "measurement_noise_pu": 0.002,
+            "operating_point": "responsive_morning",
+            "partition": "development",
+            "protocol_id": "g7-confirmatory-20260831-r1",
+            "replicate_seed": 8101,
+            "spec_sha256": "44b66724c0cee55f382e736f925909934e92f06973e38e340272a938dbdb6d6a",
+            "total_windows": 84,
+            "volt_var": false,
+            "window_seconds": 10.0
+          },
+          "intervention": {
+            "apparent_energy_cap_kvah": 2.0,
+            "kind": "attack",
+            "perturbation_policy": "fixed_grid",
+            "perturbed_window_cap": 8,
+            "proposal": {
+              "amplitude_fraction": 0.025,
+              "period_windows": 1
+            }
+          },
+          "run_id": "g7run_13117ca1ea90f71b1050",
+          "treatment": "attack"
+        }
+      ],
+      "schema_version": "grideval-g7-paired-lineage/v1",
+      "status": "planned"
+    },
+    {
+      "campaign_run_id": "g7c_84716fa9694b039e5ca5",
+      "evaluation_opened": false,
+      "executable": false,
+      "pair_id": "g7pair_a9c37625b462cf843896",
+      "runs": [
+        {
+          "controlled_lineage": {
+            "component_seeds": {
+              "attacker_policy_seed": 8101,
+              "gridlabd_random_seed": 10,
+              "measurement_noise_seed": 98101,
+              "replicate_seed": 8101
+            },
+            "dependency_hashes": {
+              "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+              "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+              "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+              "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+              "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+            },
+            "detector_package_id": "g7det_57ee48fcf6887a010437",
+            "duration_seconds": 840.0,
+            "measurement_noise_pu": 0.002,
+            "operating_point": "responsive_morning",
+            "partition": "development",
+            "protocol_id": "g7-confirmatory-20260831-r1",
+            "replicate_seed": 8101,
+            "spec_sha256": "44b66724c0cee55f382e736f925909934e92f06973e38e340272a938dbdb6d6a",
+            "total_windows": 84,
+            "volt_var": false,
+            "window_seconds": 10.0
+          },
+          "intervention": {
+            "apparent_energy_cap_kvah": 0.0,
+            "kind": "benign",
+            "perturbation_policy": "none",
+            "perturbed_window_cap": 0
+          },
+          "run_id": "g7run_239d5da45ffbca557786",
+          "treatment": "benign"
+        },
+        {
+          "controlled_lineage": {
+            "component_seeds": {
+              "attacker_policy_seed": 8101,
+              "gridlabd_random_seed": 10,
+              "measurement_noise_seed": 98101,
+              "replicate_seed": 8101
+            },
+            "dependency_hashes": {
+              "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+              "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+              "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+              "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+              "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+            },
+            "detector_package_id": "g7det_57ee48fcf6887a010437",
+            "duration_seconds": 840.0,
+            "measurement_noise_pu": 0.002,
+            "operating_point": "responsive_morning",
+            "partition": "development",
+            "protocol_id": "g7-confirmatory-20260831-r1",
+            "replicate_seed": 8101,
+            "spec_sha256": "44b66724c0cee55f382e736f925909934e92f06973e38e340272a938dbdb6d6a",
+            "total_windows": 84,
+            "volt_var": false,
+            "window_seconds": 10.0
+          },
+          "intervention": {
+            "apparent_energy_cap_kvah": 2.0,
+            "kind": "attack",
+            "perturbation_policy": "random_search",
+            "perturbed_window_cap": 8,
+            "proposal": {
+              "amplitude_fraction": 0.075,
+              "period_windows": 10
+            }
+          },
+          "run_id": "g7run_02f96905bffc56c55ed2",
+          "treatment": "attack"
+        }
+      ],
+      "schema_version": "grideval-g7-paired-lineage/v1",
+      "status": "planned"
+    },
+    {
+      "campaign_run_id": "g7c_1ac4b8dfc748c108576b",
+      "evaluation_opened": false,
+      "executable": false,
+      "pair_id": "g7pair_b168e65000fe2406004f",
+      "runs": [
+        {
+          "controlled_lineage": {
+            "component_seeds": {
+              "attacker_policy_seed": 8101,
+              "gridlabd_random_seed": 10,
+              "measurement_noise_seed": 98101,
+              "replicate_seed": 8101
+            },
+            "dependency_hashes": {
+              "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+              "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+              "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+              "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+              "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+            },
+            "detector_package_id": "g7det_57ee48fcf6887a010437",
+            "duration_seconds": 840.0,
+            "measurement_noise_pu": 0.002,
+            "operating_point": "responsive_morning",
+            "partition": "development",
+            "protocol_id": "g7-confirmatory-20260831-r1",
+            "replicate_seed": 8101,
+            "spec_sha256": "44b66724c0cee55f382e736f925909934e92f06973e38e340272a938dbdb6d6a",
+            "total_windows": 84,
+            "volt_var": false,
+            "window_seconds": 10.0
+          },
+          "intervention": {
+            "apparent_energy_cap_kvah": 0.0,
+            "kind": "benign",
+            "perturbation_policy": "none",
+            "perturbed_window_cap": 0
+          },
+          "run_id": "g7run_bb83ddca558b0b46c9c6",
+          "treatment": "benign"
+        },
+        {
+          "controlled_lineage": {
+            "component_seeds": {
+              "attacker_policy_seed": 8101,
+              "gridlabd_random_seed": 10,
+              "measurement_noise_seed": 98101,
+              "replicate_seed": 8101
+            },
+            "dependency_hashes": {
+              "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+              "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+              "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+              "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+              "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+            },
+            "detector_package_id": "g7det_57ee48fcf6887a010437",
+            "duration_seconds": 840.0,
+            "measurement_noise_pu": 0.002,
+            "operating_point": "responsive_morning",
+            "partition": "development",
+            "protocol_id": "g7-confirmatory-20260831-r1",
+            "replicate_seed": 8101,
+            "spec_sha256": "44b66724c0cee55f382e736f925909934e92f06973e38e340272a938dbdb6d6a",
+            "total_windows": 84,
+            "volt_var": false,
+            "window_seconds": 10.0
+          },
+          "intervention": {
+            "apparent_energy_cap_kvah": 2.0,
+            "kind": "attack",
+            "perturbation_policy": "llm_clean_uninformed",
+            "perturbed_window_cap": 8,
+            "proposal": null
+          },
+          "run_id": "g7run_6c2cc4caca1b4ee2abaf",
+          "treatment": "attack"
+        }
+      ],
+      "schema_version": "grideval-g7-paired-lineage/v1",
+      "status": "requires_model_proposal"
+    }
+  ],
+  "partition": "development",
+  "profile": "smoke",
+  "protocol_id": "g7-confirmatory-20260831-r1",
+  "schema_version": "grideval-g7-paired-plan/v1",
+  "spec_sha256": "44b66724c0cee55f382e736f925909934e92f06973e38e340272a938dbdb6d6a"
+}

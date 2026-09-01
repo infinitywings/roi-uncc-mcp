@@ -1,0 +1,149 @@
+{
+  "created_at_utc": "2026-08-31T03:31:34.551419+00:00",
+  "decision_id": "dec_01M1AX97BM3KVBA0DV9KCX72BJ",
+  "detector_package_id": "g7det_57ee48fcf6887a010437",
+  "evaluation_opened": false,
+  "freeze_state": {
+    "calibrated": false,
+    "calibration_lineage_valid": false,
+    "campaign_admissible": false,
+    "detector_parameter_artifact_present": false,
+    "evaluation_admissible": false,
+    "interface_schema_frozen": true,
+    "source_bytes_hashed": true
+  },
+  "inventory": [
+    {
+      "bytes": 21645,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py",
+      "sha256": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536"
+    },
+    {
+      "bytes": 16497,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json",
+      "sha256": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+    },
+    {
+      "bytes": 15441,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py",
+      "sha256": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb"
+    },
+    {
+      "bytes": 316,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/g7_pilot_b0/g7_summary.json",
+      "sha256": "11a8bcd85e265f254fe1e0fea7d61b31b05170a8a5894d1b10fa9181ba7e7a6b"
+    },
+    {
+      "bytes": 80108,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/g7_pilot_b0/multi_der_traces.json",
+      "sha256": "3945f0bc0bbe638c255d6284e6116661a116a415e93d45ee56cbd703cae5ab14"
+    },
+    {
+      "bytes": 157360,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/g7_pilot_b0/1c_IEEE_123_feeder.glm",
+      "sha256": "73af2479c3cff76f60bcd720816bac5efd0ec1f987f75082ab07285c92671861"
+    },
+    {
+      "bytes": 159441,
+      "path": "examples/2bus-13bus/1c_IEEE_123_feeder.glm",
+      "sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+    },
+    {
+      "bytes": 5272,
+      "path": "v3/configs/der_devices.yaml",
+      "sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c"
+    }
+  ],
+  "legacy_candidate": {
+    "admissible_for_confirmatory_calibration": false,
+    "checks": [
+      {
+        "evidence": {
+          "budget_spent": 0,
+          "budget_windows": 0
+        },
+        "name": "benign_zero_treatment",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "gridlabd_returncode": 0,
+          "windows": 84
+        },
+        "name": "benign_completed_expected_windows",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "error": "seed 1001 is not declared in any partition",
+          "partition": null,
+          "seed": 1001
+        },
+        "name": "replicate_seed_in_detector_calibration_partition",
+        "passed": false
+      },
+      {
+        "evidence": {
+          "meas_noise_pu": null,
+          "noise_seed": null,
+          "operating_point": null,
+          "volt_var_defender": null
+        },
+        "name": "explicit_condition_and_noise_lineage",
+        "passed": false
+      },
+      {
+        "evidence": {
+          "source_run_manifests": null,
+          "source_runs": [
+            "g7_pilot_sm",
+            "g7_pilot_llm",
+            "g7_pilot_rnd1",
+            "g7_pilot_rnd2",
+            "g7_pilot_rnd_s1003",
+            "g7_pilot_rnd_s1004",
+            "g7_pilot_rnd_s1005"
+          ]
+        },
+        "name": "sensitivity_sources_content_addressed",
+        "passed": false
+      },
+      {
+        "evidence": {
+          "error": null,
+          "legacy_source_default": 7,
+          "partition": "detector_calibration",
+          "seed": 7101
+        },
+        "name": "declared_fit_seed_is_calibration_only",
+        "passed": true
+      },
+      {
+        "evidence": "detector_g7.WindowDetector.fit defaults to seed=7, which is outside all current partitions",
+        "name": "legacy_fit_default_is_not_accepted",
+        "passed": false
+      }
+    ],
+    "gridlabd_random_seed": 10,
+    "inferred_clock_start_not_accepted_as_lineage": "2013-08-28 07:00:00",
+    "path": "v3/g7_condition_freeze/20260830_r1/shared/g7_pilot_b0"
+  },
+  "mission_id": "mis_01M1AX9Z8V40TDNQK6ZH9RZ2YM",
+  "protocol_id": "g7-confirmatory-20260831-r1",
+  "readiness": {
+    "calibration": "hold",
+    "campaign": "hold",
+    "evaluation": "sealed",
+    "paired_runtime_pilot": "not_run",
+    "source_schema_freeze": "pass"
+  },
+  "required_next_evidence": [
+    "benign-only runs generated from detector_calibration seeds with complete condition lineage",
+    "content-addressed sensitivity provenance that does not depend on held-out evaluation",
+    "detector fit invoked with the declared calibration-only fit seed",
+    "serialized detector parameters and thresholds in a create-once artifact",
+    "false-alarm validation on calibration holdout folds before any evaluation seed is opened"
+  ],
+  "schema_version": "grideval-g7-detector-provenance-audit/v1",
+  "spec_sha256": "44b66724c0cee55f382e736f925909934e92f06973e38e340272a938dbdb6d6a"
+}

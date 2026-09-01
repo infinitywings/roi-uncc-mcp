@@ -1,0 +1,3379 @@
+{
+  "calibration_mode": "per_operating_condition",
+  "campaign_authorized": false,
+  "evaluation_opened": false,
+  "executable": false,
+  "fit_seed": 7101,
+  "fit_stage": {
+    "benign_only": true,
+    "creates_parameter_artifact_once": true,
+    "status": "blocked_until_all_input_manifests_validate"
+  },
+  "partition": "detector_calibration",
+  "protocol_id": "g7-confirmatory-20260831-r1",
+  "run_count": 120,
+  "runs": [
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7101,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97101,
+          "replicate_seed": 7101
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7101,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_840d6b3d438d827f3bad",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7102,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97102,
+          "replicate_seed": 7102
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7102,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_d23af699a383c21a5517",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7103,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97103,
+          "replicate_seed": 7103
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7103,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_57e2136f8b85111a8f99",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7104,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97104,
+          "replicate_seed": 7104
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7104,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_cda8bd37416f74c964eb",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7105,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97105,
+          "replicate_seed": 7105
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7105,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_c662c12f3e0ff83e9057",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7106,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97106,
+          "replicate_seed": 7106
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7106,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_f7d0dff203dbb6f86735",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7107,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97107,
+          "replicate_seed": 7107
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7107,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_caa4b0009469aae31d46",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7108,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97108,
+          "replicate_seed": 7108
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7108,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_3e3ef214d1f621306912",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7109,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97109,
+          "replicate_seed": 7109
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7109,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_a9c210f0f878fea306c8",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7110,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97110,
+          "replicate_seed": 7110
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7110,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_0710f8c35b7deefe4f64",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7111,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97111,
+          "replicate_seed": 7111
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7111,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_e0cd3e5e1e90d5d20e5c",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7112,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97112,
+          "replicate_seed": 7112
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7112,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_12dc2240c7a230a97326",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7101,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97101,
+          "replicate_seed": 7101
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7101,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_3be2b40558ef852bb903",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7102,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97102,
+          "replicate_seed": 7102
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7102,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_c389cf773db25c9a3bcd",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7103,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97103,
+          "replicate_seed": 7103
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7103,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_298925a93664f52ca69a",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7104,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97104,
+          "replicate_seed": 7104
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7104,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_59bcf24016be7599f662",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7105,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97105,
+          "replicate_seed": 7105
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7105,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_b32de7a7ade2c27b3845",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7106,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97106,
+          "replicate_seed": 7106
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7106,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_bf219bef7f5169f48872",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7107,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97107,
+          "replicate_seed": 7107
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7107,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_602f2418a9f601b7c41b",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7108,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97108,
+          "replicate_seed": 7108
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7108,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_52ab93afa2e5076f45b9",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7109,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97109,
+          "replicate_seed": 7109
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7109,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_1f751677060c57dd8244",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7110,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97110,
+          "replicate_seed": 7110
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7110,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_b7dcd0d34ea9fd1cbe8e",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7111,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97111,
+          "replicate_seed": 7111
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7111,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_8419a24551454e0b7e85",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7112,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97112,
+          "replicate_seed": 7112
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_morning",
+        "partition": "detector_calibration",
+        "replicate_seed": 7112,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_4f228cd550a2daa56f3e",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7101,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97101,
+          "replicate_seed": 7101
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7101,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_5dfce4861e021d9fb4c2",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7102,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97102,
+          "replicate_seed": 7102
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7102,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_296303fc7b5eb6904b1d",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7103,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97103,
+          "replicate_seed": 7103
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7103,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_aba55c1c3941b621b607",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7104,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97104,
+          "replicate_seed": 7104
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7104,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_a114e06c908c8f0f04ac",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7105,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97105,
+          "replicate_seed": 7105
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7105,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_130794e9be2a4734c864",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7106,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97106,
+          "replicate_seed": 7106
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7106,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_269f15b4583498e2caf7",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7107,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97107,
+          "replicate_seed": 7107
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7107,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_68e0b406bd932792d410",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7108,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97108,
+          "replicate_seed": 7108
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7108,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_e8d9cb136d9d836c3a9e",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7109,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97109,
+          "replicate_seed": 7109
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7109,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_4f0fdb300eda1ddb83a2",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7110,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97110,
+          "replicate_seed": 7110
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7110,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_4e206706854020389e57",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7111,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97111,
+          "replicate_seed": 7111
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7111,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_e95806c95c9130f65519",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7112,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97112,
+          "replicate_seed": 7112
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7112,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_6493f6b385bbf09fee71",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7101,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97101,
+          "replicate_seed": 7101
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7101,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_cda4cc2d928a69817ef1",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7102,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97102,
+          "replicate_seed": 7102
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7102,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_63a694322fadffb6dc74",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7103,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97103,
+          "replicate_seed": 7103
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7103,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_f0b95b8f28ea567a0bc9",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7104,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97104,
+          "replicate_seed": 7104
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7104,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_207d6860af857573e33c",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7105,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97105,
+          "replicate_seed": 7105
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7105,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_ee368f4fd9643c098a98",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7106,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97106,
+          "replicate_seed": 7106
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7106,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_45ff3a352fa6c61606cd",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7107,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97107,
+          "replicate_seed": 7107
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7107,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_ca0a773d0096e839d2db",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7108,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97108,
+          "replicate_seed": 7108
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7108,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_57c62c551fd17e31e5c6",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7109,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97109,
+          "replicate_seed": 7109
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7109,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_b13d3314f61870075da7",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7110,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97110,
+          "replicate_seed": 7110
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7110,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_b42b91c00e34a6bc746f",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7111,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97111,
+          "replicate_seed": 7111
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7111,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_45227e2d80634522b4f1",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7112,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97112,
+          "replicate_seed": 7112
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_midday",
+        "partition": "detector_calibration",
+        "replicate_seed": 7112,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_13aebc28d9598b503e82",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7101,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97101,
+          "replicate_seed": 7101
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7101,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_580ffb0cc86c9afdf84e",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7102,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97102,
+          "replicate_seed": 7102
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7102,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_6ddc07396dfba3d4e484",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7103,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97103,
+          "replicate_seed": 7103
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7103,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_3f5157ea9ffd30b0650d",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7104,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97104,
+          "replicate_seed": 7104
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7104,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_6cdc0cd16e94da952ec4",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7105,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97105,
+          "replicate_seed": 7105
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7105,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_e37414e69cad7c12de73",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7106,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97106,
+          "replicate_seed": 7106
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7106,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_68001bc3d5a73efc1762",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7107,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97107,
+          "replicate_seed": 7107
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7107,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_3bfbd74552743a8a8e91",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7108,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97108,
+          "replicate_seed": 7108
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7108,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_1e6dc9a98d89f9a656f4",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7109,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97109,
+          "replicate_seed": 7109
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7109,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_02b1c13fa65cfe624d7d",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7110,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97110,
+          "replicate_seed": 7110
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7110,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_7cf12543a3021611c957",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7111,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97111,
+          "replicate_seed": 7111
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7111,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_84af21c1688125983ca1",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7112,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97112,
+          "replicate_seed": 7112
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7112,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_9373b9ba80f2d686bb93",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7101,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97101,
+          "replicate_seed": 7101
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7101,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_68cfc2f54005951c5847",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7102,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97102,
+          "replicate_seed": 7102
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7102,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_ad51e9280764b25c934e",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7103,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97103,
+          "replicate_seed": 7103
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7103,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_2c8e6cd4f18025fe8dd8",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7104,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97104,
+          "replicate_seed": 7104
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7104,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_701aad1a4a06fa457625",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7105,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97105,
+          "replicate_seed": 7105
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7105,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_6bc3688ba29584dcb31a",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7106,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97106,
+          "replicate_seed": 7106
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7106,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_acc0372999f48e039565",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7107,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97107,
+          "replicate_seed": 7107
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7107,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_6aab3ae04bef64cf7bfc",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7108,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97108,
+          "replicate_seed": 7108
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7108,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_bb89fce3c06ce4919694",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7109,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97109,
+          "replicate_seed": 7109
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7109,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_0c00a9b26ee1639553f4",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7110,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97110,
+          "replicate_seed": 7110
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7110,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_2ec8528cc12d4a816275",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7111,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97111,
+          "replicate_seed": 7111
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7111,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_647ed16c6b88b0c436e6",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7112,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97112,
+          "replicate_seed": 7112
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_evening",
+        "partition": "detector_calibration",
+        "replicate_seed": 7112,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_073a711864ae122bb4e0",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7101,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97101,
+          "replicate_seed": 7101
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7101,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_4b769c3e1a36f5870b3b",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7102,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97102,
+          "replicate_seed": 7102
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7102,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_3670936f90cad2396708",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7103,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97103,
+          "replicate_seed": 7103
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7103,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_dd4cd36f0876e0fa5486",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7104,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97104,
+          "replicate_seed": 7104
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7104,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_9fe724f1241400e2a274",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7105,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97105,
+          "replicate_seed": 7105
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7105,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_843688e75ca3f557966b",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7106,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97106,
+          "replicate_seed": 7106
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7106,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_f696c338641dfda8f10c",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7107,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97107,
+          "replicate_seed": 7107
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7107,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_d71353f613b87b1ed614",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7108,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97108,
+          "replicate_seed": 7108
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7108,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_3435dd39b7398935a113",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7109,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97109,
+          "replicate_seed": 7109
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7109,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_94ef7b918e37f84a41fa",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7110,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97110,
+          "replicate_seed": 7110
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7110,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_3c82a88a0b24ca22a386",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7111,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97111,
+          "replicate_seed": 7111
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7111,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_0e1eb34df6bd92df166c",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7112,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97112,
+          "replicate_seed": 7112
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7112,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_9c6c328d1a4cf06be35f",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7101,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97101,
+          "replicate_seed": 7101
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7101,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_a694c172128ecc8edf00",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7102,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97102,
+          "replicate_seed": 7102
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7102,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_2df941485d2ced4e6f69",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7103,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97103,
+          "replicate_seed": 7103
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7103,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_3fcf0d56d123dba36523",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7104,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97104,
+          "replicate_seed": 7104
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7104,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_830e129417a8bbcb39c7",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7105,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97105,
+          "replicate_seed": 7105
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7105,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_6bd1889993ccf921ec13",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7106,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97106,
+          "replicate_seed": 7106
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7106,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_9ea06e2bd859e1ab5f49",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7107,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97107,
+          "replicate_seed": 7107
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7107,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_f0111bb4c4aab24f8719",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7108,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97108,
+          "replicate_seed": 7108
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7108,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_da4bd769152880119101",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7109,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97109,
+          "replicate_seed": 7109
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7109,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_284c8a49ae5bfe9af9cf",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7110,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97110,
+          "replicate_seed": 7110
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7110,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_b190804ce0b97b9cdfa9",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7111,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97111,
+          "replicate_seed": 7111
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7111,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_9c76ba96b8efc2fb0c31",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7112,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97112,
+          "replicate_seed": 7112
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "responsive_night",
+        "partition": "detector_calibration",
+        "replicate_seed": 7112,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_176df57ae58376a21538",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7101,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97101,
+          "replicate_seed": 7101
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7101,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_5cd51acccbac4f78525c",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7102,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97102,
+          "replicate_seed": 7102
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7102,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_81bde1c4490796d2c2df",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7103,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97103,
+          "replicate_seed": 7103
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7103,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_2e9fadcf58b33dd1c475",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7104,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97104,
+          "replicate_seed": 7104
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7104,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_39dfc333fae3af24435c",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7105,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97105,
+          "replicate_seed": 7105
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7105,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_bd0fc3a676a64cb56214",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7106,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97106,
+          "replicate_seed": 7106
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7106,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_45ad879e62abccd6b38b",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7107,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97107,
+          "replicate_seed": 7107
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7107,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_a82c66fb225cb6e626b0",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7108,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97108,
+          "replicate_seed": 7108
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7108,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_1e30a6f5e27223b57055",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7109,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97109,
+          "replicate_seed": 7109
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7109,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_c2b6713b1a32fe42899a",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7110,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97110,
+          "replicate_seed": 7110
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7110,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_71afaf1b9241841432ac",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7111,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97111,
+          "replicate_seed": 7111
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7111,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_3fc7751ce635174d86f9",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7112,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97112,
+          "replicate_seed": 7112
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7112,
+        "total_windows": 84,
+        "volt_var": false,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_b5a2b6c5b1b727cc58f0",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7101,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97101,
+          "replicate_seed": 7101
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7101,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_1c3bcf9e94d9eaa6c1a7",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7102,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97102,
+          "replicate_seed": 7102
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7102,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_17bab9353f1e3e49b23b",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7103,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97103,
+          "replicate_seed": 7103
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7103,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_792a5f2168b6465b2ec1",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7104,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97104,
+          "replicate_seed": 7104
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7104,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_cd81bfecf67e6e3b8d72",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7105,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97105,
+          "replicate_seed": 7105
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7105,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_4dc71b10d0f756db8536",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7106,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97106,
+          "replicate_seed": 7106
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7106,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_a425866858184154b72f",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7107,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97107,
+          "replicate_seed": 7107
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7107,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_82139567e47dbf2901f6",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7108,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97108,
+          "replicate_seed": 7108
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7108,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_73f4886a4f2f1ea4efa7",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7109,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97109,
+          "replicate_seed": 7109
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7109,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_bdddd2ed18cbbf2cd262",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7110,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97110,
+          "replicate_seed": 7110
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7110,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_e1909df012da67e3b39e",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7111,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97111,
+          "replicate_seed": 7111
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7111,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_33634c6820c596a00d1d",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    },
+    {
+      "controlled_lineage": {
+        "component_seeds": {
+          "attacker_policy_seed": 7112,
+          "gridlabd_random_seed": 10,
+          "measurement_noise_seed": 97112,
+          "replicate_seed": 7112
+        },
+        "dependency_hashes": {
+          "examples/2bus-13bus/1c_IEEE_123_feeder.glm": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888",
+          "v3/configs/der_devices.yaml": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "v3/g7_condition_freeze/20260830_r1/shared/detector_g7.py": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+          "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+          "v3/g7_condition_freeze/20260830_r1/shared/sensitivity_g7.json": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8"
+        },
+        "measurement_noise_pu": 0.002,
+        "operating_point": "voltage_ceiling",
+        "partition": "detector_calibration",
+        "replicate_seed": 7112,
+        "total_windows": 84,
+        "volt_var": true,
+        "window_seconds": 10.0
+      },
+      "executable": false,
+      "run_id": "g7cal_4427006aef0d4082f2f1",
+      "status": "planned_not_authorized",
+      "treatment": "benign"
+    }
+  ],
+  "schema_version": "grideval-g7-benign-calibration-plan/v1",
+  "spec_sha256": "44b66724c0cee55f382e736f925909934e92f06973e38e340272a938dbdb6d6a"
+}

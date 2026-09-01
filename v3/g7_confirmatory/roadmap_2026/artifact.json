@@ -1,0 +1,877 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "GridEval/G7 Long-Term Experimental Design and Research Roadmap",
+    "description": "A capability-conditioned power-grid red-team benchmark, detector and defense program, and evidence-governance roadmap for engineering and research teams.",
+    "generatedAt": "2026-08-31T14:56:54Z",
+    "charts": [
+      {
+        "id": "roadmap_gate_chart",
+        "title": "Required cumulative evidence gates by roadmap phase",
+        "subtitle": "Ordinal design count only; not elapsed time, experiment performance, or campaign authorization.",
+        "type": "line",
+        "dataset": "roadmap_gate_depth",
+        "sourceId": "roadmap_gate_sql",
+        "valueFormat": "number",
+        "encodings": {
+          "x": {
+            "field": "phase",
+            "type": "nominal",
+            "label": "Roadmap phase"
+          },
+          "y": {
+            "field": "completed_gates",
+            "type": "quantitative",
+            "label": "Required cumulative gates"
+          },
+          "tooltip": [
+            {
+              "field": "name",
+              "type": "nominal",
+              "label": "Phase objective"
+            },
+            {
+              "field": "state",
+              "type": "nominal",
+              "label": "Current state"
+            }
+          ]
+        }
+      }
+    ],
+    "sources": [
+      {
+        "id": "roadmap_blueprint",
+        "label": "GridEval/G7 roadmap blueprint",
+        "path": "v3/g7_confirmatory/roadmap_2026/roadmap_blueprint.json"
+      },
+      {
+        "id": "roadmap_gate_sql",
+        "label": "Roadmap gate-depth transformation",
+        "path": "v3/g7_confirmatory/roadmap_2026/roadmap_gate_depth.sql"
+      },
+      {
+        "id": "experiment_spec",
+        "label": "Frozen G7 confirmatory experiment specification",
+        "path": "v3/g7_confirmatory/experiment_spec.yaml"
+      },
+      {
+        "id": "detector_audit",
+        "label": "Detector provenance audit",
+        "path": "v3/g7_confirmatory/artifacts/detector_pairing/detector_provenance_audit.json"
+      },
+      {
+        "id": "red_team_design",
+        "label": "Existing GridEval red-team design",
+        "path": "v3/g7_confirmatory/RED_TEAM_DESIGN.md"
+      },
+      {
+        "id": "detector_review",
+        "label": "Existing detector and defense review",
+        "path": "v3/g7_confirmatory/DETECTOR_DEFENSE_REVIEW.md"
+      },
+      {
+        "id": "nist_7628",
+        "label": "NISTIR 7628 Rev. 1",
+        "href": "https://csrc.nist.gov/pubs/ir/7628/r1/final"
+      },
+      {
+        "id": "nist_2051",
+        "label": "NIST TN 2051",
+        "href": "https://csrc.nist.gov/pubs/tn/2051/final"
+      },
+      {
+        "id": "ieee_1547_3",
+        "label": "IEEE 1547.3-2023",
+        "href": "https://standards.ieee.org/ieee/1547.3/10173/"
+      },
+      {
+        "id": "mitre_ics",
+        "label": "MITRE ATT&CK for ICS",
+        "href": "https://attack.mitre.org/tactics/ics/"
+      },
+      {
+        "id": "nrel_hybrid",
+        "label": "NREL hybrid anomaly detector report",
+        "href": "https://www.nrel.gov/docs/fy22osti/80628.pdf"
+      },
+      {
+        "id": "state_prediction",
+        "label": "State-prediction FDIA detector",
+        "href": "https://arxiv.org/abs/2409.04609"
+      },
+      {
+        "id": "graph_comparison",
+        "label": "Power-system GNN detector comparison",
+        "href": "https://arxiv.org/abs/2411.02248"
+      },
+      {
+        "id": "volt_var_screen",
+        "label": "Malicious Volt-VAr parameter detector",
+        "href": "https://arxiv.org/abs/2309.10304"
+      },
+      {
+        "id": "watermark",
+        "label": "Physics-aware watermarking",
+        "href": "https://eprints.whiterose.ac.uk/id/eprint/216412/"
+      },
+      {
+        "id": "mtd",
+        "label": "Event-triggered moving target defense",
+        "href": "https://ieeexplore.ieee.org/abstract/document/9998121"
+      },
+      {
+        "id": "ae_evasion",
+        "label": "Evasive attacks against power-system autoencoders",
+        "href": "https://eprints.whiterose.ac.uk/id/eprint/213754/"
+      },
+      {
+        "id": "adaptive_eval",
+        "label": "On Evaluating Adversarial Robustness",
+        "href": "https://arxiv.org/abs/1902.06705"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# GridEval/G7 Long-Term Experimental Design and Research Roadmap"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "body": "## Technical Summary\n\nThe core recommendation is to develop GridEval/G7 as a **capability-conditioned, closed-loop cyber-network-control-physics red-team benchmark for power systems**, rather than extending a one-dimensional comparison of an LLM against random search. The ultimate research object is how attacker knowledge, search algorithms, grid operating conditions, local DER behavior, network delivery, and defense observability jointly change **incremental physical harm accrued before an alarm**, under equal action authority, query count, compute, feedback delay, and interfaces.\n\nThe roadmap uses two orthogonal planes: the attacker plane `K × A` and the grid-consequence plane. `K=(grid, detector, training_data, defense, feedback)` represents information and knowledge only. `A` separately represents attack surface, compromised assets, P/Q or measurement authority, spatial scope, temporal control, query and compute budgets, and feedback delay. The new `IA0–IA5` ladder describes only interactive strategy-orchestration capability. Black/gray/white `K` profiles, physical authority `A`, and grid-consequence cells remain orthogonal and cannot be used as hidden upgrades to a rung.\n\nThe program does not run a full Cartesian product. Its sequence is evidence governance and sensitivity provenance recovery → bounded runtime and detector qualification → benign calibration → attack-mechanism screening → IA ladder and strong non-LLM baselines → causal decomposition of knowledge → passive detector bake-off → network causal chain → defense-aware adaptive red team → active-defense harm-cost Pareto frontier → one locked evaluation → external validity. All existing hard gates remain in force. This revision does not modify the frozen `experiment_spec.yaml` and does not authorize live co-simulation, GPU or model calls, parameter fitting, or evaluation.",
+        "sourceId": "roadmap_blueprint"
+      },
+      {
+        "id": "key_findings",
+        "type": "markdown",
+        "body": "## Key Findings and Evidence\n\n1. **The most important scientific problem is not increasing the number of attacks; it is restoring defensible detector provenance.** `sensitivity_g7.json` still comes from an exploratory, non-content-addressed run. Frozen detector source and interfaces do not imply calibrated parameters.\n2. **Power-grid characteristics must be part of the treatment definition, not only post-hoc interpretation.** Radial and unbalanced topology, phase and location, P/Q coupling, asymmetric PV/BESS authority, SOC and irradiance, saturation and ramp limits, Volt-VAR behavior, ride-through, and local-control memory can all change the consequence of the same command.\n3. **The command-observability gap is the project's highest-value detector direction.** A harmful command issued under legitimate authority can remain WLS-consistent, so detection must test cross-layer consistency from controller intent through wire delivery, device acceptance, realized P/Q, and grid response.\n4. **Detection accuracy is not defense effectiveness.** Detectors must be evaluated by trajectory-level false alarms, alarm latency, and physical harm before alarm. Active defenses must also report prevented harm, false interventions, and normal-control cost.\n5. **The LLM must face a capability-matched strong baseline.** IA3 and IA4 must share the strategy library, typed tools, history, feedback timing, action authority, and outer rollout budget. The primary contrast is `IA4 − IA3`, not LLM versus random.\n6. **Tool use must be auditable.** Every call must record its side-effect class, whether it advances simulation time, rollout cost, token and latency cost, and returned information level. LLM-only hidden tools and silent time advancement are prohibited.\n7. **Network experiments start with clean-path equivalence.** Physical effects of delay, loss, replay, or compound attacks cannot be interpreted until direct HELICS and clean NATIG-mediated paths are benign-equivalent.\n8. **Evaluation is opened only once.** Post-evaluation tuning, detector re-ranking, primary-metric changes, or silent reruns would turn confirmatory work back into exploratory work.",
+        "sourceId": "roadmap_blueprint"
+      },
+      {
+        "id": "readiness_section",
+        "type": "markdown",
+        "body": "## Current Scope, Code, Data, and State\n\nThis revision audits only the current workspace, live RKA state, frozen specification, and existing design documents. `v3/g7_confirmatory` currently contains 95 files, with about 2,796 Python lines across the package and tests. The prior detector-pairing work passed 43/43 tests, but that establishes offline invariants only; it does not prove detector calibration, complete runtime qualification, or campaign readiness.\n\nThe current specification fixes 12 calibration seeds, 12 development seeds, and 12 evaluation seeds; evaluation remains sealed. `benign_calibration_plan.json` is a 120-row non-executable plan, not a collection of benign trajectories or fitted parameter artifacts.",
+        "sourceId": "roadmap_blueprint"
+      },
+      {
+        "id": "scope_definitions",
+        "type": "markdown",
+        "body": "## Research Object and Metric Definitions\n\nThe primary estimand is the **CC-EVG (capability-conditioned evaluation-validity gap)**: within a frozen cell, the paired difference in pre-alarm incremental physical harm between the LLM and the strongest admissible non-LLM comparator, with uncertainty propagated across replicate seeds and operating conditions. Both sides must use the same action space, outer budget `K`, feedback, queries, compute, invalid-action policy, and visible history.\n\nThe primary physical metric is paired pre-alarm incremental voltage harm per admitted apparent energy. Voltage violations are integrated across nodes and phases until the first alarm from the frozen detector, the fully paired benign trajectory is subtracted, and the result is normalized by admitted apparent energy. Zero-energy handling must be preregistered, and requested energy cannot substitute for admitted energy.\n\nSecondary metrics include peak and duration of over- and undervoltage, voltage unbalance, oscillation energy, losses, source imbalance, recovery and persistence, saturation, ramp, SOC, irradiance, ride-through, number of affected nodes, and the worst cell. Detector metrics include trajectory-level false alarms, event recall, latency, pre-alarm harm, localization, calibration, and compute and communication cost. AUROC is supplemental only."
+      },
+      {
+        "id": "high_level_design",
+        "type": "markdown",
+        "body": "## Overall Experimental Architecture: Two Planes, Four Chains, One Evaluation\n\n### Two planes\n\nThe **attacker plane** separates knowledge `K` from operational capability `A`. The five dimensions of `K` retain their existing definitions. `A` covers attack surface, compromised assets, command or measurement authority, spatial scope, temporal control, query budget, compute budget, and feedback delay. Comparisons of search algorithms freeze both `K` and `A`; attacker-capability studies change only one declared dimension.\n\nThe **grid-consequence plane** explicitly indexes operating point and headroom, phase and location, DER type, P/Q authority, SOC and irradiance, Volt-VAR behavior, local-control state, network path, detector, and mitigation. Aggregation across cells is secondary; worst-cell and phase-specific results must be retained.\n\n### Four causal chains\n\n1. `attacker information → proposal/search`;\n2. `requested → admitted → delivered → accepted command`;\n3. `accepted command → realized P/Q → voltage/device state`;\n4. `observations → detector → mitigation → residual harm/cost`.\n\nEach chain requires an independent manifest and falsifiable checks so packet-delivery failure, device rejection, absent physical response, and detector miss are not collapsed into a single label of 'attack failed.'\n\n### One evaluation\n\nMechanism downselection, parameters, prompts, model IDs, analysis scripts, missingness rules, stopping rules, and final bytes are frozen after development. Evaluation seeds are opened once. If final bytes drift, the project creates a new protocol version and a future partition instead of rerunning the current evaluation.",
+        "sourceId": "roadmap_blueprint"
+      },
+      {
+        "id": "research_questions",
+        "type": "markdown",
+        "body": "## Eight Primary Research Questions and Falsifiable Hypotheses\n\n- **RQ-A — Search value.** Does an LLM outperform the strongest non-LLM optimizer under equal information and resources? The hypothesis is falsified if a strong optimizer removes the advantage, or if any advantage is absent in informative-feedback and responsive-grid cells.\n- **RQ-B — Knowledge causality.** Which of grid, detector, training-data, defense, and feedback knowledge creates value? The knowledge-advantage hypothesis fails if one-at-a-time increments do not reproduce it.\n- **RQ-C — Grid mechanism.** How do strategies interact with headroom, phase, DER type, saturation, Volt-VAR behavior, and state memory? The mechanism hypothesis fails if amplitude-only attacks dominate without cell-specific differences.\n- **RQ-D — Passive detection.** Which detector identifies accepted harmful commands earliest, most reliably, and with the best calibration? If a simple envelope or residual matches complex models, the simple detector should be selected.\n- **RQ-E — Adaptive robustness.** How much of the nominal ranking survives defense-aware attack and distribution shift? Ranking collapse is a valid negative result and must not be hidden.\n- **RQ-F — Active defense.** Do command screening, fallback, watermarking, and MTD reduce physical harm at an acceptable normal-operation cost? More alarms without prevented harm do not count as success.\n- **RQ-G — Network coupling.** Are clean mediation and the direct path equivalent, and how do network impairments change temporal strategies? Failure of clean equivalence halts interpretation of network attacks.\n- **RQ-H — External validity.** Which mechanisms persist across feeders, devices, simulators, seasons, and attacker models? Thresholds and model rankings are not assumed to transfer.",
+        "sourceId": "roadmap_blueprint"
+      },
+      {
+        "id": "attacker_model",
+        "type": "markdown",
+        "body": "## Black-, Gray-, and White-Box Knowledge-Causality Design\n\nThree black/gray/white endpoints cannot identify which knowledge causes an improvement. The design therefore uses a 13-profile fractional ladder: three canonical endpoints, five single-axis exact-knowledge increments from the black baseline, four leave-one-out interaction checks from the white endpoint, and a no-feedback black lower bound. This is not the full `3^5=243` Cartesian product; it is designed to identify main effects and important non-additivity.\n\nFeedback must distinguish at least `none`, `delayed binary`, `state summary`, and `continuous score`; query budget cannot be conflated with feedback granularity. White-box attacks run only after the detector and defense are frozen so attack results cannot feed back into defense tuning.",
+        "sourceId": "roadmap_blueprint"
+      },
+      {
+        "id": "attack_strategy",
+        "type": "markdown",
+        "body": "## Power-Grid Attack Strategy Atlas and Mechanism Controls\n\nThe library retains ten strategy classes: step corner, pulse/intermittent, ramp drift, periodic duty cycle, event synchronized, riding-the-wave, P-Q coordinated, spatial subset, state exhaustion, and adaptive evasion. Each class is paired with an expected physical signature and a mechanism-matched control: event synchronized versus randomized offset, P-Q coordinated versus P-only and Q-only, spatial subset versus uniform and random subsets, and state exhaustion versus state-reset and history-shuffled controls.\n\nRed-team results must separate 'larger action' from 'better strategy.' Every strategy comparison uses the same aggregate authority, perturbed-window cap, and apparent-energy cap, while recording device saturation, local-controller overrides, and realized P/Q. Multi-DER claims compare the best single site with coordinated multi-site behavior under equal aggregate authority; the coordinated arm does not receive more total power.\n\nMITRE ATT&CK for ICS covers operational goals including Execution, Evasion, Inhibit Response Function, Impair Process Control, and Impact, but it does not replace voltage, device-state, delivery, and mitigation-cost metrics. [MITRE ATT&CK for ICS](https://attack.mitre.org/tactics/ics/)"
+      },
+      {
+        "id": "interactive_attacker_ladder",
+        "type": "markdown",
+        "body": "## IA0–IA5 Interactive Attack-Orchestration Ladder\n\nThis ladder is separate from the historical G7 `L0–L5b` sophistication ladder and does not reuse `O1`, which is reserved for the oracle. It increases orchestration capability only and does not assume monotonic harm. A higher rung that fails or loses to a conventional optimizer is still a result that must be retained.\n\n- **IA0 — static frozen:** Replay one frozen strategy and schedule; logged feedback cannot change the plan.\n- **IA1 — library open-loop:** Select one strategy card from S1–S10 and typed parameters at the start, with no switching. `IA1−IA0` measures the value of an explicit strategy library and selection.\n- **IA2 — rule interactive:** Switch or combine strategies using frozen rules and the same bounded observations. `IA2−IA1` measures online feedback and switching.\n- **IA3 — non-LLM adaptive:** A bandit, Bayesian, or evolutionary controller assigns credit across strategy, composition, target, and parameters. It shares the exact strategy library, tools, history, delay, and call budget with IA4 and is the strongest non-LLM control for CC-EVG.\n- **IA4 — LLM orchestrator:** Replace only IA3's decision core. The LLM uses typed tools to select, parameterize, combine, and switch strategies and emits a typed plan; the same hard validator executes all final commands. `IA4−IA3` is the primary contrast isolating LLM orchestration value.\n- **IA5 — LLM planner-critic:** Add one bounded critique and revision to IA4 without obtaining a new environmental observation. Compare it with an IA4 repeated-proposal control under equal token and model-call caps so extra inference is not misattributed to the critic.\n\n### Orthogonal axes and parity contract\n\nBlack/gray/white `K` profiles, attack authority `A`, grid-consequence cells, and detector and defense settings remain orthogonal to IA rung. IA3 and IA4 receive the same tool schemas, results, delays, history, and call limits. Every tool declares one of `read-only/no-time-advance`, `time-advancing`, `rollout-consuming`, or `actuating`. Any call that advances HELICS or simulator time consumes the corresponding budget. Hidden retrieval, oracle preview, detector scores, and LLM-only tools are prohibited.\n\n### IA4/IA5 ablations\n\nPreregister nine decompositions: direct-parameter LLM, `−strategy-library`, `−physics-tools`, `−history`, shuffled history, `−strategy-switching`, `−candidate-refinement`, feedback timing, and the compute-matched IA5 `−critic` control. Together they distinguish value from the LLM itself, strategy knowledge, physics tools, temporal history, interactive switching, numerical optimization, feedback granularity, and additional inference budget.\n\nThe first pass is a contract and feasibility screen in one responsive sentinel cell and two development seeds. It is not a full Cartesian product, and evaluation outcomes cannot be used to select rungs.",
+        "sourceId": "roadmap_blueprint"
+      },
+      {
+        "id": "experiment_program",
+        "type": "markdown",
+        "body": "## Twelve Experiment Families and Sequential Design\n\nE0-E2 establish admissible evidence: sensitivity provenance, runtime lineage, and benign calibration. E3 screens ten attack mechanisms. E4 compares IA0–IA5 and strong search baselines under parity. E5 then treats black/gray/white `K` as an orthogonal knowledge axis for causal decomposition. E6-E9 study detectors, networks, adaptive attack, and active defense. E10 is the only locked evaluation, and E11 uses entirely new partitions for external validity.\n\nE4 uses the gatekeeping contrasts `IA1−IA0 → IA2−IA1 → IA3−IA2 → IA4−IA3 → IA5−IA4_compute_matched`. Every rung and ablation is first screened in one responsive sentinel cell and two development seeds. Only scientifically informative survivors expand to additional cells and seeds; dominated and failed results remain in the record.\n\nEvery experiment family must define treatment, control, held variables, primary outcome, falsifier, artifact contract, and gate. Passing one family does not automatically approve the next. In particular, completing calibration does not open evaluation, and passing unit tests does not establish physical validity.",
+        "sourceId": "roadmap_blueprint"
+      },
+      {
+        "id": "detector_design",
+        "type": "markdown",
+        "body": "## Detector Design and State-of-the-Art Candidates\n\nTier 0 contains transparent baselines: command envelope and policy checks, physics residual or VSCT, and sequential CUSUM. Tier 1 contains complementary challengers: cross-layer intent-response, central state estimation plus a local inverter autoencoder, temporal state prediction, and graph-based localization. Only one preregistered transparent fusion rule may be compared with the members, and every member failure must also be reported.\n\nThe NREL hybrid architecture explicitly combines a central model-based residual with decentralized local autoencoders. It is an appropriate GridEval architecture baseline, not a result already validated here. [NREL technical report](https://www.nrel.gov/docs/fy22osti/80628.pdf) State-prediction work shows that LSTM and GNN-LSTM models can use dynamic prediction to identify FDIA, but its IEEE 39-bus frequency setting differs from this project's distribution-voltage setting, so it remains a challenger. [Sahu et al.](https://arxiv.org/abs/2409.04609) Comparative GNN work supports topology-aware detection and localization and also finds mixed attacks more difficult. [Yin et al.](https://arxiv.org/abs/2411.02248)\n\nFor inverter control, pre-execution screening of malicious Volt-VAR parameters directly motivates a safe command screen. [Volt-VAR screening paper](https://arxiv.org/abs/2309.10304) GridEval must additionally detect commands that are parameter-valid but harmful in the current grid state, making D3 cross-layer intent-response the first new detector to implement.",
+        "sourceId": "detector_review"
+      },
+      {
+        "id": "defense_design",
+        "type": "markdown",
+        "body": "## Defense Design: From Alarm-Only to a Harm-Cost Pareto Frontier\n\nM0 alarm-only is the necessary control separating detection from mitigation. M1 safe command screening rejects or projects unsafe commands before execution. M2 local autonomous fallback returns to a frozen safe local mode under an alarm or communication uncertainty. M3 physics-aware watermarking uses bounded private excitation to break stealth. M4 event-triggered MTD changes the attacker's static physical model after a calibrated alarm.\n\nPrimary watermarking research analyzes both detection improvement and control-performance degradation and includes time-synchronization error, making it suitable as a GridEval active-defense candidate. [Physics-aware watermarking](https://eprints.whiterose.ac.uk/id/eprint/216412/) Event-triggered MTD links a data-driven alarm to physics-based MTD and studies false positives and added operating cost, supporting a layered design of alarm first, then bounded active action. [DDET-MTD](https://ieeexplore.ieee.org/abstract/document/9998121)\n\nEvery active defense first undergoes benign-only safety qualification, then defense-unaware attacks, and only then defense-aware white-box attacks. Successful white-box evasion of power-system autoencoders is already documented, so nominal reconstruction accuracy cannot be treated as robustness. [Khaw et al.](https://eprints.whiterose.ac.uk/id/eprint/213754/)"
+      },
+      {
+        "id": "network_design",
+        "type": "markdown",
+        "body": "## Cyber-Network Experiments and Causal Attribution\n\nNetwork research proceeds in three layers:\n\n1. **Direct reference versus clean mediation:** Freeze commands, device state, seeds, and timing, then verify benign and known-action equivalence in delivery, acceptance, and physical response.\n2. **Single-factor impairments:** Estimate the separate effects of delay, jitter, loss, duplication, and reordering on delivery, acceptance, and harm.\n3. **Attacks and compound cases:** Add replay, modification, selective drop, and telemetry-command combinations only after single-factor mechanisms are interpretable.\n\nEach command produces an `intent → packet → delivered → accepted → realized P/Q → grid response` trace. This separates an ineffective attack strategy from nondelivery, device rejection, local-control override, and an unresponsive grid headroom condition. Failure of clean mediation is a hard stop because the network adapter would then be a confounder rather than the experimental treatment."
+      },
+      {
+        "id": "statistics",
+        "type": "markdown",
+        "body": "## Randomization, Statistical Inference, and Failure Policy\n\nThe experimental unit is a replicate seed within a fully specified cell. The primary contrast is explicitly the paired pre-alarm harm difference `IA4 − IA3` under compute, tool, history, feedback, and authority parity. Adjacent IA0–IA3 contrasts and the compute-matched `IA5 − IA4` contrast are interpreted in gatekeeping order. Analyses report paired effects and intervals before p-values and use a seed-blocked hierarchical model or a preregistered stratified randomization analysis. Hierarchical or cluster bootstrap resamples both replicate and condition levels to represent cross-condition uncertainty.\n\nA content-addressed benign trajectory may be shared across arms within the same `condition × seed`, reducing execution count but inducing common-baseline covariance. It cannot be duplicated and treated as independent benign samples. One primary contrast uses gatekeeping. Detector and defense comparisons are separate secondary families using preregistered FDR or simultaneous intervals. Box-profile and external-validity interactions remain exploratory until independently confirmed.\n\nAll invalid proposals, safety refusals, budget rejections, runtime failures, and simulator non-convergence are retained under intention-to-evaluate and classified as scientific zero, invalid attacker action, infrastructure failure, or simulator failure. Silent reruns are prohibited; failure artifacts, reason codes, and original seeds are preserved. Evaluation still requires at least 10/12 valid replicates in every required cell, and all exclusion or replacement rules must be frozen before evaluation."
+      },
+      {
+        "id": "resource_plan",
+        "type": "markdown",
+        "body": "## Execution Scale, Compute, and Caching Strategy\n\nThe frozen specification's primary development structure remains `4 responsive OP × 2 Volt-VAR × 3 arms × 12 proposals = 288` attack runs. Sharing benign runs within the same `OP × Volt-VAR × seed` requires 96 benign runs, for 384 physical executions in total. Detector calibration separately plans `5 OP × 2 Volt-VAR × 12 seeds = 120` benign runs. If a future evaluation retained three arms, its structure would likewise be 288 attack plus 96 benign runs, but this is accounting only and **does not authorize evaluation**. IA0–IA5 and their ablations are development-screening designs in this roadmap revision and are not included in the frozen 384-run count.\n\nEvery new attack strategy, detector, and defense therefore begins with a sentinel cell × 2-seed screen, expands survivors to 4 seeds × selected cells, and sends only the non-dominated frontier to full development. Caching is limited to immutable, content-addressed benign and replay artifacts. Any change to source, parameter package, condition, or seed lineage prohibits reuse. Calendar and GPU/CPU budgets are estimated only after a bounded throughput pilot.",
+        "sourceId": "experiment_spec"
+      },
+      {
+        "id": "provenance_gates",
+        "type": "markdown",
+        "body": "## Provenance, Freezes, and Evidence Gates\n\nEvery run is create-once and records source and dependency hashes, complete component seeds, K/A profile, treatment and exact paired-control key, requested/admitted/delivered/accepted/realized action traces, detector-package hash, alarm and mitigation traces, physical outcomes, stdout and stderr, return codes, and teardown classification. Overwrite is a hard stop. Source drift enters a new namespace and a new gate.\n\nG1 first addresses sensitivity provenance, not large-scale calibration. Sensitivity is generated from a physics-derived Jacobian or auditable finite differences and audited with randomized micro-probes on independent system-identification seeds. Attack-development and evaluation data cannot enter sensitivity construction. G2 then uses one operating condition and two calibration seeds for a lineage pilot and treats HELICS multi-window teardown separately. Only after G1 and G2 pass may the project request the 120-run benign calibration."
+      },
+      {
+        "id": "roadmap_section",
+        "type": "markdown",
+        "body": "## R0–R10 Research and Technical Roadmap\n\nR0 produced the design and evidence-governance artifacts. R1-R2 prioritize sensitivity recovery and runtime and detector qualification, which form the common foundation for all later research. R3-R5 build the attack-mechanism atlas, strong search baselines, knowledge-causality study, and passive detector bake-off. R6 connects direct and network-mediated paths to the same causal chain. R7-R8 then permit an adaptive defense-aware red team and active-defense Pareto analysis. R9 is the single locked evaluation, and R10 performs external replication across feeders, devices, simulators, and models.\n\nIn coarse engineering and research sprints, R1-R2 are near-term, R3-R6 are mid-term, and R7-R10 are long-term. Duration bands in the table are not commitments. A credible calendar requires measured co-simulation throughput, failure rate, and independent-review latency.",
+        "sourceId": "roadmap_blueprint"
+      },
+      {
+        "id": "roadmap_gate_chart_block",
+        "type": "chart",
+        "chartId": "roadmap_gate_chart"
+      },
+      {
+        "id": "standards_literature",
+        "type": "markdown",
+        "body": "## How Standards and Primary Literature Constrain the Design\n\nNISTIR 7628 Rev. 1 frames smart-grid cybersecurity as a risk problem spanning multiple actors and interconnected systems, supporting an expansion from single-detector accuracy to a network-control-physics chain. [NISTIR 7628 Rev. 1](https://csrc.nist.gov/pubs/ir/7628/r1/final) NIST TN 2051 provides a smart-grid CSF profile and emphasizes high-DER scenarios; it can organize assets, functions, and evidence gates but cannot replace physical experiments. [NIST TN 2051](https://csrc.nist.gov/pubs/tn/2051/final) IEEE 1547.3-2023 is a cybersecurity guide for DER interconnection and establishes that inverter interfaces and settings belong in the threat model. [IEEE 1547.3-2023](https://standards.ieee.org/ieee/1547.3/10173/)\n\nGeneral adversarial-robustness methodology requires testing adaptive attacks rather than only static attacks unknown to the defense. [Carlini et al.](https://arxiv.org/abs/1902.06705) In GridEval, this means freezing the detector and defense before giving the attacker partial or exact knowledge, while retaining a strong adaptive non-LLM baseline, equal query budgets, and no silent tuning.\n\nThese sources constrain the design; their reported accuracy or rankings are not transferred directly to the IEEE 123 distribution feeder. Every candidate must be re-evaluated under this project's threat model, calibration procedure, physical-harm outcomes, and cost metrics."
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## Limitations, Uncertainty, and Robustness Boundaries\n\n- This report reconciles code, manifests, RKA state, standards, and literature; it does not provide new runtime evidence.\n- The existing IEEE 123 feeder and current OpenDER/GridLAB-D/HELICS composition do not support broad grid generalization.\n- The 12-seed partitions may be too imprecise for low false-alarm probabilities or higher-order interactions; power and precision must be updated from a bounded pilot variance estimate.\n- Candidate-detector papers use different topologies, dynamics, labels, and threat models; their rankings generate hypotheses only.\n- `sensitivity_g7.json` remains inadmissible for confirmatory detector conclusions.\n- The portable report has no quantitative outcome chart because no new qualified experimental data exist; its tables show design, state, and combinatorial accounting.\n- This revision did not probe or call the running embedding model, Qwen service, GPU, containers, or simulators."
+      },
+      {
+        "id": "recommended_next",
+        "type": "markdown",
+        "body": "## Recommended Execution Order\n\n1. Create a bounded mission covering **sensitivity provenance and system-identification design** only: implement the analytic or finite-difference design and offline validator before requesting a live micro-probe.\n2. Freeze the existing one-condition × two-calibration-seed lineage-pilot manifest. After authorization, run benign only, classify HELICS teardown, and do not start calibration opportunistically.\n3. After G1 and G2 pass, run the 120 benign calibration jobs and create parameter and threshold artifacts. If necessary, add an independent detector-audit partition rather than using development or evaluation data.\n4. Implement `K`, `A`, IA0–IA5 capability flags, the typed-tool side-effect and cost contract, failure taxonomy, intent-to-realization trace, and detector-package schemas offline.\n5. Implement the strong IA3 non-LLM orchestrator before IA4, then enforce tool, history, and rollout parity. Preserve the direct-parameter, no-library, no-physics, no-history, shuffled-history, no-switching, no-refinement, feedback-timing, and no-critic ablations.\n6. Implement cross-layer intent-response as the first new detector and an NREL-style central residual plus local autoencoder as the second; state-prediction and GNN challengers follow.\n7. Request adaptive-defense and evaluation gates only after passive-detector freeze, clean-network equivalence, and a final independent byte audit."
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## Open Questions\n\n- Should the primary sensitivity source use exact or automatic differentiation, finite differences, or a cross-audit of both?\n- How many independent benign audit trajectories are needed for the target trajectory-level false-alarm rate, and should a new 7200-series partition be created?\n- Should equal compute be defined by wall-clock time, tokens, model calls, energy, or a preregistered multidimensional budget?\n- Who signs and is trusted to maintain the command-intent ledger in the target DERMS or aggregator architecture?\n- Should shared-benign-baseline covariance use a hierarchical model or a randomization-based estimator as primary?\n- What is the maximum acceptable benign-service cost for active watermarking and local fallback?\n- Which two additional feeders or topologies and which independent inverter or simulator implementation best test mechanism transfer?\n- Should a public benchmark release full attack traces, de-identified feature traces, or only generators and manifests?"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-31T14:56:54Z",
+    "status": "ready",
+    "datasets": {
+      "readiness": [
+        {
+          "order": 1,
+          "component": "Offline code invariants",
+          "state": "43/43 tests passed",
+          "meaning": "Supports offline design; does not establish physical validity or campaign readiness"
+        },
+        {
+          "order": 2,
+          "component": "runtime composition",
+          "state": "one-window smoke only",
+          "meaning": "Multi-window teardown still requires a bounded gate"
+        },
+        {
+          "order": 3,
+          "component": "detector source/interface",
+          "state": "frozen",
+          "meaning": "Source and schema are traceable"
+        },
+        {
+          "order": 4,
+          "component": "detector calibration",
+          "state": "HOLD",
+          "meaning": "No benign inputs, parameters, or threshold artifact"
+        },
+        {
+          "order": 5,
+          "component": "sensitivity lineage",
+          "state": "inadmissible",
+          "meaning": "Exploratory and not content-addressed"
+        },
+        {
+          "order": 6,
+          "component": "evaluation/campaign",
+          "state": "SEALED / HOLD",
+          "meaning": "This roadmap does not change the hard gates"
+        }
+      ],
+      "attacker_profiles": [
+        {
+          "order": 1,
+          "profile": "K0 black/no feedback",
+          "knowledge": "grid partial; others none; feedback none",
+          "purpose": "open-loop lower bound"
+        },
+        {
+          "order": 2,
+          "profile": "K1 black/delayed",
+          "knowledge": "grid partial; feedback partial",
+          "purpose": "canonical black-box"
+        },
+        {
+          "order": 3,
+          "profile": "K2 gray",
+          "knowledge": "all five axes partial",
+          "purpose": "canonical gray endpoint"
+        },
+        {
+          "order": 4,
+          "profile": "K3 white",
+          "knowledge": "all five axes exact",
+          "purpose": "post-freeze adaptive worst case"
+        },
+        {
+          "order": 5,
+          "profile": "+ exact grid",
+          "knowledge": "black baseline plus exact grid",
+          "purpose": "grid knowledge main effect"
+        },
+        {
+          "order": 6,
+          "profile": "+ exact detector",
+          "knowledge": "black baseline plus exact detector",
+          "purpose": "detector knowledge main effect"
+        },
+        {
+          "order": 7,
+          "profile": "+ exact training data",
+          "knowledge": "black baseline plus exact data",
+          "purpose": "distribution/leakage main effect"
+        },
+        {
+          "order": 8,
+          "profile": "+ exact defense",
+          "knowledge": "black baseline plus exact defense",
+          "purpose": "mitigation knowledge main effect"
+        },
+        {
+          "order": 9,
+          "profile": "+ exact feedback",
+          "knowledge": "black baseline plus exact feedback",
+          "purpose": "feedback main effect"
+        },
+        {
+          "order": 10,
+          "profile": "white − grid",
+          "knowledge": "white with grid partial",
+          "purpose": "leave-one-out interaction"
+        },
+        {
+          "order": 11,
+          "profile": "white − detector",
+          "knowledge": "white with detector partial",
+          "purpose": "leave-one-out interaction"
+        },
+        {
+          "order": 12,
+          "profile": "white − defense",
+          "knowledge": "white with defense partial",
+          "purpose": "leave-one-out interaction"
+        },
+        {
+          "order": 13,
+          "profile": "white − feedback",
+          "knowledge": "white with feedback partial",
+          "purpose": "leave-one-out interaction"
+        }
+      ],
+      "experiment_program": [
+        {
+          "order": 1,
+          "id": "E0",
+          "question": "Recover sensitivity and detector-input provenance",
+          "gate": "G1"
+        },
+        {
+          "order": 2,
+          "id": "E1",
+          "question": "Qualify multi-window runtime, pairing, and teardown",
+          "gate": "G2"
+        },
+        {
+          "order": 3,
+          "id": "E2",
+          "question": "Benign-only calibration and threshold freeze",
+          "gate": "G3"
+        },
+        {
+          "order": 4,
+          "id": "E3",
+          "question": "Mechanism screen for ten attack-strategy classes",
+          "gate": "G4"
+        },
+        {
+          "order": 5,
+          "id": "E4",
+          "question": "Fair comparison of IA0–IA5 orchestration and strong search baselines",
+          "gate": "G5"
+        },
+        {
+          "order": 6,
+          "id": "E5",
+          "question": "Causal decomposition of the five K knowledge dimensions",
+          "gate": "G6"
+        },
+        {
+          "order": 7,
+          "id": "E6",
+          "question": "D0–D6 detector bake-off",
+          "gate": "G7"
+        },
+        {
+          "order": 8,
+          "id": "E7",
+          "question": "Direct/mediated equivalence and the network causal chain",
+          "gate": "G8"
+        },
+        {
+          "order": 9,
+          "id": "E8",
+          "question": "Defense-aware adaptive robustness",
+          "gate": "G9"
+        },
+        {
+          "order": 10,
+          "id": "E9",
+          "question": "Active-defense harm-cost Pareto frontier",
+          "gate": "G10"
+        },
+        {
+          "order": 11,
+          "id": "E10",
+          "question": "Single locked confirmatory evaluation",
+          "gate": "G11"
+        },
+        {
+          "order": 12,
+          "id": "E11",
+          "question": "External validity across feeders, devices, simulators, and models",
+          "gate": "G12"
+        }
+      ],
+      "detectors": [
+        {
+          "order": 1,
+          "id": "D0 envelope/policy",
+          "observability": "command + ratings",
+          "role": "transparent preventive baseline",
+          "risk": "misses legal-but-harmful command"
+        },
+        {
+          "order": 2,
+          "id": "D1 physics residual/VSCT",
+          "observability": "grid measurements + sensitivity",
+          "role": "physics baseline",
+          "risk": "stealth and provenance dependence"
+        },
+        {
+          "order": 3,
+          "id": "D2 CUSUM",
+          "observability": "innovation stream",
+          "role": "persistent-shift baseline",
+          "risk": "operating drift false alarms"
+        },
+        {
+          "order": 4,
+          "id": "D3 intent-response",
+          "observability": "intent/delivery/acceptance/PQ/grid",
+          "role": "highest-priority challenger",
+          "risk": "trusted lineage requirement"
+        },
+        {
+          "order": 5,
+          "id": "D4 central + local AE",
+          "observability": "SE residual + local V/P/Q",
+          "role": "hybrid architecture",
+          "risk": "adaptive evasion and shift"
+        },
+        {
+          "order": 6,
+          "id": "D5 state prediction",
+          "observability": "temporal or graph-temporal",
+          "role": "ramp/coordination challenger",
+          "risk": "transfer and compute"
+        },
+        {
+          "order": 7,
+          "id": "D6 graph localization",
+          "observability": "topology + multivariate history",
+          "role": "spatial challenger",
+          "risk": "mixed attacks and feeder transfer"
+        },
+        {
+          "order": 8,
+          "id": "DF transparent fusion",
+          "observability": "member scores",
+          "role": "final passive candidate",
+          "risk": "inflated trajectory false alarms"
+        }
+      ],
+      "defenses": [
+        {
+          "order": 1,
+          "id": "M0 alarm-only",
+          "action": "observe, no mitigation",
+          "success": "calibrated detection and lower pre-alarm harm"
+        },
+        {
+          "order": 2,
+          "id": "M1 command screen",
+          "action": "reject/project unsafe command",
+          "success": "prevented harm exceeds false rejection cost"
+        },
+        {
+          "order": 3,
+          "id": "M2 local fallback",
+          "action": "revert to frozen safe local mode",
+          "success": "recovery with acceptable service degradation"
+        },
+        {
+          "order": 4,
+          "id": "M3 watermark",
+          "action": "bounded private excitation",
+          "success": "stealth detection net of control/TSE cost"
+        },
+        {
+          "order": 5,
+          "id": "M4 event-triggered MTD",
+          "action": "bounded model change after alarm",
+          "success": "incremental detection net of false trigger and operating cost"
+        }
+      ],
+      "run_accounting": [
+        {
+          "order": 1,
+          "stage": "development primary",
+          "attack_runs": 288,
+          "benign_runs": 96,
+          "total": 384,
+          "status": "planned structure; campaign HOLD"
+        },
+        {
+          "order": 2,
+          "stage": "detector calibration",
+          "attack_runs": 0,
+          "benign_runs": 120,
+          "total": 120,
+          "status": "non-executable plan; HOLD"
+        },
+        {
+          "order": 3,
+          "stage": "evaluation example",
+          "attack_runs": 288,
+          "benign_runs": 96,
+          "total": 384,
+          "status": "illustrative only; SEALED"
+        }
+      ],
+      "gates": [
+        {
+          "order": 1,
+          "gate": "G0 design freeze",
+          "exit": "blueprint/report/RKA provenance",
+          "hard_stop": "schema invalid or state misstated"
+        },
+        {
+          "order": 2,
+          "gate": "G1 sensitivity",
+          "exit": "content-addressed physics + micro-probe audit",
+          "hard_stop": "attack/eval leakage"
+        },
+        {
+          "order": 3,
+          "gate": "G2 runtime",
+          "exit": "pairing/budget/seeds/process/teardown pass",
+          "hard_stop": "drift, overwrite, unclassified failure"
+        },
+        {
+          "order": 4,
+          "gate": "G3 detector parameters",
+          "exit": "benign calibration + threshold artifact",
+          "hard_stop": "missing cell or excess false alarms"
+        },
+        {
+          "order": 5,
+          "gate": "G4-G6 development",
+          "exit": "strategy/search/K downselection",
+          "hard_stop": "unequal budget or leakage"
+        },
+        {
+          "order": 6,
+          "gate": "G7-G10 defense/network",
+          "exit": "passive/active stack frozen",
+          "hard_stop": "clean non-equivalence or post-hoc tuning"
+        },
+        {
+          "order": 7,
+          "gate": "G11 evaluation",
+          "exit": "one immutable confirmatory package",
+          "hard_stop": "source drift or tuning request"
+        },
+        {
+          "order": 8,
+          "gate": "G12 external validity",
+          "exit": "transportability boundary",
+          "hard_stop": "reuse evaluation as development"
+        }
+      ],
+      "roadmap_phases": [
+        {
+          "order": 1,
+          "phase": "R0",
+          "name": "governance and roadmap freeze",
+          "duration": "current mission",
+          "state": "current"
+        },
+        {
+          "order": 2,
+          "phase": "R1",
+          "name": "sensitivity provenance recovery",
+          "duration": "1-2 engineering sprints",
+          "state": "future gated"
+        },
+        {
+          "order": 3,
+          "phase": "R2",
+          "name": "runtime and detector qualification",
+          "duration": "1-3 sprints + bounded compute",
+          "state": "future gated"
+        },
+        {
+          "order": 4,
+          "phase": "R3",
+          "name": "attack-mechanism atlas",
+          "duration": "2-4 research sprints",
+          "state": "development only"
+        },
+        {
+          "order": 5,
+          "phase": "R4",
+          "name": "search-arm and knowledge causality",
+          "duration": "2-4 research sprints",
+          "state": "development only"
+        },
+        {
+          "order": 6,
+          "phase": "R5",
+          "name": "passive detector bakeoff",
+          "duration": "2-5 research sprints",
+          "state": "development only"
+        },
+        {
+          "order": 7,
+          "phase": "R6",
+          "name": "explicit network and compound attacks",
+          "duration": "2-4 sprints",
+          "state": "future gated"
+        },
+        {
+          "order": 8,
+          "phase": "R7",
+          "name": "adaptive defense-aware red team",
+          "duration": "2-4 research sprints",
+          "state": "development only"
+        },
+        {
+          "order": 9,
+          "phase": "R8",
+          "name": "active-defense harm-cost frontier",
+          "duration": "2-5 research sprints",
+          "state": "development only"
+        },
+        {
+          "order": 10,
+          "phase": "R9",
+          "name": "single locked confirmatory evaluation",
+          "duration": "one frozen campaign",
+          "state": "SEALED"
+        },
+        {
+          "order": 11,
+          "phase": "R10",
+          "name": "external validity and publication",
+          "duration": "3-6 research sprints",
+          "state": "future"
+        }
+      ],
+      "roadmap_gate_depth": [
+        {
+          "phase": "R0",
+          "completed_gates": 1,
+          "name": "governance and roadmap freeze",
+          "state": "current"
+        },
+        {
+          "phase": "R1",
+          "completed_gates": 2,
+          "name": "sensitivity provenance recovery",
+          "state": "future gated"
+        },
+        {
+          "phase": "R2",
+          "completed_gates": 4,
+          "name": "runtime and detector qualification",
+          "state": "future gated"
+        },
+        {
+          "phase": "R3",
+          "completed_gates": 5,
+          "name": "attack-mechanism atlas",
+          "state": "development only"
+        },
+        {
+          "phase": "R4",
+          "completed_gates": 7,
+          "name": "search-arm and knowledge causality",
+          "state": "development only"
+        },
+        {
+          "phase": "R5",
+          "completed_gates": 8,
+          "name": "passive detector bakeoff",
+          "state": "development only"
+        },
+        {
+          "phase": "R6",
+          "completed_gates": 9,
+          "name": "explicit network and compound attacks",
+          "state": "future gated"
+        },
+        {
+          "phase": "R7",
+          "completed_gates": 10,
+          "name": "adaptive defense-aware red team",
+          "state": "development only"
+        },
+        {
+          "phase": "R8",
+          "completed_gates": 11,
+          "name": "active-defense harm-cost frontier",
+          "state": "development only"
+        },
+        {
+          "phase": "R9",
+          "completed_gates": 12,
+          "name": "single locked confirmatory evaluation",
+          "state": "SEALED"
+        },
+        {
+          "phase": "R10",
+          "completed_gates": 13,
+          "name": "external validity and publication",
+          "state": "future"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "roadmap_blueprint",
+      "label": "GridEval/G7 roadmap blueprint",
+      "path": "v3/g7_confirmatory/roadmap_2026/roadmap_blueprint.json"
+    },
+    {
+      "id": "roadmap_gate_sql",
+      "label": "Roadmap gate-depth transformation",
+      "path": "v3/g7_confirmatory/roadmap_2026/roadmap_gate_depth.sql",
+      "query": {
+        "engine": "sqlite",
+        "id": "roadmap-gate-depth-r1",
+        "description": "Materializes the reviewed ordinal gate-depth rows used by the roadmap chart.",
+        "language": "SQL",
+        "executed_at": "2026-08-31T03:50:59Z",
+        "sql": "WITH roadmap(phase, completed_gates, name, state, phase_order) AS (VALUES ('R0',1,'governance and roadmap freeze','current',0),('R1',2,'sensitivity provenance recovery','future gated',1),('R2',4,'runtime and detector qualification','future gated',2),('R3',5,'attack-mechanism atlas','development only',3),('R4',7,'search-arm and knowledge causality','development only',4),('R5',8,'passive detector bakeoff','development only',5),('R6',9,'explicit network and compound attacks','future gated',6),('R7',10,'adaptive defense-aware red team','development only',7),('R8',11,'active-defense harm-cost frontier','development only',8),('R9',12,'single locked confirmatory evaluation','SEALED',9),('R10',13,'external validity and publication','future',10)) SELECT phase, completed_gates, name, state FROM roadmap ORDER BY phase_order"
+      }
+    },
+    {
+      "id": "experiment_spec",
+      "label": "Frozen G7 confirmatory experiment specification",
+      "path": "v3/g7_confirmatory/experiment_spec.yaml"
+    },
+    {
+      "id": "detector_audit",
+      "label": "Detector provenance audit",
+      "path": "v3/g7_confirmatory/artifacts/detector_pairing/detector_provenance_audit.json"
+    },
+    {
+      "id": "red_team_design",
+      "label": "Existing GridEval red-team design",
+      "path": "v3/g7_confirmatory/RED_TEAM_DESIGN.md"
+    },
+    {
+      "id": "detector_review",
+      "label": "Existing detector and defense review",
+      "path": "v3/g7_confirmatory/DETECTOR_DEFENSE_REVIEW.md"
+    },
+    {
+      "id": "nist_7628",
+      "label": "NISTIR 7628 Rev. 1",
+      "href": "https://csrc.nist.gov/pubs/ir/7628/r1/final"
+    },
+    {
+      "id": "nist_2051",
+      "label": "NIST TN 2051",
+      "href": "https://csrc.nist.gov/pubs/tn/2051/final"
+    },
+    {
+      "id": "ieee_1547_3",
+      "label": "IEEE 1547.3-2023",
+      "href": "https://standards.ieee.org/ieee/1547.3/10173/"
+    },
+    {
+      "id": "mitre_ics",
+      "label": "MITRE ATT&CK for ICS",
+      "href": "https://attack.mitre.org/tactics/ics/"
+    },
+    {
+      "id": "nrel_hybrid",
+      "label": "NREL hybrid anomaly detector report",
+      "href": "https://www.nrel.gov/docs/fy22osti/80628.pdf"
+    },
+    {
+      "id": "state_prediction",
+      "label": "State-prediction FDIA detector",
+      "href": "https://arxiv.org/abs/2409.04609"
+    },
+    {
+      "id": "graph_comparison",
+      "label": "Power-system GNN detector comparison",
+      "href": "https://arxiv.org/abs/2411.02248"
+    },
+    {
+      "id": "volt_var_screen",
+      "label": "Malicious Volt-VAr parameter detector",
+      "href": "https://arxiv.org/abs/2309.10304"
+    },
+    {
+      "id": "watermark",
+      "label": "Physics-aware watermarking",
+      "href": "https://eprints.whiterose.ac.uk/id/eprint/216412/"
+    },
+    {
+      "id": "mtd",
+      "label": "Event-triggered moving target defense",
+      "href": "https://ieeexplore.ieee.org/abstract/document/9998121"
+    },
+    {
+      "id": "ae_evasion",
+      "label": "Evasive attacks against power-system autoencoders",
+      "href": "https://eprints.whiterose.ac.uk/id/eprint/213754/"
+    },
+    {
+      "id": "adaptive_eval",
+      "label": "On Evaluating Adversarial Robustness",
+      "href": "https://arxiv.org/abs/1902.06705"
+    }
+  ]
+}

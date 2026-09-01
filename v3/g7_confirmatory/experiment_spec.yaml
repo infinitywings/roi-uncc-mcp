@@ -1,0 +1,188 @@
+schema_version: grideval-g7-confirmatory/v1
+protocol_id: g7-confirmatory-20260831-r1
+project_id: prj_01KYMPK10PE9YH1TJ84PAVB9Z6
+mission_id: mis_01M1ASETDXKSC8CDNNPE49ZW1D
+decision_id: dec_01M1ASCY6S3KSPA2BNZ4JB8S8A
+phase: detector_source_freeze_pairing_controls
+campaign_authorized: false
+
+detector_pairing:
+  mission_id: mis_01M1AX9Z8V40TDNQK6ZH9RZ2YM
+  decision_id: dec_01M1AX97BM3KVBA0DV9KCX72BJ
+  plan_gate_id: chk_01M1AXE8YN38FAJT8D1R7HMVBV
+  evaluation_opened: false
+  campaign_hold_preserved: true
+
+runtime_integration:
+  mission_id: mis_01M1AVRZ4A67VB07NTDG6KRRD6
+  decision_id: dec_01M1AVQEK57WSBC25RSJNCCRFJ
+  campaign_hold_preserved: true
+  live_smoke_max_windows: 1
+  frozen_attack_runner: v3/g7_condition_freeze/20260830_r1/formal_uninformed/run_g7_attack_loop.py
+  frozen_base_runner: v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py
+
+provenance:
+  legacy_condition: horizon_informed_exploratory
+  legacy_source: v3/g7_condition_freeze/20260830_r1/formal_uninformed/g7_l5b_search.py
+  legacy_sha256: 748f284fe7b90b25b8aea1328cbc72626a0dd0cf1f266720081bc33cdcfba4fb
+  clean_prompt: prompts/clean_uninformed_v1.json
+
+model:
+  base_url: http://ccil1s26m8hj6lws:8000/v1
+  id: qwen3.6-35b-a3b
+  temperature: 0.3
+  max_tokens: 1000
+  timeout_s: 120
+
+time:
+  window_seconds: 10.0
+  total_windows: 84
+
+budgets:
+  primary:
+    perturbed_windows: 8
+    apparent_energy_kvah: 2.0
+  window_sensitivity: [0, 2, 4, 16]
+
+candidate_space:
+  amplitude_fractions: [0.025, 0.05, 0.075, 0.1, 0.15, 0.2, 0.3, 0.5]
+  period_windows: [1, 2, 3, 4, 6, 8, 10, 12]
+
+search:
+  outer_budget_k: 12
+  arms:
+    - fixed_grid
+    - random_search
+    - llm_clean_uninformed
+  controls:
+    - benign
+    - l3_mechanic
+
+red_team:
+  knowledge_vector: [grid, detector, training_data, defense, feedback]
+  tiers:
+    black_box:
+      grid: partial
+      detector: none
+      training_data: none
+      defense: none
+      feedback: partial
+    gray_box:
+      grid: partial
+      detector: partial
+      training_data: partial
+      defense: partial
+      feedback: partial
+    white_box:
+      grid: exact
+      detector: exact
+      training_data: exact
+      defense: exact
+      feedback: exact
+  attack_surfaces:
+    current_confirmatory: der_command_authority
+    planned: [telemetry_integrity, timing_availability, inverter_configuration, compound]
+  canonical_strategies:
+    - step_corner
+    - pulse_intermittent
+    - ramp_drift
+    - periodic_duty_cycle
+    - event_synchronized
+    - riding_the_wave
+    - pq_coordinated
+    - spatial_subset
+    - state_exhaustion
+    - adaptive_evasion
+
+detector_benchmark:
+  current:
+    - physics_residual_vsct
+    - sequential_cusum
+    - command_blind_pcaae
+  next:
+    - cross_layer_command_response
+    - hybrid_state_estimation_local_autoencoder
+    - temporal_graph_prediction
+  active_defenses_later:
+    - physics_aware_watermark
+    - event_triggered_moving_target
+    - safe_command_screen
+    - local_autonomous_fallback
+
+partitions:
+  detector_calibration: [7101, 7102, 7103, 7104, 7105, 7106, 7107, 7108, 7109, 7110, 7111, 7112]
+  development: [8101, 8102, 8103, 8104, 8105, 8106, 8107, 8108, 8109, 8110, 8111, 8112]
+  evaluation: [9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112]
+  minimum_valid_evaluation_replicates: 10
+
+seed_controls:
+  evaluation_sealed: true
+  allowed_runtime_partitions: [development]
+  measurement_noise_seed_offset: 90000
+  gridlabd_random_seed_source: source_glm
+
+detector_controls:
+  calibration_partition: detector_calibration
+  calibration_mode: per_operating_condition
+  calibration_input: benign_only
+  minimum_benign_replicates_per_cell: 12
+  fit_seed: 7101
+  source_schema_freeze_does_not_imply_calibrated: true
+
+conditions:
+  operating_points:
+    - id: responsive_morning
+      class: responsive
+      integration_status: derived_clock_hook
+      start_time: "2013-08-28 07:00:00"
+    - id: responsive_midday
+      class: responsive
+      integration_status: derived_clock_hook
+      start_time: "2013-08-28 12:00:00"
+    - id: responsive_evening
+      class: responsive
+      integration_status: derived_clock_hook
+      start_time: "2013-08-28 18:00:00"
+    - id: responsive_night
+      class: responsive
+      integration_status: derived_clock_hook
+      start_time: "2013-08-28 04:00:00"
+    - id: voltage_ceiling
+      class: falsification
+      integration_status: derived_clock_hook
+      start_time: "2013-08-28 14:00:00"
+  volt_var: [false, true]
+  measurement_noise_pu:
+    primary: 0.002
+    sensitivity: [0.001, 0.005]
+
+profiles:
+  smoke:
+    operating_points: [responsive_morning]
+    volt_var: [false]
+    measurement_noise_pu: [0.002]
+    budget_windows: [8]
+    development_seeds: [8101]
+    proposal_count: 1
+  primary_plan:
+    operating_points: [responsive_morning, responsive_midday, responsive_evening, responsive_night]
+    volt_var: [false, true]
+    measurement_noise_pu: [0.002]
+    budget_windows: [8]
+    development_seeds: [8101, 8102, 8103, 8104, 8105, 8106, 8107, 8108, 8109, 8110, 8111, 8112]
+    proposal_count: 12
+
+hard_stops:
+  - prompt_audit_failure
+  - partition_overlap
+  - unequal_outer_budget
+  - budget_violation
+  - output_exists
+  - runtime_hash_drift
+  - model_id_mismatch
+  - evaluation_opened_before_freeze
+  - operating_point_not_integrated
+  - unpartitioned_seed
+  - evaluation_seed_in_non_evaluation_phase
+  - unpaired_control_drift
+  - detector_calibration_lineage_missing

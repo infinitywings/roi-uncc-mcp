@@ -1,0 +1,54 @@
+{
+  "schema_version": "grideval-g7-ia3-ia4-search-surface-contract/v1",
+  "contract_id": "grideval-g7-ia3-ia4-search-surface-20260831-r1",
+  "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36",
+  "status": "offline_fixture_contract",
+  "development_only": true,
+  "executable": false,
+  "campaign_authorized": false,
+  "evaluation_sealed": true,
+  "frozen_experiment_spec": {
+    "path": "v3/g7_confirmatory/experiment_spec.yaml",
+    "sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d",
+    "modified_by_this_contract": false
+  },
+  "primary_contrast": {
+    "left": "IA3_candidate_ucb",
+    "right": "IA4_future_llm_orchestrator",
+    "only_permitted_difference": "decision_core",
+    "shared_surface_identity": "sha256_of_canonical_manifest_content"
+  },
+  "search_surface_includes": [
+    "typed_plan_observation_and_history_schema_versions",
+    "complete_K_A_resource_and_feedback_delay_payload",
+    "allowed_strategy_card_definitions",
+    "ordered_content_addressed_candidate_definitions",
+    "bounded_reward_contract",
+    "allowed_tool_input_output_and_side_effect_schemas"
+  ],
+  "fixture_adapter": {
+    "builds_deterministic_requests": true,
+    "executes_models": false,
+    "executes_tools": false,
+    "accepts_recorded_tool_metadata_only": true,
+    "plan_policy": "select_one_candidate_id_without_modification",
+    "non_plan_states": ["safety_refusal", "no_action"],
+    "extra_field_policy": "reject",
+    "tool_lineage_policy": "exact_ordered_call_id_match_and_full_contract_validation"
+  },
+  "hard_stops": [
+    "search_surface_content_or_order_mismatch",
+    "capability_or_feedback_delay_mismatch",
+    "strategy_candidate_reward_or_tool_schema_mismatch",
+    "unknown_or_modified_candidate",
+    "response_schema_or_surface_identity_mismatch",
+    "undeclared_duplicate_reordered_or_rejected_tool_call",
+    "tool_information_side_effect_or_budget_escape",
+    "model_embedding_gpu_network_simulator_or_evaluation_access"
+  ],
+  "limitations": [
+    "Fixture parsing does not demonstrate language-model reasoning or tool-use competence.",
+    "No tool result loop, model endpoint, simulator, detector, calibration, or runtime actuation is implemented.",
+    "No empirical harm, superiority, calibration, or campaign-readiness claim is supported."
+  ]
+}

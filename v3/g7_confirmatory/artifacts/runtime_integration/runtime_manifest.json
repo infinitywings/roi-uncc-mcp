@@ -1,0 +1,214 @@
+{
+  "created_at_utc": "2026-08-31T03:10:51.455987+00:00",
+  "files": [
+    {
+      "bytes": 159441,
+      "path": "examples/2bus-13bus/1c_IEEE_123_feeder.glm",
+      "sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+    },
+    {
+      "bytes": 20176,
+      "path": "examples/2bus-13bus/include/players/load_shape_player.player",
+      "sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456"
+    },
+    {
+      "bytes": 5272,
+      "path": "v3/configs/der_devices.yaml",
+      "sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c"
+    },
+    {
+      "bytes": 5159,
+      "path": "v3/g7_condition_freeze/20260830_r1/formal_uninformed/g7_l5b_search.py",
+      "sha256": "748f284fe7b90b25b8aea1328cbc72626a0dd0cf1f266720081bc33cdcfba4fb"
+    },
+    {
+      "bytes": 40745,
+      "path": "v3/g7_condition_freeze/20260830_r1/formal_uninformed/run_g7_attack_loop.py",
+      "sha256": "79fd8f821477dd6beab9b9ccb28cd65a2a5ddfb4f2d2b462e1e84b89d82f8c69"
+    },
+    {
+      "bytes": 15441,
+      "path": "v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py",
+      "sha256": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb"
+    },
+    {
+      "bytes": 2547,
+      "path": "v3/g7_confirmatory/README.md",
+      "sha256": "ec9e1e2d059ec40f8d19809616b4f4e86dd2e01a3c334ab6f90fbe47fe88f49c"
+    },
+    {
+      "bytes": 5618,
+      "path": "v3/g7_confirmatory/RESEARCH_PROTOCOL.md",
+      "sha256": "c3b4d3d4ecef19e7b21a4656f4b12e8d105d63ad50fd1a3c4c9af242cd16c813"
+    },
+    {
+      "bytes": 5465,
+      "path": "v3/g7_confirmatory/RUNTIME_INTEGRATION_REPORT.md",
+      "sha256": "148459a3bd81b3de7f25bf020f5dbcaf995489ccb524cfd86fef13f5f5ec8b58"
+    },
+    {
+      "bytes": 650,
+      "path": "v3/g7_confirmatory/artifacts/model_smoke_attempt3_strict_schema.json",
+      "sha256": "d78fbc23a3d5f6e059980783c07902aa648f1d582398e23d8a9f17bbef1455d2"
+    },
+    {
+      "bytes": 2705,
+      "path": "v3/g7_confirmatory/artifacts/model_smoke_attempt4_strict_schema_network.json",
+      "sha256": "ffe289190e46f5f4b0c3ca43dc568f5581579a1ba352f1e08752edf13cd475b8"
+    },
+    {
+      "bytes": 157374,
+      "path": "v3/g7_confirmatory/artifacts/runtime_integration/gen_only_responsive_night/1c_IEEE_123_feeder.glm",
+      "sha256": "1c9e771fdbf6a4c48e6278e38c10c2e5c5042aba88f39d9e1ac1000e8942f399"
+    },
+    {
+      "bytes": 2008,
+      "path": "v3/g7_confirmatory/artifacts/runtime_integration/gen_only_responsive_night/runtime_integration.json",
+      "sha256": "fc0266c879904fd4c775bf17ff3c45a7ee8b2752a0f7b90f3305ed55c0a3f89b"
+    },
+    {
+      "bytes": 157374,
+      "path": "v3/g7_confirmatory/artifacts/runtime_integration/one_window_responsive_night/1c_IEEE_123_feeder.glm",
+      "sha256": "1c9e771fdbf6a4c48e6278e38c10c2e5c5042aba88f39d9e1ac1000e8942f399"
+    },
+    {
+      "bytes": 665,
+      "path": "v3/g7_confirmatory/artifacts/runtime_integration/one_window_responsive_night/attack_trace.json",
+      "sha256": "295d772ac8ec0669661a1c63576e674f0399f9498c2a9fe890b4fa62747224d8"
+    },
+    {
+      "bytes": 1622,
+      "path": "v3/g7_confirmatory/artifacts/runtime_integration/one_window_responsive_night/dual_budget_trace.json",
+      "sha256": "910ddb05089fa03036cfdd73c21540908c157055742d244176363b82284c2d08"
+    },
+    {
+      "bytes": 394,
+      "path": "v3/g7_confirmatory/artifacts/runtime_integration/one_window_responsive_night/g7_summary.json",
+      "sha256": "68c6ab9ed7d59a90c48341c8e4b038b8c649a38b81f7bdf6ccad9205e5d760fd"
+    },
+    {
+      "bytes": 2336,
+      "path": "v3/g7_confirmatory/artifacts/runtime_integration/one_window_responsive_night/gridlabd.log",
+      "sha256": "c35d153ad45060136491261d1ad8ea27356af79c8641893940c601846ba26054"
+    },
+    {
+      "bytes": 101,
+      "path": "v3/g7_confirmatory/artifacts/runtime_integration/one_window_responsive_night/multi_der_source.json",
+      "sha256": "2ccfadfbf496d8991aca9ec7a9b48e260e95779246d906d32d44d1029c88d103"
+    },
+    {
+      "bytes": 1201,
+      "path": "v3/g7_confirmatory/artifacts/runtime_integration/one_window_responsive_night/multi_der_traces.json",
+      "sha256": "a93ee85ed5ecdefcd21d7284f1297b59d824cec4fc3f93d5b8112b1b780d3626"
+    },
+    {
+      "bytes": 2149,
+      "path": "v3/g7_confirmatory/artifacts/runtime_integration/one_window_responsive_night/runtime_integration.json",
+      "sha256": "a36618cdc960016819014c0bbe5991853034419229fc60ecd43d902be8a09256"
+    },
+    {
+      "bytes": 1637,
+      "path": "v3/g7_confirmatory/experiment_spec.schema.json",
+      "sha256": "71807c96ee91a76b61d9c8430aee65af8acb7e9dffd9a8bed43f1041c38d45bb"
+    },
+    {
+      "bytes": 4641,
+      "path": "v3/g7_confirmatory/experiment_spec.yaml",
+      "sha256": "ff2da22d29bd7176fea6943eb03970328054fe6298033a45df3c52bccd4b974f"
+    },
+    {
+      "bytes": 97,
+      "path": "v3/g7_confirmatory/g7confirm/__init__.py",
+      "sha256": "36290c7a8c099234c41bf7f3b666b4cd4f5efa629927a143c0da823b27c84117"
+    },
+    {
+      "bytes": 8242,
+      "path": "v3/g7_confirmatory/g7confirm/budget.py",
+      "sha256": "a845647cc31dc3437d73eec95b2b5d4b5c65fd24aa1251b34e20623294a3ac25"
+    },
+    {
+      "bytes": 4479,
+      "path": "v3/g7_confirmatory/g7confirm/campaign.py",
+      "sha256": "4ab3579002290b87da3d80a34e85b5d667d7a14144a79d643dfd6427f61c0e4f"
+    },
+    {
+      "bytes": 5418,
+      "path": "v3/g7_confirmatory/g7confirm/cli.py",
+      "sha256": "74cb8f9f5b488ae83b08c13dbb7456c879e3d4ef4945948f9d62a7f125b6d75a"
+    },
+    {
+      "bytes": 2162,
+      "path": "v3/g7_confirmatory/g7confirm/manifest.py",
+      "sha256": "26afef96f7534d74ce45121ff5891844bc3b4bee4c3dfb7db8355065cac7dcce"
+    },
+    {
+      "bytes": 7854,
+      "path": "v3/g7_confirmatory/g7confirm/model_client.py",
+      "sha256": "6417d62579551300ff7930eda698b50679f220f451361a4f5a815e7daefe55cb"
+    },
+    {
+      "bytes": 4211,
+      "path": "v3/g7_confirmatory/g7confirm/operating_points.py",
+      "sha256": "0d6a72689480fee8443c36b685cf8cbd73b78ad28ebdbcbc554e6edfade6711c"
+    },
+    {
+      "bytes": 4305,
+      "path": "v3/g7_confirmatory/g7confirm/prompt_audit.py",
+      "sha256": "fbfa4c7533713120968b7ef1ed8e75a3f8010482bd9b6478322ffe0331a79e40"
+    },
+    {
+      "bytes": 13400,
+      "path": "v3/g7_confirmatory/g7confirm/runtime.py",
+      "sha256": "04941a01aa510a75090792e8305e891a009857e19f327e7708432d3d1c28f59a"
+    },
+    {
+      "bytes": 7476,
+      "path": "v3/g7_confirmatory/g7confirm/spec.py",
+      "sha256": "4820b8174ac7e5fd5e7f835022dc71b69ddd1cf81a68c8550d821cfea1cb8f38"
+    },
+    {
+      "bytes": 1283,
+      "path": "v3/g7_confirmatory/prompts/clean_uninformed_v1.json",
+      "sha256": "cd0555fe7482343f513a7a962b5ebe683019e5c55b1c0c1af43dab8fe88cf3de"
+    },
+    {
+      "bytes": 4961,
+      "path": "v3/g7_confirmatory/tests/test_budget.py",
+      "sha256": "177b8b634398aa5c57a567ebb516190ec052129f3f4604aae5e4f46cfae1f160"
+    },
+    {
+      "bytes": 3174,
+      "path": "v3/g7_confirmatory/tests/test_manifest_and_model.py",
+      "sha256": "8af5d87e3718b859566d534cb7e65ecfdff0bd418b7f137a339884318a48fe62"
+    },
+    {
+      "bytes": 1955,
+      "path": "v3/g7_confirmatory/tests/test_operating_points.py",
+      "sha256": "0abecf64171742c2dd89b5807275487f4d42143acd3548daf779e6356bb6e889"
+    },
+    {
+      "bytes": 2495,
+      "path": "v3/g7_confirmatory/tests/test_prompt_audit.py",
+      "sha256": "d291af5931df031f7e7e077c8aa1ea040187cfd37490a5220a7cb5352546e30c"
+    },
+    {
+      "bytes": 3186,
+      "path": "v3/g7_confirmatory/tests/test_runtime_integration.py",
+      "sha256": "69a73a21c41f4e0ae6f8e745ce1e2480afe968d2045105244fed71613da660b2"
+    },
+    {
+      "bytes": 2439,
+      "path": "v3/g7_confirmatory/tests/test_spec_and_campaign.py",
+      "sha256": "0830e4bc97056d338e558617e80fa8a350c0299039693a4b50c765e65f420e5e"
+    }
+  ],
+  "metadata": {
+    "campaign_authorized": false,
+    "decision_id": "dec_01M1AVQEK57WSBC25RSJNCCRFJ",
+    "mission_id": "mis_01M1AVRZ4A67VB07NTDG6KRRD6",
+    "phase": "runtime_integration",
+    "protocol_id": "g7-confirmatory-20260831-r1"
+  },
+  "root": "/home/cfu6/roi-uncc-mcp",
+  "schema_version": "grideval-create-once-manifest/v1"
+}

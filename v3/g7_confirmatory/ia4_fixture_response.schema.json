@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g7-ia4-fixture-response-v1.json",
+  "title": "GridEval G7 offline IA4 fixture response",
+  "oneOf": [
+    {"$ref": "#/$defs/plan"},
+    {"$ref": "#/$defs/safety_refusal"},
+    {"$ref": "#/$defs/no_action"}
+  ],
+  "$defs": {
+    "common": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "search_surface_id",
+        "decision",
+        "rationale",
+        "used_tool_call_ids"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-g7-ia4-fixture-response/v1"
+        },
+        "search_surface_id": {
+          "type": "string",
+          "pattern": "^surface_[0-9a-f]{64}$"
+        },
+        "decision": {
+          "enum": ["plan", "safety_refusal", "no_action"]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "used_tool_call_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "plan": {
+      "allOf": [
+        {"$ref": "#/$defs/common"},
+        {
+          "type": "object",
+          "required": ["candidate_id"],
+          "properties": {
+            "decision": {"const": "plan"},
+            "candidate_id": {
+              "type": "string",
+              "pattern": "^cand_[0-9a-f]{20}$"
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "safety_refusal": {
+      "allOf": [
+        {"$ref": "#/$defs/common"},
+        {
+          "type": "object",
+          "properties": {
+            "decision": {"const": "safety_refusal"}
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "no_action": {
+      "allOf": [
+        {"$ref": "#/$defs/common"},
+        {
+          "type": "object",
+          "properties": {
+            "decision": {"const": "no_action"}
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}

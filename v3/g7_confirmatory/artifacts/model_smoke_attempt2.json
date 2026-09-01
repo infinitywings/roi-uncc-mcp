@@ -1,0 +1,13 @@
+{
+  "created_at_utc": "2026-08-31T02:27:59.913286+00:00",
+  "endpoint": "http://ccil1s26m8hj6lws:8000/v1",
+  "error": "proposal rationale must be 1..1000 characters",
+  "expected_model_id": "qwen3.6-35b-a3b",
+  "prompt_id": "g7-clean-uninformed-v1",
+  "prompt_sha256": "8b78ec18518d8e41270cf991f9e0eb4ccff4907e0ba3585def7fa98bbce64931",
+  "protocol_id": "g7-confirmatory-20260831-r1",
+  "schema_version": "grideval-g7-model-smoke/v1",
+  "scope": "one_proposal_no_cosimulation",
+  "spec_sha256": "7ff0b3ed6d229c2db419e9ef474928f75ac5b1fc83a62ec1d96787b952de9756",
+  "status": "failed_closed"
+}

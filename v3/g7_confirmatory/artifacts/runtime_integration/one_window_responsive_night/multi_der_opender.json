@@ -1,0 +1,91 @@
+{
+  "name": "g3_opender_one_window_responsive_night",
+  "coreName": "g3_opender_one_window_responsive_night_core",
+  "coreType": "zmq",
+  "coreInit": "--federates=1",
+  "broker": "tcp://127.0.0.1:23404",
+  "period": 10,
+  "log_level": "warning",
+  "publications": [
+    {
+      "global": true,
+      "key": "g3_opender/der_ev4_bess_load",
+      "type": "complex",
+      "unit": "VA"
+    },
+    {
+      "global": true,
+      "key": "g3_opender/der_ev1_bess_load",
+      "type": "complex",
+      "unit": "VA"
+    },
+    {
+      "global": true,
+      "key": "g3_opender/der_ev3_pv_load",
+      "type": "complex",
+      "unit": "VA"
+    },
+    {
+      "global": true,
+      "key": "g3_opender/der_ev5_pv_load",
+      "type": "complex",
+      "unit": "VA"
+    }
+  ],
+  "subscriptions": [
+    {
+      "global": true,
+      "key": "g3_gridlabd/der_ev4_bess_voltage",
+      "type": "complex",
+      "unit": "V"
+    },
+    {
+      "global": true,
+      "key": "g3_gridlabd/der_ev4_bess_coupling_load",
+      "type": "complex",
+      "unit": "VA"
+    },
+    {
+      "global": true,
+      "key": "g3_gridlabd/der_ev1_bess_voltage",
+      "type": "complex",
+      "unit": "V"
+    },
+    {
+      "global": true,
+      "key": "g3_gridlabd/der_ev1_bess_coupling_load",
+      "type": "complex",
+      "unit": "VA"
+    },
+    {
+      "global": true,
+      "key": "g3_gridlabd/der_ev3_pv_voltage",
+      "type": "complex",
+      "unit": "V"
+    },
+    {
+      "global": true,
+      "key": "g3_gridlabd/der_ev3_pv_coupling_load",
+      "type": "complex",
+      "unit": "VA"
+    },
+    {
+      "global": true,
+      "key": "g3_gridlabd/der_ev5_pv_voltage",
+      "type": "complex",
+      "unit": "V"
+    },
+    {
+      "global": true,
+      "key": "g3_gridlabd/der_ev5_pv_coupling_load",
+      "type": "complex",
+      "unit": "VA"
+    },
+    {
+      "global": true,
+      "key": "g3_gridlabd/source_power_c",
+      "type": "complex",
+      "unit": "VA"
+    }
+  ]
+}

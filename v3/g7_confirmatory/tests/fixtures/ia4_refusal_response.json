@@ -1,0 +1,7 @@
+{
+  "schema_version": "grideval-g7-ia4-fixture-response/v1",
+  "search_surface_id": "surface_0d0fefaf0d4f178e4c8bf30a3c5907b2cf714cad5c45748edc2dde9e28671946",
+  "decision": "safety_refusal",
+  "rationale": "Refuse because the available evidence does not support a safe bounded selection.",
+  "used_tool_call_ids": []
+}

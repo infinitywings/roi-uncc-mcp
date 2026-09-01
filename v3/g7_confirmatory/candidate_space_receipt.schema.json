@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g7-candidate-space-receipt-v1.json",
+  "title": "GridEval G7 candidate-space generation receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "development_only",
+    "campaign_authorized",
+    "evaluation_sealed",
+    "spec",
+    "raw_candidate_count",
+    "retained_candidate_count",
+    "truncated",
+    "raw_group_counts",
+    "retained_group_counts",
+    "required_default_ids",
+    "candidate_library_fingerprint",
+    "coverage"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-candidate-space-receipt/v1"
+    },
+    "development_only": {
+      "const": true
+    },
+    "campaign_authorized": {
+      "const": false
+    },
+    "evaluation_sealed": {
+      "const": true
+    },
+    "spec": {
+      "$ref": "#/$defs/generation_spec"
+    },
+    "raw_candidate_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "retained_candidate_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "truncated": {
+      "type": "boolean"
+    },
+    "raw_group_counts": {
+      "$ref": "#/$defs/group_counts"
+    },
+    "retained_group_counts": {
+      "$ref": "#/$defs/group_counts"
+    },
+    "required_default_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^cand_[0-9a-f]{20}$"
+      }
+    },
+    "candidate_library_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_count",
+        "strategy_ids",
+        "target_ids",
+        "composition_orders",
+        "coverage_groups"
+      ],
+      "properties": {
+        "candidate_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "strategy_ids": {
+          "$ref": "#/$defs/nonempty_unique_strings"
+        },
+        "target_ids": {
+          "$ref": "#/$defs/nonempty_unique_strings"
+        },
+        "composition_orders": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "coverage_groups": {
+          "$ref": "#/$defs/nonempty_unique_strings"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "generation_spec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_cap",
+        "enumeration_cap",
+        "parameter_fractions",
+        "action_fractions",
+        "composition_orders",
+        "selection_seed",
+        "include_card_defaults",
+        "overflow_policy"
+      ],
+      "properties": {
+        "candidate_cap": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "enumeration_cap": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "parameter_fractions": {
+          "$ref": "#/$defs/fractions"
+        },
+        "action_fractions": {
+          "$ref": "#/$defs/fractions"
+        },
+        "composition_orders": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "selection_seed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "include_card_defaults": {
+          "type": "boolean"
+        },
+        "overflow_policy": {
+          "const": "required_defaults_then_stratified_hash_round_robin"
+        }
+      }
+    },
+    "fractions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "group_counts": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "nonempty_unique_strings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

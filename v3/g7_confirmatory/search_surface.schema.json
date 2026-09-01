@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g7-search-surface-v1.json",
+  "title": "GridEval G7 IA3 and IA4 shared search surface",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "search_surface_id",
+    "development_only",
+    "campaign_authorized",
+    "evaluation_sealed",
+    "participant_rungs",
+    "contract_versions",
+    "capability",
+    "strategy_library",
+    "candidate_library",
+    "reward",
+    "tools"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-search-surface/v1"
+    },
+    "search_surface_id": {
+      "type": "string",
+      "pattern": "^surface_[0-9a-f]{64}$"
+    },
+    "development_only": {
+      "const": true
+    },
+    "campaign_authorized": {
+      "const": false
+    },
+    "evaluation_sealed": {
+      "const": true
+    },
+    "participant_rungs": {
+      "const": ["IA3", "IA4"]
+    },
+    "contract_versions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["typed_plan", "observation", "outcome_history"],
+      "properties": {
+        "typed_plan": {"const": "grideval-g7-typed-plan/v1"},
+        "observation": {"const": "grideval-g7-observation/v1"},
+        "outcome_history": {"const": "grideval-g7-outcome-history/v1"}
+      }
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["payload", "fingerprint"],
+      "properties": {
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "knowledge",
+            "authority",
+            "allowed_strategy_ids",
+            "allowed_tool_names",
+            "tool_call_cap",
+            "outer_rollout_cap",
+            "history_limit",
+            "candidate_count_cap",
+            "max_strategies_per_plan"
+          ],
+          "properties": {
+            "knowledge": {"type": "object"},
+            "authority": {"type": "object"},
+            "allowed_strategy_ids": {"$ref": "#/$defs/unique_strings"},
+            "allowed_tool_names": {"$ref": "#/$defs/unique_strings"},
+            "tool_call_cap": {"type": "integer", "minimum": 0},
+            "outer_rollout_cap": {"type": "integer", "minimum": 0},
+            "history_limit": {"type": "integer", "minimum": 0},
+            "candidate_count_cap": {"type": "integer", "minimum": 1},
+            "max_strategies_per_plan": {"type": "integer", "minimum": 1}
+          }
+        },
+        "fingerprint": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "strategy_library": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cards", "fingerprint"],
+      "properties": {
+        "cards": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "object"}
+        },
+        "fingerprint": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "candidate_library": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_count",
+        "ordered_candidate_ids",
+        "candidates",
+        "fingerprint"
+      ],
+      "properties": {
+        "candidate_count": {"type": "integer", "minimum": 1},
+        "ordered_candidate_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/candidate_id"}
+        },
+        "candidates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/candidate"}
+        },
+        "fingerprint": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "reward": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spec", "fingerprint"],
+      "properties": {
+        "spec": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "metric_name", "minimum", "maximum", "direction",
+            "missing_reward_policy"
+          ],
+          "properties": {
+            "metric_name": {"type": "string", "minLength": 1},
+            "minimum": {"type": "number"},
+            "maximum": {"type": "number"},
+            "direction": {"enum": ["maximize", "minimize"]},
+            "missing_reward_policy": {"const": "no_credit_update"}
+          }
+        },
+        "fingerprint": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "tools": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["specs", "fingerprint"],
+      "properties": {
+        "specs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/tool_spec"}
+        },
+        "fingerprint": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^cand_[0-9a-f]{20}$"
+    },
+    "unique_strings": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_id", "composition_order", "strategy_ids", "target_ids", "steps"
+      ],
+      "properties": {
+        "candidate_id": {"$ref": "#/$defs/candidate_id"},
+        "composition_order": {"type": "integer", "minimum": 1},
+        "strategy_ids": {"$ref": "#/$defs/unique_strings"},
+        "target_ids": {"$ref": "#/$defs/unique_strings"},
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "object"}
+        }
+      }
+    },
+    "tool_spec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "input_schema_version",
+        "output_schema_version",
+        "side_effect_class",
+        "information_axis",
+        "minimum_information_level"
+      ],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "input_schema_version": {"type": "string", "minLength": 1},
+        "output_schema_version": {"type": "string", "minLength": 1},
+        "side_effect_class": {
+          "enum": [
+            "read_only_no_time_advance",
+            "simulation_time_advancing",
+            "outer_rollout_consuming",
+            "actuating"
+          ]
+        },
+        "information_axis": {
+          "type": ["string", "null"]
+        },
+        "minimum_information_level": {
+          "enum": ["none", "partial", "exact"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": "grideval-roadmap-validation-receipt/v1",
+  "validated_at_utc": "2026-08-31T15:24:01Z",
+  "status": "pass_browser_verified_english_r2",
+  "checks": {
+    "roadmap_blueprint_json": "pass",
+    "artifact_json": "pass",
+    "roadmap_sql_execution": "pass_11_rows_R0_to_R10_node_sqlite",
+    "canonical_artifact_validation": "pass_9_datasets_18_sources_ready",
+    "interactive_ladder": "pass_IA0_to_IA5_and_9_ablations",
+    "primary_contrast": "pass_IA4_minus_IA3_parity_defined",
+    "portable_html_packaging": "pass",
+    "payload_equality_and_semantic_fallback": "pass_23_manifest_blocks_22_fallback_content_blocks",
+    "reader_runtime_integrity": "pass_sha256_unchanged",
+    "english_only_delivery_files": "pass_zero_Han_characters",
+    "browser_viewports": "pass_1440_and_390",
+    "visual_inspection": "pass_desktop_and_mobile",
+    "horizontal_overflow": "pass_both_viewports",
+    "external_network_requests": "pass_none_observed",
+    "browser_page_errors": "pass_none_observed",
+    "frozen_experiment_spec": "not_modified",
+    "live_services_or_simulators": "not_touched"
+  },
+  "report_counts": {
+    "blocks": 23,
+    "semantic_fallback_content_blocks": 22,
+    "charts": 1,
+    "tables": 0,
+    "html_blocks": 0,
+    "metric_cards": 0,
+    "datasets": 9,
+    "sources": 18,
+    "interactive_ladder_rungs": 6,
+    "llm_ablations": 9
+  },
+  "browser_qa": {
+    "harness": "bounded Playwright regression harness",
+    "chromium": "Chromium 140.0.7339.16 (Playwright build 1187)",
+    "viewports": [1440, 390],
+    "reader_state": "ready",
+    "reader_ladder_content": "present",
+    "semantic_fallback_ladder_content": "present",
+    "payload_manifest_blocks": 23,
+    "inline_svg_nodes": 24,
+    "timings_ms": {
+      "viewport_1440": 240.6,
+      "viewport_390": 218.8
+    }
+  },
+  "sha256": {
+    "roadmap_blueprint.json": "59a2878f407e2b559a4a1cc21cd2d5f971e6a35e481dcc448c4f4a18e72430b5",
+    "artifact.json": "4b768b2f645a975028b115d7ef06a4f4e95ae14ced85f91e0f82bedf22641986",
+    "roadmap_gate_depth.sql": "fd4b69ff97345087f67cf4fc8f65ae5093812610aa29c4baa5f1ccdce03c9fe4",
+    "report.html": "c4fc1168708c0d47d1162754296d3f731c51028650aaeab739aca42fb3aa827b",
+    "embedded_reader_runtime": "64234cf07d31c7ace6991b440c1030cedac7fd05799ed3593e99e03cc551eb3c",
+    "frozen_experiment_spec.yaml": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d"
+  },
+  "qa_notes": [
+    "Revision r2 adds the IA0-IA5 interactive orchestration ladder, nine IA4/IA5 ablations, typed-tool parity, and an IA4-minus-IA3 primary contrast.",
+    "All delivery files in roadmap_2026 were scanned for Han characters after the PI requested English-only interface, documentation, and comments; the scan returned zero matches.",
+    "The canonical artifact payload was re-embedded byte-for-byte, while the compressed portable-reader runtime remained unchanged.",
+    "Desktop and mobile screenshots were inspected after the automated assertions passed.",
+    "The existing scoped data-grideval-portable-overflow-fix remains in place and passed at both viewports.",
+    "The frozen experiment specification was not edited, and no live model, GPU, container, simulator, calibration, or evaluation work was performed."
+  ],
+  "qa_limitations": [
+    "The browser checks validate portable presentation behavior and the new ladder content, not detector calibration, simulator integration, or scientific outcomes.",
+    "The IA ladder remains a roadmap and development-screening design until the existing evidence gates authorize implementation and bounded execution."
+  ]
+}

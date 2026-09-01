@@ -1,0 +1,68 @@
+{
+  "campaign_authorized": false,
+  "executable": false,
+  "outer_budget_per_arm_per_cell": 1,
+  "profile": "smoke",
+  "protocol_id": "g7-confirmatory-20260831-r1",
+  "runs": [
+    {
+      "arm": "fixed_grid",
+      "energy_cap_kvah": 2.0,
+      "executable": false,
+      "measurement_noise_pu": 0.002,
+      "operating_point": "responsive_morning",
+      "partition": "development",
+      "profile": "smoke",
+      "proposal": {
+        "amplitude_fraction": 0.025,
+        "period_windows": 1
+      },
+      "proposal_index": 0,
+      "protocol_id": "g7-confirmatory-20260831-r1",
+      "run_id": "g7c_b94ed04e19ac11fe27f6",
+      "seed": 8101,
+      "status": "planned",
+      "volt_var": false,
+      "window_cap": 8
+    },
+    {
+      "arm": "random_search",
+      "energy_cap_kvah": 2.0,
+      "executable": false,
+      "measurement_noise_pu": 0.002,
+      "operating_point": "responsive_morning",
+      "partition": "development",
+      "profile": "smoke",
+      "proposal": {
+        "amplitude_fraction": 0.075,
+        "period_windows": 10
+      },
+      "proposal_index": 0,
+      "protocol_id": "g7-confirmatory-20260831-r1",
+      "run_id": "g7c_84716fa9694b039e5ca5",
+      "seed": 8101,
+      "status": "planned",
+      "volt_var": false,
+      "window_cap": 8
+    },
+    {
+      "arm": "llm_clean_uninformed",
+      "energy_cap_kvah": 2.0,
+      "executable": false,
+      "measurement_noise_pu": 0.002,
+      "operating_point": "responsive_morning",
+      "partition": "development",
+      "profile": "smoke",
+      "proposal": null,
+      "proposal_index": 0,
+      "protocol_id": "g7-confirmatory-20260831-r1",
+      "run_id": "g7c_1ac4b8dfc748c108576b",
+      "seed": 8101,
+      "status": "requires_model_proposal",
+      "volt_var": false,
+      "window_cap": 8
+    }
+  ],
+  "schema_version": "grideval-g7-campaign-plan/v1",
+  "spec_sha256": "7ff0b3ed6d229c2db419e9ef474928f75ac5b1fc83a62ec1d96787b952de9756"
+}

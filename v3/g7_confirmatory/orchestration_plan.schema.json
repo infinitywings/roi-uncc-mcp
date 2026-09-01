@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g7-orchestration-plan-v1.json",
+  "title": "GridEval G7 typed orchestration plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source_rung",
+    "steps",
+    "rationale",
+    "plan_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-typed-plan/v1"
+    },
+    "source_rung": {
+      "enum": ["IA0", "IA1", "IA2", "IA3", "IA4", "IA5"]
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/strategy_step"
+      }
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "plan_id": {
+      "type": "string",
+      "pattern": "^plan_[0-9a-f]{20}$"
+    }
+  },
+  "$defs": {
+    "strategy_step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy_id", "parameters", "actions"],
+      "properties": {
+        "strategy_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parameters": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/parameter_value"
+          }
+        },
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/plan_action"
+          }
+        }
+      }
+    },
+    "parameter_value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "value"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": "number"
+        }
+      }
+    },
+    "plan_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["device_id", "p_kw", "q_kvar"],
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "p_kw": {
+          "type": "number"
+        },
+        "q_kvar": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

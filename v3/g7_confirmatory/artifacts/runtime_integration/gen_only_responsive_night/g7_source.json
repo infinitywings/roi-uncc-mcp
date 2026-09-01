@@ -1,0 +1,12 @@
+{
+  "arm": "scripted_max",
+  "devices": [
+    "DER_EV4_BESS@l92/C",
+    "DER_EV1_BESS@l5/C",
+    "DER_EV3_PV@l88/A",
+    "DER_EV5_PV@l107/B"
+  ],
+  "budget_windows": 1,
+  "coupling_step_s": 10,
+  "mode": "gen-only"
+}

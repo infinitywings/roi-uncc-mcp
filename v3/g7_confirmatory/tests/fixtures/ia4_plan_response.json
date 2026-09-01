@@ -1,0 +1,8 @@
+{
+  "schema_version": "grideval-g7-ia4-fixture-response/v1",
+  "search_surface_id": "surface_0d0fefaf0d4f178e4c8bf30a3c5907b2cf714cad5c45748edc2dde9e28671946",
+  "decision": "plan",
+  "candidate_id": "cand_e44f7c76d885ef0b23ee",
+  "rationale": "Select the bounded step candidate from the declared shared surface.",
+  "used_tool_call_ids": ["call_observe_1"]
+}

@@ -1,0 +1,45 @@
+{
+  "budget": {
+    "apparent_energy_cap_kvah": 2.0,
+    "perturbed_window_cap": 1
+  },
+  "campaign_authorized": false,
+  "composition": {
+    "attack_runner": "/app/v3/g7_condition_freeze/20260830_r1/formal_uninformed/run_g7_attack_loop.py",
+    "base_runner": "/app/v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py",
+    "budget_hook": "g7confirm.budget.RunnerOwnedDualBudgetPolicyAdapter",
+    "clock_hook": "g7confirm.operating_points.actuate_glm_clock"
+  },
+  "delivery": {
+    "admitted_energy_kvah": 0.7777777777777778,
+    "delivered_command_energy_kvah": 0.7777777777777778,
+    "delivery_reconciled": true,
+    "windows_spent": 1
+  },
+  "dependency_hashes": {
+    "device_config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+    "frozen_attack_runner_sha256": "79fd8f821477dd6beab9b9ccb28cd65a2a5ddfb4f2d2b462e1e84b89d82f8c69",
+    "frozen_base_runner_sha256": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+    "frozen_detector_sha256": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+    "frozen_sensitivity_sha256": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8",
+    "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+    "source_glm_sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+  },
+  "mode": "one-window-runtime-smoke",
+  "operating_point": {
+    "actuated_glm_sha256": "1c9e771fdbf6a4c48e6278e38c10c2e5c5042aba88f39d9e1ac1000e8942f399",
+    "condition_class": "responsive",
+    "duration_s": 10,
+    "id": "responsive_night",
+    "load_shape_player": "/app/examples/2bus-13bus/include/players/load_shape_player.player",
+    "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+    "load_shape_value": 0.212061,
+    "rationale": "low-load pre-dawn point",
+    "schema_version": "grideval-g7-operating-point/v1",
+    "start_time": "2013-08-28 04:00:00",
+    "stop_time": "2013-08-28 04:00:10"
+  },
+  "runtime_window_limit": 1,
+  "schema_version": "grideval-g7-runtime-integration/v1",
+  "status": "passed"
+}

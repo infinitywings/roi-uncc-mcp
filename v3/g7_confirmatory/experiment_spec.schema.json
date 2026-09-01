@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "grideval-g7-confirmatory-v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "protocol_id",
+    "campaign_authorized",
+    "provenance",
+    "model",
+    "time",
+    "budgets",
+    "candidate_space",
+    "search",
+    "partitions",
+    "seed_controls",
+    "detector_controls",
+    "conditions",
+    "profiles",
+    "hard_stops"
+  ],
+  "properties": {
+    "schema_version": {"const": "grideval-g7-confirmatory/v1"},
+    "campaign_authorized": {"const": false},
+    "model": {
+      "type": "object",
+      "required": ["base_url", "id", "temperature", "max_tokens", "timeout_s"]
+    },
+    "time": {
+      "type": "object",
+      "required": ["window_seconds", "total_windows"]
+    },
+    "budgets": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": {
+          "type": "object",
+          "required": ["perturbed_windows", "apparent_energy_kvah"]
+        }
+      }
+    },
+    "candidate_space": {
+      "type": "object",
+      "required": ["amplitude_fractions", "period_windows"]
+    },
+    "search": {
+      "type": "object",
+      "required": ["outer_budget_k", "arms", "controls"]
+    },
+    "partitions": {
+      "type": "object",
+      "required": ["detector_calibration", "development", "evaluation", "minimum_valid_evaluation_replicates"]
+    },
+    "seed_controls": {
+      "type": "object",
+      "required": [
+        "evaluation_sealed",
+        "allowed_runtime_partitions",
+        "measurement_noise_seed_offset",
+        "gridlabd_random_seed_source"
+      ],
+      "properties": {
+        "evaluation_sealed": {"const": true},
+        "allowed_runtime_partitions": {
+          "const": ["development"]
+        },
+        "measurement_noise_seed_offset": {"type": "integer", "minimum": 1},
+        "gridlabd_random_seed_source": {"const": "source_glm"}
+      }
+    },
+    "detector_controls": {
+      "type": "object",
+      "required": [
+        "calibration_partition",
+        "calibration_mode",
+        "calibration_input",
+        "minimum_benign_replicates_per_cell",
+        "fit_seed",
+        "source_schema_freeze_does_not_imply_calibrated"
+      ]
+    },
+    "conditions": {
+      "type": "object",
+      "required": ["operating_points", "volt_var", "measurement_noise_pu"]
+    },
+    "profiles": {"type": "object", "minProperties": 1},
+    "hard_stops": {"type": "array", "minItems": 1, "uniqueItems": true}
+  },
+  "additionalProperties": true
+}
