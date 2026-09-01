@@ -45,6 +45,10 @@ The offline M12 clean-source freeze and review design is documented in
 `../M12_CAREER_SOURCE_FREEZE_DESIGN_REPORT.md`. It defines separate `S` and `M`
 profiles, eight unassigned empirical roles, and two unissued independent-review
 receipts. It generates no real source and does not amend the frozen report.
+The offline M13 synthetic source-manifest validator is documented in
+`../M13_CAREER_SOURCE_MANIFEST_VALIDATOR_REPORT.md`. Its two positive and twelve
+single-fault negative fixtures test the M12 gate without changing any real
+source, partition, review, threshold, or resource status.
 This separation avoids rewriting the report's original source manifest while
 keeping current protocol evidence explicit.
 

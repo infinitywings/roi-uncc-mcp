@@ -56,7 +56,10 @@ The harness provides:
   and
 - an offline M12 clean-source freeze design that defines disjoint partition
   roles, separate deterministic `S` and `M` package profiles, null empirical
-  slots, and unissued two-reviewer receipt templates.
+  slots, and unissued two-reviewer receipt templates; and
+- an offline M13 source-manifest validator with two synthetic structural passes
+  and twelve single-fault fail-closed cases, none of which changes a real
+  source, partition, review, threshold, or resource status.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -109,6 +112,11 @@ The M12 source-freeze design is documented in
 are `artifacts/career_source_freeze_design_m12.json` and
 `career_source_freeze_design.schema.json`. M12 instantiates no data, review,
 threshold, model, or real resource.
+The M13 synthetic validator is documented in
+`M13_CAREER_SOURCE_MANIFEST_VALIDATOR_REPORT.md`; its canonical matrix and
+schema are `artifacts/career_source_manifest_matrix_m13.json` and
+`career_source_manifest_matrix.schema.json`. A positive M13 receipt is
+structural-only and cannot approve a real source.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the

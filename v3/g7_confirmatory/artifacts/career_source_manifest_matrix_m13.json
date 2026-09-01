@@ -1,0 +1,623 @@
+{
+  "canonical_status": {
+    "M_real_resource": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+    "M_scientific_threshold": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+    "M_source_package": "UNBUILT_DESIGN_ONLY",
+    "S_real_resource": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+    "S_scientific_threshold": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+    "S_source_package": "UNBUILT_DESIGN_ONLY",
+    "campaign": "HOLD",
+    "evaluation": "SEALED",
+    "partition_assignments": "UNASSIGNED_DESIGN_ONLY",
+    "review_receipts": "UNISSUED_DESIGN_ONLY"
+  },
+  "fixture_cases": [
+    {
+      "envelope_id": "m13envelope_e78dcefd2438e0766b9cab55fd20611f2cc61ecd2e8f2eb9d5fc8ed44dfe727e",
+      "expected_accepted": true,
+      "expected_reason_codes": [],
+      "factor": "S",
+      "fixture_id": "S_positive_structure",
+      "mutation_id": null
+    },
+    {
+      "envelope_id": "m13envelope_e49b609654cf6582227e1b312c69dffe0427aa3fd88e0c0ae4846d98e6559a90",
+      "expected_accepted": true,
+      "expected_reason_codes": [],
+      "factor": "M",
+      "fixture_id": "M_positive_structure",
+      "mutation_id": null
+    },
+    {
+      "envelope_id": "m13envelope_dd3faa205c5a118f417aca263e19c5462681180e43df0df2ae71352d5a5a7e23",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "partition_overlap_or_invalid_assignment"
+      ],
+      "factor": "S",
+      "fixture_id": "S_partition_overlap",
+      "mutation_id": "partition_overlap"
+    },
+    {
+      "envelope_id": "m13envelope_18f9d17bd3dd0522f20ce8a23a9f88cd6d662d2b6bf7f110205b8dcd974d4013",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "untracked_source"
+      ],
+      "factor": "S",
+      "fixture_id": "S_untracked_source",
+      "mutation_id": "untracked_source"
+    },
+    {
+      "envelope_id": "m13envelope_44dfe6df11168f3750c9c3c9862970075123c9f4e0af344975c0fe4ad8c1939d",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "S_authority_expansion"
+      ],
+      "factor": "S",
+      "fixture_id": "S_authority_expansion",
+      "mutation_id": "authority_expansion"
+    },
+    {
+      "envelope_id": "m13envelope_2f584fd165724fdd02fcff7f0ed129e7c025f796a418757c414c1062c8730eaa",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "S_reactive_axis_scope_drift"
+      ],
+      "factor": "S",
+      "fixture_id": "S_reactive_zero_imputation",
+      "mutation_id": "reactive_zero_imputation"
+    },
+    {
+      "envelope_id": "m13envelope_aa40e322d6e64d6964820f2b3b9c4fe52cc509992be25831daf8b53f0fef4b1f",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "missing_or_invalid_content_address:engineering_instantiation_manifest_sha256"
+      ],
+      "factor": "M",
+      "fixture_id": "M_missing_physical_instantiation",
+      "mutation_id": "missing_physical_instantiation"
+    },
+    {
+      "envelope_id": "m13envelope_0510d6bc0700b6edaf8b02e347454dbc160ad1720606e86a5b5b54f87f6bb942",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "M_candidate_library_drift"
+      ],
+      "factor": "M",
+      "fixture_id": "M_candidate_drift",
+      "mutation_id": "candidate_drift"
+    },
+    {
+      "envelope_id": "m13envelope_add061bbf0a37448ae269204dddd770fc70ae071c256a156259445edc8158682",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "M_new_observation_grant"
+      ],
+      "factor": "M",
+      "fixture_id": "M_new_observation",
+      "mutation_id": "new_observation"
+    },
+    {
+      "envelope_id": "m13envelope_a430dabe37fa8aff103c96f7f090c3a13b150f9578b594c838dea0068679dc8b",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "M_online_update_enabled"
+      ],
+      "factor": "M",
+      "fixture_id": "M_online_update",
+      "mutation_id": "online_update"
+    },
+    {
+      "envelope_id": "m13envelope_d70141b85362c67e1ea25fd2f112e0639561ac11098173ef7cdef38c5d71f3c7",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "prohibited_outcome_or_resource_access"
+      ],
+      "factor": "M",
+      "fixture_id": "M_detector_outcome_contamination",
+      "mutation_id": "detector_contamination"
+    },
+    {
+      "envelope_id": "m13envelope_5d1d56816b20762751da2ada80fa0e3f98b17af4b54ede0b74c9af75e99ea40a",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "M_cross_factor_resource_dependency"
+      ],
+      "factor": "M",
+      "fixture_id": "M_cross_factor_dependency",
+      "mutation_id": "cross_factor_dependency"
+    },
+    {
+      "envelope_id": "m13envelope_3b972d3769854ba579b9793db980da0b199367e4c14ca2e80430de6913637f22",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "reviewer_independence_violation"
+      ],
+      "factor": "S",
+      "fixture_id": "S_reviewer_reuse",
+      "mutation_id": "reviewer_reuse"
+    },
+    {
+      "envelope_id": "m13envelope_fb7efea10dac473e1096b6a2b9b330e4a0a207ea1e34fb08e21c844b8f1cdc9e",
+      "expected_accepted": false,
+      "expected_reason_codes": [
+        "review_package_binding_mismatch"
+      ],
+      "factor": "M",
+      "fixture_id": "M_review_binding_drift",
+      "mutation_id": "review_binding_drift"
+    }
+  ],
+  "fixture_policy": {
+    "negative_cases": 12,
+    "negative_verdict": "REJECTED_FAIL_CLOSED",
+    "positive_cases": 2,
+    "positive_verdict": "PASS_SYNTHETIC_STRUCTURE_ONLY",
+    "real_status_transition": false,
+    "scientific_values": "synthetic_structure_only",
+    "single_declared_fault_per_negative": true
+  },
+  "gate_checks": {
+    "M_candidate_drift_rejected": true,
+    "M_missing_physical_instantiation_rejected": true,
+    "M_new_observation_rejected": true,
+    "M_online_update_rejected": true,
+    "M_positive_structure_passes": true,
+    "S_authority_expansion_rejected": true,
+    "S_positive_structure_passes": true,
+    "S_reactive_zero_imputation_rejected": true,
+    "all_external_access_zero": true,
+    "all_real_statuses_unchanged": true,
+    "all_receipts_content_addressed": true,
+    "cross_factor_dependency_rejected": true,
+    "detector_outcome_contamination_rejected": true,
+    "partition_overlap_rejected": true,
+    "review_binding_drift_rejected": true,
+    "reviewer_reuse_rejected": true,
+    "untracked_source_rejected": true
+  },
+  "governance": {
+    "campaign_authorized": false,
+    "development_only": true,
+    "evaluation_sealed": true,
+    "model_or_embedding_access_authorized": false,
+    "real_partition_assignment_authorized": false,
+    "real_resource_admission_authorized": false,
+    "real_review_receipt_issuance_authorized": false,
+    "real_source_generation_authorized": false,
+    "scientific_threshold_freeze_authorized": false,
+    "synthetic_fixtures_only": true,
+    "tool_simulator_detector_or_actuator_access_authorized": false
+  },
+  "limitations": [
+    "no_campaign_authorization",
+    "no_external_runtime_or_evaluation_access",
+    "no_physical_ranking_or_factor_effect_claim",
+    "no_real_source_partition_or_review",
+    "no_scientific_threshold_or_resource_admission",
+    "synthetic_hashes_blocks_and_reviewers_only"
+  ],
+  "matrix_id": "m13matrix_4025c6e7342d20113eb56bfd0c75676f9160389db968456b88603f61156ae7a3",
+  "milestone": "M13",
+  "next_gate": {
+    "evaluation_access": false,
+    "id": "M14_independent_source_generation_prerequisite_review",
+    "model_or_embedding_call": false,
+    "real_partition_assignment_authorized": false,
+    "real_source_generation_authorized": false,
+    "scope": "review_design_and_authorization_boundary_only",
+    "simulator_or_detector_access": false
+  },
+  "schema_version": "grideval-career-source-manifest-matrix/v1",
+  "source_lineage": {
+    "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+    "m13_decision": "dec_01M1DNSMSJG0PP22RA8GC40CXX",
+    "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36"
+  },
+  "title": "CAREER synthetic clean-source manifest validator matrix",
+  "validation_receipts": [
+    {
+      "accepted": true,
+      "envelope_id": "m13envelope_e78dcefd2438e0766b9cab55fd20611f2cc61ecd2e8f2eb9d5fc8ed44dfe727e",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "S",
+      "fixture_id": "S_positive_structure",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [],
+      "receipt_id": "m13receipt_a7fed4993f4f9d4f8187c2607b965fc0dcb1cb62484f870b60357d9043fcc1fe",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "PASS_SYNTHETIC_STRUCTURE_ONLY"
+    },
+    {
+      "accepted": true,
+      "envelope_id": "m13envelope_e49b609654cf6582227e1b312c69dffe0427aa3fd88e0c0ae4846d98e6559a90",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "M",
+      "fixture_id": "M_positive_structure",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [],
+      "receipt_id": "m13receipt_34e2bdd3f449c5c43171fd945c402cc1beb46ce6d9f8b27daf230dac910c7e7c",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "PASS_SYNTHETIC_STRUCTURE_ONLY"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_dd3faa205c5a118f417aca263e19c5462681180e43df0df2ae71352d5a5a7e23",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "S",
+      "fixture_id": "S_partition_overlap",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "partition_overlap_or_invalid_assignment"
+      ],
+      "receipt_id": "m13receipt_227b1339a581a778425f38a9672094b4b646415da10015786d76af1be7a2d411",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_18f9d17bd3dd0522f20ce8a23a9f88cd6d662d2b6bf7f110205b8dcd974d4013",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "S",
+      "fixture_id": "S_untracked_source",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "untracked_source"
+      ],
+      "receipt_id": "m13receipt_29caa38999e5f6578384c32824428616ad5bbf5ea64d2ae6c150809b16dc0211",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_44dfe6df11168f3750c9c3c9862970075123c9f4e0af344975c0fe4ad8c1939d",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "S",
+      "fixture_id": "S_authority_expansion",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "S_authority_expansion"
+      ],
+      "receipt_id": "m13receipt_98c2bb5d554fd5c259117b0988efbcea302267754c2c00c1560627dbfb73b2d7",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_2f584fd165724fdd02fcff7f0ed129e7c025f796a418757c414c1062c8730eaa",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "S",
+      "fixture_id": "S_reactive_zero_imputation",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "S_reactive_axis_scope_drift"
+      ],
+      "receipt_id": "m13receipt_cc99e98fdec616f3b667192f34a39812d9d60929b2ac390e139d6550c39ce4bf",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_aa40e322d6e64d6964820f2b3b9c4fe52cc509992be25831daf8b53f0fef4b1f",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "M",
+      "fixture_id": "M_missing_physical_instantiation",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "missing_or_invalid_content_address:engineering_instantiation_manifest_sha256"
+      ],
+      "receipt_id": "m13receipt_4565612343a6da3094e14c198dce767a932eb8e30278cf49b62dc8e5718b8cb8",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_0510d6bc0700b6edaf8b02e347454dbc160ad1720606e86a5b5b54f87f6bb942",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "M",
+      "fixture_id": "M_candidate_drift",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "M_candidate_library_drift"
+      ],
+      "receipt_id": "m13receipt_6fd16a47e68a04bdb85ce590db3e7a6d6bce01524628da2be5d223fd82affd51",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_add061bbf0a37448ae269204dddd770fc70ae071c256a156259445edc8158682",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "M",
+      "fixture_id": "M_new_observation",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "M_new_observation_grant"
+      ],
+      "receipt_id": "m13receipt_785640518363360a660a5b4f5486317960a773ca6dc15774f8956af3fe07db33",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_a430dabe37fa8aff103c96f7f090c3a13b150f9578b594c838dea0068679dc8b",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "M",
+      "fixture_id": "M_online_update",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "M_online_update_enabled"
+      ],
+      "receipt_id": "m13receipt_2b858046954992b5f0cdb89625e39e9a41bfbe4861ab8d887a31451286ce902a",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_d70141b85362c67e1ea25fd2f112e0639561ac11098173ef7cdef38c5d71f3c7",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "M",
+      "fixture_id": "M_detector_outcome_contamination",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "prohibited_outcome_or_resource_access"
+      ],
+      "receipt_id": "m13receipt_8a0fa6dd1aca80d0938cb6ac4db61ac4e0efbb53f4ea84a8fdfd2ef82b091fca",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_5d1d56816b20762751da2ada80fa0e3f98b17af4b54ede0b74c9af75e99ea40a",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "M",
+      "fixture_id": "M_cross_factor_dependency",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "M_cross_factor_resource_dependency"
+      ],
+      "receipt_id": "m13receipt_9aad8778b47b68424d0091aee5758e84bb6dadad1e794c65027b3b7f213f4feb",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_3b972d3769854ba579b9793db980da0b199367e4c14ca2e80430de6913637f22",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "S",
+      "fixture_id": "S_reviewer_reuse",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "reviewer_independence_violation"
+      ],
+      "receipt_id": "m13receipt_72df4390c227200fb5969177388038d1edc2c627420d2d8c70eb6c31cddcbcaf",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    },
+    {
+      "accepted": false,
+      "envelope_id": "m13envelope_fb7efea10dac473e1096b6a2b9b330e4a0a207ea1e34fb08e21c844b8f1cdc9e",
+      "evaluation_status_after": "SEALED",
+      "external_access": {
+        "actuator_calls": 0,
+        "detector_calls": 0,
+        "embedding_calls": 0,
+        "evaluation_records_read": 0,
+        "model_calls": 0,
+        "real_tool_calls": 0,
+        "simulator_calls": 0
+      },
+      "factor": "M",
+      "fixture_id": "M_review_binding_drift",
+      "interpretation": "source_manifest_validator_structure_only",
+      "m12_contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+      "real_partition_status_after": "UNASSIGNED_DESIGN_ONLY",
+      "real_resource_status_after": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+      "real_review_status_after": "UNISSUED_DESIGN_ONLY",
+      "real_source_status_after": "UNBUILT_DESIGN_ONLY",
+      "reason_codes": [
+        "review_package_binding_mismatch"
+      ],
+      "receipt_id": "m13receipt_ebcf6c2aab8edaabc75af3a1272e451f0365e04d1f0da0b09191369b8225f688",
+      "schema_version": "grideval-career-source-package-receipt/v1",
+      "scientific_threshold_status_after": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+      "verdict": "REJECTED_FAIL_CLOSED"
+    }
+  ]
+}

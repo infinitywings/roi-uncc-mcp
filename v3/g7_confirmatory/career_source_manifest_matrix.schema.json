@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_source_manifest_matrix.schema.json",
+  "title": "GridEval M13 CAREER synthetic source-manifest matrix",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "matrix_id",
+    "milestone",
+    "title",
+    "governance",
+    "source_lineage",
+    "fixture_policy",
+    "fixture_cases",
+    "validation_receipts",
+    "gate_checks",
+    "canonical_status",
+    "limitations",
+    "next_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-career-source-manifest-matrix/v1"
+    },
+    "matrix_id": {
+      "type": "string",
+      "pattern": "^m13matrix_[0-9a-f]{64}$"
+    },
+    "milestone": { "const": "M13" },
+    "title": { "type": "string", "minLength": 1 },
+    "governance": { "$ref": "#/$defs/governance" },
+    "source_lineage": { "type": "object" },
+    "fixture_policy": {
+      "type": "object",
+      "required": [
+        "positive_cases",
+        "negative_cases",
+        "single_declared_fault_per_negative",
+        "scientific_values",
+        "positive_verdict",
+        "negative_verdict",
+        "real_status_transition"
+      ],
+      "properties": {
+        "positive_cases": { "const": 2 },
+        "negative_cases": { "const": 12 },
+        "single_declared_fault_per_negative": { "const": true },
+        "scientific_values": { "const": "synthetic_structure_only" },
+        "positive_verdict": { "const": "PASS_SYNTHETIC_STRUCTURE_ONLY" },
+        "negative_verdict": { "const": "REJECTED_FAIL_CLOSED" },
+        "real_status_transition": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "fixture_cases": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "items": { "$ref": "#/$defs/fixtureCase" }
+    },
+    "validation_receipts": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "items": { "$ref": "#/$defs/receipt" }
+    },
+    "gate_checks": {
+      "type": "object",
+      "minProperties": 17,
+      "maxProperties": 17,
+      "additionalProperties": { "const": true }
+    },
+    "canonical_status": { "type": "object" },
+    "limitations": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "next_gate": { "type": "object" }
+  },
+  "$defs": {
+    "governance": {
+      "type": "object",
+      "required": [
+        "development_only",
+        "synthetic_fixtures_only",
+        "campaign_authorized",
+        "evaluation_sealed",
+        "real_source_generation_authorized",
+        "real_partition_assignment_authorized",
+        "real_review_receipt_issuance_authorized",
+        "scientific_threshold_freeze_authorized",
+        "real_resource_admission_authorized",
+        "model_or_embedding_access_authorized",
+        "tool_simulator_detector_or_actuator_access_authorized"
+      ],
+      "properties": {
+        "development_only": { "const": true },
+        "synthetic_fixtures_only": { "const": true },
+        "campaign_authorized": { "const": false },
+        "evaluation_sealed": { "const": true },
+        "real_source_generation_authorized": { "const": false },
+        "real_partition_assignment_authorized": { "const": false },
+        "real_review_receipt_issuance_authorized": { "const": false },
+        "scientific_threshold_freeze_authorized": { "const": false },
+        "real_resource_admission_authorized": { "const": false },
+        "model_or_embedding_access_authorized": { "const": false },
+        "tool_simulator_detector_or_actuator_access_authorized": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixtureCase": {
+      "type": "object",
+      "required": [
+        "fixture_id",
+        "factor",
+        "mutation_id",
+        "envelope_id",
+        "expected_accepted",
+        "expected_reason_codes"
+      ],
+      "properties": {
+        "fixture_id": { "type": "string", "minLength": 1 },
+        "factor": { "enum": ["S", "M"] },
+        "mutation_id": { "type": ["string", "null"] },
+        "envelope_id": {
+          "type": "string",
+          "pattern": "^m13envelope_[0-9a-f]{64}$"
+        },
+        "expected_accepted": { "type": "boolean" },
+        "expected_reason_codes": {
+          "type": "array",
+          "maxItems": 1,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "receipt": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "receipt_id",
+        "m12_contract_id",
+        "fixture_id",
+        "envelope_id",
+        "factor",
+        "accepted",
+        "verdict",
+        "reason_codes",
+        "real_source_status_after",
+        "real_partition_status_after",
+        "real_review_status_after",
+        "scientific_threshold_status_after",
+        "real_resource_status_after",
+        "evaluation_status_after",
+        "external_access",
+        "interpretation"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-career-source-package-receipt/v1"
+        },
+        "receipt_id": {
+          "type": "string",
+          "pattern": "^m13receipt_[0-9a-f]{64}$"
+        },
+        "m12_contract_id": {
+          "const": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3"
+        },
+        "fixture_id": { "type": "string", "minLength": 1 },
+        "envelope_id": {
+          "type": "string",
+          "pattern": "^m13envelope_[0-9a-f]{64}$"
+        },
+        "factor": { "enum": ["S", "M"] },
+        "accepted": { "type": "boolean" },
+        "verdict": {
+          "enum": [
+            "PASS_SYNTHETIC_STRUCTURE_ONLY",
+            "REJECTED_FAIL_CLOSED"
+          ]
+        },
+        "reason_codes": {
+          "type": "array",
+          "maxItems": 1,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "real_source_status_after": { "const": "UNBUILT_DESIGN_ONLY" },
+        "real_partition_status_after": {
+          "const": "UNASSIGNED_DESIGN_ONLY"
+        },
+        "real_review_status_after": { "const": "UNISSUED_DESIGN_ONLY" },
+        "scientific_threshold_status_after": {
+          "const": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED"
+        },
+        "real_resource_status_after": {
+          "const": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE"
+        },
+        "evaluation_status_after": { "const": "SEALED" },
+        "external_access": { "$ref": "#/$defs/externalAccess" },
+        "interpretation": {
+          "const": "source_manifest_validator_structure_only"
+        }
+      },
+      "additionalProperties": false
+    },
+    "externalAccess": {
+      "type": "object",
+      "required": [
+        "model_calls",
+        "embedding_calls",
+        "real_tool_calls",
+        "simulator_calls",
+        "detector_calls",
+        "actuator_calls",
+        "evaluation_records_read"
+      ],
+      "properties": {
+        "model_calls": { "const": 0 },
+        "embedding_calls": { "const": 0 },
+        "real_tool_calls": { "const": 0 },
+        "simulator_calls": { "const": 0 },
+        "detector_calls": { "const": 0 },
+        "actuator_calls": { "const": 0 },
+        "evaluation_records_read": { "const": 0 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

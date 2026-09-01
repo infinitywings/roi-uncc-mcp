@@ -2,7 +2,7 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M12 for the research roadmap. M1–M3
+This document defines milestones M1–M13 for the research roadmap. M1–M3
 are development-only offline contracts. M4 adds separately bounded model-output
 parsing receipts. M5 returns to an offline-only, content-addressed interactive
 tool-loop protocol. M6 adds a two-turn model replay with an injected read-only
@@ -17,9 +17,10 @@ keeping both real resources on HOLD. M11 audits the available candidate source
 bytes, rejects their promotion into CAREER resources, and records null
 scientific thresholds plus exact repair prerequisites. M12 defines clean-source
 profiles, disjoint empirical roles, and independent-review templates while
-leaving every empirical field uninstantiated. No milestone calls an embedding
-service, simulator, detector, calibration pipeline, or evaluation partition,
-and none authorizes a campaign.
+leaving every empirical field uninstantiated. M13 enforces those rules against
+two positive and twelve single-fault synthetic manifests. No milestone calls an
+embedding service, simulator, detector, calibration pipeline, or evaluation
+partition, and none authorizes a campaign.
 
 The frozen `experiment_spec.yaml` remains byte-identical with SHA-256
 `79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d`.
@@ -180,6 +181,28 @@ or select a threshold. Full interpretation is in
 `M12_CAREER_SOURCE_FREEZE_DESIGN_REPORT.md`; semantic validation is implemented
 by `g7confirm.career_source_freeze_design`, and the interchange schema is
 `career_source_freeze_design.schema.json`.
+
+## M13 synthetic source-manifest validator
+
+M13 converts the M12 design into an executable offline validation boundary. Its
+two positive manifests populate every required field with deterministic
+synthetic hashes, blocks, sources, and reviewers. Their receipts say
+`PASS_SYNTHETIC_STRUCTURE_ONLY` and explicitly preserve every real HOLD. The
+validator refuses a non-synthetic envelope.
+
+Twelve readdressed single-fault manifests verify rejection of partition
+overlap, untracked source bytes, expanded `S` authority, zero-imputed reactive
+scope, missing `M` engineering instantiation, M9 candidate drift, a new `M`
+observation, online update, detector-outcome contamination, cross-factor
+dependency, reviewer reuse, and review/package binding drift. Each case returns
+exactly one preregistered reason code.
+
+Passing M13 establishes fail-closed manifest mechanics only. It generates no
+real source, assigns no real block, issues no real review, selects no threshold,
+and admits no resource. Full interpretation is in
+`M13_CAREER_SOURCE_MANIFEST_VALIDATOR_REPORT.md`; validation is implemented by
+`g7confirm.career_source_manifest_validator`, and the matrix schema is
+`career_source_manifest_matrix.schema.json`.
 
 ## Research contract
 
@@ -581,6 +604,7 @@ python3 -m unittest discover -s tests -p 'test_career_two_interval.py' -v
 python3 -m unittest discover -s tests -p 'test_career_resource_admission.py' -v
 python3 -m unittest discover -s tests -p 'test_career_threshold_hold.py' -v
 python3 -m unittest discover -s tests -p 'test_career_source_freeze_design.py' -v
+python3 -m unittest discover -s tests -p 'test_career_source_manifest_validator.py' -v
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q g7confirm tests
 sha256sum experiment_spec.yaml
@@ -602,6 +626,7 @@ jq empty artifacts/ai_v2_component_matrix.json \
   artifacts/career_resource_admission_m10.json \
   artifacts/career_threshold_hold_m11.json \
   artifacts/career_source_freeze_design_m12.json \
+  artifacts/career_source_manifest_matrix_m13.json \
   candidate_space_receipt.schema.json \
   search_surface.schema.json \
   ia4_request.schema.json \
@@ -617,17 +642,18 @@ jq empty artifacts/ai_v2_component_matrix.json \
   career_resource_admission.schema.json \
   career_threshold_hold.schema.json \
   career_source_freeze_design.schema.json \
+  career_source_manifest_matrix.schema.json \
   tests/fixtures/ia4_plan_response.json \
   tests/fixtures/ia4_refusal_response.json \
   tests/fixtures/ia4_no_action_response.json
 ```
 
-All tests, M5 fixture generation, M7 preregistration, and M8–M12 contract and
+All tests, M5 fixture generation, M7 preregistration, and M8–M13 contract and
 fixture generation are offline. The two M4
 receipts, three M6 receipts, and two M7 paired receipts required model network
-access; M6 and M7 executed no real tool. The next gate is the offline M13
-synthetic source-manifest validator; it cannot instantiate real sources,
-partitions, reviews, or thresholds. Any later model, live-tool, or one-window
-development smoke still
+access; M6 and M7 executed no real tool. The next gate is the offline M14
+independent source-generation prerequisite review packet; it cannot perform the
+review, instantiate sources or partitions, or select thresholds. Any later
+model, live-tool, or one-window development smoke still
 requires its own execution overlay, bounded reward metric, and scientific gate
 and would not open evaluation.
