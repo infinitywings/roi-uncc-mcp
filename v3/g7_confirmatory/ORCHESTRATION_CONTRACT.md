@@ -2,7 +2,7 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M8 for the research roadmap. M1–M3
+This document defines milestones M1–M9 for the research roadmap. M1–M3
 are development-only offline contracts. M4 adds separately bounded model-output
 parsing receipts. M5 returns to an offline-only, content-addressed interactive
 tool-loop protocol. M6 adds a two-turn model replay with an injected read-only
@@ -10,9 +10,10 @@ fixture. M7 adds a preregistered mirrored counterfactual fixture pair with a
 causal candidate-switching endpoint. M8 realigns the next subtle-attack design
 with the governing CAREER project description: the committed core becomes a
 single-aggregator, two-interval, one-midpoint-revision capability comparison,
-while the richer IA0–IA5 ladder is retained as an extension. No milestone calls an embedding service,
-simulator, detector, calibration pipeline, or evaluation partition, and none
-authorizes a campaign.
+while the richer IA0–IA5 ladder is retained as an extension. M9 implements the
+offline two-interval state machine and mirrored revision-permission witness.
+No milestone calls an embedding service, simulator, detector, calibration
+pipeline, or evaluation partition, and none authorizes a campaign.
 
 The frozen `experiment_spec.yaml` remains byte-identical with SHA-256
 `79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d`.
@@ -50,6 +51,37 @@ The canonical M8 record is
 `g7confirm.career_stealth_contract`. Full interpretation and scope boundaries
 are in `M8_CAREER_STEALTH_BIAS_DESIGN.md`. M8 makes no executable amplitude,
 detector-threshold, physical-harm, stealth, or LLM-superiority claim.
+
+## M9 offline two-interval protocol isolation
+
+M9 implements the primary `A` intervention without introducing a reasoning
+method or physical runtime. `A0_preplanned` and `A1_response_informed` share an
+identical content-addressed initial plan, candidate library, observation
+schema, empty history, budget declaration, schedule, and safety-shield
+placeholder. Both receive one of two mirrored qualitative midpoint trend
+tokens. `A0` must retain its precommitted second interval; `A1` may replace only
+the second interval exactly once.
+
+The deterministic reference mapping is a protocol witness only. It causes
+`A1` to select distinct declared second intervals across the mirrored tokens
+while `A0` remains invariant. All candidates share the same first-interval
+bytes. Invalid observation bytes, premature or repeated decisions, `A0`
+revision attempts, and candidates outside the frozen library fail closed.
+
+The canonical artifact
+`artifacts/career_two_interval_fixture_m9.json` contains the M9 contract and
+four terminal receipts. Every receipt records the initial and terminal plan,
+midpoint observation, interval fingerprints, revision count, state sequence,
+parity fingerprint, and zero external-access counters. The semantic validator
+is `g7confirm.career_two_interval`; the interchange schema is
+`career_two_interval_fixture.schema.json`; full interpretation is in
+`M9_CAREER_TWO_INTERVAL_FIXTURE_REPORT.md`.
+
+Passing M9 establishes protocol isolation only. It does not establish a useful
+response rule, physical consequence, stealth, detector evasion, LLM or tool
+competence, runtime readiness, or campaign authorization. The next offline gate
+defines independent admission contracts for validated process relationships
+(`S`) and validated predictive ranking (`M`).
 
 ## Research contract
 
@@ -446,6 +478,8 @@ python3 -m unittest discover -s tests -p 'test_ia4_model.py' -v
 python3 -m unittest discover -s tests -p 'test_ia4_tool_loop.py' -v
 python3 -m unittest discover -s tests -p 'test_ia4_interactive_model.py' -v
 python3 -m unittest discover -s tests -p 'test_ia4_counterfactual.py' -v
+python3 -m unittest discover -s tests -p 'test_career_stealth_contract.py' -v
+python3 -m unittest discover -s tests -p 'test_career_two_interval.py' -v
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q g7confirm tests
 sha256sum experiment_spec.yaml
@@ -462,6 +496,8 @@ jq empty artifacts/ai_v2_component_matrix.json \
   artifacts/ia4_counterfactual_contract_m7.json \
   artifacts/ia4_counterfactual_model_smoke_m7_attempt1.json \
   artifacts/ia4_counterfactual_model_smoke_m7_attempt2_transport_provenance.json \
+  artifacts/career_stealth_contract_m8.json \
+  artifacts/career_two_interval_fixture_m9.json \
   candidate_space_receipt.schema.json \
   search_surface.schema.json \
   ia4_request.schema.json \
@@ -472,16 +508,17 @@ jq empty artifacts/ai_v2_component_matrix.json \
   ia4_interactive_model_smoke.schema.json \
   ia4_counterfactual_contract.schema.json \
   ia4_counterfactual_model_smoke.schema.json \
+  career_stealth_contract.schema.json \
+  career_two_interval_fixture.schema.json \
   tests/fixtures/ia4_plan_response.json \
   tests/fixtures/ia4_refusal_response.json \
   tests/fixtures/ia4_no_action_response.json
 ```
 
-All tests, M5 fixture generation, and M7 preregistration are offline. The two M4
+All tests, M5 fixture generation, M7 preregistration, M8 design, and M9 fixture
+generation are offline. The two M4
 receipts, three M6 receipts, and two M7 paired receipts required model network
-access; M6 and M7 executed no real tool. The next gate is a fixture-only M8
-robustness matrix covering irrelevant, unavailable, conflicting, near-tie, and
-lineage-shuffled results, multiple seed pairs, candidate-order reversal, and a
-control prompt without the arithmetic rule. A later independently gated live-
-tool or one-window development smoke would still require a new execution
-overlay and bounded reward metric and would not open evaluation.
+access; M6 and M7 executed no real tool. The next gate is the offline M10
+validated-resource admission contract for `S` and `M`. Any later model, live-
+tool, or one-window development smoke still requires its own execution overlay,
+bounded reward metric, and scientific gate and would not open evaluation.

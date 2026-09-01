@@ -42,7 +42,10 @@ The harness provides:
   midpoint revision, six low-amplitude bias shapes, matched long-horizon
   budgets, and independent confirmation while keeping telemetry attacks,
   repeated revisions, multi-device control, and the IA0–IA5 ladder as explicit
-  extensions.
+  extensions; and
+- an offline M9 two-interval state machine and mirrored fixture pair that
+  isolates revision permission, keeps all parity bytes fixed, rejects invalid
+  transitions, and emits four content-addressed protocol-only receipts.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -74,6 +77,12 @@ The CAREER-aligned M8 design is documented in
 `artifacts/career_stealth_contract_m8.json` and
 `career_stealth_contract.schema.json`. M8 is offline and does not amend the
 frozen experiment specification or portable roadmap report.
+The M9 protocol-isolation result is documented in
+`M9_CAREER_TWO_INTERVAL_FIXTURE_REPORT.md`; its canonical contract, receipts,
+and schema are `artifacts/career_two_interval_fixture_m9.json` and
+`career_two_interval_fixture.schema.json`. M9 uses only qualitative synthetic
+tokens and does not access a model, tool, simulator, detector, embedding
+service, actuator, or evaluation record.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the

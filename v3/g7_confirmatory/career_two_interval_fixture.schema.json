@@ -1,0 +1,325 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_two_interval_fixture.schema.json",
+  "title": "GridEval M9 offline CAREER two-interval fixture",
+  "type": "object",
+  "required": [
+    "contract",
+    "fixture_pair_evidence"
+  ],
+  "properties": {
+    "contract": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "contract_id",
+        "milestone",
+        "title",
+        "governance",
+        "source_lineage",
+        "protocol",
+        "parity_inputs",
+        "candidate_library",
+        "fixture_pair",
+        "reference_policy",
+        "acceptance_gate",
+        "limitations",
+        "next_gate"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-career-two-interval-contract/v1"
+        },
+        "contract_id": {
+          "type": "string",
+          "pattern": "^careertwoint_[0-9a-f]{64}$"
+        },
+        "milestone": {
+          "const": "M9"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "governance": {
+          "$ref": "#/$defs/governance"
+        },
+        "source_lineage": {
+          "type": "object"
+        },
+        "protocol": {
+          "$ref": "#/$defs/protocol"
+        },
+        "parity_inputs": {
+          "type": "object"
+        },
+        "candidate_library": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/plan"
+          }
+        },
+        "fixture_pair": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "$ref": "#/$defs/observation"
+          }
+        },
+        "reference_policy": {
+          "type": "object"
+        },
+        "acceptance_gate": {
+          "type": "object"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "next_gate": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixture_pair_evidence": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "pair_id",
+        "contract_id",
+        "receipts",
+        "checks",
+        "verdict"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-career-two-interval-pair/v1"
+        },
+        "pair_id": {
+          "type": "string",
+          "pattern": "^m9pair_[0-9a-f]{64}$"
+        },
+        "contract_id": {
+          "type": "string",
+          "pattern": "^careertwoint_[0-9a-f]{64}$"
+        },
+        "receipts": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "$ref": "#/$defs/receipt"
+          }
+        },
+        "checks": {
+          "type": "object",
+          "minProperties": 8,
+          "maxProperties": 8,
+          "additionalProperties": {
+            "const": true
+          }
+        },
+        "verdict": {
+          "const": "PASS_PROTOCOL_ISOLATION_ONLY"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "governance": {
+      "type": "object",
+      "required": [
+        "development_only",
+        "campaign_authorized",
+        "evaluation_sealed",
+        "detector_calibration_authorized",
+        "live_runtime_authorized",
+        "model_transport_authorized",
+        "real_tool_execution_authorized",
+        "embedding_service_accessed",
+        "simulator_accessed",
+        "detector_accessed",
+        "actuator_accessed"
+      ],
+      "properties": {
+        "development_only": { "const": true },
+        "campaign_authorized": { "const": false },
+        "evaluation_sealed": { "const": true },
+        "detector_calibration_authorized": { "const": false },
+        "live_runtime_authorized": { "const": false },
+        "model_transport_authorized": { "const": false },
+        "real_tool_execution_authorized": { "const": false },
+        "embedding_service_accessed": { "const": false },
+        "simulator_accessed": { "const": false },
+        "detector_accessed": { "const": false },
+        "actuator_accessed": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "protocol": {
+      "type": "object",
+      "required": [
+        "action_interval_count",
+        "midpoint_observation_count",
+        "maximum_treatment_revisions",
+        "control_revision_count",
+        "revision_scope",
+        "revision_window",
+        "first_interval_immutable",
+        "terminal_state_immutable",
+        "invalid_transition_policy",
+        "paired_history_rule",
+        "physical_units_present",
+        "executable_setpoints_present"
+      ],
+      "properties": {
+        "action_interval_count": { "const": 2 },
+        "midpoint_observation_count": { "const": 1 },
+        "maximum_treatment_revisions": { "const": 1 },
+        "control_revision_count": { "const": 0 },
+        "revision_scope": { "const": "second_interval_only" },
+        "revision_window": {
+          "const": "after_midpoint_before_second_interval"
+        },
+        "first_interval_immutable": { "const": true },
+        "terminal_state_immutable": { "const": true },
+        "invalid_transition_policy": { "const": "fail_closed_no_retry" },
+        "paired_history_rule": {
+          "const": "freeze_before_pair_no_cross_condition_learning"
+        },
+        "physical_units_present": { "const": false },
+        "executable_setpoints_present": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "plan": {
+      "type": "object",
+      "required": ["plan_id", "role", "intervals"],
+      "properties": {
+        "plan_id": {
+          "type": "string",
+          "pattern": "^fixtureplan_[0-9a-f]{64}$"
+        },
+        "role": { "type": "string" },
+        "intervals": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "required": [
+              "index",
+              "strategy_id",
+              "qualitative_direction",
+              "magnitude_token",
+              "executable"
+            ],
+            "properties": {
+              "index": { "enum": [1, 2] },
+              "strategy_id": { "type": "string" },
+              "qualitative_direction": { "type": "string" },
+              "magnitude_token": {
+                "const": "uninstantiated_low_amplitude_token"
+              },
+              "executable": { "const": false }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "observation": {
+      "type": "object",
+      "required": [
+        "observation_id",
+        "condition_id",
+        "schema",
+        "trend_sign",
+        "synthetic",
+        "physical_claim",
+        "units"
+      ],
+      "properties": {
+        "observation_id": {
+          "type": "string",
+          "pattern": "^fixtureobs_[0-9a-f]{64}$"
+        },
+        "condition_id": { "type": "string" },
+        "schema": { "const": "synthetic_midpoint_voltage_trend/v1" },
+        "trend_sign": { "enum": ["negative", "positive"] },
+        "synthetic": { "const": true },
+        "physical_claim": { "const": false },
+        "units": { "const": "qualitative_fixture_token" }
+      },
+      "additionalProperties": false
+    },
+    "receipt": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "receipt_id",
+        "contract_id",
+        "capability_condition",
+        "midpoint_observation_id",
+        "trend_sign",
+        "state_sequence",
+        "initial_plan_id",
+        "terminal_plan_id",
+        "first_interval_fingerprint",
+        "initial_second_interval_fingerprint",
+        "terminal_second_interval_fingerprint",
+        "revision_count",
+        "revision_applied",
+        "parity_fingerprint",
+        "external_access",
+        "interpretation"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-career-two-interval-receipt/v1"
+        },
+        "receipt_id": {
+          "type": "string",
+          "pattern": "^m9receipt_[0-9a-f]{64}$"
+        },
+        "contract_id": { "type": "string" },
+        "capability_condition": {
+          "enum": ["A0_preplanned", "A1_response_informed"]
+        },
+        "midpoint_observation_id": { "type": "string" },
+        "trend_sign": { "enum": ["negative", "positive"] },
+        "state_sequence": {
+          "const": [
+            "precommitted",
+            "awaiting_midpoint_decision",
+            "terminal"
+          ]
+        },
+        "initial_plan_id": { "type": "string" },
+        "terminal_plan_id": { "type": "string" },
+        "first_interval_fingerprint": { "type": "string" },
+        "initial_second_interval_fingerprint": { "type": "string" },
+        "terminal_second_interval_fingerprint": { "type": "string" },
+        "revision_count": { "enum": [0, 1] },
+        "revision_applied": { "type": "boolean" },
+        "parity_fingerprint": { "type": "string" },
+        "external_access": {
+          "type": "object",
+          "additionalProperties": { "const": 0 }
+        },
+        "interpretation": { "const": "protocol_isolation_only" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,346 @@
+{
+  "contract": {
+    "acceptance_gate": {
+      "passing_interpretation": "protocol_isolation_only",
+      "required_checks": [
+        "A0_same_terminal_plan_across_mirrors",
+        "A0_zero_revisions",
+        "A1_distinct_terminal_plans_across_mirrors",
+        "A1_exactly_one_revision_per_fixture",
+        "all_external_access_flags_false",
+        "all_parity_fingerprints_identical",
+        "all_receipts_terminal_and_content_addressed",
+        "first_interval_identical_everywhere"
+      ]
+    },
+    "candidate_library": [
+      {
+        "intervals": [
+          {
+            "executable": false,
+            "index": 1,
+            "magnitude_token": "uninstantiated_low_amplitude_token",
+            "qualitative_direction": "fixed_shared_reference",
+            "strategy_id": "B1_constant_micro_bias"
+          },
+          {
+            "executable": false,
+            "index": 2,
+            "magnitude_token": "uninstantiated_low_amplitude_token",
+            "qualitative_direction": "fixed_shared_reference",
+            "strategy_id": "B1_constant_micro_bias"
+          }
+        ],
+        "plan_id": "fixtureplan_426a4d927d38c4798b99250d8383c60994a91a466bec21df3e22e15d4d973938",
+        "role": "precommitted_initial"
+      },
+      {
+        "intervals": [
+          {
+            "executable": false,
+            "index": 1,
+            "magnitude_token": "uninstantiated_low_amplitude_token",
+            "qualitative_direction": "fixed_shared_reference",
+            "strategy_id": "B1_constant_micro_bias"
+          },
+          {
+            "executable": false,
+            "index": 2,
+            "magnitude_token": "uninstantiated_low_amplitude_token",
+            "qualitative_direction": "negative",
+            "strategy_id": "B6_trend_aligned_bias"
+          }
+        ],
+        "plan_id": "fixtureplan_abaacb00f37f6a00d731bf09a8a71823f9036f04d2727001ef478d08de5b9c96",
+        "role": "negative_midpoint_witness"
+      },
+      {
+        "intervals": [
+          {
+            "executable": false,
+            "index": 1,
+            "magnitude_token": "uninstantiated_low_amplitude_token",
+            "qualitative_direction": "fixed_shared_reference",
+            "strategy_id": "B1_constant_micro_bias"
+          },
+          {
+            "executable": false,
+            "index": 2,
+            "magnitude_token": "uninstantiated_low_amplitude_token",
+            "qualitative_direction": "positive",
+            "strategy_id": "B6_trend_aligned_bias"
+          }
+        ],
+        "plan_id": "fixtureplan_627b5c82da4d000905602be7bbd05b666c4521c7182e222b55d82129549ec7aa",
+        "role": "positive_midpoint_witness"
+      }
+    ],
+    "contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+    "fixture_pair": [
+      {
+        "condition_id": "mirror_negative",
+        "observation_id": "fixtureobs_b183675ab6e7ddac786ee8c2ae3124eb4ae7e94ecb45c7399500ba38fec75c1d",
+        "physical_claim": false,
+        "schema": "synthetic_midpoint_voltage_trend/v1",
+        "synthetic": true,
+        "trend_sign": "negative",
+        "units": "qualitative_fixture_token"
+      },
+      {
+        "condition_id": "mirror_positive",
+        "observation_id": "fixtureobs_a0b7c80a81789bffd600336f3f55f0b46642f0a7c7023e74dd5c0667bc2310c5",
+        "physical_claim": false,
+        "schema": "synthetic_midpoint_voltage_trend/v1",
+        "synthetic": true,
+        "trend_sign": "positive",
+        "units": "qualitative_fixture_token"
+      }
+    ],
+    "governance": {
+      "actuator_accessed": false,
+      "campaign_authorized": false,
+      "detector_accessed": false,
+      "detector_calibration_authorized": false,
+      "development_only": true,
+      "embedding_service_accessed": false,
+      "evaluation_sealed": true,
+      "live_runtime_authorized": false,
+      "model_transport_authorized": false,
+      "real_tool_execution_authorized": false,
+      "simulator_accessed": false
+    },
+    "limitations": [
+      "no_campaign_authorization",
+      "no_llm_or_tool_use_claim",
+      "no_physical_effect_claim",
+      "no_policy_quality_claim",
+      "no_runtime_readiness_claim",
+      "no_stealth_or_alarm_claim"
+    ],
+    "milestone": "M9",
+    "next_gate": {
+      "id": "M10_validated_resource_admission_contracts",
+      "model_call": false,
+      "real_tool_execution": false,
+      "scope": "offline_contracts_for_S_and_M_only",
+      "simulator_or_detector_access": false
+    },
+    "parity_inputs": {
+      "budget": {
+        "execution_authorized": false,
+        "source": "M8_matched_budget_axes",
+        "values": "uninstantiated"
+      },
+      "budget_fingerprint": "sha256_13fee46c552b7066067175d906f30323fefd227dce78fcecd4c364d44b533cfe",
+      "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+      "history": {
+        "cross_condition_learning": false,
+        "frozen_before_pair": true,
+        "history": []
+      },
+      "history_fingerprint": "sha256_1ed2437eb30847938aa53432ecc763173f74648ca3c27bdd4bd823280e74e306",
+      "initial_plan_id": "fixtureplan_426a4d927d38c4798b99250d8383c60994a91a466bec21df3e22e15d4d973938",
+      "observation_schema": {
+        "fields": [
+          "condition_id",
+          "trend_sign"
+        ],
+        "schema": "synthetic_midpoint_voltage_trend/v1",
+        "trend_sign_enum": [
+          "negative",
+          "positive"
+        ],
+        "units": "qualitative_fixture_token"
+      },
+      "observation_schema_fingerprint": "sha256_6fd394294333fa970a805d220633fe6f09622271378654fc3edfb7f3a0d85303",
+      "parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671",
+      "safety_shield": {
+        "execution_authorized": false,
+        "status": "interface_placeholder_only"
+      },
+      "safety_shield_fingerprint": "sha256_8faf2cc4f26714f0c7451c20a655576a235996336a37f6531507322a1253de05",
+      "schedule": {
+        "duration": "uninstantiated",
+        "interval_count": 2,
+        "midpoint_count": 1
+      },
+      "schedule_fingerprint": "sha256_ede1059bb856d96f395363129587450af5d26844134d9188250a97e52786478d"
+    },
+    "protocol": {
+      "action_interval_count": 2,
+      "control_revision_count": 0,
+      "executable_setpoints_present": false,
+      "first_interval_immutable": true,
+      "invalid_transition_policy": "fail_closed_no_retry",
+      "maximum_treatment_revisions": 1,
+      "midpoint_observation_count": 1,
+      "paired_history_rule": "freeze_before_pair_no_cross_condition_learning",
+      "physical_units_present": false,
+      "revision_scope": "second_interval_only",
+      "revision_window": "after_midpoint_before_second_interval",
+      "terminal_state_immutable": true
+    },
+    "reference_policy": {
+      "claim_boundary": "not_an_attack_effectiveness_or_reasoning_policy",
+      "control_rule": "retain_precommitted_plan",
+      "mapping": {
+        "negative": "fixtureplan_abaacb00f37f6a00d731bf09a8a71823f9036f04d2727001ef478d08de5b9c96",
+        "positive": "fixtureplan_627b5c82da4d000905602be7bbd05b666c4521c7182e222b55d82129549ec7aa"
+      },
+      "role": "deterministic_protocol_witness_only",
+      "treatment_rule": "map_trend_sign_to_declared_plan"
+    },
+    "schema_version": "grideval-career-two-interval-contract/v1",
+    "source_lineage": {
+      "frozen_experiment_spec_sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d",
+      "frozen_roadmap_report_sha256": "c4fc1168708c0d47d1162754296d3f731c51028650aaeab739aca42fb3aa827b",
+      "governing_draft_sha256": "a87158fdf6ad7ffb4c783ecd9b2a8b7d47886f234464a07571a5a41c659f5d8c",
+      "m8_contract_id": "careerstealth_3091a0e686e43b483906a37733f26dfb4cef9fd90d2ae56226e47003b3cdd394",
+      "m9_design_decision": "dec_01M1DK7XKSN2DPEZ3EGYZAHKJW",
+      "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36"
+    },
+    "title": "Offline CAREER two-interval revision-permission fixture"
+  },
+  "fixture_pair_evidence": {
+    "checks": {
+      "A0_same_terminal_plan_across_mirrors": true,
+      "A0_zero_revisions": true,
+      "A1_distinct_terminal_plans_across_mirrors": true,
+      "A1_exactly_one_revision_per_fixture": true,
+      "all_external_access_flags_false": true,
+      "all_parity_fingerprints_identical": true,
+      "all_receipts_terminal_and_content_addressed": true,
+      "first_interval_identical_everywhere": true
+    },
+    "contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+    "pair_id": "m9pair_38433ef32d206640b826cd474ecc8c70f028d60385558b675eadc0734ec9a786",
+    "receipts": [
+      {
+        "capability_condition": "A0_preplanned",
+        "contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "first_interval_fingerprint": "sha256_1ceece3801acbb7f4c32a1e59ed658b140df03839b008fd193afb06184d7639d",
+        "initial_plan_id": "fixtureplan_426a4d927d38c4798b99250d8383c60994a91a466bec21df3e22e15d4d973938",
+        "initial_second_interval_fingerprint": "sha256_5f3eaba0b9470ce8f13fca049a01d73c8e1d79efcedb490f6b23b3e70347425a",
+        "interpretation": "protocol_isolation_only",
+        "midpoint_observation_id": "fixtureobs_b183675ab6e7ddac786ee8c2ae3124eb4ae7e94ecb45c7399500ba38fec75c1d",
+        "parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671",
+        "receipt_id": "m9receipt_8cd94c984f9553828bb0e63a5b83258697053f85e3780921bebef68bb93a87ee",
+        "revision_applied": false,
+        "revision_count": 0,
+        "schema_version": "grideval-career-two-interval-receipt/v1",
+        "state_sequence": [
+          "precommitted",
+          "awaiting_midpoint_decision",
+          "terminal"
+        ],
+        "terminal_plan_id": "fixtureplan_426a4d927d38c4798b99250d8383c60994a91a466bec21df3e22e15d4d973938",
+        "terminal_second_interval_fingerprint": "sha256_5f3eaba0b9470ce8f13fca049a01d73c8e1d79efcedb490f6b23b3e70347425a",
+        "trend_sign": "negative"
+      },
+      {
+        "capability_condition": "A1_response_informed",
+        "contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "first_interval_fingerprint": "sha256_1ceece3801acbb7f4c32a1e59ed658b140df03839b008fd193afb06184d7639d",
+        "initial_plan_id": "fixtureplan_426a4d927d38c4798b99250d8383c60994a91a466bec21df3e22e15d4d973938",
+        "initial_second_interval_fingerprint": "sha256_5f3eaba0b9470ce8f13fca049a01d73c8e1d79efcedb490f6b23b3e70347425a",
+        "interpretation": "protocol_isolation_only",
+        "midpoint_observation_id": "fixtureobs_b183675ab6e7ddac786ee8c2ae3124eb4ae7e94ecb45c7399500ba38fec75c1d",
+        "parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671",
+        "receipt_id": "m9receipt_a4549908ecff13d01156bd65c28083589e210f872e8d03a365dddd82f0078da4",
+        "revision_applied": true,
+        "revision_count": 1,
+        "schema_version": "grideval-career-two-interval-receipt/v1",
+        "state_sequence": [
+          "precommitted",
+          "awaiting_midpoint_decision",
+          "terminal"
+        ],
+        "terminal_plan_id": "fixtureplan_abaacb00f37f6a00d731bf09a8a71823f9036f04d2727001ef478d08de5b9c96",
+        "terminal_second_interval_fingerprint": "sha256_f9b144c3f42d839dde41912f80645606e9c3e3f29b6013141c4a9fb4c50d060b",
+        "trend_sign": "negative"
+      },
+      {
+        "capability_condition": "A0_preplanned",
+        "contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "first_interval_fingerprint": "sha256_1ceece3801acbb7f4c32a1e59ed658b140df03839b008fd193afb06184d7639d",
+        "initial_plan_id": "fixtureplan_426a4d927d38c4798b99250d8383c60994a91a466bec21df3e22e15d4d973938",
+        "initial_second_interval_fingerprint": "sha256_5f3eaba0b9470ce8f13fca049a01d73c8e1d79efcedb490f6b23b3e70347425a",
+        "interpretation": "protocol_isolation_only",
+        "midpoint_observation_id": "fixtureobs_a0b7c80a81789bffd600336f3f55f0b46642f0a7c7023e74dd5c0667bc2310c5",
+        "parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671",
+        "receipt_id": "m9receipt_989821b3c788a80ef1d2fd7e3ba79d635a72f50ad1840a63f204fbdc3c044197",
+        "revision_applied": false,
+        "revision_count": 0,
+        "schema_version": "grideval-career-two-interval-receipt/v1",
+        "state_sequence": [
+          "precommitted",
+          "awaiting_midpoint_decision",
+          "terminal"
+        ],
+        "terminal_plan_id": "fixtureplan_426a4d927d38c4798b99250d8383c60994a91a466bec21df3e22e15d4d973938",
+        "terminal_second_interval_fingerprint": "sha256_5f3eaba0b9470ce8f13fca049a01d73c8e1d79efcedb490f6b23b3e70347425a",
+        "trend_sign": "positive"
+      },
+      {
+        "capability_condition": "A1_response_informed",
+        "contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+        "external_access": {
+          "actuator_calls": 0,
+          "detector_calls": 0,
+          "embedding_calls": 0,
+          "evaluation_records_read": 0,
+          "model_calls": 0,
+          "real_tool_calls": 0,
+          "simulator_calls": 0
+        },
+        "first_interval_fingerprint": "sha256_1ceece3801acbb7f4c32a1e59ed658b140df03839b008fd193afb06184d7639d",
+        "initial_plan_id": "fixtureplan_426a4d927d38c4798b99250d8383c60994a91a466bec21df3e22e15d4d973938",
+        "initial_second_interval_fingerprint": "sha256_5f3eaba0b9470ce8f13fca049a01d73c8e1d79efcedb490f6b23b3e70347425a",
+        "interpretation": "protocol_isolation_only",
+        "midpoint_observation_id": "fixtureobs_a0b7c80a81789bffd600336f3f55f0b46642f0a7c7023e74dd5c0667bc2310c5",
+        "parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671",
+        "receipt_id": "m9receipt_7f2a1a1ac1c7b9544c8103f9f5c694e9967962dc774b0cdfd3ad6c100643882b",
+        "revision_applied": true,
+        "revision_count": 1,
+        "schema_version": "grideval-career-two-interval-receipt/v1",
+        "state_sequence": [
+          "precommitted",
+          "awaiting_midpoint_decision",
+          "terminal"
+        ],
+        "terminal_plan_id": "fixtureplan_627b5c82da4d000905602be7bbd05b666c4521c7182e222b55d82129549ec7aa",
+        "terminal_second_interval_fingerprint": "sha256_a68694f81c763dd85855c4d6258cf6c4fa73058108aedfbc9b4ef11261d88e02",
+        "trend_sign": "positive"
+      }
+    ],
+    "schema_version": "grideval-career-two-interval-pair/v1",
+    "verdict": "PASS_PROTOCOL_ISOLATION_ONLY"
+  }
+}

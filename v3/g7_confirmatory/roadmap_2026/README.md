@@ -24,6 +24,12 @@ the committed primary causal comparison to two action intervals and exactly one
 midpoint revision; the broader IA0–IA5 ladder remains an extension and a
 secondary method scaffold. This correction is maintained outside the frozen r2
 portable report.
+The offline M9 two-interval state machine, mirrored revision-permission
+fixture, and content-addressed receipts are documented in
+`../M9_CAREER_TWO_INTERVAL_FIXTURE_REPORT.md`. M9 establishes protocol
+isolation only and leaves model, tool, simulator, detector, embedding,
+evaluation, and campaign access disabled. This evidence is also maintained
+outside the frozen r2 portable report.
 This separation avoids rewriting the report's original source manifest while
 keeping current protocol evidence explicit.
 
