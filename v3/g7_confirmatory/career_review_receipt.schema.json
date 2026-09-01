@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_review_receipt.schema.json",
+  "title": "GridEval M14 independent review receipt",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "receipt_id",
+    "artifact_class",
+    "bound_packet",
+    "reviewer",
+    "review",
+    "governance"
+  ],
+  "properties": {
+    "schema_version": { "const": "grideval-career-review-receipt/v1" },
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^m14reviewreceipt_[0-9a-f]{64}$"
+    },
+    "artifact_class": {
+      "enum": [
+        "external_review_receipt",
+        "synthetic_conformance_fixture"
+      ]
+    },
+    "bound_packet": { "$ref": "#/$defs/boundPacket" },
+    "reviewer": { "$ref": "#/$defs/reviewer" },
+    "review": { "$ref": "#/$defs/review" },
+    "governance": { "$ref": "#/$defs/governance" }
+  },
+  "$defs": {
+    "boundPacket": {
+      "type": "object",
+      "required": [
+        "packet_id",
+        "packet_file_sha256",
+        "packet_file_bytes",
+        "m13_base_commit",
+        "snapshot_manifest_sha256",
+        "review_scope_sha256"
+      ],
+      "properties": {
+        "packet_id": {
+          "const": "m14reviewpacket_6efed441aebe881691b3596321ca7255edf67af8d24ef59412be923e12098b25"
+        },
+        "packet_file_sha256": {
+          "const": "fc4339b93b99b278e4d0392622778edf4b38a7949c0e2401a5f18b409fcba5b8"
+        },
+        "packet_file_bytes": { "const": 14284 },
+        "m13_base_commit": {
+          "const": "cbccdaa069784adbb3c03d130a42c5d0027ce16d"
+        },
+        "snapshot_manifest_sha256": {
+          "const": "1af4941f031344c1e5d1ea5bb238e6ab669e7f32702230d1ef7bb96e94f1e39c"
+        },
+        "review_scope_sha256": {
+          "const": "32f6d0c5ba48d3370a860ab12b0b24fe1908817ee61c35bee88c9191b39edde6"
+        }
+      },
+      "additionalProperties": false
+    },
+    "reviewer": {
+      "type": "object",
+      "required": [
+        "reviewer_id",
+        "reviewer_role",
+        "identity_verification_reference",
+        "is_packet_preparer",
+        "participated_in_source_generation",
+        "independent_from_other_required_reviewer",
+        "conflict_of_interest_declared"
+      ],
+      "properties": {
+        "reviewer_id": { "type": "string", "minLength": 3, "maxLength": 128 },
+        "reviewer_role": {
+          "enum": [
+            "independent_data_lineage_reviewer",
+            "independent_domain_method_reviewer"
+          ]
+        },
+        "identity_verification_reference": {
+          "type": "string",
+          "minLength": 8
+        },
+        "is_packet_preparer": { "const": false },
+        "participated_in_source_generation": { "const": false },
+        "independent_from_other_required_reviewer": { "const": true },
+        "conflict_of_interest_declared": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "disposition",
+        "comments",
+        "comments_sha256",
+        "answered_question_sha256s",
+        "issued_at_utc",
+        "attestations"
+      ],
+      "properties": {
+        "disposition": {
+          "enum": ["accept_exact_packet", "request_changes", "reject"]
+        },
+        "comments": { "type": "string", "minLength": 1 },
+        "comments_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "answered_question_sha256s": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "uniqueItems": true
+        },
+        "issued_at_utc": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+        },
+        "attestations": {
+          "type": "object",
+          "required": [
+            "reviewed_exact_packet_bytes",
+            "reviewed_all_six_questions",
+            "decision_made_without_packet_preparer_influence",
+            "no_treatment_confirmation_or_evaluation_outcome_access",
+            "no_model_embedding_tool_simulator_detector_or_actuator_access"
+          ],
+          "properties": {
+            "reviewed_exact_packet_bytes": { "const": true },
+            "reviewed_all_six_questions": { "const": true },
+            "decision_made_without_packet_preparer_influence": {
+              "const": true
+            },
+            "no_treatment_confirmation_or_evaluation_outcome_access": {
+              "const": true
+            },
+            "no_model_embedding_tool_simulator_detector_or_actuator_access": {
+              "const": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "governance": {
+      "type": "object",
+      "required": [
+        "receipt_intake_only",
+        "identity_established_by_software",
+        "receipt_issuance_authorized",
+        "checkpoint_resolution_authorized",
+        "source_generation_authorized",
+        "partition_assignment_authorized",
+        "threshold_selection_authorized",
+        "resource_admission_authorized",
+        "model_or_embedding_access_authorized",
+        "tool_simulator_detector_or_actuator_access_authorized",
+        "evaluation_access_authorized",
+        "campaign_authorized"
+      ],
+      "properties": {
+        "receipt_intake_only": { "const": true },
+        "identity_established_by_software": { "const": false },
+        "receipt_issuance_authorized": { "const": false },
+        "checkpoint_resolution_authorized": { "const": false },
+        "source_generation_authorized": { "const": false },
+        "partition_assignment_authorized": { "const": false },
+        "threshold_selection_authorized": { "const": false },
+        "resource_admission_authorized": { "const": false },
+        "model_or_embedding_access_authorized": { "const": false },
+        "tool_simulator_detector_or_actuator_access_authorized": {
+          "const": false
+        },
+        "evaluation_access_authorized": { "const": false },
+        "campaign_authorized": { "const": false }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

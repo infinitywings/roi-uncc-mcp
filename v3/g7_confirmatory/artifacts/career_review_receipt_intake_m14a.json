@@ -1,0 +1,258 @@
+{
+  "bundle_state_machine": {
+    "automatic_authorization": false,
+    "automatic_checkpoint_resolution": false,
+    "mechanical_acceptance_rule": "two_distinct_external_non_preparer_acceptances_with_exact_roles_and_exact_packet_binding",
+    "ready_state_is_approval": false,
+    "states": [
+      "INCOMPLETE_NOT_APPROVED",
+      "INVALID_NOT_APPROVED",
+      "CHANGES_REQUIRED_NOT_APPROVED",
+      "REJECTED_NOT_APPROVED",
+      "SYNTHETIC_MECHANICS_PASS_NO_AUTHORITY",
+      "READY_FOR_EXTERNAL_GOVERNANCE_RESOLUTION_NOT_APPROVED"
+    ]
+  },
+  "canonical_conformance_matrix": [
+    {
+      "artifact_classes": [],
+      "case_id": "zero_receipts",
+      "expected_status": "INCOMPLETE_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": null,
+      "receipts_count": 0
+    },
+    {
+      "artifact_classes": ["synthetic_conformance_fixture"],
+      "case_id": "one_synthetic_acceptance",
+      "expected_status": "INCOMPLETE_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": null,
+      "receipts_count": 1
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "two_synthetic_acceptances",
+      "expected_status": "SYNTHETIC_MECHANICS_PASS_NO_AUTHORITY",
+      "fixture_only": true,
+      "injected_fault": null,
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "duplicate_reviewer",
+      "expected_status": "INVALID_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": "reviewer_identities_not_distinct",
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "duplicate_role",
+      "expected_status": "INVALID_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": "required_role_coverage_failed",
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "wrong_packet_id",
+      "expected_status": "INVALID_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": "packet_id_mismatch",
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "wrong_packet_file_hash",
+      "expected_status": "INVALID_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": "packet_file_sha256_mismatch",
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "wrong_base_commit",
+      "expected_status": "INVALID_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": "m13_base_commit_mismatch",
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "wrong_snapshot_digest",
+      "expected_status": "INVALID_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": "snapshot_manifest_sha256_mismatch",
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "self_review",
+      "expected_status": "INVALID_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": "packet_preparer_declared",
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "comments_hash_mismatch",
+      "expected_status": "INVALID_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": "comments_sha256_mismatch",
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "content_address_mismatch",
+      "expected_status": "INVALID_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": "receipt_id_mismatch",
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "request_changes",
+      "expected_status": "CHANGES_REQUIRED_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": null,
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "synthetic_conformance_fixture"
+      ],
+      "case_id": "reject",
+      "expected_status": "REJECTED_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": null,
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "synthetic_conformance_fixture",
+        "external_review_receipt"
+      ],
+      "case_id": "mixed_artifact_classes",
+      "expected_status": "INVALID_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": "mixed_external_and_synthetic_receipts",
+      "receipts_count": 2
+    },
+    {
+      "artifact_classes": [
+        "external_review_receipt",
+        "external_review_receipt"
+      ],
+      "case_id": "two_external_shape_acceptances",
+      "expected_status": "READY_FOR_EXTERNAL_GOVERNANCE_RESOLUTION_NOT_APPROVED",
+      "fixture_only": true,
+      "injected_fault": null,
+      "receipts_count": 2
+    }
+  ],
+  "contract_id": "m14aintake_a4f22ef8dd509e486adc32cdd7623c3682fc2148ff8a48831f606fc256553ba4",
+  "governance": {
+    "campaign_authorized": false,
+    "checkpoint_resolution_authorized": false,
+    "evaluation_access_authorized": false,
+    "identity_established_by_software": false,
+    "model_or_embedding_access_authorized": false,
+    "partition_assignment_authorized": false,
+    "receipt_intake_only": true,
+    "receipt_issuance_authorized": false,
+    "resource_admission_authorized": false,
+    "source_generation_authorized": false,
+    "threshold_selection_authorized": false,
+    "tool_simulator_detector_or_actuator_access_authorized": false
+  },
+  "limitations": [
+    "no_checkpoint_resolution",
+    "no_evaluation_or_campaign_authorization",
+    "no_independent_review_performed",
+    "no_model_embedding_tool_simulator_detector_or_actuator_access",
+    "no_real_receipt_checked_in",
+    "no_reviewer_identity_established_by_software",
+    "no_source_generation_or_partition_assignment",
+    "no_threshold_selection_or_resource_admission"
+  ],
+  "milestone": "M14A",
+  "next_gate": {
+    "campaign_authorized": false,
+    "evaluation_access": false,
+    "id": "M15_post_independent_review_resolution",
+    "requires_explicit_RKA_checkpoint_resolution": true,
+    "requires_external_identity_and_independence_verification": true,
+    "requires_two_genuine_external_receipts": true,
+    "source_generation_authorized": false
+  },
+  "receipt_contract": {
+    "allowed_dispositions": [
+      "accept_exact_packet",
+      "request_changes",
+      "reject"
+    ],
+    "identity_assurance_boundary": "software_validates_declared_reference_only_external_governance_establishes_identity_and_independence",
+    "required_distinct_receipts": 2,
+    "required_distinct_reviewer_identities": 2,
+    "required_packet_binding": {
+      "m13_base_commit": "cbccdaa069784adbb3c03d130a42c5d0027ce16d",
+      "packet_file_bytes": 14284,
+      "packet_file_sha256": "fc4339b93b99b278e4d0392622778edf4b38a7949c0e2401a5f18b409fcba5b8",
+      "packet_id": "m14reviewpacket_6efed441aebe881691b3596321ca7255edf67af8d24ef59412be923e12098b25",
+      "review_scope_sha256": "32f6d0c5ba48d3370a860ab12b0b24fe1908817ee61c35bee88c9191b39edde6",
+      "snapshot_manifest_sha256": "1af4941f031344c1e5d1ea5bb238e6ab669e7f32702230d1ef7bb96e94f1e39c"
+    },
+    "required_roles": [
+      "independent_data_lineage_reviewer",
+      "independent_domain_method_reviewer"
+    ],
+    "schema_version": "grideval-career-review-receipt/v1"
+  },
+  "schema_version": "grideval-career-review-receipt-intake/v1",
+  "source_lineage": {
+    "m13_base_commit": "cbccdaa069784adbb3c03d130a42c5d0027ce16d",
+    "m14_checkpoint_id": "chk_01M1DPSAD7H2MGY49QDJNYPK1M",
+    "m14_decision_id": "dec_01M1DPBJJQR8346RVZBKFSBDH7",
+    "m14_packet_file_bytes": 14284,
+    "m14_packet_file_sha256": "fc4339b93b99b278e4d0392622778edf4b38a7949c0e2401a5f18b409fcba5b8",
+    "m14_packet_id": "m14reviewpacket_6efed441aebe881691b3596321ca7255edf67af8d24ef59412be923e12098b25",
+    "m14a_decision_id": "dec_01M1DPZR2QH6DHAK0CET23Q9E4"
+  },
+  "status": "OFFLINE_INTAKE_READY_M14_CHECKPOINT_OPEN",
+  "title": "CAREER M14 external review-receipt intake contract"
+}

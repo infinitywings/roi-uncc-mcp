@@ -62,7 +62,11 @@ The harness provides:
   source, partition, review, threshold, or resource status; and
 - an offline M14 independent-review packet that binds thirteen governing files
   to an exact Git commit while leaving every prerequisite, review disposition,
-  numerical choice, and execution authorization open.
+  numerical choice, and execution authorization open; and
+- an offline M14A review-receipt intake contract that validates exact packet
+  binding, reviewer-role and identity separation, dispositions, comment
+  integrity, and two-receipt bundle mechanics without issuing a real receipt,
+  resolving the M14 checkpoint, or authorizing execution.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -125,6 +129,13 @@ The M14 review boundary is documented in
 schema are `artifacts/career_source_review_packet_m14.json` and
 `career_source_review_packet.schema.json`. It is ready for independent review
 but is not approved and authorizes no source generation.
+The M14A intake boundary is documented in
+`M14A_CAREER_REVIEW_RECEIPT_INTAKE_REPORT.md`; its canonical contract and
+schemas are `artifacts/career_review_receipt_intake_m14a.json`,
+`career_review_receipt.schema.json`, and
+`career_review_receipt_intake.schema.json`. M14A checks receipt declarations
+and exact bindings only; external governance must establish reviewer identity
+and independence, and the M14 checkpoint remains open.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the

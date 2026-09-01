@@ -2,7 +2,7 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M14 for the research roadmap. M1–M3
+This document defines milestones M1–M14A for the research roadmap. M1–M3
 are development-only offline contracts. M4 adds separately bounded model-output
 parsing receipts. M5 returns to an offline-only, content-addressed interactive
 tool-loop protocol. M6 adds a two-turn model replay with an injected read-only
@@ -21,7 +21,9 @@ leaving every empirical field uninstantiated. M13 enforces those rules against
 two positive and twelve single-fault synthetic manifests. No milestone calls an
 embedding service, simulator, detector, calibration pipeline, or evaluation
 partition. M14 prepares an exact-byte independent-review packet but records no
-review decision. No milestone authorizes a campaign.
+review decision. M14A adds an offline, fail-closed receipt-intake contract but
+does not issue a receipt, establish reviewer identity, resolve the checkpoint,
+or authorize execution. No milestone authorizes a campaign.
 
 The frozen `experiment_spec.yaml` remains byte-identical with SHA-256
 `79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d`.
@@ -226,6 +228,31 @@ interpretation is in `M14_CAREER_SOURCE_REVIEW_PACKET_REPORT.md`; semantic and
 exact-byte validation is implemented by
 `g7confirm.career_source_review_packet`, and the schema is
 `career_source_review_packet.schema.json`.
+
+## M14A independent-review receipt intake
+
+M14A binds each future receipt to the exact M14 packet ID, checked-in packet
+file hash and byte count, M13 base commit, canonical snapshot-manifest digest,
+and canonical review-scope digest. Each content-addressed receipt declares one
+required role, an external identity-verification reference, independence and
+conflict attestations, answers to all six M14 questions, a disposition, and an
+exact comments hash.
+
+The two-receipt evaluator rejects malformed bindings, duplicate receipt or
+reviewer identities, missing role coverage, mixed synthetic and external
+classes, self-review, and integrity drift. Requests for changes and rejections
+remain explicit not-approved terminal states. Synthetic fixtures can reach only
+`SYNTHETIC_MECHANICS_PASS_NO_AUTHORITY`. Two conforming external shapes can
+reach only `READY_FOR_EXTERNAL_GOVERNANCE_RESOLUTION_NOT_APPROVED`.
+
+Every bundle result leaves checkpoint
+`chk_01M1DPSAD7H2MGY49QDJNYPK1M` open and every execution authorization false.
+Software validates declared identity references but does not establish identity
+or independence. Full interpretation is in
+`M14A_CAREER_REVIEW_RECEIPT_INTAKE_REPORT.md`; semantic validation is
+implemented by `g7confirm.career_review_receipts`, and the receipt and intake
+schemas are `career_review_receipt.schema.json` and
+`career_review_receipt_intake.schema.json`.
 
 ## Research contract
 
@@ -629,6 +656,7 @@ python3 -m unittest discover -s tests -p 'test_career_threshold_hold.py' -v
 python3 -m unittest discover -s tests -p 'test_career_source_freeze_design.py' -v
 python3 -m unittest discover -s tests -p 'test_career_source_manifest_validator.py' -v
 python3 -m unittest discover -s tests -p 'test_career_source_review_packet.py' -v
+python3 -m unittest discover -s tests -p 'test_career_review_receipts.py' -v
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q g7confirm tests
 sha256sum experiment_spec.yaml
@@ -652,6 +680,7 @@ jq empty artifacts/ai_v2_component_matrix.json \
   artifacts/career_source_freeze_design_m12.json \
   artifacts/career_source_manifest_matrix_m13.json \
   artifacts/career_source_review_packet_m14.json \
+  artifacts/career_review_receipt_intake_m14a.json \
   candidate_space_receipt.schema.json \
   search_surface.schema.json \
   ia4_request.schema.json \
@@ -669,16 +698,19 @@ jq empty artifacts/ai_v2_component_matrix.json \
   career_source_freeze_design.schema.json \
   career_source_manifest_matrix.schema.json \
   career_source_review_packet.schema.json \
+  career_review_receipt.schema.json \
+  career_review_receipt_intake.schema.json \
   tests/fixtures/ia4_plan_response.json \
   tests/fixtures/ia4_refusal_response.json \
   tests/fixtures/ia4_no_action_response.json
 ```
 
-All tests, M5 fixture generation, M7 preregistration, and M8–M14 contract and
+All tests, M5 fixture generation, M7 preregistration, and M8–M14A contract and
 fixture generation are offline. The two M4
 receipts, three M6 receipts, and two M7 paired receipts required model network
 access; M6 and M7 executed no real tool. The next gate is M15 post-review
-resolution. Without two independent packet-bound receipts, only packet revision
-is permitted. Any later model, live-tool, or one-window development smoke still
-requires its own execution overlay, bounded reward metric, and scientific gate
-and would not open evaluation.
+resolution. Without two genuine independent packet-bound receipts, only packet
+support revision is permitted. M14A validates intake mechanics but does not
+resolve that gate. Any later model, live-tool, or one-window development smoke
+still requires its own execution overlay, bounded reward metric, and scientific
+gate and would not open evaluation.

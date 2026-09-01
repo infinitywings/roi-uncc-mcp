@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_review_receipt_intake.schema.json",
+  "title": "GridEval M14A review-receipt intake contract",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_id",
+    "milestone",
+    "title",
+    "status",
+    "source_lineage",
+    "governance",
+    "receipt_contract",
+    "bundle_state_machine",
+    "canonical_conformance_matrix",
+    "limitations",
+    "next_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-career-review-receipt-intake/v1"
+    },
+    "contract_id": {
+      "type": "string",
+      "pattern": "^m14aintake_[0-9a-f]{64}$"
+    },
+    "milestone": { "const": "M14A" },
+    "title": { "type": "string", "minLength": 1 },
+    "status": { "const": "OFFLINE_INTAKE_READY_M14_CHECKPOINT_OPEN" },
+    "source_lineage": { "type": "object" },
+    "governance": { "type": "object" },
+    "receipt_contract": { "type": "object" },
+    "bundle_state_machine": {
+      "type": "object",
+      "required": [
+        "states",
+        "mechanical_acceptance_rule",
+        "ready_state_is_approval",
+        "automatic_checkpoint_resolution",
+        "automatic_authorization"
+      ],
+      "properties": {
+        "states": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "mechanical_acceptance_rule": { "type": "string", "minLength": 1 },
+        "ready_state_is_approval": { "const": false },
+        "automatic_checkpoint_resolution": { "const": false },
+        "automatic_authorization": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "canonical_conformance_matrix": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": { "$ref": "#/$defs/conformanceCase" }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "next_gate": { "type": "object" }
+  },
+  "$defs": {
+    "conformanceCase": {
+      "type": "object",
+      "required": [
+        "case_id",
+        "receipts_count",
+        "artifact_classes",
+        "injected_fault",
+        "expected_status",
+        "fixture_only"
+      ],
+      "properties": {
+        "case_id": { "type": "string", "minLength": 1 },
+        "receipts_count": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "artifact_classes": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "enum": [
+              "external_review_receipt",
+              "synthetic_conformance_fixture"
+            ]
+          }
+        },
+        "injected_fault": { "type": ["string", "null"] },
+        "expected_status": { "type": "string", "minLength": 1 },
+        "fixture_only": { "const": true }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

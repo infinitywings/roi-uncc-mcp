@@ -53,6 +53,11 @@ The M14 exact-byte independent-review packet is documented in
 `../M14_CAREER_SOURCE_REVIEW_PACKET_REPORT.md`. It is ready for external review
 but records no approval, leaves all generation prerequisites open, and does not
 amend the frozen report.
+The offline M14A review-receipt intake contract is documented in
+`../M14A_CAREER_REVIEW_RECEIPT_INTAKE_REPORT.md`. It validates exact packet
+binding and two-reviewer mechanics with synthetic conformance fixtures, checks
+in no real receipt, leaves the M14 checkpoint open, and does not amend the
+frozen report.
 This separation avoids rewriting the report's original source manifest while
 keeping current protocol evidence explicit.
 
