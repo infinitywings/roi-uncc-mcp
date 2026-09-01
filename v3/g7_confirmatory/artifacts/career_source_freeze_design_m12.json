@@ -1,0 +1,333 @@
+{
+  "canonical_status": {
+    "M_real_resource": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+    "M_scientific_threshold": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+    "M_source_package": "UNBUILT_DESIGN_ONLY",
+    "S_real_resource": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+    "S_scientific_threshold": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+    "S_source_package": "UNBUILT_DESIGN_ONLY",
+    "campaign": "HOLD",
+    "evaluation": "SEALED",
+    "partition_assignments": "UNASSIGNED_DESIGN_ONLY",
+    "review_receipts": "UNISSUED_DESIGN_ONLY"
+  },
+  "clean_source_profiles": {
+    "M": {
+      "derivation_contract": {
+        "algorithm_family": "unselected_before_source_review",
+        "candidate_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+        "candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+        "conditioning_interface": "only_context_already_visible_under_the_active_A_condition",
+        "new_raw_observations_added": false,
+        "online_update": false,
+        "ordered_candidate_ids": [
+          "fixtureplan_426a4d927d38c4798b99250d8383c60994a91a466bec21df3e22e15d4d973938",
+          "fixtureplan_abaacb00f37f6a00d731bf09a8a71823f9036f04d2727001ef478d08de5b9c96",
+          "fixtureplan_627b5c82da4d000905602be7bbd05b666c4521c7182e222b55d82129549ec7aa"
+        ],
+        "output_granularity": "context_candidate_score_and_rank",
+        "physical_instantiation_binding": "required_separate_manifest_preserving_M9_candidate_ids",
+        "predicted_endpoint": "maximum_scaled_voltage_envelope_excess",
+        "ranker_mode": "tracked_deterministic_frozen_read_only",
+        "reproducibility_rule": "same_manifest_produces_identical_bytes",
+        "tie_break_rule": "frozen_M9_candidate_order",
+        "uses_S_derived_resource": false
+      },
+      "empirical_slots": {
+        "derived_ranking_resource_sha256": null,
+        "development_seed_registry_sha256": null,
+        "endpoint_definition_sha256": null,
+        "engineering_instantiation_manifest_sha256": null,
+        "environment_manifest_sha256": null,
+        "feature_schema_sha256": null,
+        "frozen_model_sha256": null,
+        "ranker_sha256": null,
+        "source_partition_assignment_sha256": null,
+        "tracked_ranker_commit": null,
+        "training_input_manifest_sha256": null
+      },
+      "factor": "M",
+      "freeze_sequence": [
+        "freeze_tracked_generator_and_static_inputs",
+        "freeze_M_source_partition_assignment",
+        "derive_deterministically_without_validation_outcomes",
+        "content_address_input_and_output_manifests",
+        "complete_two_independent_reviews",
+        "freeze_source_package_before_threshold_design"
+      ],
+      "information_grant": {
+        "action_authority_changed": false,
+        "adds": "validated_candidate_scores_and_ranks_only",
+        "process_relationship_records_added": false,
+        "raw_observation_interface_changed": false
+      },
+      "output_manifest_template": {
+        "required_record_fields": [
+          "context_id",
+          "candidate_id",
+          "predicted_primary_endpoint_score",
+          "rank",
+          "model_version_id",
+          "source_block_id"
+        ],
+        "resource_mutable": false,
+        "schema_version": "grideval-career-M-ranking-resource/v1",
+        "scientific_values_present": false
+      },
+      "profile_id": "CAREER_M_clean_source/v1",
+      "prohibited_inputs": [
+        "detector_or_alarm_outcomes",
+        "evaluation_records",
+        "factor_confirmation_outcomes",
+        "independent_validation_outcomes_during_derivation",
+        "online_feedback_or_updates",
+        "other_factor_derived_resource",
+        "treatment_arm_outcomes",
+        "untracked_or_unhashed_source_bytes"
+      ],
+      "status": "UNINSTANTIATED_DESIGN_ONLY"
+    },
+    "S": {
+      "derivation_contract": {
+        "authority_surface": "single_ev_aggregator_setpoint",
+        "controlled_device_count": 1,
+        "controlled_variable": "active_charging_setpoint",
+        "generator_mode": "tracked_deterministic_offline_derivation",
+        "numeric_precision_policy": "freeze_before_source_generation",
+        "operating_cell_policy": "registry_frozen_before_source_generation",
+        "other_device_authority": false,
+        "output_granularity": "operating_cell_action_response_relationship",
+        "perturbation_design": "paired_symmetric_development_probes",
+        "reactive_power_axis": "outside_primary_scope_not_zero_imputed",
+        "reproducibility_rule": "same_manifest_produces_identical_bytes",
+        "response_variable": "exposed_bus_voltage_telemetry"
+      },
+      "empirical_slots": {
+        "derived_relationship_resource_sha256": null,
+        "development_seed_registry_sha256": null,
+        "environment_manifest_sha256": null,
+        "feeder_configuration_sha256": null,
+        "generator_sha256": null,
+        "operating_cell_registry_sha256": null,
+        "raw_input_manifest_sha256": null,
+        "source_partition_assignment_sha256": null,
+        "symmetric_perturbation_schedule_sha256": null,
+        "tracked_generator_commit": null
+      },
+      "factor": "S",
+      "freeze_sequence": [
+        "freeze_tracked_generator_and_static_inputs",
+        "freeze_S_source_partition_assignment",
+        "derive_deterministically_without_validation_outcomes",
+        "content_address_input_and_output_manifests",
+        "complete_two_independent_reviews",
+        "freeze_source_package_before_threshold_design"
+      ],
+      "information_grant": {
+        "action_authority_changed": false,
+        "adds": "validated_process_relationship_records_only",
+        "candidate_scores_or_ranks_added": false,
+        "raw_observation_interface_changed": false
+      },
+      "output_manifest_template": {
+        "required_record_fields": [
+          "operating_cell_id",
+          "action_id",
+          "signed_active_setpoint_delta",
+          "voltage_response_statistic",
+          "qualitative_response_direction",
+          "source_block_id"
+        ],
+        "resource_mutable": false,
+        "schema_version": "grideval-career-S-relationship-resource/v1",
+        "scientific_values_present": false
+      },
+      "profile_id": "CAREER_S_clean_source/v1",
+      "prohibited_inputs": [
+        "detector_or_alarm_outcomes",
+        "evaluation_records",
+        "factor_confirmation_outcomes",
+        "independent_validation_outcomes_during_derivation",
+        "online_feedback_or_updates",
+        "other_factor_derived_resource",
+        "treatment_arm_outcomes",
+        "untracked_or_unhashed_source_bytes"
+      ],
+      "status": "UNINSTANTIATED_DESIGN_ONLY"
+    }
+  },
+  "contract_id": "careersourcefreeze_648776649fcaa43a3ecce5fab19aced608c427646b086c0f6bc2128a611a61f3",
+  "governance": {
+    "actuator_accessed": false,
+    "campaign_authorized": false,
+    "detector_accessed": false,
+    "detector_calibration_authorized": false,
+    "development_only": true,
+    "embedding_service_accessed": false,
+    "evaluation_sealed": true,
+    "live_runtime_authorized": false,
+    "model_transport_authorized": false,
+    "partition_assignment_authorized": false,
+    "real_resource_admission_authorized": false,
+    "real_source_generation_authorized": false,
+    "real_tool_execution_authorized": false,
+    "review_receipt_issuance_authorized": false,
+    "scientific_threshold_freeze_authorized": false,
+    "simulator_accessed": false
+  },
+  "limitations": [
+    "no_evaluation_or_campaign_authorization",
+    "no_model_embedding_tool_or_runtime_access",
+    "no_physical_ranking_or_factor_effect_claim",
+    "no_real_resource_validated_or_admitted",
+    "no_real_source_or_partition_instantiated",
+    "no_review_receipt_issued",
+    "no_scientific_threshold_or_estimator_finalized"
+  ],
+  "milestone": "M12",
+  "next_gate": {
+    "evaluation_access": false,
+    "id": "M13_offline_synthetic_source_manifest_validator",
+    "may_assign_real_partitions": false,
+    "may_freeze_real_sources": false,
+    "may_issue_real_review_receipts": false,
+    "may_select_scientific_thresholds": false,
+    "model_or_embedding_call": false,
+    "scope": "synthetic_positive_and_negative_manifests_only",
+    "simulator_or_detector_access": false
+  },
+  "partition_registry": {
+    "assignment_freeze_order": [
+      "freeze_sample_identity",
+      "freeze_partition_role_registry",
+      "assign_content_addressed_blocks_without_outcome_access",
+      "verify_pairwise_disjointness",
+      "independent_partition_review",
+      "freeze_assignment_manifest_before_derivation"
+    ],
+    "assignments": {
+      "ASM_factor_confirmation": null,
+      "M_independent_validation": null,
+      "M_source_derivation": null,
+      "M_threshold_design": null,
+      "S_independent_validation": null,
+      "S_source_derivation": null,
+      "S_threshold_design": null,
+      "evaluation_sealed": null
+    },
+    "cross_factor_empirical_block_reuse": false,
+    "derived_resource_dependency": "S_and_M_must_not_depend_on_each_others_derived_resource",
+    "pairwise_disjoint_empirical_blocks": true,
+    "roles": [
+      {
+        "factor_scope": "S",
+        "id": "S_source_derivation",
+        "purpose": "derive_clean_source_only",
+        "status": "UNASSIGNED_DESIGN_ONLY"
+      },
+      {
+        "factor_scope": "S",
+        "id": "S_threshold_design",
+        "purpose": "future_threshold_design_only",
+        "status": "UNASSIGNED_DESIGN_ONLY"
+      },
+      {
+        "factor_scope": "S",
+        "id": "S_independent_validation",
+        "purpose": "future_action_validity_only",
+        "status": "UNASSIGNED_DESIGN_ONLY"
+      },
+      {
+        "factor_scope": "M",
+        "id": "M_source_derivation",
+        "purpose": "derive_clean_source_only",
+        "status": "UNASSIGNED_DESIGN_ONLY"
+      },
+      {
+        "factor_scope": "M",
+        "id": "M_threshold_design",
+        "purpose": "future_threshold_design_only",
+        "status": "UNASSIGNED_DESIGN_ONLY"
+      },
+      {
+        "factor_scope": "M",
+        "id": "M_independent_validation",
+        "purpose": "future_ranking_validity_only",
+        "status": "UNASSIGNED_DESIGN_ONLY"
+      },
+      {
+        "factor_scope": "ASM",
+        "id": "ASM_factor_confirmation",
+        "purpose": "future_factor_effect_only",
+        "status": "UNASSIGNED_DESIGN_ONLY"
+      },
+      {
+        "factor_scope": "evaluation",
+        "id": "evaluation_sealed",
+        "purpose": "sealed_no_access",
+        "status": "UNASSIGNED_DESIGN_ONLY"
+      }
+    ],
+    "sample_identity": "factor_role_run_seed_operating_cell_episode_block",
+    "shared_static_inputs_allowed": [
+      "tracked_code_bytes",
+      "frozen_environment_manifest",
+      "frozen_feeder_configuration",
+      "M9_protocol_and_candidate_definitions"
+    ],
+    "status": "UNASSIGNED_DESIGN_ONLY"
+  },
+  "review_protocol": {
+    "author_may_review": false,
+    "receipt_binding_fields": [
+      "M12_contract_id",
+      "profile_id",
+      "tracked_code_revision",
+      "static_input_hashes",
+      "partition_assignment_hash",
+      "input_manifest_hash",
+      "output_manifest_hash"
+    ],
+    "receipt_templates": {
+      "capability_semantics_and_reproducibility_review": {
+        "bound_manifest_sha256": null,
+        "decision": null,
+        "receipt_id": null,
+        "reviewed_profile_ids": [],
+        "reviewer_id": null,
+        "reviewer_role": "independent_domain_method_reviewer",
+        "status": "UNISSUED_DESIGN_ONLY"
+      },
+      "source_lineage_and_partition_review": {
+        "bound_manifest_sha256": null,
+        "decision": null,
+        "receipt_id": null,
+        "reviewed_profile_ids": [],
+        "reviewer_id": null,
+        "reviewer_role": "independent_data_lineage_reviewer",
+        "status": "UNISSUED_DESIGN_ONLY"
+      }
+    },
+    "required_distinct_reviewers": 2,
+    "review_order": [
+      "source_lineage_and_partition_review",
+      "capability_semantics_and_reproducibility_review"
+    ],
+    "status": "UNISSUED_DESIGN_ONLY",
+    "threshold_design_release_rule": "both_distinct_reviews_accept_exact_frozen_source_package"
+  },
+  "schema_version": "grideval-career-source-freeze-design/v1",
+  "source_lineage": {
+    "frozen_experiment_spec_sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d",
+    "frozen_roadmap_report_sha256": "c4fc1168708c0d47d1162754296d3f731c51028650aaeab739aca42fb3aa827b",
+    "governing_draft_sha256": "a87158fdf6ad7ffb4c783ecd9b2a8b7d47886f234464a07571a5a41c659f5d8c",
+    "m11_contract_id": "careerthresholdhold_4ff524e10e76cc36a68aec92ac6fcddda99802cf0699e419f930ad1f03588468",
+    "m12_decision": "dec_01M1DN5GNS59V8GEP19E08T4PW",
+    "m9_candidate_library_fingerprint": "sha256_0932044cd25b3c6e77e33086282246f82b67085286f90569cc1db04c3d584aec",
+    "m9_contract_id": "careertwoint_6d57736587a6a6ad2474392a0413b784fa9633ecfa94af572798b7419b1e73a5",
+    "m9_parity_fingerprint": "sha256_6776210404947b827931f192f6c3a60edf58e91c586f53440287a147aaa9f671",
+    "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36"
+  },
+  "status": "DESIGN_ONLY_SOURCE_PREREQUISITES_SPECIFIED",
+  "title": "CAREER S/M clean-source freeze and review design"
+}

@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_source_freeze_design.schema.json",
+  "title": "GridEval M12 CAREER clean-source freeze design",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_id",
+    "milestone",
+    "title",
+    "status",
+    "governance",
+    "source_lineage",
+    "partition_registry",
+    "clean_source_profiles",
+    "review_protocol",
+    "canonical_status",
+    "limitations",
+    "next_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-career-source-freeze-design/v1"
+    },
+    "contract_id": {
+      "type": "string",
+      "pattern": "^careersourcefreeze_[0-9a-f]{64}$"
+    },
+    "milestone": { "const": "M12" },
+    "title": { "type": "string", "minLength": 1 },
+    "status": { "const": "DESIGN_ONLY_SOURCE_PREREQUISITES_SPECIFIED" },
+    "governance": { "$ref": "#/$defs/governance" },
+    "source_lineage": { "type": "object" },
+    "partition_registry": { "$ref": "#/$defs/partitionRegistry" },
+    "clean_source_profiles": {
+      "type": "object",
+      "required": ["S", "M"],
+      "properties": {
+        "S": { "$ref": "#/$defs/sourceProfile" },
+        "M": { "$ref": "#/$defs/sourceProfile" }
+      },
+      "additionalProperties": false
+    },
+    "review_protocol": { "$ref": "#/$defs/reviewProtocol" },
+    "canonical_status": { "type": "object" },
+    "limitations": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "next_gate": { "type": "object" }
+  },
+  "$defs": {
+    "governance": {
+      "type": "object",
+      "required": [
+        "development_only",
+        "campaign_authorized",
+        "evaluation_sealed",
+        "detector_calibration_authorized",
+        "live_runtime_authorized",
+        "model_transport_authorized",
+        "real_tool_execution_authorized",
+        "embedding_service_accessed",
+        "simulator_accessed",
+        "detector_accessed",
+        "actuator_accessed",
+        "real_source_generation_authorized",
+        "partition_assignment_authorized",
+        "review_receipt_issuance_authorized",
+        "scientific_threshold_freeze_authorized",
+        "real_resource_admission_authorized"
+      ],
+      "properties": {
+        "development_only": { "const": true },
+        "campaign_authorized": { "const": false },
+        "evaluation_sealed": { "const": true },
+        "detector_calibration_authorized": { "const": false },
+        "live_runtime_authorized": { "const": false },
+        "model_transport_authorized": { "const": false },
+        "real_tool_execution_authorized": { "const": false },
+        "embedding_service_accessed": { "const": false },
+        "simulator_accessed": { "const": false },
+        "detector_accessed": { "const": false },
+        "actuator_accessed": { "const": false },
+        "real_source_generation_authorized": { "const": false },
+        "partition_assignment_authorized": { "const": false },
+        "review_receipt_issuance_authorized": { "const": false },
+        "scientific_threshold_freeze_authorized": { "const": false },
+        "real_resource_admission_authorized": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "partitionRegistry": {
+      "type": "object",
+      "required": [
+        "status",
+        "sample_identity",
+        "roles",
+        "assignments",
+        "pairwise_disjoint_empirical_blocks",
+        "cross_factor_empirical_block_reuse",
+        "shared_static_inputs_allowed",
+        "derived_resource_dependency",
+        "assignment_freeze_order"
+      ],
+      "properties": {
+        "status": { "const": "UNASSIGNED_DESIGN_ONLY" },
+        "sample_identity": { "type": "string", "minLength": 1 },
+        "roles": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": { "$ref": "#/$defs/partitionRole" }
+        },
+        "assignments": {
+          "type": "object",
+          "minProperties": 8,
+          "maxProperties": 8,
+          "additionalProperties": { "type": "null" }
+        },
+        "pairwise_disjoint_empirical_blocks": { "const": true },
+        "cross_factor_empirical_block_reuse": { "const": false },
+        "shared_static_inputs_allowed": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "derived_resource_dependency": { "type": "string" },
+        "assignment_freeze_order": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "partitionRole": {
+      "type": "object",
+      "required": ["id", "factor_scope", "purpose", "status"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "factor_scope": { "enum": ["S", "M", "ASM", "evaluation"] },
+        "purpose": { "type": "string", "minLength": 1 },
+        "status": { "const": "UNASSIGNED_DESIGN_ONLY" }
+      },
+      "additionalProperties": false
+    },
+    "sourceProfile": {
+      "type": "object",
+      "required": [
+        "profile_id",
+        "factor",
+        "status",
+        "information_grant",
+        "empirical_slots",
+        "derivation_contract",
+        "output_manifest_template",
+        "freeze_sequence",
+        "prohibited_inputs"
+      ],
+      "properties": {
+        "profile_id": { "type": "string", "minLength": 1 },
+        "factor": { "enum": ["S", "M"] },
+        "status": { "const": "UNINSTANTIATED_DESIGN_ONLY" },
+        "information_grant": { "type": "object" },
+        "empirical_slots": {
+          "type": "object",
+          "minProperties": 9,
+          "additionalProperties": { "type": "null" }
+        },
+        "derivation_contract": { "type": "object" },
+        "output_manifest_template": {
+          "type": "object",
+          "required": [
+            "schema_version",
+            "required_record_fields",
+            "resource_mutable",
+            "scientific_values_present"
+          ],
+          "properties": {
+            "schema_version": { "type": "string", "minLength": 1 },
+            "required_record_fields": {
+              "type": "array",
+              "minItems": 6,
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "resource_mutable": { "const": false },
+            "scientific_values_present": { "const": false }
+          },
+          "additionalProperties": false
+        },
+        "freeze_sequence": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "prohibited_inputs": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "reviewProtocol": {
+      "type": "object",
+      "required": [
+        "status",
+        "required_distinct_reviewers",
+        "author_may_review",
+        "review_order",
+        "receipt_templates",
+        "receipt_binding_fields",
+        "threshold_design_release_rule"
+      ],
+      "properties": {
+        "status": { "const": "UNISSUED_DESIGN_ONLY" },
+        "required_distinct_reviewers": { "const": 2 },
+        "author_may_review": { "const": false },
+        "review_order": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "receipt_templates": {
+          "type": "object",
+          "minProperties": 2,
+          "maxProperties": 2,
+          "additionalProperties": { "$ref": "#/$defs/reviewReceipt" }
+        },
+        "receipt_binding_fields": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "threshold_design_release_rule": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "reviewReceipt": {
+      "type": "object",
+      "required": [
+        "reviewer_role",
+        "reviewer_id",
+        "reviewed_profile_ids",
+        "bound_manifest_sha256",
+        "decision",
+        "receipt_id",
+        "status"
+      ],
+      "properties": {
+        "reviewer_role": { "type": "string", "minLength": 1 },
+        "reviewer_id": { "type": "null" },
+        "reviewed_profile_ids": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "bound_manifest_sha256": { "type": "null" },
+        "decision": { "type": "null" },
+        "receipt_id": { "type": "null" },
+        "status": { "const": "UNISSUED_DESIGN_ONLY" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

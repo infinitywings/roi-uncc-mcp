@@ -41,6 +41,10 @@ The offline M11 source-lineage audit and threshold HOLD are documented in
 preserved as exploratory evidence but cannot support threshold selection or
 resource admission. The canonical artifact records exact hashes, null
 thresholds, and M12 repair requirements without amending the frozen report.
+The offline M12 clean-source freeze and review design is documented in
+`../M12_CAREER_SOURCE_FREEZE_DESIGN_REPORT.md`. It defines separate `S` and `M`
+profiles, eight unassigned empirical roles, and two unissued independent-review
+receipts. It generates no real source and does not amend the frozen report.
 This separation avoids rewriting the report's original source manifest while
 keeping current protocol evidence explicit.
 

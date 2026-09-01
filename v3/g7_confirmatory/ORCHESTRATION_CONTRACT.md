@@ -2,7 +2,7 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M11 for the research roadmap. M1–M3
+This document defines milestones M1–M12 for the research roadmap. M1–M3
 are development-only offline contracts. M4 adds separately bounded model-output
 parsing receipts. M5 returns to an offline-only, content-addressed interactive
 tool-loop protocol. M6 adds a two-turn model replay with an injected read-only
@@ -15,9 +15,11 @@ offline two-interval state machine and mirrored revision-permission witness.
 M10 adds independent admission profiles for the `S` and `M` resources while
 keeping both real resources on HOLD. M11 audits the available candidate source
 bytes, rejects their promotion into CAREER resources, and records null
-scientific thresholds plus exact repair prerequisites. No milestone calls an
-embedding service, simulator, detector, calibration pipeline, or evaluation
-partition, and none authorizes a campaign.
+scientific thresholds plus exact repair prerequisites. M12 defines clean-source
+profiles, disjoint empirical roles, and independent-review templates while
+leaving every empirical field uninstantiated. No milestone calls an embedding
+service, simulator, detector, calibration pipeline, or evaluation partition,
+and none authorizes a campaign.
 
 The frozen `experiment_spec.yaml` remains byte-identical with SHA-256
 `79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d`.
@@ -146,6 +148,38 @@ resource validity, physical ranking, a factor effect, or runtime readiness.
 Full interpretation is in `M11_CAREER_THRESHOLD_HOLD_REPORT.md`; semantic
 validation is implemented by `g7confirm.career_threshold_hold`, and the
 interchange schema is `career_threshold_hold.schema.json`.
+
+## M12 clean-source freeze and review design
+
+M12 specifies the source packages that would be needed to repair the M11 HOLD.
+It defines eight pairwise-disjoint future empirical roles: separate source-
+derivation, threshold-design, and independent-validation partitions for `S`
+and `M`, plus fresh `A/S/M` factor confirmation and sealed evaluation. Static
+tracked code and configurations may be shared; empirical blocks and the two
+derived resources may not. Every partition assignment remains `null`.
+
+The `S` profile is scoped to one EV aggregator's active charging setpoint and
+exposed bus-voltage response. It requires deterministic paired symmetric
+development probes and declares reactive power outside the primary scope
+instead of encoding an unvalidated zero channel. The `M` profile binds the
+exact three M9 candidate IDs and primary physical endpoint. Because the M9
+candidates are qualitative, `M` also requires a separate content-addressed
+engineering-instantiation manifest that preserves those IDs. The ranker may use
+only context already visible under the active `A` condition, cannot add a raw
+observation, cannot depend on `S`, and cannot update online.
+
+Two distinct non-author reviewers must accept the same content-addressed source
+package before later threshold design can begin. The M12 receipt templates are
+unissued and contain no reviewer, manifest, decision, or receipt values. All
+source, partition, model, endpoint, and derived-resource slots remain
+uninstantiated.
+
+Passing M12 establishes source-freeze design completeness only. It does not
+generate or freeze a source, assign data, issue an approval, validate a resource,
+or select a threshold. Full interpretation is in
+`M12_CAREER_SOURCE_FREEZE_DESIGN_REPORT.md`; semantic validation is implemented
+by `g7confirm.career_source_freeze_design`, and the interchange schema is
+`career_source_freeze_design.schema.json`.
 
 ## Research contract
 
@@ -546,6 +580,7 @@ python3 -m unittest discover -s tests -p 'test_career_stealth_contract.py' -v
 python3 -m unittest discover -s tests -p 'test_career_two_interval.py' -v
 python3 -m unittest discover -s tests -p 'test_career_resource_admission.py' -v
 python3 -m unittest discover -s tests -p 'test_career_threshold_hold.py' -v
+python3 -m unittest discover -s tests -p 'test_career_source_freeze_design.py' -v
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q g7confirm tests
 sha256sum experiment_spec.yaml
@@ -566,6 +601,7 @@ jq empty artifacts/ai_v2_component_matrix.json \
   artifacts/career_two_interval_fixture_m9.json \
   artifacts/career_resource_admission_m10.json \
   artifacts/career_threshold_hold_m11.json \
+  artifacts/career_source_freeze_design_m12.json \
   candidate_space_receipt.schema.json \
   search_surface.schema.json \
   ia4_request.schema.json \
@@ -580,17 +616,18 @@ jq empty artifacts/ai_v2_component_matrix.json \
   career_two_interval_fixture.schema.json \
   career_resource_admission.schema.json \
   career_threshold_hold.schema.json \
+  career_source_freeze_design.schema.json \
   tests/fixtures/ia4_plan_response.json \
   tests/fixtures/ia4_refusal_response.json \
   tests/fixtures/ia4_no_action_response.json
 ```
 
-All tests, M5 fixture generation, M7 preregistration, and M8–M11 contract and
+All tests, M5 fixture generation, M7 preregistration, and M8–M12 contract and
 fixture generation are offline. The two M4
 receipts, three M6 receipts, and two M7 paired receipts required model network
-access; M6 and M7 executed no real tool. The next gate is the offline M12 clean-
-candidate source-freeze and partition design for `S` and `M`; it cannot select
-scientific thresholds or read validation outcomes. Any later model, live-tool,
-or one-window development smoke still
+access; M6 and M7 executed no real tool. The next gate is the offline M13
+synthetic source-manifest validator; it cannot instantiate real sources,
+partitions, reviews, or thresholds. Any later model, live-tool, or one-window
+development smoke still
 requires its own execution overlay, bounded reward metric, and scientific gate
 and would not open evaluation.

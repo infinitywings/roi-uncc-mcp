@@ -52,7 +52,11 @@ The harness provides:
   failures; and
 - an offline M11 content-addressed source-lineage audit that preserves the
   available `S` and `M` inputs as exploratory evidence, keeps every scientific
-  threshold unset, and identifies the clean-source repairs required by M12.
+  threshold unset, and identifies the clean-source repairs required by M12;
+  and
+- an offline M12 clean-source freeze design that defines disjoint partition
+  roles, separate deterministic `S` and `M` package profiles, null empirical
+  slots, and unissued two-reviewer receipt templates.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -100,6 +104,11 @@ The M11 source-lineage decision is documented in
 are `artifacts/career_threshold_hold_m11.json` and
 `career_threshold_hold.schema.json`. M11 selects no scientific threshold and
 authorizes no resource admission or runtime access.
+The M12 source-freeze design is documented in
+`M12_CAREER_SOURCE_FREEZE_DESIGN_REPORT.md`; its canonical artifact and schema
+are `artifacts/career_source_freeze_design_m12.json` and
+`career_source_freeze_design.schema.json`. M12 instantiates no data, review,
+threshold, model, or real resource.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the
