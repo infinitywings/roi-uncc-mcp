@@ -1,0 +1,92 @@
+{
+  "artifact_class": "empty_reviewer_worksheet_not_a_receipt",
+  "bound_review": {
+    "m13_base_commit": "cbccdaa069784adbb3c03d130a42c5d0027ce16d",
+    "m14_checkpoint_id": "chk_01M1DPSAD7H2MGY49QDJNYPK1M",
+    "m14a_intake_id": "m14aintake_a4f22ef8dd509e486adc32cdd7623c3682fc2148ff8a48831f606fc256553ba4",
+    "packet_file_bytes": 14284,
+    "packet_file_sha256": "fc4339b93b99b278e4d0392622778edf4b38a7949c0e2401a5f18b409fcba5b8",
+    "packet_id": "m14reviewpacket_6efed441aebe881691b3596321ca7255edf67af8d24ef59412be923e12098b25",
+    "review_scope_sha256": "32f6d0c5ba48d3370a860ab12b0b24fe1908817ee61c35bee88c9191b39edde6",
+    "snapshot_manifest_sha256": "1af4941f031344c1e5d1ea5bb238e6ab669e7f32702230d1ef7bb96e94f1e39c"
+  },
+  "completion_rule": "worksheet_never_becomes_evidence_external_reviewer_must_issue_a_separate_content_addressed_M14A_receipt",
+  "governance": {
+    "campaign_authorized": false,
+    "checkpoint_resolution_authorized": false,
+    "evaluation_access_authorized": false,
+    "identity_established_by_software": false,
+    "model_or_embedding_access_authorized": false,
+    "partition_assignment_authorized": false,
+    "receipt_creation_or_finalization_authorized": false,
+    "resource_admission_authorized": false,
+    "reviewer_handoff_only": true,
+    "source_generation_authorized": false,
+    "threshold_selection_authorized": false,
+    "tool_simulator_detector_or_actuator_access_authorized": false,
+    "worksheet_is_receipt": false
+  },
+  "limitations": [
+    "no_answers_comments_or_disposition",
+    "no_checkpoint_resolution_or_authorization",
+    "no_reviewer_identity_or_independence_evidence",
+    "not_a_review_receipt"
+  ],
+  "question_fields": [
+    {
+      "answer": null,
+      "finding_references": [],
+      "ordinal": 1,
+      "question_sha256": "eaf95378d0dc93760d478c83d7a64f5f941cfd6bf6ed40689c354801280f64ba"
+    },
+    {
+      "answer": null,
+      "finding_references": [],
+      "ordinal": 2,
+      "question_sha256": "c06b061ea3bbba84d118fc38ec6622c654cebf27807523bf168bd1ced92fbc26"
+    },
+    {
+      "answer": null,
+      "finding_references": [],
+      "ordinal": 3,
+      "question_sha256": "d32dd1794813635d2199daa33f756b1336d3c68ebae56a9cf12565d386896a35"
+    },
+    {
+      "answer": null,
+      "finding_references": [],
+      "ordinal": 4,
+      "question_sha256": "43412da0fa4764713cdea1b830c2c57000eb77e026ab7430b1f7109f8ad2757a"
+    },
+    {
+      "answer": null,
+      "finding_references": [],
+      "ordinal": 5,
+      "question_sha256": "4e02c586001ba3f6b9b1cec3c8efc25e90a8e9f639a51f3479471bc603e1c994"
+    },
+    {
+      "answer": null,
+      "finding_references": [],
+      "ordinal": 6,
+      "question_sha256": "7fb4c836c01b67c8dfb0a79603feb44b32fcaa9edf690824806443a785c014b4"
+    }
+  ],
+  "review_fields": {
+    "comments": null,
+    "comments_sha256": null,
+    "disposition": null,
+    "issued_at_utc": null,
+    "receipt_id": null
+  },
+  "reviewer_fields": {
+    "conflict_of_interest_declared": null,
+    "identity_verification_reference": null,
+    "independent_from_other_required_reviewer": null,
+    "is_packet_preparer": null,
+    "participated_in_source_generation": null,
+    "reviewer_id": null
+  },
+  "reviewer_role": "independent_domain_method_reviewer",
+  "schema_version": "grideval-career-reviewer-worksheet/v1",
+  "status": "EMPTY_UNISSUED_NOT_A_RECEIPT",
+  "worksheet_id": "m14bworksheet_055076a854482b04d3c1358b076d6bc00c9f12d82915ccfe45fb4339e893de0f"
+}

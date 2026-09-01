@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_reviewer_handoff.schema.json",
+  "title": "GridEval M14B external reviewer handoff",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "handoff_id",
+    "milestone",
+    "title",
+    "status",
+    "source_lineage",
+    "support_snapshot",
+    "worksheets",
+    "read_only_commands",
+    "governance",
+    "limitations",
+    "next_gate"
+  ],
+  "properties": {
+    "schema_version": { "const": "grideval-career-reviewer-handoff/v1" },
+    "handoff_id": {
+      "type": "string",
+      "pattern": "^m14bhandoff_[0-9a-f]{64}$"
+    },
+    "milestone": { "const": "M14B" },
+    "title": { "type": "string", "minLength": 1 },
+    "status": { "const": "EXACT_HANDOFF_READY_NOT_APPROVED" },
+    "source_lineage": {
+      "type": "object",
+      "required": [
+        "m14a_base_commit",
+        "m14b_decision_id",
+        "m14_packet_id",
+        "m14a_intake_id",
+        "m14_checkpoint_id"
+      ],
+      "properties": {
+        "m14a_base_commit": {
+          "const": "363cbb48a678d1ea6b123ad5bc6aadf5c7b7635a"
+        },
+        "m14b_decision_id": { "const": "dec_01M1DQQMY05E8KV19X5WHVHRC0" },
+        "m14_packet_id": {
+          "const": "m14reviewpacket_6efed441aebe881691b3596321ca7255edf67af8d24ef59412be923e12098b25"
+        },
+        "m14a_intake_id": {
+          "const": "m14aintake_a4f22ef8dd509e486adc32cdd7623c3682fc2148ff8a48831f606fc256553ba4"
+        },
+        "m14_checkpoint_id": { "const": "chk_01M1DPSAD7H2MGY49QDJNYPK1M" }
+      },
+      "additionalProperties": false
+    },
+    "support_snapshot": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/snapshotEntry" }
+    },
+    "worksheets": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "$ref": "#/$defs/worksheetReference" }
+    },
+    "read_only_commands": {
+      "type": "object",
+      "required": [
+        "preflight",
+        "single_receipt",
+        "receipt_bundle",
+        "commands_create_or_modify_files",
+        "commands_write_RKA"
+      ],
+      "properties": {
+        "preflight": { "type": "string", "minLength": 1 },
+        "single_receipt": { "type": "string", "minLength": 1 },
+        "receipt_bundle": { "type": "string", "minLength": 1 },
+        "commands_create_or_modify_files": { "const": false },
+        "commands_write_RKA": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "governance": { "$ref": "#/$defs/governance" },
+    "limitations": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "next_gate": { "type": "object" }
+  },
+  "$defs": {
+    "snapshotEntry": {
+      "type": "object",
+      "required": ["path", "bytes", "sha256", "git_tracked_at_base_commit"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "git_tracked_at_base_commit": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "worksheetReference": {
+      "type": "object",
+      "required": ["reviewer_role", "worksheet_id", "artifact_path", "status"],
+      "properties": {
+        "reviewer_role": {
+          "enum": [
+            "independent_data_lineage_reviewer",
+            "independent_domain_method_reviewer"
+          ]
+        },
+        "worksheet_id": {
+          "type": "string",
+          "pattern": "^m14bworksheet_[0-9a-f]{64}$"
+        },
+        "artifact_path": { "type": "string", "minLength": 1 },
+        "status": { "const": "EMPTY_UNISSUED_NOT_A_RECEIPT" }
+      },
+      "additionalProperties": false
+    },
+    "governance": {
+      "type": "object",
+      "required": [
+        "reviewer_handoff_only",
+        "worksheet_is_receipt",
+        "receipt_creation_or_finalization_authorized",
+        "identity_established_by_software",
+        "checkpoint_resolution_authorized",
+        "source_generation_authorized",
+        "partition_assignment_authorized",
+        "threshold_selection_authorized",
+        "resource_admission_authorized",
+        "model_or_embedding_access_authorized",
+        "tool_simulator_detector_or_actuator_access_authorized",
+        "evaluation_access_authorized",
+        "campaign_authorized"
+      ],
+      "properties": {
+        "reviewer_handoff_only": { "const": true },
+        "worksheet_is_receipt": { "const": false },
+        "receipt_creation_or_finalization_authorized": { "const": false },
+        "identity_established_by_software": { "const": false },
+        "checkpoint_resolution_authorized": { "const": false },
+        "source_generation_authorized": { "const": false },
+        "partition_assignment_authorized": { "const": false },
+        "threshold_selection_authorized": { "const": false },
+        "resource_admission_authorized": { "const": false },
+        "model_or_embedding_access_authorized": { "const": false },
+        "tool_simulator_detector_or_actuator_access_authorized": {
+          "const": false
+        },
+        "evaluation_access_authorized": { "const": false },
+        "campaign_authorized": { "const": false }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

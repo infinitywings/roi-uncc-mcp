@@ -58,6 +58,10 @@ The offline M14A review-receipt intake contract is documented in
 binding and two-reviewer mechanics with synthetic conformance fixtures, checks
 in no real receipt, leaves the M14 checkpoint open, and does not amend the
 frozen report.
+The M14B external reviewer handoff is documented in
+`../M14B_CAREER_REVIEWER_HANDOFF_REPORT.md`. It adds exact-byte preflight,
+role-specific null-only worksheets, and read-only receipt validation without
+creating a receipt, resolving the checkpoint, or amending the frozen report.
 This separation avoids rewriting the report's original source manifest while
 keeping current protocol evidence explicit.
 

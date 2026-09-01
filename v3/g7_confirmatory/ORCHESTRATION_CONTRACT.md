@@ -2,7 +2,7 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M14A for the research roadmap. M1–M3
+This document defines milestones M1–M14B for the research roadmap. M1–M3
 are development-only offline contracts. M4 adds separately bounded model-output
 parsing receipts. M5 returns to an offline-only, content-addressed interactive
 tool-loop protocol. M6 adds a two-turn model replay with an injected read-only
@@ -23,7 +23,9 @@ embedding service, simulator, detector, calibration pipeline, or evaluation
 partition. M14 prepares an exact-byte independent-review packet but records no
 review decision. M14A adds an offline, fail-closed receipt-intake contract but
 does not issue a receipt, establish reviewer identity, resolve the checkpoint,
-or authorize execution. No milestone authorizes a campaign.
+or authorize execution. M14B creates an exact reviewer handoff and read-only
+validation workflow while keeping both worksheets empty and non-evidentiary.
+No milestone authorizes a campaign.
 
 The frozen `experiment_spec.yaml` remains byte-identical with SHA-256
 `79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d`.
@@ -253,6 +255,29 @@ or independence. Full interpretation is in
 implemented by `g7confirm.career_review_receipts`, and the receipt and intake
 schemas are `career_review_receipt.schema.json` and
 `career_review_receipt_intake.schema.json`.
+
+## M14B external reviewer handoff
+
+M14B binds six committed packet-support files at base commit
+`363cbb48a678d1ea6b123ad5bc6aadf5c7b7635a` by path, byte count, and SHA-256.
+The handoff contains one content-addressed empty worksheet for each required
+reviewer role. All identity, independence, answer, finding-reference, comment,
+disposition, timestamp, and receipt fields remain null, and the semantic
+validator rejects any populated worksheet even after readdressing.
+
+Three CLI commands provide exact-byte preflight, single-receipt validation, and
+two-receipt bundle evaluation. They are read-only, create or modify no file,
+perform no RKA write, and always report the checkpoint as open. The CLI exposes
+no receipt-creation or finalization command. A mechanically valid external pair
+can reach only `READY_FOR_EXTERNAL_GOVERNANCE_RESOLUTION_NOT_APPROVED`.
+
+Passing M14B establishes handoff integrity and usability only. It does not
+establish reviewer identity, review completion, acceptance, checkpoint
+resolution, or execution authority. Full interpretation and reviewer commands
+are in `M14B_CAREER_REVIEWER_HANDOFF_REPORT.md`; semantic validation is in
+`g7confirm.career_reviewer_handoff`; the schemas are
+`career_reviewer_handoff.schema.json` and
+`career_reviewer_worksheet.schema.json`.
 
 ## Research contract
 
@@ -657,6 +682,7 @@ python3 -m unittest discover -s tests -p 'test_career_source_freeze_design.py' -
 python3 -m unittest discover -s tests -p 'test_career_source_manifest_validator.py' -v
 python3 -m unittest discover -s tests -p 'test_career_source_review_packet.py' -v
 python3 -m unittest discover -s tests -p 'test_career_review_receipts.py' -v
+python3 -m unittest discover -s tests -p 'test_career_reviewer_handoff.py' -v
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q g7confirm tests
 sha256sum experiment_spec.yaml
@@ -681,6 +707,9 @@ jq empty artifacts/ai_v2_component_matrix.json \
   artifacts/career_source_manifest_matrix_m13.json \
   artifacts/career_source_review_packet_m14.json \
   artifacts/career_review_receipt_intake_m14a.json \
+  artifacts/career_reviewer_handoff_m14b.json \
+  artifacts/reviewer_handoff/data_lineage_worksheet_m14b.json \
+  artifacts/reviewer_handoff/domain_method_worksheet_m14b.json \
   candidate_space_receipt.schema.json \
   search_surface.schema.json \
   ia4_request.schema.json \
@@ -700,17 +729,20 @@ jq empty artifacts/ai_v2_component_matrix.json \
   career_source_review_packet.schema.json \
   career_review_receipt.schema.json \
   career_review_receipt_intake.schema.json \
+  career_reviewer_handoff.schema.json \
+  career_reviewer_worksheet.schema.json \
   tests/fixtures/ia4_plan_response.json \
   tests/fixtures/ia4_refusal_response.json \
   tests/fixtures/ia4_no_action_response.json
 ```
 
-All tests, M5 fixture generation, M7 preregistration, and M8–M14A contract and
+All tests, M5 fixture generation, M7 preregistration, and M8–M14B contract and
 fixture generation are offline. The two M4
 receipts, three M6 receipts, and two M7 paired receipts required model network
 access; M6 and M7 executed no real tool. The next gate is M15 post-review
 resolution. Without two genuine independent packet-bound receipts, only packet
 support revision is permitted. M14A validates intake mechanics but does not
-resolve that gate. Any later model, live-tool, or one-window development smoke
+resolve that gate, and M14B only prepares the read-only handoff. Any later
+model, live-tool, or one-window development smoke
 still requires its own execution overlay, bounded reward metric, and scientific
 gate and would not open evaluation.

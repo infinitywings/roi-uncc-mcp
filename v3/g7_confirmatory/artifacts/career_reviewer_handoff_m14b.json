@@ -1,0 +1,106 @@
+{
+  "governance": {
+    "campaign_authorized": false,
+    "checkpoint_resolution_authorized": false,
+    "evaluation_access_authorized": false,
+    "identity_established_by_software": false,
+    "model_or_embedding_access_authorized": false,
+    "partition_assignment_authorized": false,
+    "receipt_creation_or_finalization_authorized": false,
+    "resource_admission_authorized": false,
+    "reviewer_handoff_only": true,
+    "source_generation_authorized": false,
+    "threshold_selection_authorized": false,
+    "tool_simulator_detector_or_actuator_access_authorized": false,
+    "worksheet_is_receipt": false
+  },
+  "handoff_id": "m14bhandoff_b860b6a66def594f90aee3cd5dc675e3e0ec182d873a021f8284f1566cf7b6a3",
+  "limitations": [
+    "no_checkpoint_resolution",
+    "no_evaluation_or_campaign_authorization",
+    "no_independent_review_performed",
+    "no_model_embedding_tool_simulator_detector_or_actuator_access",
+    "no_real_receipt_checked_in_or_issued",
+    "no_reviewer_identity_established",
+    "no_source_generation_partition_or_threshold_authorization"
+  ],
+  "milestone": "M14B",
+  "next_gate": {
+    "campaign_authorized": false,
+    "evaluation_access": false,
+    "id": "M15_post_independent_review_resolution",
+    "requires_explicit_RKA_checkpoint_resolution": true,
+    "requires_external_identity_and_independence_verification": true,
+    "requires_two_genuine_external_receipts": true,
+    "source_generation_authorized": false
+  },
+  "read_only_commands": {
+    "commands_create_or_modify_files": false,
+    "commands_write_RKA": false,
+    "preflight": "python3 -m g7confirm.cli career-review-preflight --repo-root <repo-root>",
+    "receipt_bundle": "python3 -m g7confirm.cli career-review-bundle --receipt <lineage.json> --receipt <domain.json>",
+    "single_receipt": "python3 -m g7confirm.cli career-review-receipt --receipt <receipt.json>"
+  },
+  "schema_version": "grideval-career-reviewer-handoff/v1",
+  "source_lineage": {
+    "m14_checkpoint_id": "chk_01M1DPSAD7H2MGY49QDJNYPK1M",
+    "m14_packet_id": "m14reviewpacket_6efed441aebe881691b3596321ca7255edf67af8d24ef59412be923e12098b25",
+    "m14a_base_commit": "363cbb48a678d1ea6b123ad5bc6aadf5c7b7635a",
+    "m14a_intake_id": "m14aintake_a4f22ef8dd509e486adc32cdd7623c3682fc2148ff8a48831f606fc256553ba4",
+    "m14b_decision_id": "dec_01M1DQQMY05E8KV19X5WHVHRC0"
+  },
+  "status": "EXACT_HANDOFF_READY_NOT_APPROVED",
+  "support_snapshot": [
+    {
+      "bytes": 14284,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/artifacts/career_source_review_packet_m14.json",
+      "sha256": "fc4339b93b99b278e4d0392622778edf4b38a7949c0e2401a5f18b409fcba5b8"
+    },
+    {
+      "bytes": 7074,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/M14_CAREER_SOURCE_REVIEW_PACKET_REPORT.md",
+      "sha256": "9e0a77c75c46db88604b67d6ba512bbb45baf5a9a3c40a04be67a24e739bcff7"
+    },
+    {
+      "bytes": 6247,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/career_review_receipt.schema.json",
+      "sha256": "e3a13d63e945d7c258fd7361c9d903fcf0af6f57d9f35163f81c9e9b5a719475"
+    },
+    {
+      "bytes": 8807,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/artifacts/career_review_receipt_intake_m14a.json",
+      "sha256": "eaa6d9ccb483392f5bb98518cf8eb565c59328a2e3f50ae7a2a92334357d4fe2"
+    },
+    {
+      "bytes": 6054,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/M14A_CAREER_REVIEW_RECEIPT_INTAKE_REPORT.md",
+      "sha256": "384678c4532c9b959349bb2bcdc985f9056f7e8e7db4fe37e163c2a55f8626f3"
+    },
+    {
+      "bytes": 22930,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/g7confirm/career_review_receipts.py",
+      "sha256": "c838819c33667eaf32115e6b08ddc5f3acdce194fdad6f3c4d2c9651e3cd53f4"
+    }
+  ],
+  "title": "CAREER M14 external reviewer handoff",
+  "worksheets": [
+    {
+      "artifact_path": "v3/g7_confirmatory/artifacts/reviewer_handoff/data_lineage_worksheet_m14b.json",
+      "reviewer_role": "independent_data_lineage_reviewer",
+      "status": "EMPTY_UNISSUED_NOT_A_RECEIPT",
+      "worksheet_id": "m14bworksheet_3296b296d9189f0d7ec9e3f5311963ba32b62af76682bde3654f571a4cecec94"
+    },
+    {
+      "artifact_path": "v3/g7_confirmatory/artifacts/reviewer_handoff/domain_method_worksheet_m14b.json",
+      "reviewer_role": "independent_domain_method_reviewer",
+      "status": "EMPTY_UNISSUED_NOT_A_RECEIPT",
+      "worksheet_id": "m14bworksheet_055076a854482b04d3c1358b076d6bc00c9f12d82915ccfe45fb4339e893de0f"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_reviewer_worksheet.schema.json",
+  "title": "GridEval M14B empty reviewer worksheet",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "worksheet_id",
+    "artifact_class",
+    "status",
+    "bound_review",
+    "reviewer_role",
+    "reviewer_fields",
+    "question_fields",
+    "review_fields",
+    "completion_rule",
+    "governance",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": { "const": "grideval-career-reviewer-worksheet/v1" },
+    "worksheet_id": {
+      "type": "string",
+      "pattern": "^m14bworksheet_[0-9a-f]{64}$"
+    },
+    "artifact_class": { "const": "empty_reviewer_worksheet_not_a_receipt" },
+    "status": { "const": "EMPTY_UNISSUED_NOT_A_RECEIPT" },
+    "bound_review": { "type": "object" },
+    "reviewer_role": {
+      "enum": [
+        "independent_data_lineage_reviewer",
+        "independent_domain_method_reviewer"
+      ]
+    },
+    "reviewer_fields": {
+      "type": "object",
+      "required": [
+        "reviewer_id",
+        "identity_verification_reference",
+        "is_packet_preparer",
+        "participated_in_source_generation",
+        "independent_from_other_required_reviewer",
+        "conflict_of_interest_declared"
+      ],
+      "properties": {
+        "reviewer_id": { "type": "null" },
+        "identity_verification_reference": { "type": "null" },
+        "is_packet_preparer": { "type": "null" },
+        "participated_in_source_generation": { "type": "null" },
+        "independent_from_other_required_reviewer": { "type": "null" },
+        "conflict_of_interest_declared": { "type": "null" }
+      },
+      "additionalProperties": false
+    },
+    "question_fields": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["ordinal", "question_sha256", "answer", "finding_references"],
+        "properties": {
+          "ordinal": { "type": "integer", "minimum": 1, "maximum": 6 },
+          "question_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "answer": { "type": "null" },
+          "finding_references": {
+            "type": "array",
+            "maxItems": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "review_fields": {
+      "type": "object",
+      "required": [
+        "comments",
+        "comments_sha256",
+        "disposition",
+        "issued_at_utc",
+        "receipt_id"
+      ],
+      "properties": {
+        "comments": { "type": "null" },
+        "comments_sha256": { "type": "null" },
+        "disposition": { "type": "null" },
+        "issued_at_utc": { "type": "null" },
+        "receipt_id": { "type": "null" }
+      },
+      "additionalProperties": false
+    },
+    "completion_rule": {
+      "const": "worksheet_never_becomes_evidence_external_reviewer_must_issue_a_separate_content_addressed_M14A_receipt"
+    },
+    "governance": { "$ref": "career_reviewer_handoff.schema.json#/$defs/governance" },
+    "limitations": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "type": "string" },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false
+}

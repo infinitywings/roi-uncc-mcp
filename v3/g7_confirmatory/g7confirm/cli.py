@@ -10,6 +10,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .campaign import expand_profile
+from .career_review_receipts import (
+    READY_FOR_GOVERNANCE,
+    SYNTHETIC_PASS,
+    evaluate_review_receipts,
+    load_review_receipt,
+)
+from .career_reviewer_handoff import (
+    M14_CHECKPOINT_ID,
+    build_reviewer_handoff_contract,
+    verify_checked_in_handoff,
+)
 from .detector_freeze import (
     build_benign_calibration_plan,
     build_detector_provenance_audit,
@@ -407,6 +418,77 @@ def cmd_paired_plan(args: argparse.Namespace) -> int:
     return 0
 
 
+def _closed_review_authorization() -> dict[str, bool]:
+    return {
+        "source_generation": False,
+        "partition_assignment": False,
+        "threshold_selection": False,
+        "resource_admission": False,
+        "model_or_embedding_access": False,
+        "tool_simulator_detector_or_actuator_access": False,
+        "evaluation_access": False,
+        "campaign": False,
+    }
+
+
+def cmd_career_review_preflight(args: argparse.Namespace) -> int:
+    """Read and verify the exact M14B handoff without modifying anything."""
+
+    issues = verify_checked_in_handoff(args.repo_root)
+    handoff = build_reviewer_handoff_contract()
+    status = (
+        handoff["status"] if not issues else "FAILED_CLOSED_NOT_APPROVED"
+    )
+    _print({
+        "status": status,
+        "handoff_id": handoff["handoff_id"],
+        "support_files": len(handoff["support_snapshot"]),
+        "worksheets": len(handoff["worksheets"]),
+        "issues": issues,
+        "checkpoint_id": M14_CHECKPOINT_ID,
+        "checkpoint_status": "OPEN_REQUIRES_EXTERNAL_RESOLUTION",
+        "authorization": _closed_review_authorization(),
+        "files_created_or_modified": 0,
+        "RKA_writes": 0,
+    })
+    return 0 if not issues else 2
+
+
+def cmd_career_review_receipt(args: argparse.Namespace) -> int:
+    """Read and validate one externally supplied receipt declaration."""
+
+    receipt = load_review_receipt(args.receipt).to_dict()
+    _print({
+        "status": "VALID_RECEIPT_DECLARATION_NOT_APPROVED",
+        "receipt_id": receipt["receipt_id"],
+        "artifact_class": receipt["artifact_class"],
+        "reviewer_role": receipt["reviewer"]["reviewer_role"],
+        "disposition": receipt["review"]["disposition"],
+        "checkpoint_id": M14_CHECKPOINT_ID,
+        "checkpoint_status": "OPEN_REQUIRES_EXTERNAL_RESOLUTION",
+        "authorization": _closed_review_authorization(),
+        "files_created_or_modified": 0,
+        "RKA_writes": 0,
+    })
+    return 0
+
+
+def cmd_career_review_bundle(args: argparse.Namespace) -> int:
+    """Read and evaluate receipt declarations without resolving the gate."""
+
+    payloads = [
+        json.loads(path.read_text(encoding="utf-8")) for path in args.receipt
+    ]
+    result = evaluate_review_receipts(payloads).to_dict()
+    result["files_created_or_modified"] = 0
+    result["RKA_writes"] = 0
+    _print(result)
+    return 0 if result["status"] in {
+        SYNTHETIC_PASS,
+        READY_FOR_GOVERNANCE,
+    } else 2
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -495,6 +577,20 @@ def build_parser() -> argparse.ArgumentParser:
     paired_plan.add_argument("--profile", required=True)
     paired_plan.add_argument("--output", required=True, type=Path)
     paired_plan.set_defaults(func=cmd_paired_plan)
+
+    review_preflight = sub.add_parser("career-review-preflight")
+    review_preflight.add_argument("--repo-root", required=True, type=Path)
+    review_preflight.set_defaults(func=cmd_career_review_preflight)
+
+    review_receipt = sub.add_parser("career-review-receipt")
+    review_receipt.add_argument("--receipt", required=True, type=Path)
+    review_receipt.set_defaults(func=cmd_career_review_receipt)
+
+    review_bundle = sub.add_parser("career-review-bundle")
+    review_bundle.add_argument(
+        "--receipt", required=True, action="append", type=Path
+    )
+    review_bundle.set_defaults(func=cmd_career_review_bundle)
     return parser
 
 

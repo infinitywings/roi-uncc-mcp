@@ -66,7 +66,11 @@ The harness provides:
 - an offline M14A review-receipt intake contract that validates exact packet
   binding, reviewer-role and identity separation, dispositions, comment
   integrity, and two-receipt bundle mechanics without issuing a real receipt,
-  resolving the M14 checkpoint, or authorizing execution.
+  resolving the M14 checkpoint, or authorizing execution; and
+- an offline M14B reviewer handoff with a six-file exact-byte preflight, two
+  null-only role worksheets that are explicitly not receipts, and three
+  read-only CLI validation commands with no receipt-creation or checkpoint-
+  resolution path.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -136,6 +140,13 @@ schemas are `artifacts/career_review_receipt_intake_m14a.json`,
 `career_review_receipt_intake.schema.json`. M14A checks receipt declarations
 and exact bindings only; external governance must establish reviewer identity
 and independence, and the M14 checkpoint remains open.
+The M14B reviewer workflow is documented in
+`M14B_CAREER_REVIEWER_HANDOFF_REPORT.md`; its contract, empty worksheets, and
+schemas are `artifacts/career_reviewer_handoff_m14b.json`,
+`artifacts/reviewer_handoff/`, `career_reviewer_handoff.schema.json`, and
+`career_reviewer_worksheet.schema.json`. The handoff verifies exact bytes and
+validates externally supplied declarations but cannot create a receipt or
+approve the packet.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the
