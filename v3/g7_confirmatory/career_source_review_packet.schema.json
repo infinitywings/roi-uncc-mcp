@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_source_review_packet.schema.json",
+  "title": "GridEval M14 CAREER independent source review packet",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "packet_id",
+    "milestone",
+    "title",
+    "status",
+    "governance",
+    "source_lineage",
+    "exact_review_snapshot",
+    "review_scope",
+    "prerequisite_register",
+    "proposed_generation_envelopes",
+    "independent_review_protocol",
+    "abort_conditions",
+    "canonical_status",
+    "limitations",
+    "next_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-career-source-review-packet/v1"
+    },
+    "packet_id": {
+      "type": "string",
+      "pattern": "^m14reviewpacket_[0-9a-f]{64}$"
+    },
+    "milestone": { "const": "M14" },
+    "title": { "type": "string", "minLength": 1 },
+    "status": { "const": "READY_FOR_INDEPENDENT_REVIEW_NOT_APPROVED" },
+    "governance": { "$ref": "#/$defs/governance" },
+    "source_lineage": { "type": "object" },
+    "exact_review_snapshot": {
+      "type": "array",
+      "minItems": 13,
+      "maxItems": 13,
+      "items": { "$ref": "#/$defs/snapshotEntry" }
+    },
+    "review_scope": { "type": "object" },
+    "prerequisite_register": {
+      "type": "object",
+      "required": ["S", "M", "shared"],
+      "properties": {
+        "S": { "$ref": "#/$defs/prerequisiteList" },
+        "M": { "$ref": "#/$defs/prerequisiteList" },
+        "shared": { "$ref": "#/$defs/prerequisiteList" }
+      },
+      "additionalProperties": false
+    },
+    "proposed_generation_envelopes": {
+      "type": "object",
+      "required": ["S", "M"],
+      "properties": {
+        "S": { "type": "object" },
+        "M": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "independent_review_protocol": { "$ref": "#/$defs/reviewProtocol" },
+    "abort_conditions": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "canonical_status": { "type": "object" },
+    "limitations": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "next_gate": { "type": "object" }
+  },
+  "$defs": {
+    "governance": {
+      "type": "object",
+      "required": [
+        "development_only",
+        "packet_preparation_only",
+        "campaign_authorized",
+        "evaluation_sealed",
+        "real_source_generation_authorized",
+        "real_partition_assignment_authorized",
+        "real_review_receipt_issuance_authorized",
+        "scientific_threshold_freeze_authorized",
+        "real_resource_admission_authorized",
+        "model_or_embedding_access_authorized",
+        "tool_simulator_detector_or_actuator_access_authorized"
+      ],
+      "properties": {
+        "development_only": { "const": true },
+        "packet_preparation_only": { "const": true },
+        "campaign_authorized": { "const": false },
+        "evaluation_sealed": { "const": true },
+        "real_source_generation_authorized": { "const": false },
+        "real_partition_assignment_authorized": { "const": false },
+        "real_review_receipt_issuance_authorized": { "const": false },
+        "scientific_threshold_freeze_authorized": { "const": false },
+        "real_resource_admission_authorized": { "const": false },
+        "model_or_embedding_access_authorized": { "const": false },
+        "tool_simulator_detector_or_actuator_access_authorized": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "snapshotEntry": {
+      "type": "object",
+      "required": ["path", "bytes", "sha256", "git_tracked_at_base_commit"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "git_tracked_at_base_commit": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "prerequisiteList": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "$ref": "#/$defs/prerequisite" },
+      "uniqueItems": true
+    },
+    "prerequisite": {
+      "type": "object",
+      "required": ["id", "description", "status", "evidence_id"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "status": { "const": "OPEN_NOT_SATISFIED" },
+        "evidence_id": { "type": "null" }
+      },
+      "additionalProperties": false
+    },
+    "reviewProtocol": {
+      "type": "object",
+      "required": [
+        "required_roles",
+        "required_distinct_reviewers",
+        "packet_preparer_may_review",
+        "allowed_dispositions",
+        "disposition_slots",
+        "acceptance_rule",
+        "snapshot_mutation_policy"
+      ],
+      "properties": {
+        "required_roles": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "required_distinct_reviewers": { "const": 2 },
+        "packet_preparer_may_review": { "const": false },
+        "allowed_dispositions": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "disposition_slots": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "$ref": "#/$defs/dispositionSlot" }
+        },
+        "acceptance_rule": { "type": "string", "minLength": 1 },
+        "snapshot_mutation_policy": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "dispositionSlot": {
+      "type": "object",
+      "required": [
+        "reviewer_role",
+        "reviewer_id",
+        "disposition",
+        "comments_sha256",
+        "bound_packet_id",
+        "receipt_id",
+        "status"
+      ],
+      "properties": {
+        "reviewer_role": { "type": "string", "minLength": 1 },
+        "reviewer_id": { "type": "null" },
+        "disposition": { "type": "null" },
+        "comments_sha256": { "type": "null" },
+        "bound_packet_id": { "type": "null" },
+        "receipt_id": { "type": "null" },
+        "status": { "const": "UNISSUED_DESIGN_ONLY" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

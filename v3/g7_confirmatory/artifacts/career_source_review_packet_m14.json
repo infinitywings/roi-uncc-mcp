@@ -1,0 +1,382 @@
+{
+  "abort_conditions": [
+    "any_external_service_or_runtime_access_before_separate_authorization",
+    "any_prerequisite_missing_or_changed",
+    "authority_observation_or_candidate_scope_expansion",
+    "partition_overlap_or_outcome_informed_assignment",
+    "review_receipt_not_bound_to_exact_packet",
+    "review_snapshot_byte_or_commit_mismatch",
+    "reviewer_identity_conflict_or_reuse",
+    "treatment_detector_confirmation_or_evaluation_outcome_access",
+    "unbounded_or_campaign_scale_execution_request",
+    "unreviewed_numeric_engineering_or_model_choice"
+  ],
+  "canonical_status": {
+    "M_real_resource": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+    "M_scientific_threshold": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+    "M_source_package": "UNBUILT_DESIGN_ONLY",
+    "S_real_resource": "HOLD_PENDING_PREREGISTERED_THRESHOLDS_AND_INDEPENDENT_EVIDENCE",
+    "S_scientific_threshold": "UNSET_NOT_SCIENTIFICALLY_JUSTIFIED",
+    "S_source_package": "UNBUILT_DESIGN_ONLY",
+    "campaign": "HOLD",
+    "evaluation": "SEALED",
+    "independent_review": "UNISSUED_DESIGN_ONLY",
+    "packet": "READY_FOR_INDEPENDENT_REVIEW_NOT_APPROVED",
+    "partition_assignments": "UNASSIGNED_DESIGN_ONLY"
+  },
+  "exact_review_snapshot": [
+    {
+      "bytes": 5433,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/experiment_spec.yaml",
+      "sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d"
+    },
+    {
+      "bytes": 445019,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/roadmap_2026/report.html",
+      "sha256": "c4fc1168708c0d47d1162754296d3f731c51028650aaeab739aca42fb3aa827b"
+    },
+    {
+      "bytes": 10796,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/artifacts/career_stealth_contract_m8.json",
+      "sha256": "8ab204b567cc3959eeccfdc61719b201ec8030aef1cc11a16ceb632350a19bea"
+    },
+    {
+      "bytes": 15464,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/artifacts/career_two_interval_fixture_m9.json",
+      "sha256": "5c03d8590d705a5fd20730ce319c970d6f683e7e72d8992f310b735327e677e6"
+    },
+    {
+      "bytes": 45809,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/artifacts/career_resource_admission_m10.json",
+      "sha256": "60c1bb2c7a73c2cc2a6904b291ce50f6754fb390a7519cc855b92864bf275683"
+    },
+    {
+      "bytes": 10838,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/artifacts/career_threshold_hold_m11.json",
+      "sha256": "6a58f7b98a421f9107e23bb95f9d5fc9c3d2c9777d0dcbd467586d6d833dc25a"
+    },
+    {
+      "bytes": 13315,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/artifacts/career_source_freeze_design_m12.json",
+      "sha256": "7801e1b2c1fd3a50daa6c3660c47a20992305de771205c93c575d6bdf91aa464"
+    },
+    {
+      "bytes": 34538,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/g7confirm/career_source_freeze_design.py",
+      "sha256": "fdc450dacee1ade01c0b361fc7028bd3b6df5ffde21946635c272323fe98544e"
+    },
+    {
+      "bytes": 8904,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/career_source_freeze_design.schema.json",
+      "sha256": "d43874b2411d4e594cd3d5aa4d1ff1eb04e06a50ed0200726f84130c63fe7675"
+    },
+    {
+      "bytes": 26460,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/artifacts/career_source_manifest_matrix_m13.json",
+      "sha256": "85917e3be3655a06012b68a21cb08355064367ab8b2b5dbcf4c75b05e08845b0"
+    },
+    {
+      "bytes": 34607,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/g7confirm/career_source_manifest_validator.py",
+      "sha256": "2d59ec65edc3fd78c52053bab0a95d67352077bdff5f7ad184bd4b53e43beaca"
+    },
+    {
+      "bytes": 7444,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/career_source_manifest_matrix.schema.json",
+      "sha256": "4c96583aa09ba26175fca3117d6cc979a5e79016db9f8bc765b46f4fa1425d0f"
+    },
+    {
+      "bytes": 5901,
+      "git_tracked_at_base_commit": true,
+      "path": "v3/g7_confirmatory/M13_CAREER_SOURCE_MANIFEST_VALIDATOR_REPORT.md",
+      "sha256": "862b8fc6edca22d48118eca8424e99c2c693dc552ff068852504e2b359401e34"
+    }
+  ],
+  "governance": {
+    "campaign_authorized": false,
+    "development_only": true,
+    "evaluation_sealed": true,
+    "model_or_embedding_access_authorized": false,
+    "packet_preparation_only": true,
+    "real_partition_assignment_authorized": false,
+    "real_resource_admission_authorized": false,
+    "real_review_receipt_issuance_authorized": false,
+    "real_source_generation_authorized": false,
+    "scientific_threshold_freeze_authorized": false,
+    "tool_simulator_detector_or_actuator_access_authorized": false
+  },
+  "independent_review_protocol": {
+    "acceptance_rule": "two_distinct_non_preparer_acceptances_bound_to_exact_packet",
+    "allowed_dispositions": [
+      "accept_exact_packet",
+      "request_changes",
+      "reject"
+    ],
+    "disposition_slots": [
+      {
+        "bound_packet_id": null,
+        "comments_sha256": null,
+        "disposition": null,
+        "receipt_id": null,
+        "reviewer_id": null,
+        "reviewer_role": "independent_data_lineage_reviewer",
+        "status": "UNISSUED_DESIGN_ONLY"
+      },
+      {
+        "bound_packet_id": null,
+        "comments_sha256": null,
+        "disposition": null,
+        "receipt_id": null,
+        "reviewer_id": null,
+        "reviewer_role": "independent_domain_method_reviewer",
+        "status": "UNISSUED_DESIGN_ONLY"
+      }
+    ],
+    "packet_preparer_may_review": false,
+    "required_distinct_reviewers": 2,
+    "required_roles": [
+      "independent_data_lineage_reviewer",
+      "independent_domain_method_reviewer"
+    ],
+    "snapshot_mutation_policy": "any_byte_change_invalidates_both_reviews"
+  },
+  "limitations": [
+    "no_evaluation_or_campaign_authorization",
+    "no_independent_review_or_disposition_recorded",
+    "no_numeric_engineering_or_model_choice",
+    "no_physical_ranking_or_factor_effect_claim",
+    "no_real_source_partition_or_runtime_instantiated",
+    "no_scientific_threshold_or_resource_admission",
+    "packet_prepared_by_non_independent_executor"
+  ],
+  "milestone": "M14",
+  "next_gate": {
+    "evaluation_access": false,
+    "id": "M15_post_independent_review_resolution",
+    "model_or_embedding_call": false,
+    "permitted_without_receipts": "packet_revision_only",
+    "real_partition_assignment_authorized": false,
+    "real_source_generation_authorized": false,
+    "requires_two_bound_independent_review_receipts": true,
+    "simulator_or_detector_access": false
+  },
+  "packet_id": "m14reviewpacket_6efed441aebe881691b3596321ca7255edf67af8d24ef59412be923e12098b25",
+  "prerequisite_register": {
+    "M": [
+      {
+        "description": "Tracked deterministic M ranker implementation",
+        "evidence_id": null,
+        "id": "tracked_deterministic_ranker",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Prospective ranker-family selection",
+        "evidence_id": null,
+        "id": "algorithm_family_selection",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "M9-ID-preserving physical instantiation",
+        "evidence_id": null,
+        "id": "engineering_instantiation_manifest",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Frozen primary-endpoint computation",
+        "evidence_id": null,
+        "id": "primary_endpoint_definition",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Frozen no-new-observation feature schema",
+        "evidence_id": null,
+        "id": "feature_schema",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Frozen M development-seed registry",
+        "evidence_id": null,
+        "id": "development_seed_registry",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Outcome-blind M source partition assignment",
+        "evidence_id": null,
+        "id": "M_source_partition_assignment",
+        "status": "OPEN_NOT_SATISFIED"
+      }
+    ],
+    "S": [
+      {
+        "description": "Tracked deterministic S source generator",
+        "evidence_id": null,
+        "id": "tracked_deterministic_generator",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Frozen development operating-cell registry",
+        "evidence_id": null,
+        "id": "operating_cell_registry",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Frozen S development-seed registry",
+        "evidence_id": null,
+        "id": "development_seed_registry",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Frozen paired symmetric probe schedule",
+        "evidence_id": null,
+        "id": "symmetric_perturbation_schedule",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Frozen units, precision, and rounding policy",
+        "evidence_id": null,
+        "id": "numeric_precision_policy",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Outcome-blind S source partition assignment",
+        "evidence_id": null,
+        "id": "S_source_partition_assignment",
+        "status": "OPEN_NOT_SATISFIED"
+      }
+    ],
+    "shared": [
+      {
+        "description": "Two distinct non-preparer reviewers",
+        "evidence_id": null,
+        "id": "independent_reviewer_identities",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Two acceptances bound to exact packet bytes",
+        "evidence_id": null,
+        "id": "two_bound_acceptance_receipts",
+        "status": "OPEN_NOT_SATISFIED"
+      },
+      {
+        "description": "Separate bounded development authorization",
+        "evidence_id": null,
+        "id": "bounded_source_generation_authorization",
+        "status": "OPEN_NOT_SATISFIED"
+      }
+    ]
+  },
+  "proposed_generation_envelopes": {
+    "M": {
+      "allowed_outputs": [
+        "content_addressed_training_input_manifest",
+        "content_addressed_frozen_ranker",
+        "content_addressed_M_ranking_resource"
+      ],
+      "candidate_binding": {
+        "ordered_candidate_ids": [
+          "fixtureplan_426a4d927d38c4798b99250d8383c60994a91a466bec21df3e22e15d4d973938",
+          "fixtureplan_abaacb00f37f6a00d731bf09a8a71823f9036f04d2727001ef478d08de5b9c96",
+          "fixtureplan_627b5c82da4d000905602be7bbd05b666c4521c7182e222b55d82129549ec7aa"
+        ],
+        "physical_instantiation_manifest": null,
+        "primary_endpoint_definition": null
+      },
+      "future_runtime_dependency": "requires_separate_bounded_simulator_overlay_after_review",
+      "numeric_values": {
+        "context_count": null,
+        "model_complexity_cap": null,
+        "runtime_cap": null,
+        "seed_count": null,
+        "training_block_count": null
+      },
+      "prohibited_access": [
+        "detector_or_alarm_outcomes",
+        "embedding_service",
+        "evaluation_records",
+        "model_service",
+        "online_update",
+        "other_factor_derived_resource",
+        "treatment_or_confirmation_outcomes"
+      ],
+      "purpose": "M_development_source_derivation_only",
+      "ranker_constraints": {
+        "algorithm_family": null,
+        "new_raw_observations": false,
+        "online_update": false,
+        "tie_break_rule": "frozen_M9_candidate_order",
+        "uses_S_derived_resource": false
+      },
+      "status": "NOT_AUTHORIZED_REVIEW_PROPOSAL_ONLY"
+    },
+    "S": {
+      "allowed_outputs": [
+        "content_addressed_raw_input_manifest",
+        "content_addressed_S_relationship_resource"
+      ],
+      "authority": {
+        "controlled_device_count": 1,
+        "controlled_variable": "active_charging_setpoint",
+        "reactive_power_axis": "outside_primary_scope_not_zero_imputed",
+        "response_variable": "exposed_bus_voltage_telemetry",
+        "surface": "single_ev_aggregator_setpoint"
+      },
+      "future_runtime_dependency": "requires_separate_bounded_simulator_overlay_after_review",
+      "numeric_values": {
+        "episode_count": null,
+        "operating_cell_count": null,
+        "probe_amplitude": null,
+        "runtime_cap": null,
+        "seed_count": null
+      },
+      "prohibited_access": [
+        "detector_or_alarm_outcomes",
+        "embedding_service",
+        "evaluation_records",
+        "model_service",
+        "online_update",
+        "other_factor_derived_resource",
+        "treatment_or_confirmation_outcomes"
+      ],
+      "purpose": "S_development_source_derivation_only",
+      "status": "NOT_AUTHORIZED_REVIEW_PROPOSAL_ONLY"
+    }
+  },
+  "review_scope": {
+    "out_of_scope": [
+      "detector_calibration_or_stealth_claim",
+      "evaluation_or_campaign_execution",
+      "real_source_or_partition_generation",
+      "scientific_threshold_selection",
+      "treatment_effect_estimation"
+    ],
+    "questions": [
+      "Are all proposed runtime quantities and algorithm choices correctly left unset pending review?",
+      "Are content-addressing, deterministic reproduction, reviewer independence, and abort criteria sufficient before source generation?",
+      "Do information grants keep A, S, and M independently interpretable?",
+      "Does M preserve the exact ordered M9 candidate IDs and require a separate physical-instantiation manifest?",
+      "Does S preserve the single-EV active-setpoint authority and exclude an unvalidated reactive channel?",
+      "Does the eight-role partition design prevent derivation, threshold, validation, confirmation, and evaluation leakage?"
+    ]
+  },
+  "schema_version": "grideval-career-source-review-packet/v1",
+  "source_lineage": {
+    "m13_base_commit": "cbccdaa069784adbb3c03d130a42c5d0027ce16d",
+    "m13_matrix_id": "m13matrix_4025c6e7342d20113eb56bfd0c75676f9160389db968456b88603f61156ae7a3",
+    "m14_decision": "dec_01M1DPBJJQR8346RVZBKFSBDH7",
+    "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36"
+  },
+  "status": "READY_FOR_INDEPENDENT_REVIEW_NOT_APPROVED",
+  "title": "CAREER independent clean-source generation review packet"
+}

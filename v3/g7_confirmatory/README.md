@@ -59,7 +59,10 @@ The harness provides:
   slots, and unissued two-reviewer receipt templates; and
 - an offline M13 source-manifest validator with two synthetic structural passes
   and twelve single-fault fail-closed cases, none of which changes a real
-  source, partition, review, threshold, or resource status.
+  source, partition, review, threshold, or resource status; and
+- an offline M14 independent-review packet that binds thirteen governing files
+  to an exact Git commit while leaving every prerequisite, review disposition,
+  numerical choice, and execution authorization open.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -117,6 +120,11 @@ The M13 synthetic validator is documented in
 schema are `artifacts/career_source_manifest_matrix_m13.json` and
 `career_source_manifest_matrix.schema.json`. A positive M13 receipt is
 structural-only and cannot approve a real source.
+The M14 review boundary is documented in
+`M14_CAREER_SOURCE_REVIEW_PACKET_REPORT.md`; its content-addressed packet and
+schema are `artifacts/career_source_review_packet_m14.json` and
+`career_source_review_packet.schema.json`. It is ready for independent review
+but is not approved and authorizes no source generation.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the

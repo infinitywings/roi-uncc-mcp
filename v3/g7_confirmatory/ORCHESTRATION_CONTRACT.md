@@ -2,7 +2,7 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M13 for the research roadmap. M1–M3
+This document defines milestones M1–M14 for the research roadmap. M1–M3
 are development-only offline contracts. M4 adds separately bounded model-output
 parsing receipts. M5 returns to an offline-only, content-addressed interactive
 tool-loop protocol. M6 adds a two-turn model replay with an injected read-only
@@ -20,7 +20,8 @@ profiles, disjoint empirical roles, and independent-review templates while
 leaving every empirical field uninstantiated. M13 enforces those rules against
 two positive and twelve single-fault synthetic manifests. No milestone calls an
 embedding service, simulator, detector, calibration pipeline, or evaluation
-partition, and none authorizes a campaign.
+partition. M14 prepares an exact-byte independent-review packet but records no
+review decision. No milestone authorizes a campaign.
 
 The frozen `experiment_spec.yaml` remains byte-identical with SHA-256
 `79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d`.
@@ -203,6 +204,28 @@ and admits no resource. Full interpretation is in
 `M13_CAREER_SOURCE_MANIFEST_VALIDATOR_REPORT.md`; validation is implemented by
 `g7confirm.career_source_manifest_validator`, and the matrix schema is
 `career_source_manifest_matrix.schema.json`.
+
+## M14 independent source-generation review packet
+
+M14 binds thirteen governing M8–M13 files to exact paths, byte counts, SHA-256
+values, and base commit `cbccdaa069784adbb3c03d130a42c5d0027ce16d`. The packet
+defines six review questions, the `S`, `M`, and shared prerequisite registers,
+two non-executable generation proposals, ten abort conditions, and two empty
+independent-review disposition slots.
+
+Every prerequisite remains `OPEN_NOT_SATISFIED`. All numeric engineering and
+model choices remain `null`. The data-lineage and domain-method reviewer slots
+contain no identity, disposition, comments hash, packet binding, or receipt ID.
+The preparing executor cannot occupy either slot, and any review-snapshot byte
+change invalidates both future receipts.
+
+Passing M14 tests establishes that the packet is stable and ready to inspect.
+It is not independent acceptance and cannot assign a partition, generate a
+source, call a runtime service, select a threshold, or admit a resource. Full
+interpretation is in `M14_CAREER_SOURCE_REVIEW_PACKET_REPORT.md`; semantic and
+exact-byte validation is implemented by
+`g7confirm.career_source_review_packet`, and the schema is
+`career_source_review_packet.schema.json`.
 
 ## Research contract
 
@@ -605,6 +628,7 @@ python3 -m unittest discover -s tests -p 'test_career_resource_admission.py' -v
 python3 -m unittest discover -s tests -p 'test_career_threshold_hold.py' -v
 python3 -m unittest discover -s tests -p 'test_career_source_freeze_design.py' -v
 python3 -m unittest discover -s tests -p 'test_career_source_manifest_validator.py' -v
+python3 -m unittest discover -s tests -p 'test_career_source_review_packet.py' -v
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q g7confirm tests
 sha256sum experiment_spec.yaml
@@ -627,6 +651,7 @@ jq empty artifacts/ai_v2_component_matrix.json \
   artifacts/career_threshold_hold_m11.json \
   artifacts/career_source_freeze_design_m12.json \
   artifacts/career_source_manifest_matrix_m13.json \
+  artifacts/career_source_review_packet_m14.json \
   candidate_space_receipt.schema.json \
   search_surface.schema.json \
   ia4_request.schema.json \
@@ -643,17 +668,17 @@ jq empty artifacts/ai_v2_component_matrix.json \
   career_threshold_hold.schema.json \
   career_source_freeze_design.schema.json \
   career_source_manifest_matrix.schema.json \
+  career_source_review_packet.schema.json \
   tests/fixtures/ia4_plan_response.json \
   tests/fixtures/ia4_refusal_response.json \
   tests/fixtures/ia4_no_action_response.json
 ```
 
-All tests, M5 fixture generation, M7 preregistration, and M8–M13 contract and
+All tests, M5 fixture generation, M7 preregistration, and M8–M14 contract and
 fixture generation are offline. The two M4
 receipts, three M6 receipts, and two M7 paired receipts required model network
-access; M6 and M7 executed no real tool. The next gate is the offline M14
-independent source-generation prerequisite review packet; it cannot perform the
-review, instantiate sources or partitions, or select thresholds. Any later
-model, live-tool, or one-window development smoke still
+access; M6 and M7 executed no real tool. The next gate is M15 post-review
+resolution. Without two independent packet-bound receipts, only packet revision
+is permitted. Any later model, live-tool, or one-window development smoke still
 requires its own execution overlay, bounded reward metric, and scientific gate
 and would not open evaluation.

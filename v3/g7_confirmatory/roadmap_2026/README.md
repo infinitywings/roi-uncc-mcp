@@ -49,6 +49,10 @@ The offline M13 synthetic source-manifest validator is documented in
 `../M13_CAREER_SOURCE_MANIFEST_VALIDATOR_REPORT.md`. Its two positive and twelve
 single-fault negative fixtures test the M12 gate without changing any real
 source, partition, review, threshold, or resource status.
+The M14 exact-byte independent-review packet is documented in
+`../M14_CAREER_SOURCE_REVIEW_PACKET_REPORT.md`. It is ready for external review
+but records no approval, leaves all generation prerequisites open, and does not
+amend the frozen report.
 This separation avoids rewriting the report's original source manifest while
 keeping current protocol evidence explicit.
 
