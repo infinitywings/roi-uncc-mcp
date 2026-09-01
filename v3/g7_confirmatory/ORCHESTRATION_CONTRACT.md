@@ -2,13 +2,14 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M6 for the IA0–IA5 research roadmap. M1–M3
+This document defines milestones M1–M7 for the IA0–IA5 research roadmap. M1–M3
 are development-only offline contracts. M4 adds separately bounded model-output
 parsing receipts. M5 returns to an offline-only, content-addressed interactive
 tool-loop protocol. M6 adds a two-turn model replay with an injected read-only
-fixture. No milestone calls an embedding service, simulator,
-detector, calibration pipeline, or evaluation partition, and none authorizes a
-campaign.
+fixture. M7 adds a preregistered mirrored counterfactual fixture pair with a
+causal candidate-switching endpoint. No milestone calls an embedding service,
+simulator, detector, calibration pipeline, or evaluation partition, and none
+authorizes a campaign.
 
 The frozen `experiment_spec.yaml` remains byte-identical with SHA-256
 `79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d`.
@@ -63,7 +64,7 @@ relations between a parameter and its materialized action remain a future
 mechanism-adapter responsibility; M1 validates the declared types, bounds,
 authority, and physical budget.
 
-## Reference ladder implemented through M6
+## Reference ladder implemented through M7
 
 | Rung | Offline reference behavior | What it can establish |
 |---|---|---|
@@ -75,6 +76,7 @@ authority, and physical budget.
 | IA4 model replay boundary | Binds one raw completion to the exact surface and replays it through the strict adapter. | Transport and parsing evidence only; no attack-quality claim. |
 | IA4 interactive fixture boundary | Enforces model/tool/terminal state transitions and exact tool-result lineage. | Offline protocol evidence only; no live model or tool-use claim. |
 | IA4 interactive model replay | Requires one read-only request, injects a frozen fixture, and requires a terminal second turn. | Model protocol-following evidence only; no causal-information or real-tool claim. |
+| IA4 paired counterfactual fixture | Swaps only target-sensitivity values over two target-only symmetric candidates. | Synthetic causal tool-result sensitivity under an explicit scoring rule; no autonomous grid-reasoning claim. |
 | IA3 matched interactive control | Uses the same protocol, tool fixture, candidate surface, and physical validator with a frozen non-LLM rule. | Comparator-interface parity only; empirical strength remains untested. |
 
 The `FixedMaximumPowerComparator` is a separate IA1 controller and accepts
@@ -105,7 +107,8 @@ strength or campaign readiness.
 M3 does not implement a live IA4 controller. M4 qualifies one-turn model
 parsing, and M5 implements the offline interactive boundary a future live IA4
 controller must use. M6 qualifies model transport over one injected read-only
-result. IA5 remains unimplemented and must add only the
+result. M7 qualifies one mirrored synthetic causal-sensitivity pair. IA5
+remains unimplemented and must add only the
 preregistered bounded critique path and its compute-matched control.
 
 ## M3 shared search surface
@@ -261,6 +264,31 @@ counterfactual fixture swaps before any real observation adapter is enabled.
 Full evidence and limitations are in `M6_INTERACTIVE_MODEL_REPORT.md`; the
 receipt schema is `ia4_interactive_model_smoke.schema.json`.
 
+## M7 paired counterfactual tool-use qualification
+
+M7 replaces the confounded M6 candidate comparison with a new symmetric
+surface. Both candidates use the same 30 kW `matched_step`, parameters,
+authority, budgets, and objective; target ID is the only difference. The
+read-only synthetic tool returns target-specific voltage-stress gains. Two
+conditions swap only those gains, while both conditions reuse turn seeds 8103
+and 8104.
+
+The preregistered primary endpoint requires two valid terminal plans, 2/2
+directionally correct choices, and a candidate switch. The matched IA3 argmax
+control receives the exact same interface and passes the same common validator.
+The configured model passed: it selected DER_A for gains 0.020 versus 0.005,
+then DER_B when the gains were mirrored. The final reference run used one
+discovery, four completions, 12,583 model tokens, two injected fixture results,
+zero real tool executions, and zero rollouts.
+
+This establishes causal sensitivity to the synthetic typed result under an
+explicit arithmetic rule. It does not establish autonomous grid reasoning,
+physics validity, robustness, advantage over IA3, real-tool safety, harmful
+impact, detector evasion, or campaign readiness. Full evidence is in
+`M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; the preregistration and receipt schemas
+are `ia4_counterfactual_contract.schema.json` and
+`ia4_counterfactual_model_smoke.schema.json`.
+
 ## Tool contract
 
 Every tool declares one side-effect class:
@@ -363,6 +391,14 @@ The three `artifacts/ia4_interactive_model_smoke_m6_attempt*.json` receipts
 record the immutable M6 provider failure, lineage failure, and successful
 two-turn model qualification.
 
+`artifacts/ia4_counterfactual_contract_m7.json` freezes the M7 intervention,
+matched IA3 control, primary endpoint, and hard stops before transport.
+`artifacts/ia4_counterfactual_model_smoke_m7_attempt1.json` preserves the
+passing result with the inherited offline transport-provenance anomaly.
+`artifacts/ia4_counterfactual_model_smoke_m7_attempt2_transport_provenance.json`
+records the repeated passing result with model transport declared at both the
+paired-artifact and nested session-receipt levels.
+
 ## Local verification
 
 From `v3/g7_confirmatory`:
@@ -374,6 +410,7 @@ python3 -m unittest discover -s tests -p 'test_search_surface_ia4.py' -v
 python3 -m unittest discover -s tests -p 'test_ia4_model.py' -v
 python3 -m unittest discover -s tests -p 'test_ia4_tool_loop.py' -v
 python3 -m unittest discover -s tests -p 'test_ia4_interactive_model.py' -v
+python3 -m unittest discover -s tests -p 'test_ia4_counterfactual.py' -v
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q g7confirm tests
 sha256sum experiment_spec.yaml
@@ -387,6 +424,9 @@ jq empty artifacts/ai_v2_component_matrix.json \
   artifacts/ia4_interactive_model_smoke_m6_attempt1.json \
   artifacts/ia4_interactive_model_smoke_m6_attempt2_compat.json \
   artifacts/ia4_interactive_model_smoke_m6_attempt3_fixed_call_id.json \
+  artifacts/ia4_counterfactual_contract_m7.json \
+  artifacts/ia4_counterfactual_model_smoke_m7_attempt1.json \
+  artifacts/ia4_counterfactual_model_smoke_m7_attempt2_transport_provenance.json \
   candidate_space_receipt.schema.json \
   search_surface.schema.json \
   ia4_request.schema.json \
@@ -395,15 +435,18 @@ jq empty artifacts/ai_v2_component_matrix.json \
   ia4_model_smoke.schema.json \
   ia4_interactive_contract.schema.json \
   ia4_interactive_model_smoke.schema.json \
+  ia4_counterfactual_contract.schema.json \
+  ia4_counterfactual_model_smoke.schema.json \
   tests/fixtures/ia4_plan_response.json \
   tests/fixtures/ia4_refusal_response.json \
   tests/fixtures/ia4_no_action_response.json
 ```
 
-All tests and M5 fixture generation are offline. The two M4 receipts and three
-M6 receipts required model network access; M6 executed no real tool. The next
-model gate is a separately content-addressed counterfactual fixture experiment
-that must preserve the exact surface, tool-result lineage, turn and token caps,
-and matched IA3 accounting. A later independently gated live-tool or one-window
-development smoke would still require an execution overlay and bound reward
-metric and would not open evaluation.
+All tests, M5 fixture generation, and M7 preregistration are offline. The two M4
+receipts, three M6 receipts, and two M7 paired receipts required model network
+access; M6 and M7 executed no real tool. The next gate is a fixture-only M8
+robustness matrix covering irrelevant, unavailable, conflicting, near-tie, and
+lineage-shuffled results, multiple seed pairs, candidate-order reversal, and a
+control prompt without the arithmetic rule. A later independently gated live-
+tool or one-window development smoke would still require a new execution
+overlay and bounded reward metric and would not open evaluation.

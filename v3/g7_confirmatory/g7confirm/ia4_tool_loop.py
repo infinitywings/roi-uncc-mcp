@@ -839,10 +839,14 @@ class IAInteractiveSession:
                 self._fail_closed(str(exc))
             raise
 
-    def receipt(self) -> dict[str, Any]:
+    def receipt(self, *, model_transport_used: bool = False) -> dict[str, Any]:
+        """Emit a terminal receipt with execution-overlay transport provenance."""
+
         if self.state not in {
                 InteractiveState.TERMINAL, InteractiveState.FAILED_CLOSED}:
             raise ContractViolation("cannot emit a receipt for a live M5 session")
+        if not isinstance(model_transport_used, bool):
+            raise ContractViolation("model_transport_used must be boolean")
         decision = self.terminal_decision
         return {
             "schema_version": M5_EPISODE_RECEIPT_SCHEMA_VERSION,
@@ -855,7 +859,7 @@ class IAInteractiveSession:
             "development_only": True,
             "campaign_authorized": False,
             "evaluation_sealed": True,
-            "model_transport_used": False,
+            "model_transport_used": model_transport_used,
             "tool_execution_used": False,
             "simulator_accessed": False,
             "detector_accessed": False,

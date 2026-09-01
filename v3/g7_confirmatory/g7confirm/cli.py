@@ -21,6 +21,14 @@ from .ia4_interactive_model import (
     build_default_m6_overlay,
     perform_bounded_interactive_model_smoke,
 )
+from .ia4_counterfactual import (
+    M7_SMOKE_SCHEMA_VERSION,
+    M7ModelOverlay,
+    build_default_m7_overlay,
+    build_m7_contract_artifact,
+    perform_m7_counterfactual_model_smoke,
+    validate_m7_contract_artifact,
+)
 from .ia4_smoke_fixture import build_m4_smoke_adapter
 from .ia4_tool_loop import build_m5_contract_artifact
 from .model_client import ModelClientError, request_proposal
@@ -225,6 +233,84 @@ def cmd_ia4_interactive_model_smoke(args: argparse.Namespace) -> int:
     return 0 if artifact["status"] == "passed" else 2
 
 
+def _m7_overlay(spec: dict) -> M7ModelOverlay:
+    development = tuple(map(int, spec["partitions"]["development"]))
+    if len(development) < 4:
+        raise ValueError("M7 requires development seeds 8103 and 8104")
+    return build_default_m7_overlay(
+        model_id=spec["model"]["id"],
+        development_seeds=development[2:4],
+        timeout_s=float(spec["model"]["timeout_s"]),
+    )
+
+
+def cmd_ia4_counterfactual_contract(args: argparse.Namespace) -> int:
+    """Create the offline M7 preregistration before any model transport."""
+
+    spec = load_spec(args.spec)
+    overlay = _m7_overlay(spec)
+    artifact = build_m7_contract_artifact(
+        overlay=overlay,
+        spec_file_sha256=hashlib.sha256(args.spec.read_bytes()).hexdigest(),
+    )
+    create_once_json(args.output, artifact)
+    _print({
+        "status": "created",
+        "output": str(args.output),
+        "contract_id": artifact["contract_id"],
+        "model_requests": 0,
+        "real_tool_executions": 0,
+    })
+    return 0
+
+
+def cmd_ia4_counterfactual_model_smoke(args: argparse.Namespace) -> int:
+    """Run the bounded M7 paired counterfactual model qualification."""
+
+    spec = load_spec(args.spec)
+    overlay = _m7_overlay(spec)
+    spec_file_sha256 = hashlib.sha256(args.spec.read_bytes()).hexdigest()
+    contract = json.loads(args.contract.read_text(encoding="utf-8"))
+    validate_m7_contract_artifact(
+        artifact=contract,
+        overlay=overlay,
+        spec_file_sha256=spec_file_sha256,
+    )
+    artifact = {
+        "schema_version": M7_SMOKE_SCHEMA_VERSION,
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "protocol_id": spec["protocol_id"],
+        "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+        "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36",
+        "spec_file_sha256": spec_file_sha256,
+        "contract_id": contract["contract_id"],
+        "endpoint": spec["model"]["base_url"],
+        "expected_model_id": spec["model"]["id"],
+        "scope": "synthetic_paired_counterfactual_causal_tool_use_qualification",
+        "development_only": True,
+        "campaign_authorized": False,
+        "evaluation_sealed": True,
+        "model_transport_authorized": True,
+        "tool_execution_authorized": False,
+        "simulator_access_authorized": False,
+        "detector_access_authorized": False,
+        "embedding_access_authorized": False,
+        "overlay": overlay.to_dict(),
+    }
+    artifact.update(perform_m7_counterfactual_model_smoke(
+        base_url=spec["model"]["base_url"],
+        overlay=overlay,
+    ))
+    create_once_json(args.output, artifact)
+    _print({
+        "status": artifact["status"],
+        "output": str(args.output),
+        "completion_requests": artifact["completion_requests"],
+        "qualification": artifact["qualification"],
+    })
+    return 0 if artifact["status"] == "passed" else 2
+
+
 def cmd_manifest(args: argparse.Namespace) -> int:
     root = Path(args.root).resolve()
     files = [root / path for path in args.files]
@@ -355,6 +441,27 @@ def build_parser() -> argparse.ArgumentParser:
     ia4_interactive_model.add_argument("--spec", required=True, type=Path)
     ia4_interactive_model.add_argument("--output", required=True, type=Path)
     ia4_interactive_model.set_defaults(func=cmd_ia4_interactive_model_smoke)
+
+    ia4_counterfactual_contract = sub.add_parser(
+        "ia4-counterfactual-contract"
+    )
+    ia4_counterfactual_contract.add_argument("--spec", required=True, type=Path)
+    ia4_counterfactual_contract.add_argument("--output", required=True, type=Path)
+    ia4_counterfactual_contract.set_defaults(
+        func=cmd_ia4_counterfactual_contract
+    )
+
+    ia4_counterfactual_model = sub.add_parser(
+        "ia4-counterfactual-model-smoke"
+    )
+    ia4_counterfactual_model.add_argument("--spec", required=True, type=Path)
+    ia4_counterfactual_model.add_argument(
+        "--contract", required=True, type=Path
+    )
+    ia4_counterfactual_model.add_argument("--output", required=True, type=Path)
+    ia4_counterfactual_model.set_defaults(
+        func=cmd_ia4_counterfactual_model_smoke
+    )
 
     manifest = sub.add_parser("manifest")
     manifest.add_argument("--root", required=True, type=Path)

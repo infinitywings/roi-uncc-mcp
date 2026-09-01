@@ -16,6 +16,8 @@ is documented in `../M4_MODEL_REPLAY_REPORT.md`, and the offline M5 interactive
 tool-loop protocol is documented in `../M5_INTERACTIVE_PROTOCOL_REPORT.md`.
 The bounded two-turn M6 model qualification is documented in
 `../M6_INTERACTIVE_MODEL_REPORT.md`.
+The preregistered M7 mirrored counterfactual tool-use qualification is
+documented in `../M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`.
 This separation avoids rewriting the report's original source manifest while
 keeping current protocol evidence explicit.
 

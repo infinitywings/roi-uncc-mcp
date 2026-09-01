@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g7-m7-counterfactual-contract-v1.json",
+  "title": "GridEval G7 M7 paired counterfactual preregistration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "mission_id",
+    "spec_file_sha256",
+    "scope",
+    "development_only",
+    "campaign_authorized",
+    "evaluation_sealed",
+    "real_tool_authorized",
+    "simulator_authorized",
+    "detector_authorized",
+    "embedding_authorized",
+    "protocol",
+    "overlay",
+    "candidate_symmetry_audit",
+    "conditions",
+    "matched_ia3_controls",
+    "primary_endpoint",
+    "hard_stops",
+    "inference_boundary",
+    "contract_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-m7-counterfactual-contract/v1"
+    },
+    "project_id": {"const": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6"},
+    "mission_id": {"const": "mis_01KYMRDZHYN4QXC1XFTGP54E36"},
+    "spec_file_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "scope": {
+      "const": "synthetic_paired_counterfactual_causal_tool_use_qualification"
+    },
+    "development_only": {"const": true},
+    "campaign_authorized": {"const": false},
+    "evaluation_sealed": {"const": true},
+    "real_tool_authorized": {"const": false},
+    "simulator_authorized": {"const": false},
+    "detector_authorized": {"const": false},
+    "embedding_authorized": {"const": false},
+    "protocol": {"type": "object"},
+    "overlay": {"type": "object"},
+    "candidate_symmetry_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "same_strategy",
+        "same_parameters",
+        "same_p_kw",
+        "same_q_kvar",
+        "single_declared_difference"
+      ],
+      "properties": {
+        "same_strategy": {"const": true},
+        "same_parameters": {"const": true},
+        "same_p_kw": {"const": true},
+        "same_q_kvar": {"const": true},
+        "single_declared_difference": {"const": "target_id"}
+      }
+    },
+    "conditions": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"type": "object"}
+    },
+    "matched_ia3_controls": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"type": "object"}
+    },
+    "primary_endpoint": {"type": "object"},
+    "hard_stops": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "inference_boundary": {"type": "string", "minLength": 1},
+    "contract_id": {
+      "type": "string",
+      "pattern": "^m7contract_[0-9a-f]{64}$"
+    }
+  }
+}

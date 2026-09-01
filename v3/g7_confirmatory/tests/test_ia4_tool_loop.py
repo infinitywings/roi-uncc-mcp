@@ -199,6 +199,17 @@ class StrictSchemaTests(unittest.TestCase):
 
 
 class InteractiveLifecycleTests(unittest.TestCase):
+    def test_receipt_transport_provenance_is_overlay_supplied(self):
+        session = make_session()
+        advance_after_tool(session)
+        accept_terminal(session)
+        self.assertFalse(session.receipt()["model_transport_used"])
+        self.assertTrue(
+            session.receipt(model_transport_used=True)["model_transport_used"]
+        )
+        with self.assertRaises(ContractViolation):
+            session.receipt(model_transport_used=1)
+
     def test_request_is_deterministic_surface_bound_and_rung_explicit(self):
         session = make_session()
         first = session.next_request()

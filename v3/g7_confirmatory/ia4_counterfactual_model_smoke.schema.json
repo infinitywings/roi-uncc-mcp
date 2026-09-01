@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g7-m7-counterfactual-model-smoke-v1.json",
+  "title": "GridEval G7 M7 paired counterfactual model smoke",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "created_at_utc",
+    "protocol_id",
+    "project_id",
+    "mission_id",
+    "spec_file_sha256",
+    "contract_id",
+    "endpoint",
+    "expected_model_id",
+    "scope",
+    "development_only",
+    "campaign_authorized",
+    "evaluation_sealed",
+    "model_transport_authorized",
+    "tool_execution_authorized",
+    "simulator_access_authorized",
+    "detector_access_authorized",
+    "embedding_access_authorized",
+    "overlay",
+    "status",
+    "error",
+    "network_requests",
+    "completion_requests",
+    "model_record",
+    "episodes",
+    "qualification",
+    "tool_execution_used",
+    "simulator_accessed",
+    "detector_accessed",
+    "embedding_accessed",
+    "evaluation_accessed"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-m7-counterfactual-model-smoke/v1"
+    },
+    "created_at_utc": {"type": "string", "minLength": 1},
+    "protocol_id": {"type": "string", "minLength": 1},
+    "project_id": {"const": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6"},
+    "mission_id": {"const": "mis_01KYMRDZHYN4QXC1XFTGP54E36"},
+    "spec_file_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "contract_id": {
+      "type": "string",
+      "pattern": "^m7contract_[0-9a-f]{64}$"
+    },
+    "endpoint": {"type": "string", "minLength": 1},
+    "expected_model_id": {"const": "qwen3.6-35b-a3b"},
+    "scope": {
+      "const": "synthetic_paired_counterfactual_causal_tool_use_qualification"
+    },
+    "development_only": {"const": true},
+    "campaign_authorized": {"const": false},
+    "evaluation_sealed": {"const": true},
+    "model_transport_authorized": {"const": true},
+    "tool_execution_authorized": {"const": false},
+    "simulator_access_authorized": {"const": false},
+    "detector_access_authorized": {"const": false},
+    "embedding_access_authorized": {"const": false},
+    "overlay": {"type": "object"},
+    "status": {
+      "enum": ["passed", "failed_qualification", "failed_closed"]
+    },
+    "error": {"type": ["string", "null"]},
+    "network_requests": {"type": "integer", "minimum": 1, "maximum": 5},
+    "completion_requests": {"type": "integer", "minimum": 0, "maximum": 4},
+    "model_record": {"type": ["object", "null"]},
+    "model_transport_used": {"const": true},
+    "episodes": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 2,
+      "items": {"type": "object"}
+    },
+    "qualification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verdict",
+        "protocol_complete",
+        "directional_correct_count",
+        "directional_accuracy",
+        "candidate_switched",
+        "primary_endpoint"
+      ],
+      "properties": {
+        "verdict": {"enum": ["pass", "fail"]},
+        "protocol_complete": {"type": "boolean"},
+        "directional_correct_count": {"type": "integer", "minimum": 0, "maximum": 2},
+        "directional_accuracy": {"type": "number", "minimum": 0, "maximum": 1},
+        "candidate_switched": {"type": "boolean"},
+        "primary_endpoint": {"const": "paired_directional_candidate_switch"}
+      }
+    },
+    "tool_execution_used": {"const": false},
+    "simulator_accessed": {"const": false},
+    "detector_accessed": {"const": false},
+    "embedding_accessed": {"const": false},
+    "evaluation_accessed": {"const": false}
+  }
+}

@@ -33,7 +33,10 @@ The harness provides:
   terminal states, and a matched IA3 non-LLM control; and
 - a bounded M6 two-turn model replay that requests the read-only interface,
   receives a harness-injected fixture without tool execution, and terminates
-  through the common candidate and plan validator boundary.
+  through the common candidate and plan validator boundary; and
+- a preregistered M7 mirrored counterfactual qualification over target-only
+  symmetric candidates, with a matched IA3 control and a causal candidate-
+  switching endpoint.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -56,6 +59,10 @@ machine-readable receipt and schema are
 The M6 model qualification, including two preserved fail-closed attempts, is
 documented in `M6_INTERACTIVE_MODEL_REPORT.md`; its receipt schema is
 `ia4_interactive_model_smoke.schema.json`.
+The M7 causal tool-use qualification is documented in
+`M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
+schemas are `ia4_counterfactual_contract.schema.json` and
+`ia4_counterfactual_model_smoke.schema.json`.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the
@@ -145,6 +152,20 @@ create-once output semantics:
 python3 -m g7confirm.cli ia4-interactive-model-smoke \
   --spec experiment_spec.yaml \
   --output artifacts/ia4_interactive_model_smoke_<unique-attempt-id>.json
+```
+
+M7 separates preregistration from transport. The first command is offline; the
+second performs one discovery and at most four completions over two injected
+fixtures. Neither command executes a tool:
+
+```bash
+python3 -m g7confirm.cli ia4-counterfactual-contract \
+  --spec experiment_spec.yaml \
+  --output artifacts/ia4_counterfactual_contract_<unique-id>.json
+python3 -m g7confirm.cli ia4-counterfactual-model-smoke \
+  --spec experiment_spec.yaml \
+  --contract artifacts/ia4_counterfactual_contract_<unique-id>.json \
+  --output artifacts/ia4_counterfactual_model_smoke_<unique-attempt-id>.json
 ```
 
 The successful bounded evidence and its limitations are summarized in

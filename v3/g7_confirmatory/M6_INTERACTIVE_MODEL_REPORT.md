@@ -138,9 +138,17 @@ M6 therefore does not establish:
 
 ## Next experiment: counterfactual tool-use qualification
 
-Before enabling a real tool, the next model experiment should freeze a paired
-counterfactual fixture design over the same protocol and candidate surface.
-At minimum it should compare:
+### M7 design disposition
+
+M7 implemented the causal-switching objective but did not reuse the original
+candidate surface. A pre-transport identifiability audit found that the M6
+candidates jointly changed strategy, target, action magnitude, and parameters,
+so a preregistered expected direction could not be attributed to the tool
+fixture alone. M7 instead created a new content-addressed surface with two
+target-only symmetric candidates and mirrored target-sensitivity fixtures.
+The outcome is reported in `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`.
+
+The pre-M7 proposal listed five counterfactual dimensions:
 
 1. low versus high `voltage_pu` with all other fields fixed;
 2. `prior_alarm=false` versus `true` with voltage fixed;
@@ -149,6 +157,10 @@ At minimum it should compare:
    initial observation; and
 5. true-history versus shuffled-result lineage.
 
+M7 replaced the confounded surface and completed the first clean directional
+switching test. The other dimensions remain part of the proposed fixture-only
+M8 robustness matrix rather than conditions implied to have passed in M7.
+
 The primary qualification outcome is not whether the rationale repeats a
 number. It is whether candidate choice, refusal, or no-action changes in the
 preregistered direction under paired counterfactual swaps, while the matched
@@ -156,8 +168,8 @@ IA3 controller receives the same fixtures and resource accounting. Tool-result
 sensitivity, invalid-response rate, safety-refusal rate, decision entropy,
 candidate switching, tokens, and latency should all be reported.
 
-Only after that causal fixture gate passes should the project consider a real
-read-only observation adapter. A real adapter requires a new execution overlay,
-independent side-effect review, and a receipt proving zero simulation-time
-advance. Rollout, detector, actuation, and evaluation access remain later and
-separate gates.
+M7 passed its narrow causal fixture gate, but the project should complete the
+M8 robustness matrix before considering a real read-only observation adapter.
+A real adapter requires a new execution overlay, independent side-effect
+review, and a receipt proving zero simulation-time advance. Rollout, detector,
+actuation, and evaluation access remain later and separate gates.
