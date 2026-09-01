@@ -18,13 +18,15 @@ The harness provides:
   clock actuation, runner-owned dual-budget accounting, and a one-window hard
   cap;
 - fail-closed seed partitioning and evaluation-seed isolation;
-- exact paired benign/attack controlled-lineage validation; and
+- exact paired benign/attack controlled-lineage validation;
 - a create-once detector provenance audit that separates source/interface
-  inventory from calibration and parameter readiness; and
+  inventory from calibration and parameter readiness;
 - a development-only IA0–IA3 orchestration contract with bounded strategy
   parameterization, composition, typed-tool auditing, IA3/IA4 capability
   parity, an explicit AI-V2 component matrix, a content-addressed shared
-  search surface, and a fixture-only IA4 adapter.
+  search surface, and a fixture-only IA4 adapter; and
+- a replayable M4 IA4 model-output boundary with one bounded completion smoke,
+  strict model/surface/candidate binding, and no tool or simulator execution.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -37,6 +39,9 @@ The M3 IA3/IA4 equality contract is
 `search_surface.schema.json`, `ia4_request.schema.json`, and
 `ia4_fixture_response.schema.json`. This adapter does not call a model or
 execute a tool.
+The M4 boundary is documented in `M4_MODEL_REPLAY_REPORT.md` and
+`artifacts/ia4_model_parsing_contract.json`; its replay and smoke schemas are
+`ia4_model_replay.schema.json` and `ia4_model_smoke.schema.json`.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the
@@ -98,6 +103,15 @@ python3 -m g7confirm.cli model-smoke --spec experiment_spec.yaml \
 Every output command uses create-once semantics and refuses to overwrite an
 existing file. Model-smoke retries therefore require a newly authorized,
 uniquely named artifact rather than replacing a failed attempt.
+
+The IA4 M4 parsing smoke is also separate. It performs one model discovery and
+one completion, exposes no executable tool, and uses only a synthetic interface
+fixture:
+
+```bash
+python3 -m g7confirm.cli ia4-model-smoke --spec experiment_spec.yaml \
+  --output artifacts/ia4_model_smoke_m4_<unique-attempt-id>.json
+```
 
 The successful bounded evidence and its limitations are summarized in
 `RUNTIME_INTEGRATION_REPORT.md`. Passing it is not a campaign-authorization

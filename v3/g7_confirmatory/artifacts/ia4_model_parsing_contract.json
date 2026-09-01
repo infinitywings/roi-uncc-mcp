@@ -1,0 +1,51 @@
+{
+  "schema_version": "grideval-g7-ia4-model-parsing-contract/v1",
+  "contract_id": "grideval-g7-ia4-model-parsing-20260831-r1",
+  "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36",
+  "status": "offline_replay_plus_one_bounded_model_smoke",
+  "development_only": true,
+  "executable": false,
+  "campaign_authorized": false,
+  "evaluation_sealed": true,
+  "completion_request_cap": 1,
+  "tool_execution_authorized": false,
+  "simulator_access_authorized": false,
+  "detector_access_authorized": false,
+  "embedding_access_authorized": false,
+  "smoke_surface": "synthetic_two_candidate_interface_fixture",
+  "observed_attempt_1": {
+    "artifact": "artifacts/ia4_model_smoke_m4_attempt1.json",
+    "transport_and_strict_parsing": "passed",
+    "parsed_decision": "safety_refusal",
+    "behavioral_interpretation": "governance_metadata_refusal_anomaly",
+    "additional_completion_authorized": false
+  },
+  "required_bindings": [
+    "exact_model_id",
+    "exact_single_choice",
+    "normal_stop_finish_reason",
+    "bare_json_object_content",
+    "exact_search_surface_id",
+    "candidate_id_from_ordered_shared_surface",
+    "empty_used_tool_call_ids",
+    "common_ia4_response_adapter",
+    "common_plan_validator_after_parsing"
+  ],
+  "hard_stops": [
+    "model_discovery_mismatch",
+    "multiple_or_nonzero_choice",
+    "length_or_nonstop_finish_reason",
+    "model_emitted_tool_call",
+    "markdown_reasoning_prefix_or_nonobject_content",
+    "response_schema_or_surface_mismatch",
+    "unknown_or_modified_candidate",
+    "nondevelopment_seed",
+    "more_than_one_completion_request",
+    "tool_embedding_simulator_detector_calibration_or_evaluation_access"
+  ],
+  "limitations": [
+    "The synthetic two-candidate smoke qualifies transport and parsing, not experimental strategy quality.",
+    "No interactive tool loop, grid simulation, detector response, reward, harm, or runtime actuation is exercised.",
+    "A passing completion does not establish IA4 superiority over IA3 or campaign readiness."
+  ]
+}

@@ -33,7 +33,10 @@ def _headers() -> dict[str, str]:
     return headers
 
 
-def _request_json(url: str, *, timeout_s: float, payload: dict[str, Any] | None = None) -> dict[str, Any]:
+def request_json(url: str, *, timeout_s: float,
+                 payload: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Perform one bounded JSON request for an explicitly gated model smoke."""
+
     data = None if payload is None else json.dumps(payload).encode("utf-8")
     request = urllib.request.Request(url, data=data, headers=_headers(),
                                      method="GET" if payload is None else "POST")
@@ -48,7 +51,7 @@ def _request_json(url: str, *, timeout_s: float, payload: dict[str, Any] | None 
 
 
 def discover_model(base_url: str, model_id: str, timeout_s: float) -> dict[str, Any]:
-    body = _request_json(base_url.rstrip("/") + "/models", timeout_s=timeout_s)
+    body = request_json(base_url.rstrip("/") + "/models", timeout_s=timeout_s)
     models = body.get("data")
     if not isinstance(models, list):
         raise ModelClientError("/models response is missing data[]")
@@ -153,8 +156,8 @@ def request_proposal(*, base_url: str, model_id: str, messages: list[dict[str, s
         "chat_template_kwargs": {"enable_thinking": False},
         "messages": messages,
     }
-    body = _request_json(base_url.rstrip("/") + "/chat/completions",
-                         timeout_s=timeout_s, payload=payload)
+    body = request_json(base_url.rstrip("/") + "/chat/completions",
+                        timeout_s=timeout_s, payload=payload)
     try:
         message = body["choices"][0]["message"]
     except (KeyError, IndexError, TypeError) as exc:

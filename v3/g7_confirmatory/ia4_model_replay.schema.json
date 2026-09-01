@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g7-ia4-model-replay-v1.json",
+  "title": "GridEval G7 IA4 model completion replay",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "development_only",
+    "campaign_authorized",
+    "evaluation_sealed",
+    "tool_execution_authorized",
+    "request_sha256",
+    "completion",
+    "adapter_result"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-ia4-model-replay/v1"
+    },
+    "development_only": {"const": true},
+    "campaign_authorized": {"const": false},
+    "evaluation_sealed": {"const": true},
+    "tool_execution_authorized": {"const": false},
+    "request_sha256": {"$ref": "#/$defs/sha256"},
+    "completion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_id", "content", "finish_reason", "usage", "response_sha256"
+      ],
+      "properties": {
+        "model_id": {"type": "string", "minLength": 1},
+        "content": {"type": "string", "minLength": 1},
+        "finish_reason": {"const": "stop"},
+        "usage": {"type": "object"},
+        "response_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "adapter_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision", "validated_tool_calls", "response_fingerprint"
+      ],
+      "properties": {
+        "decision": {"type": "object"},
+        "validated_tool_calls": {"const": []},
+        "response_fingerprint": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

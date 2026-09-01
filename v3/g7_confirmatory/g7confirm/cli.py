@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from datetime import datetime, timezone
@@ -14,7 +15,10 @@ from .detector_freeze import (
     build_detector_provenance_audit,
 )
 from .manifest import build_manifest, create_once_json
+from .ia4_model import IA4ModelReplay, perform_bounded_model_smoke
+from .ia4_smoke_fixture import build_m4_smoke_adapter
 from .model_client import ModelClientError, request_proposal
+from .orchestration_contract import ContractViolation, TypedObservation
 from .prompt_audit import load_prompt, prompt_sha256, render_messages
 from .pairing import build_paired_development_plan
 from .partitions import gridlabd_random_seed
@@ -85,6 +89,65 @@ def cmd_model_smoke(args: argparse.Namespace) -> int:
         )
         artifact.update({"status": "passed", **result})
     except ModelClientError as exc:
+        artifact.update({"status": "failed_closed", "error": str(exc)})
+        exit_code = 2
+    create_once_json(args.output, artifact)
+    _print({"status": artifact["status"], "output": str(args.output)})
+    return exit_code
+
+
+def cmd_ia4_model_smoke(args: argparse.Namespace) -> int:
+    """Run one model-only IA4 parsing smoke with no tool or simulator access."""
+
+    spec = load_spec(args.spec)
+    adapter = build_m4_smoke_adapter()
+    development_seeds = tuple(map(int, spec["partitions"]["development"]))
+    replay = IA4ModelReplay(
+        adapter=adapter,
+        allowed_development_seeds=development_seeds,
+    )
+    artifact = {
+        "schema_version": "grideval-g7-ia4-model-smoke/v1",
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "protocol_id": spec["protocol_id"],
+        "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+        "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36",
+        "spec_file_sha256": hashlib.sha256(args.spec.read_bytes()).hexdigest(),
+        "endpoint": spec["model"]["base_url"],
+        "expected_model_id": spec["model"]["id"],
+        "search_surface_id": adapter.search_surface.search_surface_id,
+        "scope": "synthetic_interface_model_output_parsing_only",
+        "development_only": True,
+        "campaign_authorized": False,
+        "evaluation_sealed": True,
+        "tool_execution_authorized": False,
+        "simulator_accessed": False,
+        "detector_accessed": False,
+        "embedding_accessed": False,
+    }
+    exit_code = 0
+    try:
+        result = perform_bounded_model_smoke(
+            replay,
+            base_url=spec["model"]["base_url"],
+            model_id=spec["model"]["id"],
+            observation=TypedObservation(
+                window=0,
+                time_s=0,
+                values={
+                    "context": "synthetic_interface_fixture",
+                    "prior_alarm": False,
+                    "voltage_pu": 1.0,
+                },
+            ),
+            history=(),
+            temperature=0.0,
+            max_tokens=min(512, int(spec["model"]["max_tokens"])),
+            timeout_s=float(spec["model"]["timeout_s"]),
+            seed=development_seeds[0],
+        )
+        artifact.update({"status": "passed", **result})
+    except (ModelClientError, ContractViolation) as exc:
         artifact.update({"status": "failed_closed", "error": str(exc)})
         exit_code = 2
     create_once_json(args.output, artifact)
@@ -207,6 +270,11 @@ def build_parser() -> argparse.ArgumentParser:
     smoke.add_argument("--prompt", required=True, type=Path)
     smoke.add_argument("--output", required=True, type=Path)
     smoke.set_defaults(func=cmd_model_smoke)
+
+    ia4_smoke = sub.add_parser("ia4-model-smoke")
+    ia4_smoke.add_argument("--spec", required=True, type=Path)
+    ia4_smoke.add_argument("--output", required=True, type=Path)
+    ia4_smoke.set_defaults(func=cmd_ia4_model_smoke)
 
     manifest = sub.add_parser("manifest")
     manifest.add_argument("--root", required=True, type=Path)

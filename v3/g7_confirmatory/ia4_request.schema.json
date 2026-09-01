@@ -30,7 +30,13 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "instruction", "allowed_decisions", "plan_policy", "tool_policy"
+        "instruction",
+        "allowed_decisions",
+        "plan_policy",
+        "tool_policy",
+        "proposal_is_non_actuating",
+        "governance_flag_policy",
+        "safety_refusal_policy"
       ],
       "properties": {
         "instruction": {"type": "string", "minLength": 1},
@@ -42,6 +48,15 @@
         },
         "tool_policy": {
           "const": "use_only_declared_tools_within_all_caps"
+        },
+        "proposal_is_non_actuating": {
+          "const": true
+        },
+        "governance_flag_policy": {
+          "const": "campaign_and_evaluation_flags_constrain_harness_execution_not_candidate_selection"
+        },
+        "safety_refusal_policy": {
+          "const": "only_if_no_candidate_can_be_selected_within_declared_knowledge_authority_and_schema_constraints"
         }
       }
     },

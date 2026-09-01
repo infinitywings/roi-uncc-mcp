@@ -2,10 +2,11 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M3 for the IA0–IA5 research roadmap. The
-implementation is a development-only, offline contract. It does not call a
-language model, embedding service, GPU, simulator, detector, calibration
-pipeline, or evaluation partition. It does not authorize a campaign.
+This document defines milestones M1–M4 for the IA0–IA5 research roadmap. M1–M3
+are development-only offline contracts. M4 adds one separately bounded model-
+output parsing smoke. No milestone calls an embedding service, simulator,
+detector, calibration pipeline, or evaluation partition, and none authorizes a
+campaign.
 
 The frozen `experiment_spec.yaml` remains byte-identical with SHA-256
 `79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d`.
@@ -60,7 +61,7 @@ relations between a parameter and its materialized action remain a future
 mechanism-adapter responsibility; M1 validates the declared types, bounds,
 authority, and physical budget.
 
-## Reference ladder implemented through M3
+## Reference ladder implemented through M4
 
 | Rung | Offline reference behavior | What it can establish |
 |---|---|---|
@@ -69,6 +70,7 @@ authority, and physical budget.
 | IA2 | Applies an ordered frozen rule table to typed observations. | Feedback-driven switching without learning. |
 | IA3 | Uses deterministic UCB1 over bounded, content-addressed full candidates. | Parameter-, target-, and composition-aware non-LLM contract. |
 | IA4 fixture boundary | Serializes the shared surface and parses recorded fixture responses. | Interface and isolation evidence only; no LLM capability claim. |
+| IA4 model replay boundary | Binds one raw completion to the exact surface and replays it through the strict adapter. | Transport and parsing evidence only; no attack-quality claim. |
 
 The `FixedMaximumPowerComparator` is a separate IA1 controller and accepts
 only a card explicitly marked `fixed_maximum_power`. This prevents the legacy
@@ -156,6 +158,38 @@ The request and response formats are governed by `ia4_request.schema.json` and
 `ia4_fixture_response.schema.json`. Passing fixture tests establishes schema,
 lineage, and isolation behavior only. It is not evidence that an LLM can reason
 about the grid, use tools, outperform IA3, or produce effective attacks.
+
+## M4 model-output replay
+
+`IA4ModelReplay` introduces a transport-independent boundary around one
+OpenAI-compatible chat completion. Its guided response schema fixes the exact
+search-surface ID, candidate-ID enum, decision variants, and empty tool-call
+lineage. Request construction is deterministic and restricted to declared
+development seeds, temperature `[0, 1]`, at most 1,000 output tokens, one
+choice, and non-streaming output.
+
+The completion envelope must contain the expected model ID, exactly one choice
+at index zero, an assistant message, and `finish_reason=stop`. M4 rejects model-
+emitted tool calls, provider refusal fields, missing content, invalid usage,
+reasoning prefixes, Markdown fences, duplicate JSON fields, non-finite JSON,
+unknown candidates, and request mutation. The extracted completion record can
+be replayed offline without the original endpoint. The replay format is
+governed by `ia4_model_replay.schema.json`.
+
+`artifacts/ia4_model_smoke_m4_attempt1.json` records the single authorized M4
+completion. Model discovery and strict parsing passed for
+`qwen3.6-35b-a3b`, but the parsed decision was a safety refusal: the model
+treated the external `campaign_authorized=false` and `evaluation_sealed=true`
+flags as reasons not to select a candidate. This is a behavioral comparability
+anomaly, not a parser failure. The request now states that a typed plan is a
+non-actuating proposal and governance flags constrain external execution, not
+candidate selection. The one-completion M4 cap was not expanded to retest the
+clarification.
+
+The full setup, result, interpretation, and limitations are recorded in
+`M4_MODEL_REPLAY_REPORT.md`. M4 does not establish correct grid reasoning,
+interactive tool competence, effective attack behavior, or superiority over
+IA3.
 
 ## Tool contract
 
@@ -247,6 +281,10 @@ is an offline engineering reference ceiling, not an experiment allocation.
 `artifacts/ia3_ia4_search_surface_contract.json` records the M3 equality
 contract, fixture-only adapter policy, hard stops, and evidentiary limitations.
 
+`artifacts/ia4_model_parsing_contract.json` records the M4 one-completion cap,
+strict replay bindings, prohibited access, observed refusal anomaly, and
+limitations.
+
 ## Local verification
 
 From `v3/g7_confirmatory`:
@@ -255,24 +293,29 @@ From `v3/g7_confirmatory`:
 python3 -m unittest discover -s tests -p 'test_orchestration_contract.py' -v
 python3 -m unittest discover -s tests -p 'test_candidate_space.py' -v
 python3 -m unittest discover -s tests -p 'test_search_surface_ia4.py' -v
+python3 -m unittest discover -s tests -p 'test_ia4_model.py' -v
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q g7confirm tests
 sha256sum experiment_spec.yaml
 jq empty artifacts/ai_v2_component_matrix.json \
   artifacts/ia3_candidate_space_contract.json \
   artifacts/ia3_ia4_search_surface_contract.json \
+  artifacts/ia4_model_parsing_contract.json \
+  artifacts/ia4_model_smoke_m4_attempt1.json \
   candidate_space_receipt.schema.json \
   search_surface.schema.json \
   ia4_request.schema.json \
   ia4_fixture_response.schema.json \
+  ia4_model_replay.schema.json \
+  ia4_model_smoke.schema.json \
   tests/fixtures/ia4_plan_response.json \
   tests/fixtures/ia4_refusal_response.json \
   tests/fixtures/ia4_no_action_response.json
 ```
 
-All tests are offline. The next milestone is a separately gated model-client
-integration that preserves this exact request, response, search-surface, and
-tool-lineage contract. It should begin with recorded-response replay and a
-model-output parsing smoke before any interactive tool loop. A later
-independently gated one-window development smoke would still require a bound
-reward metric and would not open evaluation.
+All tests are offline; only the explicitly named M4 artifact required model
+network access. The next gate is one create-once smoke of the clarified non-
+actuating proposal semantics. Interactive work should begin only after that
+gate and must preserve this exact request, response, search-surface, and tool-
+lineage contract. A later independently gated one-window development smoke
+would still require a bound reward metric and would not open evaluation.

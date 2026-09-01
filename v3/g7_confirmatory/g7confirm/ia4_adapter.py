@@ -135,6 +135,15 @@ class IA4FixtureAdapter:
                 "allowed_decisions": ["plan", "safety_refusal", "no_action"],
                 "plan_policy": "select_one_candidate_id_without_modification",
                 "tool_policy": "use_only_declared_tools_within_all_caps",
+                "proposal_is_non_actuating": True,
+                "governance_flag_policy": (
+                    "campaign_and_evaluation_flags_constrain_harness_execution_"
+                    "not_candidate_selection"
+                ),
+                "safety_refusal_policy": (
+                    "only_if_no_candidate_can_be_selected_within_declared_"
+                    "knowledge_authority_and_schema_constraints"
+                ),
             },
             "search_surface": self.search_surface.to_dict(),
             "observation": observation.to_dict(),
@@ -144,7 +153,35 @@ class IA4FixtureAdapter:
     def parse_fixture_response(
             self, payload: Mapping[str, Any], *,
             tool_calls: Sequence[ToolCallRecord] = ()) -> IA4FixtureResult:
-        """Fail closed on any response or recorded-tool deviation."""
+        """Fail closed on any fixture or recorded-tool deviation."""
+
+        return self._parse_response(
+            payload,
+            tool_calls=tool_calls,
+            plan_reason="ia4_fixture_candidate_selection",
+        )
+
+    def parse_model_response(self, payload: Mapping[str, Any]) -> IA4FixtureResult:
+        """Parse an M4 model-only response with no executed tool calls."""
+
+        if not isinstance(payload, Mapping):
+            raise ContractViolation("IA4 model response must be an object")
+        used_call_ids = payload.get("used_tool_call_ids")
+        if used_call_ids != []:
+            raise ContractViolation(
+                "M4 model parsing does not authorize any tool call"
+            )
+        return self._parse_response(
+            payload,
+            tool_calls=(),
+            plan_reason="ia4_model_replay_candidate_selection",
+        )
+
+    def _parse_response(
+            self, payload: Mapping[str, Any], *,
+            tool_calls: Sequence[ToolCallRecord],
+            plan_reason: str) -> IA4FixtureResult:
+        """Apply the shared strict response and tool-lineage contract."""
 
         if not isinstance(payload, Mapping):
             raise ContractViolation("IA4 fixture response must be an object")
@@ -193,7 +230,7 @@ class IA4FixtureAdapter:
             plan = candidate.instantiate(OrchestrationRung.IA4, rationale)
             decision = ControllerDecision.submit(
                 plan,
-                reason="ia4_fixture_candidate_selection",
+                reason=plan_reason,
                 candidate_id=candidate_id,
             )
         elif decision_name == "safety_refusal":
