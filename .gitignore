@@ -90,10 +90,6 @@ venv/
 *.synctex.gz
 **/acmart.zip
 
-# Vendored LaTeX template PDFs (archived v1 draft)
-archive/paper_v1/IEEEtran_HOWTO.pdf
-archive/paper_v1/conference_101719.pdf
-
 # Local agent / tooling / scratch dirs
 .claude/
 .codex/
@@ -104,15 +100,13 @@ logs/
 cs-research-plugin.zip
 AI_Grid_Attack.pdf
 
+# Local research archive and source material (never commit)
+archive/
+
 # Tightening (per reorg dry-run): per-round build validations & runtime results
 v3/natig/locked_build_r*_validation.json
 v3/natig/locked_build_result_*.json
 v3/natig_adapter/locked_runtime_result_*/
-# Heavy vendored/compiled binaries in archived v1 paper draft
-archive/paper_v1/main.pdf
-archive/paper_v1/figures/system.png
-archive/paper_v1/figures/flow.png
-
 # G5 network-impairment run inputs/outputs (regenerable); keep runner + plan doc
 v3/natig_adapter/g5src_*/
 v3/natig_adapter/g5_impairment_*/
