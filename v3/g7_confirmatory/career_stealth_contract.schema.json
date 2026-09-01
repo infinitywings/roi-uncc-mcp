@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/career_stealth_contract.schema.json",
+  "title": "GridEval CAREER-aligned subtle setpoint-bias contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_id",
+    "milestone",
+    "title",
+    "governance",
+    "source_lineage",
+    "primary_threat_model",
+    "two_interval_protocol",
+    "long_horizon_design",
+    "strategy_library",
+    "capability_factors",
+    "evidence_contract",
+    "secondary_method_benchmark",
+    "extensions",
+    "next_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-career-stealth-contract/v1"
+    },
+    "contract_id": {
+      "type": "string",
+      "pattern": "^careerstealth_[0-9a-f]{64}$"
+    },
+    "milestone": {
+      "const": "M8"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "development_only",
+        "campaign_authorized",
+        "evaluation_sealed",
+        "detector_calibration_authorized",
+        "live_runtime_authorized",
+        "model_transport_authorized",
+        "embedding_service_accessed"
+      ],
+      "properties": {
+        "development_only": {"const": true},
+        "campaign_authorized": {"const": false},
+        "evaluation_sealed": {"const": true},
+        "detector_calibration_authorized": {"const": false},
+        "live_runtime_authorized": {"const": false},
+        "model_transport_authorized": {"const": false},
+        "embedding_service_accessed": {"const": false}
+      }
+    },
+    "source_lineage": {
+      "type": "object",
+      "required": [
+        "governing_draft_title",
+        "governing_draft_sha256",
+        "governing_draft_pages",
+        "governing_draft_git_status",
+        "frozen_experiment_spec_sha256",
+        "frozen_roadmap_report_sha256",
+        "rka_design_decision",
+        "mission_id"
+      ]
+    },
+    "primary_threat_model": {
+      "type": "object",
+      "required": [
+        "authority_surface",
+        "controlled_device_count",
+        "controlled_variable",
+        "observation_interface",
+        "initial_access",
+        "prohibited_authorities",
+        "interpretation"
+      ],
+      "properties": {
+        "authority_surface": {"const": "single_ev_aggregator_setpoint"},
+        "controlled_device_count": {"const": 1},
+        "controlled_variable": {"const": "charging_setpoint"},
+        "observation_interface": {
+          "type": "array",
+          "prefixItems": [
+            {"const": "exposed_bus_voltage_telemetry"}
+          ],
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "initial_access": {"const": "assumed_out_of_scope"},
+        "prohibited_authorities": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true
+        },
+        "interpretation": {"type": "string", "minLength": 1}
+      }
+    },
+    "two_interval_protocol": {
+      "type": "object",
+      "required": [
+        "action_interval_count",
+        "midpoint_observation_count",
+        "maximum_within_run_revisions",
+        "revision_scope",
+        "preplanned_form",
+        "response_informed_form",
+        "parameter_axes",
+        "paired_history_rule",
+        "held_fixed_across_A",
+        "reset_rule"
+      ],
+      "properties": {
+        "action_interval_count": {"const": 2},
+        "midpoint_observation_count": {"const": 1},
+        "maximum_within_run_revisions": {"const": 1},
+        "revision_scope": {"const": "second_interval_only"},
+        "preplanned_form": {"const": "(a1, a2_initial)"},
+        "response_informed_form": {
+          "const": "(a1, rho2(y_mid; a2_initial))"
+        },
+        "parameter_axes": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["magnitude", "timing", "duration", "shape"]
+          }
+        },
+        "paired_history_rule": {
+          "const": "freeze_before_pair_no_cross_condition_learning"
+        },
+        "held_fixed_across_A": {
+          "type": "array",
+          "minItems": 9,
+          "uniqueItems": true
+        },
+        "reset_rule": {"type": "string", "minLength": 1}
+      }
+    },
+    "long_horizon_design": {
+      "type": "object",
+      "required": [
+        "window_seconds",
+        "candidate_cells",
+        "primary_horizon_status",
+        "decision_count_rule",
+        "matched_budget_axes",
+        "budget_values",
+        "atomic_rejection"
+      ],
+      "properties": {
+        "window_seconds": {"const": 10},
+        "candidate_cells": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["id", "windows", "duration", "role"],
+            "properties": {
+              "id": {"type": "string", "minLength": 1},
+              "windows": {"type": "integer", "minimum": 1},
+              "duration": {"type": "string", "minLength": 1},
+              "role": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "primary_horizon_status": {
+          "const": "unselected_pending_runtime_and_engineering_gate"
+        },
+        "decision_count_rule": {
+          "const": "longer_duration_does_not_add_more_within_run_revisions"
+        },
+        "matched_budget_axes": {
+          "type": "array",
+          "minItems": 9,
+          "uniqueItems": true
+        },
+        "budget_values": {
+          "const": "freeze_from_engineering_limits_before_treatment_outcomes"
+        },
+        "atomic_rejection": {"const": true}
+      }
+    },
+    "strategy_library": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "shape",
+          "authority_surface",
+          "core_eligible",
+          "definition",
+          "parameter_axes",
+          "matched_controls"
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^B[1-6]_"},
+          "shape": {
+            "enum": [
+              "constant_micro_bias",
+              "linear_drift",
+              "staircase_drift",
+              "pulse_rest",
+              "mean_zero_oscillation",
+              "trend_aligned_bias"
+            ]
+          },
+          "authority_surface": {"const": "single_ev_aggregator_setpoint"},
+          "core_eligible": {"const": true},
+          "definition": {"type": "string", "minLength": 1},
+          "parameter_axes": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "uniqueItems": true
+          },
+          "matched_controls": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "capability_factors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["A", "S", "M"],
+      "properties": {
+        "A": {"type": "object"},
+        "S": {"type": "object"},
+        "M": {"type": "object"}
+      }
+    },
+    "evidence_contract": {
+      "type": "object",
+      "required": [
+        "outcome_channels",
+        "development_use",
+        "primary_physical_endpoint",
+        "alarm_semantics",
+        "independent_confirmation",
+        "selection_bias_control",
+        "conclusion_classes"
+      ]
+    },
+    "secondary_method_benchmark": {
+      "type": "object",
+      "required": [
+        "claim_role",
+        "shared_conditions",
+        "methods",
+        "winner_rule",
+        "causal_interpretation_rule"
+      ]
+    },
+    "extensions": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "core_status"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "core_status": {"const": "outside_committed_core"}
+        }
+      }
+    },
+    "next_gate": {
+      "type": "object",
+      "required": [
+        "id",
+        "purpose",
+        "real_tool_execution",
+        "model_call",
+        "simulator_or_detector_access"
+      ],
+      "properties": {
+        "id": {"const": "M9_offline_two_interval_fixture"},
+        "purpose": {"type": "string", "minLength": 1},
+        "real_tool_execution": {"const": false},
+        "model_call": {"const": false},
+        "simulator_or_detector_access": {"const": false}
+      }
+    }
+  }
+}

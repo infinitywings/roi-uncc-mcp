@@ -36,7 +36,13 @@ The harness provides:
   through the common candidate and plan validator boundary; and
 - a preregistered M7 mirrored counterfactual qualification over target-only
   symmetric candidates, with a matched IA3 control and a causal candidate-
-  switching endpoint.
+  switching endpoint; and
+- an offline M8 CAREER-alignment contract that narrows the core subtle-attack
+  study to one EV aggregator setpoint, two temporal action intervals, one
+  midpoint revision, six low-amplitude bias shapes, matched long-horizon
+  budgets, and independent confirmation while keeping telemetry attacks,
+  repeated revisions, multi-device control, and the IA0–IA5 ladder as explicit
+  extensions.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -63,6 +69,11 @@ The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and
 `ia4_counterfactual_model_smoke.schema.json`.
+The CAREER-aligned M8 design is documented in
+`M8_CAREER_STEALTH_BIAS_DESIGN.md`; its canonical artifact and schema are
+`artifacts/career_stealth_contract_m8.json` and
+`career_stealth_contract.schema.json`. M8 is offline and does not amend the
+frozen experiment specification or portable roadmap report.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the

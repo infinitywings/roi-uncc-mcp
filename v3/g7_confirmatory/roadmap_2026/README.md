@@ -18,6 +18,12 @@ The bounded two-turn M6 model qualification is documented in
 `../M6_INTERACTIVE_MODEL_REPORT.md`.
 The preregistered M7 mirrored counterfactual tool-use qualification is
 documented in `../M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`.
+The M8 CAREER-alignment decision and subtle single-aggregator setpoint-bias
+contract are documented in `../M8_CAREER_STEALTH_BIAS_DESIGN.md`. M8 narrows
+the committed primary causal comparison to two action intervals and exactly one
+midpoint revision; the broader IA0–IA5 ladder remains an extension and a
+secondary method scaffold. This correction is maintained outside the frozen r2
+portable report.
 This separation avoids rewriting the report's original source manifest while
 keeping current protocol evidence explicit.
 

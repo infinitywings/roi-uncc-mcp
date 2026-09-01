@@ -1,0 +1,341 @@
+{
+  "capability_factors": {
+    "A": {
+      "control": "preplanned_two_interval",
+      "mechanism_check": "controlled_midpoint_response_use",
+      "name": "revision_permission",
+      "treatment": "one_midpoint_revision"
+    },
+    "M": {
+      "admission_gate": "held_out_candidate_ranking_validation",
+      "control": "frozen_model_free_candidate_ranking",
+      "name": "validated_predictive_model_ranking",
+      "treatment": "read_only_validated_candidate_ranking"
+    },
+    "S": {
+      "admission_gate": "independent_action_validity_validation",
+      "control": "common_interface_limits_and_safety_shield_only",
+      "name": "validated_process_relationships",
+      "treatment": "additional_frozen_validated_relationships"
+    }
+  },
+  "contract_id": "careerstealth_3091a0e686e43b483906a37733f26dfb4cef9fd90d2ae56226e47003b3cdd394",
+  "evidence_contract": {
+    "alarm_semantics": "defender_awareness_not_a_physical_endpoint_or_automatic_stop",
+    "conclusion_classes": [
+      "material_effect_above_practical_margin",
+      "simpler_evaluator_sufficient_within_studied_setting",
+      "unresolved",
+      "alarm_admissibility_status_transition"
+    ],
+    "development_use": "candidate_selection_only",
+    "independent_confirmation": {
+      "block_alarm_exposure_ceiling": 0.1,
+      "blocks": 30,
+      "episodes_per_block": 4,
+      "interval": "exact_one_sided_95_percent_upper",
+      "passing_exposed_blocks": 0
+    },
+    "outcome_channels": [
+      "alarm_decision",
+      "continuous_defense_evidence",
+      "physical_consequence",
+      "resource_cost",
+      "uncertainty_and_admissibility"
+    ],
+    "primary_physical_endpoint": "maximum_scaled_voltage_envelope_excess",
+    "selection_bias_control": "selected_development_policy_reexecuted_on_fresh_confirmations"
+  },
+  "extensions": [
+    {
+      "core_status": "outside_committed_core",
+      "id": "telemetry_bias_injection"
+    },
+    {
+      "core_status": "outside_committed_core",
+      "id": "multi_device_coordination"
+    },
+    {
+      "core_status": "outside_committed_core",
+      "id": "repeated_within_run_revision"
+    },
+    {
+      "core_status": "outside_committed_core",
+      "id": "configuration_manipulation"
+    },
+    {
+      "core_status": "outside_committed_core",
+      "id": "compound_command_and_concealment"
+    },
+    {
+      "core_status": "outside_committed_core",
+      "id": "initial_access_and_attack_staging"
+    },
+    {
+      "core_status": "outside_committed_core",
+      "id": "ia0_ia5_orchestration_ladder"
+    }
+  ],
+  "governance": {
+    "campaign_authorized": false,
+    "detector_calibration_authorized": false,
+    "development_only": true,
+    "embedding_service_accessed": false,
+    "evaluation_sealed": true,
+    "live_runtime_authorized": false,
+    "model_transport_authorized": false
+  },
+  "long_horizon_design": {
+    "atomic_rejection": true,
+    "budget_values": "freeze_from_engineering_limits_before_treatment_outcomes",
+    "candidate_cells": [
+      {
+        "duration": "14 minutes",
+        "id": "legacy_bridge",
+        "role": "development bridge",
+        "windows": 84
+      },
+      {
+        "duration": "1 hour",
+        "id": "one_hour",
+        "role": "long-duration screen",
+        "windows": 360
+      },
+      {
+        "duration": "6 hours",
+        "id": "six_hour",
+        "role": "stateful extension",
+        "windows": 2160
+      },
+      {
+        "duration": "24 hours",
+        "id": "diel",
+        "role": "diel extension",
+        "windows": 8640
+      }
+    ],
+    "decision_count_rule": "longer_duration_does_not_add_more_within_run_revisions",
+    "matched_budget_axes": [
+      "active_duration",
+      "compute_time",
+      "cumulative_absolute_bias",
+      "cumulative_squared_bias",
+      "maximum_absolute_setpoint_bias",
+      "maximum_setpoint_slew",
+      "resets",
+      "search_episodes",
+      "setpoint_energy_deviation"
+    ],
+    "primary_horizon_status": "unselected_pending_runtime_and_engineering_gate",
+    "window_seconds": 10
+  },
+  "milestone": "M8",
+  "next_gate": {
+    "id": "M9_offline_two_interval_fixture",
+    "model_call": false,
+    "purpose": "Verify that only A=1 can change the second interval after a mirrored midpoint-response intervention while A=0, A=1, IA3, and any later LLM challenger share exact candidate, history, observation, and budget bytes.",
+    "real_tool_execution": false,
+    "simulator_or_detector_access": false
+  },
+  "primary_threat_model": {
+    "authority_surface": "single_ev_aggregator_setpoint",
+    "controlled_device_count": 1,
+    "controlled_variable": "charging_setpoint",
+    "initial_access": "assumed_out_of_scope",
+    "interpretation": "Bias means a bounded deviation from the benign aggregator setpoint, not false sensor data.",
+    "observation_interface": [
+      "exposed_bus_voltage_telemetry"
+    ],
+    "prohibited_authorities": [
+      "detector_modification",
+      "interlock_modification",
+      "other_device_control",
+      "protection_modification",
+      "sensor_modification"
+    ]
+  },
+  "schema_version": "grideval-career-stealth-contract/v1",
+  "secondary_method_benchmark": {
+    "causal_interpretation_rule": "method_results_do_not_replace_or_select_the_A_S_M_scaffold",
+    "claim_role": "secondary_method_comparison",
+    "methods": [
+      {
+        "id": "coverage_sobol",
+        "status": "mandatory"
+      },
+      {
+        "id": "direct_surrogate_optimization",
+        "status": "mandatory"
+      },
+      {
+        "id": "constrained_bayesian_optimization",
+        "status": "mandatory"
+      },
+      {
+        "id": "cps_falsification",
+        "status": "mandatory"
+      },
+      {
+        "id": "sequential_model_acquisition",
+        "status": "conditional_on_M_validation"
+      },
+      {
+        "id": "llm_tool_orchestrator",
+        "status": "optional_challenger"
+      }
+    ],
+    "shared_conditions": [
+      "device",
+      "action_family",
+      "observation_interface",
+      "safety_filter",
+      "candidate_data",
+      "episode_limit",
+      "confirmation_rule"
+    ],
+    "winner_rule": "simplest_method_within_practical_margin_of_observed_best"
+  },
+  "source_lineage": {
+    "frozen_experiment_spec_sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d",
+    "frozen_roadmap_report_sha256": "c4fc1168708c0d47d1162754296d3f731c51028650aaeab739aca42fb3aa827b",
+    "governing_draft_git_status": "local_archive_intentionally_ignored",
+    "governing_draft_pages": 20,
+    "governing_draft_sha256": "a87158fdf6ad7ffb4c783ecd9b2a8b7d47886f234464a07571a5a41c659f5d8c",
+    "governing_draft_title": "CAREER: Capability-Conditioned Evaluation of Cyber-Physical Defenses Against Adaptive, Process-Grounded Adversaries",
+    "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36",
+    "rka_design_decision": "dec_01M1DJD93YPP3NW6TBCEQKDT1B"
+  },
+  "strategy_library": [
+    {
+      "authority_surface": "single_ev_aggregator_setpoint",
+      "core_eligible": true,
+      "definition": "Hold one small signed setpoint deviation during an eligible subinterval.",
+      "id": "B1_constant_micro_bias",
+      "matched_controls": [
+        "zero_bias",
+        "sign_reversal",
+        "time_shift"
+      ],
+      "parameter_axes": [
+        "duration",
+        "magnitude",
+        "shape",
+        "timing"
+      ],
+      "shape": "constant_micro_bias"
+    },
+    {
+      "authority_surface": "single_ev_aggregator_setpoint",
+      "core_eligible": true,
+      "definition": "Move the setpoint bias monotonically while respecting the same amplitude, slew, duration, and energy limits.",
+      "id": "B2_linear_drift",
+      "matched_controls": [
+        "constant_equal_energy",
+        "slope_reversal"
+      ],
+      "parameter_axes": [
+        "duration",
+        "magnitude",
+        "shape",
+        "timing"
+      ],
+      "shape": "linear_drift"
+    },
+    {
+      "authority_surface": "single_ev_aggregator_setpoint",
+      "core_eligible": true,
+      "definition": "Accumulate bias through bounded plateaus so instantaneous changes remain small.",
+      "id": "B3_staircase_drift",
+      "matched_controls": [
+        "linear_equal_energy",
+        "step_order_shuffle"
+      ],
+      "parameter_axes": [
+        "duration",
+        "magnitude",
+        "shape",
+        "timing"
+      ],
+      "shape": "staircase_drift"
+    },
+    {
+      "authority_surface": "single_ev_aggregator_setpoint",
+      "core_eligible": true,
+      "definition": "Alternate bounded active and rest periods without changing the total setpoint-energy budget.",
+      "id": "B4_pulse_rest",
+      "matched_controls": [
+        "contiguous_equal_energy",
+        "phase_shift"
+      ],
+      "parameter_axes": [
+        "duration",
+        "magnitude",
+        "shape",
+        "timing"
+      ],
+      "shape": "pulse_rest"
+    },
+    {
+      "authority_surface": "single_ev_aggregator_setpoint",
+      "core_eligible": true,
+      "definition": "Use a bounded mean-zero waveform to test persistent or resonant consequence without net setpoint bias.",
+      "id": "B5_mean_zero_oscillation",
+      "matched_controls": [
+        "phase_shuffle",
+        "frequency_matched_benign"
+      ],
+      "parameter_axes": [
+        "duration",
+        "magnitude",
+        "shape",
+        "timing"
+      ],
+      "shape": "mean_zero_oscillation"
+    },
+    {
+      "authority_surface": "single_ev_aggregator_setpoint",
+      "core_eligible": true,
+      "definition": "Align the second-interval bias with a benign voltage trend; A=0 precommits using the frozen pre-run basis while A=1 may revise using only the scheduled midpoint voltage response.",
+      "id": "B6_trend_aligned_bias",
+      "matched_controls": [
+        "trend_opposed",
+        "midpoint_response_shuffle"
+      ],
+      "parameter_axes": [
+        "duration",
+        "magnitude",
+        "shape",
+        "timing"
+      ],
+      "shape": "trend_aligned_bias"
+    }
+  ],
+  "title": "CAREER-aligned subtle setpoint-bias capability contract",
+  "two_interval_protocol": {
+    "action_interval_count": 2,
+    "held_fixed_across_A": [
+      "algorithm_scaffold",
+      "budgets",
+      "candidate_library",
+      "permitted_actions",
+      "raw_observations",
+      "safety_shield",
+      "schedule",
+      "search_history",
+      "starting_state"
+    ],
+    "maximum_within_run_revisions": 1,
+    "midpoint_observation_count": 1,
+    "paired_history_rule": "freeze_before_pair_no_cross_condition_learning",
+    "parameter_axes": [
+      "duration",
+      "magnitude",
+      "shape",
+      "timing"
+    ],
+    "preplanned_form": "(a1, a2_initial)",
+    "reset_rule": "verified_reset_between_randomized_balanced_pair_members",
+    "response_informed_form": "(a1, rho2(y_mid; a2_initial))",
+    "revision_scope": "second_interval_only"
+  }
+}

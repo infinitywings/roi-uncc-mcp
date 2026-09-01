@@ -2,12 +2,15 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M7 for the IA0–IA5 research roadmap. M1–M3
+This document defines milestones M1–M8 for the research roadmap. M1–M3
 are development-only offline contracts. M4 adds separately bounded model-output
 parsing receipts. M5 returns to an offline-only, content-addressed interactive
 tool-loop protocol. M6 adds a two-turn model replay with an injected read-only
 fixture. M7 adds a preregistered mirrored counterfactual fixture pair with a
-causal candidate-switching endpoint. No milestone calls an embedding service,
+causal candidate-switching endpoint. M8 realigns the next subtle-attack design
+with the governing CAREER project description: the committed core becomes a
+single-aggregator, two-interval, one-midpoint-revision capability comparison,
+while the richer IA0–IA5 ladder is retained as an extension. No milestone calls an embedding service,
 simulator, detector, calibration pipeline, or evaluation partition, and none
 authorizes a campaign.
 
@@ -15,6 +18,38 @@ The frozen `experiment_spec.yaml` remains byte-identical with SHA-256
 `79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d`.
 The component matrix records this invariant and fails closed if its declared
 scope is changed from non-executable or evaluation-sealed.
+
+## M8 CAREER alignment and subtle setpoint bias
+
+The governing CAREER draft makes revision permission (`A`), validated process
+relationships (`S`), and validated predictive-model ranking (`M`) the primary
+capability factors. The core grid attacker controls one EV charging aggregator
+setpoint, observes exposed bus-voltage telemetry, and cannot alter sensors,
+protection, interlocks, the detector, or another device. In this core, bias
+means a bounded deviation from the benign setpoint; measurement bias injection
+is a separate authority surface and therefore an extension.
+
+M8 defines six temporal shapes: constant micro-bias, linear drift, staircase
+drift, pulse-rest, mean-zero oscillation, and trend-aligned bias. Every shape
+uses the same magnitude, timing, duration, and shape axes and must be compared
+under matched amplitude, slew, cumulative-bias, energy, duration, episode,
+compute, and reset budgets. Longer horizons do not add decisions: the
+preplanned policy commits to two intervals, while `A=1` may revise only the
+second interval after one scheduled midpoint voltage observation.
+
+The previous `IA4 − IA3` contrast remains useful as a later method and
+orchestration study. It is not the primary CAREER causal estimand. An LLM tool
+orchestrator is an optional secondary challenger after mandatory Sobol,
+direct-surrogate, constrained-Bayesian-optimization, and CPS-falsification
+baselines, all under the same interface, candidate data, episode limit, safety
+filter, and independent-confirmation rule.
+
+The canonical M8 record is
+`artifacts/career_stealth_contract_m8.json`, governed by
+`career_stealth_contract.schema.json` and rebuilt by
+`g7confirm.career_stealth_contract`. Full interpretation and scope boundaries
+are in `M8_CAREER_STEALTH_BIAS_DESIGN.md`. M8 makes no executable amplitude,
+detector-threshold, physical-harm, stealth, or LLM-superiority claim.
 
 ## Research contract
 
@@ -64,7 +99,7 @@ relations between a parameter and its materialized action remain a future
 mechanism-adapter responsibility; M1 validates the declared types, bounds,
 authority, and physical budget.
 
-## Reference ladder implemented through M7
+## Reference ladder implemented through M7 and retained after M8
 
 | Rung | Offline reference behavior | What it can establish |
 |---|---|---|
