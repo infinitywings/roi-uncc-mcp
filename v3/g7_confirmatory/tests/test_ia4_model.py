@@ -6,6 +6,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+from g7confirm.budget import DualBudget
 from g7confirm.ia4_model import (
     IA4_MODEL_REPLAY_SCHEMA_VERSION,
     IA4ModelReplay,
@@ -15,11 +16,17 @@ from g7confirm.ia4_model import (
     ia4_model_response_format,
     perform_bounded_model_smoke,
 )
-from g7confirm.ia4_smoke_fixture import build_m4_smoke_adapter
+from g7confirm.ia4_smoke_fixture import (
+    build_m4_smoke_adapter,
+    build_smoke_capability_profile,
+    build_smoke_strategy_library,
+    build_smoke_tool_contract,
+)
 from g7confirm.model_client import ModelClientError
 from g7confirm.orchestration_contract import (
     ContractViolation,
     OrchestrationRung,
+    PlanValidator,
     TypedObservation,
 )
 
@@ -366,6 +373,54 @@ class IA4ModelReplayTests(unittest.TestCase):
             replayed.adapter_result.decision.kind.value,
             "safety_refusal",
         )
+
+    def test_clarified_smoke_selects_and_validates_one_unchanged_candidate(self):
+        schema = json.loads(
+            (PACKAGE_ROOT / "ia4_model_smoke.schema.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        artifact = json.loads(
+            (PACKAGE_ROOT / "artifacts" /
+             "ia4_model_smoke_m4_attempt2_clarified.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(set(artifact), set(schema["required"]))
+        self.assertEqual(artifact["status"], "passed")
+        self.assertEqual(artifact["network_requests"], 2)
+        self.assertEqual(artifact["completion_requests"], 1)
+        self.assertFalse(artifact["tool_execution_authorized"])
+        self.assertFalse(artifact["embedding_accessed"])
+        self.assertFalse(artifact["simulator_accessed"])
+        self.assertFalse(artifact["detector_accessed"])
+        self.assertEqual(
+            artifact["replay"]["adapter_result"]["decision"]["kind"],
+            "plan",
+        )
+
+        request = IA4ModelRequest(**artifact["request"])
+        completion = OpenAICompletionRecord(**artifact["replay"]["completion"])
+        decision = make_replay().replay_record(
+            request, completion
+        ).adapter_result.decision
+        profile = build_smoke_capability_profile(OrchestrationRung.IA4)
+        validation = PlanValidator(
+            profile=profile,
+            strategy_library=build_smoke_strategy_library(),
+            tool_contract=build_smoke_tool_contract(),
+            dual_budget=DualBudget(
+                window_cap=profile.authority.perturbed_window_cap,
+                apparent_energy_cap_kvah=profile.authority.apparent_energy_cap_kvah,
+                window_seconds=10.0,
+            ),
+        ).evaluate(
+            decision,
+            benign={"DER_A": (0.0, 0.0), "DER_B": (0.0, 0.0)},
+        )
+        self.assertTrue(validation.valid_plan)
+        self.assertTrue(validation.accepted)
+        self.assertTrue(validation.effective_action)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g7-m5-interactive-contract-v1.json",
+  "title": "GridEval G7 M5 offline interactive protocol contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "mission_id",
+    "spec_file_sha256",
+    "scope",
+    "development_only",
+    "campaign_authorized",
+    "evaluation_sealed",
+    "model_transport_used",
+    "tool_execution_used",
+    "simulator_accessed",
+    "detector_accessed",
+    "embedding_accessed",
+    "status",
+    "protocol",
+    "episodes",
+    "parity_assertions",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-m5-contract-artifact/v1"
+    },
+    "project_id": {"const": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6"},
+    "mission_id": {"const": "mis_01KYMRDZHYN4QXC1XFTGP54E36"},
+    "spec_file_sha256": {"$ref": "#/$defs/sha256"},
+    "scope": {"const": "offline_fixture_protocol_only"},
+    "development_only": {"const": true},
+    "campaign_authorized": {"const": false},
+    "evaluation_sealed": {"const": true},
+    "model_transport_used": {"const": false},
+    "tool_execution_used": {"const": false},
+    "simulator_accessed": {"const": false},
+    "detector_accessed": {"const": false},
+    "embedding_accessed": {"const": false},
+    "status": {"const": "passed"},
+    "protocol": {"$ref": "#/$defs/protocol"},
+    "episodes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ia4_fixture", "ia3_matched_control"],
+      "properties": {
+        "ia4_fixture": {"$ref": "#/$defs/episode"},
+        "ia3_matched_control": {"$ref": "#/$defs/episode"}
+      }
+    },
+    "parity_assertions": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"const": true}
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "protocol_id": {
+      "type": "string",
+      "pattern": "^m5proto_[0-9a-f]{64}$"
+    },
+    "protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "protocol_id",
+        "development_only",
+        "campaign_authorized",
+        "evaluation_sealed",
+        "model_transport_authorized",
+        "tool_execution_authorized",
+        "simulator_access_authorized",
+        "detector_access_authorized",
+        "participant_rungs",
+        "base_search_surface_id",
+        "enabled_tools",
+        "state_machine",
+        "episode_caps",
+        "schema_versions",
+        "matched_control"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-g7-ia4-interactive-protocol/v1"
+        },
+        "protocol_id": {"$ref": "#/$defs/protocol_id"},
+        "development_only": {"const": true},
+        "campaign_authorized": {"const": false},
+        "evaluation_sealed": {"const": true},
+        "model_transport_authorized": {"const": false},
+        "tool_execution_authorized": {"const": false},
+        "simulator_access_authorized": {"const": false},
+        "detector_access_authorized": {"const": false},
+        "participant_rungs": {"const": ["IA3", "IA4"]},
+        "base_search_surface_id": {
+          "type": "string",
+          "pattern": "^surface_[0-9a-f]{64}$"
+        },
+        "enabled_tools": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "object"}
+        },
+        "state_machine": {"type": "object"},
+        "episode_caps": {"type": "object"},
+        "schema_versions": {"type": "object"},
+        "matched_control": {"type": "object"}
+      }
+    },
+    "episode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["receipt", "plan_validation"],
+      "properties": {
+        "receipt": {
+          "type": "object",
+          "required": [
+            "schema_version",
+            "protocol_id",
+            "base_search_surface_id",
+            "actor_rung",
+            "decision_core_id",
+            "development_only",
+            "campaign_authorized",
+            "evaluation_sealed",
+            "model_transport_used",
+            "tool_execution_used",
+            "simulator_accessed",
+            "detector_accessed",
+            "embedding_accessed",
+            "state",
+            "failure_reason",
+            "model_turns",
+            "tool_calls",
+            "tool_results",
+            "transcript",
+            "accounting",
+            "terminal_decision"
+          ],
+          "properties": {
+            "schema_version": {
+              "const": "grideval-g7-ia4-interactive-receipt/v1"
+            },
+            "protocol_id": {"$ref": "#/$defs/protocol_id"},
+            "base_search_surface_id": {"type": "string"},
+            "actor_rung": {"enum": ["IA3", "IA4"]},
+            "decision_core_id": {"type": "string", "minLength": 1},
+            "development_only": {"const": true},
+            "campaign_authorized": {"const": false},
+            "evaluation_sealed": {"const": true},
+            "model_transport_used": {"const": false},
+            "tool_execution_used": {"const": false},
+            "simulator_accessed": {"const": false},
+            "detector_accessed": {"const": false},
+            "embedding_accessed": {"const": false},
+            "state": {"const": "terminal"},
+            "failure_reason": {"type": "null"},
+            "model_turns": {"type": "array", "minItems": 1},
+            "tool_calls": {"type": "array", "minItems": 1},
+            "tool_results": {"type": "array", "minItems": 1},
+            "transcript": {"type": "array", "minItems": 1},
+            "accounting": {"type": "object"},
+            "terminal_decision": {"type": "object"}
+          }
+        },
+        "plan_validation": {
+          "type": "object",
+          "required": ["accepted", "valid_plan", "effective_action"],
+          "properties": {
+            "accepted": {"const": true},
+            "valid_plan": {"const": true},
+            "effective_action": {"const": true}
+          }
+        }
+      }
+    }
+  }
+}

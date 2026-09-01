@@ -2,9 +2,11 @@
 
 ## Status and boundary
 
-This document defines milestones M1–M4 for the IA0–IA5 research roadmap. M1–M3
-are development-only offline contracts. M4 adds one separately bounded model-
-output parsing smoke. No milestone calls an embedding service, simulator,
+This document defines milestones M1–M6 for the IA0–IA5 research roadmap. M1–M3
+are development-only offline contracts. M4 adds separately bounded model-output
+parsing receipts. M5 returns to an offline-only, content-addressed interactive
+tool-loop protocol. M6 adds a two-turn model replay with an injected read-only
+fixture. No milestone calls an embedding service, simulator,
 detector, calibration pipeline, or evaluation partition, and none authorizes a
 campaign.
 
@@ -61,7 +63,7 @@ relations between a parameter and its materialized action remain a future
 mechanism-adapter responsibility; M1 validates the declared types, bounds,
 authority, and physical budget.
 
-## Reference ladder implemented through M4
+## Reference ladder implemented through M6
 
 | Rung | Offline reference behavior | What it can establish |
 |---|---|---|
@@ -71,6 +73,9 @@ authority, and physical budget.
 | IA3 | Uses deterministic UCB1 over bounded, content-addressed full candidates. | Parameter-, target-, and composition-aware non-LLM contract. |
 | IA4 fixture boundary | Serializes the shared surface and parses recorded fixture responses. | Interface and isolation evidence only; no LLM capability claim. |
 | IA4 model replay boundary | Binds one raw completion to the exact surface and replays it through the strict adapter. | Transport and parsing evidence only; no attack-quality claim. |
+| IA4 interactive fixture boundary | Enforces model/tool/terminal state transitions and exact tool-result lineage. | Offline protocol evidence only; no live model or tool-use claim. |
+| IA4 interactive model replay | Requires one read-only request, injects a frozen fixture, and requires a terminal second turn. | Model protocol-following evidence only; no causal-information or real-tool claim. |
+| IA3 matched interactive control | Uses the same protocol, tool fixture, candidate surface, and physical validator with a frozen non-LLM rule. | Comparator-interface parity only; empirical strength remains untested. |
 
 The `FixedMaximumPowerComparator` is a separate IA1 controller and accepts
 only a card explicitly marked `fixed_maximum_power`. This prevents the legacy
@@ -97,9 +102,11 @@ rewards produce no credit update. These checks make the implementation a
 stronger algorithmic comparator, but offline tests do not establish empirical
 strength or campaign readiness.
 
-M3 does not implement a live IA4 controller. It implements the strict boundary
-that a future IA4 controller must use. IA5 remains unimplemented and must add
-only the preregistered bounded critique path and its compute-matched control.
+M3 does not implement a live IA4 controller. M4 qualifies one-turn model
+parsing, and M5 implements the offline interactive boundary a future live IA4
+controller must use. M6 qualifies model transport over one injected read-only
+result. IA5 remains unimplemented and must add only the
+preregistered bounded critique path and its compute-matched control.
 
 ## M3 shared search surface
 
@@ -176,20 +183,83 @@ unknown candidates, and request mutation. The extracted completion record can
 be replayed offline without the original endpoint. The replay format is
 governed by `ia4_model_replay.schema.json`.
 
-`artifacts/ia4_model_smoke_m4_attempt1.json` records the single authorized M4
+`artifacts/ia4_model_smoke_m4_attempt1.json` records the first authorized M4
 completion. Model discovery and strict parsing passed for
 `qwen3.6-35b-a3b`, but the parsed decision was a safety refusal: the model
 treated the external `campaign_authorized=false` and `evaluation_sealed=true`
 flags as reasons not to select a candidate. This is a behavioral comparability
 anomaly, not a parser failure. The request now states that a typed plan is a
 non-actuating proposal and governance flags constrain external execution, not
-candidate selection. The one-completion M4 cap was not expanded to retest the
-clarification.
+candidate selection.
+
+After a blocking RKA inspection checkpoint and explicit PI authorization,
+`artifacts/ia4_model_smoke_m4_attempt2_clarified.json` recorded exactly one
+new create-once completion under the clarified prompt. The same model, synthetic
+surface, development seed, temperature, and token cap returned a valid plan
+selecting unchanged candidate `cand_e203a116322e41264fda`. Offline replay and
+the common `PlanValidator` accepted the synthetic action. Neither receipt used
+a tool, embedding service, simulator, detector, or evaluation input.
 
 The full setup, result, interpretation, and limitations are recorded in
 `M4_MODEL_REPLAY_REPORT.md`. M4 does not establish correct grid reasoning,
-interactive tool competence, effective attack behavior, or superiority over
-IA3.
+interactive tool competence, effective attack behavior, stable refusal
+behavior, or superiority over IA3.
+
+## M5 offline interactive protocol
+
+`IAInteractiveSession` implements four states: `awaiting_model`,
+`awaiting_tool_result`, `terminal`, and `failed_closed`. It accepts one
+outstanding call at a time, makes terminal states immutable, and records exact
+request, response, tool-result, cost, and lineage fingerprints. Presented
+invalid model output consumes its decision turn before the session fails
+closed, preventing malformed responses from receiving free retries.
+
+M5 layers a new protocol ID over the unchanged M3/M4 search-surface ID. This
+preserves prior receipts while content-addressing exact tool input/output JSON
+schemas, state transitions, per-turn and episode caps, retry policy, and matched
+control requirements. The enabled `observe_state` tool is read-only, returns
+partial grid information, advances zero simulation time, and consumes zero
+outer rollouts. The older surface's `bounded_rollout` declaration is not enabled
+in this milestone.
+
+The checked-in fixture contract permits at most three decision turns, one tool
+call, zero outer rollouts, 512 completion tokens per turn, and 8,192 total model
+tokens. Both IA4 and matched IA3 fixture episodes use two decision turns, the
+same content-addressed observation result, and the same candidate surface. Both
+terminal plans pass the common validator. Because these are fixture decisions,
+their zero-token accounting is not a live compute comparison and no LLM tool-
+use claim is supported.
+
+The exact protocol, matched-control assertions, limitations, and next gate are
+documented in `M5_INTERACTIVE_PROTOCOL_REPORT.md`. The machine-readable record
+is `artifacts/ia4_interactive_contract_m5.json`, governed by
+`ia4_interactive_contract.schema.json`.
+
+## M6 bounded interactive-model replay
+
+M6 adds a content-addressed execution overlay that authorizes model transport
+but still prohibits real tool execution. Turn 0 is guided to exactly one
+`observe_state` request. The harness injects the M5 content-addressed fixture,
+and turn 1 must return a plan, safety refusal, or no action. The overlay permits
+one discovery, at most two completions, two declared development seeds, 512
+output tokens per turn, and no retry within an attempt.
+
+Three create-once receipts preserve the compatibility sequence. Attempt 1
+failed at the provider's guided decoder on unsupported `uniqueItems`; attempt 2
+returned the right tool and fields but failed the local call-ID namespace;
+attempt 3 used a harness-fixed call ID and completed both turns. The successful
+episode used 6,472 model tokens, one injected fixture, zero real tool calls,
+zero rollouts, and selected unchanged candidate
+`cand_e203a116322e41264fda`. The common validator accepted the reconstructed
+synthetic plan.
+
+This establishes stage-locked protocol following and explicit use of tool-
+result lineage. It does not establish causal reliance on the result: the model
+may have selected the same candidate without it, and its rationale framed the
+state in safety/stability terms. The next model gate must therefore use paired
+counterfactual fixture swaps before any real observation adapter is enabled.
+Full evidence and limitations are in `M6_INTERACTIVE_MODEL_REPORT.md`; the
+receipt schema is `ia4_interactive_model_smoke.schema.json`.
 
 ## Tool contract
 
@@ -285,6 +355,14 @@ contract, fixture-only adapter policy, hard stops, and evidentiary limitations.
 strict replay bindings, prohibited access, observed refusal anomaly, and
 limitations.
 
+`artifacts/ia4_interactive_contract_m5.json` records the M5 state machine,
+exact read-only tool schemas, episode caps, IA3/IA4 fixture receipts, matched-
+interface assertions, common plan validation, and evidentiary limitations.
+
+The three `artifacts/ia4_interactive_model_smoke_m6_attempt*.json` receipts
+record the immutable M6 provider failure, lineage failure, and successful
+two-turn model qualification.
+
 ## Local verification
 
 From `v3/g7_confirmatory`:
@@ -294,6 +372,8 @@ python3 -m unittest discover -s tests -p 'test_orchestration_contract.py' -v
 python3 -m unittest discover -s tests -p 'test_candidate_space.py' -v
 python3 -m unittest discover -s tests -p 'test_search_surface_ia4.py' -v
 python3 -m unittest discover -s tests -p 'test_ia4_model.py' -v
+python3 -m unittest discover -s tests -p 'test_ia4_tool_loop.py' -v
+python3 -m unittest discover -s tests -p 'test_ia4_interactive_model.py' -v
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q g7confirm tests
 sha256sum experiment_spec.yaml
@@ -302,20 +382,28 @@ jq empty artifacts/ai_v2_component_matrix.json \
   artifacts/ia3_ia4_search_surface_contract.json \
   artifacts/ia4_model_parsing_contract.json \
   artifacts/ia4_model_smoke_m4_attempt1.json \
+  artifacts/ia4_model_smoke_m4_attempt2_clarified.json \
+  artifacts/ia4_interactive_contract_m5.json \
+  artifacts/ia4_interactive_model_smoke_m6_attempt1.json \
+  artifacts/ia4_interactive_model_smoke_m6_attempt2_compat.json \
+  artifacts/ia4_interactive_model_smoke_m6_attempt3_fixed_call_id.json \
   candidate_space_receipt.schema.json \
   search_surface.schema.json \
   ia4_request.schema.json \
   ia4_fixture_response.schema.json \
   ia4_model_replay.schema.json \
   ia4_model_smoke.schema.json \
+  ia4_interactive_contract.schema.json \
+  ia4_interactive_model_smoke.schema.json \
   tests/fixtures/ia4_plan_response.json \
   tests/fixtures/ia4_refusal_response.json \
   tests/fixtures/ia4_no_action_response.json
 ```
 
-All tests are offline; only the explicitly named M4 artifact required model
-network access. The next gate is one create-once smoke of the clarified non-
-actuating proposal semantics. Interactive work should begin only after that
-gate and must preserve this exact request, response, search-surface, and tool-
-lineage contract. A later independently gated one-window development smoke
-would still require a bound reward metric and would not open evaluation.
+All tests and M5 fixture generation are offline. The two M4 receipts and three
+M6 receipts required model network access; M6 executed no real tool. The next
+model gate is a separately content-addressed counterfactual fixture experiment
+that must preserve the exact surface, tool-result lineage, turn and token caps,
+and matched IA3 accounting. A later independently gated live-tool or one-window
+development smoke would still require an execution overlay and bound reward
+metric and would not open evaluation.

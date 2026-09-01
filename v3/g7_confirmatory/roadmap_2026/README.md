@@ -10,6 +10,15 @@ typed-tool parity contract, and the primary `IA4 − IA3` contrast. These change
 are roadmap/development-screening definitions; they do not amend the frozen
 confirmatory experiment specification or its 384-run accounting.
 
+The portable report is the frozen r2 design snapshot. Subsequent implementation
+evidence is maintained outside the generated report: M4 one-turn model replay
+is documented in `../M4_MODEL_REPLAY_REPORT.md`, and the offline M5 interactive
+tool-loop protocol is documented in `../M5_INTERACTIVE_PROTOCOL_REPORT.md`.
+The bounded two-turn M6 model qualification is documented in
+`../M6_INTERACTIVE_MODEL_REPORT.md`.
+This separation avoids rewriting the report's original source manifest while
+keeping current protocol evidence explicit.
+
 - `report.html` — primary portable technical report; r2 browser-verified at
   1440 px and 390 px with 23 manifest blocks, synchronized semantic fallback,
   static light/dark chart SVGs, and no horizontal overflow.

@@ -22,7 +22,9 @@ from .orchestration_contract import (
 from .search_surface import build_search_surface
 
 
-def _strategy_library() -> StrategyLibrary:
+def build_smoke_strategy_library() -> StrategyLibrary:
+    """Return the fixed synthetic strategy library shared by M4 and M5."""
+
     return StrategyLibrary([
         StrategyCard(
             strategy_id="step_corner",
@@ -56,7 +58,10 @@ def _strategy_library() -> StrategyLibrary:
     ])
 
 
-def _candidate_library(library: StrategyLibrary) -> CandidateLibrary:
+def build_smoke_candidate_library(
+        library: StrategyLibrary) -> CandidateLibrary:
+    """Return the fixed, content-addressed synthetic candidate library."""
+
     return CandidateLibrary([
         CandidateTemplate(
             steps=(library.get("step_corner").default_step(),),
@@ -69,7 +74,10 @@ def _candidate_library(library: StrategyLibrary) -> CandidateLibrary:
     ])
 
 
-def _profile(rung: OrchestrationRung) -> CapabilityProfile:
+def build_smoke_capability_profile(
+        rung: OrchestrationRung) -> CapabilityProfile:
+    """Return one rung-specific identity over the shared K/A/resource payload."""
+
     return CapabilityProfile(
         profile_id=f"m4_smoke_{rung.value}",
         rung=rung,
@@ -100,7 +108,9 @@ def _profile(rung: OrchestrationRung) -> CapabilityProfile:
     )
 
 
-def _tool_contract() -> ToolContract:
+def build_smoke_tool_contract() -> ToolContract:
+    """Return the declared M4/M5 synthetic tool contract."""
+
     return ToolContract([
         ToolSpec(
             name="observe_state",
@@ -124,9 +134,9 @@ def _tool_contract() -> ToolContract:
 def build_m4_smoke_adapter() -> IA4FixtureAdapter:
     """Build the fixed synthetic surface used only for parser qualification."""
 
-    library = _strategy_library()
-    candidates = _candidate_library(library)
-    tools = _tool_contract()
+    library = build_smoke_strategy_library()
+    candidates = build_smoke_candidate_library(library)
+    tools = build_smoke_tool_contract()
     reward = CandidateRewardSpec(
         metric_name="synthetic_paired_pre_alarm_harm",
         minimum=0.0,
@@ -134,14 +144,14 @@ def build_m4_smoke_adapter() -> IA4FixtureAdapter:
         direction="maximize",
     )
     ia3_surface = build_search_surface(
-        profile=_profile(OrchestrationRung.IA3),
+        profile=build_smoke_capability_profile(OrchestrationRung.IA3),
         strategy_library=library,
         candidate_library=candidates,
         reward_spec=reward,
         tool_contract=tools,
     )
     return IA4FixtureAdapter(
-        profile=_profile(OrchestrationRung.IA4),
+        profile=build_smoke_capability_profile(OrchestrationRung.IA4),
         strategy_library=library,
         candidate_library=candidates,
         reward_spec=reward,

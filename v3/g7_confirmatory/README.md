@@ -25,8 +25,15 @@ The harness provides:
   parameterization, composition, typed-tool auditing, IA3/IA4 capability
   parity, an explicit AI-V2 component matrix, a content-addressed shared
   search surface, and a fixture-only IA4 adapter; and
-- a replayable M4 IA4 model-output boundary with one bounded completion smoke,
-  strict model/surface/candidate binding, and no tool or simulator execution.
+- a replayable M4 IA4 model-output boundary with two independently authorized,
+  create-once completion receipts, strict model/surface/candidate binding, and
+  no tool or simulator execution; and
+- an offline M5 interactive state machine with exact read-only tool schemas,
+  content-addressed fixture results, hard turn/tool/token caps, immutable
+  terminal states, and a matched IA3 non-LLM control; and
+- a bounded M6 two-turn model replay that requests the read-only interface,
+  receives a harness-injected fixture without tool execution, and terminates
+  through the common candidate and plan validator boundary.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -42,6 +49,13 @@ execute a tool.
 The M4 boundary is documented in `M4_MODEL_REPLAY_REPORT.md` and
 `artifacts/ia4_model_parsing_contract.json`; its replay and smoke schemas are
 `ia4_model_replay.schema.json` and `ia4_model_smoke.schema.json`.
+The M5 boundary is documented in `M5_INTERACTIVE_PROTOCOL_REPORT.md`; its
+machine-readable receipt and schema are
+`artifacts/ia4_interactive_contract_m5.json` and
+`ia4_interactive_contract.schema.json`.
+The M6 model qualification, including two preserved fail-closed attempts, is
+documented in `M6_INTERACTIVE_MODEL_REPORT.md`; its receipt schema is
+`ia4_interactive_model_smoke.schema.json`.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the
@@ -111,6 +125,26 @@ fixture:
 ```bash
 python3 -m g7confirm.cli ia4-model-smoke --spec experiment_spec.yaml \
   --output artifacts/ia4_model_smoke_m4_<unique-attempt-id>.json
+```
+
+The M5 fixture command is fully offline. It creates paired IA4-fixture and IA3
+control receipts over the same synthetic read-only result without contacting a
+model or executing a tool:
+
+```bash
+python3 -m g7confirm.cli ia4-interactive-fixture \
+  --spec experiment_spec.yaml \
+  --output artifacts/ia4_interactive_contract_<unique-id>.json
+```
+
+The M6 command is networked but never executes the requested tool. It permits
+one discovery and at most two completions, injects the frozen fixture, and uses
+create-once output semantics:
+
+```bash
+python3 -m g7confirm.cli ia4-interactive-model-smoke \
+  --spec experiment_spec.yaml \
+  --output artifacts/ia4_interactive_model_smoke_<unique-attempt-id>.json
 ```
 
 The successful bounded evidence and its limitations are summarized in

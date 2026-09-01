@@ -16,7 +16,13 @@ from .detector_freeze import (
 )
 from .manifest import build_manifest, create_once_json
 from .ia4_model import IA4ModelReplay, perform_bounded_model_smoke
+from .ia4_interactive_model import (
+    M6_SMOKE_SCHEMA_VERSION,
+    build_default_m6_overlay,
+    perform_bounded_interactive_model_smoke,
+)
 from .ia4_smoke_fixture import build_m4_smoke_adapter
+from .ia4_tool_loop import build_m5_contract_artifact
 from .model_client import ModelClientError, request_proposal
 from .orchestration_contract import ContractViolation, TypedObservation
 from .prompt_audit import load_prompt, prompt_sha256, render_messages
@@ -155,6 +161,70 @@ def cmd_ia4_model_smoke(args: argparse.Namespace) -> int:
     return exit_code
 
 
+def cmd_ia4_interactive_fixture(args: argparse.Namespace) -> int:
+    """Create the offline M5 state-machine and matched-control receipt."""
+
+    load_spec(args.spec)
+    artifact = build_m5_contract_artifact(
+        adapter=build_m4_smoke_adapter(),
+        spec_file_sha256=hashlib.sha256(args.spec.read_bytes()).hexdigest(),
+    )
+    create_once_json(args.output, artifact)
+    _print({
+        "status": artifact["status"],
+        "output": str(args.output),
+        "protocol_id": artifact["protocol"]["protocol_id"],
+    })
+    return 0
+
+
+def cmd_ia4_interactive_model_smoke(args: argparse.Namespace) -> int:
+    """Run the bounded M6 two-turn model/read-only-fixture qualification."""
+
+    spec = load_spec(args.spec)
+    overlay = build_default_m6_overlay(
+        model_id=spec["model"]["id"],
+        development_seeds=spec["partitions"]["development"],
+        timeout_s=float(spec["model"]["timeout_s"]),
+    )
+    artifact = {
+        "schema_version": M6_SMOKE_SCHEMA_VERSION,
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "protocol_id": spec["protocol_id"],
+        "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+        "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36",
+        "spec_file_sha256": hashlib.sha256(args.spec.read_bytes()).hexdigest(),
+        "endpoint": spec["model"]["base_url"],
+        "expected_model_id": spec["model"]["id"],
+        "scope": "synthetic_read_only_fixture_interactive_model_qualification",
+        "development_only": True,
+        "campaign_authorized": False,
+        "evaluation_sealed": True,
+        "model_transport_authorized": True,
+        "tool_execution_authorized": False,
+        "simulator_access_authorized": False,
+        "detector_access_authorized": False,
+        "embedding_access_authorized": False,
+        "overlay": overlay.to_dict(),
+    }
+    result = perform_bounded_interactive_model_smoke(
+        base_url=spec["model"]["base_url"],
+        overlay=overlay,
+    )
+    artifact.update(result)
+    create_once_json(args.output, artifact)
+    _print({
+        "status": artifact["status"],
+        "output": str(args.output),
+        "completion_requests": artifact["completion_requests"],
+        "terminal_state": (
+            artifact["session_receipt"]["state"]
+            if artifact["session_receipt"] else None
+        ),
+    })
+    return 0 if artifact["status"] == "passed" else 2
+
+
 def cmd_manifest(args: argparse.Namespace) -> int:
     root = Path(args.root).resolve()
     files = [root / path for path in args.files]
@@ -275,6 +345,16 @@ def build_parser() -> argparse.ArgumentParser:
     ia4_smoke.add_argument("--spec", required=True, type=Path)
     ia4_smoke.add_argument("--output", required=True, type=Path)
     ia4_smoke.set_defaults(func=cmd_ia4_model_smoke)
+
+    ia4_fixture = sub.add_parser("ia4-interactive-fixture")
+    ia4_fixture.add_argument("--spec", required=True, type=Path)
+    ia4_fixture.add_argument("--output", required=True, type=Path)
+    ia4_fixture.set_defaults(func=cmd_ia4_interactive_fixture)
+
+    ia4_interactive_model = sub.add_parser("ia4-interactive-model-smoke")
+    ia4_interactive_model.add_argument("--spec", required=True, type=Path)
+    ia4_interactive_model.add_argument("--output", required=True, type=Path)
+    ia4_interactive_model.set_defaults(func=cmd_ia4_interactive_model_smoke)
 
     manifest = sub.add_parser("manifest")
     manifest.add_argument("--root", required=True, type=Path)
