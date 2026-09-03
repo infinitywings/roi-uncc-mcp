@@ -1,0 +1,33 @@
+{
+  "schema_version": "grideval-g7-m19-retained-failure/v1",
+  "milestone": "M19",
+  "classification": "PRELIMINARY_ONLY",
+  "attempt": 1,
+  "action_id": "m19_benign_seed5101",
+  "pair_id": "m19_pair_runtime_qualification_seed5101",
+  "replicate_seed": 5101,
+  "treatment": "benign",
+  "status": "failed_before_simulation",
+  "failure_class": "container_python_path_wiring",
+  "exception_type": "ModuleNotFoundError",
+  "exception_message": "No module named 'opender'",
+  "failure_stage": "import device.make_scheduled_der",
+  "simulator_started": false,
+  "helics_broker_created": false,
+  "simulated_commands_applied": false,
+  "attack_pair_run_started": false,
+  "container_name": "g7-m19-benign-seed5101",
+  "container_exit_code": 1,
+  "container_removed_after_exit": true,
+  "output_overwritten": false,
+  "retained_partial_files": [
+    "benign/1c_IEEE_123_feeder.glm",
+    "benign/mainglm.json"
+  ],
+  "root_cause": "The mounted repository exposed v3/opender/device.py but the runtime did not add v3/deps/opender-src/src to sys.path.",
+  "corrective_action": "Add the vendored OpenDER package source path and use a new create-once attempt directory with refreshed code-bound action requests.",
+  "final_evaluation_data_accessed": false,
+  "physical_field_connection": false,
+  "model_or_embedding_service_started_or_restarted": false,
+  "eligible_as_passing_end_to_end_evidence": false
+}

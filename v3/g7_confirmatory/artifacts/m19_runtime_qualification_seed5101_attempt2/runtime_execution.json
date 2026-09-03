@@ -1,0 +1,50 @@
+{
+  "schema_version": "grideval-g7-m19-runtime-execution/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "container_image_id": "sha256:c79f6cc1bd1eea69c5c21b8794d9def19435f26aa7f4f71c5330c823835e4df7",
+  "container_image_tag": "docker-cosim:latest",
+  "network_mode": "none",
+  "physical_field_connection": false,
+  "container_user": "666305836:666305836",
+  "entrypoint_override": "/bin/bash",
+  "container_names": [
+    "g7-m19-benign-seed5101-a2",
+    "g7-m19-attack-seed5101-a2"
+  ],
+  "container_exit_codes": {
+    "g7-m19-benign-seed5101-a2": 0,
+    "g7-m19-attack-seed5101-a2": 0
+  },
+  "containers_ephemeral": true,
+  "teardown_check": "docker ps -a --filter name=g7-m19 returned no rows",
+  "teardown_verified": true,
+  "runtime_versions": {
+    "GridLAB-D": "5.3.0-20236 (e1841e1e:master:Modified) 64-bit LINUX RELEASE",
+    "HELICS": "3.6.1-main-ge437060a1 (2025-08-14)",
+    "Python": "3.10.12",
+    "OpenDER": "2.2.0 vendored source"
+  },
+  "retained_warnings": [
+    {
+      "runs": ["benign", "attack"],
+      "component": "HELICS",
+      "message_class": "unknown route during final teardown",
+      "effect": "Both containers exited zero and were removed; warning remains unresolved for later multi-window work."
+    },
+    {
+      "runs": ["benign", "attack"],
+      "component": "HELICS Python API",
+      "message_class": "deprecated helicsFederateFinalize",
+      "effect": "No observed failure; migration to helicsFederateDisconnect remains future maintenance."
+    },
+    {
+      "runs": ["benign", "attack"],
+      "component": "GridLAB-D",
+      "message_class": "FBS switch behavior warning",
+      "effect": "GridLAB-D exited zero in both runs; warning is not dismissed as proof of physical validity."
+    }
+  ],
+  "preceding_retained_failure": "../m19_runtime_qualification_seed5101_attempt1/failure_record.json",
+  "final_evaluation_data_accessed": false,
+  "model_or_embedding_service_started_or_restarted": false
+}

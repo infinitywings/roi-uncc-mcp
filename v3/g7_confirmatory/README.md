@@ -88,6 +88,12 @@ The harness provides:
   specific preliminary partitions, authorizes registered end-to-end local
   workflow tests, binds the existing LLM and embedding services, distinguishes
   simulated from physical actuation, and keeps final evaluation sealed.
+- an M19 bounded paired runtime qualification that retains one pre-simulation
+  wiring failure, then completes one benign and one matched deterministic
+  single-window trace through HELICS, OpenDER, and GridLAB-D with exact command
+  admission/delivery reconciliation and verified ephemeral-container teardown.
+  M19 explicitly does not claim post-actuation grid harm or detector/defense
+  effectiveness, and final evaluation remains sealed.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -110,6 +116,10 @@ machine-readable receipt and schema are
 The M6 model qualification, including two preserved fail-closed attempts, is
 documented in `M6_INTERACTIVE_MODEL_REPORT.md`; its receipt schema is
 `ia4_interactive_model_smoke.schema.json`.
+The M19 runtime outcome, retained failure, model-service preflight, and
+single-window scientific limitation are documented in
+`M19_BOUNDED_PAIRED_RUNTIME_QUALIFICATION_REPORT.md`; its create-once evidence
+is under `artifacts/m19_runtime_qualification_seed5101_attempt{1,2}/`.
 The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and

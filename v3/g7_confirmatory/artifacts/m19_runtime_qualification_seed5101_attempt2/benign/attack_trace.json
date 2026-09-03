@@ -1,0 +1,21 @@
+[
+  {
+    "window": 0,
+    "t": 10,
+    "telemetry": {
+      "DER_EV4_BESS": 1.0015189608210184,
+      "DER_EV1_BESS": 1.0133328762876816,
+      "DER_EV3_PV": 0.9966361593943323,
+      "DER_EV5_PV": 1.023093904462443
+    },
+    "telemetry_meas": {
+      "DER_EV4_BESS": 1.0054709308779648,
+      "DER_EV1_BESS": 1.0134123732798532,
+      "DER_EV3_PV": 0.9927797784902153,
+      "DER_EV5_PV": 1.0226706238848589
+    },
+    "attack": {},
+    "budget_spent": 0,
+    "budget_total": 0
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "arm": "benign",
+  "budget_windows": 0,
+  "budget_spent": 0,
+  "attacker_seed": 5101,
+  "coupling_step_s": 10,
+  "volt_var_defender": false,
+  "meas_noise_pu": 0.002,
+  "noise_seed": 95101,
+  "devices": [
+    "DER_EV4_BESS@l92/C:bess",
+    "DER_EV1_BESS@l5/C:bess",
+    "DER_EV3_PV@l88/A:pv",
+    "DER_EV5_PV@l107/B:pv"
+  ],
+  "windows": 1,
+  "gridlabd_returncode": 0,
+  "llm": null
+}

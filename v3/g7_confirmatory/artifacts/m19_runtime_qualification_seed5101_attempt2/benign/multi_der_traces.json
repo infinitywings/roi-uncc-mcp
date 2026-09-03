@@ -1,0 +1,58 @@
+{
+  "DER_EV4_BESS": [
+    {
+      "t": 10.0,
+      "v_pu": 1.0015189608210184,
+      "v_pu_meas": 1.0054709308779648,
+      "p_kw": 0.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 0.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ],
+  "DER_EV1_BESS": [
+    {
+      "t": 10.0,
+      "v_pu": 1.0133328762876816,
+      "v_pu_meas": 1.0134123732798532,
+      "p_kw": 0.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 0.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ],
+  "DER_EV3_PV": [
+    {
+      "t": 10.0,
+      "v_pu": 0.9966361593943323,
+      "v_pu_meas": 0.9927797784902153,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ],
+  "DER_EV5_PV": [
+    {
+      "t": 10.0,
+      "v_pu": 1.023093904462443,
+      "v_pu_meas": 1.0226706238848589,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ]
+}

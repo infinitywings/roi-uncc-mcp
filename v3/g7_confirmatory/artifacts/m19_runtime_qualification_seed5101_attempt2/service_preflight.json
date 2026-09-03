@@ -1,0 +1,32 @@
+{
+  "schema_version": "grideval-g7-m19-service-preflight/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "observed_at_utc": "2026-09-03T20:33:29Z",
+  "model_or_embedding_service_started_or_restarted": false,
+  "llm": {
+    "endpoint": "http://ccil1s26m8hj6lws:8000/v1",
+    "probe": "GET /models",
+    "probe_status": "passed",
+    "id": "qwen3.6-35b-a3b",
+    "owned_by": "vllm",
+    "root": "QuantTrio/Qwen3.6-35B-A3B-AWQ",
+    "max_model_len": 262144,
+    "model_created": 1788467605
+  },
+  "embedding": {
+    "owner": "existing_project_RKA_service",
+    "RKA_endpoint": "http://127.0.0.1:9712",
+    "backend": "openai_compat",
+    "backend_base_url_from_RKA_container": "http://172.20.0.1:11434",
+    "model": "qwen3-embedding:0.6b",
+    "dimensions": 1024,
+    "configuration_updated_at": "2026-08-30T17:43:59Z",
+    "configuration_updated_by": "pi",
+    "probe": "POST /api/config/embedding/test (non-persisting)",
+    "probe_status": "passed",
+    "detected_dimensions": 1024,
+    "latency_ms": 92.24746492691338
+  },
+  "final_evaluation_data_accessed": false,
+  "physical_field_connection": false
+}

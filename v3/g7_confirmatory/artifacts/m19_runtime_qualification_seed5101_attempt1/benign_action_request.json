@@ -1,0 +1,18 @@
+{
+  "action_id": "m19_benign_seed5101",
+  "action_type": "simulated_actuator_execution",
+  "budget_id": "m19_seed5101_one_window_2kvah",
+  "code_sha256": "90d612133cfa7dd9282988af59fb82edd0b68503dac31079786dad3e608c0f5e",
+  "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+  "create_once": true,
+  "final_evaluation_data_accessed": false,
+  "local_service_identity": null,
+  "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+  "output_classification": "PRELIMINARY_ONLY",
+  "paired_benign_id": "m19_benign_seed5101",
+  "partition_role": "runtime_qualification",
+  "physical_field_actuator": false,
+  "retain_failures": true,
+  "seed": 5101,
+  "starts_or_restarts_service": false
+}

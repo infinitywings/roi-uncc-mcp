@@ -15,7 +15,15 @@ from typing import Any, Mapping
 from .budget import DualBudget, RunnerOwnedDualBudgetPolicyAdapter
 from .manifest import create_once_json
 from .operating_points import OPERATING_POINTS, actuate_glm_clock
-from .partitions import gridlabd_random_seed, require_component_seeds
+from .partitions import (
+    derive_component_seeds,
+    gridlabd_random_seed,
+    require_component_seeds,
+)
+from .preliminary_only_gate import (
+    PARTITION_REGISTRY,
+    validate_preliminary_action_request,
+)
 from .spec import load_spec
 
 
@@ -33,6 +41,61 @@ LOAD_PLAYER = (
     / "load_shape_player.player"
 )
 DEFAULT_CONFIG = REPO_ROOT / "v3" / "configs" / "der_devices.yaml"
+M18_GATE_ARTIFACT = PACKAGE_ROOT / "artifacts" / "preliminary_only_gate_m18.json"
+
+
+class BenignPolicy:
+    """Canonical zero-intervention control for a paired runtime trace."""
+
+    def __init__(self) -> None:
+        self.budget = 0
+        self.spent = 0
+        self.feedback: Any = None
+        self.detector: Any = None
+
+    def decide(self, window: int, time_s: int,
+               telemetry: dict[str, float]) -> dict[str, tuple[float, float]]:
+        return {}
+
+    def note_spent(self, commands: Mapping[str, tuple[float, float]]) -> None:
+        if commands:
+            raise RuntimeError("benign policy received a perturbed command")
+
+
+def _preliminary_component_seeds(
+    *,
+    spec: dict[str, Any],
+    role: str,
+    replicate_seed: int,
+    gridlabd_seed: int,
+    explicit_noise_seed: int | None,
+):
+    """Authorize an M18 preliminary seed without editing the frozen spec."""
+
+    partition = next(
+        (item for item in PARTITION_REGISTRY if item["role"] == role), None
+    )
+    if partition is None or role != "runtime_qualification":
+        raise ValueError(f"unsupported preliminary runtime role: {role}")
+    if int(replicate_seed) not in partition["seeds"]:
+        raise ValueError(
+            f"seed {int(replicate_seed)} is not registered for {role}"
+        )
+    if partition["classification"] != "PRELIMINARY_ONLY" or not partition["may_read"]:
+        raise ValueError(f"preliminary partition {role} is not readable")
+    assignment = derive_component_seeds(
+        spec,
+        int(replicate_seed),
+        gridlabd_random_seed=int(gridlabd_seed),
+    )
+    if (explicit_noise_seed is not None
+            and int(explicit_noise_seed) != assignment.measurement_noise_seed):
+        raise ValueError(
+            "measurement-noise seed drift: "
+            f"expected {assignment.measurement_noise_seed}, "
+            f"received {int(explicit_noise_seed)}"
+        )
+    return role, assignment
 
 
 def _sha256(path: Path) -> str:
@@ -57,8 +120,11 @@ def load_frozen_runtime() -> tuple[ModuleType, ModuleType, dict[str, str]]:
             raise FileNotFoundError(path)
 
     opender_path = str(REPO_ROOT / "v3" / "opender")
+    opender_package_path = str(
+        REPO_ROOT / "v3" / "deps" / "opender-src" / "src"
+    )
     shared_path = str(FREEZE_ROOT / "shared")
-    for path in (opender_path, shared_path):
+    for path in (opender_path, opender_package_path, shared_path):
         if path not in sys.path:
             sys.path.insert(0, path)
 
@@ -181,19 +247,79 @@ def _require_scoped_output(path: Path) -> Path:
     return resolved
 
 
+def _load_preliminary_action_request(
+    *, args: argparse.Namespace, output_dir: Path,
+) -> dict[str, Any] | None:
+    if not args.preliminary_role:
+        if args.action_request is not None:
+            raise ValueError("action request requires a preliminary runtime role")
+        return None
+    if args.action_request is None:
+        raise ValueError("preliminary runtime requires an M18 action request")
+    request_path = Path(args.action_request).resolve()
+    if not request_path.is_file():
+        raise FileNotFoundError(request_path)
+    request = json.loads(request_path.read_text(encoding="utf-8"))
+    issues = validate_preliminary_action_request(request)
+    if issues:
+        raise ValueError(f"M18 action request rejected: {issues}")
+    expected_action = (
+        "m19_benign_seed5101" if args.arm == "benign"
+        else "m19_attack_seed5101"
+    )
+    expected = {
+        "action_id": expected_action,
+        "action_type": "simulated_actuator_execution",
+        "partition_role": args.preliminary_role,
+        "seed": int(args.attacker_seed),
+        "output_classification": "PRELIMINARY_ONLY",
+        "create_once": True,
+        "manifest_sha256": _sha256(M18_GATE_ARTIFACT),
+        "code_sha256": _sha256(Path(__file__)),
+        "config_sha256": _sha256(DEFAULT_CONFIG),
+        "budget_id": "m19_seed5101_one_window_2kvah",
+        "paired_benign_id": "m19_benign_seed5101",
+        "final_evaluation_data_accessed": False,
+        "physical_field_actuator": False,
+        "starts_or_restarts_service": False,
+        "retain_failures": True,
+        "local_service_identity": None,
+    }
+    if request != expected:
+        raise ValueError("M19 action request does not match the executable bytes")
+    if output_dir.exists():
+        raise FileExistsError(f"refusing to overwrite runtime output: {output_dir}")
+    return request
+
+
 def run_bounded(args: argparse.Namespace) -> int:
     if int(args.windows) != 1:
         raise ValueError("runtime-integration build is hard-capped at one window")
+    if args.arm == "benign" and (
+        int(args.budget_windows) != 0 or float(args.energy_cap_kvah) != 0.0
+    ):
+        raise ValueError("benign control requires zero window and energy budgets")
+    if args.preliminary_role and not args.pair_id:
+        raise ValueError("preliminary runtime requires a paired lineage identifier")
     spec = load_spec(args.spec)
     simulator_seed = gridlabd_random_seed(SOURCE_GLM)
-    partition, component_seeds = require_component_seeds(
-        spec,
-        replicate_seed=int(args.attacker_seed),
-        gridlabd_random_seed=simulator_seed,
-        explicit_noise_seed=args.noise_seed,
-        allowed=tuple(spec["seed_controls"]["allowed_runtime_partitions"]),
-        purpose="bounded runtime integration",
-    )
+    if args.preliminary_role:
+        partition, component_seeds = _preliminary_component_seeds(
+            spec=spec,
+            role=args.preliminary_role,
+            replicate_seed=int(args.attacker_seed),
+            gridlabd_seed=simulator_seed,
+            explicit_noise_seed=args.noise_seed,
+        )
+    else:
+        partition, component_seeds = require_component_seeds(
+            spec,
+            replicate_seed=int(args.attacker_seed),
+            gridlabd_random_seed=simulator_seed,
+            explicit_noise_seed=args.noise_seed,
+            allowed=tuple(spec["seed_controls"]["allowed_runtime_partitions"]),
+            purpose="bounded runtime integration",
+        )
     args.noise_seed = component_seeds.measurement_noise_seed
     if args.detector:
         raise ValueError(
@@ -201,6 +327,10 @@ def run_bounded(args: argparse.Namespace) -> int:
             "artifact passes evidence review"
         )
     output_dir = _require_scoped_output(args.output_dir)
+    action_request = _load_preliminary_action_request(
+        args=args,
+        output_dir=output_dir,
+    )
     base, attack, dependency_hashes = load_frozen_runtime()
     duration_s = int(args.windows) * int(args.coupling_step)
 
@@ -227,7 +357,8 @@ def run_bounded(args: argparse.Namespace) -> int:
     def make_budgeted_policy(arm: str, devices: list[dict[str, Any]],
                              envs: dict[str, dict[str, float]], budget: int,
                              seed: int, **kwargs: Any) -> RunnerOwnedDualBudgetPolicyAdapter:
-        policy = original_factory(arm, devices, envs, budget, seed, **kwargs)
+        policy = (BenignPolicy() if arm == "benign"
+                  else original_factory(arm, devices, envs, budget, seed, **kwargs))
         benign = {
             device["id"]: attack.benign_command(device, envs[device["id"]])
             for device in devices
@@ -251,6 +382,9 @@ def run_bounded(args: argparse.Namespace) -> int:
     integration = {
         "schema_version": "grideval-g7-runtime-integration/v1",
         "mode": "gen-only" if args.gen_only else "one-window-runtime-smoke",
+        "classification": (
+            "PRELIMINARY_ONLY" if args.preliminary_role else "DEVELOPMENT_ONLY"
+        ),
         "campaign_authorized": False,
         "runtime_window_limit": 1,
         "evaluation_opened": False,
@@ -259,6 +393,12 @@ def run_bounded(args: argparse.Namespace) -> int:
             **component_seeds.as_dict(),
         },
         "operating_point": operating_point_metadata,
+        "pairing": {
+            "pair_id": args.pair_id,
+            "treatment": "benign" if args.arm == "benign" else "attack",
+            "matched_seed": int(args.attacker_seed),
+        } if args.pair_id else None,
+        "M18_action_request": action_request,
         "dependency_hashes": dependency_hashes,
         "composition": {
             "attack_runner": str(FROZEN_ATTACK_RUNNER),
@@ -269,6 +409,11 @@ def run_bounded(args: argparse.Namespace) -> int:
         "budget": {
             "perturbed_window_cap": int(args.budget_windows),
             "apparent_energy_cap_kvah": float(args.energy_cap_kvah),
+        },
+        "detector_defense_state": {
+            "detector": "held_not_executed" if not args.detector else "executed",
+            "volt_var_defense": "enabled" if args.volt_var else "disabled",
+            "final_parameters_locked": False,
         },
         "status": "passed" if status == 0 else "failed_closed",
     }
@@ -298,7 +443,7 @@ def run_bounded(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--arm", default="scripted_max", choices=[
-        "scripted_max", "random", "ssv_llm", "sensi_opt", "detector_evasive",
+        "benign", "scripted_max", "random", "ssv_llm", "sensi_opt", "detector_evasive",
         "sched_evasive", "llm_planner", "probe",
     ])
     parser.add_argument("--spec", type=Path, default=PACKAGE_ROOT / "experiment_spec.yaml")
@@ -324,6 +469,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--l4-period", type=int, default=6)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--gen-only", action="store_true")
+    parser.add_argument("--preliminary-role", choices=["runtime_qualification"])
+    parser.add_argument("--pair-id", default=None)
+    parser.add_argument("--action-request", type=Path, default=None)
     return parser
 
 
