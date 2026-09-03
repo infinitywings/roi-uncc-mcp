@@ -1,0 +1,297 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/grideval-career-internal-advisory-v1.json",
+  "title": "CAREER M16 internal advisory evidence",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "advisory_id",
+    "milestone",
+    "title",
+    "status",
+    "source_lineage",
+    "transport",
+    "input_manifest",
+    "review_sha256",
+    "review",
+    "brain_adjudication",
+    "governance",
+    "limitations",
+    "next_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-career-internal-advisory/v1"
+    },
+    "advisory_id": {
+      "type": "string",
+      "pattern": "^m16advisory_[0-9a-f]{64}$"
+    },
+    "milestone": { "const": "M16" },
+    "title": { "const": "CAREER M16 internal advisory design review" },
+    "status": {
+      "const": "INTERNAL_ADVISORY_COMPLETED_NOT_EXTERNAL_REVIEW"
+    },
+    "source_lineage": {
+      "type": "object",
+      "required": [
+        "M15_gate_id",
+        "PI_confirmation_journal_id",
+        "M16_backbrief_journal_id",
+        "two_tier_decision_id",
+        "deferred_external_checkpoint_id",
+        "base_commit"
+      ],
+      "properties": {
+        "M15_gate_id": {
+          "const": "m15twotier_af8cf66768ddeb85f535be40d76bf327b826c088a337d42cd7b15df5cb037d65"
+        },
+        "PI_confirmation_journal_id": {
+          "const": "jrn_01M1M9594BX7M4JPQK0SMPXAQ8"
+        },
+        "M16_backbrief_journal_id": {
+          "const": "jrn_01M1M9SBTCJPN1J2MZQM38880H"
+        },
+        "two_tier_decision_id": {
+          "const": "dec_01M1M95MNV67RVB4BZJDG4CGVX"
+        },
+        "deferred_external_checkpoint_id": {
+          "const": "chk_01M1M97DN5EWDKSM4T1CMT76J6"
+        },
+        "base_commit": {
+          "const": "d50bc565a539c8f8252df9e2532bf25ac6cb2785"
+        }
+      },
+      "additionalProperties": false
+    },
+    "transport": {
+      "type": "object",
+      "required": [
+        "advisory_session_id",
+        "endpoint",
+        "model_record",
+        "request_sha256",
+        "seed",
+        "temperature",
+        "finish_reason",
+        "usage",
+        "attempts",
+        "model_completions_attempted",
+        "accepted_completions",
+        "embedding_service_used",
+        "model_or_embedding_service_started_or_restarted",
+        "simulator_detector_or_actuator_accessed",
+        "evaluation_records_accessed"
+      ],
+      "properties": {
+        "advisory_session_id": { "type": "string", "minLength": 1 },
+        "endpoint": { "const": "http://ccil1s26m8hj6lws:8000/v1" },
+        "model_record": {
+          "type": "object",
+          "required": ["id", "max_model_len", "owned_by", "root"],
+          "properties": {
+            "id": { "const": "qwen3.6-35b-a3b" },
+            "max_model_len": { "const": 262144 },
+            "owned_by": { "const": "vllm" },
+            "root": { "const": "QuantTrio/Qwen3.6-35B-A3B-AWQ" }
+          },
+          "additionalProperties": false
+        },
+        "request_sha256": {
+          "const": "d0ef5406f3d812abd79b07ed5e1790c324486ad2bf41b7a0b8ef2a563f47a6d3"
+        },
+        "seed": { "const": 1616 },
+        "temperature": { "const": 0.0 },
+        "finish_reason": { "const": "stop" },
+        "usage": { "type": "object" },
+        "attempts": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "type": "object" }
+        },
+        "model_completions_attempted": { "const": 3 },
+        "accepted_completions": { "const": 1 },
+        "embedding_service_used": { "const": false },
+        "model_or_embedding_service_started_or_restarted": { "const": false },
+        "simulator_detector_or_actuator_accessed": { "const": false },
+        "evaluation_records_accessed": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "input_manifest": {
+      "type": "array",
+      "minItems": 13,
+      "maxItems": 13,
+      "items": { "$ref": "#/$defs/file" }
+    },
+    "review_sha256": {
+      "const": "de226e18ad97fa2de78ca80ab6ecd418e7f48c215db1aadd7a79b06f4ced2e8a"
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "review_status",
+        "executive_assessment",
+        "findings",
+        "next_offline_actions",
+        "deferred_actions",
+        "experimental_ladder",
+        "power_system_invariants",
+        "detector_defense_tests",
+        "stop_conditions"
+      ],
+      "properties": {
+        "review_status": { "const": "ADVISORY_ONLY_NOT_EXTERNAL_REVIEW" },
+        "executive_assessment": { "type": "string" },
+        "findings": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": { "type": "object" }
+        },
+        "next_offline_actions": { "type": "array", "items": { "type": "string" } },
+        "deferred_actions": { "type": "array", "items": { "type": "string" } },
+        "experimental_ladder": { "type": "array", "items": { "type": "string" } },
+        "power_system_invariants": { "type": "array", "items": { "type": "string" } },
+        "detector_defense_tests": {
+          "type": "object",
+          "required": ["black_box", "gray_box", "white_box"],
+          "properties": {
+            "black_box": { "type": "string" },
+            "gray_box": { "type": "string" },
+            "white_box": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "stop_conditions": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "brain_adjudication": {
+      "type": "object",
+      "required": ["F10", "F20", "F30", "F40", "F50", "F60", "F70"],
+      "properties": {
+        "F10": { "$ref": "#/$defs/adjudication" },
+        "F20": { "$ref": "#/$defs/adjudication" },
+        "F30": { "$ref": "#/$defs/adjudication" },
+        "F40": { "$ref": "#/$defs/adjudication" },
+        "F50": { "$ref": "#/$defs/adjudication" },
+        "F60": { "$ref": "#/$defs/adjudication" },
+        "F70": { "$ref": "#/$defs/adjudication" }
+      },
+      "additionalProperties": false
+    },
+    "governance": {
+      "type": "object",
+      "required": [
+        "internal_advisory_only",
+        "external_review_completed",
+        "external_receipt_created_or_accepted",
+        "external_checkpoint_resolved",
+        "scientific_approval_granted",
+        "input_scope_design_or_non_evaluation_only",
+        "real_source_generation",
+        "real_source_modification",
+        "partition_assignment",
+        "resource_admission",
+        "numeric_threshold_selection",
+        "threshold_fitting",
+        "detector_calibration",
+        "simulator_execution",
+        "actuator_execution",
+        "runtime_evaluation",
+        "evaluation_record_access",
+        "campaign_execution",
+        "external_receipt_issuance_by_local_advisor",
+        "external_gate_resolution_by_local_advisor"
+      ],
+      "properties": {
+        "internal_advisory_only": { "const": true },
+        "input_scope_design_or_non_evaluation_only": { "const": true },
+        "external_review_completed": { "const": false },
+        "external_receipt_created_or_accepted": { "const": false },
+        "external_checkpoint_resolved": { "const": false },
+        "scientific_approval_granted": { "const": false },
+        "real_source_generation": { "const": false },
+        "real_source_modification": { "const": false },
+        "partition_assignment": { "const": false },
+        "resource_admission": { "const": false },
+        "numeric_threshold_selection": { "const": false },
+        "threshold_fitting": { "const": false },
+        "detector_calibration": { "const": false },
+        "simulator_execution": { "const": false },
+        "actuator_execution": { "const": false },
+        "runtime_evaluation": { "const": false },
+        "evaluation_record_access": { "const": false },
+        "campaign_execution": { "const": false },
+        "external_receipt_issuance_by_local_advisor": { "const": false },
+        "external_gate_resolution_by_local_advisor": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "next_gate": {
+      "type": "object",
+      "required": [
+        "id",
+        "offline_only",
+        "must_incorporate_Brain_adjudication",
+        "may_change_sealed_actions",
+        "deferred_external_gate_remains_open"
+      ],
+      "properties": {
+        "id": { "const": "M17_offline_attack_defense_trial_matrix" },
+        "offline_only": { "const": true },
+        "must_incorporate_Brain_adjudication": { "const": true },
+        "may_change_sealed_actions": { "const": false },
+        "deferred_external_gate_remains_open": { "const": true }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "file": {
+      "type": "object",
+      "required": ["path", "bytes", "sha256"],
+      "properties": {
+        "path": { "type": "string" },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "adjudication": {
+      "type": "object",
+      "required": [
+        "disposition",
+        "reason",
+        "offline_action",
+        "deferred_action",
+        "may_change_sealed_actions"
+      ],
+      "properties": {
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "ACCEPT_FOR_OFFLINE_DESIGN",
+            "ACCEPT_WITH_CORRECTION",
+            "REJECT_GOVERNANCE_CONFLICT"
+          ]
+        },
+        "reason": { "type": "string" },
+        "offline_action": { "type": "string" },
+        "deferred_action": { "type": "string" },
+        "may_change_sealed_actions": { "const": false }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

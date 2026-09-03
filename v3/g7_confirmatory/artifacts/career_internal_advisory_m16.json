@@ -1,0 +1,324 @@
+{
+  "advisory_id": "m16advisory_97522999d4087e7533495df9dac996815a4a49cb33874acf93b1508caf651b4a",
+  "brain_adjudication": {
+    "F10": {
+      "deferred_action": "Generate or admit real S/M sources only after the external gate.",
+      "disposition": "ACCEPT_WITH_CORRECTION",
+      "may_change_sealed_actions": false,
+      "offline_action": "Carry the single-aggregator and exact-library constraints into future design-only validators.",
+      "reason": "The source-contamination diagnosis is useful, but M12-M15 are already complete; only further offline contract checks may proceed."
+    },
+    "F20": {
+      "deferred_action": "Test physical consequence and stealth only after all prerequisite gates.",
+      "disposition": "ACCEPT_WITH_CORRECTION",
+      "may_change_sealed_actions": false,
+      "offline_action": "Preserve the M9 causal isolation claim and label it protocol-only.",
+      "reason": "The synthetic-versus-physical limitation is correct; its proposed M10-M14 sequence is stale because those milestones are complete."
+    },
+    "F30": {
+      "deferred_action": "Run these strategies against detectors only after external review and calibration authorization.",
+      "disposition": "ACCEPT_FOR_OFFLINE_DESIGN",
+      "may_change_sealed_actions": false,
+      "offline_action": "Specify riding-the-wave and coordinated-P/Q cases as non-executable strategy contracts.",
+      "reason": "The proposed strategy families target power-system-specific command-to-physics structure."
+    },
+    "F40": {
+      "deferred_action": "Obtain external reviewer assessment before source or partition work.",
+      "disposition": "ACCEPT_WITH_CORRECTION",
+      "may_change_sealed_actions": false,
+      "offline_action": "Retain the leakage question in the dormant external-review materials.",
+      "reason": "The partition-leakage question remains valid, but the M14 packet already exists and is now preserved rather than newly prepared."
+    },
+    "F50": {
+      "deferred_action": "Calibrate detectors only after external review and separate explicit authorization.",
+      "disposition": "REJECT_GOVERNANCE_CONFLICT",
+      "may_change_sealed_actions": false,
+      "offline_action": "Design detector test contracts without fitting thresholds or accessing calibration records.",
+      "reason": "The recommendation assigns threshold setting to M16, which directly conflicts with the M15 seal on threshold fitting and detector calibration."
+    },
+    "F60": {
+      "deferred_action": "Never count local model advice as an external receipt or scientific approval.",
+      "disposition": "ACCEPT_WITH_CORRECTION",
+      "may_change_sealed_actions": false,
+      "offline_action": "Keep local model use bounded, disclosed, advisory-only, and non-evaluative.",
+      "reason": "The two-tier interpretation is correct, but the claim that model access is unauthorized is false: M15 permits the existing local model on synthetic or non-evaluation inputs."
+    },
+    "F70": {
+      "deferred_action": "Execute ladder comparisons only after the relevant runtime gates.",
+      "disposition": "ACCEPT_FOR_OFFLINE_DESIGN",
+      "may_change_sealed_actions": false,
+      "offline_action": "Specify parity-preserving ladder and ablation contracts.",
+      "reason": "Matched IA3/IA4 parity is required for interpretable LLM capability ablations."
+    }
+  },
+  "governance": {
+    "actuator_execution": false,
+    "campaign_execution": false,
+    "detector_calibration": false,
+    "evaluation_record_access": false,
+    "external_checkpoint_resolved": false,
+    "external_gate_resolution_by_local_advisor": false,
+    "external_receipt_created_or_accepted": false,
+    "external_receipt_issuance_by_local_advisor": false,
+    "external_review_completed": false,
+    "input_scope_design_or_non_evaluation_only": true,
+    "internal_advisory_only": true,
+    "numeric_threshold_selection": false,
+    "partition_assignment": false,
+    "real_source_generation": false,
+    "real_source_modification": false,
+    "resource_admission": false,
+    "runtime_evaluation": false,
+    "scientific_approval_granted": false,
+    "simulator_execution": false,
+    "threshold_fitting": false
+  },
+  "input_manifest": [
+    {
+      "bytes": 11540,
+      "path": "v3/g7_confirmatory/M8_CAREER_STEALTH_BIAS_DESIGN.md",
+      "sha256": "98397028c636be788e8a8d168193d562f8a2c2e39cf3d9f7ab46608dadfda6ad"
+    },
+    {
+      "bytes": 7528,
+      "path": "v3/g7_confirmatory/M9_CAREER_TWO_INTERVAL_FIXTURE_REPORT.md",
+      "sha256": "cb69eedc1e9761b1544d45e9ef6ff83f22b2ab0aa4ed180d37bf8cddc2d9cf75"
+    },
+    {
+      "bytes": 7832,
+      "path": "v3/g7_confirmatory/M10_CAREER_RESOURCE_ADMISSION_REPORT.md",
+      "sha256": "df2d5ddec56257fae73f21061f3b3a143e0e0d76fbe2163cf3bbddff13cddf3a"
+    },
+    {
+      "bytes": 7302,
+      "path": "v3/g7_confirmatory/M11_CAREER_THRESHOLD_HOLD_REPORT.md",
+      "sha256": "3897a8c20d1fe6934bd45ba0d3f94197c98fed4b9aaaf71735aca6efff960c3c"
+    },
+    {
+      "bytes": 8202,
+      "path": "v3/g7_confirmatory/M12_CAREER_SOURCE_FREEZE_DESIGN_REPORT.md",
+      "sha256": "9bc457d5ea84453198902753eb5fbd5f4c5743e318eb6fff8d763ca16e87317c"
+    },
+    {
+      "bytes": 5901,
+      "path": "v3/g7_confirmatory/M13_CAREER_SOURCE_MANIFEST_VALIDATOR_REPORT.md",
+      "sha256": "862b8fc6edca22d48118eca8424e99c2c693dc552ff068852504e2b359401e34"
+    },
+    {
+      "bytes": 7074,
+      "path": "v3/g7_confirmatory/M14_CAREER_SOURCE_REVIEW_PACKET_REPORT.md",
+      "sha256": "9e0a77c75c46db88604b67d6ba512bbb45baf5a9a3c40a04be67a24e739bcff7"
+    },
+    {
+      "bytes": 5051,
+      "path": "v3/g7_confirmatory/M15_CAREER_TWO_TIER_GATE_REPORT.md",
+      "sha256": "15295e0c0da0b3e304f1f3a6897ba327a158e490d20933bb2a37e9c7c854462e"
+    },
+    {
+      "bytes": 8094,
+      "path": "v3/g7_confirmatory/RED_TEAM_DESIGN.md",
+      "sha256": "155e5b9240555c741005df84dd5b4642ca5fe9ad2a9f1757391585621dae5607"
+    },
+    {
+      "bytes": 5618,
+      "path": "v3/g7_confirmatory/RESEARCH_PROTOCOL.md",
+      "sha256": "c3b4d3d4ecef19e7b21a4656f4b12e8d105d63ad50fd1a3c4c9af242cd16c813"
+    },
+    {
+      "bytes": 41127,
+      "path": "v3/g7_confirmatory/ORCHESTRATION_CONTRACT.md",
+      "sha256": "2bfb23ffb8e17aac9f4c2ec41755d7cf97b01b1c70fc93cef26a637544294d3b"
+    },
+    {
+      "bytes": 7375,
+      "path": "v3/g7_confirmatory/DETECTOR_DEFENSE_REVIEW.md",
+      "sha256": "26198dd831adf2e189955d3862d0902fdd2aeebc8b5413d8d07da4aa4121a3e5"
+    },
+    {
+      "bytes": 5433,
+      "path": "v3/g7_confirmatory/experiment_spec.yaml",
+      "sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d"
+    }
+  ],
+  "limitations": [
+    "model_advice_contains_stale_or_conflicting_recommendations",
+    "no_embedding_simulator_detector_actuator_or_evaluation_access",
+    "no_sealed_action_authorized",
+    "not_external_or_independent_review",
+    "not_scientific_approval",
+    "two_failed_model_outputs_preserved_as_transport_status_only"
+  ],
+  "milestone": "M16",
+  "next_gate": {
+    "deferred_external_gate_remains_open": true,
+    "id": "M17_offline_attack_defense_trial_matrix",
+    "may_change_sealed_actions": false,
+    "must_incorporate_Brain_adjudication": true,
+    "offline_only": true
+  },
+  "review": {
+    "deferred_actions": [
+      "Real source generation for `S` and `M` (requires M14 external review acceptance)",
+      "Partition assignment for empirical roles (requires M14 external review acceptance)",
+      "Scientific threshold selection (requires M11/M12/M13 completion and external review)",
+      "Detector calibration (requires separate bounded authorization)",
+      "Simulator or actuator execution (requires campaign authorization)",
+      "Evaluation record access (remains sealed)",
+      "Campaign execution (requires campaign authorization)"
+    ],
+    "detector_defense_tests": {
+      "black_box": "No scores/thresholds/topology; noisy telemetry only",
+      "gray_box": "Family known; approximate sensitivity; binary/delayed alarm",
+      "white_box": "Exact feature/code/threshold/state and topology"
+    },
+    "executive_assessment": "The design demonstrates rigorous causal isolation for the CAREER `A` factor (midpoint revision permission) via M9 protocol isolation. The progression from M10 (admission structure) to M14 (review packet) correctly enforces a 'fail-closed' governance model, preventing premature resource admission or threshold selection. The red-team design (`RED_TEAM_DESIGN.md`) appropriately distinguishes between command-authority abuse (core) and telemetry/configuration attacks (extensions), while the detector shortlist correctly prioritizes cross-layer consistency over pure physics residuals. The primary scientific gap is the lack of a validated `S` (process relationship) and `M` (predictive ranking) source, which remains on HOLD pending M12/M13 design compliance and external review.",
+    "experimental_ladder": [
+      "IA0: Static schedule baseline",
+      "IA1: Open-loop library selection",
+      "IA2: Feedback-driven switching without learning",
+      "IA3: Deterministic UCB1 over bounded candidates",
+      "IA4: LLM-guided schedule search (secondary challenger)",
+      "IA5: Bounded critique path (future extension)"
+    ],
+    "findings": [
+      {
+        "action_class": "offline_now",
+        "evidence_path": "v3/g7_confirmatory/M11_CAREER_THRESHOLD_HOLD_REPORT.md",
+        "finding": "Candidate `S` source (`v3/opender_federate/sensitivity_g7.json`) is structurally invalid for the primary single-aggregator scope. It contains four-device authority, untracked source runs, and an all-zero reactive-power channel that lacks validation. Candidate `M` source (`v3/opender_federate/g7_l5b_search_trace.json`) is contaminated by treatment and detector outcomes, violating the independent validation requirement.",
+        "finding_id": "F10",
+        "priority": "critical",
+        "recommendation": "M12 design must enforce strict single-EV-aggregator authority for `S` and a frozen, read-only ranker over the exact M9 candidate library for `M`. No real source generation is authorized until M14 external review is completed."
+      },
+      {
+        "action_class": "offline_now",
+        "evidence_path": "v3/g7_confirmatory/M9_CAREER_TWO_INTERVAL_FIXTURE_REPORT.md",
+        "finding": "M9 successfully proves protocol isolation for the `A` factor. The mirrored receipts confirm that `A0` retains the precommitted plan and `A1` selects distinct plans based on the midpoint observation. However, this is a synthetic protocol witness and does not establish physical consequence or stealth.",
+        "finding_id": "F20",
+        "priority": "high",
+        "recommendation": "Proceed to M10/M11/M12/M13/M14 offline gates. Do not interpret M9 pass as evidence of attack efficacy or detector evasion."
+      },
+      {
+        "action_class": "offline_now",
+        "evidence_path": "v3/g7_confirmatory/RED_TEAM_DESIGN.md",
+        "finding": "The red-team design correctly identifies that local Volt-VAR overrides remote Q commands, creating a non-linear command-to-physics map. The knowledge vector `K` (grid, detector, training_data, defense, feedback) provides a more rigorous taxonomy than simple black/gray/white labels.",
+        "finding_id": "F30",
+        "priority": "high",
+        "recommendation": "Ensure that future detector tests (M16+) explicitly test the 'riding-the-wave' and 'P/Q coordinated' strategies against the cross-layer command-response detector, as these are likely to bypass pure physics residuals."
+      },
+      {
+        "action_class": "offline_now",
+        "evidence_path": "v3/g7_confirmatory/M13_CAREER_SOURCE_MANIFEST_VALIDATOR_REPORT.md",
+        "finding": "M13 validator correctly rejects 12 single-fault synthetic manifests, including partition overlap, untracked sources, and cross-factor dependencies. The validator structure is sound, but it relies on synthetic fixtures.",
+        "finding_id": "F40",
+        "priority": "medium",
+        "recommendation": "M14 review packet must explicitly ask reviewers to verify that the M12 partition registry prevents leakage between `S_source_derivation` and `M_independent_validation`."
+      },
+      {
+        "action_class": "offline_now",
+        "evidence_path": "v3/g7_confirmatory/DETECTOR_DEFENSE_REVIEW.md",
+        "finding": "The detector shortlist correctly identifies VSCT/WLS as insufficient for command-authority abuse where intent is malicious but physics is consistent. The recommended ensemble includes cross-layer command-response consistency, which is critical for this threat model.",
+        "finding_id": "F50",
+        "priority": "medium",
+        "recommendation": "Do not calibrate detectors on evaluation data. M16 must use only the `detector_calibration` partition (seeds 7101-7112) for threshold setting."
+      },
+      {
+        "action_class": "offline_now",
+        "evidence_path": "v3/g7_confirmatory/M15_CAREER_TWO_TIER_GATE_REPORT.md",
+        "finding": "M15 correctly establishes a two-tier gate, permitting offline engineering (Tier 1) while sealing all scientific/runtime actions (Tier 2). The deferred external gate remains the hard precondition for source generation.",
+        "finding_id": "F60",
+        "priority": "low",
+        "recommendation": "M16 internal advisory review must focus on the M12 source-freeze design and M14 review packet readiness. No model, simulator, or detector access is authorized."
+      },
+      {
+        "action_class": "offline_now",
+        "evidence_path": "v3/g7_confirmatory/ORCHESTRATION_CONTRACT.md",
+        "finding": "The IA ladder (IA0-IA5) is correctly deferred as an extension. The primary CAREER estimand focuses on `A`, `S`, and `M`. The LLM is treated as a secondary challenger, not the primary causal variable.",
+        "finding_id": "F70",
+        "priority": "low",
+        "recommendation": "Ensure that any future LLM tool-use tests (M4-M7 lineage) maintain strict parity with non-LLM controls (IA3) in terms of candidate space, history, and budget."
+      }
+    ],
+    "next_offline_actions": [
+      "M16: Conduct internal advisory offline design review of M12 source-freeze design and M14 review packet. Output must be advisory, identify local model/service provenance, and propose engineering changes without changing sealed-action flags.",
+      "M12/M13: Finalize clean-source freeze design and synthetic manifest validator. Ensure `S` is scoped to one EV aggregator and `M` ranks the exact M9 candidates.",
+      "M14: Prepare independent source-review packet. Bind 13 files by path, byte count, and SHA-256. Do not perform the review; only package for external inspection.",
+      "M14A/M14B: Implement receipt intake and reviewer handoff contracts. Keep worksheets empty and non-evidentiary."
+    ],
+    "power_system_invariants": [
+      "Radial, unbalanced, phase-specific feeder",
+      "Voltage sensitivity is operating-point dependent and P/Q coupled",
+      "BESS and PV have asymmetric authority (SOC vs irradiance)",
+      "Inverter limits and mode transitions create memory across 10-second windows",
+      "Local Volt-VAR overrides remote Q commands"
+    ],
+    "review_status": "ADVISORY_ONLY_NOT_EXTERNAL_REVIEW",
+    "stop_conditions": [
+      "Prompt audit failure",
+      "Partition overlap",
+      "Unequal outer budget",
+      "Budget violation",
+      "Output exists",
+      "Runtime hash drift",
+      "Model ID mismatch",
+      "Evaluation opened before freeze"
+    ]
+  },
+  "review_sha256": "de226e18ad97fa2de78ca80ab6ecd418e7f48c215db1aadd7a79b06f4ced2e8a",
+  "schema_version": "grideval-career-internal-advisory/v1",
+  "source_lineage": {
+    "M15_gate_id": "m15twotier_af8cf66768ddeb85f535be40d76bf327b826c088a337d42cd7b15df5cb037d65",
+    "M16_backbrief_journal_id": "jrn_01M1M9SBTCJPN1J2MZQM38880H",
+    "PI_confirmation_journal_id": "jrn_01M1M9594BX7M4JPQK0SMPXAQ8",
+    "base_commit": "d50bc565a539c8f8252df9e2532bf25ac6cb2785",
+    "deferred_external_checkpoint_id": "chk_01M1M97DN5EWDKSM4T1CMT76J6",
+    "two_tier_decision_id": "dec_01M1M95MNV67RVB4BZJDG4CGVX"
+  },
+  "status": "INTERNAL_ADVISORY_COMPLETED_NOT_EXTERNAL_REVIEW",
+  "title": "CAREER M16 internal advisory design review",
+  "transport": {
+    "accepted_completions": 1,
+    "advisory_session_id": "m16_local_qwen_advisory_attempt_3",
+    "attempts": [
+      {
+        "accepted": false,
+        "attempt": 1,
+        "response_contract": "full_strict_schema",
+        "status": "FAILED_CLOSED_INVALID_JSON_CONTROL_CHARACTER"
+      },
+      {
+        "accepted": false,
+        "attempt": 2,
+        "response_contract": "full_strict_schema_compatibility_parser",
+        "status": "FAILED_CLOSED_JSON_DELIMITER_ERROR"
+      },
+      {
+        "accepted": true,
+        "attempt": 3,
+        "response_contract": "compact_strict_schema",
+        "status": "ACCEPTED_FOR_INTERNAL_ADVISORY"
+      }
+    ],
+    "embedding_service_used": false,
+    "endpoint": "http://ccil1s26m8hj6lws:8000/v1",
+    "evaluation_records_accessed": false,
+    "finish_reason": "stop",
+    "model_completions_attempted": 3,
+    "model_or_embedding_service_started_or_restarted": false,
+    "model_record": {
+      "id": "qwen3.6-35b-a3b",
+      "max_model_len": 262144,
+      "owned_by": "vllm",
+      "root": "QuantTrio/Qwen3.6-35B-A3B-AWQ"
+    },
+    "request_sha256": "d0ef5406f3d812abd79b07ed5e1790c324486ad2bf41b7a0b8ef2a563f47a6d3",
+    "seed": 1616,
+    "simulator_detector_or_actuator_accessed": false,
+    "temperature": 0.0,
+    "usage": {
+      "completion_tokens": 2011,
+      "prompt_tokens": 30997,
+      "prompt_tokens_details": null,
+      "total_tokens": 33008
+    }
+  }
+}

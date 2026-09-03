@@ -75,7 +75,10 @@ The harness provides:
   and local advisory work while preserving thirteen M14/M14A/M14B review
   assets byte-for-byte and keeping all source, partition, admission,
   threshold, calibration, simulator, actuator, evaluation, and campaign
-  actions sealed.
+  actions sealed; and
+- an M16 bounded local-LLM advisory record with exact input and transport
+  provenance, two preserved fail-closed parse attempts, one accepted compact
+  response, explicit Brain adjudication, and no external-review authority.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -158,6 +161,12 @@ The PI-confirmed M15 gate revision is documented in
 `career_two_tier_gate.schema.json`. M15 defers rather than waives external
 review. Internal advice is non-independent and cannot issue a receipt, resolve
 the deferred gate, or authorize any sealed experiment action.
+The M16 advisory is documented in `M16_CAREER_INTERNAL_ADVISORY_REPORT.md`;
+its evidence and schema are `artifacts/career_internal_advisory_m16.json` and
+`career_internal_advisory.schema.json`. The accepted local-model response is
+preserved rather than trusted: every finding has a Brain disposition, one
+threshold-setting recommendation is rejected as a governance conflict, and a
+stale model-access claim is explicitly corrected.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the
@@ -219,6 +228,17 @@ python3 -m g7confirm.cli career-development-gate \
 A successful preflight authorizes offline contract/code/test work and local
 advisory review on synthetic or non-evaluation inputs only. It does not
 complete external review or unseal any scientific or runtime operation.
+
+The M16 advisory evidence has a separate read-only preflight:
+
+```bash
+python3 -m g7confirm.cli career-advisory-preflight \
+  --repo-root /home/cfu6/roi-uncc-mcp
+```
+
+This command first verifies the M15 boundary, then verifies the thirteen M16
+inputs, accepted model-output digest, Brain adjudication, and sealed-action
+state. It does not call the model or any other service.
 
 The model smoke is intentionally separate because it performs one network
 request:

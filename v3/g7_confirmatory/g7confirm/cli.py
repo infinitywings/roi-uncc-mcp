@@ -23,8 +23,13 @@ from .career_reviewer_handoff import (
 )
 from .career_two_tier_gate import (
     DEFERRED_EXTERNAL_CHECKPOINT_ID,
+    SEALED_ACTIONS,
     build_career_two_tier_gate,
     verify_checked_in_two_tier_gate,
+)
+from .career_internal_advisory import (
+    load_career_internal_advisory,
+    verify_checked_in_internal_advisory,
 )
 from .detector_freeze import (
     build_benign_calibration_plan,
@@ -513,6 +518,38 @@ def cmd_career_development_gate(args: argparse.Namespace) -> int:
     return 0 if not issues else 2
 
 
+def cmd_career_advisory_preflight(args: argparse.Namespace) -> int:
+    """Verify M16 model evidence and Brain adjudication without writes."""
+
+    issues = verify_checked_in_internal_advisory(args.repo_root)
+    path = (
+        args.repo_root
+        / "v3/g7_confirmatory/artifacts/career_internal_advisory_m16.json"
+    )
+    advisory = load_career_internal_advisory(path).to_dict()
+    _print({
+        "status": advisory["status"] if not issues else "FAILED_CLOSED",
+        "advisory_id": advisory["advisory_id"],
+        "model_id": advisory["transport"]["model_record"]["id"],
+        "model_completions_attempted": advisory["transport"]
+        ["model_completions_attempted"],
+        "accepted_completions": advisory["transport"]["accepted_completions"],
+        "adjudication": {
+            finding_id: item["disposition"]
+            for finding_id, item in advisory["brain_adjudication"].items()
+        },
+        "external_review_complete": False,
+        "sealed_actions": {
+            key: advisory["governance"][key]
+            for key in SEALED_ACTIONS
+        },
+        "issues": issues,
+        "files_created_or_modified": 0,
+        "RKA_writes": 0,
+    })
+    return 0 if not issues else 2
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -619,6 +656,10 @@ def build_parser() -> argparse.ArgumentParser:
     development_gate = sub.add_parser("career-development-gate")
     development_gate.add_argument("--repo-root", required=True, type=Path)
     development_gate.set_defaults(func=cmd_career_development_gate)
+
+    advisory_preflight = sub.add_parser("career-advisory-preflight")
+    advisory_preflight.add_argument("--repo-root", required=True, type=Path)
+    advisory_preflight.set_defaults(func=cmd_career_advisory_preflight)
     return parser
 
 
