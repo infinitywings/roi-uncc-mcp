@@ -1,0 +1,240 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/grideval-career-two-tier-gate-v1.json",
+  "title": "CAREER M15 two-tier development gate",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "gate_id",
+    "milestone",
+    "title",
+    "status",
+    "source_lineage",
+    "frozen_assets",
+    "historical_review_assets",
+    "offline_permissions",
+    "sealed_actions",
+    "internal_advisory_boundary",
+    "deferred_external_gate",
+    "limitations",
+    "next_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-career-two-tier-gate/v1"
+    },
+    "gate_id": {
+      "type": "string",
+      "pattern": "^m15twotier_[0-9a-f]{64}$"
+    },
+    "milestone": { "const": "M15" },
+    "title": { "const": "CAREER two-tier gate for offline development" },
+    "status": {
+      "const": "OFFLINE_DEVELOPMENT_AUTHORIZED_EXTERNAL_REVIEW_DEFERRED"
+    },
+    "source_lineage": {
+      "type": "object",
+      "required": [
+        "project_id",
+        "mission_id",
+        "confirmation_brief_journal_id",
+        "pi_confirmation_journal_id",
+        "two_tier_decision_id",
+        "resolved_M14_checkpoint_id",
+        "deferred_external_checkpoint_id",
+        "M14B_base_commit",
+        "M14_packet_id",
+        "M14A_intake_id",
+        "M14B_handoff_id"
+      ],
+      "properties": {
+        "project_id": { "const": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6" },
+        "mission_id": { "const": "mis_01KYMRDZHYN4QXC1XFTGP54E36" },
+        "confirmation_brief_journal_id": {
+          "const": "jrn_01M1M8VE9XHW8NC9APWFAVXFS7"
+        },
+        "pi_confirmation_journal_id": {
+          "const": "jrn_01M1M9594BX7M4JPQK0SMPXAQ8"
+        },
+        "two_tier_decision_id": {
+          "const": "dec_01M1M95MNV67RVB4BZJDG4CGVX"
+        },
+        "resolved_M14_checkpoint_id": {
+          "const": "chk_01M1DPSAD7H2MGY49QDJNYPK1M"
+        },
+        "deferred_external_checkpoint_id": {
+          "const": "chk_01M1M97DN5EWDKSM4T1CMT76J6"
+        },
+        "M14B_base_commit": {
+          "const": "0f285cf7c53949dd43a9a03b11ff475cf9b5954b"
+        },
+        "M14_packet_id": {
+          "const": "m14reviewpacket_6efed441aebe881691b3596321ca7255edf67af8d24ef59412be923e12098b25"
+        },
+        "M14A_intake_id": {
+          "const": "m14aintake_a4f22ef8dd509e486adc32cdd7623c3682fc2148ff8a48831f606fc256553ba4"
+        },
+        "M14B_handoff_id": {
+          "const": "m14bhandoff_b860b6a66def594f90aee3cd5dc675e3e0ec182d873a021f8284f1566cf7b6a3"
+        }
+      },
+      "additionalProperties": false
+    },
+    "frozen_assets": { "$ref": "#/$defs/file_manifest" },
+    "historical_review_assets": { "$ref": "#/$defs/file_manifest" },
+    "offline_permissions": {
+      "type": "object",
+      "required": [
+        "contract_and_schema_authoring",
+        "implementation_and_unit_testing",
+        "synthetic_fixture_generation",
+        "internal_advisory_review",
+        "local_LLM_on_synthetic_or_non_evaluation_inputs",
+        "existing_embedding_service_on_synthetic_or_non_evaluation_inputs",
+        "RKA_provenance_writes",
+        "start_or_restart_model_or_embedding_service"
+      ],
+      "properties": {
+        "contract_and_schema_authoring": { "const": true },
+        "implementation_and_unit_testing": { "const": true },
+        "synthetic_fixture_generation": { "const": true },
+        "internal_advisory_review": { "const": true },
+        "local_LLM_on_synthetic_or_non_evaluation_inputs": { "const": true },
+        "existing_embedding_service_on_synthetic_or_non_evaluation_inputs": {
+          "const": true
+        },
+        "RKA_provenance_writes": { "const": true },
+        "start_or_restart_model_or_embedding_service": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "sealed_actions": {
+      "type": "object",
+      "required": [
+        "real_source_generation",
+        "real_source_modification",
+        "partition_assignment",
+        "resource_admission",
+        "numeric_threshold_selection",
+        "threshold_fitting",
+        "detector_calibration",
+        "simulator_execution",
+        "actuator_execution",
+        "runtime_evaluation",
+        "evaluation_record_access",
+        "campaign_execution",
+        "external_receipt_issuance_by_local_advisor",
+        "external_gate_resolution_by_local_advisor"
+      ],
+      "properties": {
+        "real_source_generation": { "const": false },
+        "real_source_modification": { "const": false },
+        "partition_assignment": { "const": false },
+        "resource_admission": { "const": false },
+        "numeric_threshold_selection": { "const": false },
+        "threshold_fitting": { "const": false },
+        "detector_calibration": { "const": false },
+        "simulator_execution": { "const": false },
+        "actuator_execution": { "const": false },
+        "runtime_evaluation": { "const": false },
+        "evaluation_record_access": { "const": false },
+        "campaign_execution": { "const": false },
+        "external_receipt_issuance_by_local_advisor": { "const": false },
+        "external_gate_resolution_by_local_advisor": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "internal_advisory_boundary": {
+      "type": "object",
+      "required": [
+        "advisory_only",
+        "may_use_synthetic_or_non_evaluation_inputs_only",
+        "must_disclose_model_service_and_session_identity",
+        "may_not_claim_external_independence",
+        "may_not_issue_or_finalize_external_receipts",
+        "may_not_resolve_the_deferred_external_gate",
+        "advisory_findings_are_not_scientific_approval"
+      ],
+      "properties": {
+        "advisory_only": { "const": true },
+        "may_use_synthetic_or_non_evaluation_inputs_only": { "const": true },
+        "must_disclose_model_service_and_session_identity": { "const": true },
+        "may_not_claim_external_independence": { "const": true },
+        "may_not_issue_or_finalize_external_receipts": { "const": true },
+        "may_not_resolve_the_deferred_external_gate": { "const": true },
+        "advisory_findings_are_not_scientific_approval": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "deferred_external_gate": {
+      "type": "object",
+      "required": [
+        "checkpoint_id",
+        "status",
+        "external_review_complete",
+        "accepted_receipt_count",
+        "required_receipt_count",
+        "distinct_external_reviewer_identities_required",
+        "M14_packet_and_receipt_machinery_preserved",
+        "required_before_every_sealed_action",
+        "resolution_requires_explicit_RKA_governance"
+      ],
+      "properties": {
+        "checkpoint_id": { "const": "chk_01M1M97DN5EWDKSM4T1CMT76J6" },
+        "status": {
+          "const": "OPEN_NON_BLOCKING_FOR_OFFLINE_DEVELOPMENT_ONLY"
+        },
+        "external_review_complete": { "const": false },
+        "accepted_receipt_count": { "const": 0 },
+        "required_receipt_count": { "const": 2 },
+        "distinct_external_reviewer_identities_required": { "const": true },
+        "M14_packet_and_receipt_machinery_preserved": { "const": true },
+        "required_before_every_sealed_action": { "const": true },
+        "resolution_requires_explicit_RKA_governance": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "next_gate": {
+      "type": "object",
+      "required": [
+        "id",
+        "offline_only",
+        "requires_M15_exact_byte_preflight",
+        "may_change_sealed_actions",
+        "deferred_external_gate_remains_open"
+      ],
+      "properties": {
+        "id": { "const": "M16_internal_advisory_offline_design_review" },
+        "offline_only": { "const": true },
+        "requires_M15_exact_byte_preflight": { "const": true },
+        "may_change_sealed_actions": { "const": false },
+        "deferred_external_gate_remains_open": { "const": true }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "file_manifest": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "bytes", "sha256"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "bytes": { "type": "integer", "minimum": 1 },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

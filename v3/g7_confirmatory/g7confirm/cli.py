@@ -21,6 +21,11 @@ from .career_reviewer_handoff import (
     build_reviewer_handoff_contract,
     verify_checked_in_handoff,
 )
+from .career_two_tier_gate import (
+    DEFERRED_EXTERNAL_CHECKPOINT_ID,
+    build_career_two_tier_gate,
+    verify_checked_in_two_tier_gate,
+)
 from .detector_freeze import (
     build_benign_calibration_plan,
     build_detector_provenance_audit,
@@ -489,6 +494,25 @@ def cmd_career_review_bundle(args: argparse.Namespace) -> int:
     } else 2
 
 
+def cmd_career_development_gate(args: argparse.Namespace) -> int:
+    """Verify the M15 offline-development boundary without writing anything."""
+
+    issues = verify_checked_in_two_tier_gate(args.repo_root)
+    gate = build_career_two_tier_gate().to_dict()
+    _print({
+        "status": gate["status"] if not issues else "FAILED_CLOSED",
+        "gate_id": gate["gate_id"],
+        "deferred_external_checkpoint_id": DEFERRED_EXTERNAL_CHECKPOINT_ID,
+        "external_review_complete": False,
+        "offline_permissions": gate["offline_permissions"],
+        "sealed_actions": gate["sealed_actions"],
+        "issues": issues,
+        "files_created_or_modified": 0,
+        "RKA_writes": 0,
+    })
+    return 0 if not issues else 2
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -591,6 +615,10 @@ def build_parser() -> argparse.ArgumentParser:
         "--receipt", required=True, action="append", type=Path
     )
     review_bundle.set_defaults(func=cmd_career_review_bundle)
+
+    development_gate = sub.add_parser("career-development-gate")
+    development_gate.add_argument("--repo-root", required=True, type=Path)
+    development_gate.set_defaults(func=cmd_career_development_gate)
     return parser
 
 

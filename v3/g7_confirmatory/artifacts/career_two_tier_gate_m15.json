@@ -1,0 +1,161 @@
+{
+  "deferred_external_gate": {
+    "M14_packet_and_receipt_machinery_preserved": true,
+    "accepted_receipt_count": 0,
+    "checkpoint_id": "chk_01M1M97DN5EWDKSM4T1CMT76J6",
+    "distinct_external_reviewer_identities_required": true,
+    "external_review_complete": false,
+    "required_before_every_sealed_action": true,
+    "required_receipt_count": 2,
+    "resolution_requires_explicit_RKA_governance": true,
+    "status": "OPEN_NON_BLOCKING_FOR_OFFLINE_DEVELOPMENT_ONLY"
+  },
+  "frozen_assets": [
+    {
+      "bytes": 445019,
+      "path": "v3/g7_confirmatory/roadmap_2026/report.html",
+      "sha256": "c4fc1168708c0d47d1162754296d3f731c51028650aaeab739aca42fb3aa827b"
+    },
+    {
+      "bytes": 5433,
+      "path": "v3/g7_confirmatory/experiment_spec.yaml",
+      "sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d"
+    }
+  ],
+  "gate_id": "m15twotier_af8cf66768ddeb85f535be40d76bf327b826c088a337d42cd7b15df5cb037d65",
+  "historical_review_assets": [
+    {
+      "bytes": 14284,
+      "path": "v3/g7_confirmatory/artifacts/career_source_review_packet_m14.json",
+      "sha256": "fc4339b93b99b278e4d0392622778edf4b38a7949c0e2401a5f18b409fcba5b8"
+    },
+    {
+      "bytes": 7074,
+      "path": "v3/g7_confirmatory/M14_CAREER_SOURCE_REVIEW_PACKET_REPORT.md",
+      "sha256": "9e0a77c75c46db88604b67d6ba512bbb45baf5a9a3c40a04be67a24e739bcff7"
+    },
+    {
+      "bytes": 6247,
+      "path": "v3/g7_confirmatory/career_review_receipt.schema.json",
+      "sha256": "e3a13d63e945d7c258fd7361c9d903fcf0af6f57d9f35163f81c9e9b5a719475"
+    },
+    {
+      "bytes": 8807,
+      "path": "v3/g7_confirmatory/artifacts/career_review_receipt_intake_m14a.json",
+      "sha256": "eaa6d9ccb483392f5bb98518cf8eb565c59328a2e3f50ae7a2a92334357d4fe2"
+    },
+    {
+      "bytes": 6054,
+      "path": "v3/g7_confirmatory/M14A_CAREER_REVIEW_RECEIPT_INTAKE_REPORT.md",
+      "sha256": "384678c4532c9b959349bb2bcdc985f9056f7e8e7db4fe37e163c2a55f8626f3"
+    },
+    {
+      "bytes": 22930,
+      "path": "v3/g7_confirmatory/g7confirm/career_review_receipts.py",
+      "sha256": "c838819c33667eaf32115e6b08ddc5f3acdce194fdad6f3c4d2c9651e3cd53f4"
+    },
+    {
+      "bytes": 4588,
+      "path": "v3/g7_confirmatory/artifacts/career_reviewer_handoff_m14b.json",
+      "sha256": "1f4cf1614cc2bd659668073e1d7b3bd3fc08f6bb1defcd74dd9841def0221434"
+    },
+    {
+      "bytes": 6949,
+      "path": "v3/g7_confirmatory/M14B_CAREER_REVIEWER_HANDOFF_REPORT.md",
+      "sha256": "ade47186697bae20b81091b905ad2ab8b87e4dab2c9d0d5cc40daf9efda68903"
+    },
+    {
+      "bytes": 5403,
+      "path": "v3/g7_confirmatory/career_reviewer_handoff.schema.json",
+      "sha256": "1eff5ccbec789ecdb79676dbc35dc30f20c9b0f2a1d82b34147c29e0a127350f"
+    },
+    {
+      "bytes": 3286,
+      "path": "v3/g7_confirmatory/career_reviewer_worksheet.schema.json",
+      "sha256": "7f9fa32161a31a1717c6079897ae61b98a296f953c4680a576dabb184e826253"
+    },
+    {
+      "bytes": 3466,
+      "path": "v3/g7_confirmatory/artifacts/reviewer_handoff/data_lineage_worksheet_m14b.json",
+      "sha256": "316b84caf4d6c45b317d16c815be4e3792f162421d402845decda8dc8fa3bc9b"
+    },
+    {
+      "bytes": 3467,
+      "path": "v3/g7_confirmatory/artifacts/reviewer_handoff/domain_method_worksheet_m14b.json",
+      "sha256": "5f47839ca13efd01c05b9d04938683eae3cf351395f88de471bd345fa0389628"
+    },
+    {
+      "bytes": 15368,
+      "path": "v3/g7_confirmatory/g7confirm/career_reviewer_handoff.py",
+      "sha256": "91a2ed4337052cddeed49b3c5cbd871aa0153267508fb1118a54cf8db0dccea3"
+    }
+  ],
+  "internal_advisory_boundary": {
+    "advisory_findings_are_not_scientific_approval": true,
+    "advisory_only": true,
+    "may_not_claim_external_independence": true,
+    "may_not_issue_or_finalize_external_receipts": true,
+    "may_not_resolve_the_deferred_external_gate": true,
+    "may_use_synthetic_or_non_evaluation_inputs_only": true,
+    "must_disclose_model_service_and_session_identity": true
+  },
+  "limitations": [
+    "local_advice_cannot_satisfy_external_review",
+    "no_campaign_authorization",
+    "no_detector_calibration",
+    "no_external_review_completed_or_waived",
+    "no_real_source_or_partition_action",
+    "no_resource_admission_or_scientific_threshold",
+    "no_simulator_actuator_or_runtime_evaluation"
+  ],
+  "milestone": "M15",
+  "next_gate": {
+    "deferred_external_gate_remains_open": true,
+    "id": "M16_internal_advisory_offline_design_review",
+    "may_change_sealed_actions": false,
+    "offline_only": true,
+    "requires_M15_exact_byte_preflight": true
+  },
+  "offline_permissions": {
+    "RKA_provenance_writes": true,
+    "contract_and_schema_authoring": true,
+    "existing_embedding_service_on_synthetic_or_non_evaluation_inputs": true,
+    "implementation_and_unit_testing": true,
+    "internal_advisory_review": true,
+    "local_LLM_on_synthetic_or_non_evaluation_inputs": true,
+    "start_or_restart_model_or_embedding_service": false,
+    "synthetic_fixture_generation": true
+  },
+  "schema_version": "grideval-career-two-tier-gate/v1",
+  "sealed_actions": {
+    "actuator_execution": false,
+    "campaign_execution": false,
+    "detector_calibration": false,
+    "evaluation_record_access": false,
+    "external_gate_resolution_by_local_advisor": false,
+    "external_receipt_issuance_by_local_advisor": false,
+    "numeric_threshold_selection": false,
+    "partition_assignment": false,
+    "real_source_generation": false,
+    "real_source_modification": false,
+    "resource_admission": false,
+    "runtime_evaluation": false,
+    "simulator_execution": false,
+    "threshold_fitting": false
+  },
+  "source_lineage": {
+    "M14A_intake_id": "m14aintake_a4f22ef8dd509e486adc32cdd7623c3682fc2148ff8a48831f606fc256553ba4",
+    "M14B_base_commit": "0f285cf7c53949dd43a9a03b11ff475cf9b5954b",
+    "M14B_handoff_id": "m14bhandoff_b860b6a66def594f90aee3cd5dc675e3e0ec182d873a021f8284f1566cf7b6a3",
+    "M14_packet_id": "m14reviewpacket_6efed441aebe881691b3596321ca7255edf67af8d24ef59412be923e12098b25",
+    "confirmation_brief_journal_id": "jrn_01M1M8VE9XHW8NC9APWFAVXFS7",
+    "deferred_external_checkpoint_id": "chk_01M1M97DN5EWDKSM4T1CMT76J6",
+    "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36",
+    "pi_confirmation_journal_id": "jrn_01M1M9594BX7M4JPQK0SMPXAQ8",
+    "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+    "resolved_M14_checkpoint_id": "chk_01M1DPSAD7H2MGY49QDJNYPK1M",
+    "two_tier_decision_id": "dec_01M1M95MNV67RVB4BZJDG4CGVX"
+  },
+  "status": "OFFLINE_DEVELOPMENT_AUTHORIZED_EXTERNAL_REVIEW_DEFERRED",
+  "title": "CAREER two-tier gate for offline development"
+}

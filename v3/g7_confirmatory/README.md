@@ -70,7 +70,12 @@ The harness provides:
 - an offline M14B reviewer handoff with a six-file exact-byte preflight, two
   null-only role worksheets that are explicitly not receipts, and three
   read-only CLI validation commands with no receipt-creation or checkpoint-
-  resolution path.
+  resolution path; and
+- an M15 two-tier gate that permits narrowly enumerated offline engineering
+  and local advisory work while preserving thirteen M14/M14A/M14B review
+  assets byte-for-byte and keeping all source, partition, admission,
+  threshold, calibration, simulator, actuator, evaluation, and campaign
+  actions sealed.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -147,6 +152,12 @@ schemas are `artifacts/career_reviewer_handoff_m14b.json`,
 `career_reviewer_worksheet.schema.json`. The handoff verifies exact bytes and
 validates externally supplied declarations but cannot create a receipt or
 approve the packet.
+The PI-confirmed M15 gate revision is documented in
+`M15_CAREER_TWO_TIER_GATE_REPORT.md`; its canonical contract and schema are
+`artifacts/career_two_tier_gate_m15.json` and
+`career_two_tier_gate.schema.json`. M15 defers rather than waives external
+review. Internal advice is non-independent and cannot issue a receipt, resolve
+the deferred gate, or authorize any sealed experiment action.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the
@@ -195,6 +206,19 @@ python3 -m g7confirm.cli paired-plan --spec experiment_spec.yaml \
 
 These commands produce non-executable plans. They do not authorize calibration
 runs, detector fitting, evaluation access, or a campaign.
+
+The M15 preflight is fully read-only and verifies the frozen roadmap and
+experiment specification, the preserved M14 review machinery, and both
+permission tiers:
+
+```bash
+python3 -m g7confirm.cli career-development-gate \
+  --repo-root /home/cfu6/roi-uncc-mcp
+```
+
+A successful preflight authorizes offline contract/code/test work and local
+advisory review on synthetic or non-evaluation inputs only. It does not
+complete external review or unseal any scientific or runtime operation.
 
 The model smoke is intentionally separate because it performs one network
 request:
