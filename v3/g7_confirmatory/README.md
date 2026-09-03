@@ -93,7 +93,12 @@ The harness provides:
   single-window trace through HELICS, OpenDER, and GridLAB-D with exact command
   admission/delivery reconciliation and verified ephemeral-container teardown.
   M19 explicitly does not claim post-actuation grid harm or detector/defense
-  effectiveness, and final evaluation remains sealed.
+  effectiveness, and final evaluation remains sealed; and
+- an M20 two-window matched timing test that preserves a negative result: the
+  one-window attack is admitted and delivered, but the next runner observation
+  and completed GridLAB-D recorders do not yet expose a feeder response. M20
+  therefore records an observation-latency gap and requires a separately
+  registered three-window timing gate before any LLM-attacker runtime test.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -120,6 +125,11 @@ The M19 runtime outcome, retained failure, model-service preflight, and
 single-window scientific limitation are documented in
 `M19_BOUNDED_PAIRED_RUNTIME_QUALIFICATION_REPORT.md`; its create-once evidence
 is under `artifacts/m19_runtime_qualification_seed5101_attempt{1,2}/`.
+The M20 timing result is documented in
+`M20_TWO_WINDOW_TIMING_GAP_REPORT.md`; its create-once matched-pair evidence is
+under `artifacts/m20_two_window_timing_seed5102_attempt1/`. Exact zero paired
+deltas at the second runner observation are treated as a timing gap, not as a
+null physical-effect claim.
 The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and
@@ -213,6 +223,8 @@ M19 runtime-qualification flow remains capped at one live window per run,
 restricts output to this directory, loads content-addressed runner bytes, and
 never starts or restarts either model service. It may start an ephemeral local
 GridLAB-D/HELICS/network/detector composition and must record teardown.
+The registered M20 flow is capped at exactly two live windows per run and one
+attack intervention; it cannot expand itself to a third observation window.
 Evaluation seeds, physical field-device actuation, and campaign-scale
 confirmatory execution remain prohibited.
 

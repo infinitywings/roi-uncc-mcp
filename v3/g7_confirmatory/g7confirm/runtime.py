@@ -42,6 +42,28 @@ LOAD_PLAYER = (
 )
 DEFAULT_CONFIG = REPO_ROOT / "v3" / "configs" / "der_devices.yaml"
 M18_GATE_ARTIFACT = PACKAGE_ROOT / "artifacts" / "preliminary_only_gate_m18.json"
+PRELIMINARY_RUNTIME_PROFILES = {
+    "m19_pair_runtime_qualification_seed5101": {
+        "seed": 5101,
+        "windows": 1,
+        "window_seconds": 10,
+        "attack_window_cap": 1,
+        "attack_energy_cap_kvah": 2.0,
+        "benign_action_id": "m19_benign_seed5101",
+        "attack_action_id": "m19_attack_seed5101",
+        "budget_id": "m19_seed5101_one_window_2kvah",
+    },
+    "m20_pair_runtime_qualification_seed5102": {
+        "seed": 5102,
+        "windows": 2,
+        "window_seconds": 10,
+        "attack_window_cap": 1,
+        "attack_energy_cap_kvah": 2.0,
+        "benign_action_id": "m20_benign_seed5102",
+        "attack_action_id": "m20_attack_seed5102",
+        "budget_id": "m20_seed5102_two_windows_one_attack_2kvah",
+    },
+}
 
 
 class BenignPolicy:
@@ -263,9 +285,12 @@ def _load_preliminary_action_request(
     issues = validate_preliminary_action_request(request)
     if issues:
         raise ValueError(f"M18 action request rejected: {issues}")
+    profile = PRELIMINARY_RUNTIME_PROFILES.get(args.pair_id)
+    if profile is None:
+        raise ValueError(f"unregistered preliminary runtime pair: {args.pair_id}")
     expected_action = (
-        "m19_benign_seed5101" if args.arm == "benign"
-        else "m19_attack_seed5101"
+        profile["benign_action_id"] if args.arm == "benign"
+        else profile["attack_action_id"]
     )
     expected = {
         "action_id": expected_action,
@@ -277,8 +302,8 @@ def _load_preliminary_action_request(
         "manifest_sha256": _sha256(M18_GATE_ARTIFACT),
         "code_sha256": _sha256(Path(__file__)),
         "config_sha256": _sha256(DEFAULT_CONFIG),
-        "budget_id": "m19_seed5101_one_window_2kvah",
-        "paired_benign_id": "m19_benign_seed5101",
+        "budget_id": profile["budget_id"],
+        "paired_benign_id": profile["benign_action_id"],
         "final_evaluation_data_accessed": False,
         "physical_field_actuator": False,
         "starts_or_restarts_service": False,
@@ -293,12 +318,34 @@ def _load_preliminary_action_request(
 
 
 def run_bounded(args: argparse.Namespace) -> int:
-    if int(args.windows) != 1:
-        raise ValueError("runtime-integration build is hard-capped at one window")
+    preliminary_profile = PRELIMINARY_RUNTIME_PROFILES.get(args.pair_id)
+    if args.preliminary_role:
+        if preliminary_profile is None:
+            raise ValueError(f"unregistered preliminary runtime pair: {args.pair_id}")
+        expected_runtime = {
+            "seed": int(args.attacker_seed),
+            "windows": int(args.windows),
+            "window_seconds": int(args.coupling_step),
+        }
+        for field, actual in expected_runtime.items():
+            if preliminary_profile[field] != actual:
+                raise ValueError(
+                    f"preliminary runtime profile drift for {field}: "
+                    f"expected {preliminary_profile[field]}, received {actual}"
+                )
+    elif int(args.windows) != 1:
+        raise ValueError("legacy runtime integration is hard-capped at one window")
     if args.arm == "benign" and (
         int(args.budget_windows) != 0 or float(args.energy_cap_kvah) != 0.0
     ):
         raise ValueError("benign control requires zero window and energy budgets")
+    if args.preliminary_role and args.arm != "benign":
+        if (
+            int(args.budget_windows) != preliminary_profile["attack_window_cap"]
+            or float(args.energy_cap_kvah)
+            != preliminary_profile["attack_energy_cap_kvah"]
+        ):
+            raise ValueError("preliminary attack budget differs from its profile")
     if args.preliminary_role and not args.pair_id:
         raise ValueError("preliminary runtime requires a paired lineage identifier")
     spec = load_spec(args.spec)
@@ -381,12 +428,12 @@ def run_bounded(args: argparse.Namespace) -> int:
 
     integration = {
         "schema_version": "grideval-g7-runtime-integration/v1",
-        "mode": "gen-only" if args.gen_only else "one-window-runtime-smoke",
+        "mode": "gen-only" if args.gen_only else "bounded-runtime-smoke",
         "classification": (
             "PRELIMINARY_ONLY" if args.preliminary_role else "DEVELOPMENT_ONLY"
         ),
         "campaign_authorized": False,
-        "runtime_window_limit": 1,
+        "runtime_window_limit": int(args.windows),
         "evaluation_opened": False,
         "seed_lineage": {
             "partition": partition,

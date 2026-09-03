@@ -1,0 +1,106 @@
+{
+  "DER_EV4_BESS": [
+    {
+      "t": 10.0,
+      "v_pu": 1.0015189608210184,
+      "v_pu_meas": 1.0004702695481211,
+      "p_kw": 100.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 100.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": true
+    },
+    {
+      "t": 20.0,
+      "v_pu": 1.0015190825823614,
+      "v_pu_meas": 1.0011815652798506,
+      "p_kw": 0.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 0.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ],
+  "DER_EV1_BESS": [
+    {
+      "t": 10.0,
+      "v_pu": 1.0133328762876816,
+      "v_pu_meas": 1.0118006293616633,
+      "p_kw": 100.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 100.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": true
+    },
+    {
+      "t": 20.0,
+      "v_pu": 1.0133328888640245,
+      "v_pu_meas": 1.014430583159147,
+      "p_kw": 0.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 0.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ],
+  "DER_EV3_PV": [
+    {
+      "t": 10.0,
+      "v_pu": 0.9966361593943323,
+      "v_pu_meas": 0.9930863149927597,
+      "p_kw": 0.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 0.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": true
+    },
+    {
+      "t": 20.0,
+      "v_pu": 0.9966358049031769,
+      "v_pu_meas": 0.9954193795930292,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ],
+  "DER_EV5_PV": [
+    {
+      "t": 10.0,
+      "v_pu": 1.023093904462443,
+      "v_pu_meas": 1.02354322427591,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    },
+    {
+      "t": 20.0,
+      "v_pu": 1.0230939710482552,
+      "v_pu_meas": 1.0235842379879672,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ]
+}
