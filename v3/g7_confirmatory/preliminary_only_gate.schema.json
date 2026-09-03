@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/grideval-preliminary-only-gate-v1.json",
+  "title": "GridEval M18 bounded online development gate",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "gate_id",
+    "milestone",
+    "title",
+    "status",
+    "executes_actions",
+    "source_lineage",
+    "bound_assets",
+    "partition_registry",
+    "preliminary_permissions",
+    "authorization_requirements",
+    "service_boundary",
+    "final_seals",
+    "classification_policy",
+    "preliminary_package_completion",
+    "abort_conditions",
+    "next_action"
+  ],
+  "properties": {
+    "schema_version": { "const": "grideval-preliminary-only-gate/v1" },
+    "gate_id": {
+      "type": "string",
+      "pattern": "^m18preliminary_[0-9a-f]{64}$"
+    },
+    "milestone": { "const": "M18" },
+    "title": { "const": "GridEval bounded online development gate" },
+    "status": { "const": "BOUNDED_ONLINE_DEVELOPMENT_AUTHORIZED_NO_RUN_EXECUTED" },
+    "executes_actions": { "const": false },
+    "source_lineage": {
+      "type": "object",
+      "required": [
+        "project_id",
+        "mission_id",
+        "M18_decision_id",
+        "superseded_M18_decision_id",
+        "M18_backbrief_journal_id",
+        "M18_approval_journal_id",
+        "online_PI_directive_journal_id",
+        "online_confirmation_brief_journal_id",
+        "online_PI_confirmation_journal_id",
+        "preliminary_first_decision_id",
+        "M17_evidence_journal_id",
+        "M17_commit",
+        "M17_matrix_id"
+      ],
+      "properties": {
+        "project_id": { "const": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6" },
+        "mission_id": { "const": "mis_01KYMRDZHYN4QXC1XFTGP54E36" },
+        "M18_decision_id": { "const": "dec_01M1MEP2VK98XN9KD935WDH39N" },
+        "superseded_M18_decision_id": { "const": "dec_01M1ME2CJ9WN5XBPY56C3AB714" },
+        "M18_backbrief_journal_id": { "const": "jrn_01M1ME2TJXAE96SB65P851DY1B" },
+        "M18_approval_journal_id": { "const": "jrn_01M1ME3433FM04A4T65RRMVAH2" },
+        "online_PI_directive_journal_id": { "const": "jrn_01M1MEHG231KP7VRA9THV14KTD" },
+        "online_confirmation_brief_journal_id": { "const": "jrn_01M1MEJ2HR5CV1EM0F66KGYN2R" },
+        "online_PI_confirmation_journal_id": { "const": "jrn_01M1MENKG6DHRRTSDW6WSJXBFS" },
+        "preliminary_first_decision_id": { "const": "dec_01M1MDB6Q97DXACWMN2EVE7Q9Q" },
+        "M17_evidence_journal_id": { "const": "jrn_01M1ME102EMBDERJ6ZRM09XR98" },
+        "M17_commit": { "pattern": "^[0-9a-f]{40}$" },
+        "M17_matrix_id": { "pattern": "^m17trialmatrix_[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "bound_assets": { "$ref": "#/$defs/file_manifest" },
+    "partition_registry": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": { "$ref": "#/$defs/partition" }
+    },
+    "preliminary_permissions": {
+      "type": "object",
+      "required": [
+        "create_once_source_generation",
+        "provisional_resource_admission",
+        "numeric_threshold_selection",
+        "threshold_fitting",
+        "detector_calibration",
+        "simulator_execution",
+        "simulated_actuator_execution",
+        "preliminary_runtime_evaluation",
+        "preliminary_trial_batch_execution",
+        "existing_local_LLM_inference",
+        "existing_embedding_service_inference",
+        "ephemeral_local_runtime_component_startup"
+      ],
+      "properties": {
+        "create_once_source_generation": { "const": true },
+        "provisional_resource_admission": { "const": true },
+        "numeric_threshold_selection": { "const": true },
+        "threshold_fitting": { "const": true },
+        "detector_calibration": { "const": true },
+        "simulator_execution": { "const": true },
+        "simulated_actuator_execution": { "const": true },
+        "preliminary_runtime_evaluation": { "const": true },
+        "preliminary_trial_batch_execution": { "const": true },
+        "existing_local_LLM_inference": { "const": true },
+        "existing_embedding_service_inference": { "const": true },
+        "ephemeral_local_runtime_component_startup": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "authorization_requirements": {
+      "type": "array",
+      "minItems": 13,
+      "maxItems": 13,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "service_boundary": {
+      "type": "object",
+      "required": ["LLM", "embedding", "runtime_components"],
+      "properties": {
+        "LLM": {
+          "type": "object",
+          "required": ["identity", "must_already_be_running", "start_or_restart_allowed"],
+          "properties": {
+            "identity": { "const": "qwen3.6-35b-a3b@http://ccil1s26m8hj6lws:8000/v1" },
+            "must_already_be_running": { "const": true },
+            "start_or_restart_allowed": { "const": false }
+          },
+          "additionalProperties": false
+        },
+        "embedding": {
+          "type": "object",
+          "required": ["identity", "must_use_existing_project_service", "start_or_restart_allowed", "live_identity_must_be_recorded_per_action"],
+          "properties": {
+            "identity": { "const": "existing_project_embedding_service" },
+            "must_use_existing_project_service": { "const": true },
+            "start_or_restart_allowed": { "const": false },
+            "live_identity_must_be_recorded_per_action": { "const": true }
+          },
+          "additionalProperties": false
+        },
+        "runtime_components": {
+          "type": "object",
+          "required": ["may_start_ephemeral_local_components", "must_record_process_and_version_identity", "must_record_teardown_status", "physical_field_connection_allowed"],
+          "properties": {
+            "may_start_ephemeral_local_components": { "const": true },
+            "must_record_process_and_version_identity": { "const": true },
+            "must_record_teardown_status": { "const": true },
+            "physical_field_connection_allowed": { "const": false }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "final_seals": {
+      "type": "object",
+      "required": [
+        "final_evaluation_partition_access",
+        "final_evaluation_seed_use",
+        "final_resource_admission",
+        "final_threshold_or_detector_lock",
+        "confirmatory_campaign_execution",
+        "confirmatory_statistical_inference",
+        "publication_grade_effectiveness_claim",
+        "generalization_claim",
+        "physical_field_device_actuation",
+        "start_or_restart_model_or_embedding_service"
+      ],
+      "properties": {
+        "final_evaluation_partition_access": { "const": false },
+        "final_evaluation_seed_use": { "const": false },
+        "final_resource_admission": { "const": false },
+        "final_threshold_or_detector_lock": { "const": false },
+        "confirmatory_campaign_execution": { "const": false },
+        "confirmatory_statistical_inference": { "const": false },
+        "publication_grade_effectiveness_claim": { "const": false },
+        "generalization_claim": { "const": false },
+        "physical_field_device_actuation": { "const": false },
+        "start_or_restart_model_or_embedding_service": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "classification_policy": {
+      "type": "object",
+      "required": ["required_label", "may_tune_design_from_development_partitions", "may_tune_design_from_preliminary_holdout", "may_support_confirmatory_claims", "prohibited_claim_classes"],
+      "properties": {
+        "required_label": { "const": "PRELIMINARY_ONLY" },
+        "may_tune_design_from_development_partitions": { "const": true },
+        "may_tune_design_from_preliminary_holdout": { "const": false },
+        "may_support_confirmatory_claims": { "const": false },
+        "prohibited_claim_classes": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "preliminary_package_completion": {
+      "type": "object",
+      "required": ["required_sections", "external_consultation_after_completion", "later_final_freeze_decision_required"],
+      "properties": {
+        "required_sections": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "external_consultation_after_completion": { "const": true },
+        "later_final_freeze_decision_required": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "abort_conditions": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "next_action": {
+      "type": "object",
+      "required": ["id", "partition_role", "initial_scope", "max_windows_per_run", "may_use_final_evaluation", "must_pass_M18_action_request_validation"],
+      "properties": {
+        "id": { "const": "M19_preliminary_runtime_qualification" },
+        "partition_role": { "const": "runtime_qualification" },
+        "initial_scope": { "const": "benign_lineage_then_one_paired_single_window_smoke" },
+        "max_windows_per_run": { "const": 1 },
+        "may_use_final_evaluation": { "const": false },
+        "must_pass_M18_action_request_validation": { "const": true }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "file_manifest": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "bytes", "sha256"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "bytes": { "type": "integer", "minimum": 1 },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "partition": {
+      "type": "object",
+      "required": ["role", "seeds", "classification", "purpose", "may_read", "may_influence_design", "may_support_confirmatory_claims"],
+      "properties": {
+        "role": {
+          "enum": ["runtime_qualification", "system_identification", "detector_calibration", "detector_audit", "attack_development", "preliminary_holdout", "final_evaluation_reserved"]
+        },
+        "seeds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1 }
+        },
+        "classification": { "enum": ["PRELIMINARY_ONLY", "FINAL_SEALED"] },
+        "purpose": { "type": "string", "minLength": 1 },
+        "may_read": { "type": "boolean" },
+        "may_influence_design": { "type": "boolean" },
+        "may_support_confirmatory_claims": { "const": false }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

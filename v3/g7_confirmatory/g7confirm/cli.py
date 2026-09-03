@@ -35,6 +35,10 @@ from .career_trial_matrix import (
     build_career_trial_matrix,
     verify_checked_in_trial_matrix,
 )
+from .preliminary_only_gate import (
+    build_preliminary_only_gate,
+    verify_checked_in_preliminary_gate,
+)
 from .detector_freeze import (
     build_benign_calibration_plan,
     build_detector_provenance_audit,
@@ -583,6 +587,35 @@ def cmd_career_trial_matrix_preflight(args: argparse.Namespace) -> int:
     return 0 if not issues else 2
 
 
+def cmd_preliminary_only_preflight(args: argparse.Namespace) -> int:
+    """Verify the M18 preliminary-only boundary without executing it."""
+
+    issues = verify_checked_in_preliminary_gate(args.repo_root)
+    gate = build_preliminary_only_gate().to_dict()
+    _print({
+        "status": gate["status"] if not issues else "FAILED_CLOSED",
+        "gate_id": gate["gate_id"],
+        "executes_actions": gate["executes_actions"],
+        "preliminary_partitions": [
+            item["role"]
+            for item in gate["partition_registry"]
+            if item["classification"] == "PRELIMINARY_ONLY"
+        ],
+        "sealed_partition": next(
+            item["role"]
+            for item in gate["partition_registry"]
+            if item["classification"] == "FINAL_SEALED"
+        ),
+        "preliminary_permissions": gate["preliminary_permissions"],
+        "final_seals": gate["final_seals"],
+        "next_action": gate["next_action"],
+        "issues": issues,
+        "files_created_or_modified": 0,
+        "RKA_writes": 0,
+    })
+    return 0 if not issues else 2
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -699,6 +732,14 @@ def build_parser() -> argparse.ArgumentParser:
         "--repo-root", required=True, type=Path
     )
     trial_matrix_preflight.set_defaults(func=cmd_career_trial_matrix_preflight)
+
+    preliminary_only_preflight = sub.add_parser(
+        "preliminary-only-preflight"
+    )
+    preliminary_only_preflight.add_argument(
+        "--repo-root", required=True, type=Path
+    )
+    preliminary_only_preflight.set_defaults(func=cmd_preliminary_only_preflight)
     return parser
 
 

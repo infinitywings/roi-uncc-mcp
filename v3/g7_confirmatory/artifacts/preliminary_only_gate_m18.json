@@ -1,0 +1,309 @@
+{
+  "abort_conditions": [
+    "bound_asset_drift",
+    "cross_partition_seed_use_or_overlap",
+    "evaluation_partition_or_seed_access",
+    "existing_output_would_be_overwritten",
+    "final_or_confirmatory_label_on_preliminary_output",
+    "missing_pair_budget_or_content_address",
+    "physical_field_actuation_requested",
+    "service_start_or_restart_requested",
+    "silent_failure_or_invalid_action_exclusion",
+    "unregistered_action_partition_or_seed"
+  ],
+  "authorization_requirements": [
+    "M18_preflight_zero_issues",
+    "action_type_must_match_partition_purpose",
+    "all_inputs_code_config_and_outputs_content_addressed",
+    "all_outputs_classified_PRELIMINARY_ONLY",
+    "all_runtime_trials_have_a_paired_benign_lineage",
+    "create_once_outputs_no_overwrite",
+    "failures_refusals_timeouts_and_aborts_retained",
+    "final_evaluation_access_flag_false",
+    "fixed_budget_identifier_before_execution",
+    "physical_field_actuator_flag_false",
+    "runtime_component_teardown_recorded",
+    "seed_registered_in_exactly_one_purpose_partition",
+    "service_start_or_restart_flag_false"
+  ],
+  "bound_assets": [
+    {
+      "bytes": 8569,
+      "path": "v3/g7_confirmatory/M17_CAREER_ATTACK_DEFENSE_TRIAL_MATRIX_REPORT.md",
+      "sha256": "c7911b2bbf10f9094a813b6cc347c9466babee973e2a818dea8db15cf4fbf677"
+    },
+    {
+      "bytes": 18518,
+      "path": "v3/g7_confirmatory/artifacts/career_trial_matrix_m17.json",
+      "sha256": "4abb27945b19dab231f5ca2ab46e32359fa3b8d5d567e6d7159f51d0b0256595"
+    },
+    {
+      "bytes": 11200,
+      "path": "v3/g7_confirmatory/career_trial_matrix.schema.json",
+      "sha256": "bdb47ef78d8eda273eb21b1c9723b6e809a9405cec6f7bbdfed9cb028e8b7c6b"
+    },
+    {
+      "bytes": 22131,
+      "path": "v3/g7_confirmatory/g7confirm/career_trial_matrix.py",
+      "sha256": "e13b8014cfca4be9c66ff5b894b7fd4cc50d64ddaca035292415a832aa5aa0b9"
+    },
+    {
+      "bytes": 5433,
+      "path": "v3/g7_confirmatory/experiment_spec.yaml",
+      "sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d"
+    },
+    {
+      "bytes": 445019,
+      "path": "v3/g7_confirmatory/roadmap_2026/report.html",
+      "sha256": "c4fc1168708c0d47d1162754296d3f731c51028650aaeab739aca42fb3aa827b"
+    }
+  ],
+  "classification_policy": {
+    "may_support_confirmatory_claims": false,
+    "may_tune_design_from_development_partitions": true,
+    "may_tune_design_from_preliminary_holdout": false,
+    "prohibited_claim_classes": [
+      "confirmatory_effect",
+      "statistical_significance_as_final_evidence",
+      "generalization",
+      "publication_grade_defense_effectiveness"
+    ],
+    "required_label": "PRELIMINARY_ONLY"
+  },
+  "executes_actions": false,
+  "final_seals": {
+    "confirmatory_campaign_execution": false,
+    "confirmatory_statistical_inference": false,
+    "final_evaluation_partition_access": false,
+    "final_evaluation_seed_use": false,
+    "final_resource_admission": false,
+    "final_threshold_or_detector_lock": false,
+    "generalization_claim": false,
+    "physical_field_device_actuation": false,
+    "publication_grade_effectiveness_claim": false,
+    "start_or_restart_model_or_embedding_service": false
+  },
+  "gate_id": "m18preliminary_f8169459011b6d4dffa2b8dbd08f052dfe0a1323b5ed617199e1ff2eed6bd5c5",
+  "milestone": "M18",
+  "next_action": {
+    "id": "M19_preliminary_runtime_qualification",
+    "initial_scope": "benign_lineage_then_one_paired_single_window_smoke",
+    "max_windows_per_run": 1,
+    "may_use_final_evaluation": false,
+    "must_pass_M18_action_request_validation": true,
+    "partition_role": "runtime_qualification"
+  },
+  "partition_registry": [
+    {
+      "classification": "PRELIMINARY_ONLY",
+      "may_influence_design": true,
+      "may_read": true,
+      "may_support_confirmatory_claims": false,
+      "purpose": "bounded_benign_and_paired_runtime_lineage_checks",
+      "role": "runtime_qualification",
+      "seeds": [
+        5101,
+        5102,
+        5103,
+        5104
+      ]
+    },
+    {
+      "classification": "PRELIMINARY_ONLY",
+      "may_influence_design": true,
+      "may_read": true,
+      "may_support_confirmatory_claims": false,
+      "purpose": "clean_process_relationship_and_sensitivity_generation",
+      "role": "system_identification",
+      "seeds": [
+        6101,
+        6102,
+        6103,
+        6104,
+        6105,
+        6106,
+        6107,
+        6108,
+        6109,
+        6110,
+        6111,
+        6112
+      ]
+    },
+    {
+      "classification": "PRELIMINARY_ONLY",
+      "may_influence_design": true,
+      "may_read": true,
+      "may_support_confirmatory_claims": false,
+      "purpose": "benign_only_preliminary_detector_parameter_fitting",
+      "role": "detector_calibration",
+      "seeds": [
+        7101,
+        7102,
+        7103,
+        7104,
+        7105,
+        7106,
+        7107,
+        7108,
+        7109,
+        7110,
+        7111,
+        7112
+      ]
+    },
+    {
+      "classification": "PRELIMINARY_ONLY",
+      "may_influence_design": true,
+      "may_read": true,
+      "may_support_confirmatory_claims": false,
+      "purpose": "outcome_blind_preliminary_detector_stability_audit",
+      "role": "detector_audit",
+      "seeds": [
+        7201,
+        7202,
+        7203,
+        7204,
+        7205,
+        7206,
+        7207,
+        7208,
+        7209,
+        7210,
+        7211,
+        7212
+      ]
+    },
+    {
+      "classification": "PRELIMINARY_ONLY",
+      "may_influence_design": true,
+      "may_read": true,
+      "may_support_confirmatory_claims": false,
+      "purpose": "strategy_mechanism_and_attacker_ladder_development",
+      "role": "attack_development",
+      "seeds": [
+        8101,
+        8102,
+        8103,
+        8104,
+        8105,
+        8106,
+        8107,
+        8108,
+        8109,
+        8110,
+        8111,
+        8112
+      ]
+    },
+    {
+      "classification": "PRELIMINARY_ONLY",
+      "may_influence_design": false,
+      "may_read": true,
+      "may_support_confirmatory_claims": false,
+      "purpose": "one_time_preliminary_replication_after_design_lock",
+      "role": "preliminary_holdout",
+      "seeds": [
+        8201,
+        8202,
+        8203,
+        8204,
+        8205,
+        8206,
+        8207,
+        8208,
+        8209,
+        8210,
+        8211,
+        8212
+      ]
+    },
+    {
+      "classification": "FINAL_SEALED",
+      "may_influence_design": false,
+      "may_read": false,
+      "may_support_confirmatory_claims": false,
+      "purpose": "reserved_for_later_confirmatory_freeze",
+      "role": "final_evaluation_reserved",
+      "seeds": [
+        9101,
+        9102,
+        9103,
+        9104,
+        9105,
+        9106,
+        9107,
+        9108,
+        9109,
+        9110,
+        9111,
+        9112
+      ]
+    }
+  ],
+  "preliminary_package_completion": {
+    "external_consultation_after_completion": true,
+    "later_final_freeze_decision_required": true,
+    "required_sections": [
+      "scope_and_partition_registry",
+      "source_and_resource_manifests",
+      "environment_code_config_and_service_hashes",
+      "trial_matrix_coverage_and_deviations",
+      "detector_calibration_and_false_alarm_evidence",
+      "paired_physical_harm_alarm_and_operational_cost_results",
+      "failed_refused_timed_out_aborted_and_negative_runs",
+      "preliminary_effect_sizes_intervals_and_known_limitations"
+    ]
+  },
+  "preliminary_permissions": {
+    "create_once_source_generation": true,
+    "detector_calibration": true,
+    "ephemeral_local_runtime_component_startup": true,
+    "existing_embedding_service_inference": true,
+    "existing_local_LLM_inference": true,
+    "numeric_threshold_selection": true,
+    "preliminary_runtime_evaluation": true,
+    "preliminary_trial_batch_execution": true,
+    "provisional_resource_admission": true,
+    "simulated_actuator_execution": true,
+    "simulator_execution": true,
+    "threshold_fitting": true
+  },
+  "schema_version": "grideval-preliminary-only-gate/v1",
+  "service_boundary": {
+    "LLM": {
+      "identity": "qwen3.6-35b-a3b@http://ccil1s26m8hj6lws:8000/v1",
+      "must_already_be_running": true,
+      "start_or_restart_allowed": false
+    },
+    "embedding": {
+      "identity": "existing_project_embedding_service",
+      "live_identity_must_be_recorded_per_action": true,
+      "must_use_existing_project_service": true,
+      "start_or_restart_allowed": false
+    },
+    "runtime_components": {
+      "may_start_ephemeral_local_components": true,
+      "must_record_process_and_version_identity": true,
+      "must_record_teardown_status": true,
+      "physical_field_connection_allowed": false
+    }
+  },
+  "source_lineage": {
+    "M17_commit": "2cff8436d40ae75644bcdc050be6fa11b11f192d",
+    "M17_evidence_journal_id": "jrn_01M1ME102EMBDERJ6ZRM09XR98",
+    "M17_matrix_id": "m17trialmatrix_8ce2c71c1eab533f04a75b15ea17d3e223587bbf4089149d6ac1e8105cbd169d",
+    "M18_approval_journal_id": "jrn_01M1ME3433FM04A4T65RRMVAH2",
+    "M18_backbrief_journal_id": "jrn_01M1ME2TJXAE96SB65P851DY1B",
+    "M18_decision_id": "dec_01M1MEP2VK98XN9KD935WDH39N",
+    "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36",
+    "online_PI_confirmation_journal_id": "jrn_01M1MENKG6DHRRTSDW6WSJXBFS",
+    "online_PI_directive_journal_id": "jrn_01M1MEHG231KP7VRA9THV14KTD",
+    "online_confirmation_brief_journal_id": "jrn_01M1MEJ2HR5CV1EM0F66KGYN2R",
+    "preliminary_first_decision_id": "dec_01M1MDB6Q97DXACWMN2EVE7Q9Q",
+    "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+    "superseded_M18_decision_id": "dec_01M1ME2CJ9WN5XBPY56C3AB714"
+  },
+  "status": "BOUNDED_ONLINE_DEVELOPMENT_AUTHORIZED_NO_RUN_EXECUTED",
+  "title": "GridEval bounded online development gate"
+}

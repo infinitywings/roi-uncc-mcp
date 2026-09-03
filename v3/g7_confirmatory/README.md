@@ -83,7 +83,11 @@ The harness provides:
   CAREER two-interval causal design from the broader IA0-IA5 red-team track,
   defines subtle long-horizon strategies and matched controls, crosses
   black/gray/white-box information with detector and defense families, and
-  requires an M18 preliminary-only gate before any runtime action.
+  requires an M18 preliminary-only gate before any runtime action; and
+- an M18 bounded online-development gate that reserves disjoint purpose-
+  specific preliminary partitions, authorizes registered end-to-end local
+  workflow tests, binds the existing LLM and embedding services, distinguishes
+  simulated from physical actuation, and keeps final evaluation sealed.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -178,6 +182,13 @@ schema are `artifacts/career_trial_matrix_m17.json` and
 `career_trial_matrix.schema.json`. M17 assigns no source, partition, resource,
 threshold, detector parameter, or run. It preserves final evaluation as an
 empty sealed stage and routes all preliminary execution through M18.
+The PI-authorized M18 boundary is documented in
+`M18_BOUNDED_ONLINE_DEVELOPMENT_GATE_REPORT.md`; its canonical artifact and
+schema are `artifacts/preliminary_only_gate_m18.json` and
+`preliminary_only_gate.schema.json`. Passing M18 permits only registered,
+create-once, `PRELIMINARY_ONLY` online actions. Final evaluation seeds,
+confirmatory execution, physical field actuation, and final scientific claims
+remain sealed.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the
@@ -186,11 +197,14 @@ evidence—not the confirmatory-uninformed condition defined here.
 
 ## Safety boundary
 
-The campaign remains on HOLD. The runtime-integration entry point refuses more
-than one live window, restricts output to this directory, loads frozen runner
-bytes by exact path, and never restarts either model service. A gated smoke may
-start one ephemeral GridLAB-D/HELICS composition; detector sweeps, evaluation
-seeds, and campaign-scale execution remain prohibited.
+The confirmatory campaign remains on HOLD. M18 permits bounded online
+development only after its preflight and per-action validation pass. The first
+M19 runtime-qualification flow remains capped at one live window per run,
+restricts output to this directory, loads content-addressed runner bytes, and
+never starts or restarts either model service. It may start an ephemeral local
+GridLAB-D/HELICS/network/detector composition and must record teardown.
+Evaluation seeds, physical field-device actuation, and campaign-scale
+confirmatory execution remain prohibited.
 
 The current detector audit is intentionally `calibrated=false`: the preserved
 legacy benign and sensitivity inputs do not carry the seed, condition, and
@@ -261,6 +275,19 @@ python3 -m g7confirm.cli career-trial-matrix-preflight \
 This command verifies the M16 evidence chain, six exact-byte design inputs,
 the IA0-IA5 and knowledge-profile contracts, and the final-evaluation seal. It
 does not assign or execute a preliminary trial.
+
+The M18 bounded online-development authorization has a separate read-only
+preflight:
+
+```bash
+python3 -m g7confirm.cli preliminary-only-preflight \
+  --repo-root /home/cfu6/roi-uncc-mcp
+```
+
+This command verifies the complete M17 chain, disjoint preliminary partitions,
+existing-service restrictions, per-action requirements, and all final seals.
+It starts no process; M19 consumes the validated gate to run the first bounded
+online flow.
 
 The model smoke is intentionally separate because it performs one network
 request:
