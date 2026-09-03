@@ -73,6 +73,29 @@ PRELIMINARY_RUNTIME_PROFILES = {
         "attack_action_id": "m21_attack_seed5103",
         "budget_id": "m21_seed5103_three_windows_one_attack_2kvah",
     },
+    "m23_system_identification_seed6101": {
+        "seed": 6101,
+        "windows": 3,
+        "window_seconds": 10,
+        "attack_window_cap": 1,
+        "attack_energy_cap_kvah": 2.0,
+        "partition_role": "system_identification",
+        "action_type": "simulator_execution",
+        "benign_action_id": "m23_benign_seed6101",
+        "probe_action_ids": {
+            "DER_EV1_BESS:+30": "m23_probe_ev1_plus30_seed6101",
+            "DER_EV1_BESS:-30": "m23_probe_ev1_minus30_seed6101",
+            "DER_EV4_BESS:+30": "m23_probe_ev4_plus30_seed6101",
+            "DER_EV4_BESS:-30": "m23_probe_ev4_minus30_seed6101",
+        },
+        "probe_treatment_ids": {
+            "DER_EV1_BESS:+30": "probe_ev1_plus30",
+            "DER_EV1_BESS:-30": "probe_ev1_minus30",
+            "DER_EV4_BESS:+30": "probe_ev4_plus30",
+            "DER_EV4_BESS:-30": "probe_ev4_minus30",
+        },
+        "budget_id": "m23_seed6101_three_windows_symmetric_30kw",
+    },
 }
 
 
@@ -107,7 +130,9 @@ def _preliminary_component_seeds(
     partition = next(
         (item for item in PARTITION_REGISTRY if item["role"] == role), None
     )
-    if partition is None or role != "runtime_qualification":
+    if partition is None or role not in {
+        "runtime_qualification", "system_identification",
+    }:
         raise ValueError(f"unsupported preliminary runtime role: {role}")
     if int(replicate_seed) not in partition["seeds"]:
         raise ValueError(
@@ -298,13 +323,31 @@ def _load_preliminary_action_request(
     profile = PRELIMINARY_RUNTIME_PROFILES.get(args.pair_id)
     if profile is None:
         raise ValueError(f"unregistered preliminary runtime pair: {args.pair_id}")
-    expected_action = (
-        profile["benign_action_id"] if args.arm == "benign"
-        else profile["attack_action_id"]
-    )
+    expected_role = profile.get("partition_role", "runtime_qualification")
+    if args.preliminary_role != expected_role:
+        raise ValueError("preliminary runtime partition differs from its profile")
+    if args.arm == "benign":
+        expected_action = profile["benign_action_id"]
+    elif "probe_action_ids" in profile and args.arm == "probe":
+        if args.probe_id is None or not math.isfinite(float(args.probe_kw)):
+            raise ValueError("M23 probe identity or magnitude is invalid")
+        probe_key = f"{args.probe_id}:{float(args.probe_kw):+g}"
+        try:
+            expected_action = profile["probe_action_ids"][probe_key]
+        except KeyError as exc:
+            raise ValueError(f"unregistered preliminary probe: {probe_key}") from exc
+    else:
+        try:
+            expected_action = profile["attack_action_id"]
+        except KeyError as exc:
+            raise ValueError(
+                f"arm {args.arm!r} is not registered for {args.pair_id}"
+            ) from exc
     expected = {
         "action_id": expected_action,
-        "action_type": "simulated_actuator_execution",
+        "action_type": profile.get(
+            "action_type", "simulated_actuator_execution",
+        ),
         "partition_role": args.preliminary_role,
         "seed": int(args.attacker_seed),
         "output_classification": "PRELIMINARY_ONLY",
@@ -329,6 +372,22 @@ def _load_preliminary_action_request(
     return request
 
 
+def _preliminary_treatment(
+    args: argparse.Namespace, profile: Mapping[str, Any],
+) -> str:
+    if args.arm == "benign":
+        return "benign"
+    if args.arm != "probe":
+        return "attack"
+    if args.probe_id is None or not math.isfinite(float(args.probe_kw)):
+        raise ValueError("preliminary probe identity or magnitude is invalid")
+    probe_key = f"{args.probe_id}:{float(args.probe_kw):+g}"
+    try:
+        return str(profile["probe_treatment_ids"][probe_key])
+    except KeyError as exc:
+        raise ValueError(f"unregistered preliminary probe: {probe_key}") from exc
+
+
 def run_bounded(args: argparse.Namespace) -> int:
     preliminary_profile = PRELIMINARY_RUNTIME_PROFILES.get(args.pair_id)
     if args.preliminary_role:
@@ -345,6 +404,13 @@ def run_bounded(args: argparse.Namespace) -> int:
                     f"preliminary runtime profile drift for {field}: "
                     f"expected {preliminary_profile[field]}, received {actual}"
                 )
+        expected_role = preliminary_profile.get(
+            "partition_role", "runtime_qualification",
+        )
+        if args.preliminary_role != expected_role:
+            raise ValueError(
+                "preliminary runtime partition differs from its profile"
+            )
     elif int(args.windows) != 1:
         raise ValueError("legacy runtime integration is hard-capped at one window")
     if args.arm == "benign" and (
@@ -437,6 +503,10 @@ def run_bounded(args: argparse.Namespace) -> int:
     attack.make_policy = make_budgeted_policy
     args.output_dir = output_dir
     status = int(attack.run(args))
+    preliminary_treatment = (
+        _preliminary_treatment(args, preliminary_profile)
+        if preliminary_profile else None
+    )
 
     integration = {
         "schema_version": "grideval-g7-runtime-integration/v1",
@@ -454,7 +524,7 @@ def run_bounded(args: argparse.Namespace) -> int:
         "operating_point": operating_point_metadata,
         "pairing": {
             "pair_id": args.pair_id,
-            "treatment": "benign" if args.arm == "benign" else "attack",
+            "treatment": preliminary_treatment,
             "matched_seed": int(args.attacker_seed),
         } if args.pair_id else None,
         "M18_action_request": action_request,
@@ -528,7 +598,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--l4-period", type=int, default=6)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--gen-only", action="store_true")
-    parser.add_argument("--preliminary-role", choices=["runtime_qualification"])
+    parser.add_argument(
+        "--preliminary-role",
+        choices=["runtime_qualification", "system_identification"],
+    )
     parser.add_argument("--pair-id", default=None)
     parser.add_argument("--action-request", type=Path, default=None)
     return parser

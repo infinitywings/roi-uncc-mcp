@@ -1,0 +1,10 @@
+# file...... sw_status_l92_EV4.csv
+# date...... Thu Sep  3 21:36:05 2026
+# user...... (null)
+# host...... (null)
+# target.... switch 799
+# trigger... (none)
+# interval.. 1200
+# limit..... 0
+# timestamp,status
+2013-08-28 04:00:00 PST,CLOSED

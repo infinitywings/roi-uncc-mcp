@@ -1,0 +1,38 @@
+{
+  "audit_id": "m23audit_f424d5ca61a12125f837a4513f6b47424b62729096c9d61a0fa50e50379a532c",
+  "auditor_sha256": "390d81ef118a0c58fe1de295d3ed9198ece382e43e723fc90fc4f030097f093f",
+  "checks": [
+    "source_and_contract_self_address",
+    "exact_generator_and_runtime_bindings",
+    "six_M18_action_requests_and_access_seals",
+    "manifest_file_size_and_sha256",
+    "five_run_and_symmetric_pair_structure",
+    "central_and_one_sided_voltage_arithmetic",
+    "centered_voltage_residual_arithmetic",
+    "central_and_centered_source_power_arithmetic",
+    "tool_payload_scalar_derivation",
+    "container_network_and_teardown_boundary",
+    "final_evaluation_and_resource_admission_seals"
+  ],
+  "claim_boundary": "A passing audit validates the exact stored M23 preliminary source and its arithmetic. It does not admit the source or establish repeatability, generalization, real-adapter safety, or final evidence.",
+  "contract_id": "m23contract_1fe0006a3ed480a1ef6b7a084a7031aa8855c319f02c46bfbaea42a0c45ad859",
+  "contract_sha256": "b870c6af3279f709bd096a3ed6c39f3b15f3c6428c5fd65cb0eb61e3e4b75e74",
+  "created_at_utc": "2026-09-03T23:02:47.785916+00:00",
+  "generator_sha256": "72dca567388aca9203129c39a3b97c801fa1322c0c643a2e9e1617147480598f",
+  "issues": [],
+  "known_generator_verifier_failure_retained": {
+    "cause": "build_manifest_created_at_utc_changes_on_rebuild",
+    "checkpoint_id": "chk_01M1MR10KGAJT84EJC0WT2YB4T",
+    "issues": [
+      "M23_source_content_drift",
+      "M23_source_id_drift"
+    ],
+    "runtime_rerun": false,
+    "source_overwritten": false
+  },
+  "runtime_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+  "schema_version": "grideval-g7-m23-independent-audit/v1",
+  "source_id": "m23source_300ed1e8d0d878cd5ce932e59fa8920d8a22edba3793a9cfc5d9044ca0dd9f50",
+  "source_sha256": "30d003e06d016b88d49e024857c9b74a9f9f34012a6f022b6f3a26511fc619c1",
+  "status": "passed"
+}

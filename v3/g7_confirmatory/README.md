@@ -110,7 +110,14 @@ The harness provides:
   mirrored condition, makes the correct target-dependent candidate switch,
   and passes the common plan validator. The matched IA3 control also passes,
   so M22 qualifies protocol and tool-result use but does not establish
-  autonomous strategy learning or LLM advantage.
+  autonomous strategy learning or LLM advantage; and
+- an M23 empirical system-identification source candidate built from one
+  shared benign control and symmetric +30/-30 kW, target-isolated probes at
+  each of two BESS devices. It preserves the full t=30 voltage-response
+  columns, one-sided estimates, centered residuals, command signs, warnings,
+  and raw hashes. An independent exact-byte audit passes, while the original
+  timestamp-sensitive verifier failure remains retained; the source is not
+  admitted and no general sensitivity claim is made.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -153,6 +160,12 @@ two action requests, and create-once receipt are under
 `artifacts/m22_current_service_regression_attempt1/`. It uses synthetic fixture
 injection only: no real tool, simulator, detector, defense, embedding service,
 actuator, or final-evaluation record is accessed.
+The M23 empirical source candidate is documented in
+`M23_EMPIRICAL_SYSTEM_IDENTIFICATION_REPORT.md`; its contract, six action
+requests, five network-isolated runtime traces, source, retained verifier
+failure, and independent audit receipt are under
+`artifacts/m23_system_identification_seed6101_attempt1/`. It is a preliminary
+source-mechanics result, not a resource-admission or final-evidence gate.
 The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and
@@ -250,6 +263,9 @@ The registered M20 flow is capped at exactly two live windows per run and one
 attack intervention; it cannot expand itself to a third observation window.
 The separately registered M21 flow is capped at exactly three live windows per
 run and one attack intervention; it cannot expand itself to a fourth window.
+M22 executes no simulator or real tool. M23 is capped at one benign and four
+signed, single-target simulator probes, each with exactly three windows and at
+most one delivered intervention; its source remains unadmitted.
 Evaluation seeds, physical field-device actuation, and campaign-scale
 confirmatory execution remain prohibited.
 

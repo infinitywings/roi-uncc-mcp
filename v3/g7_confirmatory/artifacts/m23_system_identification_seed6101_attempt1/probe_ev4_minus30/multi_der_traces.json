@@ -1,0 +1,154 @@
+{
+  "DER_EV4_BESS": [
+    {
+      "t": 10.0,
+      "v_pu": 1.0015189608210184,
+      "v_pu_meas": 1.003216188210553,
+      "p_kw": -30.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": -30.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": true
+    },
+    {
+      "t": 20.0,
+      "v_pu": 1.0015190825823614,
+      "v_pu_meas": 1.0051438613577868,
+      "p_kw": 0.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 0.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    },
+    {
+      "t": 30.0,
+      "v_pu": 0.9972274720657268,
+      "v_pu_meas": 0.9982135406362537,
+      "p_kw": 0.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 0.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ],
+  "DER_EV1_BESS": [
+    {
+      "t": 10.0,
+      "v_pu": 1.0133328762876816,
+      "v_pu_meas": 1.010888340434312,
+      "p_kw": 0.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 0.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    },
+    {
+      "t": 20.0,
+      "v_pu": 1.0133328888640245,
+      "v_pu_meas": 1.0141859875799317,
+      "p_kw": 0.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 0.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    },
+    {
+      "t": 30.0,
+      "v_pu": 1.0128365114615392,
+      "v_pu_meas": 1.0132174511668242,
+      "p_kw": 0.0,
+      "q_kvar": -0.0,
+      "soc": 0.5,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 0.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ],
+  "DER_EV3_PV": [
+    {
+      "t": 10.0,
+      "v_pu": 0.9966361593943323,
+      "v_pu_meas": 0.99807669836237,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    },
+    {
+      "t": 20.0,
+      "v_pu": 0.9966358049031769,
+      "v_pu_meas": 0.9983862017741112,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    },
+    {
+      "t": 30.0,
+      "v_pu": 1.009451510598839,
+      "v_pu_meas": 1.0117440627450054,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ],
+  "DER_EV5_PV": [
+    {
+      "t": 10.0,
+      "v_pu": 1.023093904462443,
+      "v_pu_meas": 1.024934981134689,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    },
+    {
+      "t": 20.0,
+      "v_pu": 1.0230939710482552,
+      "v_pu_meas": 1.0186214170838548,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    },
+    {
+      "t": 30.0,
+      "v_pu": 1.026087895500279,
+      "v_pu_meas": 1.0281053495479506,
+      "p_kw": 80.0,
+      "q_kvar": -0.0,
+      "soc": null,
+      "status": "Continuous Operation",
+      "cmd_p_kw": 80.0,
+      "cmd_q_kvar": 0.0,
+      "perturbed": false
+    }
+  ]
+}

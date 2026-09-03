@@ -1,0 +1,75 @@
+{
+  "schema_version": "grideval-g7-m23-runtime-execution/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "container_image_id": "sha256:c79f6cc1bd1eea69c5c21b8794d9def19435f26aa7f4f71c5330c823835e4df7",
+  "container_image_tag": "docker-cosim:latest",
+  "network_mode": "none",
+  "physical_field_connection": false,
+  "container_user": "666305836:666305836",
+  "entrypoint_override": "/bin/bash",
+  "container_names": [
+    "g7-m23-benign-seed6101-a1",
+    "g7-m23-ev1-plus30-seed6101-a1",
+    "g7-m23-ev1-minus30-seed6101-a1",
+    "g7-m23-ev4-plus30-seed6101-a1",
+    "g7-m23-ev4-minus30-seed6101-a1"
+  ],
+  "container_exit_codes": {
+    "g7-m23-benign-seed6101-a1": 0,
+    "g7-m23-ev1-plus30-seed6101-a1": 0,
+    "g7-m23-ev1-minus30-seed6101-a1": 0,
+    "g7-m23-ev4-plus30-seed6101-a1": 0,
+    "g7-m23-ev4-minus30-seed6101-a1": 0
+  },
+  "containers_ephemeral": true,
+  "teardown_check": "docker ps -a --filter name=g7-m23 returned no rows",
+  "teardown_verified": true,
+  "runtime_versions": {
+    "GridLAB-D": "5.3.0-20236 (e1841e1e:master:Modified) 64-bit LINUX RELEASE",
+    "HELICS": "3.6.1-main-ge437060a1 (2025-08-14)",
+    "Python": "3.10.12",
+    "OpenDER": "2.2.0 vendored source"
+  },
+  "retained_warnings": [
+    {
+      "runs": [
+        "benign",
+        "probe_ev1_plus30",
+        "probe_ev1_minus30"
+      ],
+      "component": "HELICS broker",
+      "message_class": "unknown route and no broker at final time 30",
+      "effect": "All affected processes exited zero; the run-asymmetric final-time message remains an unresolved operational anomaly."
+    },
+    {
+      "runs": [
+        "benign",
+        "probe_ev1_plus30",
+        "probe_ev1_minus30",
+        "probe_ev4_plus30",
+        "probe_ev4_minus30"
+      ],
+      "component": "HELICS Python API",
+      "message_class": "deprecated helicsFederateFinalize",
+      "effect": "No observed process failure; migration to helicsFederateDisconnect remains future maintenance."
+    },
+    {
+      "runs": [
+        "benign",
+        "probe_ev1_plus30",
+        "probe_ev1_minus30",
+        "probe_ev4_plus30",
+        "probe_ev4_minus30"
+      ],
+      "component": "GridLAB-D",
+      "message_class": "FBS switch behavior warning",
+      "effect": "GridLAB-D exited zero in every run; the warning is not dismissed as proof of physical validity."
+    }
+  ],
+  "teardown_asymmetry": "The HELICS unknown-route message appeared in benign and both EV1 probe console streams but not in either EV4 probe stream.",
+  "generated_broken_symlinks_removed": 195,
+  "regular_evidence_files_retained": true,
+  "final_evaluation_data_accessed": false,
+  "model_or_embedding_inference_used": false,
+  "model_or_embedding_service_started_or_restarted": false
+}
