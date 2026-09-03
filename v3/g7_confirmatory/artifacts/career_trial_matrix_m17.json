@@ -1,0 +1,488 @@
+{
+  "capability_ladder": [
+    {
+      "adds_only": "frozen_schedule",
+      "controller_contract": "Replay one predeclared strategy instance without outcome-conditioned switching.",
+      "estimand": "static_lower_bound",
+      "id": "IA0_static_frozen",
+      "knowledge_and_authority_orthogonal": true,
+      "matched_against": null
+    },
+    {
+      "adds_only": "strategy_library_selection",
+      "controller_contract": "Select and parameterize one frozen strategy card before the first window.",
+      "estimand": "IA1_minus_IA0",
+      "id": "IA1_library_open_loop",
+      "knowledge_and_authority_orthogonal": true,
+      "matched_against": "IA0_static_frozen"
+    },
+    {
+      "adds_only": "deterministic_feedback_switching",
+      "controller_contract": "Use a frozen rule table over delayed typed observations; no learning.",
+      "estimand": "IA2_minus_IA1",
+      "id": "IA2_rule_interactive",
+      "knowledge_and_authority_orthogonal": true,
+      "matched_against": "IA1_library_open_loop"
+    },
+    {
+      "adds_only": "algorithmic_credit_assignment",
+      "controller_contract": "Use deterministic bandit, Bayesian, or evolutionary adaptation over the shared surface.",
+      "estimand": "IA3_minus_IA2",
+      "id": "IA3_nonllm_adaptive",
+      "knowledge_and_authority_orthogonal": true,
+      "matched_against": "IA2_rule_interactive"
+    },
+    {
+      "adds_only": "llm_strategy_and_tool_orchestration",
+      "controller_contract": "Replace only the IA3 decision core with an LLM emitting externally validated typed plans.",
+      "estimand": "IA4_minus_IA3",
+      "id": "IA4_llm_orchestrator",
+      "knowledge_and_authority_orthogonal": true,
+      "matched_against": "IA3_nonllm_adaptive"
+    },
+    {
+      "adds_only": "bounded_critique_and_revision",
+      "controller_contract": "Add one critique-and-revision step without another environment observation.",
+      "estimand": "IA5_minus_IA4_compute_matched",
+      "id": "IA5_llm_planner_critic",
+      "knowledge_and_authority_orthogonal": true,
+      "matched_against": "IA4_compute_matched"
+    }
+  ],
+  "detector_defense_contracts": {
+    "defenses": [
+      {
+        "action": "passive_observation",
+        "id": "M0_alarm_only",
+        "operational_cost_required": true,
+        "role": "separate detection from mitigation"
+      },
+      {
+        "action": "reject_or_project_unsafe_commands",
+        "id": "M1_safe_command_screen",
+        "operational_cost_required": true,
+        "role": "preventive intent-aware control"
+      },
+      {
+        "action": "revert_to_frozen_safe_local_mode",
+        "id": "M2_local_autonomous_fallback",
+        "operational_cost_required": true,
+        "role": "limit remote-authority abuse"
+      },
+      {
+        "action": "bounded_private_excitation",
+        "id": "M3_physics_aware_watermark",
+        "operational_cost_required": true,
+        "role": "active stealth-attack detection"
+      },
+      {
+        "action": "bounded_model_changing_response",
+        "id": "M4_event_triggered_mtd",
+        "operational_cost_required": true,
+        "role": "cost-aware active defense"
+      }
+    ],
+    "detectors": [
+      {
+        "detects": "invalid_or_policy_violating_commands",
+        "id": "D0_envelope_policy",
+        "inputs": "command_and_device_limits",
+        "known_gap": "within-envelope harmful commands",
+        "threshold_source": "M18_preliminary_only_or_later"
+      },
+      {
+        "detects": "physics residual inconsistency",
+        "id": "D1_physics_residual_vsct",
+        "inputs": "network_measurements_and_sensitivity",
+        "known_gap": "physically consistent authority abuse",
+        "threshold_source": "M18_preliminary_only_or_later"
+      },
+      {
+        "detects": "persistent small shifts",
+        "id": "D2_sequential_cusum",
+        "inputs": "calibrated_innovation_stream",
+        "known_gap": "operating-point drift false alarms",
+        "threshold_source": "M18_preliminary_only_or_later"
+      },
+      {
+        "detects": "cross-layer inconsistency and authority abuse",
+        "id": "D3_cross_layer_intent_response",
+        "inputs": "intent_delivery_acceptance_realized_PQ_response",
+        "known_gap": "untrusted lineage",
+        "threshold_source": "M18_preliminary_only_or_later"
+      },
+      {
+        "detects": "complementary system and local anomalies",
+        "id": "D4_hybrid_central_local_ae",
+        "inputs": "central_residual_and_local_DER_features",
+        "known_gap": "adaptive reconstruction evasion",
+        "threshold_source": "M18_preliminary_only_or_later"
+      },
+      {
+        "detects": "ramp and stateful temporal deviation",
+        "id": "D5_temporal_state_prediction",
+        "inputs": "multivariate_time_series_and_optional_topology",
+        "known_gap": "compute and topology shift",
+        "threshold_source": "M18_preliminary_only_or_later"
+      },
+      {
+        "detects": "phase-aware spatial anomalies",
+        "id": "D6_graph_localization",
+        "inputs": "topology_and_multivariate_history",
+        "known_gap": "feeder-transfer uncertainty",
+        "threshold_source": "M18_preliminary_only_or_later"
+      },
+      {
+        "detects": "complementary detection evidence",
+        "id": "DF_transparent_fusion",
+        "inputs": "frozen_member_scores_and_alarms",
+        "known_gap": "trajectory false-alarm inflation",
+        "threshold_source": "M18_preliminary_only_or_later"
+      }
+    ]
+  },
+  "estimable_contrasts": [
+    "IA1_minus_IA0_strategy_library_value",
+    "IA2_minus_IA1_feedback_switching_value",
+    "IA3_minus_IA2_algorithmic_adaptation_value",
+    "IA4_minus_IA3_LLM_orchestration_value",
+    "IA5_minus_IA4_compute_matched_critique_value",
+    "K1_minus_K0_delayed_feedback_value",
+    "K2_minus_K1_gray_box_information_value",
+    "K3_minus_K2_white_box_information_value",
+    "mechanism_minus_matched_control",
+    "defense_aware_minus_defense_unaware_under_equal_K",
+    "mitigation_minus_alarm_only_with_operational_cost"
+  ],
+  "executable": false,
+  "governance": {
+    "M14_review_machinery_preserved_as_dormant_provenance": true,
+    "M17_may_assign_sources_partitions_resources_or_thresholds": false,
+    "M17_may_execute_trials": false,
+    "M18_gate_required_before_any_preliminary_runtime_action": true,
+    "all_preliminary_outputs_must_be_labeled_PRELIMINARY_ONLY": true,
+    "final_evaluation_and_confirmatory_campaign_sealed": true,
+    "post_preliminary_external_consultation_required_before_final_freeze": true,
+    "preliminary_first_authorized_in_RKA": true
+  },
+  "hard_stops": [
+    "cross_track_pooling_between_CAREER_core_and_red_team_extension",
+    "evaluation_partition_or_seed_access",
+    "final_threshold_or_resource_lock",
+    "hidden_detector_score_or_oracle_information",
+    "knowledge_authority_budget_or_interface_mismatch",
+    "silent_failed_run_refusal_timeout_or_invalid_action_removal",
+    "silent_simulation_time_advance_or_unpriced_tool_side_effect",
+    "unchecked_LLM_text_to_actuator_path",
+    "unregistered_source_partition_threshold_detector_or_runtime_resource"
+  ],
+  "input_assets": [
+    {
+      "bytes": 11540,
+      "path": "v3/g7_confirmatory/M8_CAREER_STEALTH_BIAS_DESIGN.md",
+      "sha256": "98397028c636be788e8a8d168193d562f8a2c2e39cf3d9f7ab46608dadfda6ad"
+    },
+    {
+      "bytes": 8094,
+      "path": "v3/g7_confirmatory/RED_TEAM_DESIGN.md",
+      "sha256": "155e5b9240555c741005df84dd5b4642ca5fe9ad2a9f1757391585621dae5607"
+    },
+    {
+      "bytes": 7306,
+      "path": "v3/g7_confirmatory/artifacts/ai_v2_component_matrix.json",
+      "sha256": "19ac61d36fbc31993739cf45a670951867d08561d8a3dfebae255d8344785559"
+    },
+    {
+      "bytes": 69675,
+      "path": "v3/g7_confirmatory/roadmap_2026/roadmap_blueprint.json",
+      "sha256": "59a2878f407e2b559a4a1cc21cd2d5f971e6a35e481dcc448c4f4a18e72430b5"
+    },
+    {
+      "bytes": 7524,
+      "path": "v3/g7_confirmatory/M16_CAREER_INTERNAL_ADVISORY_REPORT.md",
+      "sha256": "06737faa61376028f9e0fb398eb7cb7f473bbaee5bfcd8865af379c1162c8bd2"
+    },
+    {
+      "bytes": 17678,
+      "path": "v3/g7_confirmatory/artifacts/career_internal_advisory_m16.json",
+      "sha256": "679462039a5e2b811cf676d69d840b9101a0a8e37e2d9cd61062faae69d8f82f"
+    }
+  ],
+  "knowledge_contract": {
+    "axes": [
+      "grid",
+      "detector",
+      "training_data",
+      "defense",
+      "feedback"
+    ],
+    "levels": [
+      "none",
+      "partial",
+      "exact"
+    ],
+    "profiles": [
+      {
+        "K": {
+          "defense": "none",
+          "detector": "none",
+          "feedback": "none",
+          "grid": "partial",
+          "training_data": "none"
+        },
+        "exposure": "public_device_interface_and_bounds_only",
+        "id": "K0_black_no_feedback",
+        "label": "black_box_zero_feedback"
+      },
+      {
+        "K": {
+          "defense": "none",
+          "detector": "none",
+          "feedback": "partial",
+          "grid": "partial",
+          "training_data": "none"
+        },
+        "exposure": "typed_telemetry_plus_delayed_binary_success_or_alarm",
+        "id": "K1_black_delayed_binary",
+        "label": "black_box_delayed_feedback"
+      },
+      {
+        "K": {
+          "defense": "partial",
+          "detector": "partial",
+          "feedback": "partial",
+          "grid": "partial",
+          "training_data": "partial"
+        },
+        "exposure": "approximate_topology_detector_family_and_bounded_probe_history",
+        "id": "K2_gray_balanced",
+        "label": "gray_box"
+      },
+      {
+        "K": {
+          "defense": "exact",
+          "detector": "exact",
+          "feedback": "exact",
+          "grid": "exact",
+          "training_data": "exact"
+        },
+        "exposure": "frozen_exact_bytes_parameters_state_and_declared_training_distribution",
+        "id": "K3_white_exact",
+        "label": "white_box"
+      }
+    ],
+    "white_box_release_rule": "exact_detector_defense_and_training_information_only_after_the_relevant_preliminary_package_is_frozen"
+  },
+  "matrix_id": "m17trialmatrix_8ce2c71c1eab533f04a75b15ea17d3e223587bbf4089149d6ac1e8105cbd169d",
+  "milestone": "M17",
+  "next_gate": {
+    "id": "M18_preliminary_only_governance",
+    "may_authorize_bounded_preliminary_runtime": true,
+    "may_unlock_final_evaluation_or_confirmatory_claims": false,
+    "must_preserve_untouched_final_evaluation_partition": true,
+    "must_register_source_partition_resource_threshold_and_run_purpose": true
+  },
+  "parity_invariants": [
+    "knowledge_vector_does_not_encode_authority_or_compute",
+    "same_action_authority",
+    "same_candidate_library_and_composition_grammar_for_IA3_IA4_IA5",
+    "same_feedback_delay_and_history_representation",
+    "same_invalid_action_and_refusal_accounting",
+    "same_outer_rollout_and_simulator_time_budget",
+    "same_seed_lineage_within_each_paired_preliminary_trial",
+    "same_tool_schemas_outputs_side_effects_and_call_caps_for_IA3_IA4",
+    "same_total_model_call_and_token_caps_for_IA5_and_IA4_compute_control"
+  ],
+  "power_system_invariants": [
+    "index_results_by_operating_point_phase_location_and_DER_type",
+    "log_requested_admitted_accepted_and_realized_PQ_separately",
+    "preserve_BESS_SOC_and_PV_irradiance_as_state_not_static_metadata",
+    "preserve_inverter_kVA_saturation_priority_ramp_and_mode_transitions",
+    "preserve_local_Volt_VAR_arbitration_and_remote_Q_override_semantics",
+    "record_network_delivery_delay_loss_reordering_and_duplicate_lineage",
+    "report_paired_benign_incremental_harm_not_attack_trajectory_alone",
+    "separate_physical_consequence_continuous_score_alarm_and_mitigation_cost",
+    "treat_alarm_exposure_per_trajectory_or_independent_block_not_per_row"
+  ],
+  "schema_version": "grideval-career-trial-matrix/v1",
+  "scope_tracks": [
+    {
+      "authority": "one_EV_aggregator_active_power_setpoint_only",
+      "controls": [
+        "preplanned_interval_two",
+        "same_candidate_library",
+        "same_observation_schedule",
+        "same_action_and_compute_budgets"
+      ],
+      "id": "CAREER_CORE_ASM",
+      "pooling_rule": "never_pool_with_red_team_extension",
+      "role": "primary_capability_conditioned_causal_design",
+      "temporal_structure": "two_intervals_exactly_one_scheduled_midpoint_observation",
+      "treatment": "one_response_informed_revision_of_interval_two"
+    },
+    {
+      "authority": "AS_A_legitimate_DER_command_authority_only",
+      "controls": [
+        "adjacent_rung",
+        "mechanism_matched",
+        "compute_matched",
+        "defense_unaware"
+      ],
+      "id": "RED_TEAM_IA_EXTENSION",
+      "pooling_rule": "report_separately_from_CAREER_core",
+      "role": "secondary_robustness_and_attacker_capability_benchmark",
+      "temporal_structure": "bounded_multiwindow_orchestration",
+      "treatment": "IA0_IA5_and_declared_knowledge_profiles"
+    }
+  ],
+  "source_lineage": {
+    "M16_advisory_id": "m16advisory_b391e3b7601eae38ba1c9b5ecc5edc6115918be0043e9258327ef701b578933c",
+    "M16_base_commit": "179ebbb5ee7e68b9e6b2acd20503fe6d1473d290",
+    "M17_decision_id": "dec_01M1MAPMSFXE38S9QD8KSYG4XW",
+    "confirmation_brief_journal_id": "jrn_01M1MC2K7D22HNX6CQ6PGB3B6A",
+    "mission_id": "mis_01KYMRDZHYN4QXC1XFTGP54E36",
+    "pi_confirmation_journal_id": "jrn_01M1MDAS6MN35JQ2NWFEMPEZXW",
+    "pi_directive_journal_id": "jrn_01M1MC21TXF1A682E6ZHQN7C70",
+    "preliminary_first_decision_id": "dec_01M1MDB6Q97DXACWMN2EVE7Q9Q",
+    "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+    "resolved_external_checkpoint_id": "chk_01M1M97DN5EWDKSM4T1CMT76J6"
+  },
+  "status": "OFFLINE_MATRIX_FROZEN_PRELIMINARY_GATE_REQUIRED",
+  "strategy_families": [
+    {
+      "diagnostic_signature": "fast displacement and saturation",
+      "grid_mechanism": "immediate feasible P/Q corner",
+      "id": "S1_step_corner",
+      "matched_control": "maximum-power mechanic",
+      "numeric_parameters": "deferred_to_M18_preliminary_registry"
+    },
+    {
+      "diagnostic_signature": "excursion and recovery sequence",
+      "grid_mechanism": "sparse pulse-rest schedule",
+      "id": "S2_pulse_intermittent",
+      "matched_control": "equal-energy contiguous bias",
+      "numeric_parameters": "deferred_to_M18_preliminary_registry"
+    },
+    {
+      "diagnostic_signature": "small innovation with accumulating displacement",
+      "grid_mechanism": "low-slew cumulative bias",
+      "id": "S3_ramp_drift",
+      "matched_control": "equal-energy constant and slope reversal",
+      "numeric_parameters": "deferred_to_M18_preliminary_registry"
+    },
+    {
+      "diagnostic_signature": "spectral peak and path-dependent alarm",
+      "grid_mechanism": "bounded amplitude-period schedule",
+      "id": "S4_periodic_duty_cycle",
+      "matched_control": "phase-shuffled equal-energy schedule",
+      "numeric_parameters": "deferred_to_M18_preliminary_registry"
+    },
+    {
+      "diagnostic_signature": "harm concentrated near exogenous events",
+      "grid_mechanism": "alignment with benign state transitions",
+      "id": "S5_event_synchronized",
+      "matched_control": "same actions at randomized offsets",
+      "numeric_parameters": "deferred_to_M18_preliminary_registry"
+    },
+    {
+      "diagnostic_signature": "incremental harm with low residual innovation",
+      "grid_mechanism": "alignment with benign voltage direction",
+      "id": "S6_riding_the_wave",
+      "matched_control": "trend-opposed and midpoint-response-shuffled",
+      "numeric_parameters": "deferred_to_M18_preliminary_registry"
+    },
+    {
+      "diagnostic_signature": "device-specific saturation and P/Q asymmetry",
+      "grid_mechanism": "coupled P/Q action under inverter kVA limits",
+      "id": "S7_pq_coordinated",
+      "matched_control": "P-only and Q-only ablations",
+      "numeric_parameters": "deferred_to_M18_preliminary_registry"
+    },
+    {
+      "diagnostic_signature": "phase-specific propagation and imbalance",
+      "grid_mechanism": "phase- and location-aware DER subset",
+      "id": "S8_spatial_subset",
+      "matched_control": "uniform and random equal-authority subsets",
+      "numeric_parameters": "deferred_to_M18_preliminary_registry"
+    },
+    {
+      "diagnostic_signature": "late-run harm after headroom depletion",
+      "grid_mechanism": "SOC, irradiance, ramp, or mode-memory preparation",
+      "id": "S9_state_exhaustion",
+      "matched_control": "state-reset and history-shuffled",
+      "numeric_parameters": "deferred_to_M18_preliminary_registry"
+    },
+    {
+      "diagnostic_signature": "harm-alarm Pareto improvement",
+      "grid_mechanism": "joint harm and alarm-risk adaptation",
+      "id": "S10_adaptive_evasion",
+      "matched_control": "defense-unaware and transfer attacks",
+      "numeric_parameters": "deferred_to_M18_preliminary_registry"
+    }
+  ],
+  "title": "CAREER attack-defense trial matrix",
+  "trial_stages": [
+    {
+      "defense_scope": "schema_and_information_boundary_only",
+      "id": "T0_offline_contract_qualification",
+      "knowledge_profiles": [
+        "K0",
+        "K1",
+        "K2",
+        "K3"
+      ],
+      "mode": "synthetic_non_executable",
+      "promotion_rule": "all_contract_and_parity_checks_pass",
+      "rungs": [
+        "IA0",
+        "IA1",
+        "IA2",
+        "IA3",
+        "IA4",
+        "IA5"
+      ]
+    },
+    {
+      "defense_scope": "D0_D3_with_M0_first_then_M1_M2",
+      "id": "T1_preliminary_mechanism_screen",
+      "knowledge_profiles": [
+        "K0",
+        "K1"
+      ],
+      "mode": "requires_M18_PRELIMINARY_ONLY_gate",
+      "promotion_rule": "retain_negative_results_and_advance_only_distinct_mechanisms_or_frontier_points",
+      "rungs": [
+        "IA0",
+        "IA1",
+        "IA2",
+        "IA3",
+        "IA4"
+      ]
+    },
+    {
+      "defense_scope": "D0_D6_DF_crossed_sequentially_with_M0_M4",
+      "id": "T2_preliminary_adaptive_stress",
+      "knowledge_profiles": [
+        "K1",
+        "K2",
+        "K3"
+      ],
+      "mode": "requires_frozen_preliminary_detector_and_M18_amendment",
+      "promotion_rule": "outcome_blind_protocol_checks_then_predeclared_harm_alarm_cost_frontier",
+      "rungs": [
+        "IA2",
+        "IA3",
+        "IA4",
+        "IA5"
+      ]
+    },
+    {
+      "defense_scope": "none",
+      "id": "T3_final_confirmatory",
+      "knowledge_profiles": [],
+      "mode": "SEALED_PENDING_POST_PRELIMINARY_EXTERNAL_CONSULTATION",
+      "promotion_rule": "later_explicit_final_freeze_decision_required",
+      "rungs": []
+    }
+  ]
+}

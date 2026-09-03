@@ -31,6 +31,10 @@ from .career_internal_advisory import (
     load_career_internal_advisory,
     verify_checked_in_internal_advisory,
 )
+from .career_trial_matrix import (
+    build_career_trial_matrix,
+    verify_checked_in_trial_matrix,
+)
 from .detector_freeze import (
     build_benign_calibration_plan,
     build_detector_provenance_audit,
@@ -550,6 +554,35 @@ def cmd_career_advisory_preflight(args: argparse.Namespace) -> int:
     return 0 if not issues else 2
 
 
+def cmd_career_trial_matrix_preflight(args: argparse.Namespace) -> int:
+    """Verify the M17 non-executable trial matrix without writes."""
+
+    issues = verify_checked_in_trial_matrix(args.repo_root)
+    matrix = build_career_trial_matrix().to_dict()
+    _print({
+        "status": matrix["status"] if not issues else "FAILED_CLOSED",
+        "matrix_id": matrix["matrix_id"],
+        "executable": matrix["executable"],
+        "scope_tracks": [item["id"] for item in matrix["scope_tracks"]],
+        "capability_ladder": [
+            item["id"] for item in matrix["capability_ladder"]
+        ],
+        "strategy_families": [
+            item["id"] for item in matrix["strategy_families"]
+        ],
+        "knowledge_profiles": [
+            item["id"] for item in matrix["knowledge_contract"]["profiles"]
+        ],
+        "next_gate": matrix["next_gate"],
+        "final_evaluation_sealed": matrix["governance"]
+        ["final_evaluation_and_confirmatory_campaign_sealed"],
+        "issues": issues,
+        "files_created_or_modified": 0,
+        "RKA_writes": 0,
+    })
+    return 0 if not issues else 2
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -660,6 +693,12 @@ def build_parser() -> argparse.ArgumentParser:
     advisory_preflight = sub.add_parser("career-advisory-preflight")
     advisory_preflight.add_argument("--repo-root", required=True, type=Path)
     advisory_preflight.set_defaults(func=cmd_career_advisory_preflight)
+
+    trial_matrix_preflight = sub.add_parser("career-trial-matrix-preflight")
+    trial_matrix_preflight.add_argument(
+        "--repo-root", required=True, type=Path
+    )
+    trial_matrix_preflight.set_defaults(func=cmd_career_trial_matrix_preflight)
     return parser
 
 

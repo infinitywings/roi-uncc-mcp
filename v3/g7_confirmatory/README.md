@@ -78,7 +78,12 @@ The harness provides:
   actions sealed; and
 - an M16 bounded local-LLM advisory record with exact input and transport
   provenance, two preserved fail-closed parse attempts, one accepted compact
-  response, explicit Brain adjudication, and no external-review authority.
+  response, explicit Brain adjudication, and no external-review authority; and
+- an M17 non-executable attack-defense matrix that separates the minimal
+  CAREER two-interval causal design from the broader IA0-IA5 red-team track,
+  defines subtle long-horizon strategies and matched controls, crosses
+  black/gray/white-box information with detector and defense families, and
+  requires an M18 preliminary-only gate before any runtime action.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -167,6 +172,12 @@ its evidence and schema are `artifacts/career_internal_advisory_m16.json` and
 preserved rather than trusted: every finding has a Brain disposition, one
 threshold-setting recommendation is rejected as a governance conflict, and a
 stale model-access claim is explicitly corrected.
+The M17 matrix is documented in
+`M17_CAREER_ATTACK_DEFENSE_TRIAL_MATRIX_REPORT.md`; its canonical artifact and
+schema are `artifacts/career_trial_matrix_m17.json` and
+`career_trial_matrix.schema.json`. M17 assigns no source, partition, resource,
+threshold, detector parameter, or run. It preserves final evaluation as an
+empty sealed stage and routes all preliminary execution through M18.
 
 The prior five-episode L5b result remains preserved under
 `v3/g7_condition_freeze/20260830_r1/`. Its adaptive prompt disclosed the
@@ -239,6 +250,17 @@ python3 -m g7confirm.cli career-advisory-preflight \
 This command first verifies the M15 boundary, then verifies the thirteen M16
 inputs, accepted model-output digest, Brain adjudication, and sealed-action
 state. It does not call the model or any other service.
+
+The M17 matrix has a separate read-only preflight:
+
+```bash
+python3 -m g7confirm.cli career-trial-matrix-preflight \
+  --repo-root /home/cfu6/roi-uncc-mcp
+```
+
+This command verifies the M16 evidence chain, six exact-byte design inputs,
+the IA0-IA5 and knowledge-profile contracts, and the final-evaluation seal. It
+does not assign or execute a preliminary trial.
 
 The model smoke is intentionally separate because it performs one network
 request:
