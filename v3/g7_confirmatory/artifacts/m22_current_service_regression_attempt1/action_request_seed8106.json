@@ -1,0 +1,18 @@
+{
+  "action_id": "m22_llm_turn_seed8106",
+  "action_type": "local_LLM_inference",
+  "budget_id": "m22_one_discovery_four_completions_two_by_512_tokens",
+  "code_sha256": "3d9561f0d41aca5730c1c1a2d217e6839e619d7fffc70d42bdfaa47798f8f79e",
+  "config_sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d",
+  "create_once": true,
+  "final_evaluation_data_accessed": false,
+  "local_service_identity": "qwen3.6-35b-a3b@http://ccil1s26m8hj6lws:8000/v1",
+  "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+  "output_classification": "PRELIMINARY_ONLY",
+  "paired_benign_id": null,
+  "partition_role": "attack_development",
+  "physical_field_actuator": false,
+  "retain_failures": true,
+  "seed": 8106,
+  "starts_or_restarts_service": false
+}

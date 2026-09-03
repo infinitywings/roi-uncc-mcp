@@ -104,7 +104,13 @@ The harness provides:
   recorder-visible attack power at the third completed GridLAB-D row and the
   first nonzero paired feeder response at runner `t=30`. It fixes the causal
   scoring index for the next bounded same-surface LLM-attacker smoke test but
-  makes no attack-effect, detector, defense, or LLM-advantage claim.
+  makes no attack-effect, detector, defense, or LLM-advantage claim; and
+- an M22 current-service regression over the exact M7 surface in which the
+  existing LLM requests one harness-injected read-only sensitivity fixture per
+  mirrored condition, makes the correct target-dependent candidate switch,
+  and passes the common plan validator. The matched IA3 control also passes,
+  so M22 qualifies protocol and tool-result use but does not establish
+  autonomous strategy learning or LLM advantage.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -141,6 +147,12 @@ The M21 timing qualification is documented in
 `artifacts/m21_three_window_timing_seed5103_attempt1/`. For this composition, a
 window-1 command is first feeder-visible in runner window 3, so window 2 must
 not be scored as a post-actuation result.
+The M22 current-service regression is documented in
+`M22_CURRENT_SERVICE_TOOL_USE_REGRESSION_REPORT.md`; its preregistered contract,
+two action requests, and create-once receipt are under
+`artifacts/m22_current_service_regression_attempt1/`. It uses synthetic fixture
+injection only: no real tool, simulator, detector, defense, embedding service,
+actuator, or final-evaluation record is accessed.
 The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and
