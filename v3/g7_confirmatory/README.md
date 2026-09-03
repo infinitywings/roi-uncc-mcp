@@ -98,7 +98,13 @@ The harness provides:
   one-window attack is admitted and delivered, but the next runner observation
   and completed GridLAB-D recorders do not yet expose a feeder response. M20
   therefore records an observation-latency gap and requires a separately
-  registered three-window timing gate before any LLM-attacker runtime test.
+  registered three-window timing gate before any LLM-attacker runtime test;
+  and
+- an M21 three-window matched timing qualification that locates the first
+  recorder-visible attack power at the third completed GridLAB-D row and the
+  first nonzero paired feeder response at runner `t=30`. It fixes the causal
+  scoring index for the next bounded same-surface LLM-attacker smoke test but
+  makes no attack-effect, detector, defense, or LLM-advantage claim.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -130,6 +136,11 @@ The M20 timing result is documented in
 under `artifacts/m20_two_window_timing_seed5102_attempt1/`. Exact zero paired
 deltas at the second runner observation are treated as a timing gap, not as a
 null physical-effect claim.
+The M21 timing qualification is documented in
+`M21_THREE_WINDOW_CAUSAL_TIMING_REPORT.md`; its create-once evidence is under
+`artifacts/m21_three_window_timing_seed5103_attempt1/`. For this composition, a
+window-1 command is first feeder-visible in runner window 3, so window 2 must
+not be scored as a post-actuation result.
 The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and
@@ -225,6 +236,8 @@ never starts or restarts either model service. It may start an ephemeral local
 GridLAB-D/HELICS/network/detector composition and must record teardown.
 The registered M20 flow is capped at exactly two live windows per run and one
 attack intervention; it cannot expand itself to a third observation window.
+The separately registered M21 flow is capped at exactly three live windows per
+run and one attack intervention; it cannot expand itself to a fourth window.
 Evaluation seeds, physical field-device actuation, and campaign-scale
 confirmatory execution remain prohibited.
 

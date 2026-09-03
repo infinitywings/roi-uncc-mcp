@@ -1,0 +1,18 @@
+{
+  "action_id": "m21_benign_seed5103",
+  "action_type": "simulated_actuator_execution",
+  "budget_id": "m21_seed5103_three_windows_one_attack_2kvah",
+  "code_sha256": "8e5da9768c0788fa7f297d472ebda10a8c20f7db3351fdc4e9ee3c1bd1eed696",
+  "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+  "create_once": true,
+  "final_evaluation_data_accessed": false,
+  "local_service_identity": null,
+  "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+  "output_classification": "PRELIMINARY_ONLY",
+  "paired_benign_id": "m21_benign_seed5103",
+  "partition_role": "runtime_qualification",
+  "physical_field_actuator": false,
+  "retain_failures": true,
+  "seed": 5103,
+  "starts_or_restarts_service": false
+}

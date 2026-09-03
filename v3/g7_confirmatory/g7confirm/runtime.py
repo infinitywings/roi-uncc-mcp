@@ -63,6 +63,16 @@ PRELIMINARY_RUNTIME_PROFILES = {
         "attack_action_id": "m20_attack_seed5102",
         "budget_id": "m20_seed5102_two_windows_one_attack_2kvah",
     },
+    "m21_pair_runtime_qualification_seed5103": {
+        "seed": 5103,
+        "windows": 3,
+        "window_seconds": 10,
+        "attack_window_cap": 1,
+        "attack_energy_cap_kvah": 2.0,
+        "benign_action_id": "m21_benign_seed5103",
+        "attack_action_id": "m21_attack_seed5103",
+        "budget_id": "m21_seed5103_three_windows_one_attack_2kvah",
+    },
 }
 
 
@@ -311,7 +321,9 @@ def _load_preliminary_action_request(
         "local_service_identity": None,
     }
     if request != expected:
-        raise ValueError("M19 action request does not match the executable bytes")
+        raise ValueError(
+            "preliminary action request does not match the executable bytes"
+        )
     if output_dir.exists():
         raise FileExistsError(f"refusing to overwrite runtime output: {output_dir}")
     return request
