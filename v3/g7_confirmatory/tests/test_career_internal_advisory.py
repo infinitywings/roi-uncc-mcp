@@ -28,7 +28,7 @@ REPO_ROOT = PACKAGE_ROOT.parents[1]
 ARTIFACT_PATH = PACKAGE_ROOT / "artifacts/career_internal_advisory_m16.json"
 SCHEMA_PATH = PACKAGE_ROOT / "career_internal_advisory.schema.json"
 EXPECTED_ADVISORY_ID = (
-    "m16advisory_97522999d4087e7533495df9dac996815a4a49cb33874acf93b1508caf651b4a"
+    "m16advisory_b391e3b7601eae38ba1c9b5ecc5edc6115918be0043e9258327ef701b578933c"
 )
 
 

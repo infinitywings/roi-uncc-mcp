@@ -291,7 +291,7 @@ class CareerInternalAdvisory:
             "M16_backbrief_journal_id": M16_BACKBRIEF_JOURNAL_ID,
             "two_tier_decision_id": TWO_TIER_DECISION_ID,
             "deferred_external_checkpoint_id": DEFERRED_EXTERNAL_CHECKPOINT_ID,
-            "base_commit": "d50bc565a539c8f8252df9e2532bf25ac6cb2785",
+            "base_commit": "d50bc561e8c6b27617db2f693c02a58f0d409a4e",
         }:
             raise ContractViolation("M16 advisory source lineage drift")
         if content["transport"] != TRANSPORT_RECORD:

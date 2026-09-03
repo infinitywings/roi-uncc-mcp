@@ -1,5 +1,5 @@
 {
-  "advisory_id": "m16advisory_97522999d4087e7533495df9dac996815a4a49cb33874acf93b1508caf651b4a",
+  "advisory_id": "m16advisory_b391e3b7601eae38ba1c9b5ecc5edc6115918be0043e9258327ef701b578933c",
   "brain_adjudication": {
     "F10": {
       "deferred_action": "Generate or admit real S/M sources only after the external gate.",
@@ -269,7 +269,7 @@
     "M15_gate_id": "m15twotier_af8cf66768ddeb85f535be40d76bf327b826c088a337d42cd7b15df5cb037d65",
     "M16_backbrief_journal_id": "jrn_01M1M9SBTCJPN1J2MZQM38880H",
     "PI_confirmation_journal_id": "jrn_01M1M9594BX7M4JPQK0SMPXAQ8",
-    "base_commit": "d50bc565a539c8f8252df9e2532bf25ac6cb2785",
+    "base_commit": "d50bc561e8c6b27617db2f693c02a58f0d409a4e",
     "deferred_external_checkpoint_id": "chk_01M1M97DN5EWDKSM4T1CMT76J6",
     "two_tier_decision_id": "dec_01M1M95MNV67RVB4BZJDG4CGVX"
   },

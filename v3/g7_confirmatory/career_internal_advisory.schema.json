@@ -59,7 +59,7 @@
           "const": "chk_01M1M97DN5EWDKSM4T1CMT76J6"
         },
         "base_commit": {
-          "const": "d50bc565a539c8f8252df9e2532bf25ac6cb2785"
+          "const": "d50bc561e8c6b27617db2f693c02a58f0d409a4e"
         }
       },
       "additionalProperties": false
