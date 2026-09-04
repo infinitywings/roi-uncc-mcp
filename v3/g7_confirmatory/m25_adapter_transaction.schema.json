@@ -1,0 +1,156 @@
+{
+  "$defs": {
+    "accessSeals": {
+      "additionalProperties": false,
+      "properties": {
+        "defense_accessed": {"const": false},
+        "detector_accessed": {"const": false},
+        "docker_accessed": {"const": false},
+        "embedding_accessed": {"const": false},
+        "evaluation_accessed": {"const": false},
+        "external_tool_execution_used": {"const": false},
+        "model_transport_used": {"const": false},
+        "network_accessed": {"const": false},
+        "outer_rollout_cost": {"const": 0},
+        "physical_actuator_accessed": {"const": false},
+        "real_local_read_only_adapter_executed": {"const": true},
+        "simulation_time_advance_s": {"const": 0.0},
+        "simulator_accessed": {"const": false},
+        "synthetic_fixture_injected": {"const": false}
+      },
+      "required": [
+        "real_local_read_only_adapter_executed",
+        "synthetic_fixture_injected",
+        "external_tool_execution_used",
+        "model_transport_used",
+        "embedding_accessed",
+        "detector_accessed",
+        "defense_accessed",
+        "network_accessed",
+        "docker_accessed",
+        "simulator_accessed",
+        "physical_actuator_accessed",
+        "evaluation_accessed",
+        "simulation_time_advance_s",
+        "outer_rollout_cost"
+      ],
+      "type": "object"
+    },
+    "transaction": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_files_read": {
+          "items": {"minLength": 1, "type": "string"},
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "adapter_invocation_receipt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "consumer_tool_result_event": {"type": "object"},
+        "consumer_tool_result_event_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "decision_core_id": {"const": "m25_offline_argmax_replay"},
+        "rung": {"enum": ["IA3", "IA4"]},
+        "selected_candidate_id": {"minLength": 1, "type": "string"},
+        "selected_target": {"enum": ["DER_A", "DER_B"]},
+        "session_receipt": {"type": "object"},
+        "tool_request": {"type": "object"},
+        "tool_request_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "validation": {"type": "object"}
+      },
+      "required": [
+        "rung",
+        "decision_core_id",
+        "tool_request",
+        "tool_request_sha256",
+        "consumer_tool_result_event",
+        "consumer_tool_result_event_sha256",
+        "adapter_invocation_receipt_sha256",
+        "actual_files_read",
+        "selected_target",
+        "selected_candidate_id",
+        "validation",
+        "session_receipt"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://grideval.local/schema/m25-adapter-transaction-qualification-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "access_seals": {"$ref": "#/$defs/accessSeals"},
+    "campaign_authorized": {"const": false},
+    "classification": {"const": "PRELIMINARY_ONLY"},
+    "confirmatory_claim_authorized": {"const": false},
+    "contract_id": {"pattern": "^m25contract_[0-9a-f]{64}$", "type": "string"},
+    "contract_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "decision_id": {"const": "dec_01M1MVXEYYVZ9CVQ19XFH7S92P"},
+    "development_only": {"const": true},
+    "evaluation_opened": {"const": false},
+    "limitations": {
+      "items": {"minLength": 1, "type": "string"},
+      "minItems": 1,
+      "type": "array"
+    },
+    "milestone": {"const": "M25"},
+    "mission_id": {"const": "mis_01M1MVY5SHFG6Z1JJBWRPE66DM"},
+    "parity": {
+      "additionalProperties": {"const": true},
+      "minProperties": 9,
+      "type": "object"
+    },
+    "project_id": {"const": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6"},
+    "provenance_separation": {
+      "additionalProperties": {"const": true},
+      "minProperties": 4,
+      "type": "object"
+    },
+    "qualification_id": {"pattern": "^m25qual_[0-9a-f]{64}$", "type": "string"},
+    "schema_version": {"const": "grideval-g7-m25-adapter-transaction-qualification/v1"},
+    "source_admitted": {"const": false},
+    "status": {"const": "passed"},
+    "transactions": {
+      "additionalProperties": false,
+      "properties": {
+        "IA3": {"$ref": "#/$defs/transaction"},
+        "IA4": {"$ref": "#/$defs/transaction"}
+      },
+      "required": ["IA3", "IA4"],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "mission_id",
+    "decision_id",
+    "milestone",
+    "classification",
+    "status",
+    "development_only",
+    "campaign_authorized",
+    "confirmatory_claim_authorized",
+    "evaluation_opened",
+    "source_admitted",
+    "contract_id",
+    "contract_sha256",
+    "transactions",
+    "parity",
+    "provenance_separation",
+    "access_seals",
+    "limitations",
+    "qualification_id"
+  ],
+  "title": "GridEval M25 adapter transaction qualification",
+  "type": "object"
+}

@@ -1,0 +1,113 @@
+{
+  "access_boundary": {
+    "defense_access_authorized": false,
+    "detector_access_authorized": false,
+    "docker_access_authorized": false,
+    "embedding_access_authorized": false,
+    "evaluation_access_authorized": false,
+    "external_tool_execution_authorized": false,
+    "model_transport_authorized": false,
+    "network_access_authorized": false,
+    "physical_actuator_authorized": false,
+    "real_local_read_only_adapter_authorized": true,
+    "simulator_access_authorized": false,
+    "synthetic_fixture_injection_authorized": false
+  },
+  "bindings": {
+    "M24_contract": {
+      "contract_id": "m24contract_c92535c44ed39b2d8f42555fee19977aebcc764fd17841c7e8a0736d7b560575",
+      "path": "v3/g7_confirmatory/artifacts/m24_read_only_adapter_attempt1/contract.json",
+      "sha256": "95965833d0d49cb021fe4af89e2cd830d4cd904a2de6f7d12aad2ecd33721ee3"
+    },
+    "M24_independent_audit": {
+      "audit_id": "m24audit_f4869f93d8bc5f8d9dcac137a4ea9893fef30722445905ce9e10233b59526e7a",
+      "path": "v3/g7_confirmatory/artifacts/m24_read_only_adapter_attempt1/independent_audit_receipt.json",
+      "sha256": "7149de87a983e96850676b335e89a58e3c9e1f0b0b804b07b8d74cf9df49a787"
+    },
+    "M24_qualification": {
+      "path": "v3/g7_confirmatory/artifacts/m24_read_only_adapter_attempt1/qualification_receipt.json",
+      "qualification_id": "m24qual_e2dada84a81f064527590dcef69ac29bed40767a32f8a295048251257879de41",
+      "sha256": "6201770ced6029cf1c54a1d61b9d7a73d3c05c19d8edb83e9339df4d62fa65b8"
+    },
+    "M25_transaction_code": {
+      "path": "v3/g7_confirmatory/g7confirm/m25_adapter_transaction.py",
+      "sha256": "f75b411311adbe2e1c14d5e353d61b59edebf9681c029b2b69a59612ca5c0a0a"
+    },
+    "M5_contract": {
+      "path": "v3/g7_confirmatory/artifacts/ia4_interactive_contract_m5.json",
+      "sha256": "0092296aac177db2aa932cb48f0d8c256d45a769af471e14a3524fceecc8090a"
+    },
+    "M5_transaction_core": {
+      "path": "v3/g7_confirmatory/g7confirm/ia4_tool_loop.py",
+      "protocol_id": "m5proto_d3de5a4295d510abbe1b4b20dd52dc2fd23de72f67a0da8e9d6b118085a39d49",
+      "sha256": "1292c635a97550cd0246bcce9955ab5e2538e9657a1c823b86cbca643f1df6f6"
+    },
+    "M7_contract": {
+      "contract_id": "m7contract_fc1b2a552f322effb0ff27a451154699528c7f26da875e204178820d19fc45b3",
+      "path": "v3/g7_confirmatory/artifacts/ia4_counterfactual_contract_m7.json",
+      "protocol_id": "m5proto_7b094847ba6550c0216b4471cde8a3aff783002177ba41a557882f3e90e1f2ff",
+      "search_surface_id": "surface_585d7e0e77d464207579863cfdffbd420e439894eabdc2b5c6cd1b747c64ff78",
+      "sha256": "4cef8444c56c40ff493ed3add9847d43d9d12c72f9f1714597e7566109d26de2"
+    },
+    "qualification_schema": {
+      "path": "v3/g7_confirmatory/m25_adapter_transaction.schema.json",
+      "sha256": "62e10524b9cd3247cd4b31a747859b85c917f04c7c7e182b2bdc93541960878d"
+    }
+  },
+  "campaign_authorized": false,
+  "classification": "PRELIMINARY_ONLY",
+  "confirmatory_claim_authorized": false,
+  "contract_id": "m25contract_00400d7db95cdb2a0e30e8e66100dccc00742f6b9d4d8ddfa71334bc65615d27",
+  "decision_id": "dec_01M1MVXEYYVZ9CVQ19XFH7S92P",
+  "development_only": true,
+  "evaluation_opened": false,
+  "legacy_compatibility_anchors": {
+    "fixture_episode_receipt_sha256": "5a7af50c3b56e45238b8f96f93cbefd72813a8dc9b81faa7e1a28465ae314ff9",
+    "fixture_result_sha256": "0a0d364173120eb25f3b7892a989e76ba897270a728e68e72ceacca0ca6629e2"
+  },
+  "milestone": "M25",
+  "mission_id": "mis_01M1MVY5SHFG6Z1JJBWRPE66DM",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "schema_version": "grideval-g7-m25-adapter-transaction-contract/v1",
+  "scientific_boundary": {
+    "does_not_establish": [
+      "M23_source_admission",
+      "current_LLM_behavior_or_advantage",
+      "attacker_effectiveness_or_physical_harm",
+      "detector_or_defense_effectiveness",
+      "runtime_or_campaign_safety",
+      "confirmatory_or_publication_grade_evidence"
+    ],
+    "establishes": [
+      "real_M24_adapter_result_accepted_by_common_M5_transaction",
+      "legacy_fixture_byte_compatibility",
+      "model_facing_provenance_separation",
+      "offline_IA3_IA4_consumer_byte_parity",
+      "real_fixture_external_execution_distinction"
+    ]
+  },
+  "source_admitted": false,
+  "status": "REGISTERED_OFFLINE_NO_M25_TRANSACTION",
+  "transaction_contract": {
+    "call_id": "call_m25_real_adapter_0001",
+    "consumer_provenance_separation_required": true,
+    "decision_core_mode": "offline_deterministic_argmax_replay",
+    "exact_arguments": {
+      "metric": "voltage_stress_gain_pu_per_kw",
+      "target_ids": [
+        "DER_A",
+        "DER_B"
+      ]
+    },
+    "model_transport_calls": 0,
+    "outer_rollouts": 0,
+    "participant_rungs": [
+      "IA3",
+      "IA4"
+    ],
+    "real_adapter_calls_per_rung": 1,
+    "simulation_time_advance_s": 0.0,
+    "tool_calls_per_rung": 1,
+    "tool_name": "observe_sensitivity"
+  }
+}

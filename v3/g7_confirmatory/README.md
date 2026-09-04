@@ -179,6 +179,13 @@ matched IA3/IA4 invocation receipt, and independent audit are under
 `artifacts/m24_read_only_adapter_attempt1/`. Its consumer payload is
 field-minimized, while complete M23 provenance remains separately
 content-addressed and unadmitted.
+The M25 transaction qualification is documented in
+`M25_ADAPTER_TRANSACTION_QUALIFICATION_REPORT.md`; its create-once contract,
+matched offline IA3/IA4 episode receipts, and independent audit are under
+`artifacts/m25_adapter_transaction_attempt1/`. M25 passes a real M24 adapter
+result through the common M5 atomic tool-result transition while excluding
+adapter provenance from the actor-facing transcript. Historical synthetic
+fixture serialization and the M5/M7 protocol identities remain unchanged.
 The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and
@@ -281,7 +288,11 @@ signed, single-target simulator probes, each with exactly three windows and at
 most one delivered intervention; its source remains unadmitted. M24 invokes
 only a local read-only adapter over the exact M23 source and audit files. It
 performs no model, embedding, detector, defense, network, Docker, simulator,
-evaluation, or actuator access and advances zero simulation time.
+evaluation, or actuator access and advances zero simulation time. M25 uses the
+same local adapter once per matched rung through an offline deterministic
+transaction replay. It distinguishes real local adapter execution from both
+synthetic fixture injection and external tool execution; it does not contact a
+live model or any external service.
 Evaluation seeds, physical field-device actuation, and campaign-scale
 confirmatory execution remain prohibited.
 
@@ -301,6 +312,11 @@ python3 -m g7confirm.m24_read_only_adapter --mode verify \
   --root artifacts/m24_read_only_adapter_attempt1
 python3 -m g7confirm.m24_independent_audit --mode verify \
   --root artifacts/m24_read_only_adapter_attempt1
+python3 -m unittest tests.test_m25_adapter_transaction -v
+python3 -m g7confirm.m25_adapter_transaction --mode verify \
+  --root artifacts/m25_adapter_transaction_attempt1
+python3 -m g7confirm.m25_independent_audit --mode verify \
+  --root artifacts/m25_adapter_transaction_attempt1
 python3 -m g7confirm.cli validate-spec --spec experiment_spec.yaml
 python3 -m g7confirm.runtime --operating-point responsive_night \
   --arm scripted_max --budget-windows 1 --energy-cap-kvah 2.0 \

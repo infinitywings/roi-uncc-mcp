@@ -1,0 +1,30 @@
+{
+  "M25_code_sha256": "f75b411311adbe2e1c14d5e353d61b59edebf9681c029b2b69a59612ca5c0a0a",
+  "M5_core_sha256": "1292c635a97550cd0246bcce9955ab5e2538e9657a1c823b86cbca643f1df6f6",
+  "audit_id": "m25audit_d6f3b79e83de9834d2d8b4e123b4ebe18f5d1b1e80e9b31cc410a1cb70578398",
+  "auditor_sha256": "1326ebffb112e78f4a4c1003c9c8181c85b599e24906c6de327eee5201423f12",
+  "checks": [
+    "independent_content_address_and_governance",
+    "exact_file_binding_hashes",
+    "legacy_fixture_byte_anchors",
+    "direct_M23_to_consumer_payload_derivation",
+    "M24_invocation_self_address_and_bindings",
+    "real_result_self_address_and_transaction_lineage",
+    "model_facing_provenance_separation",
+    "IA3_IA4_consumer_byte_parity",
+    "real_fixture_external_execution_distinction",
+    "offline_code_and_access_boundary"
+  ],
+  "claim_boundary": "An empty issue list establishes offline M24-to-M5 transaction integration, provenance separation, and matched consumer parity only. It does not admit the M23 source or establish live-LLM, physical-impact, defense, runtime, or confirmatory performance.",
+  "contract_id": "m25contract_00400d7db95cdb2a0e30e8e66100dccc00742f6b9d4d8ddfa71334bc65615d27",
+  "contract_sha256": "43fe76b9396fb5511902632085b6645e2d0af522026959449ddcc2960958785b",
+  "decision_id": "dec_01M1MVXEYYVZ9CVQ19XFH7S92P",
+  "issues": [],
+  "mission_id": "mis_01M1MVY5SHFG6Z1JJBWRPE66DM",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "qualification_id": "m25qual_1d3ffc1e3d2adc6fd442286a9c9f48326cf49bea8f3dc67232ae34f628be1b6c",
+  "qualification_sha256": "e0fa95cfeaaae1dbe576844f6a7dd7f44af0d5f3251cbc14adf2d6ecba2c837e",
+  "schema_sha256": "62e10524b9cd3247cd4b31a747859b85c917f04c7c7e182b2bdc93541960878d",
+  "schema_version": "grideval-g7-m25-independent-audit/v1",
+  "status": "passed"
+}

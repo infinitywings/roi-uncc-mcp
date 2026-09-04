@@ -39,6 +39,9 @@ M5_PROTOCOL_SCHEMA_VERSION = "grideval-g7-ia4-interactive-protocol/v1"
 M5_MODEL_REQUEST_SCHEMA_VERSION = "grideval-g7-ia4-interactive-request/v1"
 M5_TOOL_REQUEST_SCHEMA_VERSION = "grideval-g7-ia4-tool-request/v1"
 M5_TOOL_RESULT_SCHEMA_VERSION = "grideval-g7-ia4-tool-result/v1"
+M5_REAL_ADAPTER_TOOL_RESULT_SCHEMA_VERSION = (
+    "grideval-g7-m5-real-adapter-tool-result/v1"
+)
 M5_EPISODE_RECEIPT_SCHEMA_VERSION = "grideval-g7-ia4-interactive-receipt/v1"
 M5_CONTRACT_ARTIFACT_SCHEMA_VERSION = "grideval-g7-m5-contract-artifact/v1"
 
@@ -444,6 +447,236 @@ class FixtureToolResult:
         return payload
 
 
+def _validate_real_adapter_invocation(
+        receipt: Mapping[str, Any], *, definition: M5ToolDefinition,
+        request: ParsedToolRequest, output: Mapping[str, Any],
+        caller_rung: OrchestrationRung) -> dict[str, Any]:
+    """Validate generic M24 invocation provenance without importing M24."""
+
+    if not isinstance(receipt, Mapping):
+        raise ContractViolation("real adapter invocation receipt must be an object")
+    checked = _canonical_copy(receipt)
+    _require_exact_keys(
+        checked,
+        {
+            "schema_version", "contract_id", "caller_rung", "tool_name",
+            "request_schema_version", "output_schema_version",
+            "request_canonical_json", "request_sha256",
+            "payload_canonical_json", "payload_sha256", "payload_fields",
+            "target_alias_map", "source_binding", "audit_binding",
+            "files_read", "side_effects", "access_boundary", "invocation_id",
+        },
+        "real adapter invocation receipt",
+    )
+    if checked["schema_version"] != (
+            "grideval-g7-m24-read-only-adapter-invocation/v1"):
+        raise ContractViolation("real adapter invocation schema mismatch")
+    if (not isinstance(checked["contract_id"], str) or
+            not checked["contract_id"].startswith("m24contract_")):
+        raise ContractViolation("real adapter contract identity is invalid")
+    if checked["caller_rung"] != caller_rung.value:
+        raise ContractViolation("real adapter caller rung mismatch")
+    if checked["tool_name"] != request.tool_name:
+        raise ContractViolation("real adapter tool name mismatch")
+    if checked["request_schema_version"] != definition.input_schema_version:
+        raise ContractViolation("real adapter request schema mismatch")
+    if checked["output_schema_version"] != definition.output_schema_version:
+        raise ContractViolation("real adapter output schema mismatch")
+
+    request_json = _canonical_json(request.arguments)
+    payload_json = _canonical_json(output)
+    if checked["request_canonical_json"] != request_json:
+        raise ContractViolation("real adapter request canonical bytes mismatch")
+    if checked["request_sha256"] != hashlib.sha256(
+            request_json.encode("utf-8")).hexdigest():
+        raise ContractViolation("real adapter request hash mismatch")
+    if checked["payload_canonical_json"] != payload_json:
+        raise ContractViolation("real adapter payload canonical bytes mismatch")
+    if checked["payload_sha256"] != hashlib.sha256(
+            payload_json.encode("utf-8")).hexdigest():
+        raise ContractViolation("real adapter payload hash mismatch")
+    payload_fields = checked["payload_fields"]
+    if (not isinstance(payload_fields, list) or
+            len(payload_fields) != len(set(payload_fields)) or
+            set(payload_fields) != set(output)):
+        raise ContractViolation("real adapter payload field binding mismatch")
+
+    aliases = checked["target_alias_map"]
+    values = output.get("values")
+    if (not isinstance(aliases, Mapping) or not isinstance(values, Mapping) or
+            set(aliases) != set(values) or
+            not all(isinstance(value, str) and value for value in aliases.values())):
+        raise ContractViolation("real adapter target alias binding mismatch")
+
+    source = checked["source_binding"]
+    if not isinstance(source, Mapping):
+        raise ContractViolation("real adapter source binding is invalid")
+    _require_exact_keys(
+        source,
+        {
+            "source_id", "source_sha256", "contract_id", "classification",
+            "admitted", "full_internal_response_vectors_preserved_by_exact_byte_reference",
+        },
+        "real adapter source binding",
+    )
+    if (not isinstance(source["source_id"], str) or
+            not source["source_id"].startswith("m23source_") or
+            not isinstance(source["contract_id"], str) or
+            not source["contract_id"].startswith("m23contract_") or
+            source["classification"] != "PRELIMINARY_ONLY" or
+            source["admitted"] is not False or
+            source[
+                "full_internal_response_vectors_preserved_by_exact_byte_reference"
+            ] is not True or
+            not isinstance(source["source_sha256"], str) or
+            not re.fullmatch(r"[0-9a-f]{64}", source["source_sha256"])):
+        raise ContractViolation("real adapter source binding drift")
+
+    audit = checked["audit_binding"]
+    if not isinstance(audit, Mapping):
+        raise ContractViolation("real adapter audit binding is invalid")
+    _require_exact_keys(
+        audit,
+        {"audit_id", "audit_sha256", "status", "issues"},
+        "real adapter audit binding",
+    )
+    if (not isinstance(audit["audit_id"], str) or
+            not audit["audit_id"].startswith("m23audit_") or
+            not isinstance(audit["audit_sha256"], str) or
+            not re.fullmatch(r"[0-9a-f]{64}", audit["audit_sha256"]) or
+            audit["status"] != "passed" or audit["issues"] != []):
+        raise ContractViolation("real adapter audit binding drift")
+
+    files_read = checked["files_read"]
+    if (not isinstance(files_read, list) or len(files_read) != 2 or
+            len(set(files_read)) != 2 or
+            not all(isinstance(path, str) and path for path in files_read)):
+        raise ContractViolation("real adapter file-read provenance mismatch")
+    expected_side_effects = {
+        "class": "read_only_no_time_advance",
+        "simulation_time_advance_s": 0.0,
+        "outer_rollout_cost": 0,
+        "file_writes": 0,
+    }
+    if checked["side_effects"] != expected_side_effects:
+        raise ContractViolation("real adapter side-effect provenance drift")
+    expected_access = {
+        "real_local_read_only_adapter_executed": True,
+        "external_tool_execution_used": False,
+        "model_accessed": False,
+        "embedding_accessed": False,
+        "detector_accessed": False,
+        "defense_accessed": False,
+        "network_accessed": False,
+        "docker_accessed": False,
+        "simulator_accessed": False,
+        "physical_actuator_accessed": False,
+        "evaluation_accessed": False,
+    }
+    if checked["access_boundary"] != expected_access:
+        raise ContractViolation("real adapter access boundary drift")
+
+    address_content = _canonical_copy(checked)
+    invocation_id = address_content.pop("invocation_id")
+    if invocation_id != "m24invoke_" + _sha256(address_content):
+        raise ContractViolation("real adapter invocation self-address mismatch")
+    return checked
+
+
+@dataclass(frozen=True)
+class RealAdapterToolResult:
+    """A real read-only adapter result with non-consumer provenance."""
+
+    protocol_id: str
+    call_id: str
+    tool_name: str
+    output_schema_version: str
+    output: Mapping[str, Any]
+    returned_information_level: InformationLevel
+    simulation_time_advance_s: float
+    outer_rollout_cost: int
+    wall_clock_ms: float
+    adapter_invocation_receipt: Mapping[str, Any]
+
+    @classmethod
+    def build(cls, *, protocol: M5InteractiveProtocol,
+              request: ParsedToolRequest, output: Mapping[str, Any],
+              adapter_invocation_receipt: Mapping[str, Any],
+              caller_rung: OrchestrationRung,
+              wall_clock_ms: float = 0.0) -> "RealAdapterToolResult":
+        definition = protocol.tool(request.tool_name)
+        canonical_output = _canonical_copy(output)
+        validate_strict_json_schema(canonical_output, definition.output_schema)
+        checked_receipt = _validate_real_adapter_invocation(
+            adapter_invocation_receipt,
+            definition=definition,
+            request=request,
+            output=canonical_output,
+            caller_rung=caller_rung,
+        )
+        return cls(
+            protocol_id=protocol.protocol_id,
+            call_id=request.call_id,
+            tool_name=request.tool_name,
+            output_schema_version=definition.output_schema_version,
+            output=canonical_output,
+            returned_information_level=definition.returned_information_level,
+            simulation_time_advance_s=definition.simulation_time_advance_s,
+            outer_rollout_cost=definition.outer_rollout_cost,
+            wall_clock_ms=float(wall_clock_ms),
+            adapter_invocation_receipt=checked_receipt,
+        )
+
+    def __post_init__(self) -> None:
+        if not self.protocol_id or not self.call_id or not self.tool_name:
+            raise ContractViolation("real tool result identity fields are required")
+        if not self.output_schema_version:
+            raise ContractViolation("real tool result schema is required")
+        if not math.isfinite(float(self.wall_clock_ms)) or self.wall_clock_ms < 0:
+            raise ContractViolation("real tool result wall_clock_ms is invalid")
+        if not isinstance(self.adapter_invocation_receipt, Mapping):
+            raise ContractViolation("real tool result provenance is invalid")
+
+    def consumer_dict(self) -> dict[str, Any]:
+        """Return only the envelope and payload visible to the next actor turn."""
+
+        return {
+            "schema_version": M5_TOOL_RESULT_SCHEMA_VERSION,
+            "protocol_id": self.protocol_id,
+            "call_id": self.call_id,
+            "tool_name": self.tool_name,
+            "output_schema_version": self.output_schema_version,
+            "output": _canonical_copy(self.output),
+            "returned_information_level": (
+                self.returned_information_level.name.lower()
+            ),
+            "simulation_time_advance_s": float(self.simulation_time_advance_s),
+            "outer_rollout_cost": int(self.outer_rollout_cost),
+            "wall_clock_ms": float(self.wall_clock_ms),
+        }
+
+    @property
+    def fingerprint(self) -> str:
+        return _sha256(self.to_dict(include_fingerprint=False))
+
+    def to_dict(self, *, include_fingerprint: bool = True) -> dict[str, Any]:
+        payload = {
+            "schema_version": M5_REAL_ADAPTER_TOOL_RESULT_SCHEMA_VERSION,
+            "result_kind": "real_local_read_only_adapter",
+            **{
+                key: value
+                for key, value in self.consumer_dict().items()
+                if key != "schema_version"
+            },
+            "adapter_invocation_receipt": _canonical_copy(
+                self.adapter_invocation_receipt
+            ),
+        }
+        if include_fingerprint:
+            payload["fingerprint"] = self.fingerprint
+        return payload
+
+
 def _validate_usage(usage: Mapping[str, Any], *, completion_cap: int) -> dict[str, int]:
     _require_exact_keys(
         usage,
@@ -485,7 +718,9 @@ class IAInteractiveSession:
         self.total_model_tokens = 0
         self._outstanding: ParsedToolRequest | None = None
         self._tool_calls: list[ToolCallRecord] = []
-        self._tool_results: list[FixtureToolResult] = []
+        self._tool_results: list[
+            FixtureToolResult | RealAdapterToolResult
+        ] = []
         self._model_turns: list[dict[str, Any]] = []
         self._transcript: list[dict[str, Any]] = []
         self.terminal_decision: ControllerDecision | None = None
@@ -777,13 +1012,14 @@ class IAInteractiveSession:
                 self._fail_closed(str(exc))
             raise
 
-    def submit_tool_result(self, result: FixtureToolResult) -> None:
+    def submit_tool_result(
+            self, result: FixtureToolResult | RealAdapterToolResult) -> None:
         self._assert_state(InteractiveState.AWAITING_TOOL_RESULT)
         try:
             request = self._outstanding
             if request is None:
                 raise ContractViolation("tool result has no outstanding request")
-            if not isinstance(result, FixtureToolResult):
+            if not isinstance(result, (FixtureToolResult, RealAdapterToolResult)):
                 raise ContractViolation("tool result has the wrong type")
             definition = self.protocol.tool(request.tool_name)
             if result.protocol_id != self.protocol.protocol_id:
@@ -802,14 +1038,32 @@ class IAInteractiveSession:
             if result.outer_rollout_cost != 0:
                 raise ContractViolation("M5 fixture consumed an outer rollout")
             validate_strict_json_schema(result.output, definition.output_schema)
-            rebuilt = FixtureToolResult.build(
-                protocol=self.protocol,
-                request=request,
-                output=result.output,
-                wall_clock_ms=result.wall_clock_ms,
-            )
-            if result.source_fixture_id != rebuilt.source_fixture_id:
-                raise ContractViolation("tool result fixture lineage mismatch")
+            if isinstance(result, FixtureToolResult):
+                rebuilt_fixture = FixtureToolResult.build(
+                    protocol=self.protocol,
+                    request=request,
+                    output=result.output,
+                    wall_clock_ms=result.wall_clock_ms,
+                )
+                if result.source_fixture_id != rebuilt_fixture.source_fixture_id:
+                    raise ContractViolation("tool result fixture lineage mismatch")
+                transcript_result = result.to_dict()
+                accepted_result = result
+            else:
+                rebuilt_real = RealAdapterToolResult.build(
+                    protocol=self.protocol,
+                    request=request,
+                    output=result.output,
+                    adapter_invocation_receipt=(
+                        result.adapter_invocation_receipt
+                    ),
+                    caller_rung=self.profile.rung,
+                    wall_clock_ms=result.wall_clock_ms,
+                )
+                if result.to_dict() != rebuilt_real.to_dict():
+                    raise ContractViolation("real adapter result lineage mismatch")
+                transcript_result = result.consumer_dict()
+                accepted_result = rebuilt_real
             call = ToolCallRecord(
                 call_id=request.call_id,
                 caller_rung=self.profile.rung,
@@ -829,8 +1083,8 @@ class IAInteractiveSession:
                 self.profile, candidate_calls
             )
             self._tool_calls.append(call)
-            self._tool_results.append(result)
-            self._transcript.append({"event": "tool_result", **result.to_dict()})
+            self._tool_results.append(accepted_result)
+            self._transcript.append({"event": "tool_result", **transcript_result})
             self._outstanding = None
             self.turn_index += 1
             self.state = InteractiveState.AWAITING_MODEL
@@ -848,7 +1102,11 @@ class IAInteractiveSession:
         if not isinstance(model_transport_used, bool):
             raise ContractViolation("model_transport_used must be boolean")
         decision = self.terminal_decision
-        return {
+        real_adapter_used = any(
+            isinstance(item, RealAdapterToolResult)
+            for item in self._tool_results
+        )
+        payload = {
             "schema_version": M5_EPISODE_RECEIPT_SCHEMA_VERSION,
             "protocol_id": self.protocol.protocol_id,
             "base_search_surface_id": (
@@ -860,7 +1118,7 @@ class IAInteractiveSession:
             "campaign_authorized": False,
             "evaluation_sealed": True,
             "model_transport_used": model_transport_used,
-            "tool_execution_used": False,
+            "tool_execution_used": real_adapter_used,
             "simulator_accessed": False,
             "detector_accessed": False,
             "embedding_accessed": False,
@@ -885,6 +1143,13 @@ class IAInteractiveSession:
                 "plan": decision.plan.to_dict() if decision.plan else None,
             },
         }
+        if real_adapter_used:
+            payload.update({
+                "real_local_read_only_adapter_executed": True,
+                "synthetic_fixture_injected": False,
+                "external_tool_execution_used": False,
+            })
+        return payload
 
 
 class MatchedIA3ObserveThenSelect:
