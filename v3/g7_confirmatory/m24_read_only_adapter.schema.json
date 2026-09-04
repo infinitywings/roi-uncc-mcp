@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/g7-m24-read-only-adapter-qualification-v1.json",
+  "title": "GridEval G7 M24 read-only adapter qualification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "mission_id",
+    "decision_id",
+    "milestone",
+    "classification",
+    "status",
+    "development_only",
+    "campaign_authorized",
+    "confirmatory_claim_authorized",
+    "evaluation_opened",
+    "source_admitted",
+    "contract_id",
+    "contract_sha256",
+    "invocations",
+    "parity",
+    "field_minimization",
+    "access_seals",
+    "limitations",
+    "qualification_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-m24-read-only-adapter-qualification/v1"
+    },
+    "project_id": {"const": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6"},
+    "mission_id": {"const": "mis_01M1MTKN0P1H5V3T76MJ6HYC7E"},
+    "decision_id": {"const": "dec_01M1MTJT5WZGVBWFQ5E74FKK98"},
+    "milestone": {"const": "M24"},
+    "classification": {"const": "PRELIMINARY_ONLY"},
+    "status": {"const": "passed"},
+    "development_only": {"const": true},
+    "campaign_authorized": {"const": false},
+    "confirmatory_claim_authorized": {"const": false},
+    "evaluation_opened": {"const": false},
+    "source_admitted": {"const": false},
+    "contract_id": {
+      "type": "string",
+      "pattern": "^m24contract_[0-9a-f]{64}$"
+    },
+    "contract_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "invocations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["IA3", "IA4"],
+      "properties": {
+        "IA3": {"$ref": "#/$defs/invocation"},
+        "IA4": {"$ref": "#/$defs/invocation"}
+      }
+    },
+    "parity": {"$ref": "#/$defs/booleanChecks"},
+    "field_minimization": {"$ref": "#/$defs/booleanChecks"},
+    "access_seals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "real_local_read_only_adapter_executed",
+        "model_accessed",
+        "embedding_accessed",
+        "detector_accessed",
+        "defense_accessed",
+        "network_accessed",
+        "docker_accessed",
+        "simulator_accessed",
+        "physical_actuator_accessed",
+        "evaluation_accessed",
+        "simulation_time_advance_s",
+        "outer_rollout_cost"
+      ],
+      "properties": {
+        "real_local_read_only_adapter_executed": {"const": true},
+        "model_accessed": {"const": false},
+        "embedding_accessed": {"const": false},
+        "detector_accessed": {"const": false},
+        "defense_accessed": {"const": false},
+        "network_accessed": {"const": false},
+        "docker_accessed": {"const": false},
+        "simulator_accessed": {"const": false},
+        "physical_actuator_accessed": {"const": false},
+        "evaluation_accessed": {"const": false},
+        "simulation_time_advance_s": {"const": 0.0},
+        "outer_rollout_cost": {"const": 0}
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "qualification_id": {
+      "type": "string",
+      "pattern": "^m24qual_[0-9a-f]{64}$"
+    }
+  },
+  "$defs": {
+    "booleanChecks": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"const": true}
+    },
+    "invocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["payload", "receipt"],
+      "properties": {
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema_version", "window", "time_s", "metric", "values"],
+          "properties": {
+            "schema_version": {"const": "sensitivity-result/v1"},
+            "window": {"const": 2},
+            "time_s": {"const": 30},
+            "metric": {"const": "voltage_stress_gain_pu_per_kw"},
+            "values": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["DER_A", "DER_B"],
+              "properties": {
+                "DER_A": {"type": "number", "minimum": 0.0, "maximum": 0.1},
+                "DER_B": {"type": "number", "minimum": 0.0, "maximum": 0.1}
+              }
+            }
+          }
+        },
+        "receipt": {
+          "type": "object",
+          "required": [
+            "schema_version",
+            "contract_id",
+            "caller_rung",
+            "tool_name",
+            "request_sha256",
+            "payload_sha256",
+            "source_binding",
+            "audit_binding",
+            "files_read",
+            "side_effects",
+            "access_boundary",
+            "invocation_id"
+          ]
+        }
+      }
+    }
+  }
+}

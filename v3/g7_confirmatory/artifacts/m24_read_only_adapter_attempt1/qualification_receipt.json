@@ -1,0 +1,200 @@
+{
+  "access_seals": {
+    "defense_accessed": false,
+    "detector_accessed": false,
+    "docker_accessed": false,
+    "embedding_accessed": false,
+    "evaluation_accessed": false,
+    "model_accessed": false,
+    "network_accessed": false,
+    "outer_rollout_cost": 0,
+    "physical_actuator_accessed": false,
+    "real_local_read_only_adapter_executed": true,
+    "simulation_time_advance_s": 0.0,
+    "simulator_accessed": false
+  },
+  "campaign_authorized": false,
+  "classification": "PRELIMINARY_ONLY",
+  "confirmatory_claim_authorized": false,
+  "contract_id": "m24contract_c92535c44ed39b2d8f42555fee19977aebcc764fd17841c7e8a0736d7b560575",
+  "contract_sha256": "95965833d0d49cb021fe4af89e2cd830d4cd904a2de6f7d12aad2ecd33721ee3",
+  "decision_id": "dec_01M1MTJT5WZGVBWFQ5E74FKK98",
+  "development_only": true,
+  "evaluation_opened": false,
+  "field_minimization": {
+    "exact_top_level_fields": true,
+    "exact_value_fields": true,
+    "forbidden_fields_absent": true,
+    "provenance_separate_from_consumer_payload": true
+  },
+  "invocations": {
+    "IA3": {
+      "payload": {
+        "metric": "voltage_stress_gain_pu_per_kw",
+        "schema_version": "sensitivity-result/v1",
+        "time_s": 30,
+        "values": {
+          "DER_A": 3.1383136929719056e-05,
+          "DER_B": 0.00011145940302068984
+        },
+        "window": 2
+      },
+      "receipt": {
+        "access_boundary": {
+          "defense_accessed": false,
+          "detector_accessed": false,
+          "docker_accessed": false,
+          "embedding_accessed": false,
+          "evaluation_accessed": false,
+          "external_tool_execution_used": false,
+          "model_accessed": false,
+          "network_accessed": false,
+          "physical_actuator_accessed": false,
+          "real_local_read_only_adapter_executed": true,
+          "simulator_accessed": false
+        },
+        "audit_binding": {
+          "audit_id": "m23audit_f424d5ca61a12125f837a4513f6b47424b62729096c9d61a0fa50e50379a532c",
+          "audit_sha256": "d0c3a539c20cc4dc3adb2910cd7bbba9c90a071a839ebc0fcde9d9e67f524030",
+          "issues": [],
+          "status": "passed"
+        },
+        "caller_rung": "IA3",
+        "contract_id": "m24contract_c92535c44ed39b2d8f42555fee19977aebcc764fd17841c7e8a0736d7b560575",
+        "files_read": [
+          "v3/g7_confirmatory/artifacts/m23_system_identification_seed6101_attempt1/m23_system_identification.json",
+          "v3/g7_confirmatory/artifacts/m23_system_identification_seed6101_attempt1/independent_audit_receipt.json"
+        ],
+        "invocation_id": "m24invoke_c3c689d4286387d245b823e0c5b151d5363f9c00b1d21a21158486ec8ec40277",
+        "output_schema_version": "sensitivity-result/v1",
+        "payload_canonical_json": "{\"metric\":\"voltage_stress_gain_pu_per_kw\",\"schema_version\":\"sensitivity-result/v1\",\"time_s\":30,\"values\":{\"DER_A\":3.1383136929719056e-05,\"DER_B\":0.00011145940302068984},\"window\":2}",
+        "payload_fields": [
+          "schema_version",
+          "window",
+          "time_s",
+          "metric",
+          "values"
+        ],
+        "payload_sha256": "c397c90c3240643c75323a166432ea67e1cae94648ec1dff2edbc9564c52d5e8",
+        "request_canonical_json": "{\"metric\":\"voltage_stress_gain_pu_per_kw\",\"target_ids\":[\"DER_A\",\"DER_B\"]}",
+        "request_schema_version": "sensitivity-query/v1",
+        "request_sha256": "b1a25b28bfe57854ca016d07a388b835158ec36f1892c30e780586a5a793ed6e",
+        "schema_version": "grideval-g7-m24-read-only-adapter-invocation/v1",
+        "side_effects": {
+          "class": "read_only_no_time_advance",
+          "file_writes": 0,
+          "outer_rollout_cost": 0,
+          "simulation_time_advance_s": 0.0
+        },
+        "source_binding": {
+          "admitted": false,
+          "classification": "PRELIMINARY_ONLY",
+          "contract_id": "m23contract_1fe0006a3ed480a1ef6b7a084a7031aa8855c319f02c46bfbaea42a0c45ad859",
+          "full_internal_response_vectors_preserved_by_exact_byte_reference": true,
+          "source_id": "m23source_300ed1e8d0d878cd5ce932e59fa8920d8a22edba3793a9cfc5d9044ca0dd9f50",
+          "source_sha256": "30d003e06d016b88d49e024857c9b74a9f9f34012a6f022b6f3a26511fc619c1"
+        },
+        "target_alias_map": {
+          "DER_A": "DER_EV1_BESS",
+          "DER_B": "DER_EV4_BESS"
+        },
+        "tool_name": "observe_sensitivity"
+      }
+    },
+    "IA4": {
+      "payload": {
+        "metric": "voltage_stress_gain_pu_per_kw",
+        "schema_version": "sensitivity-result/v1",
+        "time_s": 30,
+        "values": {
+          "DER_A": 3.1383136929719056e-05,
+          "DER_B": 0.00011145940302068984
+        },
+        "window": 2
+      },
+      "receipt": {
+        "access_boundary": {
+          "defense_accessed": false,
+          "detector_accessed": false,
+          "docker_accessed": false,
+          "embedding_accessed": false,
+          "evaluation_accessed": false,
+          "external_tool_execution_used": false,
+          "model_accessed": false,
+          "network_accessed": false,
+          "physical_actuator_accessed": false,
+          "real_local_read_only_adapter_executed": true,
+          "simulator_accessed": false
+        },
+        "audit_binding": {
+          "audit_id": "m23audit_f424d5ca61a12125f837a4513f6b47424b62729096c9d61a0fa50e50379a532c",
+          "audit_sha256": "d0c3a539c20cc4dc3adb2910cd7bbba9c90a071a839ebc0fcde9d9e67f524030",
+          "issues": [],
+          "status": "passed"
+        },
+        "caller_rung": "IA4",
+        "contract_id": "m24contract_c92535c44ed39b2d8f42555fee19977aebcc764fd17841c7e8a0736d7b560575",
+        "files_read": [
+          "v3/g7_confirmatory/artifacts/m23_system_identification_seed6101_attempt1/m23_system_identification.json",
+          "v3/g7_confirmatory/artifacts/m23_system_identification_seed6101_attempt1/independent_audit_receipt.json"
+        ],
+        "invocation_id": "m24invoke_f7cc17ce0eb2599cb7dab5f7f9390e122b1b5cafdeed6ea056dfc336a88822c1",
+        "output_schema_version": "sensitivity-result/v1",
+        "payload_canonical_json": "{\"metric\":\"voltage_stress_gain_pu_per_kw\",\"schema_version\":\"sensitivity-result/v1\",\"time_s\":30,\"values\":{\"DER_A\":3.1383136929719056e-05,\"DER_B\":0.00011145940302068984},\"window\":2}",
+        "payload_fields": [
+          "schema_version",
+          "window",
+          "time_s",
+          "metric",
+          "values"
+        ],
+        "payload_sha256": "c397c90c3240643c75323a166432ea67e1cae94648ec1dff2edbc9564c52d5e8",
+        "request_canonical_json": "{\"metric\":\"voltage_stress_gain_pu_per_kw\",\"target_ids\":[\"DER_A\",\"DER_B\"]}",
+        "request_schema_version": "sensitivity-query/v1",
+        "request_sha256": "b1a25b28bfe57854ca016d07a388b835158ec36f1892c30e780586a5a793ed6e",
+        "schema_version": "grideval-g7-m24-read-only-adapter-invocation/v1",
+        "side_effects": {
+          "class": "read_only_no_time_advance",
+          "file_writes": 0,
+          "outer_rollout_cost": 0,
+          "simulation_time_advance_s": 0.0
+        },
+        "source_binding": {
+          "admitted": false,
+          "classification": "PRELIMINARY_ONLY",
+          "contract_id": "m23contract_1fe0006a3ed480a1ef6b7a084a7031aa8855c319f02c46bfbaea42a0c45ad859",
+          "full_internal_response_vectors_preserved_by_exact_byte_reference": true,
+          "source_id": "m23source_300ed1e8d0d878cd5ce932e59fa8920d8a22edba3793a9cfc5d9044ca0dd9f50",
+          "source_sha256": "30d003e06d016b88d49e024857c9b74a9f9f34012a6f022b6f3a26511fc619c1"
+        },
+        "target_alias_map": {
+          "DER_A": "DER_EV1_BESS",
+          "DER_B": "DER_EV4_BESS"
+        },
+        "tool_name": "observe_sensitivity"
+      }
+    }
+  },
+  "limitations": [
+    "The M23 source remains PRELIMINARY_ONLY and unadmitted.",
+    "The values cover one seed and one responsive_night operating point.",
+    "The adapter qualification does not establish sensitivity stability.",
+    "No LLM, attacker, detector, defense, runtime, or final claim is supported."
+  ],
+  "milestone": "M24",
+  "mission_id": "mis_01M1MTKN0P1H5V3T76MJ6HYC7E",
+  "parity": {
+    "same_exact_two_file_reads": true,
+    "same_payload_canonical_bytes": true,
+    "same_payload_object": true,
+    "same_payload_sha256": true,
+    "same_request_canonical_bytes": true,
+    "same_request_sha256": true,
+    "same_side_effect_contract": true
+  },
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "qualification_id": "m24qual_e2dada84a81f064527590dcef69ac29bed40767a32f8a295048251257879de41",
+  "schema_version": "grideval-g7-m24-read-only-adapter-qualification/v1",
+  "source_admitted": false,
+  "status": "passed"
+}

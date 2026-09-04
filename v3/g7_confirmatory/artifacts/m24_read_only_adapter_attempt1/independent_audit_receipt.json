@@ -1,0 +1,30 @@
+{
+  "M23_audit_sha256": "d0c3a539c20cc4dc3adb2910cd7bbba9c90a071a839ebc0fcde9d9e67f524030",
+  "M23_source_sha256": "30d003e06d016b88d49e024857c9b74a9f9f34012a6f022b6f3a26511fc619c1",
+  "M7_contract_sha256": "4cef8444c56c40ff493ed3add9847d43d9d12c72f9f1714597e7566109d26de2",
+  "adapter_sha256": "8db0a84376d47cac9ef9d900b32aaa276f5175bde4eb1d611fe9bd9f85a577cb",
+  "audit_id": "m24audit_f4869f93d8bc5f8d9dcac137a4ea9893fef30722445905ce9e10233b59526e7a",
+  "auditor_sha256": "f012a6e0de5809169b2bf274a33a3db4b9ee4fd428c70ce55247ebad8457b6d2",
+  "checks": [
+    "contract_and_receipt_self_address",
+    "exact_code_schema_M7_M23_and_audit_bindings",
+    "strict_receipt_topology",
+    "direct_M23_scalar_derivation",
+    "exact_M7_schema_and_alias_mapping",
+    "IA3_IA4_canonical_request_and_payload_byte_parity",
+    "consumer_field_minimization",
+    "source_and_audit_governance_seals",
+    "two_file_read_and_zero_side_effect_boundary",
+    "adapter_static_external_access_surface"
+  ],
+  "claim_boundary": "A passing audit qualifies only the exact M24 offline adapter transformation and isolation boundary. It does not admit the M23 source or establish sensitivity stability, attacker advantage, runtime safety, or confirmatory evidence.",
+  "contract_sha256": "95965833d0d49cb021fe4af89e2cd830d4cd904a2de6f7d12aad2ecd33721ee3",
+  "decision_id": "dec_01M1MTJT5WZGVBWFQ5E74FKK98",
+  "issues": [],
+  "mission_id": "mis_01M1MTKN0P1H5V3T76MJ6HYC7E",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "qualification_sha256": "6201770ced6029cf1c54a1d61b9d7a73d3c05c19d8edb83e9339df4d62fa65b8",
+  "schema_sha256": "ca6cdb53b4e41d3a11f6d848b90a55db7e9ae0cd3e5658c6b86773e8893560d1",
+  "schema_version": "grideval-g7-m24-independent-audit/v1",
+  "status": "passed"
+}

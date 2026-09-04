@@ -117,7 +117,14 @@ The harness provides:
   columns, one-sided estimates, centered residuals, command signs, warnings,
   and raw hashes. An independent exact-byte audit passes, while the original
   timestamp-sensitive verifier failure remains retained; the source is not
-  admitted and no general sensitivity claim is made.
+  admitted and no general sensitivity claim is made; and
+- an M24 real local read-only adapter that binds the exact M23 source and
+  independent audit, preserves the M7 `observe_sensitivity` schema and
+  `DER_A`/`DER_B` namespace, exposes only two registered scalar gains, and
+  gives IA3 and IA4 byte-identical requests and payloads. Provenance remains
+  in a separate receipt; the adapter advances no simulation time and accesses
+  no model, embedding service, detector, network, Docker, simulator,
+  evaluation record, or actuator.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -166,6 +173,12 @@ requests, five network-isolated runtime traces, source, retained verifier
 failure, and independent audit receipt are under
 `artifacts/m23_system_identification_seed6101_attempt1/`. It is a preliminary
 source-mechanics result, not a resource-admission or final-evidence gate.
+The M24 adapter qualification is documented in
+`M24_READ_ONLY_ADAPTER_QUALIFICATION_REPORT.md`; its create-once contract,
+matched IA3/IA4 invocation receipt, and independent audit are under
+`artifacts/m24_read_only_adapter_attempt1/`. Its consumer payload is
+field-minimized, while complete M23 provenance remains separately
+content-addressed and unadmitted.
 The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and
@@ -265,7 +278,10 @@ The separately registered M21 flow is capped at exactly three live windows per
 run and one attack intervention; it cannot expand itself to a fourth window.
 M22 executes no simulator or real tool. M23 is capped at one benign and four
 signed, single-target simulator probes, each with exactly three windows and at
-most one delivered intervention; its source remains unadmitted.
+most one delivered intervention; its source remains unadmitted. M24 invokes
+only a local read-only adapter over the exact M23 source and audit files. It
+performs no model, embedding, detector, defense, network, Docker, simulator,
+evaluation, or actuator access and advances zero simulation time.
 Evaluation seeds, physical field-device actuation, and campaign-scale
 confirmatory execution remain prohibited.
 
@@ -280,6 +296,11 @@ From this directory:
 
 ```bash
 python3 -m unittest discover -s tests -v
+python3 -m unittest tests.test_m24_read_only_adapter -v
+python3 -m g7confirm.m24_read_only_adapter --mode verify \
+  --root artifacts/m24_read_only_adapter_attempt1
+python3 -m g7confirm.m24_independent_audit --mode verify \
+  --root artifacts/m24_read_only_adapter_attempt1
 python3 -m g7confirm.cli validate-spec --spec experiment_spec.yaml
 python3 -m g7confirm.runtime --operating-point responsive_night \
   --arm scripted_max --budget-windows 1 --energy-cap-kvah 2.0 \
