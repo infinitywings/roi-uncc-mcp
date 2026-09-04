@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/m26_live_empirical_decision.schema.json",
+  "title": "GridEval M26 bounded live empirical decision artifacts",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "project_id",
+        "mission_id",
+        "decision_id",
+        "milestone",
+        "classification",
+        "status",
+        "development_only",
+        "campaign_authorized",
+        "evaluation_opened",
+        "source_admitted",
+        "model_service",
+        "source_bindings",
+        "action_requests",
+        "exact_interface",
+        "matched_IA3_control",
+        "model_overlay",
+        "hard_caps",
+        "access_boundary",
+        "primary_endpoint",
+        "failure_policy",
+        "scientific_boundary",
+        "contract_id"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-g7-m26-live-empirical-contract/v1"
+        },
+        "project_id": {
+          "const": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6"
+        },
+        "mission_id": {
+          "const": "mis_01M1MYHTSJACSDYVE60Y80K6AJ"
+        },
+        "decision_id": {
+          "const": "dec_01M1MYH0XYEVZA6SARSND8DJG4"
+        },
+        "milestone": {"const": "M26"},
+        "classification": {"const": "PRELIMINARY_ONLY"},
+        "status": {"const": "REGISTERED_NO_NETWORK_OR_ADAPTER_CALL"},
+        "development_only": {"const": true},
+        "campaign_authorized": {"const": false},
+        "evaluation_opened": {"const": false},
+        "source_admitted": {"const": false},
+        "model_service": {"type": "object"},
+        "source_bindings": {"type": "object", "minProperties": 14},
+        "action_requests": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {"type": "object"}
+        },
+        "exact_interface": {"type": "object"},
+        "matched_IA3_control": {"type": "object"},
+        "model_overlay": {"type": "object"},
+        "hard_caps": {"type": "object"},
+        "access_boundary": {"type": "object"},
+        "primary_endpoint": {"type": "object"},
+        "failure_policy": {
+          "const": "create_once_retain_and_stop_without_retry"
+        },
+        "scientific_boundary": {"type": "object"},
+        "contract_id": {
+          "type": "string",
+          "pattern": "^m26contract_[0-9a-f]{64}$"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "created_at_utc",
+        "project_id",
+        "mission_id",
+        "decision_id",
+        "milestone",
+        "classification",
+        "contract_id",
+        "result",
+        "campaign_authorized",
+        "confirmatory_claim_authorized",
+        "evaluation_opened",
+        "source_admitted",
+        "model_service_started_or_restarted",
+        "docker_accessed",
+        "simulator_accessed",
+        "embedding_accessed",
+        "detector_accessed",
+        "defense_accessed",
+        "physical_actuator_accessed",
+        "evaluation_accessed",
+        "final_evaluation_seeds_accessed",
+        "receipt_id"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "grideval-g7-m26-live-empirical-receipt/v1"
+        },
+        "created_at_utc": {"type": "string", "format": "date-time"},
+        "project_id": {
+          "const": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6"
+        },
+        "mission_id": {
+          "const": "mis_01M1MYHTSJACSDYVE60Y80K6AJ"
+        },
+        "decision_id": {
+          "const": "dec_01M1MYH0XYEVZA6SARSND8DJG4"
+        },
+        "milestone": {"const": "M26"},
+        "classification": {"const": "PRELIMINARY_ONLY"},
+        "contract_id": {
+          "type": "string",
+          "pattern": "^m26contract_[0-9a-f]{64}$"
+        },
+        "result": {"type": "object"},
+        "campaign_authorized": {"const": false},
+        "confirmatory_claim_authorized": {"const": false},
+        "evaluation_opened": {"const": false},
+        "source_admitted": {"const": false},
+        "model_service_started_or_restarted": {"const": false},
+        "docker_accessed": {"const": false},
+        "simulator_accessed": {"const": false},
+        "embedding_accessed": {"const": false},
+        "detector_accessed": {"const": false},
+        "defense_accessed": {"const": false},
+        "physical_actuator_accessed": {"const": false},
+        "evaluation_accessed": {"const": false},
+        "final_evaluation_seeds_accessed": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "receipt_id": {
+          "type": "string",
+          "pattern": "^m26receipt_[0-9a-f]{64}$"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "audit_id": "m26audit_3db4d67655d09698dde61f047f74f37e2e3cdaea369c21f49f74c2be81c2a9bd",
+  "auditor_code_sha256": "ee20f4a8e09ad253924540b2326d2a87cd5f097736227f47715dcd6bfe20618f",
+  "auditor_independence": {
+    "derives_checks_from_stored_bytes": true,
+    "imports_M24_adapter": false,
+    "imports_M26_harness": false
+  },
+  "check_classes": [
+    "content_addresses_and_lineage",
+    "source_file_hashes",
+    "M18_action_requests_and_development_seeds",
+    "model_identity_and_transport_caps",
+    "M5_M7_identity_and_terminal_validation",
+    "real_M24_invocation_and_exact_payload",
+    "actor_facing_provenance_separation",
+    "matched_IA3_candidate_agreement",
+    "resource_and_final_evaluation_seals",
+    "execution_harness_static_boundary"
+  ],
+  "classification": "PRELIMINARY_ONLY",
+  "contract_file_sha256": "5bcefa5f03843f949446127aea4fe513f634a40523370e8825569c4c538b735a",
+  "contract_id": "m26contract_4d47dae1999c8e5a97d282dd12ac682b7242fbb70c79d636ea33d251f579902f",
+  "decision_id": "dec_01M1MYH0XYEVZA6SARSND8DJG4",
+  "issues": [],
+  "milestone": "M26",
+  "mission_id": "mis_01M1MYHTSJACSDYVE60Y80K6AJ",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "receipt_file_sha256": "b6e99edcff130ef05f70d077ec0e0bdff00bc326398292c9daf5790515655f04",
+  "receipt_id": "m26receipt_248240e0650b47d804d01c2cf1627375bc7fe03654c2966796ad70266362b8ea",
+  "schema_version": "grideval-g7-m26-independent-audit/v1",
+  "status": "passed"
+}

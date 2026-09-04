@@ -124,7 +124,16 @@ The harness provides:
   gives IA3 and IA4 byte-identical requests and payloads. Provenance remains
   in a separate receipt; the adapter advances no simulation time and accesses
   no model, embedding service, detector, network, Docker, simulator,
-  evaluation record, or actuator.
+  evaluation record, or actuator; and
+- an M25 common transactional integration that submits the real M24 result
+  through the same atomic M5 path used by the legacy fixture while keeping
+  complete adapter provenance outside the actor-facing transcript; and
+- an M26 first-attempt bounded online decision-only qualification in which the
+  existing `qwen3.6-35b-a3b` service requests and consumes one real M24 result,
+  selects the same `DER_B` candidate as the deterministic IA3 control, and
+  passes the common plan validator. The plan is never executed; M26 uses one
+  discovery, two completions, one local adapter call, and no simulator,
+  embedding, detector, defense, actuator, or evaluation access.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -186,6 +195,12 @@ matched offline IA3/IA4 episode receipts, and independent audit are under
 result through the common M5 atomic tool-result transition while excluding
 adapter provenance from the actor-facing transcript. Historical synthetic
 fixture serialization and the M5/M7 protocol identities remain unchanged.
+The M26 live empirical decision qualification is documented in
+`M26_LIVE_EMPIRICAL_DECISION_REPORT.md`; its contract, two M18 action requests,
+single create-once live receipt, and independent audit are under
+`artifacts/m26_live_empirical_attempt1/`. It establishes current-service
+structured consumption of one real empirical result only. It does not admit
+the M23 source, demonstrate LLM advantage, or authorize plan execution.
 The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and
@@ -293,6 +308,9 @@ same local adapter once per matched rung through an offline deterministic
 transaction replay. It distinguishes real local adapter execution from both
 synthetic fixture injection and external tool execution; it does not contact a
 live model or any external service.
+M26 opens only the registered model transport and one local M24 adapter call.
+It is capped at one discovery, two completions, one tool call, and zero retry;
+the accepted candidate is validated but never sent to a simulator or actuator.
 Evaluation seeds, physical field-device actuation, and campaign-scale
 confirmatory execution remain prohibited.
 
@@ -317,6 +335,11 @@ python3 -m g7confirm.m25_adapter_transaction --mode verify \
   --root artifacts/m25_adapter_transaction_attempt1
 python3 -m g7confirm.m25_independent_audit --mode verify \
   --root artifacts/m25_adapter_transaction_attempt1
+python3 -m unittest tests.test_m26_live_empirical_decision -v
+python3 -m g7confirm.m26_live_empirical_decision --mode verify \
+  --artifact-root artifacts/m26_live_empirical_attempt1
+python3 -m g7confirm.m26_independent_audit --mode verify \
+  --artifact-root artifacts/m26_live_empirical_attempt1
 python3 -m g7confirm.cli validate-spec --spec experiment_spec.yaml
 python3 -m g7confirm.runtime --operating-point responsive_night \
   --arm scripted_max --budget-windows 1 --energy-cap-kvah 2.0 \

@@ -1,0 +1,218 @@
+{
+  "access_boundary": {
+    "defense_access_authorized": false,
+    "detector_access_authorized": false,
+    "docker_access_authorized": false,
+    "embedding_access_authorized": false,
+    "evaluation_access_authorized": false,
+    "external_tool_execution_authorized": false,
+    "model_transport_authorized": true,
+    "network_access_authorized_for_registered_model_only": true,
+    "physical_actuator_authorized": false,
+    "real_local_read_only_adapter_authorized": true,
+    "simulator_access_authorized": false,
+    "synthetic_fixture_injection_authorized": false
+  },
+  "action_requests": [
+    {
+      "action_id": "m26_llm_turn_seed8107",
+      "action_type": "local_LLM_inference",
+      "budget_id": "m26_one_discovery_two_completions_one_real_adapter",
+      "code_sha256": "fceaa09d8cd4c633f62261dc61ea2c59fb2ee6132c93b4c08f8610ff6567d7dc",
+      "config_sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d",
+      "create_once": true,
+      "final_evaluation_data_accessed": false,
+      "local_service_identity": "qwen3.6-35b-a3b@http://ccil1s26m8hj6lws:8000/v1",
+      "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+      "output_classification": "PRELIMINARY_ONLY",
+      "paired_benign_id": null,
+      "partition_role": "attack_development",
+      "physical_field_actuator": false,
+      "retain_failures": true,
+      "seed": 8107,
+      "starts_or_restarts_service": false
+    },
+    {
+      "action_id": "m26_llm_turn_seed8108",
+      "action_type": "local_LLM_inference",
+      "budget_id": "m26_one_discovery_two_completions_one_real_adapter",
+      "code_sha256": "fceaa09d8cd4c633f62261dc61ea2c59fb2ee6132c93b4c08f8610ff6567d7dc",
+      "config_sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d",
+      "create_once": true,
+      "final_evaluation_data_accessed": false,
+      "local_service_identity": "qwen3.6-35b-a3b@http://ccil1s26m8hj6lws:8000/v1",
+      "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+      "output_classification": "PRELIMINARY_ONLY",
+      "paired_benign_id": null,
+      "partition_role": "attack_development",
+      "physical_field_actuator": false,
+      "retain_failures": true,
+      "seed": 8108,
+      "starts_or_restarts_service": false
+    }
+  ],
+  "campaign_authorized": false,
+  "classification": "PRELIMINARY_ONLY",
+  "contract_id": "m26contract_4d47dae1999c8e5a97d282dd12ac682b7242fbb70c79d636ea33d251f579902f",
+  "decision_id": "dec_01M1MYH0XYEVZA6SARSND8DJG4",
+  "development_only": true,
+  "evaluation_opened": false,
+  "exact_interface": {
+    "call_id": "call_m26_real_adapter_0001",
+    "candidate_ids": [
+      "cand_322228c6707998fea51c",
+      "cand_bc73d19dea133043082f"
+    ],
+    "protocol_id": "m5proto_7b094847ba6550c0216b4471cde8a3aff783002177ba41a557882f3e90e1f2ff",
+    "search_surface_id": "surface_585d7e0e77d464207579863cfdffbd420e439894eabdc2b5c6cd1b747c64ff78",
+    "tool_arguments": {
+      "metric": "voltage_stress_gain_pu_per_kw",
+      "target_ids": [
+        "DER_A",
+        "DER_B"
+      ]
+    },
+    "tool_name": "observe_sensitivity"
+  },
+  "failure_policy": "create_once_retain_and_stop_without_retry",
+  "hard_caps": {
+    "completion_requests": 2,
+    "model_discovery_requests": 1,
+    "outer_rollouts": 0,
+    "real_local_adapter_invocations": 1,
+    "retry_within_attempt": 0,
+    "simulation_time_advance_s": 0.0,
+    "tool_calls": 1
+  },
+  "matched_IA3_control": {
+    "consumer_payload": {
+      "metric": "voltage_stress_gain_pu_per_kw",
+      "schema_version": "sensitivity-result/v1",
+      "time_s": 30,
+      "values": {
+        "DER_A": 3.1383136929719056e-05,
+        "DER_B": 0.00011145940302068984
+      },
+      "window": 2
+    },
+    "consumer_payload_sha256": "c397c90c3240643c75323a166432ea67e1cae94648ec1dff2edbc9564c52d5e8",
+    "decision_rule": "maximize_abs_p_kw_times_voltage_stress_gain_pu_per_kw",
+    "expected_candidate_id": "cand_bc73d19dea133043082f",
+    "expected_target": "DER_B",
+    "source": "exact_M25_IA3_transaction"
+  },
+  "milestone": "M26",
+  "mission_id": "mis_01M1MYHTSJACSDYVE60Y80K6AJ",
+  "model_overlay": {
+    "development_seeds": [
+      8107,
+      8108
+    ],
+    "max_tokens_per_turn": 512,
+    "temperature": 0.0,
+    "timeout_s": 120.0,
+    "turns": 2
+  },
+  "model_service": {
+    "base_url": "http://ccil1s26m8hj6lws:8000/v1",
+    "identity": "qwen3.6-35b-a3b@http://ccil1s26m8hj6lws:8000/v1",
+    "model_id": "qwen3.6-35b-a3b",
+    "must_already_be_running": true,
+    "start_or_restart_allowed": false
+  },
+  "primary_endpoint": {
+    "name": "live_IA4_matches_preregistered_IA3_on_real_payload",
+    "pass_rule": "two_turn_protocol_terminal_plan_valid_and_candidate_equals_preregistered_IA3_candidate"
+  },
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "schema_version": "grideval-g7-m26-live-empirical-contract/v1",
+  "scientific_boundary": {
+    "does_not_establish": [
+      "M23_source_admission_or_stability",
+      "LLM_advantage_or_strategy_learning",
+      "candidate_switching_under_empirical_counterfactuals",
+      "attacker_effectiveness_or_grid_impact",
+      "detector_or_defense_effectiveness",
+      "runtime_safety_or_confirmatory_evidence"
+    ],
+    "establishes_on_pass": [
+      "current_service_structured_two_turn_transport",
+      "current_service_consumes_real_M24_result_through_M5",
+      "single_payload_live_IA4_and_deterministic_IA3_agreement"
+    ]
+  },
+  "source_admitted": false,
+  "source_bindings": {
+    "M18_gate": {
+      "bytes": 9696,
+      "path": "v3/g7_confirmatory/artifacts/preliminary_only_gate_m18.json",
+      "sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d"
+    },
+    "M24_contract": {
+      "bytes": 6473,
+      "path": "v3/g7_confirmatory/artifacts/m24_read_only_adapter_attempt1/contract.json",
+      "sha256": "95965833d0d49cb021fe4af89e2cd830d4cd904a2de6f7d12aad2ecd33721ee3"
+    },
+    "M24_independent_audit": {
+      "bytes": 1764,
+      "path": "v3/g7_confirmatory/artifacts/m24_read_only_adapter_attempt1/independent_audit_receipt.json",
+      "sha256": "7149de87a983e96850676b335e89a58e3c9e1f0b0b804b07b8d74cf9df49a787"
+    },
+    "M24_qualification": {
+      "bytes": 8688,
+      "path": "v3/g7_confirmatory/artifacts/m24_read_only_adapter_attempt1/qualification_receipt.json",
+      "sha256": "6201770ced6029cf1c54a1d61b9d7a73d3c05c19d8edb83e9339df4d62fa65b8"
+    },
+    "M25_contract": {
+      "bytes": 4910,
+      "path": "v3/g7_confirmatory/artifacts/m25_adapter_transaction_attempt1/contract.json",
+      "sha256": "43fe76b9396fb5511902632085b6645e2d0af522026959449ddcc2960958785b"
+    },
+    "M25_independent_audit": {
+      "bytes": 1806,
+      "path": "v3/g7_confirmatory/artifacts/m25_adapter_transaction_attempt1/independent_audit_receipt.json",
+      "sha256": "ff07cf12ec365a54b50b0d16d0d5501a194aec63961df3dae55469aff0a178bc"
+    },
+    "M25_qualification": {
+      "bytes": 30678,
+      "path": "v3/g7_confirmatory/artifacts/m25_adapter_transaction_attempt1/qualification_receipt.json",
+      "sha256": "e0fa95cfeaaae1dbe576844f6a7dd7f44af0d5f3251cbc14adf2d6ecba2c837e"
+    },
+    "M26_code": {
+      "bytes": 39831,
+      "path": "v3/g7_confirmatory/g7confirm/m26_live_empirical_decision.py",
+      "sha256": "fceaa09d8cd4c633f62261dc61ea2c59fb2ee6132c93b4c08f8610ff6567d7dc"
+    },
+    "M26_schema": {
+      "bytes": 4779,
+      "path": "v3/g7_confirmatory/m26_live_empirical_decision.schema.json",
+      "sha256": "e3f24d1137d12ebb1e367381bca80e549645ff3bbd46b088ac6dee7eb8e24190"
+    },
+    "M5_transaction_core": {
+      "bytes": 61496,
+      "path": "v3/g7_confirmatory/g7confirm/ia4_tool_loop.py",
+      "sha256": "1292c635a97550cd0246bcce9955ab5e2538e9657a1c823b86cbca643f1df6f6"
+    },
+    "M7_contract": {
+      "bytes": 26922,
+      "path": "v3/g7_confirmatory/artifacts/ia4_counterfactual_contract_m7.json",
+      "sha256": "4cef8444c56c40ff493ed3add9847d43d9d12c72f9f1714597e7566109d26de2"
+    },
+    "experiment_spec": {
+      "bytes": 5433,
+      "path": "v3/g7_confirmatory/experiment_spec.yaml",
+      "sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d"
+    },
+    "orchestration_contract": {
+      "bytes": 41127,
+      "path": "v3/g7_confirmatory/ORCHESTRATION_CONTRACT.md",
+      "sha256": "2bfb23ffb8e17aac9f4c2ec41755d7cf97b01b1c70fc93cef26a637544294d3b"
+    },
+    "roadmap_report": {
+      "bytes": 445019,
+      "path": "v3/g7_confirmatory/roadmap_2026/report.html",
+      "sha256": "c4fc1168708c0d47d1162754296d3f731c51028650aaeab739aca42fb3aa827b"
+    }
+  },
+  "status": "REGISTERED_NO_NETWORK_OR_ADAPTER_CALL"
+}
