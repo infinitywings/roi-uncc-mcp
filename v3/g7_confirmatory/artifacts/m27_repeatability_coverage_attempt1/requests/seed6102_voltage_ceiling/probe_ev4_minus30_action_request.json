@@ -1,0 +1,18 @@
+{
+  "action_id": "m27_probe_ev4_minus30_seed6102_voltage_ceiling",
+  "action_type": "simulator_execution",
+  "budget_id": "m27_seed6102_voltage_ceiling_three_windows_symmetric_30kw",
+  "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+  "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+  "create_once": true,
+  "final_evaluation_data_accessed": false,
+  "local_service_identity": null,
+  "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+  "output_classification": "PRELIMINARY_ONLY",
+  "paired_benign_id": "m27_benign_seed6102_voltage_ceiling",
+  "partition_role": "system_identification",
+  "physical_field_actuator": false,
+  "retain_failures": true,
+  "seed": 6102,
+  "starts_or_restarts_service": false
+}

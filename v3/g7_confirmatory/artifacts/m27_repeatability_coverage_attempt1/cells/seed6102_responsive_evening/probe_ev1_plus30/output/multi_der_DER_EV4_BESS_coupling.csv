@@ -1,0 +1,12 @@
+# file...... output/multi_der_DER_EV4_BESS_coupling.csv
+# date...... Fri Sep  4 01:33:52 2026
+# user...... (null)
+# host...... (null)
+# target.... load 803
+# trigger... (none)
+# interval.. 10
+# limit..... 0
+# timestamp,measured_voltage_C,constant_power_C
+2013-08-28 18:00:00 PST,+2351.9+116.516d,+0+0j
+2013-08-28 18:00:10 PST,+2351.9+116.516d,+0+0j
+2013-08-28 18:00:20 PST,+2349.56+116.227d,-0+0j

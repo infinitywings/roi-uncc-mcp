@@ -1,0 +1,2788 @@
+{
+  "cell_id": "seed6102_voltage_ceiling",
+  "cell_source_id": "m27cell_2b8e15f18ca74b29747ea6c29a29c98e897f5299c18fd56ea6cbf3246a04ea2d",
+  "checks": {
+    "accepted_equals_delivered": true,
+    "controlled_lineage_equal": true,
+    "first_recorder_visible_row": 2,
+    "first_runner_response_time_s": 30,
+    "five_run_cap_respected": true,
+    "one_perturbed_window_per_probe": true,
+    "resource_admitted": false,
+    "scientific_threshold_selected": false,
+    "shared_benign_control": true,
+    "single_target_per_probe": true,
+    "symmetric_signed_probe_pair_per_target": true,
+    "true_and_measured_vectors_retained": true
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "contract_id": "m27contract_9f523653a0b78b9e3934d4bc5e95153f084eec84add9e9caca66bd12d9b70fe4",
+  "decision_id": "dec_01M1MZWXXY65C3XXMERCAMT794",
+  "estimator": {
+    "columns": [
+      {
+        "centered_measured_voltage_residual_pu": {
+          "DER_EV1_BESS": -1.5775525390449019e-06,
+          "DER_EV3_PV": 2.3799476596142455e-06,
+          "DER_EV4_BESS": -2.892167243473409e-07,
+          "DER_EV5_PV": -1.7569640731185387e-06
+        },
+        "centered_source_power_residual_w_var": {
+          "source_p_w": 33.949052209733054,
+          "source_q_var": 30.538924476888496
+        },
+        "centered_true_voltage_residual_pu": {
+          "DER_EV1_BESS": -1.5775525390449019e-06,
+          "DER_EV3_PV": 2.3799476596142455e-06,
+          "DER_EV4_BESS": -2.892167243473409e-07,
+          "DER_EV5_PV": -1.7569640731185387e-06
+        },
+        "central_measured_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 3.1690906476178336e-05,
+          "DER_EV3_PV": -4.993495365586872e-06,
+          "DER_EV4_BESS": 7.103924435458709e-06,
+          "DER_EV5_PV": 2.7308656092720857e-06
+        },
+        "central_source_power_gain_w_var_per_kw": {
+          "source_p_w": -1012.3331648547745,
+          "source_q_var": -44.01982327039198
+        },
+        "central_true_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 3.1690906476178336e-05,
+          "DER_EV3_PV": -4.993495365586872e-06,
+          "DER_EV4_BESS": 7.103924435458709e-06,
+          "DER_EV5_PV": 2.7308656092720857e-06
+        },
+        "max_abs_centered_measured_voltage_residual_pu": 2.3799476596142455e-06,
+        "max_abs_centered_true_voltage_residual_pu": 2.3799476596142455e-06,
+        "max_abs_measured_voltage_gain_pu_per_kw": 3.1690906476178336e-05,
+        "max_abs_true_voltage_gain_pu_per_kw": 3.1690906476178336e-05,
+        "minus_one_sided_measured_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 3.174349156081687e-05,
+          "DER_EV3_PV": -5.0728269542406794e-06,
+          "DER_EV4_BESS": 7.113564992936953e-06,
+          "DER_EV5_PV": 2.7894310783797374e-06
+        },
+        "minus_one_sided_true_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 3.174349156081687e-05,
+          "DER_EV3_PV": -5.0728269542406794e-06,
+          "DER_EV4_BESS": 7.113564992936953e-06,
+          "DER_EV5_PV": 2.7894310783797374e-06
+        },
+        "plus_one_sided_measured_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 3.163832139153981e-05,
+          "DER_EV3_PV": -4.914163776933064e-06,
+          "DER_EV4_BESS": 7.094283877980463e-06,
+          "DER_EV5_PV": 2.6723001401644336e-06
+        },
+        "plus_one_sided_true_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 3.163832139153981e-05,
+          "DER_EV3_PV": -4.914163776933064e-06,
+          "DER_EV4_BESS": 7.094283877980463e-06,
+          "DER_EV5_PV": 2.6723001401644336e-06
+        },
+        "post_actuation_time_s": 30,
+        "target_id": "DER_EV1_BESS"
+      },
+      {
+        "centered_measured_voltage_residual_pu": {
+          "DER_EV1_BESS": -3.3635698046818874e-06,
+          "DER_EV3_PV": 1.0691127295237024e-05,
+          "DER_EV4_BESS": -3.279416769952359e-05,
+          "DER_EV5_PV": 5.224223704525244e-06
+        },
+        "centered_source_power_residual_w_var": {
+          "source_p_w": 94.60185276437551,
+          "source_q_var": 209.6060364250443
+        },
+        "centered_true_voltage_residual_pu": {
+          "DER_EV1_BESS": -3.3635698046818874e-06,
+          "DER_EV3_PV": 1.0691127295237024e-05,
+          "DER_EV4_BESS": -3.279416769963461e-05,
+          "DER_EV5_PV": 5.224223704525244e-06
+        },
+        "central_measured_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 8.782532460686424e-06,
+          "DER_EV3_PV": -7.452540392375491e-05,
+          "DER_EV4_BESS": 0.00011924278783927804,
+          "DER_EV5_PV": 2.5631440726370247e-05
+        },
+        "central_source_power_gain_w_var_per_kw": {
+          "source_p_w": -1024.9350487240358,
+          "source_q_var": -197.6856889664603
+        },
+        "central_true_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 8.782532460686424e-06,
+          "DER_EV3_PV": -7.452540392375491e-05,
+          "DER_EV4_BESS": 0.00011924278783927804,
+          "DER_EV5_PV": 2.5631440726370247e-05
+        },
+        "max_abs_centered_measured_voltage_residual_pu": 3.279416769952359e-05,
+        "max_abs_centered_true_voltage_residual_pu": 3.279416769963461e-05,
+        "max_abs_measured_voltage_gain_pu_per_kw": 0.00011924278783927804,
+        "max_abs_true_voltage_gain_pu_per_kw": 0.00011924278783927804,
+        "minus_one_sided_measured_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 8.89465145417212e-06,
+          "DER_EV3_PV": -7.48817748335943e-05,
+          "DER_EV4_BESS": 0.00012033592676259733,
+          "DER_EV5_PV": 2.5457299936215706e-05
+        },
+        "minus_one_sided_true_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 8.89465145417212e-06,
+          "DER_EV3_PV": -7.48817748335943e-05,
+          "DER_EV4_BESS": 0.00012033592676259733,
+          "DER_EV5_PV": 2.5457299936215706e-05
+        },
+        "plus_one_sided_measured_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 8.670413467200729e-06,
+          "DER_EV3_PV": -7.416903301391554e-05,
+          "DER_EV4_BESS": 0.00011814964891595872,
+          "DER_EV5_PV": 2.5805581516524788e-05
+        },
+        "plus_one_sided_true_voltage_gain_pu_per_kw": {
+          "DER_EV1_BESS": 8.670413467200729e-06,
+          "DER_EV3_PV": -7.416903301391554e-05,
+          "DER_EV4_BESS": 0.00011814964891595872,
+          "DER_EV5_PV": 2.5805581516524788e-05
+        },
+        "post_actuation_time_s": 30,
+        "target_id": "DER_EV4_BESS"
+      }
+    ]
+  },
+  "gridlabd_seed": 10,
+  "measurement_noise_seed": 96102,
+  "milestone": "M27",
+  "mission_id": "mis_01M1MZXYE3CTWNMRQ8YXA4H30F",
+  "operating_point": "voltage_ceiling",
+  "pair_evidence": [
+    {
+      "command_kw": 30.0,
+      "recorder_deltas": [
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 0,
+          "timestamp": "2013-08-28 14:00:00 PST"
+        },
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 1,
+          "timestamp": "2013-08-28 14:00:10 PST"
+        },
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              -30000.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 2,
+          "timestamp": "2013-08-28 14:00:20 PST"
+        }
+      ],
+      "runner_observation_deltas": [
+        {
+          "measured_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.0,
+            "DER_EV3_PV": 0.0,
+            "DER_EV4_BESS": 0.0,
+            "DER_EV5_PV": 0.0
+          },
+          "source_power_delta_probe_minus_benign_w_var": {
+            "source_p_w": 0.0,
+            "source_q_var": 0.0
+          },
+          "time_s": 20,
+          "true_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.0,
+            "DER_EV3_PV": 0.0,
+            "DER_EV4_BESS": 0.0,
+            "DER_EV5_PV": 0.0
+          },
+          "window": 1
+        },
+        {
+          "measured_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.0009491496417461942,
+            "DER_EV3_PV": -0.0001474249133079919,
+            "DER_EV4_BESS": 0.0002128285163394139,
+            "DER_EV5_PV": 8.0169004204933e-05
+          },
+          "source_power_delta_probe_minus_benign_w_var": {
+            "source_p_w": -30336.045893433504,
+            "source_q_var": -1290.055773634871
+          },
+          "time_s": 30,
+          "true_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.0009491496417461942,
+            "DER_EV3_PV": -0.0001474249133079919,
+            "DER_EV4_BESS": 0.0002128285163394139,
+            "DER_EV5_PV": 8.0169004204933e-05
+          },
+          "window": 2
+        }
+      ],
+      "target_id": "DER_EV1_BESS",
+      "treatment": "probe_ev1_plus30"
+    },
+    {
+      "command_kw": -30.0,
+      "recorder_deltas": [
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 0,
+          "timestamp": "2013-08-28 14:00:00 PST"
+        },
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 1,
+          "timestamp": "2013-08-28 14:00:10 PST"
+        },
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              30000.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 2,
+          "timestamp": "2013-08-28 14:00:20 PST"
+        }
+      ],
+      "runner_observation_deltas": [
+        {
+          "measured_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.0,
+            "DER_EV3_PV": 0.0,
+            "DER_EV4_BESS": 0.0,
+            "DER_EV5_PV": 0.0
+          },
+          "source_power_delta_probe_minus_benign_w_var": {
+            "source_p_w": 0.0,
+            "source_q_var": 0.0
+          },
+          "time_s": 20,
+          "true_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.0,
+            "DER_EV3_PV": 0.0,
+            "DER_EV4_BESS": 0.0,
+            "DER_EV5_PV": 0.0
+          },
+          "window": 1
+        },
+        {
+          "measured_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": -0.0009523047468245061,
+            "DER_EV3_PV": 0.0001521848086272204,
+            "DER_EV4_BESS": -0.0002134069497881086,
+            "DER_EV5_PV": -8.368293235139213e-05
+          },
+          "source_power_delta_probe_minus_benign_w_var": {
+            "source_p_w": 30403.94399785297,
+            "source_q_var": 1351.133622588648
+          },
+          "time_s": 30,
+          "true_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": -0.0009523047468245061,
+            "DER_EV3_PV": 0.0001521848086272204,
+            "DER_EV4_BESS": -0.0002134069497881086,
+            "DER_EV5_PV": -8.368293235139213e-05
+          },
+          "window": 2
+        }
+      ],
+      "target_id": "DER_EV1_BESS",
+      "treatment": "probe_ev1_minus30"
+    },
+    {
+      "command_kw": 30.0,
+      "recorder_deltas": [
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 0,
+          "timestamp": "2013-08-28 14:00:00 PST"
+        },
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 1,
+          "timestamp": "2013-08-28 14:00:10 PST"
+        },
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              -30000.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 2,
+          "timestamp": "2013-08-28 14:00:20 PST"
+        }
+      ],
+      "runner_observation_deltas": [
+        {
+          "measured_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.0,
+            "DER_EV3_PV": 0.0,
+            "DER_EV4_BESS": 0.0,
+            "DER_EV5_PV": 0.0
+          },
+          "source_power_delta_probe_minus_benign_w_var": {
+            "source_p_w": 0.0,
+            "source_q_var": 0.0
+          },
+          "time_s": 20,
+          "true_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.0,
+            "DER_EV3_PV": 0.0,
+            "DER_EV4_BESS": 0.0,
+            "DER_EV5_PV": 0.0
+          },
+          "window": 1
+        },
+        {
+          "measured_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.00026011240401602187,
+            "DER_EV3_PV": -0.002225070990417466,
+            "DER_EV4_BESS": 0.003544489467478762,
+            "DER_EV5_PV": 0.0007741674454957437
+          },
+          "source_power_delta_probe_minus_benign_w_var": {
+            "source_p_w": -30653.449608956696,
+            "source_q_var": -5720.9646325687645
+          },
+          "time_s": 30,
+          "true_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.00026011240401602187,
+            "DER_EV3_PV": -0.002225070990417466,
+            "DER_EV4_BESS": 0.003544489467478762,
+            "DER_EV5_PV": 0.0007741674454957437
+          },
+          "window": 2
+        }
+      ],
+      "target_id": "DER_EV4_BESS",
+      "treatment": "probe_ev4_plus30"
+    },
+    {
+      "command_kw": -30.0,
+      "recorder_deltas": [
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 0,
+          "timestamp": "2013-08-28 14:00:00 PST"
+        },
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 1,
+          "timestamp": "2013-08-28 14:00:10 PST"
+        },
+        {
+          "received_power_delta_probe_minus_benign_va": {
+            "multi_der_DER_EV1_BESS_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV3_PV_coupling": [
+              0.0,
+              0.0
+            ],
+            "multi_der_DER_EV4_BESS_coupling": [
+              30000.0,
+              0.0
+            ],
+            "multi_der_DER_EV5_PV_coupling": [
+              0.0,
+              0.0
+            ]
+          },
+          "recorder_row": 2,
+          "timestamp": "2013-08-28 14:00:20 PST"
+        }
+      ],
+      "runner_observation_deltas": [
+        {
+          "measured_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.0,
+            "DER_EV3_PV": 0.0,
+            "DER_EV4_BESS": 0.0,
+            "DER_EV5_PV": 0.0
+          },
+          "source_power_delta_probe_minus_benign_w_var": {
+            "source_p_w": 0.0,
+            "source_q_var": 0.0
+          },
+          "time_s": 20,
+          "true_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": 0.0,
+            "DER_EV3_PV": 0.0,
+            "DER_EV4_BESS": 0.0,
+            "DER_EV5_PV": 0.0
+          },
+          "window": 1
+        },
+        {
+          "measured_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": -0.0002668395436251636,
+            "DER_EV3_PV": 0.002246453245007829,
+            "DER_EV4_BESS": -0.00361007780287792,
+            "DER_EV5_PV": -0.0007637189980864711
+          },
+          "source_power_delta_probe_minus_benign_w_var": {
+            "source_p_w": 30842.653314485447,
+            "source_q_var": 6140.176705418853
+          },
+          "time_s": 30,
+          "true_voltage_delta_probe_minus_benign_pu": {
+            "DER_EV1_BESS": -0.0002668395436251636,
+            "DER_EV3_PV": 0.002246453245007829,
+            "DER_EV4_BESS": -0.00361007780287792,
+            "DER_EV5_PV": -0.0007637189980864711
+          },
+          "window": 2
+        }
+      ],
+      "target_id": "DER_EV4_BESS",
+      "treatment": "probe_ev4_minus30"
+    }
+  ],
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "rank": {
+    "measured": {
+      "absolute_margin": 8.755188136309969e-05,
+      "metric": "max_abs_measured_voltage_gain_pu_per_kw",
+      "ratio_margin": 3.7626815101963516,
+      "runner_up": "DER_EV1_BESS",
+      "tie": false,
+      "values": {
+        "DER_EV1_BESS": 3.1690906476178336e-05,
+        "DER_EV4_BESS": 0.00011924278783927804
+      },
+      "winner": "DER_EV4_BESS"
+    },
+    "true": {
+      "absolute_margin": 8.755188136309969e-05,
+      "metric": "max_abs_true_voltage_gain_pu_per_kw",
+      "ratio_margin": 3.7626815101963516,
+      "runner_up": "DER_EV1_BESS",
+      "tie": false,
+      "values": {
+        "DER_EV1_BESS": 3.1690906476178336e-05,
+        "DER_EV4_BESS": 0.00011924278783927804
+      },
+      "winner": "DER_EV4_BESS"
+    }
+  },
+  "raw_manifest": {
+    "algorithm": "sha256",
+    "file_count": 155,
+    "files": [
+      {
+        "bytes": 157373,
+        "path": "benign/1c_IEEE_123_feeder.glm",
+        "sha256": "c646e977c818f435a0c0d137f85664c2819d0eff25e474a2a2e100987bd34899"
+      },
+      {
+        "bytes": 320,
+        "path": "benign/1c_IEEE_123_feeder_0_EV1.csv",
+        "sha256": "715ee7aeec665fc61e23d04607b13914f74b4967ec94498af1fbfc8b0e5204de"
+      },
+      {
+        "bytes": 21091,
+        "path": "benign/Current_Dump_NR.csv",
+        "sha256": "210358c97880656da7c3df8cac0512c9e66448c488f2730ae801392f8abb0f6b"
+      },
+      {
+        "bytes": 33718,
+        "path": "benign/Volt_Dump_NR.csv",
+        "sha256": "5edcd63dc3d0baa1206a1db21d06eb6c523d911d82697d7ba4c354e005bde072"
+      },
+      {
+        "bytes": 1455,
+        "path": "benign/attack_trace.json",
+        "sha256": "b0ca4936102a7584b5d97d6352d2ad1def8000a6f89069221b12cf295cd6e824"
+      },
+      {
+        "bytes": 231,
+        "path": "benign/console.stderr.txt",
+        "sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361"
+      },
+      {
+        "bytes": 580,
+        "path": "benign/console.stdout.txt",
+        "sha256": "71f029b7ce932269420d0c01e7b293064277065af84e179df3e0e63ecb054d47"
+      },
+      {
+        "bytes": 1489,
+        "path": "benign/dual_budget_trace.json",
+        "sha256": "98b4366710883675a04cd5f51a3063be8b226413870b25a10b8233f3c34c3002"
+      },
+      {
+        "bytes": 388,
+        "path": "benign/g7_summary.json",
+        "sha256": "98ae26b76f341c9c344c6c133f5e3ccddf51062583241d48c25b0fc381fb744c"
+      },
+      {
+        "bytes": 432,
+        "path": "benign/gld_cosim_right.csv",
+        "sha256": "bf55c0986df25021454df26f56104a45cf3d92cca444350240d3ac0aa89ff77c"
+      },
+      {
+        "bytes": 2334,
+        "path": "benign/gridlabd.log",
+        "sha256": "099e1ba8daa698322f750bcee725ab06561207c6a995591ae5844fbe7a922d41"
+      },
+      {
+        "bytes": 3246,
+        "path": "benign/mainglm.json",
+        "sha256": "46771cfdb24976f94fb53c8d5d38f1268c71cd10c358a3517f4be9266629d6b4"
+      },
+      {
+        "bytes": 1903,
+        "path": "benign/multi_der_opender.json",
+        "sha256": "d29cddce1618af5f8e1a9c7b5fe734c614d747d4b69aeed7bd8e1d738df84102"
+      },
+      {
+        "bytes": 302,
+        "path": "benign/multi_der_source.json",
+        "sha256": "d4bf4194dc207113b27470ad32255263f4318c3ca6ec60ec027207af3749a58d"
+      },
+      {
+        "bytes": 3410,
+        "path": "benign/multi_der_traces.json",
+        "sha256": "f8c733420357579626dd8ea69bf35a97be7c0684425480af0e19f15e0715f34b"
+      },
+      {
+        "bytes": 328,
+        "path": "benign/output/1c_IEEE_123_feeder_0_EV2.csv",
+        "sha256": "3098ac67dff2279da53bbb2b32bd088f89a487353c7732c7075c4f001f3ad187"
+      },
+      {
+        "bytes": 328,
+        "path": "benign/output/1c_IEEE_123_feeder_0_EV3.csv",
+        "sha256": "71b45dc1b66e6af4825cb4c197b628451928685b67d1356f491bf3231e6fb19c"
+      },
+      {
+        "bytes": 327,
+        "path": "benign/output/1c_IEEE_123_feeder_0_EV4.csv",
+        "sha256": "bf681a01ef8029a8a22502b94ec703dac294a8e9b4ebb1a3f9543d78cb935a74"
+      },
+      {
+        "bytes": 328,
+        "path": "benign/output/1c_IEEE_123_feeder_0_EV5.csv",
+        "sha256": "c50f322378ff62302678bed9d26fe483f090547f8fd5140bff19727c7111226f"
+      },
+      {
+        "bytes": 320,
+        "path": "benign/output/1c_IEEE_123_feeder_0_EV6.csv",
+        "sha256": "ddb46cfe0f6434c7cbbcfe5e4edc4e4be1596b9937a676747a53dc298e957b4e"
+      },
+      {
+        "bytes": 277,
+        "path": "benign/output/1c_IEEE_123_feeder_0_climate.csv",
+        "sha256": "934d4b01039e34bddb9eec5a6f8836579593a7ca5b67267a5abd62ac84333025"
+      },
+      {
+        "bytes": 396,
+        "path": "benign/output/multi_der_DER_EV1_BESS_coupling.csv",
+        "sha256": "2a16a7cd68493bc1b436f4e81094a8152c610b3023731269ec6d7ff0d71dca0a"
+      },
+      {
+        "bytes": 401,
+        "path": "benign/output/multi_der_DER_EV3_PV_coupling.csv",
+        "sha256": "9dd220179e8cbf99b650dd02c5618505caf8fd28d35805cc4c975795c32a84de"
+      },
+      {
+        "bytes": 397,
+        "path": "benign/output/multi_der_DER_EV4_BESS_coupling.csv",
+        "sha256": "74dc1facb01cb7062d40cd11b9b267cbfdf298fc5e310fc0886167f4fc969d28"
+      },
+      {
+        "bytes": 401,
+        "path": "benign/output/multi_der_DER_EV5_PV_coupling.csv",
+        "sha256": "88b1c4c45db4c9104206b82c3be55abdad4df26a103b96551d83eefe90d3099d"
+      },
+      {
+        "bytes": 3566,
+        "path": "benign/runtime_integration.json",
+        "sha256": "6b285de67629a3ab3c2aa391b3aa4424771ffcaef309b21731eb4acb68190e84"
+      },
+      {
+        "bytes": 241,
+        "path": "benign/sw_status_l107_EV5.csv",
+        "sha256": "a7e4a9e92c02e0fc07e46914ee855f3c8db83326c0a2f0febac7acb6ffc1b2c6"
+      },
+      {
+        "bytes": 241,
+        "path": "benign/sw_status_l114_EV6.csv",
+        "sha256": "af347f9ef091bf632db52b3e9e91cdc37408cc0dc7d64911aa2f396a4ee39bc1"
+      },
+      {
+        "bytes": 239,
+        "path": "benign/sw_status_l2_EV2.csv",
+        "sha256": "53d5c14aa0637d368168af3c8ba1dca9611b19ddecb2820e032ca71086317a7a"
+      },
+      {
+        "bytes": 239,
+        "path": "benign/sw_status_l5_EV1.csv",
+        "sha256": "1b35b226aa6453442c654866dfb86728fab4f318dd8015b6d4177c2327be7697"
+      },
+      {
+        "bytes": 240,
+        "path": "benign/sw_status_l92_EV4.csv",
+        "sha256": "6780d6052cdaa8c55e8aab280ccf7fe75cc23b55a116bd07fe324cafc3a4a559"
+      },
+      {
+        "bytes": 157373,
+        "path": "probe_ev1_minus30/1c_IEEE_123_feeder.glm",
+        "sha256": "c646e977c818f435a0c0d137f85664c2819d0eff25e474a2a2e100987bd34899"
+      },
+      {
+        "bytes": 320,
+        "path": "probe_ev1_minus30/1c_IEEE_123_feeder_0_EV1.csv",
+        "sha256": "650954b963af2ef2c82fc503a35bf2a5ae67a420873d07d1d4b7572123483825"
+      },
+      {
+        "bytes": 21091,
+        "path": "probe_ev1_minus30/Current_Dump_NR.csv",
+        "sha256": "210358c97880656da7c3df8cac0512c9e66448c488f2730ae801392f8abb0f6b"
+      },
+      {
+        "bytes": 33718,
+        "path": "probe_ev1_minus30/Volt_Dump_NR.csv",
+        "sha256": "5edcd63dc3d0baa1206a1db21d06eb6c523d911d82697d7ba4c354e005bde072"
+      },
+      {
+        "bytes": 1517,
+        "path": "probe_ev1_minus30/attack_trace.json",
+        "sha256": "474356c24c518d835ace3e841c5ea0289f280ebbcffedbe9e7a44cbeccee04b4"
+      },
+      {
+        "bytes": 231,
+        "path": "probe_ev1_minus30/console.stderr.txt",
+        "sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361"
+      },
+      {
+        "bytes": 388,
+        "path": "probe_ev1_minus30/console.stdout.txt",
+        "sha256": "1a9fc5b36e6faa9058a07e6c2d3e98601bade665a579a8649aca9c59d6bc1607"
+      },
+      {
+        "bytes": 2079,
+        "path": "probe_ev1_minus30/dual_budget_trace.json",
+        "sha256": "9c74747a5d67bc7c6727364a678c7c90299e1e9fb9b229079ba7740601479f00"
+      },
+      {
+        "bytes": 387,
+        "path": "probe_ev1_minus30/g7_summary.json",
+        "sha256": "4a3c2a2086f4a2b2c65827445c46395d915336de4153647bbe280afddc32581b"
+      },
+      {
+        "bytes": 432,
+        "path": "probe_ev1_minus30/gld_cosim_right.csv",
+        "sha256": "542f84d802bcf3aab0a6abc4a2e0ee403ff89671620d5a90f55489dd91969517"
+      },
+      {
+        "bytes": 2424,
+        "path": "probe_ev1_minus30/gridlabd.log",
+        "sha256": "f502bb9a831456c618d00cd5e0c8e242b046556d462cbb8cded5c55557dbd40a"
+      },
+      {
+        "bytes": 3279,
+        "path": "probe_ev1_minus30/mainglm.json",
+        "sha256": "f7d0ec4029b46264281aeaa09583fa237d88e6386a2aac1ec80ec7088ad963f1"
+      },
+      {
+        "bytes": 1925,
+        "path": "probe_ev1_minus30/multi_der_opender.json",
+        "sha256": "4f7e2d9ae330a9624aaadeb47d6bb32108f46ce0299a376de2ea1bfc2aaa45fa"
+      },
+      {
+        "bytes": 300,
+        "path": "probe_ev1_minus30/multi_der_source.json",
+        "sha256": "5d56ee197949bce8c19180768f221565d6ecbd3aeb05351fa4fa4e080877b59d"
+      },
+      {
+        "bytes": 3411,
+        "path": "probe_ev1_minus30/multi_der_traces.json",
+        "sha256": "45c813975528f63eaba2bba5662a87b680fdca2cce8da06b9e7422091c687401"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev1_minus30/output/1c_IEEE_123_feeder_0_EV2.csv",
+        "sha256": "5eab3d4f6e9b4992145cc9a625a20b8ce4d72baa2224c3bdc06cc6c60f9dc828"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev1_minus30/output/1c_IEEE_123_feeder_0_EV3.csv",
+        "sha256": "e33ddeafc3a280696ecf02c438ab2247931215021c2e0b818762293bdab59513"
+      },
+      {
+        "bytes": 327,
+        "path": "probe_ev1_minus30/output/1c_IEEE_123_feeder_0_EV4.csv",
+        "sha256": "d45763466e72462f40034bd2dff43acccdc076bc12eb55c542af6ea789fdc1c1"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev1_minus30/output/1c_IEEE_123_feeder_0_EV5.csv",
+        "sha256": "b982f025da7500b9da5283d222867e937b659ebd518e5e0da175d464882d687e"
+      },
+      {
+        "bytes": 320,
+        "path": "probe_ev1_minus30/output/1c_IEEE_123_feeder_0_EV6.csv",
+        "sha256": "f28ad35e9056b691e3f922a6c52bc6b6aa8f4a159a1f07d492ac20ff506bfd01"
+      },
+      {
+        "bytes": 277,
+        "path": "probe_ev1_minus30/output/1c_IEEE_123_feeder_0_climate.csv",
+        "sha256": "57a22fecc706b5f5bdffa0800bf507c428ed1d223357f03a0d964b1f855b1976"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev1_minus30/output/multi_der_DER_EV1_BESS_coupling.csv",
+        "sha256": "dc181237aa50076d2f974611015375b62b05c94fcc4f13c31efeac34447078df"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev1_minus30/output/multi_der_DER_EV3_PV_coupling.csv",
+        "sha256": "2d490f21400c11d05d1bf3fc497e59afda5402aad904cad30a9c752514e2e788"
+      },
+      {
+        "bytes": 397,
+        "path": "probe_ev1_minus30/output/multi_der_DER_EV4_BESS_coupling.csv",
+        "sha256": "ca80cb61f991e40b7dcd62dfcba19d0c764bd4c17464bd6204d0a0cb7eafbae3"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev1_minus30/output/multi_der_DER_EV5_PV_coupling.csv",
+        "sha256": "a4b601af96260e6d8515bfe7623b30c665425d683f0597ef9a21f8b7b9f78567"
+      },
+      {
+        "bytes": 3620,
+        "path": "probe_ev1_minus30/runtime_integration.json",
+        "sha256": "5b3c8b8a036e687afab388360f900a8592071ac60c58290b676edcd86a9e1380"
+      },
+      {
+        "bytes": 241,
+        "path": "probe_ev1_minus30/sw_status_l107_EV5.csv",
+        "sha256": "9459dc1ba9e603610c2e5cb48124c7b1c6b1070e594aff0bc8a647341e9c12b5"
+      },
+      {
+        "bytes": 241,
+        "path": "probe_ev1_minus30/sw_status_l114_EV6.csv",
+        "sha256": "c1f26995afb7aa55e98e4b29431b6ea4a42cb65ce9e126ad63909bb413a05d90"
+      },
+      {
+        "bytes": 239,
+        "path": "probe_ev1_minus30/sw_status_l2_EV2.csv",
+        "sha256": "0a2063057efb739ab583fc0bc7436a1206ebf730979d1817790340b5bc093f52"
+      },
+      {
+        "bytes": 239,
+        "path": "probe_ev1_minus30/sw_status_l5_EV1.csv",
+        "sha256": "e1f08546407078c0c9043a6b95e8001ebd2bed14eb7384d911475e962a1c2272"
+      },
+      {
+        "bytes": 240,
+        "path": "probe_ev1_minus30/sw_status_l92_EV4.csv",
+        "sha256": "c93ecd304074ef6f365e0afd8ac9ac23add478eeb1c91545379c7cc2adb73ce6"
+      },
+      {
+        "bytes": 157373,
+        "path": "probe_ev1_plus30/1c_IEEE_123_feeder.glm",
+        "sha256": "c646e977c818f435a0c0d137f85664c2819d0eff25e474a2a2e100987bd34899"
+      },
+      {
+        "bytes": 320,
+        "path": "probe_ev1_plus30/1c_IEEE_123_feeder_0_EV1.csv",
+        "sha256": "e3ca68ace7f773668176d80c4f0e8ef2a03592f1219e2209428807c91bbf05b9"
+      },
+      {
+        "bytes": 21091,
+        "path": "probe_ev1_plus30/Current_Dump_NR.csv",
+        "sha256": "210358c97880656da7c3df8cac0512c9e66448c488f2730ae801392f8abb0f6b"
+      },
+      {
+        "bytes": 33718,
+        "path": "probe_ev1_plus30/Volt_Dump_NR.csv",
+        "sha256": "5edcd63dc3d0baa1206a1db21d06eb6c523d911d82697d7ba4c354e005bde072"
+      },
+      {
+        "bytes": 1519,
+        "path": "probe_ev1_plus30/attack_trace.json",
+        "sha256": "97109be6a7a9a2ea899a49d8e94cd557f0b5dc6c798b10a0d81a9b8d2bf99608"
+      },
+      {
+        "bytes": 231,
+        "path": "probe_ev1_plus30/console.stderr.txt",
+        "sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361"
+      },
+      {
+        "bytes": 388,
+        "path": "probe_ev1_plus30/console.stdout.txt",
+        "sha256": "1a9fc5b36e6faa9058a07e6c2d3e98601bade665a579a8649aca9c59d6bc1607"
+      },
+      {
+        "bytes": 2073,
+        "path": "probe_ev1_plus30/dual_budget_trace.json",
+        "sha256": "ecb3e508cb2313bdf80b688dc570e431b317fa22c4a2c7fb8bb50ca78aa80475"
+      },
+      {
+        "bytes": 387,
+        "path": "probe_ev1_plus30/g7_summary.json",
+        "sha256": "4a3c2a2086f4a2b2c65827445c46395d915336de4153647bbe280afddc32581b"
+      },
+      {
+        "bytes": 432,
+        "path": "probe_ev1_plus30/gld_cosim_right.csv",
+        "sha256": "2cfb1555cbb66d9b43f5cb330aa3f9b8e6768e6bb4ae78bb1ab31475d1872772"
+      },
+      {
+        "bytes": 2468,
+        "path": "probe_ev1_plus30/gridlabd.log",
+        "sha256": "192e7ab42fc0742ac308198137a887f8f01a4811f1efa4e0d05fa22b571f08f3"
+      },
+      {
+        "bytes": 3276,
+        "path": "probe_ev1_plus30/mainglm.json",
+        "sha256": "896c806e75297c967cad3c14ab7040a2881b1605e6445b15164d83adea1a663f"
+      },
+      {
+        "bytes": 1923,
+        "path": "probe_ev1_plus30/multi_der_opender.json",
+        "sha256": "237ca143aa19e5da902062ad8165b4e7f086faec14e5e2b466e1c38af7664448"
+      },
+      {
+        "bytes": 300,
+        "path": "probe_ev1_plus30/multi_der_source.json",
+        "sha256": "3ec8720ebae3413279e11e6263d767ecd5d3e33082dd66fa417d65bb9eb1063a"
+      },
+      {
+        "bytes": 3412,
+        "path": "probe_ev1_plus30/multi_der_traces.json",
+        "sha256": "9e72b637e7f54df70f31b78015c3fcf121671335e8503289edfadaf032b824cf"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev1_plus30/output/1c_IEEE_123_feeder_0_EV2.csv",
+        "sha256": "4e44a23651c15a65973d67fcf26b1cc4dc17ecf79d6980077609b942600916e3"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev1_plus30/output/1c_IEEE_123_feeder_0_EV3.csv",
+        "sha256": "ce63c09d802a7f21e243c818584c7203762e153dfc49093b06889bb0d104deeb"
+      },
+      {
+        "bytes": 327,
+        "path": "probe_ev1_plus30/output/1c_IEEE_123_feeder_0_EV4.csv",
+        "sha256": "39cbf8102284ac676bec0006c7ca7c5a17875d03a71e5cbbb55a266a82748abb"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev1_plus30/output/1c_IEEE_123_feeder_0_EV5.csv",
+        "sha256": "ec128ffd1727114c7fd18fe2ddeb7815571c7ce8b782d2717aa6a4825477aa0a"
+      },
+      {
+        "bytes": 320,
+        "path": "probe_ev1_plus30/output/1c_IEEE_123_feeder_0_EV6.csv",
+        "sha256": "08c7d21fcce95efadd0a6482894800c0356f006dabf8212eb72f32fce3ff5dd8"
+      },
+      {
+        "bytes": 277,
+        "path": "probe_ev1_plus30/output/1c_IEEE_123_feeder_0_climate.csv",
+        "sha256": "bbbe75c319b688322432d8b28e7c8f3d81580b81b122069f9b75fb68b89331c4"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev1_plus30/output/multi_der_DER_EV1_BESS_coupling.csv",
+        "sha256": "c31ca54798c5baa52e083000f0a2998e30d68cdfda98f8d5a135fcb6324236be"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev1_plus30/output/multi_der_DER_EV3_PV_coupling.csv",
+        "sha256": "1af26f9527311b0b00aa457a115f873c194f5b777afa8b43fdd2f3226fbacfaa"
+      },
+      {
+        "bytes": 397,
+        "path": "probe_ev1_plus30/output/multi_der_DER_EV4_BESS_coupling.csv",
+        "sha256": "b3e4cc6f309e4d0b48039f7721a9b477286c76e5fdcdf2d410afaaad27ed831d"
+      },
+      {
+        "bytes": 400,
+        "path": "probe_ev1_plus30/output/multi_der_DER_EV5_PV_coupling.csv",
+        "sha256": "65c7222da92e1dc191f2fe75635ea8249c2dc91b8650594d5b974ead93a0220e"
+      },
+      {
+        "bytes": 3618,
+        "path": "probe_ev1_plus30/runtime_integration.json",
+        "sha256": "51ca6af5848d0044c1f4fabb0c30eff647e2ac8366b1829a29491c597b9e87f8"
+      },
+      {
+        "bytes": 241,
+        "path": "probe_ev1_plus30/sw_status_l107_EV5.csv",
+        "sha256": "89d19fb9581a2916ca81989f09a0bdcadd60176bcb2e082707a178d6d3075e60"
+      },
+      {
+        "bytes": 241,
+        "path": "probe_ev1_plus30/sw_status_l114_EV6.csv",
+        "sha256": "544c7c707d7eae085099c1e3df00e3c4b1eacc47107327fd18a4d02d957d6c01"
+      },
+      {
+        "bytes": 239,
+        "path": "probe_ev1_plus30/sw_status_l2_EV2.csv",
+        "sha256": "42ca353235ef9de36107f845304f45868211d50d133987d8a60b60336c8c6aca"
+      },
+      {
+        "bytes": 239,
+        "path": "probe_ev1_plus30/sw_status_l5_EV1.csv",
+        "sha256": "f33ae5c857db844b658fec462c6d37dc382d46eecc95f5ef3ee69e627429301f"
+      },
+      {
+        "bytes": 240,
+        "path": "probe_ev1_plus30/sw_status_l92_EV4.csv",
+        "sha256": "1c547cc02322033090899b4217a7a32cc6ca5cfe4eb9bf7b6c312f096d8eb60a"
+      },
+      {
+        "bytes": 157373,
+        "path": "probe_ev4_minus30/1c_IEEE_123_feeder.glm",
+        "sha256": "c646e977c818f435a0c0d137f85664c2819d0eff25e474a2a2e100987bd34899"
+      },
+      {
+        "bytes": 320,
+        "path": "probe_ev4_minus30/1c_IEEE_123_feeder_0_EV1.csv",
+        "sha256": "7949aac7e3809ef9a21eb32ef3728aafc3d4d108d402b3314d3fa364d5c153f5"
+      },
+      {
+        "bytes": 21091,
+        "path": "probe_ev4_minus30/Current_Dump_NR.csv",
+        "sha256": "210358c97880656da7c3df8cac0512c9e66448c488f2730ae801392f8abb0f6b"
+      },
+      {
+        "bytes": 33718,
+        "path": "probe_ev4_minus30/Volt_Dump_NR.csv",
+        "sha256": "5edcd63dc3d0baa1206a1db21d06eb6c523d911d82697d7ba4c354e005bde072"
+      },
+      {
+        "bytes": 1518,
+        "path": "probe_ev4_minus30/attack_trace.json",
+        "sha256": "2dba4529a433305cff687135706831942ee96e475f03296ed0b6a29476407e18"
+      },
+      {
+        "bytes": 231,
+        "path": "probe_ev4_minus30/console.stderr.txt",
+        "sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361"
+      },
+      {
+        "bytes": 388,
+        "path": "probe_ev4_minus30/console.stdout.txt",
+        "sha256": "1a9fc5b36e6faa9058a07e6c2d3e98601bade665a579a8649aca9c59d6bc1607"
+      },
+      {
+        "bytes": 2079,
+        "path": "probe_ev4_minus30/dual_budget_trace.json",
+        "sha256": "e0ba7793e8a79f015e38dceaef6dad4b0ff1f2f6c49c567418298cff3dc9e13c"
+      },
+      {
+        "bytes": 387,
+        "path": "probe_ev4_minus30/g7_summary.json",
+        "sha256": "4a3c2a2086f4a2b2c65827445c46395d915336de4153647bbe280afddc32581b"
+      },
+      {
+        "bytes": 432,
+        "path": "probe_ev4_minus30/gld_cosim_right.csv",
+        "sha256": "245559ca22df3ac6bfeadc73a1ee7bb5ec49b9dfa5bef030b5dda38b8372d942"
+      },
+      {
+        "bytes": 2466,
+        "path": "probe_ev4_minus30/gridlabd.log",
+        "sha256": "2462aeef1c0863fa3f4e668e29df5dfc4c87b61c5b0863930723a3eecf4e636c"
+      },
+      {
+        "bytes": 3279,
+        "path": "probe_ev4_minus30/mainglm.json",
+        "sha256": "a6cf1516d60aa0d3f58ed0184092cca788ba6c32e717a3aa054f503673da9402"
+      },
+      {
+        "bytes": 1925,
+        "path": "probe_ev4_minus30/multi_der_opender.json",
+        "sha256": "11bc468bab990e90bc92ae6ce5d8a025a10ed65c237b53cfac7c87b33ec58163"
+      },
+      {
+        "bytes": 301,
+        "path": "probe_ev4_minus30/multi_der_source.json",
+        "sha256": "d9a10d9063ef7320c10a97165c1a117d82fe5847132d656783fbb0ffebf4d74b"
+      },
+      {
+        "bytes": 3412,
+        "path": "probe_ev4_minus30/multi_der_traces.json",
+        "sha256": "fc4e2c3f54650eb995eb4ea8f6997d9e819bb600d6491ab7f2a169b107f3a42d"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev4_minus30/output/1c_IEEE_123_feeder_0_EV2.csv",
+        "sha256": "e4f9e9db444323127a371b1af5f88ef187eaefde50d71c1e854254f29b35b20e"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev4_minus30/output/1c_IEEE_123_feeder_0_EV3.csv",
+        "sha256": "87c89ef5c3b22107b286db653f7a2aac582994567a5d1324f18d95aad9c51813"
+      },
+      {
+        "bytes": 327,
+        "path": "probe_ev4_minus30/output/1c_IEEE_123_feeder_0_EV4.csv",
+        "sha256": "de507f3bc57fddd9bf5701e41dceca90106b7838c466a6c3fc6f5685f6b46dc1"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev4_minus30/output/1c_IEEE_123_feeder_0_EV5.csv",
+        "sha256": "6dcef5c61ffeb8dec70436f4d12cf78101cc460020c2fc24020925d4fd131d07"
+      },
+      {
+        "bytes": 320,
+        "path": "probe_ev4_minus30/output/1c_IEEE_123_feeder_0_EV6.csv",
+        "sha256": "1038e3c4fbb6237bab569ebe19396c437880d6ddb80136919d46ecdb67399b5b"
+      },
+      {
+        "bytes": 277,
+        "path": "probe_ev4_minus30/output/1c_IEEE_123_feeder_0_climate.csv",
+        "sha256": "9a5be3dfddb9947d4161f3e33f2964394e28eb55a7ed0488639778bd1f8bb1ab"
+      },
+      {
+        "bytes": 397,
+        "path": "probe_ev4_minus30/output/multi_der_DER_EV1_BESS_coupling.csv",
+        "sha256": "11c3e183b23bc9462935f258359675d1677dab5a126c0d2397acbdac70d21451"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev4_minus30/output/multi_der_DER_EV3_PV_coupling.csv",
+        "sha256": "6631eb5694223995fc7563c243409ee26e6728d896854e353745316f819bc45a"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev4_minus30/output/multi_der_DER_EV4_BESS_coupling.csv",
+        "sha256": "929be4b67299e1835c5453afd2b52405acf9ea3cfa317b1c41aa9f84cca787e2"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev4_minus30/output/multi_der_DER_EV5_PV_coupling.csv",
+        "sha256": "baf9a1d5ddf716860442674433ab3afcdd6342f3e3673cc7ade5993344ebf400"
+      },
+      {
+        "bytes": 3620,
+        "path": "probe_ev4_minus30/runtime_integration.json",
+        "sha256": "afe7efbf07ac84f0b95898e357c6101ac3accdee27a7ba2e09443271297b4d61"
+      },
+      {
+        "bytes": 241,
+        "path": "probe_ev4_minus30/sw_status_l107_EV5.csv",
+        "sha256": "b94c4ed7f521bff292c64c772f3eaeb1db9c53cb3c41c19bce80265e517fa13a"
+      },
+      {
+        "bytes": 241,
+        "path": "probe_ev4_minus30/sw_status_l114_EV6.csv",
+        "sha256": "a4dee64d5abee9480af67a0e5fca2b1b0a75c01a4adc236f79b1e827785c8168"
+      },
+      {
+        "bytes": 239,
+        "path": "probe_ev4_minus30/sw_status_l2_EV2.csv",
+        "sha256": "27304a80ebc8725b30ecae15698ad3cb605d5297016fc2ae8cfc0af65ff0ad6c"
+      },
+      {
+        "bytes": 239,
+        "path": "probe_ev4_minus30/sw_status_l5_EV1.csv",
+        "sha256": "a23f5b254d91e0ccbf411aac5c8c3e6cb30de137f3bfb80c5712aaacb9a422e4"
+      },
+      {
+        "bytes": 240,
+        "path": "probe_ev4_minus30/sw_status_l92_EV4.csv",
+        "sha256": "149773d081db3f13e45f6d180fff26d378d43dfdd56e70612413aeb159f5d9cd"
+      },
+      {
+        "bytes": 157373,
+        "path": "probe_ev4_plus30/1c_IEEE_123_feeder.glm",
+        "sha256": "c646e977c818f435a0c0d137f85664c2819d0eff25e474a2a2e100987bd34899"
+      },
+      {
+        "bytes": 320,
+        "path": "probe_ev4_plus30/1c_IEEE_123_feeder_0_EV1.csv",
+        "sha256": "b3396826818ab05b3139d04eaa16ac74f830f82b470d5573d8e2b853ec0b2b43"
+      },
+      {
+        "bytes": 21091,
+        "path": "probe_ev4_plus30/Current_Dump_NR.csv",
+        "sha256": "210358c97880656da7c3df8cac0512c9e66448c488f2730ae801392f8abb0f6b"
+      },
+      {
+        "bytes": 33718,
+        "path": "probe_ev4_plus30/Volt_Dump_NR.csv",
+        "sha256": "5edcd63dc3d0baa1206a1db21d06eb6c523d911d82697d7ba4c354e005bde072"
+      },
+      {
+        "bytes": 1517,
+        "path": "probe_ev4_plus30/attack_trace.json",
+        "sha256": "3bc2892d8044b54c908e0138fd79fbcdb8d57df88c36e7af4f1a9af54e410e62"
+      },
+      {
+        "bytes": 231,
+        "path": "probe_ev4_plus30/console.stderr.txt",
+        "sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361"
+      },
+      {
+        "bytes": 388,
+        "path": "probe_ev4_plus30/console.stdout.txt",
+        "sha256": "1a9fc5b36e6faa9058a07e6c2d3e98601bade665a579a8649aca9c59d6bc1607"
+      },
+      {
+        "bytes": 2073,
+        "path": "probe_ev4_plus30/dual_budget_trace.json",
+        "sha256": "6158148bf74cfdc18cad47656b546f3a588bf8d79a4144141e68ced4883398b2"
+      },
+      {
+        "bytes": 387,
+        "path": "probe_ev4_plus30/g7_summary.json",
+        "sha256": "4a3c2a2086f4a2b2c65827445c46395d915336de4153647bbe280afddc32581b"
+      },
+      {
+        "bytes": 432,
+        "path": "probe_ev4_plus30/gld_cosim_right.csv",
+        "sha256": "62a6e536d640b112e0c9d866b939265f7b3cf476eacf6190edbe8f4c77395664"
+      },
+      {
+        "bytes": 2424,
+        "path": "probe_ev4_plus30/gridlabd.log",
+        "sha256": "278fed0441197a962009b6440d04baf8f9661c25aec94e50aa968e313b0f89e2"
+      },
+      {
+        "bytes": 3276,
+        "path": "probe_ev4_plus30/mainglm.json",
+        "sha256": "a917b30cf095b91681bb1e629b5153a15a888ef7fec07839bdd9c556d2172ccb"
+      },
+      {
+        "bytes": 1923,
+        "path": "probe_ev4_plus30/multi_der_opender.json",
+        "sha256": "ba7e76b732ea69d3bf83ed8fee512b5c1aaf723f29400c7abbb4da13e20def78"
+      },
+      {
+        "bytes": 301,
+        "path": "probe_ev4_plus30/multi_der_source.json",
+        "sha256": "44d8b6ad33314e5cf487a5e09636426f039ebba0467692a9d4fc1c421317b69c"
+      },
+      {
+        "bytes": 3410,
+        "path": "probe_ev4_plus30/multi_der_traces.json",
+        "sha256": "6601720b4653c7dac5f79dac2d0b9398ed81610e2595eb338229803f3a308f91"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev4_plus30/output/1c_IEEE_123_feeder_0_EV2.csv",
+        "sha256": "7aac4566db1edb3508e1bccfe20e93e906fe85a174b91b3ba46840375e2b485d"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev4_plus30/output/1c_IEEE_123_feeder_0_EV3.csv",
+        "sha256": "c721f7dbc37a00b0169b4d5955e7b082f48a9f66eccfb71b34e701c1ee43e83b"
+      },
+      {
+        "bytes": 327,
+        "path": "probe_ev4_plus30/output/1c_IEEE_123_feeder_0_EV4.csv",
+        "sha256": "deed4ff8bafcc9532ff82604d0b05820b55f69af52faeb6f9e33264b6f551f3f"
+      },
+      {
+        "bytes": 328,
+        "path": "probe_ev4_plus30/output/1c_IEEE_123_feeder_0_EV5.csv",
+        "sha256": "0a5e6943a6527a8fcee51b32cb0bf9a81278ebb6ddc19173ef59ce71d213b119"
+      },
+      {
+        "bytes": 320,
+        "path": "probe_ev4_plus30/output/1c_IEEE_123_feeder_0_EV6.csv",
+        "sha256": "0a1bc9fa70e762203537790cc8058bc80bf7c6e7773b1eccb8147f1c835a2937"
+      },
+      {
+        "bytes": 277,
+        "path": "probe_ev4_plus30/output/1c_IEEE_123_feeder_0_climate.csv",
+        "sha256": "c6b3df2d749ff12b486fd6fd9e3a7abe8eb5e162c764ae6145e2e76b0ca00fac"
+      },
+      {
+        "bytes": 397,
+        "path": "probe_ev4_plus30/output/multi_der_DER_EV1_BESS_coupling.csv",
+        "sha256": "28377626eae17e05ad33ed0f9a3fe007a4385c975d8a0fbdeb464c294d71cd6a"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev4_plus30/output/multi_der_DER_EV3_PV_coupling.csv",
+        "sha256": "8eb643f1c6ecd536e10d17cb7b97c948dca9a9c8edb548af863cb6bfdb79aebb"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev4_plus30/output/multi_der_DER_EV4_BESS_coupling.csv",
+        "sha256": "1ec08109ea8d18bb5227aecc75bc77b18cbbbfc4d432af08abd5e9cc127f91d4"
+      },
+      {
+        "bytes": 401,
+        "path": "probe_ev4_plus30/output/multi_der_DER_EV5_PV_coupling.csv",
+        "sha256": "a1eaf9e1e93a1a93cdb046df789e2de28c627054a77d7f463cf8d1c09cab0643"
+      },
+      {
+        "bytes": 3618,
+        "path": "probe_ev4_plus30/runtime_integration.json",
+        "sha256": "d4d7b987dd897c8848e16baf8681b524efa9ea65c2b5722464c65fb4f369c244"
+      },
+      {
+        "bytes": 241,
+        "path": "probe_ev4_plus30/sw_status_l107_EV5.csv",
+        "sha256": "c781ead312a3e5685e50e227dabd2cbe59fda2e8ba21b663c28d351b3debae9d"
+      },
+      {
+        "bytes": 241,
+        "path": "probe_ev4_plus30/sw_status_l114_EV6.csv",
+        "sha256": "c2b034a07361a234e44c7db84655535762faf4e99ab5521a0a855c8c9ffc488e"
+      },
+      {
+        "bytes": 239,
+        "path": "probe_ev4_plus30/sw_status_l2_EV2.csv",
+        "sha256": "35791c7252d1debf9bdb381dd02df0d681b62781263e770966d1188c1e47f92f"
+      },
+      {
+        "bytes": 239,
+        "path": "probe_ev4_plus30/sw_status_l5_EV1.csv",
+        "sha256": "8328c61b2a4889818ed810e90d78dbdb156f8f7e6a2615c97a531398569831b7"
+      },
+      {
+        "bytes": 240,
+        "path": "probe_ev4_plus30/sw_status_l92_EV4.csv",
+        "sha256": "c55e603c3f3bf6cac735eb85d92095f3c1eeabc703803b976db11da9a8c1cf34"
+      }
+    ],
+    "total_bytes": 1185418
+  },
+  "runs": [
+    {
+      "artifact_sha256": {
+        "attack": "b0ca4936102a7584b5d97d6352d2ad1def8000a6f89069221b12cf295cd6e824",
+        "budget": "98b4366710883675a04cd5f51a3063be8b226413870b25a10b8233f3c34c3002",
+        "devices": "f8c733420357579626dd8ea69bf35a97be7c0684425480af0e19f15e0715f34b",
+        "gridlabd_log": "099e1ba8daa698322f750bcee725ab06561207c6a995591ae5844fbe7a922d41",
+        "integration": "6b285de67629a3ab3c2aa391b3aa4424771ffcaef309b21731eb4acb68190e84",
+        "source": "d4bf4194dc207113b27470ad32255263f4318c3ca6ec60ec027207af3749a58d",
+        "stderr": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361",
+        "stdout": "71f029b7ce932269420d0c01e7b293064277065af84e179df3e0e63ecb054d47",
+        "summary": "98ae26b76f341c9c344c6c133f5e3ccddf51062583241d48c25b0fc381fb744c"
+      },
+      "budget": {
+        "admitted_energy_kvah": 0.0,
+        "apparent_energy_cap_kvah": 0.0,
+        "delivered_command_energy_kvah": 0.0,
+        "delivery_reconciled": true,
+        "window_cap": 0,
+        "windows_spent": 0
+      },
+      "command_kw": 0.0,
+      "dependency_hashes": {
+        "device_config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+        "frozen_attack_runner_sha256": "79fd8f821477dd6beab9b9ccb28cd65a2a5ddfb4f2d2b462e1e84b89d82f8c69",
+        "frozen_base_runner_sha256": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+        "frozen_detector_sha256": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+        "frozen_sensitivity_sha256": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8",
+        "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+        "source_glm_sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+      },
+      "detector_defense_state": {
+        "detector": "held_not_executed",
+        "final_parameters_locked": false,
+        "volt_var_defense": "disabled"
+      },
+      "gridlabd_received_DER_power": {
+        "multi_der_DER_EV1_BESS_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV3_PV_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -80000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV4_BESS_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV5_PV_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -80000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ]
+      },
+      "operating_point": {
+        "actuated_glm_sha256": "c646e977c818f435a0c0d137f85664c2819d0eff25e474a2a2e100987bd34899",
+        "condition_class": "falsification",
+        "duration_s": 30,
+        "id": "voltage_ceiling",
+        "load_shape_player": "/work/examples/2bus-13bus/include/players/load_shape_player.player",
+        "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+        "load_shape_value": 0.93292,
+        "rationale": "near-peak feeder-load ceiling/negative-control point",
+        "schema_version": "grideval-g7-operating-point/v1",
+        "start_time": "2013-08-28 14:00:00",
+        "stop_time": "2013-08-28 14:00:30"
+      },
+      "run_dir": "cells/seed6102_voltage_ceiling/benign",
+      "seed_lineage": {
+        "attacker_policy_seed": 6102,
+        "gridlabd_random_seed": 10,
+        "measurement_noise_seed": 96102,
+        "partition": "system_identification",
+        "replicate_seed": 6102
+      },
+      "target_id": null,
+      "treatment": "benign",
+      "warning_lines": [
+        {
+          "line": 1,
+          "path": "console.stderr.txt",
+          "text": "/usr/local/lib/python3.10/dist-packages/helics/capi.py:4444: UserWarning: This function is deprecated. Use `helicsFederateDisconnect` instead."
+        },
+        {
+          "line": 2,
+          "path": "console.stderr.txt",
+          "text": "  warnings.warn(\"This function is deprecated. Use `helicsFederateDisconnect` instead.\")"
+        },
+        {
+          "line": 1,
+          "path": "console.stdout.txt",
+          "text": "[2026-09-04 01:34:03.183] [console] [warning] commWarning||g7_benign_broker (1)[operating]::unknown route and no broker, dropping message pub:From (131072) handle(12) size 24 at 30 to 131073"
+        },
+        {
+          "line": 2,
+          "path": "gridlabd.log",
+          "text": "WARNING  [INIT] : switch objects may not behave properly under FBS!"
+        },
+        {
+          "line": 60,
+          "path": "gridlabd.log",
+          "text": "WARNING  [2013-08-28 14:00:30 PST] : last warning message was repeated 15 times"
+        }
+      ],
+      "windows": [
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0052540783293802,
+            "DER_EV3_PV": 0.9525840484103225,
+            "DER_EV4_BESS": 0.9714859885940175,
+            "DER_EV5_PV": 1.0055710082355032
+          },
+          "proposed_commands_kw_kvar": {},
+          "source_power_w_var": {
+            "source_p_w": 1632167.882480189,
+            "source_q_var": 483138.8743951933
+          },
+          "time_s": 10,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.0060036012891858,
+            "DER_EV3_PV": 0.9566786031786186,
+            "DER_EV4_BESS": 0.9737966644388403,
+            "DER_EV5_PV": 1.0076995078146709
+          },
+          "window": 0
+        },
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0059066068908602,
+            "DER_EV3_PV": 0.9543652825114708,
+            "DER_EV4_BESS": 0.9747793181088353,
+            "DER_EV5_PV": 1.0101126637519515
+          },
+          "proposed_commands_kw_kvar": {},
+          "source_power_w_var": {
+            "source_p_w": 1632168.6229717883,
+            "source_q_var": 483164.9993857896
+          },
+          "time_s": 20,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.006003086618038,
+            "DER_EV3_PV": 0.9566796989485471,
+            "DER_EV4_BESS": 0.9737926232706321,
+            "DER_EV5_PV": 1.0077016934881875
+          },
+          "window": 1
+        },
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0047209629908196,
+            "DER_EV3_PV": 0.9677505856763875,
+            "DER_EV4_BESS": 0.9715886680673395,
+            "DER_EV5_PV": 1.0129091868360744
+          },
+          "proposed_commands_kw_kvar": {},
+          "source_power_w_var": {
+            "source_p_w": 1630391.0870945614,
+            "source_q_var": 486052.18637659436
+          },
+          "time_s": 30,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.0056998158141115,
+            "DER_EV3_PV": 0.9674007107980052,
+            "DER_EV4_BESS": 0.972549471245546,
+            "DER_EV5_PV": 1.0122958192203597
+          },
+          "window": 2
+        }
+      ]
+    },
+    {
+      "artifact_sha256": {
+        "attack": "97109be6a7a9a2ea899a49d8e94cd557f0b5dc6c798b10a0d81a9b8d2bf99608",
+        "budget": "ecb3e508cb2313bdf80b688dc570e431b317fa22c4a2c7fb8bb50ca78aa80475",
+        "devices": "9e72b637e7f54df70f31b78015c3fcf121671335e8503289edfadaf032b824cf",
+        "gridlabd_log": "192e7ab42fc0742ac308198137a887f8f01a4811f1efa4e0d05fa22b571f08f3",
+        "integration": "51ca6af5848d0044c1f4fabb0c30eff647e2ac8366b1829a29491c597b9e87f8",
+        "source": "3ec8720ebae3413279e11e6263d767ecd5d3e33082dd66fa417d65bb9eb1063a",
+        "stderr": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361",
+        "stdout": "1a9fc5b36e6faa9058a07e6c2d3e98601bade665a579a8649aca9c59d6bc1607",
+        "summary": "4a3c2a2086f4a2b2c65827445c46395d915336de4153647bbe280afddc32581b"
+      },
+      "budget": {
+        "admitted_energy_kvah": 0.08333333333333333,
+        "apparent_energy_cap_kvah": 2.0,
+        "delivered_command_energy_kvah": 0.08333333333333333,
+        "delivery_reconciled": true,
+        "window_cap": 1,
+        "windows_spent": 1
+      },
+      "command_kw": 30.0,
+      "dependency_hashes": {
+        "device_config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+        "frozen_attack_runner_sha256": "79fd8f821477dd6beab9b9ccb28cd65a2a5ddfb4f2d2b462e1e84b89d82f8c69",
+        "frozen_base_runner_sha256": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+        "frozen_detector_sha256": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+        "frozen_sensitivity_sha256": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8",
+        "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+        "source_glm_sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+      },
+      "detector_defense_state": {
+        "detector": "held_not_executed",
+        "final_parameters_locked": false,
+        "volt_var_defense": "disabled"
+      },
+      "gridlabd_received_DER_power": {
+        "multi_der_DER_EV1_BESS_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -30000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV3_PV_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -80000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV4_BESS_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV5_PV_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -80000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ]
+      },
+      "operating_point": {
+        "actuated_glm_sha256": "c646e977c818f435a0c0d137f85664c2819d0eff25e474a2a2e100987bd34899",
+        "condition_class": "falsification",
+        "duration_s": 30,
+        "id": "voltage_ceiling",
+        "load_shape_player": "/work/examples/2bus-13bus/include/players/load_shape_player.player",
+        "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+        "load_shape_value": 0.93292,
+        "rationale": "near-peak feeder-load ceiling/negative-control point",
+        "schema_version": "grideval-g7-operating-point/v1",
+        "start_time": "2013-08-28 14:00:00",
+        "stop_time": "2013-08-28 14:00:30"
+      },
+      "run_dir": "cells/seed6102_voltage_ceiling/probe_ev1_plus30",
+      "seed_lineage": {
+        "attacker_policy_seed": 6102,
+        "gridlabd_random_seed": 10,
+        "measurement_noise_seed": 96102,
+        "partition": "system_identification",
+        "replicate_seed": 6102
+      },
+      "target_id": "DER_EV1_BESS",
+      "treatment": "probe_ev1_plus30",
+      "warning_lines": [
+        {
+          "line": 1,
+          "path": "console.stderr.txt",
+          "text": "/usr/local/lib/python3.10/dist-packages/helics/capi.py:4444: UserWarning: This function is deprecated. Use `helicsFederateDisconnect` instead."
+        },
+        {
+          "line": 2,
+          "path": "console.stderr.txt",
+          "text": "  warnings.warn(\"This function is deprecated. Use `helicsFederateDisconnect` instead.\")"
+        },
+        {
+          "line": 2,
+          "path": "gridlabd.log",
+          "text": "WARNING  [INIT] : switch objects may not behave properly under FBS!"
+        },
+        {
+          "line": 63,
+          "path": "gridlabd.log",
+          "text": "WARNING  [2013-08-28 14:00:30 PST] : last warning message was repeated 15 times"
+        }
+      ],
+      "windows": [
+        {
+          "accepted_commands_kw_kvar": {
+            "DER_EV1_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          "delivered_commands_kw_kvar": {
+            "DER_EV1_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0052540783293802,
+            "DER_EV3_PV": 0.9525840484103225,
+            "DER_EV4_BESS": 0.9714859885940175,
+            "DER_EV5_PV": 1.0055710082355032
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV1_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1632167.882480189,
+            "source_q_var": 483138.8743951933
+          },
+          "time_s": 10,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.0060036012891858,
+            "DER_EV3_PV": 0.9566786031786186,
+            "DER_EV4_BESS": 0.9737966644388403,
+            "DER_EV5_PV": 1.0076995078146709
+          },
+          "window": 0
+        },
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0059066068908602,
+            "DER_EV3_PV": 0.9543652825114708,
+            "DER_EV4_BESS": 0.9747793181088353,
+            "DER_EV5_PV": 1.0101126637519515
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV1_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1632168.6229717883,
+            "source_q_var": 483164.9993857896
+          },
+          "time_s": 20,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.006003086618038,
+            "DER_EV3_PV": 0.9566796989485471,
+            "DER_EV4_BESS": 0.9737926232706321,
+            "DER_EV5_PV": 1.0077016934881875
+          },
+          "window": 1
+        },
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0056701126325658,
+            "DER_EV3_PV": 0.9676031607630795,
+            "DER_EV4_BESS": 0.9718014965836789,
+            "DER_EV5_PV": 1.0129893558402794
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV1_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1600055.041201128,
+            "source_q_var": 484762.1306029595
+          },
+          "time_s": 30,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.0066489654558577,
+            "DER_EV3_PV": 0.9672532858846972,
+            "DER_EV4_BESS": 0.9727622997618854,
+            "DER_EV5_PV": 1.0123759882245646
+          },
+          "window": 2
+        }
+      ]
+    },
+    {
+      "artifact_sha256": {
+        "attack": "474356c24c518d835ace3e841c5ea0289f280ebbcffedbe9e7a44cbeccee04b4",
+        "budget": "9c74747a5d67bc7c6727364a678c7c90299e1e9fb9b229079ba7740601479f00",
+        "devices": "45c813975528f63eaba2bba5662a87b680fdca2cce8da06b9e7422091c687401",
+        "gridlabd_log": "f502bb9a831456c618d00cd5e0c8e242b046556d462cbb8cded5c55557dbd40a",
+        "integration": "5b3c8b8a036e687afab388360f900a8592071ac60c58290b676edcd86a9e1380",
+        "source": "5d56ee197949bce8c19180768f221565d6ecbd3aeb05351fa4fa4e080877b59d",
+        "stderr": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361",
+        "stdout": "1a9fc5b36e6faa9058a07e6c2d3e98601bade665a579a8649aca9c59d6bc1607",
+        "summary": "4a3c2a2086f4a2b2c65827445c46395d915336de4153647bbe280afddc32581b"
+      },
+      "budget": {
+        "admitted_energy_kvah": 0.08333333333333333,
+        "apparent_energy_cap_kvah": 2.0,
+        "delivered_command_energy_kvah": 0.08333333333333333,
+        "delivery_reconciled": true,
+        "window_cap": 1,
+        "windows_spent": 1
+      },
+      "command_kw": -30.0,
+      "dependency_hashes": {
+        "device_config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+        "frozen_attack_runner_sha256": "79fd8f821477dd6beab9b9ccb28cd65a2a5ddfb4f2d2b462e1e84b89d82f8c69",
+        "frozen_base_runner_sha256": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+        "frozen_detector_sha256": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+        "frozen_sensitivity_sha256": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8",
+        "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+        "source_glm_sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+      },
+      "detector_defense_state": {
+        "detector": "held_not_executed",
+        "final_parameters_locked": false,
+        "volt_var_defense": "disabled"
+      },
+      "gridlabd_received_DER_power": {
+        "multi_der_DER_EV1_BESS_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              30000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV3_PV_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -80000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV4_BESS_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV5_PV_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -80000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ]
+      },
+      "operating_point": {
+        "actuated_glm_sha256": "c646e977c818f435a0c0d137f85664c2819d0eff25e474a2a2e100987bd34899",
+        "condition_class": "falsification",
+        "duration_s": 30,
+        "id": "voltage_ceiling",
+        "load_shape_player": "/work/examples/2bus-13bus/include/players/load_shape_player.player",
+        "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+        "load_shape_value": 0.93292,
+        "rationale": "near-peak feeder-load ceiling/negative-control point",
+        "schema_version": "grideval-g7-operating-point/v1",
+        "start_time": "2013-08-28 14:00:00",
+        "stop_time": "2013-08-28 14:00:30"
+      },
+      "run_dir": "cells/seed6102_voltage_ceiling/probe_ev1_minus30",
+      "seed_lineage": {
+        "attacker_policy_seed": 6102,
+        "gridlabd_random_seed": 10,
+        "measurement_noise_seed": 96102,
+        "partition": "system_identification",
+        "replicate_seed": 6102
+      },
+      "target_id": "DER_EV1_BESS",
+      "treatment": "probe_ev1_minus30",
+      "warning_lines": [
+        {
+          "line": 1,
+          "path": "console.stderr.txt",
+          "text": "/usr/local/lib/python3.10/dist-packages/helics/capi.py:4444: UserWarning: This function is deprecated. Use `helicsFederateDisconnect` instead."
+        },
+        {
+          "line": 2,
+          "path": "console.stderr.txt",
+          "text": "  warnings.warn(\"This function is deprecated. Use `helicsFederateDisconnect` instead.\")"
+        },
+        {
+          "line": 2,
+          "path": "gridlabd.log",
+          "text": "WARNING  [INIT] : switch objects may not behave properly under FBS!"
+        },
+        {
+          "line": 62,
+          "path": "gridlabd.log",
+          "text": "WARNING  [2013-08-28 14:00:30 PST] : last warning message was repeated 15 times"
+        }
+      ],
+      "windows": [
+        {
+          "accepted_commands_kw_kvar": {
+            "DER_EV1_BESS": [
+              -30.0,
+              0.0
+            ]
+          },
+          "delivered_commands_kw_kvar": {
+            "DER_EV1_BESS": [
+              -30.0,
+              0.0
+            ]
+          },
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0052540783293802,
+            "DER_EV3_PV": 0.9525840484103225,
+            "DER_EV4_BESS": 0.9714859885940175,
+            "DER_EV5_PV": 1.0055710082355032
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV1_BESS": [
+              -30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1632167.882480189,
+            "source_q_var": 483138.8743951933
+          },
+          "time_s": 10,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.0060036012891858,
+            "DER_EV3_PV": 0.9566786031786186,
+            "DER_EV4_BESS": 0.9737966644388403,
+            "DER_EV5_PV": 1.0076995078146709
+          },
+          "window": 0
+        },
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0059066068908602,
+            "DER_EV3_PV": 0.9543652825114708,
+            "DER_EV4_BESS": 0.9747793181088353,
+            "DER_EV5_PV": 1.0101126637519515
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV1_BESS": [
+              -30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1632168.6229717883,
+            "source_q_var": 483164.9993857896
+          },
+          "time_s": 20,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.006003086618038,
+            "DER_EV3_PV": 0.9566796989485471,
+            "DER_EV4_BESS": 0.9737926232706321,
+            "DER_EV5_PV": 1.0077016934881875
+          },
+          "window": 1
+        },
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.003768658243995,
+            "DER_EV3_PV": 0.9679027704850147,
+            "DER_EV4_BESS": 0.9713752611175513,
+            "DER_EV5_PV": 1.012825503903723
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV1_BESS": [
+              -30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1660795.0310924144,
+            "source_q_var": 487403.319999183
+          },
+          "time_s": 30,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.004747511067287,
+            "DER_EV3_PV": 0.9675528956066324,
+            "DER_EV4_BESS": 0.9723360642957579,
+            "DER_EV5_PV": 1.0122121362880083
+          },
+          "window": 2
+        }
+      ]
+    },
+    {
+      "artifact_sha256": {
+        "attack": "3bc2892d8044b54c908e0138fd79fbcdb8d57df88c36e7af4f1a9af54e410e62",
+        "budget": "6158148bf74cfdc18cad47656b546f3a588bf8d79a4144141e68ced4883398b2",
+        "devices": "6601720b4653c7dac5f79dac2d0b9398ed81610e2595eb338229803f3a308f91",
+        "gridlabd_log": "278fed0441197a962009b6440d04baf8f9661c25aec94e50aa968e313b0f89e2",
+        "integration": "d4d7b987dd897c8848e16baf8681b524efa9ea65c2b5722464c65fb4f369c244",
+        "source": "44d8b6ad33314e5cf487a5e09636426f039ebba0467692a9d4fc1c421317b69c",
+        "stderr": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361",
+        "stdout": "1a9fc5b36e6faa9058a07e6c2d3e98601bade665a579a8649aca9c59d6bc1607",
+        "summary": "4a3c2a2086f4a2b2c65827445c46395d915336de4153647bbe280afddc32581b"
+      },
+      "budget": {
+        "admitted_energy_kvah": 0.08333333333333333,
+        "apparent_energy_cap_kvah": 2.0,
+        "delivered_command_energy_kvah": 0.08333333333333333,
+        "delivery_reconciled": true,
+        "window_cap": 1,
+        "windows_spent": 1
+      },
+      "command_kw": 30.0,
+      "dependency_hashes": {
+        "device_config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+        "frozen_attack_runner_sha256": "79fd8f821477dd6beab9b9ccb28cd65a2a5ddfb4f2d2b462e1e84b89d82f8c69",
+        "frozen_base_runner_sha256": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+        "frozen_detector_sha256": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+        "frozen_sensitivity_sha256": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8",
+        "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+        "source_glm_sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+      },
+      "detector_defense_state": {
+        "detector": "held_not_executed",
+        "final_parameters_locked": false,
+        "volt_var_defense": "disabled"
+      },
+      "gridlabd_received_DER_power": {
+        "multi_der_DER_EV1_BESS_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV3_PV_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -80000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV4_BESS_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -30000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV5_PV_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -80000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ]
+      },
+      "operating_point": {
+        "actuated_glm_sha256": "c646e977c818f435a0c0d137f85664c2819d0eff25e474a2a2e100987bd34899",
+        "condition_class": "falsification",
+        "duration_s": 30,
+        "id": "voltage_ceiling",
+        "load_shape_player": "/work/examples/2bus-13bus/include/players/load_shape_player.player",
+        "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+        "load_shape_value": 0.93292,
+        "rationale": "near-peak feeder-load ceiling/negative-control point",
+        "schema_version": "grideval-g7-operating-point/v1",
+        "start_time": "2013-08-28 14:00:00",
+        "stop_time": "2013-08-28 14:00:30"
+      },
+      "run_dir": "cells/seed6102_voltage_ceiling/probe_ev4_plus30",
+      "seed_lineage": {
+        "attacker_policy_seed": 6102,
+        "gridlabd_random_seed": 10,
+        "measurement_noise_seed": 96102,
+        "partition": "system_identification",
+        "replicate_seed": 6102
+      },
+      "target_id": "DER_EV4_BESS",
+      "treatment": "probe_ev4_plus30",
+      "warning_lines": [
+        {
+          "line": 1,
+          "path": "console.stderr.txt",
+          "text": "/usr/local/lib/python3.10/dist-packages/helics/capi.py:4444: UserWarning: This function is deprecated. Use `helicsFederateDisconnect` instead."
+        },
+        {
+          "line": 2,
+          "path": "console.stderr.txt",
+          "text": "  warnings.warn(\"This function is deprecated. Use `helicsFederateDisconnect` instead.\")"
+        },
+        {
+          "line": 2,
+          "path": "gridlabd.log",
+          "text": "WARNING  [INIT] : switch objects may not behave properly under FBS!"
+        },
+        {
+          "line": 62,
+          "path": "gridlabd.log",
+          "text": "WARNING  [2013-08-28 14:00:30 PST] : last warning message was repeated 15 times"
+        }
+      ],
+      "windows": [
+        {
+          "accepted_commands_kw_kvar": {
+            "DER_EV4_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          "delivered_commands_kw_kvar": {
+            "DER_EV4_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0052540783293802,
+            "DER_EV3_PV": 0.9525840484103225,
+            "DER_EV4_BESS": 0.9714859885940175,
+            "DER_EV5_PV": 1.0055710082355032
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV4_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1632167.882480189,
+            "source_q_var": 483138.8743951933
+          },
+          "time_s": 10,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.0060036012891858,
+            "DER_EV3_PV": 0.9566786031786186,
+            "DER_EV4_BESS": 0.9737966644388403,
+            "DER_EV5_PV": 1.0076995078146709
+          },
+          "window": 0
+        },
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0059066068908602,
+            "DER_EV3_PV": 0.9543652825114708,
+            "DER_EV4_BESS": 0.9747793181088353,
+            "DER_EV5_PV": 1.0101126637519515
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV4_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1632168.6229717883,
+            "source_q_var": 483164.9993857896
+          },
+          "time_s": 20,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.006003086618038,
+            "DER_EV3_PV": 0.9566796989485471,
+            "DER_EV4_BESS": 0.9737926232706321,
+            "DER_EV5_PV": 1.0077016934881875
+          },
+          "window": 1
+        },
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0049810753948356,
+            "DER_EV3_PV": 0.96552551468597,
+            "DER_EV4_BESS": 0.9751331575348182,
+            "DER_EV5_PV": 1.0136833542815702
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV4_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1599737.6374856047,
+            "source_q_var": 480331.2217440256
+          },
+          "time_s": 30,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.0059599282181275,
+            "DER_EV3_PV": 0.9651756398075877,
+            "DER_EV4_BESS": 0.9760939607130248,
+            "DER_EV5_PV": 1.0130699866658555
+          },
+          "window": 2
+        }
+      ]
+    },
+    {
+      "artifact_sha256": {
+        "attack": "2dba4529a433305cff687135706831942ee96e475f03296ed0b6a29476407e18",
+        "budget": "e0ba7793e8a79f015e38dceaef6dad4b0ff1f2f6c49c567418298cff3dc9e13c",
+        "devices": "fc4e2c3f54650eb995eb4ea8f6997d9e819bb600d6491ab7f2a169b107f3a42d",
+        "gridlabd_log": "2462aeef1c0863fa3f4e668e29df5dfc4c87b61c5b0863930723a3eecf4e636c",
+        "integration": "afe7efbf07ac84f0b95898e357c6101ac3accdee27a7ba2e09443271297b4d61",
+        "source": "d9a10d9063ef7320c10a97165c1a117d82fe5847132d656783fbb0ffebf4d74b",
+        "stderr": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361",
+        "stdout": "1a9fc5b36e6faa9058a07e6c2d3e98601bade665a579a8649aca9c59d6bc1607",
+        "summary": "4a3c2a2086f4a2b2c65827445c46395d915336de4153647bbe280afddc32581b"
+      },
+      "budget": {
+        "admitted_energy_kvah": 0.08333333333333333,
+        "apparent_energy_cap_kvah": 2.0,
+        "delivered_command_energy_kvah": 0.08333333333333333,
+        "delivery_reconciled": true,
+        "window_cap": 1,
+        "windows_spent": 1
+      },
+      "command_kw": -30.0,
+      "dependency_hashes": {
+        "device_config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+        "frozen_attack_runner_sha256": "79fd8f821477dd6beab9b9ccb28cd65a2a5ddfb4f2d2b462e1e84b89d82f8c69",
+        "frozen_base_runner_sha256": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+        "frozen_detector_sha256": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+        "frozen_sensitivity_sha256": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8",
+        "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+        "source_glm_sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+      },
+      "detector_defense_state": {
+        "detector": "held_not_executed",
+        "final_parameters_locked": false,
+        "volt_var_defense": "disabled"
+      },
+      "gridlabd_received_DER_power": {
+        "multi_der_DER_EV1_BESS_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV3_PV_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -80000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV4_BESS_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              30000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ],
+        "multi_der_DER_EV5_PV_coupling": [
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:00 PST"
+          },
+          {
+            "received_power_va": [
+              0.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:10 PST"
+          },
+          {
+            "received_power_va": [
+              -80000.0,
+              0.0
+            ],
+            "timestamp": "2013-08-28 14:00:20 PST"
+          }
+        ]
+      },
+      "operating_point": {
+        "actuated_glm_sha256": "c646e977c818f435a0c0d137f85664c2819d0eff25e474a2a2e100987bd34899",
+        "condition_class": "falsification",
+        "duration_s": 30,
+        "id": "voltage_ceiling",
+        "load_shape_player": "/work/examples/2bus-13bus/include/players/load_shape_player.player",
+        "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+        "load_shape_value": 0.93292,
+        "rationale": "near-peak feeder-load ceiling/negative-control point",
+        "schema_version": "grideval-g7-operating-point/v1",
+        "start_time": "2013-08-28 14:00:00",
+        "stop_time": "2013-08-28 14:00:30"
+      },
+      "run_dir": "cells/seed6102_voltage_ceiling/probe_ev4_minus30",
+      "seed_lineage": {
+        "attacker_policy_seed": 6102,
+        "gridlabd_random_seed": 10,
+        "measurement_noise_seed": 96102,
+        "partition": "system_identification",
+        "replicate_seed": 6102
+      },
+      "target_id": "DER_EV4_BESS",
+      "treatment": "probe_ev4_minus30",
+      "warning_lines": [
+        {
+          "line": 1,
+          "path": "console.stderr.txt",
+          "text": "/usr/local/lib/python3.10/dist-packages/helics/capi.py:4444: UserWarning: This function is deprecated. Use `helicsFederateDisconnect` instead."
+        },
+        {
+          "line": 2,
+          "path": "console.stderr.txt",
+          "text": "  warnings.warn(\"This function is deprecated. Use `helicsFederateDisconnect` instead.\")"
+        },
+        {
+          "line": 2,
+          "path": "gridlabd.log",
+          "text": "WARNING  [INIT] : switch objects may not behave properly under FBS!"
+        },
+        {
+          "line": 63,
+          "path": "gridlabd.log",
+          "text": "WARNING  [2013-08-28 14:00:30 PST] : last warning message was repeated 15 times"
+        }
+      ],
+      "windows": [
+        {
+          "accepted_commands_kw_kvar": {
+            "DER_EV4_BESS": [
+              -30.0,
+              0.0
+            ]
+          },
+          "delivered_commands_kw_kvar": {
+            "DER_EV4_BESS": [
+              -30.0,
+              0.0
+            ]
+          },
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0052540783293802,
+            "DER_EV3_PV": 0.9525840484103225,
+            "DER_EV4_BESS": 0.9714859885940175,
+            "DER_EV5_PV": 1.0055710082355032
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV4_BESS": [
+              -30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1632167.882480189,
+            "source_q_var": 483138.8743951933
+          },
+          "time_s": 10,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.0060036012891858,
+            "DER_EV3_PV": 0.9566786031786186,
+            "DER_EV4_BESS": 0.9737966644388403,
+            "DER_EV5_PV": 1.0076995078146709
+          },
+          "window": 0
+        },
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0059066068908602,
+            "DER_EV3_PV": 0.9543652825114708,
+            "DER_EV4_BESS": 0.9747793181088353,
+            "DER_EV5_PV": 1.0101126637519515
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV4_BESS": [
+              -30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1632168.6229717883,
+            "source_q_var": 483164.9993857896
+          },
+          "time_s": 20,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.006003086618038,
+            "DER_EV3_PV": 0.9566796989485471,
+            "DER_EV4_BESS": 0.9737926232706321,
+            "DER_EV5_PV": 1.0077016934881875
+          },
+          "window": 1
+        },
+        {
+          "accepted_commands_kw_kvar": {},
+          "delivered_commands_kw_kvar": {},
+          "measured_voltage_pu": {
+            "DER_EV1_BESS": 1.0044541234471944,
+            "DER_EV3_PV": 0.9699970389213953,
+            "DER_EV4_BESS": 0.9679785902644615,
+            "DER_EV5_PV": 1.012145467837988
+          },
+          "proposed_commands_kw_kvar": {
+            "DER_EV4_BESS": [
+              -30.0,
+              0.0
+            ]
+          },
+          "source_power_w_var": {
+            "source_p_w": 1661233.7404090469,
+            "source_q_var": 492192.3630820132
+          },
+          "time_s": 30,
+          "true_voltage_pu": {
+            "DER_EV1_BESS": 1.0054329762704863,
+            "DER_EV3_PV": 0.969647164043013,
+            "DER_EV4_BESS": 0.9689393934426681,
+            "DER_EV5_PV": 1.0115321002222732
+          },
+          "window": 2
+        }
+      ]
+    }
+  ],
+  "schema_version": "grideval-g7-m27-system-identification-cell/v1",
+  "seed": 6102,
+  "source_generation_action_request": {
+    "action_id": "m27_empirical_source_seed6102_voltage_ceiling",
+    "action_type": "source_generation",
+    "budget_id": "m27_seed6102_voltage_ceiling_one_source_from_five_runs",
+    "code_sha256": "db0ea301ceef87cade37d665ce0d9fbafcfa27eac08eaf8c1e69e628bee065b8",
+    "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+    "create_once": true,
+    "final_evaluation_data_accessed": false,
+    "local_service_identity": null,
+    "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+    "output_classification": "PRELIMINARY_ONLY",
+    "paired_benign_id": null,
+    "partition_role": "system_identification",
+    "physical_field_actuator": false,
+    "retain_failures": true,
+    "seed": 6102,
+    "starts_or_restarts_service": false
+  },
+  "status": "EMPIRICAL_SYSTEM_IDENTIFICATION_CELL_COMPLETE",
+  "warning_line_count": 21
+}

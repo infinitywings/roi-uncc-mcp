@@ -1,0 +1,21 @@
+[2026-09-04 01:33:33.015] [console] [warning] commWarning||g7_probe_ev4_minus30_broker (1)[operating]::unknown route and no broker, dropping message pub:From (131072) handle(11) size 24 at 30 to 131073
+[2026-09-04 01:33:33.016] [console] [warning] commWarning||g7_probe_ev4_minus30_broker (1)[operating]::unknown route and no broker, dropping message pub:From (131072) handle(12) size 24 at 30 to 131073
+{
+  "arm": "probe",
+  "budget_windows": 1,
+  "budget_spent": 1,
+  "attacker_seed": 6102,
+  "coupling_step_s": 10,
+  "volt_var_defender": false,
+  "meas_noise_pu": 0.002,
+  "noise_seed": 96102,
+  "devices": [
+    "DER_EV4_BESS@l92/C:bess",
+    "DER_EV1_BESS@l5/C:bess",
+    "DER_EV3_PV@l88/A:pv",
+    "DER_EV5_PV@l107/B:pv"
+  ],
+  "windows": 3,
+  "gridlabd_returncode": 0,
+  "llm": null
+}

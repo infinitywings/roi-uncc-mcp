@@ -1,0 +1,62 @@
+
+WARNING  [INIT] : switch objects may not behave properly under FBS!
+
+Core profiler results
+======================
+
+Total objects                831 objects
+Parallelism                    1 thread
+Total time                   1.0 seconds
+  Core time                  0.8 seconds (82.7%)
+    Compiler                 1.9 seconds (186.2%)
+    Instances                0.0 seconds (0.0%)
+    Random variables         0.0 seconds (0.0%)
+    Schedules                0.0 seconds (0.0%)
+    Loadshapes               0.0 seconds (0.0%)
+    Enduses                  0.0 seconds (0.0%)
+    Transforms               0.0 seconds (0.0%)
+  Model time                 0.2 seconds/thread (17.3%)
+Simulation time                0 days
+Simulation speed               7 object.hours/second
+Passes completed              13 passes
+Time steps completed           4 timesteps
+Convergence efficiency      3.25 passes/timestep
+Read lock contention        0.0%
+Write lock contention       0.0%
+Average timestep              8 seconds/timestep
+Simulation rate              30 x realtime
+
+
+Model profiler results
+======================
+
+Class            Time (s) Time (%) msec/obj
+---------------- -------- -------- --------
+helics_msg         0.106     61.5%    106.1
+climate            0.046     26.8%     46.2
+load               0.003      1.8%      0.0
+overhead_line      0.003      1.7%      0.0
+triplex_node       0.003      1.7%      0.0
+triplex_load       0.002      1.2%      0.0
+transformer        0.002      1.1%      0.0
+triplex_line       0.002      1.1%      0.0
+triplex_meter      0.002      1.0%      0.0
+node               0.001      0.6%      0.0
+voltdump           0.001      0.3%      0.6
+switch             0.000      0.3%      0.0
+recorder           0.000      0.3%      0.0
+currdump           0.000      0.2%      0.3
+player             0.000      0.2%      0.0
+regulator          0.000      0.1%      0.0
+underground_line   0.000      0.1%      0.0
+capacitor          0.000      0.1%      0.0
+meter              0.000      0.1%      0.0
+transformer_conf   0.000      0.0%      0.0
+line_configurati   0.000      0.0%      0.0
+overhead_line_co   0.000      0.0%      0.0
+regulator_config   0.000      0.0%      0.0
+triplex_line_con   0.000      0.0%      0.0
+================ ======== ======== ========
+Total              0.173    100.0%      0.2
+
+WARNING  [2013-08-28 04:00:30 PST] : last warning message was repeated 15 times

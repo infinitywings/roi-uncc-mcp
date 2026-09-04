@@ -201,6 +201,15 @@ single create-once live receipt, and independent audit are under
 `artifacts/m26_live_empirical_attempt1/`. It establishes current-service
 structured consumption of one real empirical result only. It does not admit
 the M23 source, demonstrate LLM advantage, or authorize plan execution.
+The M27 empirical repeatability and operating-point coverage result is
+documented in `M27_EMPIRICAL_REPEATABILITY_COVERAGE_REPORT.md`; its 36 M18
+requests, six new five-run cells, immutable M23 anchor binding, aggregate
+source, and independent audit are under
+`artifacts/m27_repeatability_coverage_attempt1/`. M27 uses a seven-cell
+crossed-anchor design: three seeds at `responsive_night` and all five operating
+points at seed `6102`. It supports a point-specific development result and a
+stable two-target ordering, but does not estimate the missing interaction or
+admit an operating-point-invariant sensitivity resource.
 The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and

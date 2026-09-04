@@ -1,0 +1,12 @@
+# file...... output/multi_der_DER_EV3_PV_coupling.csv
+# date...... Fri Sep  4 01:33:41 2026
+# user...... (null)
+# host...... (null)
+# target.... load 827
+# trigger... (none)
+# interval.. 10
+# limit..... 0
+# timestamp,measured_voltage_A,constant_power_A
+2013-08-28 12:00:00 PST,+2316.58-6.34713d,+0+0j
+2013-08-28 12:00:10 PST,+2316.58-6.34718d,+0+0j
+2013-08-28 12:00:20 PST,+2342.61-5.66535d,-80000+0j

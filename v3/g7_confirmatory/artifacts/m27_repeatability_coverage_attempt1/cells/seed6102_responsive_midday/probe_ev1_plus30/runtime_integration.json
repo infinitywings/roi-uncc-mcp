@@ -1,0 +1,82 @@
+{
+  "M18_action_request": {
+    "action_id": "m27_probe_ev1_plus30_seed6102_responsive_midday",
+    "action_type": "simulator_execution",
+    "budget_id": "m27_seed6102_responsive_midday_three_windows_symmetric_30kw",
+    "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+    "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+    "create_once": true,
+    "final_evaluation_data_accessed": false,
+    "local_service_identity": null,
+    "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+    "output_classification": "PRELIMINARY_ONLY",
+    "paired_benign_id": "m27_benign_seed6102_responsive_midday",
+    "partition_role": "system_identification",
+    "physical_field_actuator": false,
+    "retain_failures": true,
+    "seed": 6102,
+    "starts_or_restarts_service": false
+  },
+  "budget": {
+    "apparent_energy_cap_kvah": 2.0,
+    "perturbed_window_cap": 1
+  },
+  "campaign_authorized": false,
+  "classification": "PRELIMINARY_ONLY",
+  "composition": {
+    "attack_runner": "/work/v3/g7_condition_freeze/20260830_r1/formal_uninformed/run_g7_attack_loop.py",
+    "base_runner": "/work/v3/g7_condition_freeze/20260830_r1/shared/run_multi_der_loop.py",
+    "budget_hook": "g7confirm.budget.RunnerOwnedDualBudgetPolicyAdapter",
+    "clock_hook": "g7confirm.operating_points.actuate_glm_clock"
+  },
+  "delivery": {
+    "admitted_energy_kvah": 0.08333333333333333,
+    "delivered_command_energy_kvah": 0.08333333333333333,
+    "delivery_reconciled": true,
+    "windows_spent": 1
+  },
+  "dependency_hashes": {
+    "device_config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+    "frozen_attack_runner_sha256": "79fd8f821477dd6beab9b9ccb28cd65a2a5ddfb4f2d2b462e1e84b89d82f8c69",
+    "frozen_base_runner_sha256": "bdd5c661846e3f5364e273918a8d3ffb08c6d8898f43435bee94edce5336fdbb",
+    "frozen_detector_sha256": "f82c9bdb17db4cca69fe8ed0eec93e0aa422927f154a15444653ff877a125536",
+    "frozen_sensitivity_sha256": "05d486024b5106dec266c512d008294ff41c6485011093baf67a9737293bf8f8",
+    "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+    "source_glm_sha256": "553eb2c4a3082057bba78249340adbd9f1be9d9a639206aec242e793f54ef888"
+  },
+  "detector_defense_state": {
+    "detector": "held_not_executed",
+    "final_parameters_locked": false,
+    "volt_var_defense": "disabled"
+  },
+  "evaluation_opened": false,
+  "mode": "bounded-runtime-smoke",
+  "operating_point": {
+    "actuated_glm_sha256": "16f685cc953546f4996defa4388ffc8412bfd2454a735abcf15306bc4be00e56",
+    "condition_class": "responsive",
+    "duration_s": 30,
+    "id": "responsive_midday",
+    "load_shape_player": "/work/examples/2bus-13bus/include/players/load_shape_player.player",
+    "load_shape_player_sha256": "95de883478be7878c2d17a7764ba20c599a5a201d51164a004fc4972240e3456",
+    "load_shape_value": 0.789762,
+    "rationale": "high-load rising shoulder",
+    "schema_version": "grideval-g7-operating-point/v1",
+    "start_time": "2013-08-28 12:00:00",
+    "stop_time": "2013-08-28 12:00:30"
+  },
+  "pairing": {
+    "matched_seed": 6102,
+    "pair_id": "m27_system_identification_seed6102_responsive_midday",
+    "treatment": "probe_ev1_plus30"
+  },
+  "runtime_window_limit": 3,
+  "schema_version": "grideval-g7-runtime-integration/v1",
+  "seed_lineage": {
+    "attacker_policy_seed": 6102,
+    "gridlabd_random_seed": 10,
+    "measurement_noise_seed": 96102,
+    "partition": "system_identification",
+    "replicate_seed": 6102
+  },
+  "status": "passed"
+}

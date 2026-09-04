@@ -1,0 +1,10 @@
+# file...... output/1c_IEEE_123_feeder_0_EV2.csv
+# date...... Fri Sep  4 01:33:07 2026
+# user...... (null)
+# host...... (null)
+# target.... load 810
+# trigger... (none)
+# interval.. 1200
+# limit..... 0
+# timestamp,measured_voltage_B,constant_power_B,measured_frequency_B
+2013-08-28 04:00:00 PST,+2445.49-120.427d,+200000+0j,+60

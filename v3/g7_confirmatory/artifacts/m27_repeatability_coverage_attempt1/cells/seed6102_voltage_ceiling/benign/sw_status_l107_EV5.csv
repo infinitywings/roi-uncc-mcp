@@ -1,0 +1,10 @@
+# file...... sw_status_l107_EV5.csv
+# date...... Fri Sep  4 01:34:03 2026
+# user...... (null)
+# host...... (null)
+# target.... switch 795
+# trigger... (none)
+# interval.. 1200
+# limit..... 0
+# timestamp,status
+2013-08-28 14:00:00 PST,CLOSED

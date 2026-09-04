@@ -1,0 +1,10 @@
+# file...... output/1c_IEEE_123_feeder_0_climate.csv
+# date...... Fri Sep  4 01:32:53 2026
+# user...... (null)
+# host...... (null)
+# target.... climate 2
+# trigger... (none)
+# interval.. 60
+# limit..... 0
+# timestamp,temperature,humidity
+2013-08-28 04:00:00 PST,+82.942,+0.41

@@ -1,0 +1,2 @@
+/usr/local/lib/python3.10/dist-packages/helics/capi.py:4444: UserWarning: This function is deprecated. Use `helicsFederateDisconnect` instead.
+  warnings.warn("This function is deprecated. Use `helicsFederateDisconnect` instead.")

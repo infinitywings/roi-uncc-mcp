@@ -1,0 +1,92 @@
+{
+  "admitted_energy_kvah": 0.08333333333333333,
+  "apparent_energy_cap_kvah": 2.0,
+  "delivered_command_energy_kvah": 0.08333333333333333,
+  "delivery_reconciled": true,
+  "records": [
+    {
+      "accepted": true,
+      "admitted": {
+        "DER_EV1_BESS": [
+          30.0,
+          0.0
+        ]
+      },
+      "apparent_energy_kvah": 0.08333333333333333,
+      "commands": {
+        "DER_EV1_BESS": [
+          30.0,
+          0.0
+        ]
+      },
+      "delivered": {
+        "DER_EV1_BESS": [
+          30.0,
+          0.0
+        ]
+      },
+      "delivery_reconciled": true,
+      "energy_spent_kvah": 0.08333333333333333,
+      "inner_windows_spent": 1,
+      "proposed": {
+        "DER_EV1_BESS": [
+          30.0,
+          0.0
+        ]
+      },
+      "reason": "accepted_perturbation",
+      "runner_noted": true,
+      "time_s": 10,
+      "window": 0,
+      "window_cost": 1,
+      "windows_spent": 1
+    },
+    {
+      "accepted": false,
+      "admitted": {},
+      "apparent_energy_kvah": 0.08333333333333333,
+      "commands": {},
+      "delivered": {},
+      "delivery_reconciled": true,
+      "energy_spent_kvah": 0.08333333333333333,
+      "inner_windows_spent": 1,
+      "proposed": {
+        "DER_EV1_BESS": [
+          30.0,
+          0.0
+        ]
+      },
+      "reason": "perturbed_window_cap",
+      "runner_noted": true,
+      "time_s": 20,
+      "window": 1,
+      "window_cost": 1,
+      "windows_spent": 1
+    },
+    {
+      "accepted": false,
+      "admitted": {},
+      "apparent_energy_kvah": 0.08333333333333333,
+      "commands": {},
+      "delivered": {},
+      "delivery_reconciled": true,
+      "energy_spent_kvah": 0.08333333333333333,
+      "inner_windows_spent": 1,
+      "proposed": {
+        "DER_EV1_BESS": [
+          30.0,
+          0.0
+        ]
+      },
+      "reason": "perturbed_window_cap",
+      "runner_noted": true,
+      "time_s": 30,
+      "window": 2,
+      "window_cost": 1,
+      "windows_spent": 1
+    }
+  ],
+  "schema_version": "grideval-g7-dual-budget-trace/v1",
+  "window_cap": 1,
+  "windows_spent": 1
+}

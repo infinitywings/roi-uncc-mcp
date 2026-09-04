@@ -1,0 +1,31 @@
+{
+  "auditor_sha256": "6f47af03deebc425c9e4311bbc3fd1c945555e1a04fdf7a6b1ae0a7df003036f",
+  "checks": [
+    "contract_self_address_and_final_code_bindings",
+    "thirty_six_M18_requests_and_access_seals",
+    "six_cell_thirty_run_create_once_matrix",
+    "network_isolation_exit_codes_and_teardown",
+    "five_run_symmetric_probe_structure_per_cell",
+    "true_and_measured_estimator_arithmetic",
+    "immutable_M23_anchor_binding",
+    "seed_axis_uncertainty_arithmetic",
+    "operating_point_axis_and_rank_stability",
+    "all_raw_manifest_sizes_and_sha256",
+    "small_n_and_unestimated_interaction_boundaries",
+    "resource_admission_and_final_evaluation_seals"
+  ],
+  "claim_boundary": "A passing audit validates the exact M27 preliminary crossed-anchor package. It does not estimate the missing interaction, admit a resource, or establish confirmatory evidence.",
+  "classification": "PRELIMINARY_ONLY",
+  "contract_id": "m27contract_9f523653a0b78b9e3934d4bc5e95153f084eec84add9e9caca66bd12d9b70fe4",
+  "contract_sha256": "32571ba4737c0fa7d674e332fa34fab2ded34557fd5c58e9e20ca9fad0a274cb",
+  "decision_id": "dec_01M1MZWXXY65C3XXMERCAMT794",
+  "evidence_id": "m27evidence_8dea05cfdea4801ca55f3ae046eefba73effd22d921cf6aa34a3a34850069a15",
+  "evidence_sha256": "043fbb972c8693c15c8a2c9a57a6478ce68d8980a03bb115dc243f81eb94d521",
+  "issues": [],
+  "milestone": "M27",
+  "mission_id": "mis_01M1MZXYE3CTWNMRQ8YXA4H30F",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "schema_version": "grideval-g7-m27-independent-audit/v1",
+  "status": "passed",
+  "audit_id": "m27audit_f8f1ba046848d602368697c0dd84c16efc37d0ce802e8ae67df45ea88e07c712"
+}

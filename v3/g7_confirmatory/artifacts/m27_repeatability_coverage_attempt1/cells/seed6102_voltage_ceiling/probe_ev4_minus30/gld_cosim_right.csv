@@ -1,0 +1,10 @@
+# file...... gld_cosim_right.csv
+# date...... Fri Sep  4 01:34:14 2026
+# user...... (null)
+# host...... (null)
+# target.... meter 3
+# trigger... (none)
+# interval.. 60
+# limit..... 20
+# timestamp,measured_voltage_A,measured_power_A,measured_voltage_B,measured_power_B,measured_voltage_C,measured_power_C
+2013-08-28 14:00:00 PST,+138000+0i,+1.97779e+06+618140i,-69000-119497j,+1.46431e+06+531688j,-69000+119497j,+1.63217e+06+483139j

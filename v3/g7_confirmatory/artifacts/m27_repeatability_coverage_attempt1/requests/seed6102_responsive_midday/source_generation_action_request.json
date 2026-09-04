@@ -1,0 +1,18 @@
+{
+  "action_id": "m27_empirical_source_seed6102_responsive_midday",
+  "action_type": "source_generation",
+  "budget_id": "m27_seed6102_responsive_midday_one_source_from_five_runs",
+  "code_sha256": "db0ea301ceef87cade37d665ce0d9fbafcfa27eac08eaf8c1e69e628bee065b8",
+  "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+  "create_once": true,
+  "final_evaluation_data_accessed": false,
+  "local_service_identity": null,
+  "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+  "output_classification": "PRELIMINARY_ONLY",
+  "paired_benign_id": null,
+  "partition_role": "system_identification",
+  "physical_field_actuator": false,
+  "retain_failures": true,
+  "seed": 6102,
+  "starts_or_restarts_service": false
+}

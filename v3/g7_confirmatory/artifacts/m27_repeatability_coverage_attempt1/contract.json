@@ -1,0 +1,1094 @@
+{
+  "access_boundary": {
+    "LLM": false,
+    "defense": false,
+    "detector": false,
+    "embedding": false,
+    "final_evaluation": false,
+    "physical_field_actuator": false,
+    "real_network": false,
+    "resource_admission": false,
+    "simulated_probe": true,
+    "simulator": true
+  },
+  "analysis": {
+    "operating_point_axis_statistics": "descriptive_only",
+    "primary_scalar": "max_abs_true_voltage_gain_pu_per_kw",
+    "rank_outputs": [
+      "winner",
+      "absolute_margin",
+      "ratio_margin",
+      "agreement"
+    ],
+    "scientific_threshold_selected": false,
+    "seed_axis_statistics": [
+      "n",
+      "mean",
+      "sample_sd",
+      "min",
+      "max",
+      "t95_mean_interval_df2"
+    ],
+    "small_n_warning_required": true,
+    "true_and_measured_voltage_columns": true,
+    "unestimated_interaction_warning_required": true
+  },
+  "campaign_authorized": false,
+  "claim_boundary": "M27 is a descriptive preliminary repeatability and coverage gate. It cannot estimate the seed-by-operating-point interaction, admit a resource without Brain Gate 2, or support confirmatory claims.",
+  "classification": "PRELIMINARY_ONLY",
+  "confirmatory_claim_authorized": false,
+  "contract_id": "m27contract_9f523653a0b78b9e3934d4bc5e95153f084eec84add9e9caca66bd12d9b70fe4",
+  "decision_id": "dec_01M1MZWXXY65C3XXMERCAMT794",
+  "design": {
+    "fixed_night_seed_axis": [
+      6101,
+      6102,
+      6103
+    ],
+    "fixed_seed_operating_point_axis": {
+      "operating_points": [
+        "responsive_morning",
+        "responsive_midday",
+        "responsive_evening",
+        "responsive_night",
+        "voltage_ceiling"
+      ],
+      "seed": 6102
+    },
+    "geometry": "seven_cell_crossed_anchor",
+    "immutable_anchor": {
+      "audit_sha256": "d0c3a539c20cc4dc3adb2910cd7bbba9c90a071a839ebc0fcde9d9e67f524030",
+      "operating_point": "responsive_night",
+      "runtime_rerun": false,
+      "seed": 6101,
+      "source_sha256": "30d003e06d016b88d49e024857c9b74a9f9f34012a6f022b6f3a26511fc619c1"
+    },
+    "new_cell_count": 6,
+    "new_cells": [
+      {
+        "action_requests": {
+          "benign_action_request.json": {
+            "action_id": "m27_benign_seed6102_responsive_night",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_night_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_night",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_minus30_action_request.json": {
+            "action_id": "m27_probe_ev1_minus30_seed6102_responsive_night",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_night_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_night",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_plus30_action_request.json": {
+            "action_id": "m27_probe_ev1_plus30_seed6102_responsive_night",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_night_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_night",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_minus30_action_request.json": {
+            "action_id": "m27_probe_ev4_minus30_seed6102_responsive_night",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_night_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_night",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_plus30_action_request.json": {
+            "action_id": "m27_probe_ev4_plus30_seed6102_responsive_night",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_night_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_night",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "source_generation_action_request.json": {
+            "action_id": "m27_empirical_source_seed6102_responsive_night",
+            "action_type": "source_generation",
+            "budget_id": "m27_seed6102_responsive_night_one_source_from_five_runs",
+            "code_sha256": "db0ea301ceef87cade37d665ce0d9fbafcfa27eac08eaf8c1e69e628bee065b8",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": null,
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          }
+        },
+        "cell_id": "seed6102_responsive_night",
+        "gridlabd_seed": 10,
+        "measurement_noise_seed": 96102,
+        "operating_point": "responsive_night",
+        "pair_id": "m27_system_identification_seed6102_responsive_night",
+        "seed": 6102,
+        "treatments": [
+          {
+            "action_id": "m27_benign_seed6102_responsive_night",
+            "action_request": "benign_action_request.json",
+            "command_kw": 0.0,
+            "id": "benign",
+            "target_id": null
+          },
+          {
+            "action_id": "m27_probe_ev1_plus30_seed6102_responsive_night",
+            "action_request": "probe_ev1_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev1_plus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev1_minus30_seed6102_responsive_night",
+            "action_request": "probe_ev1_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev1_minus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_plus30_seed6102_responsive_night",
+            "action_request": "probe_ev4_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev4_plus30",
+            "target_id": "DER_EV4_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_minus30_seed6102_responsive_night",
+            "action_request": "probe_ev4_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev4_minus30",
+            "target_id": "DER_EV4_BESS"
+          }
+        ]
+      },
+      {
+        "action_requests": {
+          "benign_action_request.json": {
+            "action_id": "m27_benign_seed6103_responsive_night",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6103_responsive_night_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6103_responsive_night",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6103,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_minus30_action_request.json": {
+            "action_id": "m27_probe_ev1_minus30_seed6103_responsive_night",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6103_responsive_night_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6103_responsive_night",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6103,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_plus30_action_request.json": {
+            "action_id": "m27_probe_ev1_plus30_seed6103_responsive_night",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6103_responsive_night_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6103_responsive_night",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6103,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_minus30_action_request.json": {
+            "action_id": "m27_probe_ev4_minus30_seed6103_responsive_night",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6103_responsive_night_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6103_responsive_night",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6103,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_plus30_action_request.json": {
+            "action_id": "m27_probe_ev4_plus30_seed6103_responsive_night",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6103_responsive_night_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6103_responsive_night",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6103,
+            "starts_or_restarts_service": false
+          },
+          "source_generation_action_request.json": {
+            "action_id": "m27_empirical_source_seed6103_responsive_night",
+            "action_type": "source_generation",
+            "budget_id": "m27_seed6103_responsive_night_one_source_from_five_runs",
+            "code_sha256": "db0ea301ceef87cade37d665ce0d9fbafcfa27eac08eaf8c1e69e628bee065b8",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": null,
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6103,
+            "starts_or_restarts_service": false
+          }
+        },
+        "cell_id": "seed6103_responsive_night",
+        "gridlabd_seed": 10,
+        "measurement_noise_seed": 96103,
+        "operating_point": "responsive_night",
+        "pair_id": "m27_system_identification_seed6103_responsive_night",
+        "seed": 6103,
+        "treatments": [
+          {
+            "action_id": "m27_benign_seed6103_responsive_night",
+            "action_request": "benign_action_request.json",
+            "command_kw": 0.0,
+            "id": "benign",
+            "target_id": null
+          },
+          {
+            "action_id": "m27_probe_ev1_plus30_seed6103_responsive_night",
+            "action_request": "probe_ev1_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev1_plus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev1_minus30_seed6103_responsive_night",
+            "action_request": "probe_ev1_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev1_minus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_plus30_seed6103_responsive_night",
+            "action_request": "probe_ev4_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev4_plus30",
+            "target_id": "DER_EV4_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_minus30_seed6103_responsive_night",
+            "action_request": "probe_ev4_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev4_minus30",
+            "target_id": "DER_EV4_BESS"
+          }
+        ]
+      },
+      {
+        "action_requests": {
+          "benign_action_request.json": {
+            "action_id": "m27_benign_seed6102_responsive_morning",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_morning_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_morning",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_minus30_action_request.json": {
+            "action_id": "m27_probe_ev1_minus30_seed6102_responsive_morning",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_morning_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_morning",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_plus30_action_request.json": {
+            "action_id": "m27_probe_ev1_plus30_seed6102_responsive_morning",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_morning_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_morning",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_minus30_action_request.json": {
+            "action_id": "m27_probe_ev4_minus30_seed6102_responsive_morning",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_morning_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_morning",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_plus30_action_request.json": {
+            "action_id": "m27_probe_ev4_plus30_seed6102_responsive_morning",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_morning_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_morning",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "source_generation_action_request.json": {
+            "action_id": "m27_empirical_source_seed6102_responsive_morning",
+            "action_type": "source_generation",
+            "budget_id": "m27_seed6102_responsive_morning_one_source_from_five_runs",
+            "code_sha256": "db0ea301ceef87cade37d665ce0d9fbafcfa27eac08eaf8c1e69e628bee065b8",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": null,
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          }
+        },
+        "cell_id": "seed6102_responsive_morning",
+        "gridlabd_seed": 10,
+        "measurement_noise_seed": 96102,
+        "operating_point": "responsive_morning",
+        "pair_id": "m27_system_identification_seed6102_responsive_morning",
+        "seed": 6102,
+        "treatments": [
+          {
+            "action_id": "m27_benign_seed6102_responsive_morning",
+            "action_request": "benign_action_request.json",
+            "command_kw": 0.0,
+            "id": "benign",
+            "target_id": null
+          },
+          {
+            "action_id": "m27_probe_ev1_plus30_seed6102_responsive_morning",
+            "action_request": "probe_ev1_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev1_plus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev1_minus30_seed6102_responsive_morning",
+            "action_request": "probe_ev1_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev1_minus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_plus30_seed6102_responsive_morning",
+            "action_request": "probe_ev4_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev4_plus30",
+            "target_id": "DER_EV4_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_minus30_seed6102_responsive_morning",
+            "action_request": "probe_ev4_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev4_minus30",
+            "target_id": "DER_EV4_BESS"
+          }
+        ]
+      },
+      {
+        "action_requests": {
+          "benign_action_request.json": {
+            "action_id": "m27_benign_seed6102_responsive_midday",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_midday_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_midday",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_minus30_action_request.json": {
+            "action_id": "m27_probe_ev1_minus30_seed6102_responsive_midday",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_midday_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_midday",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_plus30_action_request.json": {
+            "action_id": "m27_probe_ev1_plus30_seed6102_responsive_midday",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_midday_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_midday",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_minus30_action_request.json": {
+            "action_id": "m27_probe_ev4_minus30_seed6102_responsive_midday",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_midday_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_midday",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_plus30_action_request.json": {
+            "action_id": "m27_probe_ev4_plus30_seed6102_responsive_midday",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_midday_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_midday",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "source_generation_action_request.json": {
+            "action_id": "m27_empirical_source_seed6102_responsive_midday",
+            "action_type": "source_generation",
+            "budget_id": "m27_seed6102_responsive_midday_one_source_from_five_runs",
+            "code_sha256": "db0ea301ceef87cade37d665ce0d9fbafcfa27eac08eaf8c1e69e628bee065b8",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": null,
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          }
+        },
+        "cell_id": "seed6102_responsive_midday",
+        "gridlabd_seed": 10,
+        "measurement_noise_seed": 96102,
+        "operating_point": "responsive_midday",
+        "pair_id": "m27_system_identification_seed6102_responsive_midday",
+        "seed": 6102,
+        "treatments": [
+          {
+            "action_id": "m27_benign_seed6102_responsive_midday",
+            "action_request": "benign_action_request.json",
+            "command_kw": 0.0,
+            "id": "benign",
+            "target_id": null
+          },
+          {
+            "action_id": "m27_probe_ev1_plus30_seed6102_responsive_midday",
+            "action_request": "probe_ev1_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev1_plus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev1_minus30_seed6102_responsive_midday",
+            "action_request": "probe_ev1_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev1_minus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_plus30_seed6102_responsive_midday",
+            "action_request": "probe_ev4_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev4_plus30",
+            "target_id": "DER_EV4_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_minus30_seed6102_responsive_midday",
+            "action_request": "probe_ev4_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev4_minus30",
+            "target_id": "DER_EV4_BESS"
+          }
+        ]
+      },
+      {
+        "action_requests": {
+          "benign_action_request.json": {
+            "action_id": "m27_benign_seed6102_responsive_evening",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_evening_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_evening",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_minus30_action_request.json": {
+            "action_id": "m27_probe_ev1_minus30_seed6102_responsive_evening",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_evening_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_evening",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_plus30_action_request.json": {
+            "action_id": "m27_probe_ev1_plus30_seed6102_responsive_evening",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_evening_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_evening",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_minus30_action_request.json": {
+            "action_id": "m27_probe_ev4_minus30_seed6102_responsive_evening",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_evening_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_evening",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_plus30_action_request.json": {
+            "action_id": "m27_probe_ev4_plus30_seed6102_responsive_evening",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_responsive_evening_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_responsive_evening",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "source_generation_action_request.json": {
+            "action_id": "m27_empirical_source_seed6102_responsive_evening",
+            "action_type": "source_generation",
+            "budget_id": "m27_seed6102_responsive_evening_one_source_from_five_runs",
+            "code_sha256": "db0ea301ceef87cade37d665ce0d9fbafcfa27eac08eaf8c1e69e628bee065b8",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": null,
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          }
+        },
+        "cell_id": "seed6102_responsive_evening",
+        "gridlabd_seed": 10,
+        "measurement_noise_seed": 96102,
+        "operating_point": "responsive_evening",
+        "pair_id": "m27_system_identification_seed6102_responsive_evening",
+        "seed": 6102,
+        "treatments": [
+          {
+            "action_id": "m27_benign_seed6102_responsive_evening",
+            "action_request": "benign_action_request.json",
+            "command_kw": 0.0,
+            "id": "benign",
+            "target_id": null
+          },
+          {
+            "action_id": "m27_probe_ev1_plus30_seed6102_responsive_evening",
+            "action_request": "probe_ev1_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev1_plus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev1_minus30_seed6102_responsive_evening",
+            "action_request": "probe_ev1_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev1_minus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_plus30_seed6102_responsive_evening",
+            "action_request": "probe_ev4_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev4_plus30",
+            "target_id": "DER_EV4_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_minus30_seed6102_responsive_evening",
+            "action_request": "probe_ev4_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev4_minus30",
+            "target_id": "DER_EV4_BESS"
+          }
+        ]
+      },
+      {
+        "action_requests": {
+          "benign_action_request.json": {
+            "action_id": "m27_benign_seed6102_voltage_ceiling",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_voltage_ceiling_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_voltage_ceiling",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_minus30_action_request.json": {
+            "action_id": "m27_probe_ev1_minus30_seed6102_voltage_ceiling",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_voltage_ceiling_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_voltage_ceiling",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev1_plus30_action_request.json": {
+            "action_id": "m27_probe_ev1_plus30_seed6102_voltage_ceiling",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_voltage_ceiling_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_voltage_ceiling",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_minus30_action_request.json": {
+            "action_id": "m27_probe_ev4_minus30_seed6102_voltage_ceiling",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_voltage_ceiling_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_voltage_ceiling",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "probe_ev4_plus30_action_request.json": {
+            "action_id": "m27_probe_ev4_plus30_seed6102_voltage_ceiling",
+            "action_type": "simulator_execution",
+            "budget_id": "m27_seed6102_voltage_ceiling_three_windows_symmetric_30kw",
+            "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": "m27_benign_seed6102_voltage_ceiling",
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          },
+          "source_generation_action_request.json": {
+            "action_id": "m27_empirical_source_seed6102_voltage_ceiling",
+            "action_type": "source_generation",
+            "budget_id": "m27_seed6102_voltage_ceiling_one_source_from_five_runs",
+            "code_sha256": "db0ea301ceef87cade37d665ce0d9fbafcfa27eac08eaf8c1e69e628bee065b8",
+            "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+            "create_once": true,
+            "final_evaluation_data_accessed": false,
+            "local_service_identity": null,
+            "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+            "output_classification": "PRELIMINARY_ONLY",
+            "paired_benign_id": null,
+            "partition_role": "system_identification",
+            "physical_field_actuator": false,
+            "retain_failures": true,
+            "seed": 6102,
+            "starts_or_restarts_service": false
+          }
+        },
+        "cell_id": "seed6102_voltage_ceiling",
+        "gridlabd_seed": 10,
+        "measurement_noise_seed": 96102,
+        "operating_point": "voltage_ceiling",
+        "pair_id": "m27_system_identification_seed6102_voltage_ceiling",
+        "seed": 6102,
+        "treatments": [
+          {
+            "action_id": "m27_benign_seed6102_voltage_ceiling",
+            "action_request": "benign_action_request.json",
+            "command_kw": 0.0,
+            "id": "benign",
+            "target_id": null
+          },
+          {
+            "action_id": "m27_probe_ev1_plus30_seed6102_voltage_ceiling",
+            "action_request": "probe_ev1_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev1_plus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev1_minus30_seed6102_voltage_ceiling",
+            "action_request": "probe_ev1_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev1_minus30",
+            "target_id": "DER_EV1_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_plus30_seed6102_voltage_ceiling",
+            "action_request": "probe_ev4_plus30_action_request.json",
+            "command_kw": 30.0,
+            "id": "probe_ev4_plus30",
+            "target_id": "DER_EV4_BESS"
+          },
+          {
+            "action_id": "m27_probe_ev4_minus30_seed6102_voltage_ceiling",
+            "action_request": "probe_ev4_minus30_action_request.json",
+            "command_kw": -30.0,
+            "id": "probe_ev4_minus30",
+            "target_id": "DER_EV4_BESS"
+          }
+        ]
+      }
+    ],
+    "new_runtime_run_cap": 30,
+    "retry_cap": 0,
+    "seed_by_operating_point_interaction_estimable": false
+  },
+  "evaluation_opened": false,
+  "milestone": "M27",
+  "mission_id": "mis_01M1MZXYE3CTWNMRQ8YXA4H30F",
+  "probe_design": {
+    "apparent_energy_cap_kvah": 2.0,
+    "authority": "one_BESS_active_power_setpoint_per_treatment",
+    "expected_energy_per_probe_kvah": 0.08333333333333333,
+    "perturbed_window_cap": 1,
+    "post_actuation_time_s": 30,
+    "signed_commands_kw": [
+      -30.0,
+      30.0
+    ],
+    "targets": [
+      "DER_EV1_BESS",
+      "DER_EV4_BESS"
+    ],
+    "window_seconds": 10,
+    "windows": 3
+  },
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "runtime": {
+    "containers_ephemeral": true,
+    "image_id": "sha256:c79f6cc1bd1eea69c5c21b8794d9def19435f26aa7f4f71c5330c823835e4df7",
+    "image_tag": "docker-cosim:latest",
+    "network_mode": "none"
+  },
+  "schema_version": "grideval-g7-m27-repeatability-coverage-contract/v1",
+  "source_bindings": {
+    "DER_configuration": {
+      "bytes": 5272,
+      "path": "v3/configs/der_devices.yaml",
+      "sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c"
+    },
+    "M18_gate": {
+      "bytes": 9696,
+      "path": "v3/g7_confirmatory/artifacts/preliminary_only_gate_m18.json",
+      "sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d"
+    },
+    "M21_timing": {
+      "bytes": 44111,
+      "path": "v3/g7_confirmatory/artifacts/m21_three_window_timing_seed5103_attempt1/m21_three_window_timing.json",
+      "sha256": "2aa7bbc10bcd20f964f9a7cbcad9a70b6058b8e652acbc68bdbea953bc7e022d"
+    },
+    "M23_anchor_audit": {
+      "bytes": 1935,
+      "path": "v3/g7_confirmatory/artifacts/m23_system_identification_seed6101_attempt1/independent_audit_receipt.json",
+      "sha256": "d0c3a539c20cc4dc3adb2910cd7bbba9c90a071a839ebc0fcde9d9e67f524030"
+    },
+    "M23_anchor_source": {
+      "bytes": 89346,
+      "path": "v3/g7_confirmatory/artifacts/m23_system_identification_seed6101_attempt1/m23_system_identification.json",
+      "sha256": "30d003e06d016b88d49e024857c9b74a9f9f34012a6f022b6f3a26511fc619c1"
+    },
+    "M27_executor": {
+      "bytes": 7786,
+      "path": "v3/g7_confirmatory/g7confirm/m27_execute.py",
+      "sha256": "6164c875e3de8eefd83d0af8e7d52ed5b939fdf9151dbc0a079a77e6e3295fb7"
+    },
+    "M27_independent_auditor": {
+      "bytes": 23902,
+      "path": "v3/g7_confirmatory/g7confirm/m27_independent_audit.py",
+      "sha256": "6f47af03deebc425c9e4311bbc3fd1c945555e1a04fdf7a6b1ae0a7df003036f"
+    },
+    "M27_profiles": {
+      "bytes": 4167,
+      "path": "v3/g7_confirmatory/g7confirm/m27_profiles.py",
+      "sha256": "9865ed3a6e81b25584f0c68f7a666ef9334135c798d9b1622884488e43b78351"
+    },
+    "M27_runtime_wrapper": {
+      "bytes": 1403,
+      "path": "v3/g7_confirmatory/g7confirm/m27_runtime.py",
+      "sha256": "e8a6ba43a73c8066f0337baa65664969fa17d7a573adb2e74edf54b841d3e98b"
+    },
+    "M27_source_builder": {
+      "bytes": 51809,
+      "path": "v3/g7_confirmatory/g7confirm/m27_repeatability_coverage.py",
+      "sha256": "db0ea301ceef87cade37d665ce0d9fbafcfa27eac08eaf8c1e69e628bee065b8"
+    },
+    "experiment_specification": {
+      "bytes": 5433,
+      "path": "v3/g7_confirmatory/experiment_spec.yaml",
+      "sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d"
+    },
+    "runtime_core": {
+      "bytes": 25602,
+      "path": "v3/g7_confirmatory/g7confirm/runtime.py",
+      "sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e"
+    }
+  },
+  "status": "REGISTERED_NO_SIMULATOR_RUN"
+}

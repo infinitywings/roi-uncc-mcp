@@ -1,0 +1,64 @@
+[
+  {
+    "window": 0,
+    "t": 10,
+    "telemetry": {
+      "DER_EV4_BESS": 1.0015189608210184,
+      "DER_EV1_BESS": 1.0133328762876816,
+      "DER_EV3_PV": 0.9966361593943323,
+      "DER_EV5_PV": 1.023093904462443
+    },
+    "telemetry_meas": {
+      "DER_EV4_BESS": 1.0032828148193758,
+      "DER_EV1_BESS": 1.0137248965948629,
+      "DER_EV3_PV": 0.9939204175945812,
+      "DER_EV5_PV": 1.0200859612857147
+    },
+    "attack": {
+      "DER_EV1_BESS": [
+        30.0,
+        0.0
+      ]
+    },
+    "budget_spent": 1,
+    "budget_total": 1
+  },
+  {
+    "window": 1,
+    "t": 20,
+    "telemetry": {
+      "DER_EV4_BESS": 1.0015190825823614,
+      "DER_EV1_BESS": 1.0133328888640245,
+      "DER_EV3_PV": 0.9966358049031769,
+      "DER_EV5_PV": 1.0230939710482552
+    },
+    "telemetry_meas": {
+      "DER_EV4_BESS": 1.0008768534392958,
+      "DER_EV1_BESS": 1.0149270708837725,
+      "DER_EV3_PV": 0.9953405910466195,
+      "DER_EV5_PV": 1.0246274573807646
+    },
+    "attack": {},
+    "budget_spent": 1,
+    "budget_total": 1
+  },
+  {
+    "window": 2,
+    "t": 30,
+    "telemetry": {
+      "DER_EV4_BESS": 1.0008050442568999,
+      "DER_EV1_BESS": 1.0140144593671243,
+      "DER_EV3_PV": 1.0069623077906658,
+      "DER_EV5_PV": 1.0271605271540745
+    },
+    "telemetry_meas": {
+      "DER_EV4_BESS": 0.9991573012626036,
+      "DER_EV1_BESS": 1.0118636917524741,
+      "DER_EV3_PV": 1.005021365060713,
+      "DER_EV5_PV": 1.0278637896476834
+    },
+    "attack": {},
+    "budget_spent": 1,
+    "budget_total": 1
+  }
+]
