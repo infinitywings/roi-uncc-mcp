@@ -1,0 +1,832 @@
+{
+  "access_boundary": {
+    "defense_allowed": false,
+    "detector_allowed": false,
+    "docker_allowed": false,
+    "embedding_allowed": false,
+    "evaluation_records_allowed": false,
+    "evaluation_seeds_allowed": [],
+    "physical_actuator_allowed": false,
+    "rka_attacker_view_allowed": false,
+    "simulator_allowed": false
+  },
+  "arms": [
+    "IA2",
+    "IA3-O",
+    "IA4-D",
+    "IA4-H",
+    "IA4-HG"
+  ],
+  "campaign_authorized": false,
+  "candidate_surface": {
+    "frozen_design_id": "m29surface_375078014f605fae2211b301f9ee54cfab6cecadf97f179e60fbe6a5ec9a220b",
+    "ordered_candidate_ids": [
+      "cand_a17d1c386be85969c501",
+      "cand_a8d4ea241b885474bfde",
+      "cand_cefe154f33e74cf498c0",
+      "cand_d78c9ef51df2dc976645",
+      "cand_e64360e90301a98e7e9c",
+      "cand_6b6c3b5853e57db05e44"
+    ],
+    "payload_sha256": "cd7c1b5551ae8d2554e9720efe45da24cb23cda5ccd174e4bf91f4cdfa1b377e",
+    "runtime_fingerprint": "e86c4f5c1400ad36923a94e309c85eb7984c19649ee6d828370b24eb155aca9a"
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "conditions": [
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_sensitivity_reversal_left",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 0,
+      "intervention_class": "sensitivity_reversal",
+      "intervention_id": "cf1",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "left",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.2
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_sensitivity_reversal_right",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_B",
+      "feedback_delay_windows": 0,
+      "intervention_class": "sensitivity_reversal",
+      "intervention_id": "cf1",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "right",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.2,
+        "DER_B": 0.8
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp"
+      ],
+      "condition_id": "m29_operating_point_change_left",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 0,
+      "intervention_class": "operating_point_change",
+      "intervention_id": "cf2",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "left",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_operating_point_change_right",
+      "current_evidence_strategy": "reactive_shift",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "reactive_shift",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 0,
+      "intervention_class": "operating_point_change",
+      "intervention_id": "cf2",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_solar_noon",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "right",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 0.2,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 1.0
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_validity_hole_left",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 0,
+      "intervention_class": "validity_hole",
+      "intervention_id": "cf3",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "left",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_validity_hole_right",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_B",
+      "feedback_delay_windows": 0,
+      "intervention_class": "validity_hole",
+      "intervention_id": "cf3",
+      "invalid_strategy_targets": [
+        "active_step@DER_A"
+      ],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "right",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_budget_change_left",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 0,
+      "intervention_class": "budget_change",
+      "intervention_id": "cf4",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 0.1,
+      "remaining_window_budget": 2,
+      "side": "left",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_budget_change_right",
+      "current_evidence_strategy": "low_energy_ramp",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "low_energy_ramp",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 0,
+      "intervention_class": "budget_change",
+      "intervention_id": "cf4",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 0.03,
+      "remaining_window_budget": 1,
+      "side": "right",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_delayed_feedback_left",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_B",
+      "feedback_delay_windows": 0,
+      "intervention_class": "delayed_feedback",
+      "intervention_id": "cf5",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "left",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.2,
+        "DER_B": 0.9
+      },
+      "visible_history": [
+        {
+          "reward": 0.2,
+          "target_id": "DER_A",
+          "window": 1
+        },
+        {
+          "reward": 0.9,
+          "target_id": "DER_B",
+          "window": 2
+        }
+      ]
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_delayed_feedback_right",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 1,
+      "intervention_class": "delayed_feedback",
+      "intervention_id": "cf5",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "right",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.6,
+        "DER_B": 0.3
+      },
+      "visible_history": [
+        {
+          "reward": 0.6,
+          "target_id": "DER_A",
+          "window": 1
+        }
+      ]
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_infeasible_optimizer_output_left",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA3-O",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 0,
+      "intervention_class": "infeasible_optimizer_output",
+      "intervention_id": "cf6",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "left",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_infeasible_optimizer_output_right",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA3-O",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": null,
+      "expected_target_id": null,
+      "feedback_delay_windows": 0,
+      "intervention_class": "infeasible_optimizer_output",
+      "intervention_id": "cf6",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "infeasible",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "right",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_tool_failure_class_left",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA3-O",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 0,
+      "intervention_class": "tool_failure_class",
+      "intervention_id": "cf7",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "left",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_tool_failure_class_right",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA3-O",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": null,
+      "expected_target_id": null,
+      "feedback_delay_windows": 0,
+      "intervention_class": "tool_failure_class",
+      "intervention_id": "cf7",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": "TOOL_UNAVAILABLE",
+      "optimizer_mode": "tool_failure",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "right",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_strategy_rule_contradiction_left",
+      "current_evidence_strategy": "active_step",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "active_step",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 0,
+      "intervention_class": "strategy_rule_contradiction",
+      "intervention_id": "cf8",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "left",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 1.0,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 0.7
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    },
+    {
+      "applicable_strategies": [
+        "active_step",
+        "low_energy_ramp",
+        "reactive_shift"
+      ],
+      "condition_id": "m29_strategy_rule_contradiction_right",
+      "current_evidence_strategy": "reactive_shift",
+      "eligible_arms": [
+        "IA2",
+        "IA3-O",
+        "IA4-D",
+        "IA4-H",
+        "IA4-HG"
+      ],
+      "expected_strategy_id": "reactive_shift",
+      "expected_target_id": "DER_A",
+      "feedback_delay_windows": 0,
+      "intervention_class": "strategy_rule_contradiction",
+      "intervention_id": "cf8",
+      "invalid_strategy_targets": [],
+      "operating_point_id": "op_high_load",
+      "optimizer_failure_class": null,
+      "optimizer_mode": "normal",
+      "remaining_energy_kvah": 2.0,
+      "remaining_window_budget": 4,
+      "side": "right",
+      "stale_rule_strategy": "active_step",
+      "strategy_scores": {
+        "active_step": 0.2,
+        "low_energy_ramp": 0.4,
+        "reactive_shift": 1.0
+      },
+      "target_scores": {
+        "DER_A": 0.8,
+        "DER_B": 0.4
+      },
+      "visible_history": []
+    }
+  ],
+  "conditions_sha256": "f88873a8111961b4c89ad13086fb598403db2a0d7ee1c2b0e5631d8b8f099bdc",
+  "decision_id": "dec_01M1N48392JT638G1E4VPYF2YZ",
+  "design_contract_file_sha256": "3c1fadf100308bf9fbb9576728c3af87956bd0dc20ffaa489bdf944c3375f8f2",
+  "design_contract_id": "m29contract_97d073f1ecbc03271346a6559dfc8367275a45a18519be13d38240da7bf423b0",
+  "design_snapshot": {
+    "arm_count": 5,
+    "intervention_count": 8,
+    "primary_contrast_count": 4
+  },
+  "development_only": true,
+  "evaluation_sealed": true,
+  "execution_contract_id": "m29exec_b959c9c79059d6c98ccf93ff63a7088dab617a2af88e565a8f137d5589bd319c",
+  "expected_cell_paths": [
+    "cells/IA2/m29_sensitivity_reversal_left.json",
+    "cells/IA2/m29_sensitivity_reversal_right.json",
+    "cells/IA2/m29_operating_point_change_left.json",
+    "cells/IA2/m29_operating_point_change_right.json",
+    "cells/IA2/m29_validity_hole_left.json",
+    "cells/IA2/m29_validity_hole_right.json",
+    "cells/IA2/m29_budget_change_left.json",
+    "cells/IA2/m29_budget_change_right.json",
+    "cells/IA2/m29_delayed_feedback_left.json",
+    "cells/IA2/m29_delayed_feedback_right.json",
+    "cells/IA2/m29_infeasible_optimizer_output_left.json",
+    "cells/IA2/m29_infeasible_optimizer_output_right.json",
+    "cells/IA2/m29_tool_failure_class_left.json",
+    "cells/IA2/m29_tool_failure_class_right.json",
+    "cells/IA2/m29_strategy_rule_contradiction_left.json",
+    "cells/IA2/m29_strategy_rule_contradiction_right.json",
+    "cells/IA3-O/m29_sensitivity_reversal_left.json",
+    "cells/IA3-O/m29_sensitivity_reversal_right.json",
+    "cells/IA3-O/m29_operating_point_change_left.json",
+    "cells/IA3-O/m29_operating_point_change_right.json",
+    "cells/IA3-O/m29_validity_hole_left.json",
+    "cells/IA3-O/m29_validity_hole_right.json",
+    "cells/IA3-O/m29_budget_change_left.json",
+    "cells/IA3-O/m29_budget_change_right.json",
+    "cells/IA3-O/m29_delayed_feedback_left.json",
+    "cells/IA3-O/m29_delayed_feedback_right.json",
+    "cells/IA3-O/m29_infeasible_optimizer_output_left.json",
+    "cells/IA3-O/m29_infeasible_optimizer_output_right.json",
+    "cells/IA3-O/m29_tool_failure_class_left.json",
+    "cells/IA3-O/m29_tool_failure_class_right.json",
+    "cells/IA3-O/m29_strategy_rule_contradiction_left.json",
+    "cells/IA3-O/m29_strategy_rule_contradiction_right.json",
+    "cells/IA4-D/m29_sensitivity_reversal_left.json",
+    "cells/IA4-D/m29_sensitivity_reversal_right.json",
+    "cells/IA4-D/m29_operating_point_change_left.json",
+    "cells/IA4-D/m29_operating_point_change_right.json",
+    "cells/IA4-D/m29_validity_hole_left.json",
+    "cells/IA4-D/m29_validity_hole_right.json",
+    "cells/IA4-D/m29_budget_change_left.json",
+    "cells/IA4-D/m29_budget_change_right.json",
+    "cells/IA4-D/m29_delayed_feedback_left.json",
+    "cells/IA4-D/m29_delayed_feedback_right.json",
+    "cells/IA4-D/m29_infeasible_optimizer_output_left.json",
+    "cells/IA4-D/m29_infeasible_optimizer_output_right.json",
+    "cells/IA4-D/m29_tool_failure_class_left.json",
+    "cells/IA4-D/m29_tool_failure_class_right.json",
+    "cells/IA4-D/m29_strategy_rule_contradiction_left.json",
+    "cells/IA4-D/m29_strategy_rule_contradiction_right.json",
+    "cells/IA4-H/m29_sensitivity_reversal_left.json",
+    "cells/IA4-H/m29_sensitivity_reversal_right.json",
+    "cells/IA4-H/m29_operating_point_change_left.json",
+    "cells/IA4-H/m29_operating_point_change_right.json",
+    "cells/IA4-H/m29_validity_hole_left.json",
+    "cells/IA4-H/m29_validity_hole_right.json",
+    "cells/IA4-H/m29_budget_change_left.json",
+    "cells/IA4-H/m29_budget_change_right.json",
+    "cells/IA4-H/m29_delayed_feedback_left.json",
+    "cells/IA4-H/m29_delayed_feedback_right.json",
+    "cells/IA4-H/m29_infeasible_optimizer_output_left.json",
+    "cells/IA4-H/m29_infeasible_optimizer_output_right.json",
+    "cells/IA4-H/m29_tool_failure_class_left.json",
+    "cells/IA4-H/m29_tool_failure_class_right.json",
+    "cells/IA4-H/m29_strategy_rule_contradiction_left.json",
+    "cells/IA4-H/m29_strategy_rule_contradiction_right.json",
+    "cells/IA4-HG/m29_sensitivity_reversal_left.json",
+    "cells/IA4-HG/m29_sensitivity_reversal_right.json",
+    "cells/IA4-HG/m29_operating_point_change_left.json",
+    "cells/IA4-HG/m29_operating_point_change_right.json",
+    "cells/IA4-HG/m29_validity_hole_left.json",
+    "cells/IA4-HG/m29_validity_hole_right.json",
+    "cells/IA4-HG/m29_budget_change_left.json",
+    "cells/IA4-HG/m29_budget_change_right.json",
+    "cells/IA4-HG/m29_delayed_feedback_left.json",
+    "cells/IA4-HG/m29_delayed_feedback_right.json",
+    "cells/IA4-HG/m29_infeasible_optimizer_output_left.json",
+    "cells/IA4-HG/m29_infeasible_optimizer_output_right.json",
+    "cells/IA4-HG/m29_tool_failure_class_left.json",
+    "cells/IA4-HG/m29_tool_failure_class_right.json",
+    "cells/IA4-HG/m29_strategy_rule_contradiction_left.json",
+    "cells/IA4-HG/m29_strategy_rule_contradiction_right.json"
+  ],
+  "failure_policy": "create_once_retain_and_stop_without_silent_retry",
+  "m29b_authorized": false,
+  "mission_id": "mis_01M1N4BBH6TJ1Q6FBV2DNNS7Z8",
+  "model": {
+    "base_url": "http://ccil1s26m8hj6lws:8000/v1",
+    "max_completion_tokens_per_call": 512,
+    "max_total_calls": 48,
+    "model_id": "qwen3.6-35b-a3b",
+    "retry_cap": 0,
+    "service_lifecycle_actions_allowed": false,
+    "temperature": 0.0
+  },
+  "optimizer": {
+    "environment_query_cost": 0,
+    "max_evaluations_per_call": 12,
+    "optimizer_id": "m29_grid_search_v1",
+    "shared_by": [
+      "IA3-O",
+      "IA4-H",
+      "IA4-HG"
+    ],
+    "simulation_time_advance_s": 0.0,
+    "source_sha256": "8c2fae12de94d8ab459a594d8c5bd0bbc00bbccea112311249c468b4c60e8ce6"
+  },
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "schema_version": "grideval-g7-m29-execution-contract/v1",
+  "source_bindings": [
+    {
+      "bytes": 48446,
+      "path": "v3/g7_confirmatory/g7confirm/m29_hybrid_contract.py",
+      "sha256": "8c2fae12de94d8ab459a594d8c5bd0bbc00bbccea112311249c468b4c60e8ce6"
+    },
+    {
+      "bytes": 46032,
+      "path": "v3/g7_confirmatory/g7confirm/m29_counterfactual.py",
+      "sha256": "fe91a2660f2fc6fdad43dfddf3a8ee05092d9dfdd7da9ff20f1103d076fb1885"
+    },
+    {
+      "bytes": 20994,
+      "path": "v3/g7_confirmatory/g7confirm/m29_independent_audit.py",
+      "sha256": "d1524d71e6a75433339546abe70ec9038ab9e38ba737bf897f508358b7e9ffe9"
+    },
+    {
+      "bytes": 9393,
+      "path": "v3/g7_confirmatory/m29_counterfactual_contract.schema.json",
+      "sha256": "7122ff4f3fc6d1cddb07bc1eef91300179159ca8c32b2fae7b9d0ed44aceac5e"
+    },
+    {
+      "bytes": 4680,
+      "path": "v3/g7_confirmatory/m29_optimization_request.schema.json",
+      "sha256": "35e6face8deece9a93d281990804bee7eed2d1d81a0185c31ad64aa3b7befd3a"
+    },
+    {
+      "bytes": 3728,
+      "path": "v3/g7_confirmatory/m29_optimizer_result.schema.json",
+      "sha256": "2ebaa29594fa20cb8906888ff2da463f3a5a00ed351a8dc82fab030c3daed5b0"
+    },
+    {
+      "bytes": 7454,
+      "path": "v3/g7_confirmatory/m29_attack_state.schema.json",
+      "sha256": "1c10340a9bc95d42abedb4b6acb8003235df0b6c03f4459aa1b4c2ba4f881714"
+    },
+    {
+      "bytes": 12069,
+      "path": "v3/g7_confirmatory/artifacts/m29_hybrid_contract/contract.json",
+      "sha256": "3c1fadf100308bf9fbb9576728c3af87956bd0dc20ffaa489bdf944c3375f8f2"
+    }
+  ]
+}

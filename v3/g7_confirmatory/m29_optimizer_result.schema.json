@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/m29_optimizer_result.schema.json",
+  "title": "GridEval M29-A OptimizerResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "result_id",
+    "request_id",
+    "optimizer_id",
+    "optimizer_source_sha256",
+    "status",
+    "failure_class",
+    "ranked_candidates",
+    "selected_candidate_id",
+    "evaluations_used",
+    "optimizer_compute_units",
+    "environment_queries_used",
+    "wall_clock_ms",
+    "result_semantic_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-m29-optimizer-result/v1"
+    },
+    "result_id": {
+      "type": "string",
+      "pattern": "^m29optres_[0-9a-f]{64}$"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^m29optreq_[0-9a-f]{64}$"
+    },
+    "optimizer_id": {
+      "const": "m29_grid_search_v1"
+    },
+    "optimizer_source_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "status": {
+      "enum": ["feasible", "infeasible", "rejected", "tool_failure"]
+    },
+    "failure_class": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "NO_FEASIBLE_CANDIDATE",
+        "INVALID_REQUEST",
+        "TOOL_TIMEOUT",
+        "TOOL_SCHEMA_ERROR",
+        "TOOL_UNAVAILABLE"
+      ]
+    },
+    "ranked_candidates": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rank",
+          "candidate_id",
+          "strategy_id",
+          "target_id",
+          "p_kw",
+          "q_kvar",
+          "objective_value",
+          "uncertainty",
+          "feasible",
+          "validity_domain_id",
+          "energy_kvah"
+        ],
+        "properties": {
+          "rank": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          },
+          "candidate_id": {
+            "type": "string",
+            "pattern": "^cand_[0-9a-f]{20}$"
+          },
+          "strategy_id": {
+            "enum": [
+              "active_step",
+              "reactive_shift",
+              "low_energy_ramp"
+            ]
+          },
+          "target_id": {
+            "enum": ["DER_A", "DER_B"]
+          },
+          "p_kw": {
+            "type": "number",
+            "minimum": -30.0,
+            "maximum": 30.0
+          },
+          "q_kvar": {
+            "type": "number",
+            "minimum": -20.0,
+            "maximum": 20.0
+          },
+          "objective_value": {
+            "type": "number",
+            "minimum": -1.0,
+            "maximum": 1.0
+          },
+          "uncertainty": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "feasible": {
+            "type": "boolean"
+          },
+          "validity_domain_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "energy_kvah": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 2.0
+          }
+        }
+      }
+    },
+    "selected_candidate_id": {
+      "type": ["string", "null"],
+      "pattern": "^cand_[0-9a-f]{20}$"
+    },
+    "evaluations_used": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 12
+    },
+    "optimizer_compute_units": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 12
+    },
+    "environment_queries_used": {
+      "const": 0
+    },
+    "wall_clock_ms": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "result_semantic_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

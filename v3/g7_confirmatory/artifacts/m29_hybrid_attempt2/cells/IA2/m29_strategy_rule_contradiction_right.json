@@ -1,0 +1,104 @@
+{
+  "access_boundary": {
+    "defense_accessed": false,
+    "detector_accessed": false,
+    "docker_accessed": false,
+    "embedding_accessed": false,
+    "evaluation_accessed": false,
+    "final_evaluation_seeds_accessed": [],
+    "model_service_started_or_restarted": false,
+    "model_transport_used": false,
+    "physical_actuator_accessed": false,
+    "rka_attacker_view_accessed": false,
+    "simulator_accessed": false
+  },
+  "accounting": {
+    "accepted_decisions": 1,
+    "effective_decisions": 1,
+    "environment_queries": 0,
+    "invalid_proposals": 0,
+    "model_calls": 0,
+    "model_completion_tokens": 0,
+    "model_prompt_tokens": 0,
+    "optimizer_calls": 0,
+    "optimizer_compute_units": 0,
+    "optimizer_evaluations": 0,
+    "read_only_tool_calls": 0,
+    "refusals": 0,
+    "wall_clock_ms": 0.0
+  },
+  "arm_id": "IA2",
+  "cell_id": "m29cell_66a28603b898b35f22cf4d016e0c306df1e8dac4b47616fd99a18b0cc2a8405b",
+  "classification": "PRELIMINARY_ONLY",
+  "condition_id": "m29_strategy_rule_contradiction_right",
+  "endpoints": {
+    "effective_decision": true,
+    "evidence_conditioned_correct": true,
+    "extrapolative_proposal": false,
+    "fixture_regret": 0.0,
+    "optimizer_status_correct": null,
+    "oracle_candidate_id": "cand_cefe154f33e74cf498c0",
+    "oracle_selection_match": true,
+    "refused": false,
+    "selected_strategy_id": "reactive_shift",
+    "selected_target_id": "DER_A",
+    "typed_request_valid": false,
+    "validator_admitted": true,
+    "validity_compliant": true
+  },
+  "error": null,
+  "execution_contract_id": "m29exec_552630cc6d0dc99433047514afa3ccad449bdfa6b0fda9a1d12112f10624c5ca",
+  "model": null,
+  "model_decision": null,
+  "optimization_request": null,
+  "optimizer_result": null,
+  "representation": "canonical_typed",
+  "schema_version": "grideval-g7-m29-cell-receipt/v1",
+  "selected_candidate": {
+    "candidate_id": "cand_cefe154f33e74cf498c0",
+    "energy_kvah": 0.05555555555555555,
+    "strategy_id": "reactive_shift",
+    "target_id": "DER_A"
+  },
+  "semantic_digest": "6caa914ed870669263345072ebb825f1f80d2925fe00bc9063a9a53dee1c3fdc",
+  "status": "completed",
+  "validation": {
+    "accepted": true,
+    "base_validation": {
+      "accepted": true,
+      "budget_decision": {
+        "accepted": true,
+        "apparent_energy_kvah": 0.05555555555555555,
+        "commands": {
+          "DER_A": [
+            0.0,
+            20.0
+          ]
+        },
+        "energy_spent_kvah": 0.05555555555555555,
+        "reason": "accepted_perturbation",
+        "window_cost": 1,
+        "windows_spent": 1
+      },
+      "candidate_id": "cand_cefe154f33e74cf498c0",
+      "commands": {
+        "DER_A": [
+          0.0,
+          20.0
+        ]
+      },
+      "effective_action": true,
+      "plan_id": "plan_052e478e49728e757ab9",
+      "plan_submitted": true,
+      "reason": "accepted_perturbation",
+      "safety_refusal": false,
+      "status": "accepted_effective",
+      "strategy_id": "reactive_shift",
+      "valid_plan": true
+    },
+    "common_validator_id": "common_plan_validator_v1",
+    "effective_decision": true,
+    "optimizer_result_id": null,
+    "reason": "accepted_perturbation"
+  }
+}

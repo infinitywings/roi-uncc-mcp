@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/m29_optimization_request.schema.json",
+  "title": "GridEval M29-A OptimizationRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "condition_id",
+    "strategy_id",
+    "operating_point_id",
+    "candidate_surface_id",
+    "attack_state_id",
+    "semantic_digest",
+    "visible_history_digest",
+    "feedback_digest",
+    "objective",
+    "constraints",
+    "optimizer",
+    "evidence_refs",
+    "environment_query_budget",
+    "evidence_lane",
+    "rationale"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-m29-optimization-request/v1"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^m29optreq_[0-9a-f]{64}$"
+    },
+    "condition_id": {
+      "type": "string",
+      "pattern": "^m29_[a-z0-9_]+_(left|right)$"
+    },
+    "strategy_id": {
+      "enum": [
+        "active_step",
+        "reactive_shift",
+        "low_energy_ramp"
+      ]
+    },
+    "operating_point_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "candidate_surface_id": {
+      "type": "string",
+      "pattern": "^m29surface_[0-9a-f]{64}$"
+    },
+    "attack_state_id": {
+      "type": "string",
+      "pattern": "^m29state_[0-9a-f]{64}$"
+    },
+    "semantic_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "visible_history_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "feedback_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "objective": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metric", "direction", "uncertainty_penalty"],
+      "properties": {
+        "metric": {
+          "const": "synthetic_grid_stress_score"
+        },
+        "direction": {
+          "const": "maximize"
+        },
+        "uncertainty_penalty": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowed_target_ids",
+        "max_targets",
+        "p_kw_min",
+        "p_kw_max",
+        "q_kvar_min",
+        "q_kvar_max",
+        "remaining_window_budget",
+        "remaining_energy_kvah",
+        "validity_domain_id"
+      ],
+      "properties": {
+        "allowed_target_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["DER_A", "DER_B"]
+          }
+        },
+        "max_targets": {
+          "const": 1
+        },
+        "p_kw_min": {
+          "type": "number",
+          "minimum": -30.0,
+          "maximum": 30.0
+        },
+        "p_kw_max": {
+          "type": "number",
+          "minimum": -30.0,
+          "maximum": 30.0
+        },
+        "q_kvar_min": {
+          "type": "number",
+          "minimum": -20.0,
+          "maximum": 20.0
+        },
+        "q_kvar_max": {
+          "type": "number",
+          "minimum": -20.0,
+          "maximum": 20.0
+        },
+        "remaining_window_budget": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "remaining_energy_kvah": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 2.0
+        },
+        "validity_domain_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        }
+      }
+    },
+    "optimizer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "optimizer_id",
+        "source_sha256",
+        "deterministic_seed",
+        "max_evaluations"
+      ],
+      "properties": {
+        "optimizer_id": {
+          "const": "m29_grid_search_v1"
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "deterministic_seed": {
+          "const": 2901
+        },
+        "max_evaluations": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        }
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^fact_[a-z0-9_]+$"
+      }
+    },
+    "environment_query_budget": {
+      "const": 0
+    },
+    "evidence_lane": {
+      "enum": ["EVIDENCE_VALID", "OUT_OF_SCOPE_EXPLORATORY"]
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1200
+    }
+  }
+}

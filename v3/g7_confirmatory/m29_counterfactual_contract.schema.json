@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/m29_counterfactual_contract.schema.json",
+  "title": "GridEval M29-A mirrored counterfactual contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "mission_id",
+    "decision_id",
+    "classification",
+    "development_only",
+    "evaluation_sealed",
+    "arms",
+    "primary_contrasts",
+    "shared_capability",
+    "cost_accounting",
+    "interventions",
+    "prohibited_access",
+    "failure_policy",
+    "audit",
+    "source_hash_manifest",
+    "contract_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-m29-counterfactual-contract/v1"
+    },
+    "project_id": {"const": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6"},
+    "mission_id": {"const": "mis_01M1N4BBH6TJ1Q6FBV2DNNS7Z8"},
+    "decision_id": {"const": "dec_01M1N48392JT638G1E4VPYF2YZ"},
+    "classification": {"const": "PRELIMINARY_ONLY"},
+    "development_only": {"const": true},
+    "evaluation_sealed": {"const": true},
+    "arms": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "arm_id",
+          "decision_core",
+          "llm_access",
+          "optimizer_access",
+          "state_representation",
+          "raw_information_digest_required"
+        ],
+        "properties": {
+          "arm_id": {
+            "enum": ["IA2", "IA3-O", "IA4-D", "IA4-H", "IA4-HG"]
+          },
+          "decision_core": {
+            "enum": ["frozen_rules", "deterministic_optimizer_policy", "llm_direct", "llm_meta_controller"]
+          },
+          "llm_access": {"type": "boolean"},
+          "optimizer_access": {"type": "boolean"},
+          "state_representation": {
+            "enum": ["canonical_typed", "flat_text", "structured_graph"]
+          },
+          "raw_information_digest_required": {"const": true}
+        }
+      }
+    },
+    "primary_contrasts": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["contrast_id", "treatment", "control", "estimand", "m29a_status"],
+        "properties": {
+          "contrast_id": {
+            "enum": [
+              "semantic_meta_orchestration",
+              "optimizer_tool_value",
+              "structured_state_value",
+              "critic_value"
+            ]
+          },
+          "treatment": {"type": "string", "minLength": 1, "maxLength": 40},
+          "control": {"type": "string", "minLength": 1, "maxLength": 60},
+          "estimand": {"type": "string", "minLength": 1, "maxLength": 240},
+          "m29a_status": {"enum": ["estimable", "registered_deferred"]}
+        }
+      }
+    },
+    "shared_capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "knowledge_profile",
+        "authority_id",
+        "candidate_surface_id",
+        "history_limit",
+        "feedback_delay_source",
+        "environment_query_cap",
+        "validator_id"
+      ],
+      "properties": {
+        "knowledge_profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["grid", "detector", "training_data", "defense", "feedback"],
+          "properties": {
+            "grid": {"const": "partial"},
+            "detector": {"const": "none"},
+            "training_data": {"const": "none"},
+            "defense": {"const": "none"},
+            "feedback": {"const": "partial"}
+          }
+        },
+        "authority_id": {"type": "string"},
+        "candidate_surface_id": {"type": "string", "pattern": "^m29surface_[0-9a-f]{64}$"},
+        "history_limit": {"type": "integer", "minimum": 0, "maximum": 32},
+        "feedback_delay_source": {"const": "counterfactual_fixture"},
+        "environment_query_cap": {"const": 0},
+        "validator_id": {"const": "common_plan_validator_v1"}
+      }
+    },
+    "cost_accounting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_calls",
+        "model_prompt_tokens",
+        "model_completion_tokens",
+        "optimizer_calls",
+        "optimizer_evaluations",
+        "optimizer_compute_units",
+        "read_only_tool_calls",
+        "environment_queries",
+        "wall_clock_ms",
+        "invalid_proposals",
+        "refusals",
+        "accepted_decisions",
+        "effective_decisions"
+      ],
+      "properties": {
+        "model_calls": {"type": "string", "const": "separate_integer"},
+        "model_prompt_tokens": {"type": "string", "const": "separate_integer"},
+        "model_completion_tokens": {"type": "string", "const": "separate_integer"},
+        "optimizer_calls": {"type": "string", "const": "separate_integer"},
+        "optimizer_evaluations": {"type": "string", "const": "separate_integer"},
+        "optimizer_compute_units": {"type": "string", "const": "separate_integer"},
+        "read_only_tool_calls": {"type": "string", "const": "separate_integer"},
+        "environment_queries": {"type": "string", "const": "separate_integer"},
+        "wall_clock_ms": {"type": "string", "const": "separate_number"},
+        "invalid_proposals": {"type": "string", "const": "separate_integer"},
+        "refusals": {"type": "string", "const": "separate_integer"},
+        "accepted_decisions": {"type": "string", "const": "separate_integer"},
+        "effective_decisions": {"type": "string", "const": "separate_integer"}
+      }
+    },
+    "interventions": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "intervention_id",
+          "class",
+          "left_condition_id",
+          "right_condition_id",
+          "changed_fields",
+          "held_constant",
+          "oracle_type",
+          "left_expectation",
+          "right_expectation",
+          "eligible_arms",
+          "endpoint"
+        ],
+        "properties": {
+          "intervention_id": {"type": "string", "pattern": "^cf[1-8]$"},
+          "class": {
+            "enum": [
+              "sensitivity_reversal",
+              "operating_point_change",
+              "validity_hole",
+              "budget_change",
+              "delayed_feedback",
+              "infeasible_optimizer_output",
+              "tool_failure_class",
+              "strategy_rule_contradiction"
+            ]
+          },
+          "left_condition_id": {"type": "string", "pattern": "^m29_[a-z0-9_]+_left$"},
+          "right_condition_id": {"type": "string", "pattern": "^m29_[a-z0-9_]+_right$"},
+          "changed_fields": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1, "maxLength": 80}
+          },
+          "held_constant": {
+            "type": "array",
+            "minItems": 6,
+            "maxItems": 16,
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1, "maxLength": 80}
+          },
+          "oracle_type": {"enum": ["exact", "partial_order", "fail_closed"]},
+          "left_expectation": {"type": "object"},
+          "right_expectation": {"type": "object"},
+          "eligible_arms": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 5,
+            "uniqueItems": true,
+            "items": {"enum": ["IA2", "IA3-O", "IA4-D", "IA4-H", "IA4-HG"]}
+          },
+          "endpoint": {"type": "string", "minLength": 1, "maxLength": 120}
+        }
+      }
+    },
+    "prohibited_access": {
+      "const": [
+        "docker",
+        "simulator",
+        "detector",
+        "defense",
+        "embedding",
+        "physical_actuator",
+        "evaluation_records",
+        "evaluation_seeds_9101_9112",
+        "rka_attacker_view"
+      ]
+    },
+    "failure_policy": {
+      "const": "create_once_retain_and_stop_without_silent_retry"
+    },
+    "audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary_required", "independent_required", "independent_imports_primary", "required_issues"],
+      "properties": {
+        "primary_required": {"const": true},
+        "independent_required": {"const": true},
+        "independent_imports_primary": {"const": false},
+        "required_issues": {"const": []}
+      }
+    },
+    "source_hash_manifest": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "role"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1, "maxLength": 160},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "role": {
+            "enum": [
+              "executor_backbrief",
+              "hybrid_plan",
+              "optimization_request_schema",
+              "optimizer_result_schema",
+              "attack_state_schema",
+              "counterfactual_contract_schema",
+              "independent_audit_plan"
+            ]
+          }
+        }
+      }
+    },
+    "contract_id": {
+      "type": "string",
+      "pattern": "^m29contract_[0-9a-f]{64}$"
+    }
+  }
+}
