@@ -1,0 +1,562 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "M29-S Results with M29-T Zero-Call Recovery",
+    "description": "A PRELIMINARY_ONLY technical report on model capability, interface burden, and independently audited representation recovery from saved M29-S responses.",
+    "generatedAt": "2026-09-04T19:20:50Z",
+    "cards": [
+      {
+        "id": "best_llm_card",
+        "description": "Best held-out exact-match rate among LLM arms.",
+        "dataset": "headline",
+        "sourceId": "report_sql",
+        "metrics": [
+          { "label": "Best LLM held-out", "field": "best_llm_heldout_rate", "format": "percent" }
+        ]
+      },
+      {
+        "id": "deterministic_card",
+        "description": "Held-out exact-match rate of the deterministic compiler control.",
+        "dataset": "headline",
+        "sourceId": "report_sql",
+        "metrics": [
+          { "label": "Deterministic held-out", "field": "deterministic_heldout_rate", "format": "percent" }
+        ]
+      },
+      {
+        "id": "oracle_card",
+        "description": "Held-out exact-match rate of the oracle ceiling control.",
+        "dataset": "headline",
+        "sourceId": "report_sql",
+        "metrics": [
+          { "label": "Oracle held-out", "field": "oracle_heldout_rate", "format": "percent" }
+        ]
+      },
+      {
+        "id": "staged_card",
+        "description": "Share of staged LLM cells producing a valid final strategy program.",
+        "dataset": "headline",
+        "sourceId": "report_sql",
+        "metrics": [
+          { "label": "Staged valid programs", "field": "staged_valid_program_rate", "format": "percent" }
+        ]
+      },
+      {
+        "id": "calls_card",
+        "description": "Remote model calls used in Attempt 4 across both splits.",
+        "dataset": "headline",
+        "sourceId": "report_sql",
+        "metrics": [
+          { "label": "Model calls", "field": "model_calls", "format": "number" }
+        ]
+      },
+      {
+        "id": "flat_o2_card",
+        "description": "Held-out flat-interface exact rate after unordered-array canonicalization.",
+        "dataset": "offline_headline",
+        "sourceId": "report_sql",
+        "metrics": [
+          { "label": "Flat O2 held-out", "field": "flat_o2_heldout_rate", "format": "percent" }
+        ]
+      },
+      {
+        "id": "staged_o3_card",
+        "description": "Held-out staged exact rate when a tool owns only the evidence ledger.",
+        "dataset": "offline_headline",
+        "sourceId": "report_sql",
+        "metrics": [
+          { "label": "Staged O3 held-out", "field": "staged_o3_heldout_rate", "format": "percent" }
+        ]
+      },
+      {
+        "id": "staged_o5_card",
+        "description": "Held-out staged exact rate after tool-owned ledger and forced slot projection.",
+        "dataset": "offline_headline",
+        "sourceId": "report_sql",
+        "metrics": [
+          { "label": "Staged O5 held-out", "field": "staged_o5_heldout_rate", "format": "percent" }
+        ]
+      },
+      {
+        "id": "offline_calls_card",
+        "description": "Additional remote calls used by the representation-recovery replay.",
+        "dataset": "offline_headline",
+        "sourceId": "report_sql",
+        "metrics": [
+          { "label": "Replay model calls", "field": "new_model_calls", "format": "number" }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "arm_outcomes_chart",
+        "title": "Exact successes by arm and split",
+        "subtitle": "Each arm is evaluated on 16 conditions per split; staged variants produced no exact successes.",
+        "intent": "comparison",
+        "question": "How does exact performance vary by interface, support mechanism, and split?",
+        "rationale": "Grouped horizontal bars preserve the arm ladder and allow direct development-versus-held-out comparison.",
+        "type": "horizontalBar",
+        "dataset": "arm_outcomes",
+        "sourceId": "report_sql",
+        "encodings": {
+          "x": { "field": "arm_id", "type": "nominal", "label": "Arm" },
+          "y": { "field": "exact_successes", "type": "quantitative", "label": "Exact successes" },
+          "color": { "field": "split", "type": "nominal", "label": "Split" },
+          "tooltip": [
+            { "field": "arm", "type": "text", "label": "Design" },
+            { "field": "exact_rate", "type": "quantitative", "label": "Exact rate", "format": "percent" },
+            { "field": "final_contract_violations", "type": "quantitative", "label": "Contract violations", "format": "number" }
+          ]
+        },
+        "valueFormat": "number",
+        "layout": "full",
+        "labels": { "values": "all" },
+        "legend": { "position": "bottom", "title": "Split" },
+        "palette": { "kind": "categorical" },
+        "settings": { "groupMode": "grouped", "orientation": "horizontal", "showValues": true, "sort": "custom" }
+      },
+      {
+        "id": "staged_failures_chart",
+        "title": "Why staged final programs failed",
+        "subtitle": "Primary failure assigned once per staged cell across development and held-out splits (n = 128).",
+        "intent": "decomposition",
+        "question": "Which failure mechanisms explain the staged interface collapse?",
+        "rationale": "A horizontal bar chart makes the dominant ledger and projection failures directly comparable.",
+        "type": "horizontalBar",
+        "dataset": "staged_failures",
+        "sourceId": "report_sql",
+        "encodings": {
+          "x": { "field": "failure_category", "type": "nominal", "label": "Primary failure" },
+          "y": { "field": "cells", "type": "quantitative", "label": "Cells" },
+          "tooltip": [
+            { "field": "share", "type": "quantitative", "label": "Share", "format": "percent" }
+          ]
+        },
+        "valueFormat": "number",
+        "layout": "full",
+        "labels": { "values": "all" },
+        "palette": { "kind": "sequential" },
+        "settings": { "orientation": "horizontal", "showValues": true, "sort": "descending" }
+      },
+      {
+        "id": "construct_chart",
+        "title": "Flat-interface exact rate by evidence construct",
+        "subtitle": "Six flat LLM arms pooled within each construct and split (12 cells per bar).",
+        "intent": "comparison",
+        "question": "Does the flat interface succeed uniformly across evidence-combination tasks?",
+        "rationale": "Grouped bars expose construct-specific success and split instability that aggregate arm rates hide.",
+        "type": "horizontalBar",
+        "dataset": "flat_constructs",
+        "sourceId": "report_sql",
+        "encodings": {
+          "x": { "field": "construct", "type": "nominal", "label": "Construct" },
+          "y": { "field": "exact_rate", "type": "quantitative", "label": "Exact rate", "format": "percent" },
+          "color": { "field": "split", "type": "nominal", "label": "Split" },
+          "tooltip": [
+            { "field": "exact_successes", "type": "quantitative", "label": "Exact successes", "format": "number" },
+            { "field": "cells", "type": "quantitative", "label": "Cells", "format": "number" }
+          ]
+        },
+        "valueFormat": "percent",
+        "layout": "full",
+        "labels": { "values": "all" },
+        "legend": { "position": "bottom", "title": "Split" },
+        "palette": { "kind": "categorical" },
+        "settings": { "groupMode": "grouped", "orientation": "horizontal", "showValues": true, "sort": "custom" }
+      },
+      {
+        "id": "slot_chart",
+        "title": "Held-out slot accuracy within flat LLM arms",
+        "subtitle": "Exact field-level agreement pooled across 96 held-out flat-interface cells.",
+        "intent": "comparison",
+        "question": "Which semantic fields are most difficult even before program assembly?",
+        "rationale": "A sorted horizontal bar chart identifies the fields that deterministic state and constraint tools should own first.",
+        "type": "horizontalBar",
+        "dataset": "heldout_slots",
+        "sourceId": "report_sql",
+        "encodings": {
+          "x": { "field": "slot", "type": "nominal", "label": "Semantic slot" },
+          "y": { "field": "exact_rate", "type": "quantitative", "label": "Exact rate", "format": "percent" },
+          "tooltip": [
+            { "field": "exact", "type": "quantitative", "label": "Exact", "format": "number" },
+            { "field": "cells", "type": "quantitative", "label": "Cells", "format": "number" }
+          ]
+        },
+        "valueFormat": "percent",
+        "layout": "full",
+        "labels": { "values": "all" },
+        "palette": { "kind": "sequential" },
+        "settings": { "orientation": "horizontal", "showValues": true, "sort": "ascending" }
+      },
+      {
+        "id": "recovery_ladder_chart",
+        "title": "Zero-call exact recovery across offline stages",
+        "subtitle": "Saved responses are re-scored or mechanically transformed; no semantic value is replaced by an oracle value.",
+        "intent": "comparison",
+        "question": "Which mechanical intervention recovers exact success, and does forced slot projection help?",
+        "rationale": "Ordered lines show the discontinuity created by tool-owned ledgers and the regression caused by projecting the redundant staged slot object.",
+        "type": "line",
+        "dataset": "recovery_ladder",
+        "sourceId": "report_sql",
+        "encodings": {
+          "x": { "field": "stage", "type": "ordinal", "label": "Offline stage" },
+          "y": { "field": "exact_rate", "type": "quantitative", "label": "Exact rate", "format": "percent" },
+          "color": { "field": "series", "type": "nominal", "label": "Split and interface" },
+          "tooltip": [
+            { "field": "exact_successes", "type": "quantitative", "label": "Exact successes", "format": "number" },
+            { "field": "cells", "type": "quantitative", "label": "Cells", "format": "number" },
+            { "field": "semantics_exact", "type": "quantitative", "label": "Semantics exact", "format": "number" }
+          ]
+        },
+        "valueFormat": "percent",
+        "layout": "full",
+        "labels": { "values": "endpoints" },
+        "legend": { "position": "bottom", "title": "Split and interface" },
+        "palette": { "kind": "categorical" }
+      }
+    ],
+    "tables": [
+      {
+        "id": "interface_contrasts_table",
+        "title": "Pooled paired interface contrasts",
+        "subtitle": "Development and held-out conditions pooled only for descriptive sensitivity analysis.",
+        "dataset": "interface_contrasts",
+        "sourceId": "report_sql",
+        "density": "dense",
+        "layout": "full",
+        "columns": [
+          { "field": "contrast", "label": "Support condition", "type": "text" },
+          { "field": "staged_arm", "label": "Staged arm", "type": "text" },
+          { "field": "flat_arm", "label": "Flat arm", "type": "text" },
+          { "field": "staged_wins", "label": "Staged wins", "format": "number" },
+          { "field": "flat_wins", "label": "Flat wins", "format": "number" },
+          { "field": "ties", "label": "Ties", "format": "number" },
+          { "field": "two_sided_exact_sign_p", "label": "Exact sign p", "format": "number" }
+        ]
+      },
+      {
+        "id": "audit_table",
+        "title": "Evidence and audit trace",
+        "subtitle": "Append-only receipts preserve the original audit outcome and its independently verified correction.",
+        "dataset": "audit_trace",
+        "sourceId": "report_sql",
+        "density": "dense",
+        "layout": "full",
+        "columns": [
+          { "field": "artifact", "label": "Artifact", "type": "text" },
+          { "field": "identifier", "label": "Content-addressed identifier", "type": "text" },
+          { "field": "status", "label": "Status", "type": "text" },
+          { "field": "interpretation", "label": "Interpretation", "type": "text" }
+        ]
+      },
+      {
+        "id": "arm_detail_table",
+        "title": "Complete arm-level results",
+        "subtitle": "All controls and LLM arms, reported separately by split.",
+        "dataset": "arm_outcomes",
+        "sourceId": "report_sql",
+        "density": "dense",
+        "layout": "full",
+        "columns": [
+          { "field": "split", "label": "Split", "type": "text" },
+          { "field": "arm_id", "label": "Arm", "type": "text" },
+          { "field": "arm", "label": "Design", "type": "text" },
+          { "field": "exact_successes", "label": "Exact", "format": "number" },
+          { "field": "conditions", "label": "Conditions", "format": "number" },
+          { "field": "exact_rate", "label": "Exact rate", "format": "percent" },
+          { "field": "final_contract_violations", "label": "Contract violations", "format": "number" },
+          { "field": "model_calls", "label": "Model calls", "format": "number" }
+        ]
+      },
+      {
+        "id": "recovery_table",
+        "title": "Offline recovery ladder detail",
+        "subtitle": "Exact and semantic success counts at each mechanical replay stage.",
+        "dataset": "recovery_ladder",
+        "sourceId": "report_sql",
+        "density": "dense",
+        "layout": "full",
+        "columns": [
+          { "field": "split", "label": "Split", "type": "text" },
+          { "field": "interface", "label": "Interface", "type": "text" },
+          { "field": "stage", "label": "Stage", "type": "text" },
+          { "field": "exact_successes", "label": "Exact", "format": "number" },
+          { "field": "semantics_exact", "label": "Semantics exact", "format": "number" },
+          { "field": "cells", "label": "Cells", "format": "number" },
+          { "field": "exact_rate", "label": "Exact rate", "format": "percent" }
+        ]
+      }
+    ],
+    "sources": [
+      { "id": "report_sql", "label": "M29-S report dataset transformations", "path": "report_source.sql" },
+      { "id": "analysis", "label": "M29-S reproducible analysis snapshot", "path": "analysis_snapshot.json" },
+      { "id": "primary", "label": "M29-S primary receipt", "path": "primary_receipt.json" },
+      { "id": "audit_addendum", "label": "M29-S independent audit addendum", "path": "independent_audit_addendum.json" },
+      { "id": "development", "label": "M29-S development receipt", "path": "development_receipt.json" },
+      { "id": "heldout", "label": "M29-S held-out receipt", "path": "held_out_receipt.json" }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# M29-S Results with M29-T Zero-Call Recovery\n\n**PRELIMINARY_ONLY · bounded online factorial study plus saved-response replay · 2026-09-04**"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "sourceId": "analysis",
+        "body": "## Technical summary\n\nThe results reject a one-dimensional explanation based only on model weakness. The evaluated model demonstrated partial semantic competence through flat interfaces, reaching **5/16 held-out exact successes** in the best LLM arms. The deterministic compiler reached **12/16**, and the oracle reached **16/16**, which establishes both meaningful machine-solvable structure and substantial remaining headroom.\n\nThe original staged interface failed online, but the independently audited zero-call replay changes its interpretation. Every saved LLM response was valid JSON. Canonicalizing only registered unordered arrays raised held-out flat exact success from **28/96 to 45/96**. For staged outputs, rebuilding only the evidence ledger raised held-out exact success from **0/64 to 32/64**, while also forcing the submitted `SemanticSlots` into the final program reduced it to **20/64**. The model often produced a better final program than its redundant slot object. The next architecture should therefore use tool-owned state and canonicalization, remove duplicated semantic serialization, and make doctrine resolution and grid constraints explicit deterministic operations."
+      },
+      {
+        "id": "headline_metrics",
+        "type": "metric-strip",
+        "cardIds": ["best_llm_card", "deterministic_card", "oracle_card", "staged_card", "calls_card"]
+      },
+      {
+        "id": "interface_finding",
+        "type": "markdown",
+        "sourceId": "analysis",
+        "body": "## Major finding: interface burden dominated the support mechanisms\n\nSelf-revision, validator feedback, and retrieval did not rescue the staged representation. Flat variants remained in a narrow band of **4–5 exact successes per 16 held-out conditions**, while staged counterparts remained at zero. This does not show that decomposition is intrinsically harmful; it shows that requiring one model to maintain three mutually consistent serialized artifacts created a failure surface larger than the support mechanisms could repair."
+      },
+      { "id": "arm_outcomes", "type": "chart", "chartId": "arm_outcomes_chart", "layout": "full" },
+      {
+        "id": "staged_failure_text",
+        "type": "markdown",
+        "sourceId": "analysis",
+        "body": "### Staged failures were structural, not primarily truncation\n\nLedger authority ordering accounted for **62/128** staged failures and slot-to-program projection for **58/128**. Only **8/128** were assigned to completion length. The next design should remove duplicated representation work: the model should emit a minimal semantic delta, after which tools should update the authoritative ledger and compile the executable program."
+      },
+      { "id": "staged_failures", "type": "chart", "chartId": "staged_failures_chart", "layout": "full" },
+      {
+        "id": "construct_text",
+        "type": "markdown",
+        "sourceId": "analysis",
+        "body": "## Evidence-combination difficulty is heterogeneous\n\nThe flat interface solved authority supersession and some topology cases, but it did not robustly solve delayed lineage, resource budgets, objective cooldowns, or retrieval-dependent doctrine. Doctrine direction was perfect in development and zero in held-out, while validity expiry moved from zero to 10/12. These split reversals and construct-specific failures argue against treating the aggregate exact rate as a stable model-quality score."
+      },
+      { "id": "constructs", "type": "chart", "chartId": "construct_chart", "layout": "full" },
+      {
+        "id": "slot_text",
+        "type": "markdown",
+        "sourceId": "analysis",
+        "body": "## Field-level evidence localizes the repair target\n\nWithin the 96 held-out flat-interface cells, `allowed_targets` was the weakest field at **56.25%** exact agreement; cooldown, strategy identity, objective weights, and maximum level change were the next weakest. Most scalar budget and window fields exceeded **96%** agreement. Because array order is part of the frozen exact metric, the `allowed_targets` result combines semantic selection and canonical ordering error. An offline replay should separate those components before another online run."
+      },
+      { "id": "slots", "type": "chart", "chartId": "slot_chart", "layout": "full" },
+      {
+        "id": "factorial_text",
+        "type": "markdown",
+        "sourceId": "analysis",
+        "body": "## Factorial contrasts\n\nAcross 32 paired development-plus-held-out conditions per support mechanism, the flat interface won every discordant pair: **9–10 flat wins, zero staged wins**, with two-sided exact sign-test p-values from **0.00195 to 0.00391**. These pooled tests were not the registered confirmatory estimands and are reported only as descriptive sensitivity analyses. Within the flat interface, validator and retrieval effects were small and inconsistent at this sample size."
+      },
+      { "id": "interface_contrasts", "type": "table", "tableId": "interface_contrasts_table", "layout": "full" },
+      {
+        "id": "scope_definitions",
+        "type": "markdown",
+        "sourceId": "primary",
+        "body": "## Scope and definitions\n\nAn **exact success** requires the frozen metric to match all semantic slots, including order-sensitive arrays. A **final contract violation** means the final strategy-program object failed its schema or semantic contract. `Flat LLM` arms generate one final program directly. `Staged LLM` arms generate an evidence ledger, semantic slots, and a final program. The deterministic compiler and oracle are controls, not deployable attacker claims.\n\nThis artifact is **PRELIMINARY_ONLY**. It does not authorize M29-B, final evaluation, simulator execution, detector or defense evaluation, stealth testing, or operational red-team conclusions."
+      },
+      {
+        "id": "methodology",
+        "type": "markdown",
+        "sourceId": "analysis",
+        "body": "## Methodology and validation\n\nAttempt 4 used 12 arms, 16 conditions per split, and 192 cells per split. LLM arms consumed **288 calls per split** for **576 calls total**; deterministic and oracle controls consumed none. Development was frozen before the held-out packet was loaded. Retrieval reused precomputed embeddings from the already-running `qwen3-embedding:0.6b` service; the experiment did not reconfigure or replace that model. The remote generator was `qwen3.6-35b-a3b`.\n\nThe reproducible analysis is content-addressed as `m29sanalysis_312861293f3e78b371b3c1f861bed9acfe83a58337dd37aefdc37aa6022119f7`. The conservative cumulative call count is **816/1000**, leaving **184** calls under the authorized ceiling."
+      },
+      {
+        "id": "audit_text",
+        "type": "markdown",
+        "sourceId": "audit_addendum",
+        "body": "## Independent audit and anomaly resolution\n\nThe original independent audit is preserved unchanged and reports 204 discrepancies. Investigation showed that the auditor sorted `allowed_targets` and `forbidden_windows` before applying an order-sensitive frozen metric. An append-only auditor corrected only that audit implementation, reran all checks over the existing 384 cells and 576 saved calls, and passed with zero issues. No frozen evidence or model response was modified or repeated. The primary receipt remains conservative because it was issued before the addendum and records the original independent-audit state."
+      },
+      { "id": "audit", "type": "table", "tableId": "audit_table", "layout": "full" },
+      {
+        "id": "offline_replay_text",
+        "type": "markdown",
+        "sourceId": "report_sql",
+        "body": "## M29-T zero-call representation-recovery replay\n\nThe replay reprocessed all **320 saved LLM cells** and made no model or embedding calls. All 320 final saved responses were parseable JSON. Among them, 56 were recorded exact successes, 35 additional cells were recovered by unordered-array canonicalization, and 41 were recovered by the combined ledger-and-projection tool path. Another 68 had exact semantics after that path but retained provenance mismatches; 120 retained at least one semantic error.\n\nThe stage comparison is more informative than the aggregate classification. Flat held-out exact success rose from **28/96 (29.17%)** to **45/96 (46.88%)** under canonicalization. Staged held-out semantic exactness reached **55/64 (85.94%)** when the saved final program was retained, and a deterministic ledger produced **32/64 (50%)** complete exact successes. Forced projection from the separately submitted slot object reduced semantic exactness to **25/64** and complete success to **20/64 (31.25%)**. Therefore, tool ownership is supported, but the old `SemanticSlots -> StrategyProgram` projection is not."
+      },
+      {
+        "id": "offline_metrics",
+        "type": "metric-strip",
+        "cardIds": ["flat_o2_card", "staged_o3_card", "staged_o5_card", "offline_calls_card"]
+      },
+      { "id": "recovery_ladder", "type": "chart", "chartId": "recovery_ladder_chart", "layout": "full" },
+      {
+        "id": "offline_interpretation",
+        "type": "markdown",
+        "sourceId": "report_sql",
+        "body": "### The redundant semantic-slot object is the wrong control surface\n\nAfter forced O5 projection, `strategy_id` was wrong in **107/320** LLM cells and was the only wrong slot in 69 cells. The staged model frequently put a doctrine code into the slot while its final program correctly used the doctrine's strategy identifier. This is a type-design problem as well as a capability problem. The next interface should ask the LLM to select evidence and a `doctrine_code`, then let a deterministic resolver map doctrine content into `strategy_id`, direction, weights, and level limits. Topology, budget, cooldown, temporal validity, and provenance should be compiled from visible structured records rather than retyped by the model."
+      },
+      { "id": "recovery_detail", "type": "table", "tableId": "recovery_table", "layout": "full" },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "sourceId": "analysis",
+        "body": "## Limitations and uncertainty\n\n- One generator model and one model serving configuration were evaluated.\n- Each arm has only 16 conditions per split; one-success differences are weak evidence.\n- Separate requests used temperature zero and a fixed seed, but server-level concurrency or numerical nondeterminism can still affect outputs.\n- The frozen metric treats selected arrays as order-sensitive; some failures may be representation-recoverable rather than semantic.\n- Retrieval recall was strong for required snippets, but the model did not reliably operationalize retrieved evidence.\n- The study does not evaluate long-horizon behavior, adaptive defenders, grid simulation impact, detector evasion, cross-model transfer, or real-world safety."
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "sourceId": "analysis",
+        "body": "## Recommended next research step\n\nThe zero-call replay is complete and rules out the old forced slot projection as the next intervention. A fresh bounded online M29-T should test the following ladder:\n\n1. **L0 — Canonical flat baseline:** current flat proposal plus deterministic normalization of registered unordered fields.\n2. **L1 — Tool-owned ledger:** the LLM keeps one candidate program, while tools own authority, status, validity, and provenance state.\n3. **L2 — Decision-reference interface:** the LLM emits selected evidence IDs, a `doctrine_code`, targets, and explicit exceptions instead of duplicating every derived semantic field.\n4. **L3 — Grid constraint compiler:** deterministic resolvers map doctrine content and structured records into strategy identity, direction, weights, topology, budgets, cooldown, timing, schema, and evidence lineage.\n5. **L4 — Persistent provenance timeline:** explicit long-horizon state supports delayed lineage and subtle bias-injection studies.\n6. **L5 — Optimizer-agent loop:** only after earlier levels pass, introduce simulator-guided search under a separately authorized boundary.\n\nThe first online comparison should isolate L0, L1, and L2/L3 with a fresh development packet and fit within the remaining **184-call** ceiling. A stronger-model arm should be added only after the interface is stable, so model capability is not confounded with representation repair."
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "sourceId": "analysis",
+        "body": "## Further questions\n\n- How much flat-interface error disappears under canonicalization alone?\n- Does deterministic projection close the gap from 31.25% toward the 75% compiler control?\n- Which errors require persistent state rather than local evidence interpretation?\n- After the architecture is stabilized, do stronger or diverse models change the semantic-error fraction?\n- Can an optimizer improve long-horizon strategy without creating an untraceable policy-search loop?"
+      },
+      { "id": "arm_detail", "type": "table", "tableId": "arm_detail_table", "layout": "full" }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-09-04T19:20:50Z",
+    "status": "ready",
+    "datasets": {
+      "headline": [
+        {
+          "best_llm_heldout_rate": 0.3125,
+          "deterministic_heldout_rate": 0.75,
+          "oracle_heldout_rate": 1.0,
+          "staged_valid_program_rate": 0.0,
+          "model_calls": 576
+        }
+      ],
+      "offline_headline": [
+        {
+          "flat_o2_heldout_rate": 0.46875,
+          "staged_o3_heldout_rate": 0.5,
+          "staged_o5_heldout_rate": 0.3125,
+          "new_model_calls": 0
+        }
+      ],
+      "recovery_ladder": [
+        { "split": "Development", "interface": "Flat", "series": "Development · Flat", "stage": "O0 Recorded", "exact_successes": 28, "semantics_exact": 54, "cells": 96, "exact_rate": 0.291667 },
+        { "split": "Development", "interface": "Flat", "series": "Development · Flat", "stage": "O1 Saved JSON", "exact_successes": 28, "semantics_exact": 54, "cells": 96, "exact_rate": 0.291667 },
+        { "split": "Development", "interface": "Flat", "series": "Development · Flat", "stage": "O2 Canonical arrays", "exact_successes": 46, "semantics_exact": 77, "cells": 96, "exact_rate": 0.479167 },
+        { "split": "Development", "interface": "Flat", "series": "Development · Flat", "stage": "O3 Tool ledger", "exact_successes": 46, "semantics_exact": 77, "cells": 96, "exact_rate": 0.479167 },
+        { "split": "Development", "interface": "Flat", "series": "Development · Flat", "stage": "O4 Tool projection", "exact_successes": 46, "semantics_exact": 77, "cells": 96, "exact_rate": 0.479167 },
+        { "split": "Development", "interface": "Flat", "series": "Development · Flat", "stage": "O5 Ledger + projection", "exact_successes": 46, "semantics_exact": 77, "cells": 96, "exact_rate": 0.479167 },
+        { "split": "Held-out", "interface": "Flat", "series": "Held-out · Flat", "stage": "O0 Recorded", "exact_successes": 28, "semantics_exact": 42, "cells": 96, "exact_rate": 0.291667 },
+        { "split": "Held-out", "interface": "Flat", "series": "Held-out · Flat", "stage": "O1 Saved JSON", "exact_successes": 28, "semantics_exact": 42, "cells": 96, "exact_rate": 0.291667 },
+        { "split": "Held-out", "interface": "Flat", "series": "Held-out · Flat", "stage": "O2 Canonical arrays", "exact_successes": 45, "semantics_exact": 76, "cells": 96, "exact_rate": 0.46875 },
+        { "split": "Held-out", "interface": "Flat", "series": "Held-out · Flat", "stage": "O3 Tool ledger", "exact_successes": 45, "semantics_exact": 76, "cells": 96, "exact_rate": 0.46875 },
+        { "split": "Held-out", "interface": "Flat", "series": "Held-out · Flat", "stage": "O4 Tool projection", "exact_successes": 45, "semantics_exact": 76, "cells": 96, "exact_rate": 0.46875 },
+        { "split": "Held-out", "interface": "Flat", "series": "Held-out · Flat", "stage": "O5 Ledger + projection", "exact_successes": 45, "semantics_exact": 76, "cells": 96, "exact_rate": 0.46875 },
+        { "split": "Development", "interface": "Staged", "series": "Development · Staged", "stage": "O0 Recorded", "exact_successes": 0, "semantics_exact": 0, "cells": 64, "exact_rate": 0.0 },
+        { "split": "Development", "interface": "Staged", "series": "Development · Staged", "stage": "O1 Saved JSON", "exact_successes": 0, "semantics_exact": 38, "cells": 64, "exact_rate": 0.0 },
+        { "split": "Development", "interface": "Staged", "series": "Development · Staged", "stage": "O2 Canonical arrays", "exact_successes": 0, "semantics_exact": 56, "cells": 64, "exact_rate": 0.0 },
+        { "split": "Development", "interface": "Staged", "series": "Development · Staged", "stage": "O3 Tool ledger", "exact_successes": 32, "semantics_exact": 56, "cells": 64, "exact_rate": 0.5 },
+        { "split": "Development", "interface": "Staged", "series": "Development · Staged", "stage": "O4 Tool projection", "exact_successes": 0, "semantics_exact": 22, "cells": 64, "exact_rate": 0.0 },
+        { "split": "Development", "interface": "Staged", "series": "Development · Staged", "stage": "O5 Ledger + projection", "exact_successes": 21, "semantics_exact": 22, "cells": 64, "exact_rate": 0.328125 },
+        { "split": "Held-out", "interface": "Staged", "series": "Held-out · Staged", "stage": "O0 Recorded", "exact_successes": 0, "semantics_exact": 0, "cells": 64, "exact_rate": 0.0 },
+        { "split": "Held-out", "interface": "Staged", "series": "Held-out · Staged", "stage": "O1 Saved JSON", "exact_successes": 0, "semantics_exact": 32, "cells": 64, "exact_rate": 0.0 },
+        { "split": "Held-out", "interface": "Staged", "series": "Held-out · Staged", "stage": "O2 Canonical arrays", "exact_successes": 0, "semantics_exact": 55, "cells": 64, "exact_rate": 0.0 },
+        { "split": "Held-out", "interface": "Staged", "series": "Held-out · Staged", "stage": "O3 Tool ledger", "exact_successes": 32, "semantics_exact": 55, "cells": 64, "exact_rate": 0.5 },
+        { "split": "Held-out", "interface": "Staged", "series": "Held-out · Staged", "stage": "O4 Tool projection", "exact_successes": 0, "semantics_exact": 25, "cells": 64, "exact_rate": 0.0 },
+        { "split": "Held-out", "interface": "Staged", "series": "Held-out · Staged", "stage": "O5 Ledger + projection", "exact_successes": 20, "semantics_exact": 25, "cells": 64, "exact_rate": 0.3125 }
+      ],
+      "arm_outcomes": [
+        { "arm": "Deterministic compiler", "arm_id": "IA3-SX", "conditions": 16, "exact_rate": 0.75, "exact_successes": 12, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 0, "split": "Development" },
+        { "arm": "Deterministic compiler", "arm_id": "IA3-SX", "conditions": 16, "exact_rate": 0.75, "exact_successes": 12, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 0, "split": "Held-out" },
+        { "arm": "Oracle ceiling", "arm_id": "IA5-OC", "conditions": 16, "exact_rate": 1.0, "exact_successes": 16, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 0, "split": "Development" },
+        { "arm": "Oracle ceiling", "arm_id": "IA5-OC", "conditions": 16, "exact_rate": 1.0, "exact_successes": 16, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 0, "split": "Held-out" },
+        { "arm": "Single pass, no retrieval", "arm_id": "IA4-C1", "conditions": 16, "exact_rate": 0.3125, "exact_successes": 5, "final_contract_violations": 2, "invalid_outputs": 2, "model_calls": 16, "split": "Development" },
+        { "arm": "Single pass, no retrieval", "arm_id": "IA4-C1", "conditions": 16, "exact_rate": 0.25, "exact_successes": 4, "final_contract_violations": 2, "invalid_outputs": 2, "model_calls": 16, "split": "Held-out" },
+        { "arm": "Single pass, retrieval", "arm_id": "IA4-C1R", "conditions": 16, "exact_rate": 0.25, "exact_successes": 4, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 16, "split": "Development" },
+        { "arm": "Single pass, retrieval", "arm_id": "IA4-C1R", "conditions": 16, "exact_rate": 0.3125, "exact_successes": 5, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 16, "split": "Held-out" },
+        { "arm": "Flat + self revision", "arm_id": "IA4-FS", "conditions": 16, "exact_rate": 0.3125, "exact_successes": 5, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 32, "split": "Development" },
+        { "arm": "Flat + self revision", "arm_id": "IA4-FS", "conditions": 16, "exact_rate": 0.25, "exact_successes": 4, "final_contract_violations": 1, "invalid_outputs": 3, "model_calls": 32, "split": "Held-out" },
+        { "arm": "Flat + self + retrieval", "arm_id": "IA4-FSR", "conditions": 16, "exact_rate": 0.25, "exact_successes": 4, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 32, "split": "Development" },
+        { "arm": "Flat + self + retrieval", "arm_id": "IA4-FSR", "conditions": 16, "exact_rate": 0.3125, "exact_successes": 5, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 32, "split": "Held-out" },
+        { "arm": "Flat + validator", "arm_id": "IA4-FV", "conditions": 16, "exact_rate": 0.3125, "exact_successes": 5, "final_contract_violations": 0, "invalid_outputs": 1, "model_calls": 32, "split": "Development" },
+        { "arm": "Flat + validator", "arm_id": "IA4-FV", "conditions": 16, "exact_rate": 0.3125, "exact_successes": 5, "final_contract_violations": 0, "invalid_outputs": 2, "model_calls": 32, "split": "Held-out" },
+        { "arm": "Flat + validator + retrieval", "arm_id": "IA4-FVR", "conditions": 16, "exact_rate": 0.3125, "exact_successes": 5, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 32, "split": "Development" },
+        { "arm": "Flat + validator + retrieval", "arm_id": "IA4-FVR", "conditions": 16, "exact_rate": 0.3125, "exact_successes": 5, "final_contract_violations": 0, "invalid_outputs": 0, "model_calls": 32, "split": "Held-out" },
+        { "arm": "Staged + self", "arm_id": "IA4-SS", "conditions": 16, "exact_rate": 0.0, "exact_successes": 0, "final_contract_violations": 16, "invalid_outputs": 32, "model_calls": 32, "split": "Development" },
+        { "arm": "Staged + self", "arm_id": "IA4-SS", "conditions": 16, "exact_rate": 0.0, "exact_successes": 0, "final_contract_violations": 16, "invalid_outputs": 32, "model_calls": 32, "split": "Held-out" },
+        { "arm": "Staged + self + retrieval", "arm_id": "IA4-SSR", "conditions": 16, "exact_rate": 0.0, "exact_successes": 0, "final_contract_violations": 16, "invalid_outputs": 32, "model_calls": 32, "split": "Development" },
+        { "arm": "Staged + self + retrieval", "arm_id": "IA4-SSR", "conditions": 16, "exact_rate": 0.0, "exact_successes": 0, "final_contract_violations": 16, "invalid_outputs": 32, "model_calls": 32, "split": "Held-out" },
+        { "arm": "Staged + validator", "arm_id": "IA4-SV", "conditions": 16, "exact_rate": 0.0, "exact_successes": 0, "final_contract_violations": 16, "invalid_outputs": 32, "model_calls": 32, "split": "Development" },
+        { "arm": "Staged + validator", "arm_id": "IA4-SV", "conditions": 16, "exact_rate": 0.0, "exact_successes": 0, "final_contract_violations": 16, "invalid_outputs": 32, "model_calls": 32, "split": "Held-out" },
+        { "arm": "Staged + validator + retrieval", "arm_id": "IA4-SVR", "conditions": 16, "exact_rate": 0.0, "exact_successes": 0, "final_contract_violations": 16, "invalid_outputs": 32, "model_calls": 32, "split": "Development" },
+        { "arm": "Staged + validator + retrieval", "arm_id": "IA4-SVR", "conditions": 16, "exact_rate": 0.0, "exact_successes": 0, "final_contract_violations": 16, "invalid_outputs": 32, "model_calls": 32, "split": "Held-out" }
+      ],
+      "staged_failures": [
+        { "cells": 62, "failure_category": "Ledger authority order", "share": 0.484375 },
+        { "cells": 58, "failure_category": "Slot-program projection", "share": 0.453125 },
+        { "cells": 8, "failure_category": "Completion length", "share": 0.0625 }
+      ],
+      "flat_constructs": [
+        { "cells": 12, "construct": "Authority Supersession", "exact_rate": 0.833333, "exact_successes": 10, "split": "Development" },
+        { "cells": 12, "construct": "Delayed Lineage", "exact_rate": 0.0, "exact_successes": 0, "split": "Development" },
+        { "cells": 12, "construct": "Doctrine Direction", "exact_rate": 1.0, "exact_successes": 12, "split": "Development" },
+        { "cells": 12, "construct": "Objective Cooldown", "exact_rate": 0.0, "exact_successes": 0, "split": "Development" },
+        { "cells": 12, "construct": "Resource Budget", "exact_rate": 0.0, "exact_successes": 0, "split": "Development" },
+        { "cells": 12, "construct": "Retrieval Doctrine", "exact_rate": 0.0, "exact_successes": 0, "split": "Development" },
+        { "cells": 12, "construct": "Topology Scope", "exact_rate": 0.5, "exact_successes": 6, "split": "Development" },
+        { "cells": 12, "construct": "Validity Expiry", "exact_rate": 0.0, "exact_successes": 0, "split": "Development" },
+        { "cells": 12, "construct": "Authority Supersession", "exact_rate": 1.0, "exact_successes": 12, "split": "Held-out" },
+        { "cells": 12, "construct": "Delayed Lineage", "exact_rate": 0.0, "exact_successes": 0, "split": "Held-out" },
+        { "cells": 12, "construct": "Doctrine Direction", "exact_rate": 0.0, "exact_successes": 0, "split": "Held-out" },
+        { "cells": 12, "construct": "Objective Cooldown", "exact_rate": 0.0, "exact_successes": 0, "split": "Held-out" },
+        { "cells": 12, "construct": "Resource Budget", "exact_rate": 0.0, "exact_successes": 0, "split": "Held-out" },
+        { "cells": 12, "construct": "Retrieval Doctrine", "exact_rate": 0.0, "exact_successes": 0, "split": "Held-out" },
+        { "cells": 12, "construct": "Topology Scope", "exact_rate": 0.5, "exact_successes": 6, "split": "Held-out" },
+        { "cells": 12, "construct": "Validity Expiry", "exact_rate": 0.833333, "exact_successes": 10, "split": "Held-out" }
+      ],
+      "heldout_slots": [
+        { "cells": 96, "exact": 54, "exact_rate": 0.5625, "slot": "allowed_targets" },
+        { "cells": 96, "exact": 82, "exact_rate": 0.854167, "slot": "cooldown_same_target" },
+        { "cells": 96, "exact": 83, "exact_rate": 0.864583, "slot": "strategy_id" },
+        { "cells": 96, "exact": 84, "exact_rate": 0.875, "slot": "max_level_delta" },
+        { "cells": 96, "exact": 84, "exact_rate": 0.875, "slot": "objective_weights" },
+        { "cells": 96, "exact": 88, "exact_rate": 0.916667, "slot": "effect_direction" },
+        { "cells": 96, "exact": 93, "exact_rate": 0.96875, "slot": "forbidden_windows" },
+        { "cells": 96, "exact": 93, "exact_rate": 0.96875, "slot": "max_actions" },
+        { "cells": 96, "exact": 93, "exact_rate": 0.96875, "slot": "max_total_energy" },
+        { "cells": 96, "exact": 93, "exact_rate": 0.96875, "slot": "max_total_visibility" },
+        { "cells": 96, "exact": 93, "exact_rate": 0.96875, "slot": "min_actions" }
+      ],
+      "interface_contrasts": [
+        { "contrast": "Self revision, no retrieval", "discordant_pairs": 9, "flat_arm": "IA4-FS", "flat_wins": 9, "staged_arm": "IA4-SS", "staged_wins": 0, "ties": 23, "two_sided_exact_sign_p": 0.00390625 },
+        { "contrast": "Self revision, retrieval", "discordant_pairs": 9, "flat_arm": "IA4-FSR", "flat_wins": 9, "staged_arm": "IA4-SSR", "staged_wins": 0, "ties": 23, "two_sided_exact_sign_p": 0.00390625 },
+        { "contrast": "Validator, no retrieval", "discordant_pairs": 10, "flat_arm": "IA4-FV", "flat_wins": 10, "staged_arm": "IA4-SV", "staged_wins": 0, "ties": 22, "two_sided_exact_sign_p": 0.001953125 },
+        { "contrast": "Validator, retrieval", "discordant_pairs": 10, "flat_arm": "IA4-FVR", "flat_wins": 10, "staged_arm": "IA4-SVR", "staged_wins": 0, "ties": 22, "two_sided_exact_sign_p": 0.001953125 }
+      ],
+      "audit_trace": [
+        { "artifact": "Execution contract", "identifier": "m29sexec_ec8d30b7ac3f5156b189769e35f6bc08a6369c755414b3c297b16d008dab78c5", "status": "Bound", "interpretation": "Attempt 4 plan and sources fixed before execution" },
+        { "artifact": "Primary receipt", "identifier": "m29sprimary_9dfa32e6a78a367746a90d47b73c6cf4d2ec80cea35fe8cc5af364963d12aca9", "status": "Passed; not proposal-eligible", "interpretation": "Execution valid, scientific qualification gates not met" },
+        { "artifact": "Original independent audit", "identifier": "m29saudit_86b95385559a3a50e1794ab4cf042b3916279b49fe1274e8ed3ecdaf39cf6cfd", "status": "Failed; preserved", "interpretation": "204 metric discrepancies caused by auditor-side array sorting" },
+        { "artifact": "Independent audit addendum", "identifier": "m29sauditadd_563d4c98c9b80282537c88f1aa5d96ac9faffa88b47f28cdf80d7695e272928e", "status": "Passed", "interpretation": "Zero issues; frozen evidence unchanged; no calls repeated" }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "report_sql",
+      "label": "M29-S report dataset transformations",
+      "path": "report_source.sql"
+    },
+    {
+      "id": "analysis",
+      "label": "M29-S reproducible analysis snapshot",
+      "path": "analysis_snapshot.json",
+      "query": {
+        "language": "json",
+        "description": "Content-addressed aggregation of arm outcomes, construct results, slot accuracy, paired contrasts, and audit resolution.",
+        "executed_at": "2026-09-04T19:20:50Z"
+      }
+    },
+    { "id": "primary", "label": "M29-S primary receipt", "path": "primary_receipt.json" },
+    { "id": "audit_addendum", "label": "M29-S independent audit addendum", "path": "independent_audit_addendum.json" },
+    { "id": "development", "label": "M29-S development receipt", "path": "development_receipt.json" },
+    { "id": "heldout", "label": "M29-S held-out receipt", "path": "held_out_receipt.json" }
+  ],
+  "package_info": {
+    "root": "m29s_factorial_attempt4",
+    "manifestPath": "report_artifact.json",
+    "snapshotPath": "report_artifact.json",
+    "originUrl": "artifact://m29s-factorial-attempt4"
+  }
+}

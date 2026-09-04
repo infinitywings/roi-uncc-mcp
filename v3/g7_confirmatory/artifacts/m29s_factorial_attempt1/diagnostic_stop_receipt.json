@@ -1,0 +1,247 @@
+{
+  "access_boundary": {
+    "defense_accessed": false,
+    "detector_accessed": false,
+    "docker_accessed": false,
+    "final_evaluation_accessed": false,
+    "held_out_accessed_by_runner": false,
+    "physical_actuator_accessed": false,
+    "simulator_accessed": false
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "completed_staged_cells": 18,
+  "conservative_interrupted_inflight_calls": 1,
+  "conservative_model_calls": 85,
+  "development_cell_count": 54,
+  "development_cell_hashes": [
+    {
+      "path": "cells/development/IA3-SX/m29s_development_authority_supersession_left.json",
+      "sha256": "adf6a49e1629638592f9cf09cb11a1f15a1313d579e101dfab1dae23cc66a782"
+    },
+    {
+      "path": "cells/development/IA3-SX/m29s_development_authority_supersession_right.json",
+      "sha256": "89c24525e8c62bae4606760e6183d1ab6f47ee3c57416217348afbbccca55794"
+    },
+    {
+      "path": "cells/development/IA3-SX/m29s_development_doctrine_direction_left.json",
+      "sha256": "f229b46994840a655fa4adc2e0be348d551d099bda29f08e36ec1298cdd74926"
+    },
+    {
+      "path": "cells/development/IA3-SX/m29s_development_doctrine_direction_right.json",
+      "sha256": "4e336886ff461e53df865a6c476896451d71933e58a718d73aa7f415049880f1"
+    },
+    {
+      "path": "cells/development/IA4-C1/m29s_development_authority_supersession_left.json",
+      "sha256": "c91aa543a31230cf5d75d5e4b61713bc43d744c6ca9921492ea83f8013938687"
+    },
+    {
+      "path": "cells/development/IA4-C1/m29s_development_authority_supersession_right.json",
+      "sha256": "78b9640254dc0f733373b2e05c9bdd121a13b88797e3c32f5cacd038d4e1f0d2"
+    },
+    {
+      "path": "cells/development/IA4-C1/m29s_development_doctrine_direction_left.json",
+      "sha256": "16ccd76bd752e8e3cbabcb96c515ddf4b871337fcf4f8ed591d2c0285d932b63"
+    },
+    {
+      "path": "cells/development/IA4-C1/m29s_development_doctrine_direction_right.json",
+      "sha256": "103d0c61d23c19a98bc66364d1e67e2d0aa18131d7ec8ad57bcc741a286c6d0a"
+    },
+    {
+      "path": "cells/development/IA4-C1R/m29s_development_authority_supersession_left.json",
+      "sha256": "b19613a98cdab1886c9c61d61808ded5233c13c5a13ae1a36ca91b22d366bc22"
+    },
+    {
+      "path": "cells/development/IA4-C1R/m29s_development_authority_supersession_right.json",
+      "sha256": "1a00781771dd38882122da688b84f92bc96173bcc6f7420a82a1443e83e43f9b"
+    },
+    {
+      "path": "cells/development/IA4-C1R/m29s_development_doctrine_direction_left.json",
+      "sha256": "fe6b5c08709000c75b11096f881647eee374c44ceadd085d1e7f4bc03ffdb438"
+    },
+    {
+      "path": "cells/development/IA4-C1R/m29s_development_doctrine_direction_right.json",
+      "sha256": "a5dc21573d80f0839dd82c05ecff0100c5ed8792365b54a7e25ce7485496eb3d"
+    },
+    {
+      "path": "cells/development/IA4-FS/m29s_development_authority_supersession_left.json",
+      "sha256": "5df1fdde155f7c5831cafbcfd76a2b8aeaef41defdbe11f38513d69f2ed42e5a"
+    },
+    {
+      "path": "cells/development/IA4-FS/m29s_development_authority_supersession_right.json",
+      "sha256": "eb915d0c470d5c73f372b01f821d74bda1465f0cd7836d7c4dec25f857a7e7fd"
+    },
+    {
+      "path": "cells/development/IA4-FS/m29s_development_doctrine_direction_left.json",
+      "sha256": "eee020fada597d6cd6e8d0a4a5abd0184d7eab392e786dcf437ded805856ac06"
+    },
+    {
+      "path": "cells/development/IA4-FS/m29s_development_doctrine_direction_right.json",
+      "sha256": "5745c3de0584925480b3b333b4650e1076026c40a358d8dfe0840969c275dc20"
+    },
+    {
+      "path": "cells/development/IA4-FS/m29s_development_validity_expiry_left.json",
+      "sha256": "6910f8e05d143a606dfbd9ee9bd1f67920162f8706618c2b9a94d8d258848ebf"
+    },
+    {
+      "path": "cells/development/IA4-FSR/m29s_development_authority_supersession_left.json",
+      "sha256": "31044162265b6b533435d048fd5c442aa185eb82f3025e736ed5806a96ac3ff1"
+    },
+    {
+      "path": "cells/development/IA4-FSR/m29s_development_authority_supersession_right.json",
+      "sha256": "e041cfc0a96a2e6caf08b25732d10ef76329bd86a8a8856e7e49303078182fca"
+    },
+    {
+      "path": "cells/development/IA4-FSR/m29s_development_doctrine_direction_left.json",
+      "sha256": "1bb3ff1a7ab2e47afcfce239c0f444ce8f1d95b5d7ccb3bc830dbc3c4f0baaa1"
+    },
+    {
+      "path": "cells/development/IA4-FSR/m29s_development_doctrine_direction_right.json",
+      "sha256": "8a7e82e9f076a5854af36f6de45454e462974f2e245b6a1ff0d2f891e105f29b"
+    },
+    {
+      "path": "cells/development/IA4-FSR/m29s_development_validity_expiry_left.json",
+      "sha256": "a9ab025fba9a9d9f808f2a9fe55f167a928e966e6bd3ee712be2636dad0563b5"
+    },
+    {
+      "path": "cells/development/IA4-FV/m29s_development_authority_supersession_left.json",
+      "sha256": "9fe1e09fe12830a65bbdbd4181a4f49e2c88b5dd0d0818b0b9f2f74188c1e7c6"
+    },
+    {
+      "path": "cells/development/IA4-FV/m29s_development_authority_supersession_right.json",
+      "sha256": "7529a59e698388ac2d5dbf764cf0d8027c25dfac64dc391716097f7d6b23b7f0"
+    },
+    {
+      "path": "cells/development/IA4-FV/m29s_development_doctrine_direction_left.json",
+      "sha256": "487d067f5a09eba5d4e7bd9522e346a3e1d1bb881ec1940506211c2214883310"
+    },
+    {
+      "path": "cells/development/IA4-FV/m29s_development_doctrine_direction_right.json",
+      "sha256": "2612e52d9808e62d5a5347d3e2a82266cac4945cc3732678ff6cc177fbb8b7ee"
+    },
+    {
+      "path": "cells/development/IA4-FV/m29s_development_validity_expiry_left.json",
+      "sha256": "9177429fff5daaa3453a6e5068966e421c2e008def8f84c244a5db08b05d1c8b"
+    },
+    {
+      "path": "cells/development/IA4-FVR/m29s_development_authority_supersession_left.json",
+      "sha256": "f130a760d9650243b877c05378d21048a947883fb814cc16df0a23bd4b8ac343"
+    },
+    {
+      "path": "cells/development/IA4-FVR/m29s_development_authority_supersession_right.json",
+      "sha256": "9d82e97397451c34a0ecb60a0d7eeeb3050645fad1fae80d59a7ae28b03aa79c"
+    },
+    {
+      "path": "cells/development/IA4-FVR/m29s_development_doctrine_direction_left.json",
+      "sha256": "c61731ecced75040fab32f323545585d5657ef85db3ecbdf9b31efb706b7737e"
+    },
+    {
+      "path": "cells/development/IA4-FVR/m29s_development_doctrine_direction_right.json",
+      "sha256": "dfd9b69d6dec6c52ba12aca42875238bdc918aa04efb850b8b5df229e0b161de"
+    },
+    {
+      "path": "cells/development/IA4-FVR/m29s_development_validity_expiry_left.json",
+      "sha256": "b3a3c745ca4905c960826504aa9bbe2c88dda2a3c7193db6f80d682cae32660c"
+    },
+    {
+      "path": "cells/development/IA4-SS/m29s_development_authority_supersession_left.json",
+      "sha256": "52386cb385480d0d08226ddd7edb38be6eee16844a6d746ca5771decd1fe5e8f"
+    },
+    {
+      "path": "cells/development/IA4-SS/m29s_development_authority_supersession_right.json",
+      "sha256": "3e8c9120543b2380fa19830d0f78a9fb017afc7e3394926cbf211e1f1967ca95"
+    },
+    {
+      "path": "cells/development/IA4-SS/m29s_development_doctrine_direction_left.json",
+      "sha256": "7cbc640ee1a8968ce093382111f58ea7e8d707396b106d462dad6ac50e70aac3"
+    },
+    {
+      "path": "cells/development/IA4-SS/m29s_development_doctrine_direction_right.json",
+      "sha256": "e65e3f7013efcf9a0320d72106a16163b0d74a89a5b4702419e83cc8ee5959f6"
+    },
+    {
+      "path": "cells/development/IA4-SS/m29s_development_validity_expiry_left.json",
+      "sha256": "9cecdf81a9f91a175b5d667d493c2047d50b8020fc9da71bb5c9c22d124b6ae6"
+    },
+    {
+      "path": "cells/development/IA4-SSR/m29s_development_authority_supersession_left.json",
+      "sha256": "bf31e2f693bc176b1103eac69965e0096d66fad47a7156fbf06e316ef397c6de"
+    },
+    {
+      "path": "cells/development/IA4-SSR/m29s_development_authority_supersession_right.json",
+      "sha256": "6fd80f6c9407f15324d3930f758018232b1d21dcd31da15c024e9c16a428d1ad"
+    },
+    {
+      "path": "cells/development/IA4-SSR/m29s_development_doctrine_direction_left.json",
+      "sha256": "1b9ef214b9ddaab069aa1976697bb547870a30e9a4159159f66580a71f3199f6"
+    },
+    {
+      "path": "cells/development/IA4-SSR/m29s_development_doctrine_direction_right.json",
+      "sha256": "0bbdcd02ab65c6758bfc757b6f4a4272f14d2c8f239d47fdf811a3d0ef422930"
+    },
+    {
+      "path": "cells/development/IA4-SSR/m29s_development_validity_expiry_left.json",
+      "sha256": "11312c10fda1d57948a0c2bfd97960cb71fffc377a61fe966cd509a8ae1bfa55"
+    },
+    {
+      "path": "cells/development/IA4-SV/m29s_development_authority_supersession_left.json",
+      "sha256": "1d5216573638ab3cfe5bdbcd96fb4d71036774363a8b54f44fa48ff5561d6d06"
+    },
+    {
+      "path": "cells/development/IA4-SV/m29s_development_authority_supersession_right.json",
+      "sha256": "b0a37949697a9a3d6819cb62b52113874865264ef683ebae1805b021b3af1042"
+    },
+    {
+      "path": "cells/development/IA4-SV/m29s_development_doctrine_direction_left.json",
+      "sha256": "e198fbb30848804d68c4d34b0685e10ef98ffebe97f72a7fd3ad89df1cf935d7"
+    },
+    {
+      "path": "cells/development/IA4-SV/m29s_development_doctrine_direction_right.json",
+      "sha256": "ec4955d08b5fc32981f47c8a3939620b1d0287cf9433777eb1d00725bb05357f"
+    },
+    {
+      "path": "cells/development/IA4-SVR/m29s_development_authority_supersession_left.json",
+      "sha256": "8d640e0c2996feb5e72aeb5e3fb3bb44774f7e2ff54f71c177ffa56b18f3f059"
+    },
+    {
+      "path": "cells/development/IA4-SVR/m29s_development_authority_supersession_right.json",
+      "sha256": "229ae420515ad6e27b68d379cfee16e82f30456d8c0c6538e2d72af352a151a4"
+    },
+    {
+      "path": "cells/development/IA4-SVR/m29s_development_doctrine_direction_left.json",
+      "sha256": "b19f5dfc07ee4815d42930d0887cc1c9100ee5f6086b603e3105034614174f50"
+    },
+    {
+      "path": "cells/development/IA4-SVR/m29s_development_doctrine_direction_right.json",
+      "sha256": "b8491fbcc274a902926a8ae8df5b42fcb48a7b58266d8e820802eed503987031"
+    },
+    {
+      "path": "cells/development/IA5-OC/m29s_development_authority_supersession_left.json",
+      "sha256": "8526f3d2ecc5ad4c54f117c7a95e7c03a407ac7d9e8f42b94f4f21ca24005a70"
+    },
+    {
+      "path": "cells/development/IA5-OC/m29s_development_authority_supersession_right.json",
+      "sha256": "3d1d56d82a61064a994856c26284fd94143593d9e7c2e6c8295444a27312a5f6"
+    },
+    {
+      "path": "cells/development/IA5-OC/m29s_development_doctrine_direction_left.json",
+      "sha256": "41ad0e0c8331f4e7aecf426f7a735babe09d4ce865dd63f0e851438f4bb198a6"
+    },
+    {
+      "path": "cells/development/IA5-OC/m29s_development_doctrine_direction_right.json",
+      "sha256": "5713ac99a8fce7a119ffdf1f609600c3942d9733177dacdf8046f7bd66281443"
+    }
+  ],
+  "development_freeze_created": false,
+  "development_receipt_created": false,
+  "execution_contract_id": "m29sexec_0ddb4564adb4aa7949fd496c307b6cdb3899abc7bc45b4c06b6a34643011e340",
+  "execution_contract_sha256": "aec1d08c795c529b02cfcc4aa13e9de5e010be9b9ea3d0e7a0023badfeaea22a",
+  "held_out_cell_count": 0,
+  "m29b_authorized": false,
+  "predecessor_receipt_id": "m29spred_415e65723990c626ce25e9512504f718acd30e006bf9b29fc1953f506630a386",
+  "reason": "shared 900-token cap truncated staged-interface serialization",
+  "recorded_model_calls": 84,
+  "schema_version": "grideval-g7-m29s-predecessor-stop/v1",
+  "source_contract_issues": [],
+  "staged_cells_with_length_failure": 18,
+  "status": "terminated_development_diagnostic"
+}

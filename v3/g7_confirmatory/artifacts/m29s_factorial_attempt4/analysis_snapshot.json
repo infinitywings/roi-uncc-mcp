@@ -1,0 +1,1048 @@
+{
+  "analysis_id": "m29sanalysis_312861293f3e78b371b3c1f861bed9acfe83a58337dd37aefdc37aa6022119f7",
+  "arm_summary": [
+    {
+      "arm": "Deterministic compiler",
+      "arm_id": "IA3-SX",
+      "conditions": 16,
+      "exact_rate": 0.75,
+      "exact_successes": 12,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 0,
+      "split": "Development"
+    },
+    {
+      "arm": "Deterministic compiler",
+      "arm_id": "IA3-SX",
+      "conditions": 16,
+      "exact_rate": 0.75,
+      "exact_successes": 12,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 0,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Oracle ceiling",
+      "arm_id": "IA5-OC",
+      "conditions": 16,
+      "exact_rate": 1.0,
+      "exact_successes": 16,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 0,
+      "split": "Development"
+    },
+    {
+      "arm": "Oracle ceiling",
+      "arm_id": "IA5-OC",
+      "conditions": 16,
+      "exact_rate": 1.0,
+      "exact_successes": 16,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 0,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Single pass, no retrieval",
+      "arm_id": "IA4-C1",
+      "conditions": 16,
+      "exact_rate": 0.3125,
+      "exact_successes": 5,
+      "final_contract_violations": 2,
+      "invalid_outputs": 2,
+      "model_calls": 16,
+      "split": "Development"
+    },
+    {
+      "arm": "Single pass, no retrieval",
+      "arm_id": "IA4-C1",
+      "conditions": 16,
+      "exact_rate": 0.25,
+      "exact_successes": 4,
+      "final_contract_violations": 2,
+      "invalid_outputs": 2,
+      "model_calls": 16,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Single pass, retrieval",
+      "arm_id": "IA4-C1R",
+      "conditions": 16,
+      "exact_rate": 0.25,
+      "exact_successes": 4,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 16,
+      "split": "Development"
+    },
+    {
+      "arm": "Single pass, retrieval",
+      "arm_id": "IA4-C1R",
+      "conditions": 16,
+      "exact_rate": 0.3125,
+      "exact_successes": 5,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 16,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Flat + self revision",
+      "arm_id": "IA4-FS",
+      "conditions": 16,
+      "exact_rate": 0.3125,
+      "exact_successes": 5,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 32,
+      "split": "Development"
+    },
+    {
+      "arm": "Flat + self revision",
+      "arm_id": "IA4-FS",
+      "conditions": 16,
+      "exact_rate": 0.25,
+      "exact_successes": 4,
+      "final_contract_violations": 1,
+      "invalid_outputs": 3,
+      "model_calls": 32,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Flat + self + retrieval",
+      "arm_id": "IA4-FSR",
+      "conditions": 16,
+      "exact_rate": 0.25,
+      "exact_successes": 4,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 32,
+      "split": "Development"
+    },
+    {
+      "arm": "Flat + self + retrieval",
+      "arm_id": "IA4-FSR",
+      "conditions": 16,
+      "exact_rate": 0.3125,
+      "exact_successes": 5,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 32,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Flat + validator",
+      "arm_id": "IA4-FV",
+      "conditions": 16,
+      "exact_rate": 0.3125,
+      "exact_successes": 5,
+      "final_contract_violations": 0,
+      "invalid_outputs": 1,
+      "model_calls": 32,
+      "split": "Development"
+    },
+    {
+      "arm": "Flat + validator",
+      "arm_id": "IA4-FV",
+      "conditions": 16,
+      "exact_rate": 0.3125,
+      "exact_successes": 5,
+      "final_contract_violations": 0,
+      "invalid_outputs": 2,
+      "model_calls": 32,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Flat + validator + retrieval",
+      "arm_id": "IA4-FVR",
+      "conditions": 16,
+      "exact_rate": 0.3125,
+      "exact_successes": 5,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 32,
+      "split": "Development"
+    },
+    {
+      "arm": "Flat + validator + retrieval",
+      "arm_id": "IA4-FVR",
+      "conditions": 16,
+      "exact_rate": 0.3125,
+      "exact_successes": 5,
+      "final_contract_violations": 0,
+      "invalid_outputs": 0,
+      "model_calls": 32,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Staged + self",
+      "arm_id": "IA4-SS",
+      "conditions": 16,
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "final_contract_violations": 16,
+      "invalid_outputs": 32,
+      "model_calls": 32,
+      "split": "Development"
+    },
+    {
+      "arm": "Staged + self",
+      "arm_id": "IA4-SS",
+      "conditions": 16,
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "final_contract_violations": 16,
+      "invalid_outputs": 32,
+      "model_calls": 32,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Staged + self + retrieval",
+      "arm_id": "IA4-SSR",
+      "conditions": 16,
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "final_contract_violations": 16,
+      "invalid_outputs": 32,
+      "model_calls": 32,
+      "split": "Development"
+    },
+    {
+      "arm": "Staged + self + retrieval",
+      "arm_id": "IA4-SSR",
+      "conditions": 16,
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "final_contract_violations": 16,
+      "invalid_outputs": 32,
+      "model_calls": 32,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Staged + validator",
+      "arm_id": "IA4-SV",
+      "conditions": 16,
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "final_contract_violations": 16,
+      "invalid_outputs": 32,
+      "model_calls": 32,
+      "split": "Development"
+    },
+    {
+      "arm": "Staged + validator",
+      "arm_id": "IA4-SV",
+      "conditions": 16,
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "final_contract_violations": 16,
+      "invalid_outputs": 32,
+      "model_calls": 32,
+      "split": "Held-out"
+    },
+    {
+      "arm": "Staged + validator + retrieval",
+      "arm_id": "IA4-SVR",
+      "conditions": 16,
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "final_contract_violations": 16,
+      "invalid_outputs": 32,
+      "model_calls": 32,
+      "split": "Development"
+    },
+    {
+      "arm": "Staged + validator + retrieval",
+      "arm_id": "IA4-SVR",
+      "conditions": 16,
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "final_contract_violations": 16,
+      "invalid_outputs": 32,
+      "model_calls": 32,
+      "split": "Held-out"
+    }
+  ],
+  "audit_resolution": {
+    "addendum_id": "m29sauditadd_563d4c98c9b80282537c88f1aa5d96ac9faffa88b47f28cdf80d7695e272928e",
+    "addendum_status": "passed",
+    "frozen_evidence_modified": false,
+    "original_audit_id": "m29saudit_86b95385559a3a50e1794ab4cf042b3916279b49fe1274e8ed3ecdaf39cf6cfd",
+    "original_issue_count": 204
+  },
+  "authorized_cumulative_ceiling": 1000,
+  "cell_manifest_sha256": "c8744ebcb4051be9e132f092124593351f3cc31cbe160fa6ee522141a0097b8c",
+  "classification": "PRELIMINARY_ONLY",
+  "construct_summary": [
+    {
+      "cells": 12,
+      "construct": "Authority Supersession",
+      "exact_rate": 0.833333,
+      "exact_successes": 10,
+      "interface": "Flat LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 8,
+      "construct": "Authority Supersession",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Authority Supersession",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Deterministic",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Authority Supersession",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Development"
+    },
+    {
+      "cells": 12,
+      "construct": "Delayed Lineage",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Flat LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 8,
+      "construct": "Delayed Lineage",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Delayed Lineage",
+      "exact_rate": 0.5,
+      "exact_successes": 1,
+      "interface": "Deterministic",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Delayed Lineage",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Development"
+    },
+    {
+      "cells": 12,
+      "construct": "Doctrine Direction",
+      "exact_rate": 1.0,
+      "exact_successes": 12,
+      "interface": "Flat LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 8,
+      "construct": "Doctrine Direction",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Doctrine Direction",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Deterministic",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Doctrine Direction",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Development"
+    },
+    {
+      "cells": 12,
+      "construct": "Objective Cooldown",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Flat LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 8,
+      "construct": "Objective Cooldown",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Objective Cooldown",
+      "exact_rate": 0.5,
+      "exact_successes": 1,
+      "interface": "Deterministic",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Objective Cooldown",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Development"
+    },
+    {
+      "cells": 12,
+      "construct": "Resource Budget",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Flat LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 8,
+      "construct": "Resource Budget",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Resource Budget",
+      "exact_rate": 0.5,
+      "exact_successes": 1,
+      "interface": "Deterministic",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Resource Budget",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Development"
+    },
+    {
+      "cells": 12,
+      "construct": "Retrieval Doctrine",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Flat LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 8,
+      "construct": "Retrieval Doctrine",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Retrieval Doctrine",
+      "exact_rate": 0.5,
+      "exact_successes": 1,
+      "interface": "Deterministic",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Retrieval Doctrine",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Development"
+    },
+    {
+      "cells": 12,
+      "construct": "Topology Scope",
+      "exact_rate": 0.5,
+      "exact_successes": 6,
+      "interface": "Flat LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 8,
+      "construct": "Topology Scope",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Topology Scope",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Deterministic",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Topology Scope",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Development"
+    },
+    {
+      "cells": 12,
+      "construct": "Validity Expiry",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Flat LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 8,
+      "construct": "Validity Expiry",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Validity Expiry",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Deterministic",
+      "split": "Development"
+    },
+    {
+      "cells": 2,
+      "construct": "Validity Expiry",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Development"
+    },
+    {
+      "cells": 12,
+      "construct": "Authority Supersession",
+      "exact_rate": 1.0,
+      "exact_successes": 12,
+      "interface": "Flat LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 8,
+      "construct": "Authority Supersession",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Authority Supersession",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Deterministic",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Authority Supersession",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Held-out"
+    },
+    {
+      "cells": 12,
+      "construct": "Delayed Lineage",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Flat LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 8,
+      "construct": "Delayed Lineage",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Delayed Lineage",
+      "exact_rate": 0.5,
+      "exact_successes": 1,
+      "interface": "Deterministic",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Delayed Lineage",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Held-out"
+    },
+    {
+      "cells": 12,
+      "construct": "Doctrine Direction",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Flat LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 8,
+      "construct": "Doctrine Direction",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Doctrine Direction",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Deterministic",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Doctrine Direction",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Held-out"
+    },
+    {
+      "cells": 12,
+      "construct": "Objective Cooldown",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Flat LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 8,
+      "construct": "Objective Cooldown",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Objective Cooldown",
+      "exact_rate": 0.5,
+      "exact_successes": 1,
+      "interface": "Deterministic",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Objective Cooldown",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Held-out"
+    },
+    {
+      "cells": 12,
+      "construct": "Resource Budget",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Flat LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 8,
+      "construct": "Resource Budget",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Resource Budget",
+      "exact_rate": 0.5,
+      "exact_successes": 1,
+      "interface": "Deterministic",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Resource Budget",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Held-out"
+    },
+    {
+      "cells": 12,
+      "construct": "Retrieval Doctrine",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Flat LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 8,
+      "construct": "Retrieval Doctrine",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Retrieval Doctrine",
+      "exact_rate": 0.5,
+      "exact_successes": 1,
+      "interface": "Deterministic",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Retrieval Doctrine",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Held-out"
+    },
+    {
+      "cells": 12,
+      "construct": "Topology Scope",
+      "exact_rate": 0.5,
+      "exact_successes": 6,
+      "interface": "Flat LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 8,
+      "construct": "Topology Scope",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Topology Scope",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Deterministic",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Topology Scope",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Held-out"
+    },
+    {
+      "cells": 12,
+      "construct": "Validity Expiry",
+      "exact_rate": 0.833333,
+      "exact_successes": 10,
+      "interface": "Flat LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 8,
+      "construct": "Validity Expiry",
+      "exact_rate": 0.0,
+      "exact_successes": 0,
+      "interface": "Staged LLM",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Validity Expiry",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Deterministic",
+      "split": "Held-out"
+    },
+    {
+      "cells": 2,
+      "construct": "Validity Expiry",
+      "exact_rate": 1.0,
+      "exact_successes": 2,
+      "interface": "Oracle",
+      "split": "Held-out"
+    }
+  ],
+  "execution_contract_id": "m29sexec_ec8d30b7ac3f5156b189769e35f6bc08a6369c755414b3c297b16d008dab78c5",
+  "flat_slot_summary": [
+    {
+      "cells": 96,
+      "exact": 64,
+      "exact_rate": 0.666667,
+      "slot": "allowed_targets",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 87,
+      "exact_rate": 0.90625,
+      "slot": "cooldown_same_target",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 92,
+      "exact_rate": 0.958333,
+      "slot": "effect_direction",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 94,
+      "exact_rate": 0.979167,
+      "slot": "forbidden_windows",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 94,
+      "exact_rate": 0.979167,
+      "slot": "max_actions",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 84,
+      "exact_rate": 0.875,
+      "slot": "max_level_delta",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 94,
+      "exact_rate": 0.979167,
+      "slot": "max_total_energy",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 94,
+      "exact_rate": 0.979167,
+      "slot": "max_total_visibility",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 94,
+      "exact_rate": 0.979167,
+      "slot": "min_actions",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 84,
+      "exact_rate": 0.875,
+      "slot": "objective_weights",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 82,
+      "exact_rate": 0.854167,
+      "slot": "strategy_id",
+      "split": "Development"
+    },
+    {
+      "cells": 96,
+      "exact": 54,
+      "exact_rate": 0.5625,
+      "slot": "allowed_targets",
+      "split": "Held-out"
+    },
+    {
+      "cells": 96,
+      "exact": 82,
+      "exact_rate": 0.854167,
+      "slot": "cooldown_same_target",
+      "split": "Held-out"
+    },
+    {
+      "cells": 96,
+      "exact": 88,
+      "exact_rate": 0.916667,
+      "slot": "effect_direction",
+      "split": "Held-out"
+    },
+    {
+      "cells": 96,
+      "exact": 93,
+      "exact_rate": 0.96875,
+      "slot": "forbidden_windows",
+      "split": "Held-out"
+    },
+    {
+      "cells": 96,
+      "exact": 93,
+      "exact_rate": 0.96875,
+      "slot": "max_actions",
+      "split": "Held-out"
+    },
+    {
+      "cells": 96,
+      "exact": 84,
+      "exact_rate": 0.875,
+      "slot": "max_level_delta",
+      "split": "Held-out"
+    },
+    {
+      "cells": 96,
+      "exact": 93,
+      "exact_rate": 0.96875,
+      "slot": "max_total_energy",
+      "split": "Held-out"
+    },
+    {
+      "cells": 96,
+      "exact": 93,
+      "exact_rate": 0.96875,
+      "slot": "max_total_visibility",
+      "split": "Held-out"
+    },
+    {
+      "cells": 96,
+      "exact": 93,
+      "exact_rate": 0.96875,
+      "slot": "min_actions",
+      "split": "Held-out"
+    },
+    {
+      "cells": 96,
+      "exact": 84,
+      "exact_rate": 0.875,
+      "slot": "objective_weights",
+      "split": "Held-out"
+    },
+    {
+      "cells": 96,
+      "exact": 83,
+      "exact_rate": 0.864583,
+      "slot": "strategy_id",
+      "split": "Held-out"
+    }
+  ],
+  "m29b_authorized": false,
+  "maximum_cumulative_model_calls": 816,
+  "metric_definition": {
+    "cohort": "Sixteen conditions per split and arm; thirty-two paired conditions when development and held-out are pooled descriptively.",
+    "exact_success": "All eleven semantic slot values, required evidence lineage, and staged artifacts when applicable match the frozen order-sensitive campaign metric.",
+    "inference_boundary": "Exact sign tests are descriptive sensitivity checks. PRELIMINARY_ONLY evidence does not authorize confirmatory inference."
+  },
+  "model_calls": 576,
+  "pooled_interface_contrasts": [
+    {
+      "contrast": "Self revision, no retrieval",
+      "discordant_pairs": 9,
+      "flat_arm": "IA4-FS",
+      "flat_wins": 9,
+      "staged_arm": "IA4-SS",
+      "staged_wins": 0,
+      "ties": 23,
+      "two_sided_exact_sign_p": 0.00390625
+    },
+    {
+      "contrast": "Self revision, retrieval",
+      "discordant_pairs": 9,
+      "flat_arm": "IA4-FSR",
+      "flat_wins": 9,
+      "staged_arm": "IA4-SSR",
+      "staged_wins": 0,
+      "ties": 23,
+      "two_sided_exact_sign_p": 0.00390625
+    },
+    {
+      "contrast": "Validator, no retrieval",
+      "discordant_pairs": 10,
+      "flat_arm": "IA4-FV",
+      "flat_wins": 10,
+      "staged_arm": "IA4-SV",
+      "staged_wins": 0,
+      "ties": 22,
+      "two_sided_exact_sign_p": 0.001953125
+    },
+    {
+      "contrast": "Validator, retrieval",
+      "discordant_pairs": 10,
+      "flat_arm": "IA4-FVR",
+      "flat_wins": 10,
+      "staged_arm": "IA4-SVR",
+      "staged_wins": 0,
+      "ties": 22,
+      "two_sided_exact_sign_p": 0.001953125
+    }
+  ],
+  "schema_version": "grideval-g7-m29s-results-analysis/v1",
+  "source_artifacts": [
+    {
+      "path": "contract.json",
+      "sha256": "ef03734fbb8cc871ebab07ef7c196bd21695aa8a1bfd93661115cde86cd4a423"
+    },
+    {
+      "path": "development_receipt.json",
+      "sha256": "25ee39083babe46b1d9c4af723430c9898fa178f65207e19a28c44ae7f8f3823"
+    },
+    {
+      "path": "development_freeze.json",
+      "sha256": "5e0d0807226e35a19f4feea210c5d2269a30b1f697e1c2bf515c7fda68a70b03"
+    },
+    {
+      "path": "held_out_receipt.json",
+      "sha256": "6dc0615b45a37e8b110ed6544a4fd93ecdd93740b8216ed5a96fa6b296da61f3"
+    },
+    {
+      "path": "primary_receipt.json",
+      "sha256": "5db5e3a67726ca1a69a289d63f23b09f6eff92256d1f9b90fab4c49c26eb7b0f"
+    },
+    {
+      "path": "independent_audit_receipt.json",
+      "sha256": "5e7bcf6be5b34def57363d32698230c93dc56b57157ad04b01cbb20b99c22b18"
+    },
+    {
+      "path": "independent_audit_addendum.json",
+      "sha256": "bd5f0b24c69e9cd5f8cd1096520c1e43c677e223f43d10c8eeda4604a53fb68b"
+    }
+  ],
+  "staged_final_failure_summary": [
+    {
+      "cells": 62,
+      "failure_category": "Ledger authority order",
+      "share": 0.484375
+    },
+    {
+      "cells": 58,
+      "failure_category": "Slot-program projection",
+      "share": 0.453125
+    },
+    {
+      "cells": 8,
+      "failure_category": "Completion length",
+      "share": 0.0625
+    }
+  ]
+}

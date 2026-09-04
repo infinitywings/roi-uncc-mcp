@@ -1,0 +1,304 @@
+{
+  "active_authority_ledger_recomputed": true,
+  "addendum_source_sha256": "88a1ddd993de327a508e1f7fe2bff97bfe16f76ac7fe56f51f71bb3be0c1d7ae",
+  "audit_addendum_id": "m29sauditadd_563d4c98c9b80282537c88f1aa5d96ac9faffa88b47f28cdf80d7695e272928e",
+  "cell_count": 384,
+  "classification": "PRELIMINARY_ONLY",
+  "content_addresses_recomputed": true,
+  "embedding_top_k_recomputed": true,
+  "execution_contract_id": "m29sexec_ec8d30b7ac3f5156b189769e35f6bc08a6369c755414b3c297b16d008dab78c5",
+  "independent_imports_campaign": false,
+  "independent_imports_semantic_compiler": false,
+  "issues": [],
+  "m29b_authorized": false,
+  "model_calls": 576,
+  "order_sensitive_endpoints_recomputed": true,
+  "prior_audit": {
+    "all_issues_are_score_recomputation_mismatches": true,
+    "audit_id": "m29saudit_86b95385559a3a50e1794ab4cf042b3916279b49fe1274e8ed3ecdaf39cf6cfd",
+    "issue_count": 204,
+    "path": "independent_audit_receipt.json",
+    "sha256": "5e7bcf6be5b34def57363d32698230c93dc56b57157ad04b01cbb20b99c22b18",
+    "status": "failed"
+  },
+  "request_parity_recomputed": true,
+  "resolution": {
+    "corrected_rule": "Compare every semantic slot with canonical JSON and preserve array order, matching the frozen campaign metric.",
+    "frozen_campaign_or_evidence_modified": false,
+    "model_calls_repeated": false,
+    "root_cause": "The original independent scorer normalized unordered arrays while the frozen campaign exact metric preserved array order."
+  },
+  "schema_version": "grideval-g7-m29s-independent-audit-addendum/v1",
+  "scientific_summary": {
+    "development": {
+      "IA3-SX": {
+        "all_slot_successes": 12,
+        "condition_count": 16,
+        "correct_pairs": 4,
+        "final_contract_violations": 0,
+        "model_calls": 0,
+        "nonretrieval_successes": 8,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 4
+      },
+      "IA4-C1": {
+        "all_slot_successes": 5,
+        "condition_count": 16,
+        "correct_pairs": 2,
+        "final_contract_violations": 2,
+        "model_calls": 16,
+        "nonretrieval_successes": 5,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-C1R": {
+        "all_slot_successes": 4,
+        "condition_count": 16,
+        "correct_pairs": 1,
+        "final_contract_violations": 0,
+        "model_calls": 16,
+        "nonretrieval_successes": 4,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-FS": {
+        "all_slot_successes": 5,
+        "condition_count": 16,
+        "correct_pairs": 2,
+        "final_contract_violations": 0,
+        "model_calls": 32,
+        "nonretrieval_successes": 5,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-FSR": {
+        "all_slot_successes": 4,
+        "condition_count": 16,
+        "correct_pairs": 1,
+        "final_contract_violations": 0,
+        "model_calls": 32,
+        "nonretrieval_successes": 4,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-FV": {
+        "all_slot_successes": 5,
+        "condition_count": 16,
+        "correct_pairs": 2,
+        "final_contract_violations": 0,
+        "model_calls": 32,
+        "nonretrieval_successes": 5,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-FVR": {
+        "all_slot_successes": 5,
+        "condition_count": 16,
+        "correct_pairs": 2,
+        "final_contract_violations": 0,
+        "model_calls": 32,
+        "nonretrieval_successes": 5,
+        "repair_conversions": 1,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-SS": {
+        "all_slot_successes": 0,
+        "condition_count": 16,
+        "correct_pairs": 0,
+        "final_contract_violations": 16,
+        "model_calls": 32,
+        "nonretrieval_successes": 0,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-SSR": {
+        "all_slot_successes": 0,
+        "condition_count": 16,
+        "correct_pairs": 0,
+        "final_contract_violations": 16,
+        "model_calls": 32,
+        "nonretrieval_successes": 0,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-SV": {
+        "all_slot_successes": 0,
+        "condition_count": 16,
+        "correct_pairs": 0,
+        "final_contract_violations": 16,
+        "model_calls": 32,
+        "nonretrieval_successes": 0,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-SVR": {
+        "all_slot_successes": 0,
+        "condition_count": 16,
+        "correct_pairs": 0,
+        "final_contract_violations": 16,
+        "model_calls": 32,
+        "nonretrieval_successes": 0,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA5-OC": {
+        "all_slot_successes": 16,
+        "condition_count": 16,
+        "correct_pairs": 8,
+        "final_contract_violations": 0,
+        "model_calls": 0,
+        "nonretrieval_successes": 8,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 8
+      }
+    },
+    "held_out": {
+      "IA3-SX": {
+        "all_slot_successes": 12,
+        "condition_count": 16,
+        "correct_pairs": 4,
+        "final_contract_violations": 0,
+        "model_calls": 0,
+        "nonretrieval_successes": 8,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 4
+      },
+      "IA4-C1": {
+        "all_slot_successes": 4,
+        "condition_count": 16,
+        "correct_pairs": 1,
+        "final_contract_violations": 2,
+        "model_calls": 16,
+        "nonretrieval_successes": 4,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-C1R": {
+        "all_slot_successes": 5,
+        "condition_count": 16,
+        "correct_pairs": 2,
+        "final_contract_violations": 0,
+        "model_calls": 16,
+        "nonretrieval_successes": 5,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-FS": {
+        "all_slot_successes": 4,
+        "condition_count": 16,
+        "correct_pairs": 1,
+        "final_contract_violations": 1,
+        "model_calls": 32,
+        "nonretrieval_successes": 4,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-FSR": {
+        "all_slot_successes": 5,
+        "condition_count": 16,
+        "correct_pairs": 2,
+        "final_contract_violations": 0,
+        "model_calls": 32,
+        "nonretrieval_successes": 5,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-FV": {
+        "all_slot_successes": 5,
+        "condition_count": 16,
+        "correct_pairs": 2,
+        "final_contract_violations": 0,
+        "model_calls": 32,
+        "nonretrieval_successes": 5,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-FVR": {
+        "all_slot_successes": 5,
+        "condition_count": 16,
+        "correct_pairs": 2,
+        "final_contract_violations": 0,
+        "model_calls": 32,
+        "nonretrieval_successes": 5,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-SS": {
+        "all_slot_successes": 0,
+        "condition_count": 16,
+        "correct_pairs": 0,
+        "final_contract_violations": 16,
+        "model_calls": 32,
+        "nonretrieval_successes": 0,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-SSR": {
+        "all_slot_successes": 0,
+        "condition_count": 16,
+        "correct_pairs": 0,
+        "final_contract_violations": 16,
+        "model_calls": 32,
+        "nonretrieval_successes": 0,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-SV": {
+        "all_slot_successes": 0,
+        "condition_count": 16,
+        "correct_pairs": 0,
+        "final_contract_violations": 16,
+        "model_calls": 32,
+        "nonretrieval_successes": 0,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA4-SVR": {
+        "all_slot_successes": 0,
+        "condition_count": 16,
+        "correct_pairs": 0,
+        "final_contract_violations": 16,
+        "model_calls": 32,
+        "nonretrieval_successes": 0,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 0
+      },
+      "IA5-OC": {
+        "all_slot_successes": 16,
+        "condition_count": 16,
+        "correct_pairs": 8,
+        "final_contract_violations": 0,
+        "model_calls": 0,
+        "nonretrieval_successes": 8,
+        "repair_conversions": 0,
+        "repair_regressions": 0,
+        "retrieval_required_successes": 8
+      }
+    }
+  },
+  "source_hashes_recomputed": true,
+  "status": "passed"
+}

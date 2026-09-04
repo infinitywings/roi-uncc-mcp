@@ -1,0 +1,112 @@
+{
+  "access_boundary": {
+    "defense_accessed": false,
+    "detector_accessed": false,
+    "docker_accessed": false,
+    "final_evaluation_accessed": false,
+    "held_out_accessed_by_runner": false,
+    "physical_actuator_accessed": false,
+    "simulator_accessed": false
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "completed_staged_cells": 5,
+  "conservative_model_calls": 36,
+  "development_cell_count": 20,
+  "development_cell_hashes": [
+    {
+      "path": "cells/development/IA3-SX/m29s_development_doctrine_direction_left.json",
+      "sha256": "233dfc1372ddf9d6b553ce443aee9607c252163a93c0cf594648127c38b4881d"
+    },
+    {
+      "path": "cells/development/IA4-C1/m29s_development_doctrine_direction_left.json",
+      "sha256": "ace51706b26a1f005b75cd705dc638d33db0fe589fc25c72df26a652373fb0a0"
+    },
+    {
+      "path": "cells/development/IA4-C1/m29s_development_doctrine_direction_right.json",
+      "sha256": "0569ccb7a65549fbd114a301c32d313a5597d49f55b06617cb91a5cebb4006d0"
+    },
+    {
+      "path": "cells/development/IA4-C1R/m29s_development_doctrine_direction_left.json",
+      "sha256": "97569a6b1559be11b248cc50b7cf23be3eb76acbd2966562fe0cfbd261313e0d"
+    },
+    {
+      "path": "cells/development/IA4-C1R/m29s_development_doctrine_direction_right.json",
+      "sha256": "c44ce3a746b541997353c79a925ea1cab5929b69d685e546c0e21843e28e0ba7"
+    },
+    {
+      "path": "cells/development/IA4-FS/m29s_development_doctrine_direction_left.json",
+      "sha256": "868ddaace004cfb7dbbf41bba0b1d9462f2e13702d399d487e0de2723dd63911"
+    },
+    {
+      "path": "cells/development/IA4-FS/m29s_development_doctrine_direction_right.json",
+      "sha256": "3e368c42cb6e2f2c5545fb77c2b60641c86829c3edb137e73d58653f1e896090"
+    },
+    {
+      "path": "cells/development/IA4-FSR/m29s_development_doctrine_direction_left.json",
+      "sha256": "9c0f316ef57c230d952b53f25c5de02f397a501f0d21dc69ceacfcdb364ce309"
+    },
+    {
+      "path": "cells/development/IA4-FSR/m29s_development_doctrine_direction_right.json",
+      "sha256": "27a3545e6e8d604cf1d936e70f2f601ee32166419f14e813ab03af16ded90a48"
+    },
+    {
+      "path": "cells/development/IA4-FV/m29s_development_doctrine_direction_left.json",
+      "sha256": "769ec3af22873c59027a190ecab4280109321da4a1132baf3de36f31bd8310d2"
+    },
+    {
+      "path": "cells/development/IA4-FV/m29s_development_doctrine_direction_right.json",
+      "sha256": "1356f9a4be635d6778a7e521d71a42d0f3341a8b00f6d61f85c9e9bc800157ca"
+    },
+    {
+      "path": "cells/development/IA4-FVR/m29s_development_doctrine_direction_left.json",
+      "sha256": "85f35e12bcace3048b4554761aa25b6c2eba0d6d32de8f89e20840479c357118"
+    },
+    {
+      "path": "cells/development/IA4-FVR/m29s_development_doctrine_direction_right.json",
+      "sha256": "dc1687598c4a49722522071a1526573fcc15106989b67d9f422433e4d4199c7f"
+    },
+    {
+      "path": "cells/development/IA4-SS/m29s_development_doctrine_direction_left.json",
+      "sha256": "ae9f94e5506fb4c4c426785cc15682845f73d8fdbbb4a03af617c54624beee95"
+    },
+    {
+      "path": "cells/development/IA4-SS/m29s_development_doctrine_direction_right.json",
+      "sha256": "1571df5ea93889a992e231641be027c5d6c7d1ee686e7e0748908ffebdaeb7bc"
+    },
+    {
+      "path": "cells/development/IA4-SSR/m29s_development_doctrine_direction_left.json",
+      "sha256": "daccfd83e97d881c2305114d4bee0887e9c9e5b4ff2c7b75923a4a8393b330ba"
+    },
+    {
+      "path": "cells/development/IA4-SV/m29s_development_doctrine_direction_left.json",
+      "sha256": "f3c4300fa5fc0a2949e6af0915cc4534d1e6e7689fe456535948f8dd862ff042"
+    },
+    {
+      "path": "cells/development/IA4-SVR/m29s_development_doctrine_direction_left.json",
+      "sha256": "9c818081338d213e458a8c4aebb191f263f7bf321f94a03a8465954bbf179d59"
+    },
+    {
+      "path": "cells/development/IA5-OC/m29s_development_doctrine_direction_left.json",
+      "sha256": "7ac3207533899462bc6e9e76c7eab7207e32d34e9d64e568a5684846feb84cbb"
+    },
+    {
+      "path": "cells/development/IA5-OC/m29s_development_doctrine_direction_right.json",
+      "sha256": "e8719225f134fd1cc536931af07d99e1ee8d62763cd3e893f45f2852287b442a"
+    }
+  ],
+  "development_freeze_created": false,
+  "development_receipt_created": false,
+  "execution_contract_id": "m29sexec_a36a3d51494b4497e21f2cc47daf8d4934cc666073b982ac8fb988aafc668bb2",
+  "execution_contract_sha256": "b876bf3a8b5e6e1421d9c96681e9658fcf647e09aa8c3766f5055c2e928846b6",
+  "held_out_cell_count": 0,
+  "m29b_authorized": false,
+  "maximum_unpersisted_concurrent_calls": 6,
+  "predecessor_receipt_id": "m29spred_1e2d18a98c512d645cde36ba65f3fe885baf24a678bb432c4a4964008554601f",
+  "reason": "hidden ledger target and missing staged-validator coverage",
+  "recorded_model_calls": 30,
+  "schema_version": "grideval-g7-m29s-predecessor-stop/v2",
+  "source_contract_issues": [],
+  "staged_cells_with_hidden_authority_failure": 5,
+  "staged_cells_with_length_failure": 0,
+  "status": "terminated_development_interface_diagnostic"
+}

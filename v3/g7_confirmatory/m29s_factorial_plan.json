@@ -1,0 +1,422 @@
+{
+  "schema_version": "grideval-g7-m29s-factorial-plan/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "mission_id": "mis_01M1PK13X15NDM52ZH40Z5TAZS",
+  "decision_id": "dec_01M1PMESQHHNCE5XK066EQB79X",
+  "predecessor_mission_id": "mis_01M1PC1T0M7BAVX9NWB19P0FWC",
+  "purpose": "Separate task-interface, equal-cost validator-feedback, retrieval, and deliberation effects in offline evidence-to-strategy semantic compilation.",
+  "design_status": "candidate_pending_plan_validation",
+  "factors": {
+    "interface": [
+      "flat",
+      "staged"
+    ],
+    "feedback": [
+      "neutral_self_revision",
+      "validator_guided_revision"
+    ],
+    "retrieval": [
+      false,
+      true
+    ]
+  },
+  "arms": [
+    {
+      "arm_id": "IA3-SX",
+      "role": "strong_deterministic_compiler",
+      "interface": "staged",
+      "feedback": "deterministic_internal_checks",
+      "retrieval": false,
+      "model_calls_per_cell": 0,
+      "causal_factorial": false
+    },
+    {
+      "arm_id": "IA4-C1",
+      "role": "one_call_reference",
+      "interface": "flat",
+      "feedback": "none",
+      "retrieval": false,
+      "model_calls_per_cell": 1,
+      "causal_factorial": false
+    },
+    {
+      "arm_id": "IA4-C1R",
+      "role": "one_call_reference",
+      "interface": "flat",
+      "feedback": "none",
+      "retrieval": true,
+      "model_calls_per_cell": 1,
+      "causal_factorial": false
+    },
+    {
+      "arm_id": "IA4-FS",
+      "role": "causal_factorial",
+      "interface": "flat",
+      "feedback": "neutral_self_revision",
+      "retrieval": false,
+      "model_calls_per_cell": 2,
+      "causal_factorial": true
+    },
+    {
+      "arm_id": "IA4-FSR",
+      "role": "causal_factorial",
+      "interface": "flat",
+      "feedback": "neutral_self_revision",
+      "retrieval": true,
+      "model_calls_per_cell": 2,
+      "causal_factorial": true
+    },
+    {
+      "arm_id": "IA4-FV",
+      "role": "causal_factorial",
+      "interface": "flat",
+      "feedback": "validator_guided_revision",
+      "retrieval": false,
+      "model_calls_per_cell": 2,
+      "causal_factorial": true
+    },
+    {
+      "arm_id": "IA4-FVR",
+      "role": "causal_factorial",
+      "interface": "flat",
+      "feedback": "validator_guided_revision",
+      "retrieval": true,
+      "model_calls_per_cell": 2,
+      "causal_factorial": true
+    },
+    {
+      "arm_id": "IA4-SS",
+      "role": "causal_factorial",
+      "interface": "staged",
+      "feedback": "neutral_self_revision",
+      "retrieval": false,
+      "model_calls_per_cell": 2,
+      "causal_factorial": true
+    },
+    {
+      "arm_id": "IA4-SSR",
+      "role": "causal_factorial",
+      "interface": "staged",
+      "feedback": "neutral_self_revision",
+      "retrieval": true,
+      "model_calls_per_cell": 2,
+      "causal_factorial": true
+    },
+    {
+      "arm_id": "IA4-SV",
+      "role": "causal_factorial",
+      "interface": "staged",
+      "feedback": "validator_guided_revision",
+      "retrieval": false,
+      "model_calls_per_cell": 2,
+      "causal_factorial": true
+    },
+    {
+      "arm_id": "IA4-SVR",
+      "role": "causal_factorial",
+      "interface": "staged",
+      "feedback": "validator_guided_revision",
+      "retrieval": true,
+      "model_calls_per_cell": 2,
+      "causal_factorial": true
+    },
+    {
+      "arm_id": "IA5-OC",
+      "role": "independent_oracle_ceiling",
+      "interface": "latent",
+      "feedback": "none",
+      "retrieval": false,
+      "model_calls_per_cell": 0,
+      "causal_factorial": false
+    }
+  ],
+  "registered_contrasts": [
+    {
+      "contrast_id": "interface_effect_self_no_retrieval",
+      "left": "IA4-SS",
+      "right": "IA4-FS",
+      "primary": true
+    },
+    {
+      "contrast_id": "interface_effect_validator_no_retrieval",
+      "left": "IA4-SV",
+      "right": "IA4-FV",
+      "primary": true
+    },
+    {
+      "contrast_id": "interface_effect_self_retrieval",
+      "left": "IA4-SSR",
+      "right": "IA4-FSR",
+      "primary": true
+    },
+    {
+      "contrast_id": "interface_effect_validator_retrieval",
+      "left": "IA4-SVR",
+      "right": "IA4-FVR",
+      "primary": true
+    },
+    {
+      "contrast_id": "validator_effect_flat_no_retrieval",
+      "left": "IA4-FV",
+      "right": "IA4-FS",
+      "primary": true
+    },
+    {
+      "contrast_id": "validator_effect_flat_retrieval",
+      "left": "IA4-FVR",
+      "right": "IA4-FSR",
+      "primary": true
+    },
+    {
+      "contrast_id": "validator_effect_staged_no_retrieval",
+      "left": "IA4-SV",
+      "right": "IA4-SS",
+      "primary": true
+    },
+    {
+      "contrast_id": "validator_effect_staged_retrieval",
+      "left": "IA4-SVR",
+      "right": "IA4-SSR",
+      "primary": true
+    },
+    {
+      "contrast_id": "retrieval_effect_staged_validator",
+      "left": "IA4-SVR",
+      "right": "IA4-SV",
+      "primary": true
+    },
+    {
+      "contrast_id": "deliberation_effect_no_retrieval",
+      "left": "IA4-FS",
+      "right": "IA4-C1",
+      "primary": false
+    },
+    {
+      "contrast_id": "deliberation_effect_retrieval",
+      "left": "IA4-FSR",
+      "right": "IA4-C1R",
+      "primary": false
+    },
+    {
+      "contrast_id": "deterministic_headroom",
+      "left": "IA4-SVR",
+      "right": "IA3-SX",
+      "primary": true
+    },
+    {
+      "contrast_id": "oracle_headroom",
+      "left": "IA5-OC",
+      "right": "IA4-SVR",
+      "primary": false
+    }
+  ],
+  "split_design": {
+    "splits": [
+      "development",
+      "held_out"
+    ],
+    "conditions_per_split": 16,
+    "pairs_per_split": 8,
+    "conditions_per_pair": 2,
+    "development_seeds": [
+      39101,
+      39102,
+      39103,
+      39104,
+      39105,
+      39106,
+      39107,
+      39108
+    ],
+    "held_out_seeds": [
+      39201,
+      39202,
+      39203,
+      39204,
+      39205,
+      39206,
+      39207,
+      39208
+    ],
+    "constructs": [
+      "doctrine_direction",
+      "authority_supersession",
+      "validity_expiry",
+      "topology_scope",
+      "resource_budget",
+      "objective_cooldown",
+      "delayed_lineage",
+      "retrieval_doctrine"
+    ],
+    "retrieval_required_conditions_per_split": 8,
+    "held_out_access_after_development_freeze_only": true,
+    "m29r_overlap_allowed": false,
+    "final_evaluation_seed_access": false
+  },
+  "typed_pipeline": [
+    "VisibleEvidenceBundle",
+    "EvidenceLedger",
+    "SemanticSlots",
+    "StrategyProgram",
+    "ValidatorDiagnostics",
+    "FinalSubmission"
+  ],
+  "interface_contract": {
+    "flat_output": "StrategyProgram only",
+    "staged_output": "EvidenceLedger plus SemanticSlots plus deterministic StrategyProgram projection",
+    "deterministic_projection_may_change_substantive_values": false,
+    "unordered_fields": [
+      "active_evidence_ids",
+      "superseded_evidence_ids",
+      "expired_evidence_ids",
+      "unresolved_conflict_ids",
+      "allowed_targets",
+      "forbidden_windows",
+      "supporting_evidence_ids"
+    ]
+  },
+  "tool_contract": {
+    "allowed_tools": [
+      "inspect_visible_records",
+      "validate_strategy_draft",
+      "submit_final_program"
+    ],
+    "validator_codes": [
+      "schema",
+      "evidence_unknown",
+      "evidence_missing",
+      "authority_conflict",
+      "expired_record",
+      "topology_inconsistent",
+      "budget_inconsistent",
+      "weights_inconsistent",
+      "cooldown_inconsistent"
+    ],
+    "validator_result_fields": [
+      "schema_version",
+      "draft_id",
+      "visible_input_digest",
+      "diagnostics"
+    ],
+    "diagnostic_fields": [
+      "code",
+      "slot"
+    ],
+    "expected_values_allowed": false,
+    "corrected_program_allowed": false,
+    "scores_or_labels_allowed": false,
+    "maximum_revisions": 1,
+    "retries": 0
+  },
+  "model_contract": {
+    "endpoint": "http://ccil1s26m8hj6lws:8000/v1",
+    "model_id": "qwen3.6-35b-a3b",
+    "temperature": 0,
+    "maximum_completion_tokens_per_call": 900,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "provider_schema_removed_keywords": [
+      "uniqueItems"
+    ],
+    "calls_per_factorial_cell": 2,
+    "calls_per_reference_cell": 1,
+    "maximum_calls_per_split": 288,
+    "maximum_additional_calls": 576,
+    "prior_cumulative_calls": 101,
+    "maximum_cumulative_calls": 677,
+    "pi_authorized_cumulative_ceiling": 1000,
+    "retry_count": 0,
+    "start_restart_or_reconfigure_service": false
+  },
+  "retrieval_contract": {
+    "top_k": 4,
+    "similarity": "cosine",
+    "tie_break": "passage_id_ascending",
+    "frozen_corpus": true,
+    "selection_only": true,
+    "attacker_rka_access": false,
+    "expected_service": {
+      "owner": "existing_project_RKA_service",
+      "backend": "openai_compat",
+      "backend_base_url_from_rka_container": "http://172.20.0.1:11434",
+      "model": "qwen3-embedding:0.6b",
+      "dimensions": 1024
+    },
+    "start_restart_or_reconfigure_service": false
+  },
+  "primary_endpoints": [
+    "evidence_ledger_exact",
+    "per_slot_exact_accuracy",
+    "evidence_lineage_exact",
+    "all_slot_program_exact",
+    "mirrored_pair_correctness",
+    "invalid_output_count",
+    "refusal_count",
+    "repair_conversion",
+    "repair_regression",
+    "interface_contrast",
+    "validator_contrast",
+    "retrieval_contrast",
+    "interface_by_validator_interaction",
+    "retrieval_by_validator_interaction",
+    "model_call_and_token_cost"
+  ],
+  "held_out_mechanism_gate": {
+    "target_arm": "IA4-SVR",
+    "minimum_all_slot_successes": 12,
+    "minimum_correct_pairs": 6,
+    "maximum_final_violations": 0,
+    "minimum_success_margin_over_IA4_SSR": 4,
+    "minimum_success_margin_over_IA4_FVR": 4,
+    "minimum_success_margin_over_IA3_SX": 4,
+    "minimum_repair_conversion": 0.5,
+    "maximum_repair_regressions": 1,
+    "minimum_retrieval_required_margin": 2,
+    "maximum_nonretrieval_degradation": 1,
+    "requires_primary_issues_empty": true,
+    "requires_independent_issues_empty": true,
+    "authorizes": "new_offline_complementarity_proposal_only",
+    "does_not_authorize": [
+      "M29-B",
+      "simulator_execution",
+      "physical_actuation",
+      "final_evaluation",
+      "claim_promotion"
+    ]
+  },
+  "prohibited_access": [
+    "docker",
+    "helics",
+    "opender",
+    "gridlabd",
+    "simulator",
+    "detector",
+    "defense",
+    "network_impairment",
+    "physical_actuator",
+    "final_evaluation_records",
+    "evaluation_seeds_9101_9112",
+    "rka_governance_attacker_view",
+    "second_embedding_model"
+  ],
+  "claim_boundary": {
+    "allowed": [
+      "offline_task_interface_effect",
+      "offline_equal_cost_validator_effect",
+      "offline_scoped_retrieval_effect",
+      "offline_semantic_slot_accuracy",
+      "offline_agent_scaffolding_interaction"
+    ],
+    "prohibited": [
+      "general_llm_superiority",
+      "physical_harm",
+      "stealth",
+      "detector_evasion",
+      "defense_bypass",
+      "cross_model_generalization",
+      "confirmatory_inference"
+    ]
+  }
+}

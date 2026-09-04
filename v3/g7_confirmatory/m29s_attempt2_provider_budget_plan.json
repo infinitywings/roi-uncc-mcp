@@ -1,0 +1,60 @@
+{
+  "schema_version": "grideval-g7-m29s-provider-budget-amendment/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "mission_id": "mis_01M1PK13X15NDM52ZH40Z5TAZS",
+  "decision_id": "dec_01M1PR4T364SWPTVS5C5GFY71B",
+  "predecessor_attempt": "m29s_factorial_attempt1",
+  "trigger": {
+    "preserved_development_cells": 54,
+    "recorded_model_calls": 84,
+    "conservative_inflight_calls": 1,
+    "conservative_attempt_calls": 85,
+    "completed_staged_cells": 18,
+    "staged_cells_with_length_failure": 18,
+    "held_out_accessed": false
+  },
+  "registered_delta": {
+    "maximum_completion_tokens_per_call_before": 900,
+    "maximum_completion_tokens_per_call_after": 1800,
+    "same_cap_for_every_llm_arm": true,
+    "transport_workers": 4,
+    "worker_effect": "throughput_only",
+    "model_calls_per_cell_changed": false,
+    "evidence_changed": false,
+    "conditions_changed": false,
+    "semantic_oracles_changed": false,
+    "response_schemas_changed": false,
+    "prompts_changed": false,
+    "retrieval_changed": false,
+    "endpoints_or_thresholds_changed": false,
+    "access_boundary_changed": false
+  },
+  "authorization_budget": {
+    "pre_m29s_calls": 101,
+    "attempt1_conservative_calls": 85,
+    "prior_calls_for_attempt2": 186,
+    "attempt2_contracted_calls": 576,
+    "maximum_cumulative_calls": 762,
+    "pi_authorized_cumulative_ceiling": 1000,
+    "remaining_after_attempt2": 238,
+    "retry_count": 0
+  },
+  "attempt_policy": {
+    "attempt1_preserved": true,
+    "attempt1_resumed": false,
+    "attempt2_create_once": true,
+    "development_before_held_out": true,
+    "development_freeze_required": true,
+    "adaptation_after_attempt2_development": false
+  },
+  "does_not_authorize": [
+    "M29-B",
+    "simulator_execution",
+    "docker_access",
+    "detector_or_defense_access",
+    "physical_actuation",
+    "final_evaluation",
+    "claim_promotion"
+  ]
+}

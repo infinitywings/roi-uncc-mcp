@@ -1,0 +1,23 @@
+{
+  "audit_id": "m29splanaudit_58eb16b9e7cc77a5ea42caead2df1884fd268a37f478c3860e3991568258000d",
+  "auditor_source_sha256": "be65de40cde36d6d0a0b3b850d578818aa0cec995eebaaf6332795f286f956da",
+  "checks": {
+    "access_seals": "passed",
+    "call_authorization": "passed",
+    "equal_call_parity": "passed",
+    "factorial_coverage": "passed",
+    "interface_separation": "passed",
+    "m29r_disjointness": "passed",
+    "validator_nonleakage": "passed"
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "design_contract_id": "m29scontract_f7a4b4bb96ebebb427b30d8981051d9ed5b50e77d435d9cf625a49c36ccc75c2",
+  "design_fixture_id": "m29sfixture_e0a1f403c643a0eaded32429af46f651749d5ce2557a09809d7320b623ef5fd1",
+  "embedding_calls": 0,
+  "independent_imports_primary": false,
+  "issues": [],
+  "m29b_authorized": false,
+  "model_calls": 0,
+  "schema_version": "grideval-g7-m29s-plan-audit/v1",
+  "status": "passed"
+}

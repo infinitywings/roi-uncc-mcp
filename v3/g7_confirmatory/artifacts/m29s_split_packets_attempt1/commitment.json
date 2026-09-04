@@ -1,0 +1,27 @@
+{
+  "access_protocol": {
+    "create_once": true,
+    "development_runner_loads_held_out_packet": false,
+    "held_out_requires_development_freeze": true,
+    "source_or_prompt_adaptation_after_development": false
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "design_fixture_id": "m29sfixture_e0a1f403c643a0eaded32429af46f651749d5ce2557a09809d7320b623ef5fd1",
+  "m29b_authorized": false,
+  "packets": {
+    "development": {
+      "condition_count": 16,
+      "path": "artifacts/m29s_split_packets_attempt1/development.json",
+      "sha256": "ddec59e8ffbd2f31fc2cc7bb0ef0cc894cf948cdf791bb3d90eeebc393ab216c",
+      "split_packet_id": "m29spacket_efbb5efab6f3abce2dbcfb09e2ae70a88d5ebbea751cbc7357960a950d355a59"
+    },
+    "held_out": {
+      "condition_count": 16,
+      "path": "artifacts/m29s_split_packets_attempt1/held_out.json",
+      "sha256": "d7f2f902c8ccd129644d4cc0e64069effbf42d34e3895a76607385163b5b1228",
+      "split_packet_id": "m29spacket_56fb0338c08ea49eaba26a676d897748044494aa97c78f9e6036749faff27304"
+    }
+  },
+  "schema_version": "grideval-g7-m29s-split-commitment/v1",
+  "split_commitment_id": "m29ssplits_84fffb0d6182b0ee8d71f3d9a88ebcd9e472bbbfc7349a271f4f7e1151ae627c"
+}

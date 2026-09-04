@@ -1,0 +1,74 @@
+{
+  "schema_version": "grideval-g7-m29t-offline-replay-plan/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "title": "M29-T zero-call representation-recovery replay",
+  "source_attempt": "artifacts/m29s_factorial_attempt4",
+  "motivating_decision_id": "dec_01M1PYWYFQQM4MXMF3KYTXZ26X",
+  "purpose": "Separate saved-response representation failures from semantic failures before spending any remaining online model-call budget.",
+  "input_policy": {
+    "read_saved_attempt4_cells_only": true,
+    "require_clean_attempt4_audit_addendum": true,
+    "modify_frozen_evidence": false,
+    "repeat_model_calls": false,
+    "embedding_calls": 0,
+    "simulator_calls": 0,
+    "detector_or_defense_access": false,
+    "final_evaluation_access": false
+  },
+  "replay_ladder": [
+    {
+      "stage": "O0",
+      "name": "Recorded outcome",
+      "operation": "Use the frozen cell endpoint without reinterpretation."
+    },
+    {
+      "stage": "O1",
+      "name": "Saved JSON recovery",
+      "operation": "Parse the saved final response when the online contract parser rejected it; do not repair values."
+    },
+    {
+      "stage": "O2",
+      "name": "Unordered-array canonicalization",
+      "operation": "Score allowed_targets and forbidden_windows as sets while preserving all submitted values."
+    },
+    {
+      "stage": "O3",
+      "name": "Tool-owned ledger",
+      "operation": "Rebuild the evidence ledger deterministically from visible record status and active authority."
+    },
+    {
+      "stage": "O4",
+      "name": "Tool-owned projection",
+      "operation": "Project the model-submitted semantic slot values and supporting evidence IDs into the final strategy program."
+    },
+    {
+      "stage": "O5",
+      "name": "Tool-owned ledger and projection",
+      "operation": "Apply O3 and O4 together; never replace a semantic slot with its oracle value."
+    }
+  ],
+  "diagnostics": {
+    "oracle_use": "Post-hoc scoring and single-error localization only; never used to repair a candidate.",
+    "primary_endpoints": [
+      "all-slot exact success at each replay stage",
+      "program-semantics exact success at each replay stage",
+      "saved-response parseability",
+      "remaining wrong-slot frequency after O5",
+      "single-wrong-slot bottlenecks after O5"
+    ],
+    "interpretation_rule": "O5 recovery supports deterministic state and projection ownership. O5 semantic failure supports additional constraint, memory, retrieval-use, or model-capability work."
+  },
+  "call_budget": {
+    "new_model_calls": 0,
+    "maximum_cumulative_model_calls_before": 816,
+    "maximum_cumulative_model_calls_after": 816,
+    "pi_authorized_cumulative_ceiling": 1000,
+    "remaining_after_replay": 184
+  },
+  "scope_boundary": {
+    "m29b_authorized": false,
+    "new_online_experiment_authorized": false,
+    "simulator_or_operational_claims_authorized": false,
+    "final_evaluation_authorized": false
+  }
+}

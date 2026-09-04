@@ -1,0 +1,1177 @@
+{
+  "access_boundary": {
+    "defense_accessed": false,
+    "detector_accessed": false,
+    "docker_accessed": false,
+    "embedding_configuration_changed": false,
+    "existing_embedding_accessed": true,
+    "final_evaluation_accessed": false,
+    "final_evaluation_seeds_accessed": [],
+    "gridlabd_accessed": false,
+    "helics_accessed": false,
+    "llm_accessed": true,
+    "model_or_embedding_service_started_or_restarted": false,
+    "network_impairment_accessed": false,
+    "opender_accessed": false,
+    "physical_actuator_accessed": false,
+    "rka_governance_attacker_view_accessed": false,
+    "simulator_accessed": false
+  },
+  "accounting": {
+    "invalid_outputs": 2,
+    "model_calls": 2,
+    "model_completion_tokens": 2783,
+    "model_prompt_tokens": 3634,
+    "refusals": 0,
+    "wall_time_ms": 58237.543
+  },
+  "arm_id": "IA4-SVR",
+  "cell_id": "m29scell_3d11882a8f82407c2677c320b7bc76bcce6b63fac96b2bdf94d1ab7043a5ef77",
+  "classification": "PRELIMINARY_ONLY",
+  "condition_id": "m29s_held_out_resource_budget_right",
+  "construct": "resource_budget",
+  "corpus_view_passage_ids": [
+    "m29s_doc_EQUINOX_60",
+    "m29s_doc_EQUINOX_59",
+    "m29s_doc_BOREAL_53",
+    "m29s_doc_BOREAL_54"
+  ],
+  "endpoints": {
+    "all_slot_program_exact": false,
+    "correct_slot_count": 0,
+    "evidence_ledger_exact": false,
+    "evidence_lineage_exact": false,
+    "final_contract_violation": true,
+    "initial_all_slot_program_exact": false,
+    "per_slot_exact": {
+      "allowed_targets": false,
+      "cooldown_same_target": false,
+      "effect_direction": false,
+      "forbidden_windows": false,
+      "max_actions": false,
+      "max_level_delta": false,
+      "max_total_energy": false,
+      "max_total_visibility": false,
+      "min_actions": false,
+      "objective_weights": false,
+      "strategy_id": false
+    },
+    "program_semantics_exact": false,
+    "repair_conversion": false,
+    "repair_regression": false,
+    "retrieval_required": true,
+    "semantic_slot_lineage_exact": false
+  },
+  "execution_contract_id": "m29sexec_ec8d30b7ac3f5156b189769e35f6bc08a6369c755414b3c297b16d008dab78c5",
+  "failure_class": "initial:M29SContractError:EvidenceLedger active authority order drift;final:M29SContractError:EvidenceLedger active authority order drift",
+  "final_draft": null,
+  "final_scores": {
+    "all_slot_program_exact": false,
+    "correct_slot_count": 0,
+    "evidence_ledger_exact": false,
+    "evidence_lineage_exact": false,
+    "per_slot_exact": {
+      "allowed_targets": false,
+      "cooldown_same_target": false,
+      "effect_direction": false,
+      "forbidden_windows": false,
+      "max_actions": false,
+      "max_level_delta": false,
+      "max_total_energy": false,
+      "max_total_visibility": false,
+      "min_actions": false,
+      "objective_weights": false,
+      "strategy_id": false
+    },
+    "program_semantics_exact": false,
+    "semantic_slot_lineage_exact": false
+  },
+  "initial_draft": null,
+  "initial_request": {
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "max_tokens": 1800,
+    "messages": [
+      {
+        "content": "You compile visible grid red-team evidence into a typed offline strategy program. Use only supplied records and corpus passages. Resolve status, authority, validity, scope, budgets, and evidence lineage exactly. Return EvidenceLedger, SemanticSlots with per-slot supporting evidence IDs, and a StrategyProgram that exactly projects those submitted slot values.",
+        "role": "system"
+      },
+      {
+        "content": "{\"corpus_passages\":[{\"authority\":\"authoritative\",\"doctrine_code\":\"EQUINOX-60\",\"passage_id\":\"m29s_doc_EQUINOX_60\",\"tags\":[\"resource_conserving\",\"increase\",\"held_out\"],\"text\":\"Doctrine EQUINOX-60: Strategy=resource_conserving; Direction=increase; Weights=effect:4,persistence:1,energy:5,visibility:4; Delta=2; Cooldown=false.\"},{\"authority\":\"authoritative\",\"doctrine_code\":\"EQUINOX-59\",\"passage_id\":\"m29s_doc_EQUINOX_59\",\"tags\":[\"resource_conserving\",\"increase\",\"held_out\"],\"text\":\"Doctrine EQUINOX-59: Strategy=resource_conserving; Direction=increase; Weights=effect:4,persistence:1,energy:5,visibility:4; Delta=2; Cooldown=false.\"},{\"authority\":\"authoritative\",\"doctrine_code\":\"BOREAL-53\",\"passage_id\":\"m29s_doc_BOREAL_53\",\"tags\":[\"resource_conserving\",\"increase\",\"held_out\"],\"text\":\"Doctrine BOREAL-53: Strategy=resource_conserving; Direction=increase; Weights=effect:4,persistence:1,energy:5,visibility:3; Delta=2; Cooldown=false.\"},{\"authority\":\"authoritative\",\"doctrine_code\":\"BOREAL-54\",\"passage_id\":\"m29s_doc_BOREAL_54\",\"tags\":[\"gradual_bias\",\"decrease\",\"held_out\"],\"text\":\"Doctrine BOREAL-54: Strategy=gradual_bias; Direction=decrease; Weights=effect:5,persistence:4,energy:1,visibility:2; Delta=1; Cooldown=false.\"}],\"visible_evidence\":{\"classification\":\"PRELIMINARY_ONLY\",\"condition_id\":\"m29s_held_out_resource_budget_right\",\"current_window\":\"t3\",\"pair_id\":\"m29s_held_out_pair_resource_budget\",\"query_id\":\"m29s_query_m29s_held_out_resource_budget_right\",\"records\":[{\"authority\":\"planning\",\"issued_order\":2,\"record_id\":\"m29s_ev_held_out_resource_budget_right_expired\",\"record_type\":\"doctrine\",\"status\":\"expired\",\"supersedes\":[\"m29s_ev_held_out_resource_budget_right_archive\"],\"text\":\"An older planning instruction expired before the current compilation window.\",\"valid_from\":\"t0\",\"valid_until\":\"t1\"},{\"authority\":\"operator\",\"issued_order\":4,\"record_id\":\"m29s_ev_held_out_resource_budget_right_topology\",\"record_type\":\"topology\",\"status\":\"active\",\"supersedes\":[],\"text\":\"Active scope targets=GRID_SOUTH_B,GRID_NORTH_A; forbidden_windows=none.\",\"valid_from\":\"t0\",\"valid_until\":\"t3\"},{\"authority\":\"advisory\",\"issued_order\":1,\"record_id\":\"m29s_ev_held_out_resource_budget_right_archive\",\"record_type\":\"doctrine\",\"status\":\"superseded\",\"supersedes\":[],\"text\":\"Archived guidance proposes an incompatible semantic program and has no current authority.\",\"valid_from\":\"t0\",\"valid_until\":\"t3\"},{\"authority\":\"operator\",\"issued_order\":4,\"record_id\":\"m29s_ev_held_out_resource_budget_right_constraints\",\"record_type\":\"constraints\",\"status\":\"active\",\"supersedes\":[],\"text\":\"Limits energy=10; visibility=11; actions=2..4.\",\"valid_from\":\"t0\",\"valid_until\":\"t3\"},{\"authority\":\"emergency\",\"issued_order\":5,\"record_id\":\"m29s_ev_held_out_resource_budget_right_directive\",\"record_type\":\"doctrine\",\"status\":\"active\",\"supersedes\":[\"m29s_ev_held_out_resource_budget_right_archive\",\"m29s_ev_held_out_resource_budget_right_expired\"],\"text\":\"Active directive selects doctrine EQUINOX-60. Resolve its semantic fields from the authoritative doctrine corpus.\",\"valid_from\":\"t0\",\"valid_until\":\"t3\"}],\"retrieval_required\":true,\"schema_version\":\"grideval-g7-m29s-visible-evidence/v1\",\"seed\":39205,\"side\":\"right\",\"split\":\"held_out\",\"visible_evidence_id\":\"m29sevidence_91f002ac9e3f67d89cf95bd7b56154fa5133e443211afea160bc1aea32b48e21\"}}",
+        "role": "user"
+      }
+    ],
+    "model": "qwen3.6-35b-a3b",
+    "n": 1,
+    "response_format": {
+      "json_schema": {
+        "name": "m29s_staged_response",
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "evidence_ledger": {
+              "additionalProperties": false,
+              "properties": {
+                "active_evidence_ids": {
+                  "items": {
+                    "pattern": "^m29s_ev_[a-z0-9_]+$",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "authority_order": {
+                  "items": {
+                    "enum": [
+                      "emergency",
+                      "operator",
+                      "planning",
+                      "advisory"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "condition_id": {
+                  "const": "m29s_held_out_resource_budget_right"
+                },
+                "expired_evidence_ids": {
+                  "items": {
+                    "pattern": "^m29s_ev_[a-z0-9_]+$",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "schema_version": {
+                  "const": "grideval-g7-m29s-evidence-ledger/v1"
+                },
+                "superseded_evidence_ids": {
+                  "items": {
+                    "pattern": "^m29s_ev_[a-z0-9_]+$",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "unresolved_conflict_ids": {
+                  "items": {
+                    "pattern": "^m29s_ev_[a-z0-9_]+$",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "visible_input_digest": {
+                  "const": "5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304"
+                }
+              },
+              "required": [
+                "schema_version",
+                "condition_id",
+                "active_evidence_ids",
+                "superseded_evidence_ids",
+                "expired_evidence_ids",
+                "unresolved_conflict_ids",
+                "authority_order",
+                "visible_input_digest"
+              ],
+              "title": "GridEval M29-S EvidenceLedger",
+              "type": "object"
+            },
+            "semantic_slots": {
+              "additionalProperties": false,
+              "properties": {
+                "condition_id": {
+                  "const": "m29s_held_out_resource_budget_right"
+                },
+                "schema_version": {
+                  "const": "grideval-g7-m29s-semantic-slots/v1"
+                },
+                "slots": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "allowed_targets": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "cooldown_same_target": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "effect_direction": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "forbidden_windows": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "max_actions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "max_level_delta": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "max_total_energy": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "max_total_visibility": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "min_actions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "objective_weights": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "strategy_id": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "strategy_id",
+                    "effect_direction",
+                    "allowed_targets",
+                    "forbidden_windows",
+                    "objective_weights",
+                    "max_total_energy",
+                    "max_total_visibility",
+                    "min_actions",
+                    "max_actions",
+                    "max_level_delta",
+                    "cooldown_same_target"
+                  ],
+                  "type": "object"
+                },
+                "visible_input_digest": {
+                  "const": "5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304"
+                }
+              },
+              "required": [
+                "schema_version",
+                "condition_id",
+                "slots",
+                "visible_input_digest"
+              ],
+              "title": "GridEval M29-S SemanticSlots",
+              "type": "object"
+            },
+            "strategy_program": {
+              "additionalProperties": false,
+              "properties": {
+                "allowed_targets": {
+                  "items": {
+                    "enum": [
+                      "GRID_NORTH_A",
+                      "GRID_SOUTH_B",
+                      "GRID_EAST_C",
+                      "GRID_WEST_D"
+                    ]
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "compiler_id": {
+                  "const": "qwen_m29s_staged_retrieval_v1"
+                },
+                "condition_id": {
+                  "const": "m29s_held_out_resource_budget_right"
+                },
+                "cooldown_same_target": {
+                  "type": "boolean"
+                },
+                "effect_direction": {
+                  "enum": [
+                    "increase",
+                    "decrease"
+                  ]
+                },
+                "forbidden_windows": {
+                  "items": {
+                    "enum": [
+                      "t0",
+                      "t1",
+                      "t2",
+                      "t3"
+                    ]
+                  },
+                  "type": "array"
+                },
+                "max_actions": {
+                  "maximum": 4,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "max_level_delta": {
+                  "maximum": 4,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "max_total_energy": {
+                  "maximum": 20,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "max_total_visibility": {
+                  "maximum": 20,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "min_actions": {
+                  "maximum": 4,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "objective_weights": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "effect": {
+                      "maximum": 10,
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "energy": {
+                      "maximum": 10,
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "persistence": {
+                      "maximum": 10,
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "visibility": {
+                      "maximum": 10,
+                      "minimum": 0,
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "effect",
+                    "persistence",
+                    "energy",
+                    "visibility"
+                  ],
+                  "type": "object"
+                },
+                "required_evidence_ids": {
+                  "items": {
+                    "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "schema_version": {
+                  "const": "grideval-g7-m29s-strategy-program/v1"
+                },
+                "strategy_id": {
+                  "enum": [
+                    "gradual_bias",
+                    "delayed_shift",
+                    "persistent_pressure",
+                    "resource_conserving"
+                  ]
+                },
+                "visible_input_digest": {
+                  "const": "5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304"
+                }
+              },
+              "required": [
+                "schema_version",
+                "condition_id",
+                "strategy_id",
+                "effect_direction",
+                "allowed_targets",
+                "forbidden_windows",
+                "objective_weights",
+                "max_total_energy",
+                "max_total_visibility",
+                "min_actions",
+                "max_actions",
+                "max_level_delta",
+                "cooldown_same_target",
+                "required_evidence_ids",
+                "visible_input_digest",
+                "compiler_id"
+              ],
+              "title": "GridEval M29-S StrategyProgram",
+              "type": "object"
+            }
+          },
+          "required": [
+            "evidence_ledger",
+            "semantic_slots",
+            "strategy_program"
+          ],
+          "type": "object"
+        },
+        "strict": true
+      },
+      "type": "json_schema"
+    },
+    "seed": 1634472767,
+    "stream": false,
+    "temperature": 0
+  },
+  "initial_response": {
+    "content": "{\n  \"evidence_ledger\": {\n    \"active_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_topology\",\n      \"m29s_ev_held_out_resource_budget_right_constraints\",\n      \"m29s_ev_held_out_resource_budget_right_directive\"\n    ],\n    \"authority_order\": [\n      \"emergency\",\n      \"operator\",\n      \"advisory\",\n      \"planning\"\n    ],\n    \"condition_id\": \"m29s_held_out_resource_budget_right\",\n    \"expired_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_expired\"\n    ],\n    \"schema_version\": \"grideval-g7-m29s-evidence-ledger/v1\",\n    \"superseded_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_archive\"\n    ],\n    \"unresolved_conflict_ids\": []\n  ,\n  \"visible_input_digest\": \"5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304\"\n}\n\n  ,\n  \"semantic_slots\": {\n    \"condition_id\": \"m29s_held_out_resource_budget_right\",\n    \"schema_version\": \"grideval-g7-m29s-semantic-slots/v1\",\n    \"slots\": {\n      \"allowed_targets\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_topology\"\n        ],\n        \"value\": [\n          \"GRID_SOUTH_B\",\n          \"GRID_NORTH_A\"\n        ]\n      },\n      \"cooldown_same_target\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": false\n      },\n      \"effect_direction\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": \"increase\"\n      },\n      \"forbidden_windows\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_topology\"\n        ],\n        \"value\": []\n      },\n      \"max_actions\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 4\n      },\n      \"max_level_delta\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": 2\n      },\n      \"max_total_energy\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 10\n      },\n      \"max_total_visibility\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 11\n      },\n      \"min_actions\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 2\n      },\n      \"objective_weights\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": {\n          \"effect\": 4,\n          \"energy\": 5,\n          \"persistence\": 1,\n          \"visibility\": 4\n        }\n      },\n      \"strategy_id\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_directive\"\n        ],\n        \"value\": \"EQUINOX-60\"\n      }\n    }\n  ,\n  \"visible_input_digest\": \"5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304\"\n}\n\n  ,\n  \"strategy_program\": {\n    \"allowed_targets\": [\n      \"GRID_SOUTH_B\",\n      \"GRID_NORTH_A\"\n    ],\n    \"compiler_id\": \"qwen_m29s_staged_retrieval_v1\",\n    \"condition_id\": \"m29s_held_out_resource_budget_right\",\n    \"cooldown_same_target\": false,\n    \"effect_direction\": \"increase\",\n    \"forbidden_windows\": [],\n    \"max_actions\": 4,\n    \"max_level_delta\": 2,\n    \"max_total_energy\": 10,\n    \"max_total_visibility\": 11,\n    \"min_actions\": 2,\n    \"objective_weights\": {\n      \"effect\": 4,\n      \"energy\": 5,\n      \"persistence\": 1,\n      \"visibility\": 4\n    },\n    \"required_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_directive\",\n      \"m29s_ev_held_out_resource_budget_right_topology\",\n      \"m29s_ev_held_out_resource_budget_right_constraints\",\n      \"m29s_doc_EQUINOX_60\"\n    ],\n    \"schema_version\": \"grideval-g7-m29s-strategy-program/v1\",\n    \"strategy_id\": \"resource_conserving\"\n  ,\n  \"visible_input_digest\": \"5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304\"\n}\n}",
+    "finish_reason": "stop",
+    "id": "chatcmpl-af90c6fc233f365f",
+    "model": "qwen3.6-35b-a3b",
+    "refusal": null,
+    "usage": {
+      "completion_tokens": 1419,
+      "prompt_tokens": 1020,
+      "total_tokens": 2439
+    }
+  },
+  "initial_scores": {
+    "all_slot_program_exact": false,
+    "correct_slot_count": 0,
+    "evidence_ledger_exact": false,
+    "evidence_lineage_exact": false,
+    "per_slot_exact": {
+      "allowed_targets": false,
+      "cooldown_same_target": false,
+      "effect_direction": false,
+      "forbidden_windows": false,
+      "max_actions": false,
+      "max_level_delta": false,
+      "max_total_energy": false,
+      "max_total_visibility": false,
+      "min_actions": false,
+      "objective_weights": false,
+      "strategy_id": false
+    },
+    "program_semantics_exact": false,
+    "semantic_slot_lineage_exact": false
+  },
+  "pair_id": "m29s_held_out_pair_resource_budget",
+  "revision_request": {
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "max_tokens": 1800,
+    "messages": [
+      {
+        "content": "You compile visible grid red-team evidence into a typed offline strategy program. Use only supplied records and corpus passages. Resolve status, authority, validity, scope, budgets, and evidence lineage exactly. Return EvidenceLedger, SemanticSlots with per-slot supporting evidence IDs, and a StrategyProgram that exactly projects those submitted slot values.",
+        "role": "system"
+      },
+      {
+        "content": "{\"corpus_passages\":[{\"authority\":\"authoritative\",\"doctrine_code\":\"EQUINOX-60\",\"passage_id\":\"m29s_doc_EQUINOX_60\",\"tags\":[\"resource_conserving\",\"increase\",\"held_out\"],\"text\":\"Doctrine EQUINOX-60: Strategy=resource_conserving; Direction=increase; Weights=effect:4,persistence:1,energy:5,visibility:4; Delta=2; Cooldown=false.\"},{\"authority\":\"authoritative\",\"doctrine_code\":\"EQUINOX-59\",\"passage_id\":\"m29s_doc_EQUINOX_59\",\"tags\":[\"resource_conserving\",\"increase\",\"held_out\"],\"text\":\"Doctrine EQUINOX-59: Strategy=resource_conserving; Direction=increase; Weights=effect:4,persistence:1,energy:5,visibility:4; Delta=2; Cooldown=false.\"},{\"authority\":\"authoritative\",\"doctrine_code\":\"BOREAL-53\",\"passage_id\":\"m29s_doc_BOREAL_53\",\"tags\":[\"resource_conserving\",\"increase\",\"held_out\"],\"text\":\"Doctrine BOREAL-53: Strategy=resource_conserving; Direction=increase; Weights=effect:4,persistence:1,energy:5,visibility:3; Delta=2; Cooldown=false.\"},{\"authority\":\"authoritative\",\"doctrine_code\":\"BOREAL-54\",\"passage_id\":\"m29s_doc_BOREAL_54\",\"tags\":[\"gradual_bias\",\"decrease\",\"held_out\"],\"text\":\"Doctrine BOREAL-54: Strategy=gradual_bias; Direction=decrease; Weights=effect:5,persistence:4,energy:1,visibility:2; Delta=1; Cooldown=false.\"}],\"visible_evidence\":{\"classification\":\"PRELIMINARY_ONLY\",\"condition_id\":\"m29s_held_out_resource_budget_right\",\"current_window\":\"t3\",\"pair_id\":\"m29s_held_out_pair_resource_budget\",\"query_id\":\"m29s_query_m29s_held_out_resource_budget_right\",\"records\":[{\"authority\":\"planning\",\"issued_order\":2,\"record_id\":\"m29s_ev_held_out_resource_budget_right_expired\",\"record_type\":\"doctrine\",\"status\":\"expired\",\"supersedes\":[\"m29s_ev_held_out_resource_budget_right_archive\"],\"text\":\"An older planning instruction expired before the current compilation window.\",\"valid_from\":\"t0\",\"valid_until\":\"t1\"},{\"authority\":\"operator\",\"issued_order\":4,\"record_id\":\"m29s_ev_held_out_resource_budget_right_topology\",\"record_type\":\"topology\",\"status\":\"active\",\"supersedes\":[],\"text\":\"Active scope targets=GRID_SOUTH_B,GRID_NORTH_A; forbidden_windows=none.\",\"valid_from\":\"t0\",\"valid_until\":\"t3\"},{\"authority\":\"advisory\",\"issued_order\":1,\"record_id\":\"m29s_ev_held_out_resource_budget_right_archive\",\"record_type\":\"doctrine\",\"status\":\"superseded\",\"supersedes\":[],\"text\":\"Archived guidance proposes an incompatible semantic program and has no current authority.\",\"valid_from\":\"t0\",\"valid_until\":\"t3\"},{\"authority\":\"operator\",\"issued_order\":4,\"record_id\":\"m29s_ev_held_out_resource_budget_right_constraints\",\"record_type\":\"constraints\",\"status\":\"active\",\"supersedes\":[],\"text\":\"Limits energy=10; visibility=11; actions=2..4.\",\"valid_from\":\"t0\",\"valid_until\":\"t3\"},{\"authority\":\"emergency\",\"issued_order\":5,\"record_id\":\"m29s_ev_held_out_resource_budget_right_directive\",\"record_type\":\"doctrine\",\"status\":\"active\",\"supersedes\":[\"m29s_ev_held_out_resource_budget_right_archive\",\"m29s_ev_held_out_resource_budget_right_expired\"],\"text\":\"Active directive selects doctrine EQUINOX-60. Resolve its semantic fields from the authoritative doctrine corpus.\",\"valid_from\":\"t0\",\"valid_until\":\"t3\"}],\"retrieval_required\":true,\"schema_version\":\"grideval-g7-m29s-visible-evidence/v1\",\"seed\":39205,\"side\":\"right\",\"split\":\"held_out\",\"visible_evidence_id\":\"m29sevidence_91f002ac9e3f67d89cf95bd7b56154fa5133e443211afea160bc1aea32b48e21\"}}",
+        "role": "user"
+      },
+      {
+        "content": "{\n  \"evidence_ledger\": {\n    \"active_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_topology\",\n      \"m29s_ev_held_out_resource_budget_right_constraints\",\n      \"m29s_ev_held_out_resource_budget_right_directive\"\n    ],\n    \"authority_order\": [\n      \"emergency\",\n      \"operator\",\n      \"advisory\",\n      \"planning\"\n    ],\n    \"condition_id\": \"m29s_held_out_resource_budget_right\",\n    \"expired_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_expired\"\n    ],\n    \"schema_version\": \"grideval-g7-m29s-evidence-ledger/v1\",\n    \"superseded_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_archive\"\n    ],\n    \"unresolved_conflict_ids\": []\n  ,\n  \"visible_input_digest\": \"5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304\"\n}\n\n  ,\n  \"semantic_slots\": {\n    \"condition_id\": \"m29s_held_out_resource_budget_right\",\n    \"schema_version\": \"grideval-g7-m29s-semantic-slots/v1\",\n    \"slots\": {\n      \"allowed_targets\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_topology\"\n        ],\n        \"value\": [\n          \"GRID_SOUTH_B\",\n          \"GRID_NORTH_A\"\n        ]\n      },\n      \"cooldown_same_target\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": false\n      },\n      \"effect_direction\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": \"increase\"\n      },\n      \"forbidden_windows\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_topology\"\n        ],\n        \"value\": []\n      },\n      \"max_actions\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 4\n      },\n      \"max_level_delta\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": 2\n      },\n      \"max_total_energy\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 10\n      },\n      \"max_total_visibility\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 11\n      },\n      \"min_actions\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 2\n      },\n      \"objective_weights\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": {\n          \"effect\": 4,\n          \"energy\": 5,\n          \"persistence\": 1,\n          \"visibility\": 4\n        }\n      },\n      \"strategy_id\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_directive\"\n        ],\n        \"value\": \"EQUINOX-60\"\n      }\n    }\n  ,\n  \"visible_input_digest\": \"5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304\"\n}\n\n  ,\n  \"strategy_program\": {\n    \"allowed_targets\": [\n      \"GRID_SOUTH_B\",\n      \"GRID_NORTH_A\"\n    ],\n    \"compiler_id\": \"qwen_m29s_staged_retrieval_v1\",\n    \"condition_id\": \"m29s_held_out_resource_budget_right\",\n    \"cooldown_same_target\": false,\n    \"effect_direction\": \"increase\",\n    \"forbidden_windows\": [],\n    \"max_actions\": 4,\n    \"max_level_delta\": 2,\n    \"max_total_energy\": 10,\n    \"max_total_visibility\": 11,\n    \"min_actions\": 2,\n    \"objective_weights\": {\n      \"effect\": 4,\n      \"energy\": 5,\n      \"persistence\": 1,\n      \"visibility\": 4\n    },\n    \"required_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_directive\",\n      \"m29s_ev_held_out_resource_budget_right_topology\",\n      \"m29s_ev_held_out_resource_budget_right_constraints\",\n      \"m29s_doc_EQUINOX_60\"\n    ],\n    \"schema_version\": \"grideval-g7-m29s-strategy-program/v1\",\n    \"strategy_id\": \"resource_conserving\"\n  ,\n  \"visible_input_digest\": \"5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304\"\n}\n}",
+        "role": "assistant"
+      },
+      {
+        "content": "A visible-only validator returned the following code-slot diagnostics. Revise once using only the original visible input and return the same registered schema: {\"diagnostics\":[{\"code\":\"topology_inconsistent\",\"slot\":\"allowed_targets\"},{\"code\":\"authority_conflict\",\"slot\":\"evidence_ledger\"},{\"code\":\"schema\",\"slot\":\"semantic_slots\"},{\"code\":\"authority_conflict\",\"slot\":\"strategy_id\"}],\"draft_id\":\"m29sdraft_ee1133c86df9a465cfe874f4573c9bf436eecced546fcc80ecf67595f1f7781f\",\"schema_version\":\"grideval-g7-m29s-validator-diagnostics/v1\",\"visible_input_digest\":\"5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304\"}",
+        "role": "user"
+      }
+    ],
+    "model": "qwen3.6-35b-a3b",
+    "n": 1,
+    "response_format": {
+      "json_schema": {
+        "name": "m29s_staged_response",
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "evidence_ledger": {
+              "additionalProperties": false,
+              "properties": {
+                "active_evidence_ids": {
+                  "items": {
+                    "pattern": "^m29s_ev_[a-z0-9_]+$",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "authority_order": {
+                  "items": {
+                    "enum": [
+                      "emergency",
+                      "operator",
+                      "planning",
+                      "advisory"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "condition_id": {
+                  "const": "m29s_held_out_resource_budget_right"
+                },
+                "expired_evidence_ids": {
+                  "items": {
+                    "pattern": "^m29s_ev_[a-z0-9_]+$",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "schema_version": {
+                  "const": "grideval-g7-m29s-evidence-ledger/v1"
+                },
+                "superseded_evidence_ids": {
+                  "items": {
+                    "pattern": "^m29s_ev_[a-z0-9_]+$",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "unresolved_conflict_ids": {
+                  "items": {
+                    "pattern": "^m29s_ev_[a-z0-9_]+$",
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "visible_input_digest": {
+                  "const": "5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304"
+                }
+              },
+              "required": [
+                "schema_version",
+                "condition_id",
+                "active_evidence_ids",
+                "superseded_evidence_ids",
+                "expired_evidence_ids",
+                "unresolved_conflict_ids",
+                "authority_order",
+                "visible_input_digest"
+              ],
+              "title": "GridEval M29-S EvidenceLedger",
+              "type": "object"
+            },
+            "semantic_slots": {
+              "additionalProperties": false,
+              "properties": {
+                "condition_id": {
+                  "const": "m29s_held_out_resource_budget_right"
+                },
+                "schema_version": {
+                  "const": "grideval-g7-m29s-semantic-slots/v1"
+                },
+                "slots": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "allowed_targets": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "cooldown_same_target": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "effect_direction": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "forbidden_windows": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "max_actions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "max_level_delta": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "max_total_energy": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "max_total_visibility": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "min_actions": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "objective_weights": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    },
+                    "strategy_id": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "supporting_evidence_ids": {
+                          "items": {
+                            "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "value": {}
+                      },
+                      "required": [
+                        "value",
+                        "supporting_evidence_ids"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "strategy_id",
+                    "effect_direction",
+                    "allowed_targets",
+                    "forbidden_windows",
+                    "objective_weights",
+                    "max_total_energy",
+                    "max_total_visibility",
+                    "min_actions",
+                    "max_actions",
+                    "max_level_delta",
+                    "cooldown_same_target"
+                  ],
+                  "type": "object"
+                },
+                "visible_input_digest": {
+                  "const": "5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304"
+                }
+              },
+              "required": [
+                "schema_version",
+                "condition_id",
+                "slots",
+                "visible_input_digest"
+              ],
+              "title": "GridEval M29-S SemanticSlots",
+              "type": "object"
+            },
+            "strategy_program": {
+              "additionalProperties": false,
+              "properties": {
+                "allowed_targets": {
+                  "items": {
+                    "enum": [
+                      "GRID_NORTH_A",
+                      "GRID_SOUTH_B",
+                      "GRID_EAST_C",
+                      "GRID_WEST_D"
+                    ]
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "compiler_id": {
+                  "const": "qwen_m29s_staged_retrieval_v1"
+                },
+                "condition_id": {
+                  "const": "m29s_held_out_resource_budget_right"
+                },
+                "cooldown_same_target": {
+                  "type": "boolean"
+                },
+                "effect_direction": {
+                  "enum": [
+                    "increase",
+                    "decrease"
+                  ]
+                },
+                "forbidden_windows": {
+                  "items": {
+                    "enum": [
+                      "t0",
+                      "t1",
+                      "t2",
+                      "t3"
+                    ]
+                  },
+                  "type": "array"
+                },
+                "max_actions": {
+                  "maximum": 4,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "max_level_delta": {
+                  "maximum": 4,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "max_total_energy": {
+                  "maximum": 20,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "max_total_visibility": {
+                  "maximum": 20,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "min_actions": {
+                  "maximum": 4,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "objective_weights": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "effect": {
+                      "maximum": 10,
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "energy": {
+                      "maximum": 10,
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "persistence": {
+                      "maximum": 10,
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "visibility": {
+                      "maximum": 10,
+                      "minimum": 0,
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "effect",
+                    "persistence",
+                    "energy",
+                    "visibility"
+                  ],
+                  "type": "object"
+                },
+                "required_evidence_ids": {
+                  "items": {
+                    "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$",
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "schema_version": {
+                  "const": "grideval-g7-m29s-strategy-program/v1"
+                },
+                "strategy_id": {
+                  "enum": [
+                    "gradual_bias",
+                    "delayed_shift",
+                    "persistent_pressure",
+                    "resource_conserving"
+                  ]
+                },
+                "visible_input_digest": {
+                  "const": "5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304"
+                }
+              },
+              "required": [
+                "schema_version",
+                "condition_id",
+                "strategy_id",
+                "effect_direction",
+                "allowed_targets",
+                "forbidden_windows",
+                "objective_weights",
+                "max_total_energy",
+                "max_total_visibility",
+                "min_actions",
+                "max_actions",
+                "max_level_delta",
+                "cooldown_same_target",
+                "required_evidence_ids",
+                "visible_input_digest",
+                "compiler_id"
+              ],
+              "title": "GridEval M29-S StrategyProgram",
+              "type": "object"
+            }
+          },
+          "required": [
+            "evidence_ledger",
+            "semantic_slots",
+            "strategy_program"
+          ],
+          "type": "object"
+        },
+        "strict": true
+      },
+      "type": "json_schema"
+    },
+    "seed": 482732328,
+    "stream": false,
+    "temperature": 0
+  },
+  "revision_response": {
+    "content": "{\n  \"evidence_ledger\": {\n    \"active_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_topology\",\n      \"m29s_ev_held_out_resource_budget_right_constraints\",\n      \"m29s_ev_held_out_resource_budget_right_directive\"\n    ],\n    \"authority_order\": [\n      \"emergency\",\n      \"operator\",\n      \"advisory\",\n      \"planning\"\n    ],\n    \"condition_id\": \"m29s_held_out_resource_budget_right\",\n    \"expired_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_expired\"\n    ],\n    \"schema_version\": \"grideval-g7-m29s-evidence-ledger/v1\",\n    \"superseded_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_archive\"\n    ],\n    \"unresolved_conflict_ids\": []\n  ,\n  \"visible_input_digest\": \"5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304\"\n}\n\n  ,\n  \"semantic_slots\": {\n    \"condition_id\": \"m29s_held_out_resource_budget_right\",\n    \"schema_version\": \"grideval-g7-m29s-semantic-slots/v1\",\n    \"slots\": {\n      \"allowed_targets\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_topology\"\n        ],\n        \"value\": [\n          \"GRID_SOUTH_B\",\n          \"GRID_NORTH_A\"\n        ]\n      },\n      \"cooldown_same_target\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": false\n      },\n      \"effect_direction\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": \"increase\"\n      },\n      \"forbidden_windows\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_topology\"\n        ],\n        \"value\": []\n      },\n      \"max_actions\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 4\n      },\n      \"max_level_delta\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": 2\n      },\n      \"max_total_energy\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 10\n      },\n      \"max_total_visibility\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 11\n      },\n      \"min_actions\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_constraints\"\n        ],\n        \"value\": 2\n      },\n      \"objective_weights\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_doc_EQUINOX_60\"\n        ],\n        \"value\": {\n          \"effect\": 4,\n          \"energy\": 5,\n          \"persistence\": 1,\n          \"visibility\": 4\n        }\n      },\n      \"strategy_id\": {\n        \"supporting_evidence_ids\": [\n          \"m29s_ev_held_out_resource_budget_right_directive\"\n        ],\n        \"value\": \"EQUINOX-60\"\n      }\n    }\n  ,\n  \"visible_input_digest\": \"5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304\"\n}\n\n  ,\n  \"strategy_program\": {\n    \"allowed_targets\": [\n      \"GRID_SOUTH_B\",\n      \"GRID_NORTH_A\"\n    ],\n    \"compiler_id\": \"qwen_m29s_staged_retrieval_v1\",\n    \"condition_id\": \"m29s_held_out_resource_budget_right\",\n    \"cooldown_same_target\": false,\n    \"effect_direction\": \"increase\",\n    \"forbidden_windows\": [],\n    \"max_actions\": 4,\n    \"max_level_delta\": 2,\n    \"max_total_energy\": 10,\n    \"max_total_visibility\": 11,\n    \"min_actions\": 2,\n    \"objective_weights\": {\n      \"effect\": 4,\n      \"energy\": 5,\n      \"persistence\": 1,\n      \"visibility\": 4\n    },\n    \"required_evidence_ids\": [\n      \"m29s_ev_held_out_resource_budget_right_directive\",\n      \"m29s_ev_held_out_resource_budget_right_topology\",\n      \"m29s_ev_held_out_resource_budget_right_constraints\",\n      \"m29s_doc_EQUINOX_60\"\n    ],\n    \"schema_version\": \"grideval-g7-m29s-strategy-program/v1\",\n    \"strategy_id\": \"resource_conserving\"\n  ,\n  \"visible_input_digest\": \"5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304\"\n}\n}",
+    "finish_reason": "stop",
+    "id": "chatcmpl-8c004c4402eec9c8",
+    "model": "qwen3.6-35b-a3b",
+    "refusal": null,
+    "usage": {
+      "completion_tokens": 1364,
+      "prompt_tokens": 2614,
+      "total_tokens": 3978
+    }
+  },
+  "schema_version": "grideval-g7-m29s-cell/v1",
+  "split": "held_out",
+  "status": "completed",
+  "validator_diagnostics": {
+    "diagnostics": [
+      {
+        "code": "topology_inconsistent",
+        "slot": "allowed_targets"
+      },
+      {
+        "code": "authority_conflict",
+        "slot": "evidence_ledger"
+      },
+      {
+        "code": "schema",
+        "slot": "semantic_slots"
+      },
+      {
+        "code": "authority_conflict",
+        "slot": "strategy_id"
+      }
+    ],
+    "draft_id": "m29sdraft_ee1133c86df9a465cfe874f4573c9bf436eecced546fcc80ecf67595f1f7781f",
+    "schema_version": "grideval-g7-m29s-validator-diagnostics/v1",
+    "visible_input_digest": "5fc243b93872a63e15a6819fd74f11de6ce34df3c1d8f4d417cb6d14aa06a304"
+  },
+  "visible_evidence_id": "m29sevidence_91f002ac9e3f67d89cf95bd7b56154fa5133e443211afea160bc1aea32b48e21"
+}

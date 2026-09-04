@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/m29s_semantic_slots.schema.json",
+  "title": "GridEval M29-S SemanticSlots",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "condition_id",
+    "slots",
+    "visible_input_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-m29s-semantic-slots/v1"
+    },
+    "condition_id": {
+      "type": "string",
+      "pattern": "^m29s_(development|held_out)_[a-z0-9_]+_(left|right)$"
+    },
+    "slots": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strategy_id",
+        "effect_direction",
+        "allowed_targets",
+        "forbidden_windows",
+        "objective_weights",
+        "max_total_energy",
+        "max_total_visibility",
+        "min_actions",
+        "max_actions",
+        "max_level_delta",
+        "cooldown_same_target"
+      ],
+      "properties": {
+        "strategy_id": {
+          "$ref": "#/$defs/scalarSlot"
+        },
+        "effect_direction": {
+          "$ref": "#/$defs/scalarSlot"
+        },
+        "allowed_targets": {
+          "$ref": "#/$defs/arraySlot"
+        },
+        "forbidden_windows": {
+          "$ref": "#/$defs/arraySlot"
+        },
+        "objective_weights": {
+          "$ref": "#/$defs/objectSlot"
+        },
+        "max_total_energy": {
+          "$ref": "#/$defs/scalarSlot"
+        },
+        "max_total_visibility": {
+          "$ref": "#/$defs/scalarSlot"
+        },
+        "min_actions": {
+          "$ref": "#/$defs/scalarSlot"
+        },
+        "max_actions": {
+          "$ref": "#/$defs/scalarSlot"
+        },
+        "max_level_delta": {
+          "$ref": "#/$defs/scalarSlot"
+        },
+        "cooldown_same_target": {
+          "$ref": "#/$defs/scalarSlot"
+        }
+      }
+    },
+    "visible_input_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "$defs": {
+    "evidenceIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(m29s_ev|m29s_doc)_[a-zA-Z0-9_]+$"
+      }
+    },
+    "scalarSlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "supporting_evidence_ids"
+      ],
+      "properties": {
+        "value": {},
+        "supporting_evidence_ids": {
+          "$ref": "#/$defs/evidenceIds"
+        }
+      }
+    },
+    "arraySlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "supporting_evidence_ids"
+      ],
+      "properties": {
+        "value": {
+          "type": "array"
+        },
+        "supporting_evidence_ids": {
+          "$ref": "#/$defs/evidenceIds"
+        }
+      }
+    },
+    "objectSlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "supporting_evidence_ids"
+      ],
+      "properties": {
+        "value": {
+          "type": "object"
+        },
+        "supporting_evidence_ids": {
+          "$ref": "#/$defs/evidenceIds"
+        }
+      }
+    }
+  }
+}

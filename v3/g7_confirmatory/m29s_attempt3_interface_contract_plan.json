@@ -1,0 +1,71 @@
+{
+  "schema_version": "grideval-g7-m29s-interface-contract-amendment/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "mission_id": "mis_01M1PK13X15NDM52ZH40Z5TAZS",
+  "decision_id": "dec_01M1PRTXJHJYCT29SFZZKXP4ZC",
+  "predecessor_attempt": "m29s_factorial_attempt2",
+  "trigger": {
+    "preserved_development_cells": 20,
+    "recorded_model_calls": 30,
+    "maximum_unpersisted_concurrent_calls": 6,
+    "conservative_attempt_calls": 36,
+    "completed_staged_cells": 5,
+    "staged_length_failures": 0,
+    "staged_hidden_authority_order_failures": 5,
+    "held_out_accessed": false
+  },
+  "registered_delta": {
+    "evidence_ledger_authority_order_before": "global four-level order including authorities absent from visible input",
+    "evidence_ledger_authority_order_after": "unique authorities of active visible records in registered precedence order",
+    "validator_staged_components_before": [],
+    "validator_staged_components_after": [
+      "EvidenceLedger",
+      "SemanticSlots",
+      "deterministic projection"
+    ],
+    "new_validator_slots": [
+      "evidence_ledger",
+      "semantic_slots"
+    ],
+    "diagnostic_payload_fields_changed": false,
+    "expected_values_allowed": false,
+    "corrected_artifacts_allowed": false,
+    "scores_or_labels_allowed": false,
+    "maximum_completion_tokens_per_call": 1800,
+    "transport_workers": 4,
+    "model_calls_per_cell_changed": false,
+    "conditions_changed": false,
+    "strategy_program_oracles_changed": false,
+    "prompts_changed": false,
+    "retrieval_changed": false,
+    "scientific_thresholds_changed": false,
+    "access_boundary_changed": false
+  },
+  "authorization_budget": {
+    "pre_m29s_calls": 101,
+    "attempt1_conservative_calls": 85,
+    "attempt2_conservative_calls": 36,
+    "prior_calls_for_attempt3": 222,
+    "attempt3_contracted_calls": 576,
+    "maximum_cumulative_calls": 798,
+    "pi_authorized_cumulative_ceiling": 1000,
+    "remaining_after_attempt3": 202,
+    "retry_count": 0
+  },
+  "interpretation": {
+    "authority_order_fix": "removes a hidden target from the staged interface",
+    "validator_coverage_fix": "makes the registered validator treatment apply to every staged artifact without revealing answers",
+    "scientific_factor_changed": false,
+    "development_debugging_only": true
+  },
+  "does_not_authorize": [
+    "M29-B",
+    "simulator_execution",
+    "docker_access",
+    "detector_or_defense_access",
+    "physical_actuation",
+    "final_evaluation",
+    "claim_promotion"
+  ]
+}

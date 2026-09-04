@@ -1,0 +1,772 @@
+{
+  "audit_id": "m29taudit_5b017d063d19ae1e16c2acd1b800fa5a37aac3d667f27b5ae4dd87aac92346da",
+  "auditor_source_sha256": "7710863dea6401390b0c593e0d20c233abe0c1518afca1eb88797512932589db",
+  "cell_count": 320,
+  "classification": "PRELIMINARY_ONLY",
+  "final_evaluation_authorized": false,
+  "independent_imports_replay_implementation": false,
+  "issues": [],
+  "ledger_repairs_recomputed": true,
+  "m29b_authorized": false,
+  "new_model_calls": 0,
+  "projection_repairs_recomputed": true,
+  "replay_id": "m29treplay_495a86b86fc3842d5102190a3c85c0d7ffe8f6365e188990ce39de80f27e6e19",
+  "replay_sha256": "326f36bf6d86f0cb3050140d382aa14775322b46fda80a109bc87fc166fc16c4",
+  "saved_responses_reparsed": true,
+  "schema_version": "grideval-g7-m29t-offline-replay-audit/v1",
+  "scientific_summary": {
+    "by_arm": [
+      {
+        "O0_recorded": {
+          "all_slot_exact": 5,
+          "semantics_exact": 7
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 5,
+          "semantics_exact": 7
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 8,
+          "semantics_exact": 10
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 10
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 10
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 10
+        },
+        "arm_id": "IA4-C1",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 4,
+          "semantics_exact": 6
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 4,
+          "semantics_exact": 6
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 7,
+          "semantics_exact": 11
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 7,
+          "semantics_exact": 11
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 11
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 11
+        },
+        "arm_id": "IA4-C1",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "held_out"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 4,
+          "semantics_exact": 10
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 4,
+          "semantics_exact": 10
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "arm_id": "IA4-C1R",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 5,
+          "semantics_exact": 7
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 5,
+          "semantics_exact": 7
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 8,
+          "semantics_exact": 13
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 13
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 13
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 13
+        },
+        "arm_id": "IA4-C1R",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "held_out"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 5,
+          "semantics_exact": 8
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 5,
+          "semantics_exact": 8
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "arm_id": "IA4-FS",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 4,
+          "semantics_exact": 6
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 4,
+          "semantics_exact": 6
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 7,
+          "semantics_exact": 11
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 7,
+          "semantics_exact": 11
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 11
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 11
+        },
+        "arm_id": "IA4-FS",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "held_out"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 4,
+          "semantics_exact": 10
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 4,
+          "semantics_exact": 10
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "arm_id": "IA4-FSR",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 5,
+          "semantics_exact": 8
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 5,
+          "semantics_exact": 8
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 8,
+          "semantics_exact": 15
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 15
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 15
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 15
+        },
+        "arm_id": "IA4-FSR",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "held_out"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 5,
+          "semantics_exact": 8
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 5,
+          "semantics_exact": 8
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "arm_id": "IA4-FV",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 5,
+          "semantics_exact": 7
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 5,
+          "semantics_exact": 7
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "arm_id": "IA4-FV",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "held_out"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 5,
+          "semantics_exact": 11
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 5,
+          "semantics_exact": 11
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 8,
+          "semantics_exact": 15
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 15
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 15
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 8,
+          "semantics_exact": 15
+        },
+        "arm_id": "IA4-FVR",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 5,
+          "semantics_exact": 8
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 5,
+          "semantics_exact": 8
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 14
+        },
+        "arm_id": "IA4-FVR",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "held_out"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 0,
+          "semantics_exact": 0
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 0,
+          "semantics_exact": 8
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 0,
+          "semantics_exact": 12
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 0,
+          "semantics_exact": 7
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 7
+        },
+        "arm_id": "IA4-SS",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 0,
+          "semantics_exact": 0
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 0,
+          "semantics_exact": 7
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 0,
+          "semantics_exact": 12
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 0,
+          "semantics_exact": 7
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 6,
+          "semantics_exact": 7
+        },
+        "arm_id": "IA4-SS",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "held_out"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 0,
+          "semantics_exact": 0
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 0,
+          "semantics_exact": 11
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 0,
+          "semantics_exact": 16
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 16
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 0,
+          "semantics_exact": 2
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 2,
+          "semantics_exact": 2
+        },
+        "arm_id": "IA4-SSR",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 0,
+          "semantics_exact": 0
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 0,
+          "semantics_exact": 9
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 0,
+          "semantics_exact": 16
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 16
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 0,
+          "semantics_exact": 6
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 3,
+          "semantics_exact": 6
+        },
+        "arm_id": "IA4-SSR",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "held_out"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 0,
+          "semantics_exact": 0
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 0,
+          "semantics_exact": 8
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 0,
+          "semantics_exact": 12
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 0,
+          "semantics_exact": 7
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 7,
+          "semantics_exact": 7
+        },
+        "arm_id": "IA4-SV",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 0,
+          "semantics_exact": 0
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 0,
+          "semantics_exact": 7
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 0,
+          "semantics_exact": 12
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 12
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 0,
+          "semantics_exact": 7
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 6,
+          "semantics_exact": 7
+        },
+        "arm_id": "IA4-SV",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "held_out"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 0,
+          "semantics_exact": 0
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 0,
+          "semantics_exact": 11
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 0,
+          "semantics_exact": 16
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 16
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 0,
+          "semantics_exact": 6
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 5,
+          "semantics_exact": 6
+        },
+        "arm_id": "IA4-SVR",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 0,
+          "semantics_exact": 0
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 0,
+          "semantics_exact": 9
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 0,
+          "semantics_exact": 15
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 8,
+          "semantics_exact": 15
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 0,
+          "semantics_exact": 5
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 5,
+          "semantics_exact": 5
+        },
+        "arm_id": "IA4-SVR",
+        "cells": 16,
+        "raw_json_available": 16,
+        "split": "held_out"
+      }
+    ],
+    "by_split_interface": [
+      {
+        "O0_recorded": {
+          "all_slot_exact": 28,
+          "semantics_exact": 54
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 28,
+          "semantics_exact": 54
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 46,
+          "semantics_exact": 77
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 46,
+          "semantics_exact": 77
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 46,
+          "semantics_exact": 77
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 46,
+          "semantics_exact": 77
+        },
+        "cells": 96,
+        "interface": "flat",
+        "raw_json_available": 96,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 0,
+          "semantics_exact": 0
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 0,
+          "semantics_exact": 38
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 0,
+          "semantics_exact": 56
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 32,
+          "semantics_exact": 56
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 0,
+          "semantics_exact": 22
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 21,
+          "semantics_exact": 22
+        },
+        "cells": 64,
+        "interface": "staged",
+        "raw_json_available": 64,
+        "split": "development"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 28,
+          "semantics_exact": 42
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 28,
+          "semantics_exact": 42
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 45,
+          "semantics_exact": 76
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 45,
+          "semantics_exact": 76
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 45,
+          "semantics_exact": 76
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 45,
+          "semantics_exact": 76
+        },
+        "cells": 96,
+        "interface": "flat",
+        "raw_json_available": 96,
+        "split": "held_out"
+      },
+      {
+        "O0_recorded": {
+          "all_slot_exact": 0,
+          "semantics_exact": 0
+        },
+        "O1_saved_json": {
+          "all_slot_exact": 0,
+          "semantics_exact": 32
+        },
+        "O2_canonical_arrays": {
+          "all_slot_exact": 0,
+          "semantics_exact": 55
+        },
+        "O3_tool_ledger": {
+          "all_slot_exact": 32,
+          "semantics_exact": 55
+        },
+        "O4_tool_projection": {
+          "all_slot_exact": 0,
+          "semantics_exact": 25
+        },
+        "O5_tool_ledger_projection": {
+          "all_slot_exact": 20,
+          "semantics_exact": 25
+        },
+        "cells": 64,
+        "interface": "staged",
+        "raw_json_available": 64,
+        "split": "held_out"
+      }
+    ],
+    "recovery_classification": {
+      "canonicalization_only": 35,
+      "observed_exact": 56,
+      "provenance_remaining": 68,
+      "semantic_error_remaining": 120,
+      "tool_owned_ledger_projection": 41
+    },
+    "single_wrong_slot_bottlenecks_after_o5": {
+      "cooldown_same_target": 9,
+      "max_level_delta": 2,
+      "strategy_id": 69
+    },
+    "wrong_slot_frequency_after_o5": {
+      "allowed_targets": 13,
+      "cooldown_same_target": 36,
+      "effect_direction": 28,
+      "forbidden_windows": 13,
+      "max_actions": 13,
+      "max_level_delta": 39,
+      "max_total_energy": 13,
+      "max_total_visibility": 13,
+      "min_actions": 13,
+      "objective_weights": 40,
+      "strategy_id": 107
+    }
+  },
+  "source_attempt_reverified": true,
+  "stage_scores_recomputed": true,
+  "status": "passed",
+  "summary_recomputed": true
+}

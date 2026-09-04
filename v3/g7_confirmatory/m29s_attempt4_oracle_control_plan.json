@@ -1,0 +1,50 @@
+{
+  "schema_version": "grideval-g7-m29s-oracle-control-amendment/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "mission_id": "mis_01M1PK13X15NDM52ZH40Z5TAZS",
+  "decision_id": "dec_01M1PSBNQ8VKKNK4H470SKEJYX",
+  "plan_gate_id": "chk_01M1PSVJ4H3TR34G3ZN14Z1HAC",
+  "predecessor_attempt": "m29s_factorial_attempt3",
+  "trigger": {
+    "preserved_development_cells": 8,
+    "recorded_model_calls": 10,
+    "maximum_unpersisted_concurrent_calls": 8,
+    "conservative_attempt_calls": 18,
+    "held_out_accessed": false
+  },
+  "registered_delta": {
+    "arm": "IA5-OC",
+    "component": "EvidenceLedger.authority_order",
+    "before": "copied pre-amendment fixture ledger",
+    "after": "rebuilt from active visible records under the Attempt 3 rule",
+    "tested_llm_request_changed": false,
+    "validator_changed": false,
+    "strategy_program_oracle_changed": false,
+    "semantic_slots_oracle_changed": false,
+    "retrieval_changed": false,
+    "endpoint_or_threshold_changed": false,
+    "access_boundary_changed": false
+  },
+  "authorization_budget": {
+    "pre_m29s_calls": 101,
+    "attempt1_conservative_calls": 85,
+    "attempt2_conservative_calls": 36,
+    "attempt3_conservative_calls": 18,
+    "prior_calls_for_attempt4": 240,
+    "attempt4_contracted_calls": 576,
+    "maximum_cumulative_calls": 816,
+    "pi_authorized_cumulative_ceiling": 1000,
+    "remaining_after_attempt4": 184,
+    "retry_count": 0
+  },
+  "does_not_authorize": [
+    "M29-B",
+    "simulator_execution",
+    "docker_access",
+    "detector_or_defense_access",
+    "physical_actuation",
+    "final_evaluation",
+    "claim_promotion"
+  ]
+}

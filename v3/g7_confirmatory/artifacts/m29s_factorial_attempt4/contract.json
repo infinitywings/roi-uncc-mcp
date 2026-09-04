@@ -1,0 +1,1303 @@
+{
+  "access_boundary": {
+    "defense": false,
+    "detector": false,
+    "docker": false,
+    "evaluation_seeds_9101_9112": false,
+    "existing_embedding": true,
+    "final_evaluation": false,
+    "network_impairment": false,
+    "offline_llm": true,
+    "physical_actuator": false,
+    "rka_governance_attacker_view": false,
+    "service_start_restart_or_reconfigure": false,
+    "simulator": false
+  },
+  "arm_ids": [
+    "IA3-SX",
+    "IA5-OC",
+    "IA4-C1",
+    "IA4-C1R",
+    "IA4-FS",
+    "IA4-FSR",
+    "IA4-FV",
+    "IA4-FVR",
+    "IA4-SS",
+    "IA4-SSR",
+    "IA4-SV",
+    "IA4-SVR"
+  ],
+  "attempt_policy": {
+    "adaptation_after_development": false,
+    "create_once": true,
+    "development_before_held_out": true,
+    "held_out_requires_development_freeze": true,
+    "overwrite": false,
+    "retry_count": 0
+  },
+  "authorization_budget": {
+    "attempt1_conservative_calls": 85,
+    "attempt2_conservative_calls": 36,
+    "attempt3_conservative_calls": 18,
+    "contracted_new_model_calls": 576,
+    "maximum_cumulative_model_calls": 816,
+    "pi_authorization_note_id": "jrn_01M1PHYJFXBRK6BH421BHJTC60",
+    "pi_authorized_cumulative_ceiling": 1000,
+    "pre_m29s_model_calls": 101,
+    "prior_model_calls": 240,
+    "remaining_after_attempt": 184
+  },
+  "claim_boundary": {
+    "allowed": [
+      "offline_task_interface_effect",
+      "offline_equal_cost_validator_effect",
+      "offline_scoped_retrieval_effect",
+      "offline_semantic_slot_accuracy",
+      "offline_agent_scaffolding_interaction"
+    ],
+    "prohibited": [
+      "general_llm_superiority",
+      "physical_harm",
+      "stealth",
+      "detector_evasion",
+      "defense_bypass",
+      "cross_model_generalization",
+      "confirmatory_inference"
+    ]
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "decision_id": "dec_01M1PSBNQ8VKKNK4H470SKEJYX",
+  "design_contract": {
+    "id": "m29scontract_2718c430056e1314ec36f107feb2ca1ec160e2d430b0bc94bb4d527ecc922fe0",
+    "path": "artifacts/m29s_design_contract_attempt2/contract.json",
+    "sha256": "44a55bbfff9fdeb094d32b44d6eaad15d942a7cd45a560c4af57fc6b9c583110"
+  },
+  "embedding_receipts": {
+    "development": {
+      "id": "m29sembed_b179f74584390b91ca0c6abba77e8bc33b3949385655b98879bc8ffa1e9d225d",
+      "path": "artifacts/m29s_service_preflight_attempt1/development_embedding.json",
+      "sha256": "27cc00f264096f99f7a8a50609396a6c1f1e02bffcb7f8d5d663a8c110cca7f7"
+    },
+    "held_out": {
+      "id": "m29sembed_ca395fa49c7d50a5d488f16c71ea492cdf955ed0ecfbfb98013375cf1888f0d2",
+      "path": "artifacts/m29s_service_preflight_attempt1/held_out_embedding.json",
+      "sha256": "c9a1d82bcaa02cf2dbc2f4367452a40c963e17d4d9222a39651ec31274f297e1"
+    }
+  },
+  "execution_contract_id": "m29sexec_ec8d30b7ac3f5156b189769e35f6bc08a6369c755414b3c297b16d008dab78c5",
+  "execution_schedule": {
+    "development": [
+      {
+        "arm_order": [
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR"
+        ],
+        "condition_id": "m29s_development_doctrine_direction_left"
+      },
+      {
+        "arm_order": [
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX"
+        ],
+        "condition_id": "m29s_development_doctrine_direction_right"
+      },
+      {
+        "arm_order": [
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC"
+        ],
+        "condition_id": "m29s_development_authority_supersession_left"
+      },
+      {
+        "arm_order": [
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1"
+        ],
+        "condition_id": "m29s_development_authority_supersession_right"
+      },
+      {
+        "arm_order": [
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R"
+        ],
+        "condition_id": "m29s_development_validity_expiry_left"
+      },
+      {
+        "arm_order": [
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS"
+        ],
+        "condition_id": "m29s_development_validity_expiry_right"
+      },
+      {
+        "arm_order": [
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR"
+        ],
+        "condition_id": "m29s_development_topology_scope_left"
+      },
+      {
+        "arm_order": [
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV"
+        ],
+        "condition_id": "m29s_development_topology_scope_right"
+      },
+      {
+        "arm_order": [
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR"
+        ],
+        "condition_id": "m29s_development_resource_budget_left"
+      },
+      {
+        "arm_order": [
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS"
+        ],
+        "condition_id": "m29s_development_resource_budget_right"
+      },
+      {
+        "arm_order": [
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR"
+        ],
+        "condition_id": "m29s_development_objective_cooldown_left"
+      },
+      {
+        "arm_order": [
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV"
+        ],
+        "condition_id": "m29s_development_objective_cooldown_right"
+      },
+      {
+        "arm_order": [
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR"
+        ],
+        "condition_id": "m29s_development_delayed_lineage_left"
+      },
+      {
+        "arm_order": [
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX"
+        ],
+        "condition_id": "m29s_development_delayed_lineage_right"
+      },
+      {
+        "arm_order": [
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC"
+        ],
+        "condition_id": "m29s_development_retrieval_doctrine_left"
+      },
+      {
+        "arm_order": [
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1"
+        ],
+        "condition_id": "m29s_development_retrieval_doctrine_right"
+      }
+    ],
+    "held_out": [
+      {
+        "arm_order": [
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR"
+        ],
+        "condition_id": "m29s_held_out_doctrine_direction_left"
+      },
+      {
+        "arm_order": [
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX"
+        ],
+        "condition_id": "m29s_held_out_doctrine_direction_right"
+      },
+      {
+        "arm_order": [
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC"
+        ],
+        "condition_id": "m29s_held_out_authority_supersession_left"
+      },
+      {
+        "arm_order": [
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1"
+        ],
+        "condition_id": "m29s_held_out_authority_supersession_right"
+      },
+      {
+        "arm_order": [
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R"
+        ],
+        "condition_id": "m29s_held_out_validity_expiry_left"
+      },
+      {
+        "arm_order": [
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS"
+        ],
+        "condition_id": "m29s_held_out_validity_expiry_right"
+      },
+      {
+        "arm_order": [
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR"
+        ],
+        "condition_id": "m29s_held_out_topology_scope_left"
+      },
+      {
+        "arm_order": [
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV"
+        ],
+        "condition_id": "m29s_held_out_topology_scope_right"
+      },
+      {
+        "arm_order": [
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR"
+        ],
+        "condition_id": "m29s_held_out_resource_budget_left"
+      },
+      {
+        "arm_order": [
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS"
+        ],
+        "condition_id": "m29s_held_out_resource_budget_right"
+      },
+      {
+        "arm_order": [
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR"
+        ],
+        "condition_id": "m29s_held_out_objective_cooldown_left"
+      },
+      {
+        "arm_order": [
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV"
+        ],
+        "condition_id": "m29s_held_out_objective_cooldown_right"
+      },
+      {
+        "arm_order": [
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR"
+        ],
+        "condition_id": "m29s_held_out_delayed_lineage_left"
+      },
+      {
+        "arm_order": [
+          "IA5-OC",
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX"
+        ],
+        "condition_id": "m29s_held_out_delayed_lineage_right"
+      },
+      {
+        "arm_order": [
+          "IA4-C1",
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC"
+        ],
+        "condition_id": "m29s_held_out_retrieval_doctrine_left"
+      },
+      {
+        "arm_order": [
+          "IA4-C1R",
+          "IA4-FS",
+          "IA4-FSR",
+          "IA4-FV",
+          "IA4-FVR",
+          "IA4-SS",
+          "IA4-SSR",
+          "IA4-SV",
+          "IA4-SVR",
+          "IA3-SX",
+          "IA5-OC",
+          "IA4-C1"
+        ],
+        "condition_id": "m29s_held_out_retrieval_doctrine_right"
+      }
+    ]
+  },
+  "expected_cell_paths": [
+    "cells/development/IA3-SX/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA3-SX/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA3-SX/m29s_development_authority_supersession_left.json",
+    "cells/development/IA3-SX/m29s_development_authority_supersession_right.json",
+    "cells/development/IA3-SX/m29s_development_validity_expiry_left.json",
+    "cells/development/IA3-SX/m29s_development_validity_expiry_right.json",
+    "cells/development/IA3-SX/m29s_development_topology_scope_left.json",
+    "cells/development/IA3-SX/m29s_development_topology_scope_right.json",
+    "cells/development/IA3-SX/m29s_development_resource_budget_left.json",
+    "cells/development/IA3-SX/m29s_development_resource_budget_right.json",
+    "cells/development/IA3-SX/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA3-SX/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA3-SX/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA3-SX/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA3-SX/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA3-SX/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA5-OC/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA5-OC/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA5-OC/m29s_development_authority_supersession_left.json",
+    "cells/development/IA5-OC/m29s_development_authority_supersession_right.json",
+    "cells/development/IA5-OC/m29s_development_validity_expiry_left.json",
+    "cells/development/IA5-OC/m29s_development_validity_expiry_right.json",
+    "cells/development/IA5-OC/m29s_development_topology_scope_left.json",
+    "cells/development/IA5-OC/m29s_development_topology_scope_right.json",
+    "cells/development/IA5-OC/m29s_development_resource_budget_left.json",
+    "cells/development/IA5-OC/m29s_development_resource_budget_right.json",
+    "cells/development/IA5-OC/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA5-OC/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA5-OC/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA5-OC/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA5-OC/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA5-OC/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA4-C1/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA4-C1/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA4-C1/m29s_development_authority_supersession_left.json",
+    "cells/development/IA4-C1/m29s_development_authority_supersession_right.json",
+    "cells/development/IA4-C1/m29s_development_validity_expiry_left.json",
+    "cells/development/IA4-C1/m29s_development_validity_expiry_right.json",
+    "cells/development/IA4-C1/m29s_development_topology_scope_left.json",
+    "cells/development/IA4-C1/m29s_development_topology_scope_right.json",
+    "cells/development/IA4-C1/m29s_development_resource_budget_left.json",
+    "cells/development/IA4-C1/m29s_development_resource_budget_right.json",
+    "cells/development/IA4-C1/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA4-C1/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA4-C1/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA4-C1/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA4-C1/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA4-C1/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA4-C1R/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA4-C1R/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA4-C1R/m29s_development_authority_supersession_left.json",
+    "cells/development/IA4-C1R/m29s_development_authority_supersession_right.json",
+    "cells/development/IA4-C1R/m29s_development_validity_expiry_left.json",
+    "cells/development/IA4-C1R/m29s_development_validity_expiry_right.json",
+    "cells/development/IA4-C1R/m29s_development_topology_scope_left.json",
+    "cells/development/IA4-C1R/m29s_development_topology_scope_right.json",
+    "cells/development/IA4-C1R/m29s_development_resource_budget_left.json",
+    "cells/development/IA4-C1R/m29s_development_resource_budget_right.json",
+    "cells/development/IA4-C1R/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA4-C1R/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA4-C1R/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA4-C1R/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA4-C1R/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA4-C1R/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA4-FS/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA4-FS/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA4-FS/m29s_development_authority_supersession_left.json",
+    "cells/development/IA4-FS/m29s_development_authority_supersession_right.json",
+    "cells/development/IA4-FS/m29s_development_validity_expiry_left.json",
+    "cells/development/IA4-FS/m29s_development_validity_expiry_right.json",
+    "cells/development/IA4-FS/m29s_development_topology_scope_left.json",
+    "cells/development/IA4-FS/m29s_development_topology_scope_right.json",
+    "cells/development/IA4-FS/m29s_development_resource_budget_left.json",
+    "cells/development/IA4-FS/m29s_development_resource_budget_right.json",
+    "cells/development/IA4-FS/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA4-FS/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA4-FS/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA4-FS/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA4-FS/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA4-FS/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA4-FSR/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA4-FSR/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA4-FSR/m29s_development_authority_supersession_left.json",
+    "cells/development/IA4-FSR/m29s_development_authority_supersession_right.json",
+    "cells/development/IA4-FSR/m29s_development_validity_expiry_left.json",
+    "cells/development/IA4-FSR/m29s_development_validity_expiry_right.json",
+    "cells/development/IA4-FSR/m29s_development_topology_scope_left.json",
+    "cells/development/IA4-FSR/m29s_development_topology_scope_right.json",
+    "cells/development/IA4-FSR/m29s_development_resource_budget_left.json",
+    "cells/development/IA4-FSR/m29s_development_resource_budget_right.json",
+    "cells/development/IA4-FSR/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA4-FSR/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA4-FSR/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA4-FSR/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA4-FSR/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA4-FSR/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA4-FV/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA4-FV/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA4-FV/m29s_development_authority_supersession_left.json",
+    "cells/development/IA4-FV/m29s_development_authority_supersession_right.json",
+    "cells/development/IA4-FV/m29s_development_validity_expiry_left.json",
+    "cells/development/IA4-FV/m29s_development_validity_expiry_right.json",
+    "cells/development/IA4-FV/m29s_development_topology_scope_left.json",
+    "cells/development/IA4-FV/m29s_development_topology_scope_right.json",
+    "cells/development/IA4-FV/m29s_development_resource_budget_left.json",
+    "cells/development/IA4-FV/m29s_development_resource_budget_right.json",
+    "cells/development/IA4-FV/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA4-FV/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA4-FV/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA4-FV/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA4-FV/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA4-FV/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA4-FVR/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA4-FVR/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA4-FVR/m29s_development_authority_supersession_left.json",
+    "cells/development/IA4-FVR/m29s_development_authority_supersession_right.json",
+    "cells/development/IA4-FVR/m29s_development_validity_expiry_left.json",
+    "cells/development/IA4-FVR/m29s_development_validity_expiry_right.json",
+    "cells/development/IA4-FVR/m29s_development_topology_scope_left.json",
+    "cells/development/IA4-FVR/m29s_development_topology_scope_right.json",
+    "cells/development/IA4-FVR/m29s_development_resource_budget_left.json",
+    "cells/development/IA4-FVR/m29s_development_resource_budget_right.json",
+    "cells/development/IA4-FVR/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA4-FVR/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA4-FVR/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA4-FVR/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA4-FVR/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA4-FVR/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA4-SS/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA4-SS/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA4-SS/m29s_development_authority_supersession_left.json",
+    "cells/development/IA4-SS/m29s_development_authority_supersession_right.json",
+    "cells/development/IA4-SS/m29s_development_validity_expiry_left.json",
+    "cells/development/IA4-SS/m29s_development_validity_expiry_right.json",
+    "cells/development/IA4-SS/m29s_development_topology_scope_left.json",
+    "cells/development/IA4-SS/m29s_development_topology_scope_right.json",
+    "cells/development/IA4-SS/m29s_development_resource_budget_left.json",
+    "cells/development/IA4-SS/m29s_development_resource_budget_right.json",
+    "cells/development/IA4-SS/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA4-SS/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA4-SS/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA4-SS/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA4-SS/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA4-SS/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA4-SSR/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA4-SSR/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA4-SSR/m29s_development_authority_supersession_left.json",
+    "cells/development/IA4-SSR/m29s_development_authority_supersession_right.json",
+    "cells/development/IA4-SSR/m29s_development_validity_expiry_left.json",
+    "cells/development/IA4-SSR/m29s_development_validity_expiry_right.json",
+    "cells/development/IA4-SSR/m29s_development_topology_scope_left.json",
+    "cells/development/IA4-SSR/m29s_development_topology_scope_right.json",
+    "cells/development/IA4-SSR/m29s_development_resource_budget_left.json",
+    "cells/development/IA4-SSR/m29s_development_resource_budget_right.json",
+    "cells/development/IA4-SSR/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA4-SSR/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA4-SSR/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA4-SSR/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA4-SSR/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA4-SSR/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA4-SV/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA4-SV/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA4-SV/m29s_development_authority_supersession_left.json",
+    "cells/development/IA4-SV/m29s_development_authority_supersession_right.json",
+    "cells/development/IA4-SV/m29s_development_validity_expiry_left.json",
+    "cells/development/IA4-SV/m29s_development_validity_expiry_right.json",
+    "cells/development/IA4-SV/m29s_development_topology_scope_left.json",
+    "cells/development/IA4-SV/m29s_development_topology_scope_right.json",
+    "cells/development/IA4-SV/m29s_development_resource_budget_left.json",
+    "cells/development/IA4-SV/m29s_development_resource_budget_right.json",
+    "cells/development/IA4-SV/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA4-SV/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA4-SV/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA4-SV/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA4-SV/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA4-SV/m29s_development_retrieval_doctrine_right.json",
+    "cells/development/IA4-SVR/m29s_development_doctrine_direction_left.json",
+    "cells/development/IA4-SVR/m29s_development_doctrine_direction_right.json",
+    "cells/development/IA4-SVR/m29s_development_authority_supersession_left.json",
+    "cells/development/IA4-SVR/m29s_development_authority_supersession_right.json",
+    "cells/development/IA4-SVR/m29s_development_validity_expiry_left.json",
+    "cells/development/IA4-SVR/m29s_development_validity_expiry_right.json",
+    "cells/development/IA4-SVR/m29s_development_topology_scope_left.json",
+    "cells/development/IA4-SVR/m29s_development_topology_scope_right.json",
+    "cells/development/IA4-SVR/m29s_development_resource_budget_left.json",
+    "cells/development/IA4-SVR/m29s_development_resource_budget_right.json",
+    "cells/development/IA4-SVR/m29s_development_objective_cooldown_left.json",
+    "cells/development/IA4-SVR/m29s_development_objective_cooldown_right.json",
+    "cells/development/IA4-SVR/m29s_development_delayed_lineage_left.json",
+    "cells/development/IA4-SVR/m29s_development_delayed_lineage_right.json",
+    "cells/development/IA4-SVR/m29s_development_retrieval_doctrine_left.json",
+    "cells/development/IA4-SVR/m29s_development_retrieval_doctrine_right.json",
+    "cells/held_out/IA3-SX/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA3-SX/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA3-SX/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA3-SX/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA3-SX/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA3-SX/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA3-SX/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA3-SX/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA3-SX/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA3-SX/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA3-SX/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA3-SX/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA3-SX/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA3-SX/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA3-SX/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA3-SX/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA5-OC/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA5-OC/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA5-OC/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA5-OC/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA5-OC/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA5-OC/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA5-OC/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA5-OC/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA5-OC/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA5-OC/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA5-OC/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA5-OC/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA5-OC/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA5-OC/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA5-OC/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA5-OC/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA4-C1/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA4-C1/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA4-C1/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA4-C1/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA4-C1/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA4-C1/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA4-C1/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA4-C1/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA4-C1/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA4-C1/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA4-C1/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA4-C1/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA4-C1/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA4-C1/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA4-C1/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA4-C1/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA4-C1R/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA4-FS/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA4-FS/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA4-FS/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA4-FS/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA4-FS/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA4-FS/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA4-FS/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA4-FS/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA4-FS/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA4-FS/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA4-FS/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA4-FS/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA4-FS/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA4-FS/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA4-FS/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA4-FS/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA4-FSR/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA4-FV/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA4-FV/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA4-FV/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA4-FV/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA4-FV/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA4-FV/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA4-FV/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA4-FV/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA4-FV/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA4-FV/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA4-FV/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA4-FV/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA4-FV/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA4-FV/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA4-FV/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA4-FV/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA4-FVR/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA4-SS/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA4-SS/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA4-SS/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA4-SS/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA4-SS/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA4-SS/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA4-SS/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA4-SS/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA4-SS/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA4-SS/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA4-SS/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA4-SS/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA4-SS/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA4-SS/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA4-SS/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA4-SS/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA4-SSR/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA4-SV/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA4-SV/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA4-SV/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA4-SV/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA4-SV/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA4-SV/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA4-SV/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA4-SV/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA4-SV/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA4-SV/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA4-SV/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA4-SV/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA4-SV/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA4-SV/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA4-SV/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA4-SV/m29s_held_out_retrieval_doctrine_right.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_doctrine_direction_left.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_doctrine_direction_right.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_authority_supersession_left.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_authority_supersession_right.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_validity_expiry_left.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_validity_expiry_right.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_topology_scope_left.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_topology_scope_right.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_resource_budget_left.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_resource_budget_right.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_objective_cooldown_left.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_objective_cooldown_right.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_delayed_lineage_left.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_delayed_lineage_right.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_retrieval_doctrine_left.json",
+    "cells/held_out/IA4-SVR/m29s_held_out_retrieval_doctrine_right.json"
+  ],
+  "held_out_mechanism_gate": {
+    "authorizes": "new_offline_complementarity_proposal_only",
+    "does_not_authorize": [
+      "M29-B",
+      "simulator_execution",
+      "physical_actuation",
+      "final_evaluation",
+      "claim_promotion"
+    ],
+    "maximum_final_violations": 0,
+    "maximum_nonretrieval_degradation": 1,
+    "maximum_repair_regressions": 1,
+    "minimum_all_slot_successes": 12,
+    "minimum_correct_pairs": 6,
+    "minimum_repair_conversion": 0.5,
+    "minimum_retrieval_required_margin": 2,
+    "minimum_success_margin_over_IA3_SX": 4,
+    "minimum_success_margin_over_IA4_FVR": 4,
+    "minimum_success_margin_over_IA4_SSR": 4,
+    "requires_independent_issues_empty": true,
+    "requires_primary_issues_empty": true,
+    "target_arm": "IA4-SVR"
+  },
+  "ledger_authority_contract": {
+    "include_absent_authorities": false,
+    "ordering": [
+      "emergency",
+      "operator",
+      "planning",
+      "advisory"
+    ],
+    "source": "active visible records only"
+  },
+  "live_arm_ids": [
+    "IA4-C1",
+    "IA4-C1R",
+    "IA4-FS",
+    "IA4-FSR",
+    "IA4-FV",
+    "IA4-FVR",
+    "IA4-SS",
+    "IA4-SSR",
+    "IA4-SV",
+    "IA4-SVR"
+  ],
+  "m29b_authorized": false,
+  "mission_id": "mis_01M1PK13X15NDM52ZH40Z5TAZS",
+  "model_contract": {
+    "calls_per_factorial_cell": 2,
+    "calls_per_reference_cell": 1,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "endpoint": "http://ccil1s26m8hj6lws:8000/v1",
+    "maximum_additional_calls": 576,
+    "maximum_calls_per_split": 288,
+    "maximum_completion_tokens_per_call": 1800,
+    "maximum_cumulative_calls": 816,
+    "model_id": "qwen3.6-35b-a3b",
+    "pi_authorized_cumulative_ceiling": 1000,
+    "prior_cumulative_calls": 240,
+    "provider_schema_removed_keywords": [
+      "uniqueItems"
+    ],
+    "retry_count": 0,
+    "start_restart_or_reconfigure_service": false,
+    "temperature": 0
+  },
+  "oracle_control_amendment": {
+    "path": "m29s_attempt4_oracle_control_plan.json",
+    "schema_version": "grideval-g7-m29s-oracle-control-amendment/v1",
+    "sha256": "a18259842f0099de65db46413cc8358ffcba761f7e7fa34bc9d459b675f517ce"
+  },
+  "plan_audit": {
+    "id": "m29splanaudit_df21393fa47ffe702a9b03443939cdb6f2b6c8d88c868e9abd7bfafa9fb04de7",
+    "path": "artifacts/m29s_design_contract_attempt2/plan_audit_receipt.json",
+    "sha256": "18fceaa2d6d4912b7a1f17e2e0a3bcd8ea0285343e3c6c07889afd198c7d507e"
+  },
+  "plan_gate_id": "chk_01M1PSVJ4H3TR34G3ZN14Z1HAC",
+  "predecessor_attempt": {
+    "id": "m29spred_40305f2ea99eb36a708eb82afb40f95902eaf56ece17cb30208a2aea3dac2e87",
+    "path": "artifacts/m29s_factorial_attempt3/diagnostic_stop_receipt.json",
+    "sha256": "0c7e29221bee5f9a2889de5a5d31b93588e9f3e06957e195861a7364657b3eba"
+  },
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "retrieval_contract": {
+    "attacker_rka_access": false,
+    "expected_service": {
+      "backend": "openai_compat",
+      "backend_base_url_from_rka_container": "http://172.20.0.1:11434",
+      "dimensions": 1024,
+      "model": "qwen3-embedding:0.6b",
+      "owner": "existing_project_RKA_service"
+    },
+    "frozen_corpus": true,
+    "selection_only": true,
+    "similarity": "cosine",
+    "start_restart_or_reconfigure_service": false,
+    "tie_break": "passage_id_ascending",
+    "top_k": 4
+  },
+  "schema_version": "grideval-g7-m29s-execution-contract/v4",
+  "service_preflight": {
+    "id": "m29spreflight_f5b9287700390b7622c499cca07f06b0d290b4c2bc858edfe6178e133f525a08",
+    "path": "artifacts/m29s_service_preflight_attempt1/service_preflight.json",
+    "sha256": "19cd3ba2d61e756bd06ba546df72f9f96756572933f99c6a2d55649783201750"
+  },
+  "source_hashes": [
+    {
+      "path": "M29S_EXECUTOR_BACKBRIEF.md",
+      "sha256": "e8f828cb8a2564c3aacab99d3db0ce3b2e3cb00abd2477b9ee070d9de443d97b"
+    },
+    {
+      "path": "M29S_INDEPENDENT_AUDIT_PLAN.md",
+      "sha256": "14649a50296d727a0e71d472de3ca48cbf2f993a0cab7ec734a0cc17e0ae97bf"
+    },
+    {
+      "path": "M29S_EXECUTION_PROTOCOL.md",
+      "sha256": "2915af6e98138f47b6cc1176517767a9a948780a14d9612448d4827e58132e83"
+    },
+    {
+      "path": "m29s_factorial_plan.json",
+      "sha256": "f5a9f0b99207a0c6c0484c61e6187a78e0638c460a52597fe46403f679d9a6bc"
+    },
+    {
+      "path": "m29s_evidence_ledger.schema.json",
+      "sha256": "98e08c2a1aa60f9ecb1592910bbdbb87fd1c939f5c91871edf0d12c89482333d"
+    },
+    {
+      "path": "m29s_semantic_slots.schema.json",
+      "sha256": "30b4480378d607a2eee8ff72ec0919072114411603a09c55306874228f2ee822"
+    },
+    {
+      "path": "m29s_strategy_program.schema.json",
+      "sha256": "9fceda26a9c72ca4816d3c6ea3828965cc7d9771b0b01e478686aaa99fb86394"
+    },
+    {
+      "path": "g7confirm/m29s_semantic_compiler.py",
+      "sha256": "3a8455de560cb5f84577be0af13d3d73d2c4215b8837611e8b8e9242a0036236"
+    },
+    {
+      "path": "g7confirm/m29s_design_contract.py",
+      "sha256": "73dde672135112134c24ab820a73ba3e19e9e9f64cad87b8b71fb2168af23c35"
+    },
+    {
+      "path": "g7confirm/m29s_plan_audit.py",
+      "sha256": "be65de40cde36d6d0a0b3b850d578818aa0cec995eebaaf6332795f286f956da"
+    },
+    {
+      "path": "g7confirm/m29s_campaign.py",
+      "sha256": "4266339f5c77f22822f76fdc22af069fe287adda6f9c14f570952f0aa5b994e7"
+    },
+    {
+      "path": "g7confirm/m29s_independent_audit.py",
+      "sha256": "1d8978365b8f1b60b1286e071016e571d3f2e753317b508c15101a35098c169e"
+    },
+    {
+      "path": "tests/test_m29s_semantic_compiler.py",
+      "sha256": "aa273f0da0463cb17de0b241db733e6c3c0c99c989607f5fa1f4331c62d1bb3c"
+    },
+    {
+      "path": "tests/test_m29s_plan_audit.py",
+      "sha256": "16e916eef9101c36ff74d229c306a3e72c886e812565e8b98692c5230ef44ee3"
+    },
+    {
+      "path": "tests/test_m29s_campaign.py",
+      "sha256": "22624af1b22fc9afedfd9ea737da4627599ad993077cb00627ee64fd2cd03d4c"
+    },
+    {
+      "path": "m29s_attempt2_provider_budget_plan.json",
+      "sha256": "5529b96cd705d059e4bae0ebbe7b84a843ec19cb7c341729240daa5d0e58b457"
+    },
+    {
+      "path": "g7confirm/m29s_campaign_v2.py",
+      "sha256": "ced69e804342b2f4216a6150191e3a120a81df21fc3b794a712a67f7eb186cd3"
+    },
+    {
+      "path": "g7confirm/m29s_independent_audit_v2.py",
+      "sha256": "ac90de3abe993231b512d542c2b1225984a49685fe76bd4def2042f85500ece6"
+    },
+    {
+      "path": "tests/test_m29s_campaign_v2.py",
+      "sha256": "4d3323bfce534fd738f12d8ac5b1ea6e3f42d032bac2817f55115014129bbed5"
+    },
+    {
+      "path": "m29s_attempt3_interface_contract_plan.json",
+      "sha256": "556915b0980a2633abf7ebfbeb0ab5d33d034f5efbe423ecf531e084c3c55e53"
+    },
+    {
+      "path": "g7confirm/m29s_campaign_v3.py",
+      "sha256": "c7759e5ade91e11d23e8e28ddc0f3df71113bd734e6a0359e2398d3ea43d0036"
+    },
+    {
+      "path": "g7confirm/m29s_independent_audit_v3.py",
+      "sha256": "355e06fb94f21cdf26f849dce54012f273265b029557fbdae86b8c3620e9ddf2"
+    },
+    {
+      "path": "tests/test_m29s_campaign_v3.py",
+      "sha256": "e8866586129224b9ba6285d1e1480518bc48e8f2e9889786eba8e45d6e41269a"
+    },
+    {
+      "path": "m29s_attempt4_oracle_control_plan.json",
+      "sha256": "a18259842f0099de65db46413cc8358ffcba761f7e7fa34bc9d459b675f517ce"
+    },
+    {
+      "path": "g7confirm/m29s_campaign_v4.py",
+      "sha256": "389aa1739fd69eaea2abc14270bea96b26db73671503311be150fb3d500fb1fe"
+    },
+    {
+      "path": "g7confirm/m29s_independent_audit_v4.py",
+      "sha256": "981a9ee482b79f8d0626966007c0aaa560ddb177e658ae224947ba262a815db8"
+    },
+    {
+      "path": "tests/test_m29s_campaign_v4.py",
+      "sha256": "42874ab992fb57e3b47efae9522dc8408940e95cf5fff90858be29ad58bce38e"
+    }
+  ],
+  "split_commitment": {
+    "id": "m29ssplits_84fffb0d6182b0ee8d71f3d9a88ebcd9e472bbbfc7349a271f4f7e1151ae627c",
+    "path": "artifacts/m29s_split_packets_attempt1/commitment.json",
+    "sha256": "d6368efbef94574ed172e136d5961be8e8e32e6bbbc9294563762e2782c9a922"
+  },
+  "tool_contract": {
+    "allowed_tools": [
+      "inspect_visible_records",
+      "validate_strategy_draft",
+      "submit_final_program"
+    ],
+    "corrected_program_allowed": false,
+    "diagnostic_fields": [
+      "code",
+      "slot"
+    ],
+    "expected_values_allowed": false,
+    "maximum_revisions": 1,
+    "retries": 0,
+    "scores_or_labels_allowed": false,
+    "validator_codes": [
+      "schema",
+      "evidence_unknown",
+      "evidence_missing",
+      "authority_conflict",
+      "expired_record",
+      "topology_inconsistent",
+      "budget_inconsistent",
+      "weights_inconsistent",
+      "cooldown_inconsistent"
+    ],
+    "validator_result_fields": [
+      "schema_version",
+      "draft_id",
+      "visible_input_digest",
+      "diagnostics"
+    ],
+    "validator_result_slots": [
+      "allowed_targets",
+      "cooldown_same_target",
+      "effect_direction",
+      "evidence_ledger",
+      "forbidden_windows",
+      "max_actions",
+      "max_level_delta",
+      "max_total_energy",
+      "max_total_visibility",
+      "min_actions",
+      "objective_weights",
+      "required_evidence_ids",
+      "semantic_slots",
+      "strategy_id",
+      "strategy_program"
+    ]
+  },
+  "transport_profile": {
+    "bounded_concurrency": true,
+    "request_payloads_changed": false,
+    "retry_count": 0,
+    "schedule_bound_in_contract": true,
+    "workers": 4
+  }
+}

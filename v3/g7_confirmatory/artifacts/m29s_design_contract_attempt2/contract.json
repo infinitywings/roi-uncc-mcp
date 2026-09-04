@@ -1,0 +1,234 @@
+{
+  "access_authorization": {
+    "defense": false,
+    "detector": false,
+    "docker": false,
+    "embedding_service_start_restart_or_reconfigure": false,
+    "evaluation_seeds_9101_9112": false,
+    "existing_embedding_after_plan_gate": true,
+    "final_evaluation": false,
+    "network_impairment": false,
+    "offline_llm_after_plan_gate": true,
+    "physical_actuator": false,
+    "rka_governance_attacker_view": false,
+    "simulator": false
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "decision_id": "dec_01M1PMESQHHNCE5XK066EQB79X",
+  "design_contract_id": "m29scontract_2718c430056e1314ec36f107feb2ca1ec160e2d430b0bc94bb4d527ecc922fe0",
+  "design_fixture": {
+    "condition_count": 32,
+    "conditions_per_split": 16,
+    "design_fixture_id": "m29sfixture_e0a1f403c643a0eaded32429af46f651749d5ce2557a09809d7320b623ef5fd1",
+    "path": "artifacts/m29s_design_attempt1/design_fixture.json",
+    "sha256": "5f11b7030d112d37e548ec79095c25b5287d00de386b2ab699f78ac5ece3697f"
+  },
+  "factor_contract": {
+    "feedback": [
+      "neutral_self_revision",
+      "validator_guided_revision"
+    ],
+    "interface": [
+      "flat",
+      "staged"
+    ],
+    "retrieval": [
+      false,
+      true
+    ]
+  },
+  "held_out_mechanism_gate": {
+    "authorizes": "new_offline_complementarity_proposal_only",
+    "does_not_authorize": [
+      "M29-B",
+      "simulator_execution",
+      "physical_actuation",
+      "final_evaluation",
+      "claim_promotion"
+    ],
+    "maximum_final_violations": 0,
+    "maximum_nonretrieval_degradation": 1,
+    "maximum_repair_regressions": 1,
+    "minimum_all_slot_successes": 12,
+    "minimum_correct_pairs": 6,
+    "minimum_repair_conversion": 0.5,
+    "minimum_retrieval_required_margin": 2,
+    "minimum_success_margin_over_IA3_SX": 4,
+    "minimum_success_margin_over_IA4_FVR": 4,
+    "minimum_success_margin_over_IA4_SSR": 4,
+    "requires_independent_issues_empty": true,
+    "requires_primary_issues_empty": true,
+    "target_arm": "IA4-SVR"
+  },
+  "interface_contract": {
+    "deterministic_projection_may_change_substantive_values": false,
+    "flat_output": "StrategyProgram only",
+    "staged_output": "EvidenceLedger plus SemanticSlots plus deterministic StrategyProgram projection",
+    "unordered_fields": [
+      "active_evidence_ids",
+      "superseded_evidence_ids",
+      "expired_evidence_ids",
+      "unresolved_conflict_ids",
+      "allowed_targets",
+      "forbidden_windows",
+      "supporting_evidence_ids"
+    ]
+  },
+  "m29b_authorized": false,
+  "mission_id": "mis_01M1PK13X15NDM52ZH40Z5TAZS",
+  "model_contract": {
+    "calls_per_factorial_cell": 2,
+    "calls_per_reference_cell": 1,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "endpoint": "http://ccil1s26m8hj6lws:8000/v1",
+    "maximum_additional_calls": 576,
+    "maximum_calls_per_split": 288,
+    "maximum_completion_tokens_per_call": 900,
+    "maximum_cumulative_calls": 677,
+    "model_id": "qwen3.6-35b-a3b",
+    "pi_authorized_cumulative_ceiling": 1000,
+    "prior_cumulative_calls": 101,
+    "provider_schema_removed_keywords": [
+      "uniqueItems"
+    ],
+    "retry_count": 0,
+    "start_restart_or_reconfigure_service": false,
+    "temperature": 0
+  },
+  "oracle_independence": {
+    "final_evaluation_data_used": false,
+    "latent_spec_created_before_rendering": true,
+    "simulator_data_used": false,
+    "tested_llm_called": false,
+    "validator_called": false
+  },
+  "predecessor_commit": "ff91ba9",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "registered_arms": [
+    "IA3-SX",
+    "IA4-C1",
+    "IA4-C1R",
+    "IA4-FS",
+    "IA4-FSR",
+    "IA4-FV",
+    "IA4-FVR",
+    "IA4-SS",
+    "IA4-SSR",
+    "IA4-SV",
+    "IA4-SVR",
+    "IA5-OC"
+  ],
+  "registered_contrasts": [
+    "interface_effect_self_no_retrieval",
+    "interface_effect_validator_no_retrieval",
+    "interface_effect_self_retrieval",
+    "interface_effect_validator_retrieval",
+    "validator_effect_flat_no_retrieval",
+    "validator_effect_flat_retrieval",
+    "validator_effect_staged_no_retrieval",
+    "validator_effect_staged_retrieval",
+    "retrieval_effect_staged_validator",
+    "deliberation_effect_no_retrieval",
+    "deliberation_effect_retrieval",
+    "deterministic_headroom",
+    "oracle_headroom"
+  ],
+  "retrieval_contract": {
+    "attacker_rka_access": false,
+    "expected_service": {
+      "backend": "openai_compat",
+      "backend_base_url_from_rka_container": "http://172.20.0.1:11434",
+      "dimensions": 1024,
+      "model": "qwen3-embedding:0.6b",
+      "owner": "existing_project_RKA_service"
+    },
+    "frozen_corpus": true,
+    "selection_only": true,
+    "similarity": "cosine",
+    "start_restart_or_reconfigure_service": false,
+    "tie_break": "passage_id_ascending",
+    "top_k": 4
+  },
+  "schema_version": "grideval-g7-m29s-design-contract/v1",
+  "source_hashes": [
+    {
+      "path": "M29S_EXECUTOR_BACKBRIEF.md",
+      "sha256": "e8f828cb8a2564c3aacab99d3db0ce3b2e3cb00abd2477b9ee070d9de443d97b"
+    },
+    {
+      "path": "M29S_INDEPENDENT_AUDIT_PLAN.md",
+      "sha256": "14649a50296d727a0e71d472de3ca48cbf2f993a0cab7ec734a0cc17e0ae97bf"
+    },
+    {
+      "path": "m29s_factorial_plan.json",
+      "sha256": "f5a9f0b99207a0c6c0484c61e6187a78e0638c460a52597fe46403f679d9a6bc"
+    },
+    {
+      "path": "m29s_evidence_ledger.schema.json",
+      "sha256": "98e08c2a1aa60f9ecb1592910bbdbb87fd1c939f5c91871edf0d12c89482333d"
+    },
+    {
+      "path": "m29s_semantic_slots.schema.json",
+      "sha256": "30b4480378d607a2eee8ff72ec0919072114411603a09c55306874228f2ee822"
+    },
+    {
+      "path": "m29s_strategy_program.schema.json",
+      "sha256": "9fceda26a9c72ca4816d3c6ea3828965cc7d9771b0b01e478686aaa99fb86394"
+    },
+    {
+      "path": "g7confirm/m29s_semantic_compiler.py",
+      "sha256": "3a8455de560cb5f84577be0af13d3d73d2c4215b8837611e8b8e9242a0036236"
+    },
+    {
+      "path": "g7confirm/m29s_design_contract.py",
+      "sha256": "73dde672135112134c24ab820a73ba3e19e9e9f64cad87b8b71fb2168af23c35"
+    },
+    {
+      "path": "g7confirm/m29s_plan_audit.py",
+      "sha256": "be65de40cde36d6d0a0b3b850d578818aa0cec995eebaaf6332795f286f956da"
+    },
+    {
+      "path": "tests/test_m29s_semantic_compiler.py",
+      "sha256": "aa273f0da0463cb17de0b241db733e6c3c0c99c989607f5fa1f4331c62d1bb3c"
+    },
+    {
+      "path": "tests/test_m29s_plan_audit.py",
+      "sha256": "16e916eef9101c36ff74d229c306a3e72c886e812565e8b98692c5230ef44ee3"
+    }
+  ],
+  "tool_contract": {
+    "allowed_tools": [
+      "inspect_visible_records",
+      "validate_strategy_draft",
+      "submit_final_program"
+    ],
+    "corrected_program_allowed": false,
+    "diagnostic_fields": [
+      "code",
+      "slot"
+    ],
+    "expected_values_allowed": false,
+    "maximum_revisions": 1,
+    "retries": 0,
+    "scores_or_labels_allowed": false,
+    "validator_codes": [
+      "schema",
+      "evidence_unknown",
+      "evidence_missing",
+      "authority_conflict",
+      "expired_record",
+      "topology_inconsistent",
+      "budget_inconsistent",
+      "weights_inconsistent",
+      "cooldown_inconsistent"
+    ],
+    "validator_result_fields": [
+      "schema_version",
+      "draft_id",
+      "visible_input_digest",
+      "diagnostics"
+    ]
+  }
+}

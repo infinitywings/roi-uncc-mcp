@@ -1,0 +1,43 @@
+{
+  "access_boundary": {
+    "defense_accessed": false,
+    "detector_accessed": false,
+    "docker_accessed": false,
+    "embedding_configuration_changed": false,
+    "existing_embedding_accessed": true,
+    "final_evaluation_accessed": false,
+    "final_evaluation_seeds_accessed": [],
+    "gridlabd_accessed": false,
+    "helics_accessed": false,
+    "llm_accessed": false,
+    "model_or_embedding_service_started_or_restarted": false,
+    "network_impairment_accessed": false,
+    "opender_accessed": false,
+    "physical_actuator_accessed": false,
+    "rka_governance_attacker_view_accessed": false,
+    "simulator_accessed": false
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "embedding": {
+    "configuration_changed": false,
+    "dimensions": 1024,
+    "endpoint": "http://172.20.0.1:11434/v1",
+    "id": "qwen3-embedding:0.6b",
+    "probe": "GET /models plus one /embeddings identity item",
+    "probe_items": 1,
+    "response_model": "qwen3-embedding:0.6b",
+    "service_started_or_restarted": false
+  },
+  "llm": {
+    "configuration_changed": false,
+    "endpoint": "http://ccil1s26m8hj6lws:8000/v1",
+    "id": "qwen3.6-35b-a3b",
+    "max_model_len": 262144,
+    "owned_by": "vllm",
+    "probe": "GET /models",
+    "root": "QuantTrio/Qwen3.6-35B-A3B-AWQ",
+    "service_started_or_restarted": false
+  },
+  "schema_version": "grideval-g7-m29s-service-preflight/v1",
+  "service_preflight_id": "m29spreflight_f5b9287700390b7622c499cca07f06b0d290b4c2bc858edfe6178e133f525a08"
+}

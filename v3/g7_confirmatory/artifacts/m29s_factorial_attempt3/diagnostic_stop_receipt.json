@@ -1,0 +1,62 @@
+{
+  "access_boundary": {
+    "defense_accessed": false,
+    "detector_accessed": false,
+    "docker_accessed": false,
+    "final_evaluation_accessed": false,
+    "held_out_accessed_by_runner": false,
+    "physical_actuator_accessed": false,
+    "simulator_accessed": false
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "conservative_model_calls": 18,
+  "development_cell_count": 8,
+  "development_cell_hashes": [
+    {
+      "path": "cells/development/IA3-SX/m29s_development_doctrine_direction_left.json",
+      "sha256": "3fab7c76655bb332d1375a093c5b66044c194260bc8eae64102fd1cbc7fea919"
+    },
+    {
+      "path": "cells/development/IA4-C1/m29s_development_doctrine_direction_left.json",
+      "sha256": "6e33e6e3482af7c41caff05d0f647bceeedcd5ac42e2e2cd203b9a6373eaa7fe"
+    },
+    {
+      "path": "cells/development/IA4-C1R/m29s_development_doctrine_direction_left.json",
+      "sha256": "e6ee3055052560dfda432b187c89750745c00261d36bd338f29acd586f97d3af"
+    },
+    {
+      "path": "cells/development/IA4-FS/m29s_development_doctrine_direction_left.json",
+      "sha256": "6302aa971f6d4728abb0b9b20bf92863b04df37bba285ddc1f735abb7df601ee"
+    },
+    {
+      "path": "cells/development/IA4-FSR/m29s_development_doctrine_direction_left.json",
+      "sha256": "6b6c58e9f189682d0a6c843aafd0f815147ed597010f59d26e39f83c940d9768"
+    },
+    {
+      "path": "cells/development/IA4-FV/m29s_development_doctrine_direction_left.json",
+      "sha256": "0d52b321bdce38a673b7e027f6045f502f34fd3a05ae8b2fbfa73f9d9a25dede"
+    },
+    {
+      "path": "cells/development/IA4-FVR/m29s_development_doctrine_direction_left.json",
+      "sha256": "b7d790ab156d6de8ee2633b62dc5e66831704084c1e2fe27ce52c1988f0607a8"
+    },
+    {
+      "path": "cells/development/IA5-OC/m29s_development_doctrine_direction_left.json",
+      "sha256": "35b5b9270c2a72de80af14f44ae5aeeac19d1056fa2551a340d06399b926f760"
+    }
+  ],
+  "development_freeze_created": false,
+  "development_receipt_created": false,
+  "execution_contract_id": "m29sexec_95b892dfcd79ac3ac016e59fb22c5d3dd0fb9b2cad7a15b9dabb64fa76f295b9",
+  "execution_contract_sha256": "ed18d9dc112c75cfce62a2755609defd006961c976c48e8b645c191d8d96f611",
+  "held_out_cell_count": 0,
+  "m29b_authorized": false,
+  "maximum_unpersisted_concurrent_calls": 8,
+  "oracle_control_failures": 1,
+  "predecessor_receipt_id": "m29spred_40305f2ea99eb36a708eb82afb40f95902eaf56ece17cb30208a2aea3dac2e87",
+  "reason": "IA5-OC copied the pre-amendment ledger",
+  "recorded_model_calls": 10,
+  "schema_version": "grideval-g7-m29s-predecessor-stop/v3",
+  "source_contract_issues": [],
+  "status": "terminated_development_control_diagnostic"
+}

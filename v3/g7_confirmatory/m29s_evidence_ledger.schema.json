@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/m29s_evidence_ledger.schema.json",
+  "title": "GridEval M29-S EvidenceLedger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "condition_id",
+    "active_evidence_ids",
+    "superseded_evidence_ids",
+    "expired_evidence_ids",
+    "unresolved_conflict_ids",
+    "authority_order",
+    "visible_input_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grideval-g7-m29s-evidence-ledger/v1"
+    },
+    "condition_id": {
+      "type": "string",
+      "pattern": "^m29s_(development|held_out)_[a-z0-9_]+_(left|right)$"
+    },
+    "active_evidence_ids": {
+      "$ref": "#/$defs/evidenceIds"
+    },
+    "superseded_evidence_ids": {
+      "$ref": "#/$defs/evidenceIds"
+    },
+    "expired_evidence_ids": {
+      "$ref": "#/$defs/evidenceIds"
+    },
+    "unresolved_conflict_ids": {
+      "$ref": "#/$defs/evidenceIds"
+    },
+    "authority_order": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "emergency",
+          "operator",
+          "planning",
+          "advisory"
+        ]
+      }
+    },
+    "visible_input_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "$defs": {
+    "evidenceIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^m29s_ev_[a-z0-9_]+$"
+      }
+    }
+  }
+}
