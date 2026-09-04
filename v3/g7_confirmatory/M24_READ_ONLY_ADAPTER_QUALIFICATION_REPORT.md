@@ -123,7 +123,7 @@ The create-once qualification receipt is
 (SHA-256
 `6201770ced6029cf1c54a1d61b9d7a73d3c05c19d8edb83e9339df4d62fa65b8`,
 qualification ID
-`m24qual_e2dada84a81f064527590dcef69ac29bed40767a32f8a6d8f387ce8f01aebdb`).
+`m24qual_e2dada84a81f064527590dcef69ac29bed40767a32f8a295048251257879de41`).
 
 ## Fail-closed boundary
 
