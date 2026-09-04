@@ -1,0 +1,110 @@
+{
+  "diagnostic_receipt_id": "m29rdiag_9a6f01fa237bbb48133d86e7d70c0db87a3ce68cc9391a541241dc8ab3609233",
+  "schema_version": "grideval-g7-m29r-provider-diagnostic/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "mission_id": "mis_01M1PC1T0M7BAVX9NWB19P0FWC",
+  "decision_id": "dec_01M1PFD38VVHHSMQS3M7YEECAC",
+  "attempt_1": {
+    "execution_contract_id": "m29rexec_8567660baac6afe9bdfb7682c01fecdbef836e803ebe14d14448efddd1c626aa",
+    "primary_receipt_id": "m29rprimary_b65f11e837a51f6c116d96e6b5fc4c819b3692710c308fbaa4ffebaf85d1b026",
+    "independent_audit_id": "m29raudit_71ffa8a13c9a07c54fc911d8f3ca318a18b7ee7234ff9b2a5680b7f6d16120cc",
+    "llm_cells": 48,
+    "http_500_cells": 48,
+    "reported_prompt_tokens": 0,
+    "reported_completion_tokens": 0,
+    "scientific_verdict_available": false
+  },
+  "diagnostic_probes": [
+    {
+      "probe_id": "exact_failed_request_replay",
+      "research_payload": true,
+      "delta_from_failed_request": [],
+      "http_status": 500,
+      "error_type": "InternalServerError",
+      "error_message": ""
+    },
+    {
+      "probe_id": "minimal_chat_without_response_format",
+      "research_payload": false,
+      "http_status": 200,
+      "finish_reason": "length",
+      "prompt_tokens": 17,
+      "completion_tokens": 8
+    },
+    {
+      "probe_id": "minimal_json_schema",
+      "research_payload": false,
+      "http_status": 200,
+      "finish_reason": "length",
+      "prompt_tokens": 15,
+      "completion_tokens": 64
+    },
+    {
+      "probe_id": "frozen_complex_schema_minimal_prompt",
+      "research_payload": false,
+      "delta_from_failed_request": [
+        "messages"
+      ],
+      "http_status": 500,
+      "error_type": "InternalServerError",
+      "error_message": ""
+    },
+    {
+      "probe_id": "complex_schema_without_unique_items",
+      "research_payload": false,
+      "delta_from_previous_probe": [
+        "response_format.json_schema.schema.*.uniqueItems"
+      ],
+      "http_status": 200,
+      "finish_reason": "length",
+      "prompt_tokens": 18,
+      "completion_tokens": 640
+    }
+  ],
+  "diagnosis": {
+    "provider_failure_class": "unsupported_uniqueItems_in_structured_output_compiler",
+    "single_factor_reproduction": true,
+    "attempt_1_is_scientifically_inconclusive": true,
+    "local_uniqueness_validation_present": true,
+    "secondary_risk": "thinking_tokens_can_exhaust_the_640_token_completion_budget"
+  },
+  "proposed_provider_only_delta": {
+    "omit_unique_items_from_provider_facing_schema": true,
+    "retain_local_uniqueness_validation": true,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "stream": false,
+    "n": 1,
+    "semantic_contract_changed": false,
+    "arm_matrix_changed": false,
+    "condition_matrix_changed": false,
+    "oracle_changed": false,
+    "optimizer_changed": false,
+    "unlock_rule_changed": false
+  },
+  "authorization_accounting": {
+    "authorized_read_only_chat_request_ceiling": 100,
+    "attempt_1_requests": 48,
+    "diagnostic_requests": 5,
+    "requests_used": 53,
+    "requests_remaining": 47,
+    "attempt_2_required_requests": 48,
+    "shortfall": 1
+  },
+  "access_boundary": {
+    "service_started_or_restarted": false,
+    "service_configuration_changed": false,
+    "docker_accessed": false,
+    "simulator_accessed": false,
+    "detector_accessed": false,
+    "defense_accessed": false,
+    "network_impairment_accessed": false,
+    "physical_actuator_accessed": false,
+    "final_evaluation_accessed": false,
+    "evaluation_seeds_9101_9112_accessed": false,
+    "rka_governance_attacker_view_accessed": false
+  },
+  "m29b_authorized": false
+}

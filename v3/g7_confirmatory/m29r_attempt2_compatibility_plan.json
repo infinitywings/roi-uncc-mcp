@@ -1,0 +1,70 @@
+{
+  "compatibility_plan_id": "m29rcompat_60a34557bc9f42b74ad28fe64bea14174def81737f12079c1e96d78191b67eb4",
+  "schema_version": "grideval-g7-m29r-attempt2-compatibility-plan/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "mission_id": "mis_01M1PC1T0M7BAVX9NWB19P0FWC",
+  "decision_id": "dec_01M1PFD38VVHHSMQS3M7YEECAC",
+  "predecessor_execution_contract_id": "m29rexec_8567660baac6afe9bdfb7682c01fecdbef836e803ebe14d14448efddd1c626aa",
+  "diagnostic_receipt_path": "artifacts/m29r_provider_diagnostic_attempt1/receipt.json",
+  "causal_interpretation": "Attempt 1 is a provider-compatibility failure and supplies no scientific estimate of LLM, optimizer, hybrid, or retrieval value.",
+  "provider_delta": {
+    "remove_keywords_from_wire_schema": [
+      "uniqueItems"
+    ],
+    "post_response_validator_retains_uniqueness": true,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "stream": false,
+    "n": 1
+  },
+  "frozen_invariants": [
+    "evidence_bundle_bytes",
+    "strategy_corpus_bytes",
+    "retrieval_query_bytes",
+    "arm_ids",
+    "condition_ids",
+    "model_id",
+    "temperature",
+    "seeds",
+    "maximum_completion_tokens",
+    "optimizer_source",
+    "independent_oracle",
+    "common_validator",
+    "scientific_endpoints",
+    "scientific_unlock_rule",
+    "secondary_retrieval_rule",
+    "access_and_claim_seals"
+  ],
+  "attempt_policy": {
+    "new_namespace": "m29r_complementarity_attempt2",
+    "create_once": true,
+    "retry_count": 0,
+    "overwrite": false,
+    "attempt_1_preserved": true
+  },
+  "execution_gate": {
+    "required_primary_plan_audit_status": "passed",
+    "required_primary_plan_audit_issues": [],
+    "required_additional_read_only_chat_requests": 48,
+    "current_authorization_shortfall": 1,
+    "execution_authorized_under_current_ceiling": false
+  },
+  "access_boundary": {
+    "offline_llm": true,
+    "existing_embedding_receipt_reuse": true,
+    "embedding_http_calls": 0,
+    "service_start_restart_or_reconfigure": false,
+    "docker": false,
+    "simulator": false,
+    "detector": false,
+    "defense": false,
+    "network_impairment": false,
+    "physical_actuator": false,
+    "final_evaluation": false,
+    "evaluation_seeds_9101_9112": false,
+    "rka_governance_attacker_view": false
+  },
+  "m29b_authorized": false
+}

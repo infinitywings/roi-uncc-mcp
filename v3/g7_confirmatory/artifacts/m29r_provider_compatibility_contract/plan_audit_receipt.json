@@ -1,0 +1,56 @@
+{
+  "attempt_1_failure_recomputed": true,
+  "attempt_1_ids": {
+    "execution_contract_id": "m29rexec_8567660baac6afe9bdfb7682c01fecdbef836e803ebe14d14448efddd1c626aa",
+    "independent_audit_id": "m29raudit_71ffa8a13c9a07c54fc911d8f3ca318a18b7ee7234ff9b2a5680b7f6d16120cc",
+    "primary_receipt_id": "m29rprimary_b65f11e837a51f6c116d96e6b5fc4c819b3692710c308fbaa4ffebaf85d1b026"
+  },
+  "attempt_2_execution_authorized": false,
+  "audit_id": "m29rcompataudit_efcfa3d00d415c2b0ee5653a97b2c2072f3f3d9a88a13c67eefc749c36a4d5c8",
+  "authorization_arithmetic_recomputed": true,
+  "bound_source_parity_recomputed": true,
+  "classification": "PRELIMINARY_ONLY",
+  "compatibility_plan_id": "m29rcompat_60a34557bc9f42b74ad28fe64bea14174def81737f12079c1e96d78191b67eb4",
+  "diagnostic_receipt_id": "m29rdiag_9a6f01fa237bbb48133d86e7d70c0db87a3ce68cc9391a541241dc8ab3609233",
+  "independent_import_boundary_recomputed": true,
+  "issues": [],
+  "m29b_authorized": false,
+  "provider_delta_source_inspected": true,
+  "schema_version": "grideval-g7-m29r-provider-compatibility-audit/v1",
+  "single_factor_diagnosis_recomputed": true,
+  "source_hashes": [
+    {
+      "path": "m29r_attempt2_compatibility_plan.json",
+      "sha256": "769a4338c3ad33680cfd8252756da7b63eabd58bd38b135c2c87aa9a568674b6"
+    },
+    {
+      "path": "artifacts/m29r_provider_diagnostic_attempt1/receipt.json",
+      "sha256": "926d5dc22beef5c0b44acbff08c8066a65cf518f4aefc9c6699cbfb576373214"
+    },
+    {
+      "path": "g7confirm/m29r_campaign.py",
+      "sha256": "591f5024a9aaee3d5cee72d202414fa4f864f0164ca9a4c07096f989d79c9a68"
+    },
+    {
+      "path": "g7confirm/m29r_campaign_v2.py",
+      "sha256": "4eb1ef3708bd0aa6dabcf5db81483a89f1cbd25ec0c80aa159d46657dea44250"
+    },
+    {
+      "path": "g7confirm/m29r_independent_audit.py",
+      "sha256": "2d90aeb83590a9e6fe78a491c31b70a1b1a23c814058761a473cd721dd53a882"
+    },
+    {
+      "path": "g7confirm/m29r_independent_audit_v2.py",
+      "sha256": "28df7938359a6b5df0451805b72d3c95405eacfb76380a1bb80c25a2c42f3aec"
+    },
+    {
+      "path": "g7confirm/m29r_provider_compat_audit.py",
+      "sha256": "d77c33e795aad6251a3de0a905fa0e8fa5bd712a11647c532c8fe5d2ee4cc4bc"
+    },
+    {
+      "path": "tests/test_m29r_campaign_v2.py",
+      "sha256": "4c38dd5b0fa377b9853b8e9ebfeba22a455b054ff501e7b3f65b768bfaa4516c"
+    }
+  ],
+  "status": "passed"
+}
