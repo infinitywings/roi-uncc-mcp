@@ -1,0 +1,47 @@
+{
+  "classification": "PRELIMINARY_ONLY",
+  "defense_accessed": false,
+  "detector_accessed": false,
+  "docker_accessed": false,
+  "embedding": {
+    "backend": "openai_compat",
+    "backend_base_url": "http://172.20.0.1:11434",
+    "config_updated_at": "2026-08-30T17:43:59Z",
+    "config_updated_by": "pi",
+    "configuration_changed": false,
+    "configured_dimensions": 1024,
+    "detected_dimensions": 1024,
+    "health_latency_ms": 106.20532906614244,
+    "model": "qwen3-embedding:0.6b",
+    "owner": "existing_project_RKA_service",
+    "preflight_inference_calls": 2,
+    "preflight_inference_items": 2,
+    "rka_endpoint": "http://127.0.0.1:9712",
+    "service_started_or_restarted": false,
+    "vector_probe_dimensions": 1024,
+    "vector_probe_usage": {
+      "prompt_tokens": 8,
+      "total_tokens": 8
+    }
+  },
+  "final_evaluation_accessed": false,
+  "final_evaluation_seeds_accessed": [],
+  "llm": {
+    "endpoint": "http://ccil1s26m8hj6lws:8000/v1",
+    "id": "qwen3.6-35b-a3b",
+    "max_model_len": 262144,
+    "owned_by": "vllm",
+    "probe": "GET /models",
+    "root": "QuantTrio/Qwen3.6-35B-A3B-AWQ",
+    "service_started_or_restarted": false
+  },
+  "physical_actuator_accessed": false,
+  "probe_source_sha256": {
+    "embedding_config": "2ed30ee541a520f4cd4ac46dde43e951d8b4b05021c400c3a88f4029f46111b7",
+    "embedding_test": "af9fe976599ecdf0150126fc6c5d69683ed732dd1e6fb2a4424b01040f3c5ec8",
+    "embedding_vector_probe": "6335190701cb114b1422905475e9aae5d66e4fe1f5999a36f004e3c46e2a93c3"
+  },
+  "schema_version": "grideval-g7-m29r-service-preflight/v1",
+  "service_preflight_id": "m29rpreflight_44d9df80250303ef0f69a903eabf19edd3ce8cfaea3c94d2089449ee073960b6",
+  "simulator_accessed": false
+}

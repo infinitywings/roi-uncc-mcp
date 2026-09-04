@@ -1,0 +1,16 @@
+{
+  "access_seals_recomputed": true,
+  "audit_id": "m29rplanaudit_8cef0c603db20bbf2492f9fa654ee833771697163bb794e8f08a756bb68e7c32",
+  "auditor_source_sha256": "1e1a34e54a1c3b665de831ba8f7f5855c0d14e0e19a92bafe19eaf275c45780e",
+  "classification": "PRELIMINARY_ONLY",
+  "content_addresses_recomputed": true,
+  "design_contract_id": "m29rcontract_789c3ff366a69d79d68c075d3daf7c38e1142c30913fe0120032550e904ea11b",
+  "independent_imports_primary": false,
+  "issues": [],
+  "m29b_authorized": false,
+  "oracle_reenumerated": true,
+  "pair_parity_recomputed": true,
+  "schema_version": "grideval-g7-m29r-plan-audit/v1",
+  "source_hashes_recomputed": true,
+  "status": "passed"
+}

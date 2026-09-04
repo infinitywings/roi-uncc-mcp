@@ -1,0 +1,168 @@
+{
+  "access_authorization": {
+    "defense": false,
+    "detector": false,
+    "docker": false,
+    "embedding_service_start_restart_or_reconfigure": false,
+    "evaluation_seeds_9101_9112": false,
+    "existing_embedding_after_plan_gate": true,
+    "final_evaluation": false,
+    "network_impairment": false,
+    "offline_llm_after_plan_gate": true,
+    "physical_actuator": false,
+    "rka_governance_attacker_view": false,
+    "simulator": false
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "decision_id": "dec_01M1PBZSNK0MP4E3NH28H26841",
+  "design_contract_id": "m29rcontract_789c3ff366a69d79d68c075d3daf7c38e1142c30913fe0120032550e904ea11b",
+  "design_fixture": {
+    "condition_count": 16,
+    "design_fixture_id": "m29rfixture_6b12f900f7530c9fcd6947626dafd862e963db5c4544acd6d28af6e40084662a",
+    "path": "artifacts/m29r_design_attempt1/design_fixture.json",
+    "sha256": "65bfad93a8a969606a853e856d347bc433fb74da92e7979311b1b08b3b29b539"
+  },
+  "m29b_authorized": false,
+  "mission_id": "mis_01M1PC1T0M7BAVX9NWB19P0FWC",
+  "model_contract": {
+    "endpoint": "http://ccil1s26m8hj6lws:8000/v1",
+    "maximum_completion_tokens_per_call": 640,
+    "maximum_model_calls": 48,
+    "model_id": "qwen3.6-35b-a3b",
+    "retry_count": 0,
+    "seed_rule": "sha256 arm_id plus condition_id mapped to unsigned 31-bit integer",
+    "start_restart_or_reconfigure_service": false,
+    "temperature": 0
+  },
+  "oracle_independence": {
+    "embedding_called": false,
+    "final_evaluation_data_used": false,
+    "independent_recursive_enumerator": true,
+    "latent_spec_created_before_rendering": true,
+    "simulator_data_used": false,
+    "tested_llm_called": false
+  },
+  "predecessor_commit": "d83d350",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "registered_arms": [
+    "IA3-O",
+    "IA3-SO",
+    "IA4-D",
+    "IA4-H",
+    "IA4-HR",
+    "IA5-OC"
+  ],
+  "registered_contrasts": [
+    "semantic_compilation_value",
+    "optimizer_tool_value",
+    "llm_vs_symbolic_compiler",
+    "retrieval_value",
+    "oracle_headroom"
+  ],
+  "retrieval_contract": {
+    "attacker_rka_access": false,
+    "authoritative_corpus": "m29r_strategy_corpus.json",
+    "corpus_frozen_before_calls": true,
+    "expected_service": {
+      "backend": "openai_compat",
+      "backend_base_url_from_rka_container": "http://172.20.0.1:11434",
+      "dimensions": 1024,
+      "model": "qwen3-embedding:0.6b",
+      "owner": "existing_project_RKA_service",
+      "rka_endpoint": "http://127.0.0.1:9712"
+    },
+    "maximum_corpus_items": 48,
+    "maximum_embedding_http_calls": 4,
+    "maximum_query_items": 16,
+    "nonretrieval_rendering": "token_budgeted_flat_corpus",
+    "query_manifest": "m29r_retrieval_queries.json",
+    "similarity": "cosine",
+    "start_restart_or_reconfigure_service": false,
+    "tie_break": "passage_id_ascending",
+    "top_k": 4
+  },
+  "schema_version": "grideval-g7-m29r-design-contract/v1",
+  "scientific_unlock_rule": {
+    "aggregate_success_alone_sufficient": false,
+    "authorizes": "bounded_m29b_proposal_only",
+    "does_not_authorize": [
+      "simulator_execution",
+      "physical_actuation",
+      "final_evaluation",
+      "claim_promotion"
+    ],
+    "ia4_h_maximum_validity_violations": 0,
+    "ia4_h_minimum_correct_pairs": 6,
+    "ia4_h_minimum_successes": 12,
+    "ia4_h_minus_ia3_o_minimum_paired_successes": 6,
+    "ia4_h_minus_ia4_d_minimum_paired_successes": 4,
+    "infrastructure_requires_independent_issues_empty": true,
+    "infrastructure_requires_primary_issues_empty": true,
+    "minimum_witness_cells": 4,
+    "oracle_ceiling_minimum_successes": 16
+  },
+  "secondary_retrieval_rule": {
+    "can_substitute_for_core_unlock": false,
+    "ia4_hr_minus_ia4_h_minimum_successes_on_retrieval_subset": 2,
+    "maximum_nonretrieval_subset_degradation": 1,
+    "retrieval_required_condition_count": 8
+  },
+  "source_hashes": [
+    {
+      "path": "M29R_EXECUTOR_BACKBRIEF.md",
+      "sha256": "c3fea557d52fb88b87ca1f8ef04e2307db0939345b5a6f0c8ee75856de9f15ca"
+    },
+    {
+      "path": "M29R_INDEPENDENT_AUDIT_PLAN.md",
+      "sha256": "211670e5592d1697195818a09eafdac2b02e026f681856bec691d6c047620f04"
+    },
+    {
+      "path": "m29r_complementarity_plan.json",
+      "sha256": "407f38e0e8b842a6562c4d8293a70f8403aad196ae4389bd019fc10f317310a9"
+    },
+    {
+      "path": "m29r_strategy_corpus.json",
+      "sha256": "9d592788dbb29b85adc14ea5d18ba5d7a5a47836f67e960a76d669c119ee11ee"
+    },
+    {
+      "path": "m29r_retrieval_queries.json",
+      "sha256": "e73d5ec0c57aa3b68915f9a69ac76ed523ed5c495913ac8fb63fe3299ee35366"
+    },
+    {
+      "path": "m29r_evidence_bundle.schema.json",
+      "sha256": "ed7e26f6b233b9ec6f30846e2bb4da1c7b6b16135cb1c10bdc8f03847d1937c5"
+    },
+    {
+      "path": "m29r_strategy_program.schema.json",
+      "sha256": "f1cd96c9e167b8825cb5a859cdc7185f38d916cea2612a33da38cd75c2e0e45a"
+    },
+    {
+      "path": "m29r_multistage_request.schema.json",
+      "sha256": "afeb9340b00bda9f782907552648c21bcb81690b165069dcf4cbce4dfb0b26eb"
+    },
+    {
+      "path": "m29r_optimizer_result.schema.json",
+      "sha256": "307e2208c929e269c1acc9c204c12f597266ef5cf6c04ba6df21ddaf75c3c8ec"
+    },
+    {
+      "path": "m29r_attack_plan.schema.json",
+      "sha256": "77751459a0f4cabf6723be81ce3ac38ac6f1a827890a6dddf3ec6c272caed1d0"
+    },
+    {
+      "path": "g7confirm/m29r_complementarity.py",
+      "sha256": "84ea222d3c2d1d1dabee434a88cf14979ffd7517544347c1ff702b0350a4d9f7"
+    },
+    {
+      "path": "g7confirm/m29r_design_contract.py",
+      "sha256": "f43f724c9a4db22065a55bd64534c2c6c304f53ebe3105a8b152dc47a03e9222"
+    },
+    {
+      "path": "g7confirm/m29r_plan_audit.py",
+      "sha256": "1e1a34e54a1c3b665de831ba8f7f5855c0d14e0e19a92bafe19eaf275c45780e"
+    },
+    {
+      "path": "tests/test_m29r_complementarity.py",
+      "sha256": "769afb2ae6d262c7b6036c10040c820feaf580052d467aa6940917976c368643"
+    }
+  ]
+}

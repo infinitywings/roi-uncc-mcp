@@ -1,0 +1,199 @@
+{
+  "schema_version": "grideval-g7-m29r-strategy-corpus/v1",
+  "classification": "PRELIMINARY_ONLY",
+  "corpus_id": "m29rcorpus_ad831d998029c36b5c4aba7388ad9e627284422cbdc6f9ac89561d50a560a13e",
+  "passages": [
+    {
+      "passage_id": "m29r_doc_P01",
+      "doctrine_code": "CEDAR-1",
+      "strategy_id": "gradual_bias",
+      "effect_direction": "increase",
+      "text": "CEDAR-1 authorizes a gradual upward bias. Weight effect 5, persistence 3, energy 1, and visibility 2. Limit adjacent level change to 1 and permit reuse of the same target.",
+      "tags": ["gradual", "increase", "ramp"]
+    },
+    {
+      "passage_id": "m29r_doc_P02",
+      "doctrine_code": "CEDAR-2",
+      "strategy_id": "gradual_bias",
+      "effect_direction": "decrease",
+      "text": "CEDAR-2 authorizes a gradual downward bias. Weight effect 5, persistence 3, energy 1, and visibility 2. Limit adjacent level change to 1 and permit reuse of the same target.",
+      "tags": ["gradual", "decrease", "ramp"]
+    },
+    {
+      "passage_id": "m29r_doc_P03",
+      "doctrine_code": "MAPLE-1",
+      "strategy_id": "persistent_pressure",
+      "effect_direction": "increase",
+      "text": "MAPLE-1 prioritizes persistent upward pressure. Weight effect 4, persistence 5, energy 1, and visibility 1. Adjacent level changes may be 2 and the same target may be reused.",
+      "tags": ["persistent", "increase"]
+    },
+    {
+      "passage_id": "m29r_doc_P04",
+      "doctrine_code": "MAPLE-2",
+      "strategy_id": "persistent_pressure",
+      "effect_direction": "decrease",
+      "text": "MAPLE-2 prioritizes persistent downward pressure. Weight effect 4, persistence 5, energy 1, and visibility 1. Adjacent level changes may be 2 and the same target may be reused.",
+      "tags": ["persistent", "decrease"]
+    },
+    {
+      "passage_id": "m29r_doc_P05",
+      "doctrine_code": "BIRCH-5",
+      "strategy_id": "resource_conserving",
+      "effect_direction": "increase",
+      "text": "BIRCH-5 is the upward resource-conserving protocol. Weight effect 4, persistence 1, energy 4, and visibility 3. Limit adjacent level change to 2 and do not require target cooldown.",
+      "tags": ["resource", "increase", "budget"]
+    },
+    {
+      "passage_id": "m29r_doc_P06",
+      "doctrine_code": "BIRCH-6",
+      "strategy_id": "resource_conserving",
+      "effect_direction": "increase",
+      "text": "BIRCH-6 is the upward resource-conserving protocol for a disclosed larger action budget. Weight effect 4, persistence 1, energy 4, and visibility 3. Limit adjacent level change to 2 and do not require target cooldown.",
+      "tags": ["resource", "increase", "budget"]
+    },
+    {
+      "passage_id": "m29r_doc_P07",
+      "doctrine_code": "ASH-7",
+      "strategy_id": "delayed_shift",
+      "effect_direction": "increase",
+      "text": "ASH-7 delays an upward shift until current evidence becomes valid. Weight effect 5, persistence 2, energy 1, and visibility 2. Limit adjacent level change to 2 and enforce same-target cooldown.",
+      "tags": ["delayed", "increase", "validity"]
+    },
+    {
+      "passage_id": "m29r_doc_P08",
+      "doctrine_code": "ASH-8",
+      "strategy_id": "delayed_shift",
+      "effect_direction": "increase",
+      "text": "ASH-8 delays an upward shift until later evidence becomes valid. Weight effect 5, persistence 2, energy 1, and visibility 2. Limit adjacent level change to 2 and enforce same-target cooldown.",
+      "tags": ["delayed", "increase", "validity"]
+    },
+    {
+      "passage_id": "m29r_doc_P09",
+      "doctrine_code": "WILLOW-9",
+      "strategy_id": "gradual_bias",
+      "effect_direction": "increase",
+      "text": "WILLOW-9 accumulates a small upward bias over at least three active windows. Weight effect 5, persistence 4, energy 1, and visibility 3. Limit adjacent level change to 1 and permit target reuse.",
+      "tags": ["long-horizon", "bias", "increase"]
+    },
+    {
+      "passage_id": "m29r_doc_P10",
+      "doctrine_code": "WILLOW-10",
+      "strategy_id": "gradual_bias",
+      "effect_direction": "increase",
+      "text": "WILLOW-10 accumulates a small upward bias under a cooldown-constrained horizon. Weight effect 5, persistence 4, energy 1, and visibility 3. Limit adjacent level change to 1 and require target cooldown.",
+      "tags": ["long-horizon", "bias", "increase", "cooldown"]
+    },
+    {
+      "passage_id": "m29r_doc_P11",
+      "doctrine_code": "ELM-11",
+      "strategy_id": "persistent_pressure",
+      "effect_direction": "increase",
+      "text": "ELM-11 follows the newest valid lineage for persistent upward pressure. Weight effect 4, persistence 5, energy 2, and visibility 2. Limit adjacent level change to 2 and permit target reuse.",
+      "tags": ["lineage", "supersession", "increase"]
+    },
+    {
+      "passage_id": "m29r_doc_P12",
+      "doctrine_code": "ELM-12",
+      "strategy_id": "persistent_pressure",
+      "effect_direction": "decrease",
+      "text": "ELM-12 follows the newest valid lineage for persistent downward pressure. Weight effect 4, persistence 5, energy 2, and visibility 2. Limit adjacent level change to 2 and permit target reuse.",
+      "tags": ["lineage", "supersession", "decrease"]
+    },
+    {
+      "passage_id": "m29r_doc_P13",
+      "doctrine_code": "ARCHIVE-CEDAR",
+      "strategy_id": "resource_conserving",
+      "effect_direction": "decrease",
+      "text": "Archived CEDAR guidance is historical and must not override a numbered active protocol. It describes an obsolete downward resource-conserving posture.",
+      "tags": ["distractor", "archived"]
+    },
+    {
+      "passage_id": "m29r_doc_P14",
+      "doctrine_code": "MAPLE-DRAFT",
+      "strategy_id": "gradual_bias",
+      "effect_direction": "increase",
+      "text": "MAPLE-DRAFT is an unapproved draft about gradual upward bias and carries no authority in an active condition.",
+      "tags": ["distractor", "draft"]
+    },
+    {
+      "passage_id": "m29r_doc_P15",
+      "doctrine_code": "BIRCH-OLD",
+      "strategy_id": "persistent_pressure",
+      "effect_direction": "increase",
+      "text": "BIRCH-OLD is superseded material that favored persistent upward pressure without a resource cap.",
+      "tags": ["distractor", "superseded"]
+    },
+    {
+      "passage_id": "m29r_doc_P16",
+      "doctrine_code": "ASH-NOTE",
+      "strategy_id": "delayed_shift",
+      "effect_direction": "decrease",
+      "text": "ASH-NOTE is a non-authoritative training note and cannot define a live strategy program.",
+      "tags": ["distractor", "training"]
+    },
+    {
+      "passage_id": "m29r_doc_P17",
+      "doctrine_code": "WILLOW-ARCHIVE",
+      "strategy_id": "gradual_bias",
+      "effect_direction": "increase",
+      "text": "WILLOW-ARCHIVE describes gradual bias but is expired and omits the active horizon and cooldown clauses.",
+      "tags": ["distractor", "expired"]
+    },
+    {
+      "passage_id": "m29r_doc_P18",
+      "doctrine_code": "ELM-DRAFT",
+      "strategy_id": "persistent_pressure",
+      "effect_direction": "decrease",
+      "text": "ELM-DRAFT is a lineage exercise, not an approved persistent-pressure protocol.",
+      "tags": ["distractor", "draft"]
+    },
+    {
+      "passage_id": "m29r_doc_P19",
+      "doctrine_code": "OAK-19",
+      "strategy_id": "resource_conserving",
+      "effect_direction": "increase",
+      "text": "OAK-19 is an unrelated resource-planning example for a different authority domain.",
+      "tags": ["distractor", "other-domain"]
+    },
+    {
+      "passage_id": "m29r_doc_P20",
+      "doctrine_code": "PINE-20",
+      "strategy_id": "delayed_shift",
+      "effect_direction": "increase",
+      "text": "PINE-20 is an unrelated delayed-action example with incompatible topology labels.",
+      "tags": ["distractor", "other-topology"]
+    },
+    {
+      "passage_id": "m29r_doc_P21",
+      "doctrine_code": "FIR-21",
+      "strategy_id": "persistent_pressure",
+      "effect_direction": "decrease",
+      "text": "FIR-21 is a deprecated persistent-pressure test card retained only as a retrieval distractor.",
+      "tags": ["distractor", "deprecated"]
+    },
+    {
+      "passage_id": "m29r_doc_P22",
+      "doctrine_code": "SPRUCE-22",
+      "strategy_id": "gradual_bias",
+      "effect_direction": "decrease",
+      "text": "SPRUCE-22 is a fictional gradual-bias example with no matching condition authority.",
+      "tags": ["distractor", "no-authority"]
+    },
+    {
+      "passage_id": "m29r_doc_P23",
+      "doctrine_code": "BEECH-23",
+      "strategy_id": "resource_conserving",
+      "effect_direction": "decrease",
+      "text": "BEECH-23 is an expired resource-conserving protocol from an incompatible campaign family.",
+      "tags": ["distractor", "expired"]
+    },
+    {
+      "passage_id": "m29r_doc_P24",
+      "doctrine_code": "ALDER-24",
+      "strategy_id": "delayed_shift",
+      "effect_direction": "increase",
+      "text": "ALDER-24 is a draft delayed-shift doctrine that was never activated.",
+      "tags": ["distractor", "draft"]
+    }
+  ]
+}

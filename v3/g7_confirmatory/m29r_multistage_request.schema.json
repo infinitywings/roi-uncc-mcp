@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/m29r_multistage_request.schema.json",
+  "title": "GridEval M29-R MultiStageOptimizationRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "condition_id",
+    "evidence_bundle_id",
+    "strategy_program",
+    "candidate_surface_sha256",
+    "optimizer_contract",
+    "lineage"
+  ],
+  "properties": {
+    "schema_version": {"const": "grideval-g7-m29r-multistage-request/v1"},
+    "request_id": {"type": "string", "pattern": "^m29rrequest_[0-9a-f]{64}$"},
+    "condition_id": {"type": "string", "pattern": "^m29r_[a-z0-9_]+_(left|right)$"},
+    "evidence_bundle_id": {"type": "string", "pattern": "^m29revidence_[0-9a-f]{64}$"},
+    "strategy_program": {"$ref": "m29r_strategy_program.schema.json"},
+    "candidate_surface_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "optimizer_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "horizon", "maximum_sequences", "side_effect_class", "environment_queries"],
+      "properties": {
+        "algorithm": {"const": "exact_lexicographic_enumeration_v1"},
+        "horizon": {"const": 4},
+        "maximum_sequences": {"const": 65536},
+        "side_effect_class": {"const": "pure_offline_compute"},
+        "environment_queries": {"const": 0}
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["program_sha256", "optimizer_source_sha256", "compiler_id"],
+      "properties": {
+        "program_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "optimizer_source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "compiler_id": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

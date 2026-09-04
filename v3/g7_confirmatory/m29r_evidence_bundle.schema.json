@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/m29r_evidence_bundle.schema.json",
+  "title": "GridEval M29-R EvidenceBundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "classification",
+    "evidence_bundle_id",
+    "condition_id",
+    "pair_id",
+    "side",
+    "development_seed",
+    "active_rendering",
+    "semantic_text",
+    "semantic_records",
+    "numeric_surface",
+    "machine_limits",
+    "corpus_manifest_sha256",
+    "retrieval_query_id",
+    "retrieval_required",
+    "semantic_meaning_digest",
+    "latent_scenario_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "grideval-g7-m29r-evidence-bundle/v1"},
+    "classification": {"const": "PRELIMINARY_ONLY"},
+    "evidence_bundle_id": {"type": "string", "pattern": "^m29revidence_[0-9a-f]{64}$"},
+    "condition_id": {"type": "string", "pattern": "^m29r_[a-z0-9_]+_(left|right)$"},
+    "pair_id": {"type": "string", "pattern": "^m29r_pair_[a-z0-9_]+$"},
+    "side": {"enum": ["left", "right"]},
+    "development_seed": {"type": "integer", "minimum": 29001, "maximum": 29008},
+    "active_rendering": {"enum": ["controlled_operational_english", "held_out_compositional_paraphrase"]},
+    "semantic_text": {"type": "string", "minLength": 1},
+    "semantic_records": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["record_id", "source_id", "authority_rank", "valid_from", "valid_until", "supersedes", "text"],
+        "properties": {
+          "record_id": {"type": "string", "pattern": "^[a-zA-Z0-9_.-]+$"},
+          "source_id": {"type": "string", "pattern": "^[a-zA-Z0-9_.-]+$"},
+          "authority_rank": {"type": "integer", "minimum": 0, "maximum": 10},
+          "valid_from": {"enum": ["w0", "w1", "w2", "w3"]},
+          "valid_until": {"enum": ["w0", "w1", "w2", "w3"]},
+          "supersedes": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+          "text": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "numeric_surface": {
+      "type": "array",
+      "minItems": 52,
+      "maxItems": 52,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action_id", "window", "target_id", "level", "effect", "energy_cost", "visibility_cost"],
+        "properties": {
+          "action_id": {"type": "string", "pattern": "^w[0-3]_(noop|DER_[ABC]_(neg|pos)[12])$"},
+          "window": {"enum": ["w0", "w1", "w2", "w3"]},
+          "target_id": {"type": ["string", "null"], "enum": [null, "DER_A", "DER_B", "DER_C"]},
+          "level": {"type": "integer", "minimum": -2, "maximum": 2},
+          "effect": {"type": "number"},
+          "energy_cost": {"type": "integer", "minimum": 0, "maximum": 4},
+          "visibility_cost": {"type": "integer", "minimum": 0, "maximum": 4}
+        }
+      }
+    },
+    "machine_limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["windows", "targets", "max_abs_level", "max_total_energy", "max_total_visibility", "max_actions"],
+      "properties": {
+        "windows": {"const": ["w0", "w1", "w2", "w3"]},
+        "targets": {"const": ["DER_A", "DER_B", "DER_C"]},
+        "max_abs_level": {"const": 2},
+        "max_total_energy": {"const": 16},
+        "max_total_visibility": {"const": 16},
+        "max_actions": {"const": 4}
+      }
+    },
+    "corpus_manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "retrieval_query_id": {"type": "string", "pattern": "^m29r_query_[a-z0-9_]+_(left|right)$"},
+    "retrieval_required": {"type": "boolean"},
+    "semantic_meaning_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "latent_scenario_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/m29r_optimizer_result.schema.json",
+  "title": "GridEval M29-R OptimizerResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "result_id",
+    "request_id",
+    "status",
+    "plan",
+    "evaluated_sequences",
+    "feasible_sequences",
+    "failure_class",
+    "lineage"
+  ],
+  "properties": {
+    "schema_version": {"const": "grideval-g7-m29r-optimizer-result/v1"},
+    "result_id": {"type": "string", "pattern": "^m29rresult_[0-9a-f]{64}$"},
+    "request_id": {"type": "string", "pattern": "^m29rrequest_[0-9a-f]{64}$"},
+    "status": {"enum": ["optimal", "infeasible", "failed_closed"]},
+    "plan": {
+      "oneOf": [
+        {"$ref": "m29r_attack_plan.schema.json"},
+        {"type": "null"}
+      ]
+    },
+    "evaluated_sequences": {"type": "integer", "minimum": 0, "maximum": 65536},
+    "feasible_sequences": {"type": "integer", "minimum": 0, "maximum": 65536},
+    "failure_class": {
+      "type": ["string", "null"],
+      "enum": [null, "no_feasible_plan", "sequence_cap_exceeded", "invalid_request", "internal_error"]
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["request_sha256", "optimizer_source_sha256"],
+      "properties": {
+        "request_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "optimizer_source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "optimal"}}},
+      "then": {"properties": {"plan": {"$ref": "m29r_attack_plan.schema.json"}, "failure_class": {"type": "null"}}}
+    },
+    {
+      "if": {"properties": {"status": {"enum": ["infeasible", "failed_closed"]}}},
+      "then": {"properties": {"plan": {"type": "null"}, "failure_class": {"type": "string"}}}
+    }
+  ]
+}

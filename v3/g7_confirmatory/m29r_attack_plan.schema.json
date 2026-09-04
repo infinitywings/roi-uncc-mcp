@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grideval.local/schemas/m29r_attack_plan.schema.json",
+  "title": "GridEval M29-R offline AttackPlan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "plan_id",
+    "condition_id",
+    "steps",
+    "aggregate",
+    "objective_value",
+    "lineage"
+  ],
+  "properties": {
+    "schema_version": {"const": "grideval-g7-m29r-attack-plan/v1"},
+    "plan_id": {"type": "string", "pattern": "^m29rplan_[0-9a-f]{64}$"},
+    "condition_id": {"type": "string", "pattern": "^m29r_[a-z0-9_]+_(left|right)$"},
+    "steps": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["window", "action_id", "target_id", "level", "effect", "energy_cost", "visibility_cost"],
+        "properties": {
+          "window": {"enum": ["w0", "w1", "w2", "w3"]},
+          "action_id": {"type": "string", "pattern": "^w[0-3]_(noop|DER_[ABC]_(neg|pos)[12])$"},
+          "target_id": {"type": ["string", "null"], "enum": [null, "DER_A", "DER_B", "DER_C"]},
+          "level": {"type": "integer", "minimum": -2, "maximum": 2},
+          "effect": {"type": "number"},
+          "energy_cost": {"type": "integer", "minimum": 0, "maximum": 4},
+          "visibility_cost": {"type": "integer", "minimum": 0, "maximum": 4}
+        }
+      }
+    },
+    "aggregate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["signed_effect", "persistence_windows", "total_energy", "total_visibility", "action_count"],
+      "properties": {
+        "signed_effect": {"type": "number"},
+        "persistence_windows": {"type": "integer", "minimum": 0, "maximum": 4},
+        "total_energy": {"type": "integer", "minimum": 0, "maximum": 16},
+        "total_visibility": {"type": "integer", "minimum": 0, "maximum": 16},
+        "action_count": {"type": "integer", "minimum": 0, "maximum": 4}
+      }
+    },
+    "objective_value": {"type": "number"},
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_bundle_id", "strategy_program_sha256", "planner_id"],
+      "properties": {
+        "evidence_bundle_id": {"type": "string", "pattern": "^m29revidence_[0-9a-f]{64}$"},
+        "strategy_program_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "planner_id": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}
