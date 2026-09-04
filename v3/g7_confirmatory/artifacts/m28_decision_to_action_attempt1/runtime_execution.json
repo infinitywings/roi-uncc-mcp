@@ -1,0 +1,714 @@
+{
+  "classification": "PRELIMINARY_ONLY",
+  "container_image_id": "sha256:c79f6cc1bd1eea69c5c21b8794d9def19435f26aa7f4f71c5330c823835e4df7",
+  "container_image_tag": "docker-cosim:latest",
+  "container_user": "666305836:666305836",
+  "containers_ephemeral": true,
+  "contract_id": "m28contract_17d257b43c8954ebaea495bfd44ccba6b8b623f9fe256687ac4623b5f851e3e1",
+  "detector_or_defense_used": false,
+  "entrypoint_override": "/bin/bash",
+  "final_evaluation_data_accessed": false,
+  "issues": [],
+  "model_or_embedding_service_started_or_restarted": false,
+  "network_mode": "none",
+  "new_model_or_embedding_inference_used": false,
+  "physical_field_connection": false,
+  "real_network_used": false,
+  "retry_count": 0,
+  "run_cap": 4,
+  "runs": [
+    {
+      "action_id": "m28_ia3_benign_seed8109",
+      "actor": "IA3",
+      "container_exit_code": 0,
+      "container_name": "g7-m28-ia3-benign-seed8109-a1",
+      "container_only_link_count": 39,
+      "container_only_links_removed": [
+        {
+          "path": ".DS_Store",
+          "target": "/work/examples/2bus-13bus/.DS_Store"
+        },
+        {
+          "path": "1bc_EV_Controller.py",
+          "target": "/work/examples/2bus-13bus/1bc_EV_Controller.py"
+        },
+        {
+          "path": "1bc_EV_Controller_2.py",
+          "target": "/work/examples/2bus-13bus/1bc_EV_Controller_2.py"
+        },
+        {
+          "path": "1c_Control.json",
+          "target": "/work/examples/2bus-13bus/1c_Control.json"
+        },
+        {
+          "path": "1c_Control_2.json",
+          "target": "/work/examples/2bus-13bus/1c_Control_2.json"
+        },
+        {
+          "path": "1c_IEEE_123_feeder.glm~",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder.glm~"
+        },
+        {
+          "path": "1c_IEEE_123_feeder.json",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder.json"
+        },
+        {
+          "path": "1c_IEEE_123_feeder_2.glm",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder_2.glm"
+        },
+        {
+          "path": "1c_IEEE_123_feeder_2.glm~",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder_2.glm~"
+        },
+        {
+          "path": "1c_cosim_runner.json",
+          "target": "/work/examples/2bus-13bus/1c_cosim_runner.json"
+        },
+        {
+          "path": "300bus_v23_no0imp_pslf.raw",
+          "target": "/work/examples/2bus-13bus/300bus_v23_no0imp_pslf.raw"
+        },
+        {
+          "path": "9b3g.raw",
+          "target": "/work/examples/2bus-13bus/9b3g.raw"
+        },
+        {
+          "path": "CMakeLists.txt",
+          "target": "/work/examples/2bus-13bus/CMakeLists.txt"
+        },
+        {
+          "path": "GRID_DIAGRAM.md",
+          "target": "/work/examples/2bus-13bus/GRID_DIAGRAM.md"
+        },
+        {
+          "path": "IEEE13bus.glm",
+          "target": "/work/examples/2bus-13bus/IEEE13bus.glm"
+        },
+        {
+          "path": "IEEE13bus_2.glm",
+          "target": "/work/examples/2bus-13bus/IEEE13bus_2.glm"
+        },
+        {
+          "path": "IEEE8500.glm",
+          "target": "/work/examples/2bus-13bus/IEEE8500.glm"
+        },
+        {
+          "path": "QUICK_REFERENCE.txt",
+          "target": "/work/examples/2bus-13bus/QUICK_REFERENCE.txt"
+        },
+        {
+          "path": "README.md",
+          "target": "/work/examples/2bus-13bus/README.md"
+        },
+        {
+          "path": "SYSTEM_DIAGRAM.txt",
+          "target": "/work/examples/2bus-13bus/SYSTEM_DIAGRAM.txt"
+        },
+        {
+          "path": "Tr2bus.raw",
+          "target": "/work/examples/2bus-13bus/Tr2bus.raw"
+        },
+        {
+          "path": "build",
+          "target": "/work/examples/2bus-13bus/build"
+        },
+        {
+          "path": "gpk-gld-cosim-with-mcp.json",
+          "target": "/work/examples/2bus-13bus/gpk-gld-cosim-with-mcp.json"
+        },
+        {
+          "path": "gpk-gld-cosim.json",
+          "target": "/work/examples/2bus-13bus/gpk-gld-cosim.json"
+        },
+        {
+          "path": "gpk-left-fed.cpp",
+          "target": "/work/examples/2bus-13bus/gpk-left-fed.cpp"
+        },
+        {
+          "path": "grab_time_feeder_load_W.py",
+          "target": "/work/examples/2bus-13bus/grab_time_feeder_load_W.py"
+        },
+        {
+          "path": "gridpack_log_output.py",
+          "target": "/work/examples/2bus-13bus/gridpack_log_output.py"
+        },
+        {
+          "path": "include",
+          "target": "/work/examples/2bus-13bus/include"
+        },
+        {
+          "path": "include2",
+          "target": "/work/examples/2bus-13bus/include2"
+        },
+        {
+          "path": "mainglm_2.json",
+          "target": "/work/examples/2bus-13bus/mainglm_2.json"
+        },
+        {
+          "path": "pf_app.cpp",
+          "target": "/work/examples/2bus-13bus/pf_app.cpp"
+        },
+        {
+          "path": "pf_app.hpp",
+          "target": "/work/examples/2bus-13bus/pf_app.hpp"
+        },
+        {
+          "path": "pf_factory.cpp",
+          "target": "/work/examples/2bus-13bus/pf_factory.cpp"
+        },
+        {
+          "path": "pf_factory.hpp",
+          "target": "/work/examples/2bus-13bus/pf_factory.hpp"
+        },
+        {
+          "path": "read.me",
+          "target": "/work/examples/2bus-13bus/read.me"
+        },
+        {
+          "path": "roi-uncc",
+          "target": "/work/examples/2bus-13bus/roi-uncc"
+        },
+        {
+          "path": "switch_status_EV1_plotting.py",
+          "target": "/work/examples/2bus-13bus/switch_status_EV1_plotting.py"
+        },
+        {
+          "path": "switch_status_EV4_plotting.py",
+          "target": "/work/examples/2bus-13bus/switch_status_EV4_plotting.py"
+        },
+        {
+          "path": "test-helics",
+          "target": "/work/examples/2bus-13bus/test-helics"
+        }
+      ],
+      "retry_count": 0,
+      "stderr_sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361",
+      "stdout_sha256": "7818deba847f7b0d42297e44b78b8ee021ffdd6b89855bd9b28cf909468d8cee",
+      "teardown_query_exit_code": 0,
+      "teardown_remaining_names": [],
+      "teardown_verified": true,
+      "treatment": "benign"
+    },
+    {
+      "action_id": "m28_ia3_attack_seed8109",
+      "actor": "IA3",
+      "container_exit_code": 0,
+      "container_name": "g7-m28-ia3-attack-seed8109-a1",
+      "container_only_link_count": 39,
+      "container_only_links_removed": [
+        {
+          "path": ".DS_Store",
+          "target": "/work/examples/2bus-13bus/.DS_Store"
+        },
+        {
+          "path": "1bc_EV_Controller.py",
+          "target": "/work/examples/2bus-13bus/1bc_EV_Controller.py"
+        },
+        {
+          "path": "1bc_EV_Controller_2.py",
+          "target": "/work/examples/2bus-13bus/1bc_EV_Controller_2.py"
+        },
+        {
+          "path": "1c_Control.json",
+          "target": "/work/examples/2bus-13bus/1c_Control.json"
+        },
+        {
+          "path": "1c_Control_2.json",
+          "target": "/work/examples/2bus-13bus/1c_Control_2.json"
+        },
+        {
+          "path": "1c_IEEE_123_feeder.glm~",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder.glm~"
+        },
+        {
+          "path": "1c_IEEE_123_feeder.json",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder.json"
+        },
+        {
+          "path": "1c_IEEE_123_feeder_2.glm",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder_2.glm"
+        },
+        {
+          "path": "1c_IEEE_123_feeder_2.glm~",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder_2.glm~"
+        },
+        {
+          "path": "1c_cosim_runner.json",
+          "target": "/work/examples/2bus-13bus/1c_cosim_runner.json"
+        },
+        {
+          "path": "300bus_v23_no0imp_pslf.raw",
+          "target": "/work/examples/2bus-13bus/300bus_v23_no0imp_pslf.raw"
+        },
+        {
+          "path": "9b3g.raw",
+          "target": "/work/examples/2bus-13bus/9b3g.raw"
+        },
+        {
+          "path": "CMakeLists.txt",
+          "target": "/work/examples/2bus-13bus/CMakeLists.txt"
+        },
+        {
+          "path": "GRID_DIAGRAM.md",
+          "target": "/work/examples/2bus-13bus/GRID_DIAGRAM.md"
+        },
+        {
+          "path": "IEEE13bus.glm",
+          "target": "/work/examples/2bus-13bus/IEEE13bus.glm"
+        },
+        {
+          "path": "IEEE13bus_2.glm",
+          "target": "/work/examples/2bus-13bus/IEEE13bus_2.glm"
+        },
+        {
+          "path": "IEEE8500.glm",
+          "target": "/work/examples/2bus-13bus/IEEE8500.glm"
+        },
+        {
+          "path": "QUICK_REFERENCE.txt",
+          "target": "/work/examples/2bus-13bus/QUICK_REFERENCE.txt"
+        },
+        {
+          "path": "README.md",
+          "target": "/work/examples/2bus-13bus/README.md"
+        },
+        {
+          "path": "SYSTEM_DIAGRAM.txt",
+          "target": "/work/examples/2bus-13bus/SYSTEM_DIAGRAM.txt"
+        },
+        {
+          "path": "Tr2bus.raw",
+          "target": "/work/examples/2bus-13bus/Tr2bus.raw"
+        },
+        {
+          "path": "build",
+          "target": "/work/examples/2bus-13bus/build"
+        },
+        {
+          "path": "gpk-gld-cosim-with-mcp.json",
+          "target": "/work/examples/2bus-13bus/gpk-gld-cosim-with-mcp.json"
+        },
+        {
+          "path": "gpk-gld-cosim.json",
+          "target": "/work/examples/2bus-13bus/gpk-gld-cosim.json"
+        },
+        {
+          "path": "gpk-left-fed.cpp",
+          "target": "/work/examples/2bus-13bus/gpk-left-fed.cpp"
+        },
+        {
+          "path": "grab_time_feeder_load_W.py",
+          "target": "/work/examples/2bus-13bus/grab_time_feeder_load_W.py"
+        },
+        {
+          "path": "gridpack_log_output.py",
+          "target": "/work/examples/2bus-13bus/gridpack_log_output.py"
+        },
+        {
+          "path": "include",
+          "target": "/work/examples/2bus-13bus/include"
+        },
+        {
+          "path": "include2",
+          "target": "/work/examples/2bus-13bus/include2"
+        },
+        {
+          "path": "mainglm_2.json",
+          "target": "/work/examples/2bus-13bus/mainglm_2.json"
+        },
+        {
+          "path": "pf_app.cpp",
+          "target": "/work/examples/2bus-13bus/pf_app.cpp"
+        },
+        {
+          "path": "pf_app.hpp",
+          "target": "/work/examples/2bus-13bus/pf_app.hpp"
+        },
+        {
+          "path": "pf_factory.cpp",
+          "target": "/work/examples/2bus-13bus/pf_factory.cpp"
+        },
+        {
+          "path": "pf_factory.hpp",
+          "target": "/work/examples/2bus-13bus/pf_factory.hpp"
+        },
+        {
+          "path": "read.me",
+          "target": "/work/examples/2bus-13bus/read.me"
+        },
+        {
+          "path": "roi-uncc",
+          "target": "/work/examples/2bus-13bus/roi-uncc"
+        },
+        {
+          "path": "switch_status_EV1_plotting.py",
+          "target": "/work/examples/2bus-13bus/switch_status_EV1_plotting.py"
+        },
+        {
+          "path": "switch_status_EV4_plotting.py",
+          "target": "/work/examples/2bus-13bus/switch_status_EV4_plotting.py"
+        },
+        {
+          "path": "test-helics",
+          "target": "/work/examples/2bus-13bus/test-helics"
+        }
+      ],
+      "retry_count": 0,
+      "stderr_sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361",
+      "stdout_sha256": "ce37f66879750561da76d7a40b1c26042006da6bd34df8502f28a77b660c777d",
+      "teardown_query_exit_code": 0,
+      "teardown_remaining_names": [],
+      "teardown_verified": true,
+      "treatment": "attack"
+    },
+    {
+      "action_id": "m28_ia4_benign_seed8109",
+      "actor": "IA4",
+      "container_exit_code": 0,
+      "container_name": "g7-m28-ia4-benign-seed8109-a1",
+      "container_only_link_count": 39,
+      "container_only_links_removed": [
+        {
+          "path": ".DS_Store",
+          "target": "/work/examples/2bus-13bus/.DS_Store"
+        },
+        {
+          "path": "1bc_EV_Controller.py",
+          "target": "/work/examples/2bus-13bus/1bc_EV_Controller.py"
+        },
+        {
+          "path": "1bc_EV_Controller_2.py",
+          "target": "/work/examples/2bus-13bus/1bc_EV_Controller_2.py"
+        },
+        {
+          "path": "1c_Control.json",
+          "target": "/work/examples/2bus-13bus/1c_Control.json"
+        },
+        {
+          "path": "1c_Control_2.json",
+          "target": "/work/examples/2bus-13bus/1c_Control_2.json"
+        },
+        {
+          "path": "1c_IEEE_123_feeder.glm~",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder.glm~"
+        },
+        {
+          "path": "1c_IEEE_123_feeder.json",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder.json"
+        },
+        {
+          "path": "1c_IEEE_123_feeder_2.glm",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder_2.glm"
+        },
+        {
+          "path": "1c_IEEE_123_feeder_2.glm~",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder_2.glm~"
+        },
+        {
+          "path": "1c_cosim_runner.json",
+          "target": "/work/examples/2bus-13bus/1c_cosim_runner.json"
+        },
+        {
+          "path": "300bus_v23_no0imp_pslf.raw",
+          "target": "/work/examples/2bus-13bus/300bus_v23_no0imp_pslf.raw"
+        },
+        {
+          "path": "9b3g.raw",
+          "target": "/work/examples/2bus-13bus/9b3g.raw"
+        },
+        {
+          "path": "CMakeLists.txt",
+          "target": "/work/examples/2bus-13bus/CMakeLists.txt"
+        },
+        {
+          "path": "GRID_DIAGRAM.md",
+          "target": "/work/examples/2bus-13bus/GRID_DIAGRAM.md"
+        },
+        {
+          "path": "IEEE13bus.glm",
+          "target": "/work/examples/2bus-13bus/IEEE13bus.glm"
+        },
+        {
+          "path": "IEEE13bus_2.glm",
+          "target": "/work/examples/2bus-13bus/IEEE13bus_2.glm"
+        },
+        {
+          "path": "IEEE8500.glm",
+          "target": "/work/examples/2bus-13bus/IEEE8500.glm"
+        },
+        {
+          "path": "QUICK_REFERENCE.txt",
+          "target": "/work/examples/2bus-13bus/QUICK_REFERENCE.txt"
+        },
+        {
+          "path": "README.md",
+          "target": "/work/examples/2bus-13bus/README.md"
+        },
+        {
+          "path": "SYSTEM_DIAGRAM.txt",
+          "target": "/work/examples/2bus-13bus/SYSTEM_DIAGRAM.txt"
+        },
+        {
+          "path": "Tr2bus.raw",
+          "target": "/work/examples/2bus-13bus/Tr2bus.raw"
+        },
+        {
+          "path": "build",
+          "target": "/work/examples/2bus-13bus/build"
+        },
+        {
+          "path": "gpk-gld-cosim-with-mcp.json",
+          "target": "/work/examples/2bus-13bus/gpk-gld-cosim-with-mcp.json"
+        },
+        {
+          "path": "gpk-gld-cosim.json",
+          "target": "/work/examples/2bus-13bus/gpk-gld-cosim.json"
+        },
+        {
+          "path": "gpk-left-fed.cpp",
+          "target": "/work/examples/2bus-13bus/gpk-left-fed.cpp"
+        },
+        {
+          "path": "grab_time_feeder_load_W.py",
+          "target": "/work/examples/2bus-13bus/grab_time_feeder_load_W.py"
+        },
+        {
+          "path": "gridpack_log_output.py",
+          "target": "/work/examples/2bus-13bus/gridpack_log_output.py"
+        },
+        {
+          "path": "include",
+          "target": "/work/examples/2bus-13bus/include"
+        },
+        {
+          "path": "include2",
+          "target": "/work/examples/2bus-13bus/include2"
+        },
+        {
+          "path": "mainglm_2.json",
+          "target": "/work/examples/2bus-13bus/mainglm_2.json"
+        },
+        {
+          "path": "pf_app.cpp",
+          "target": "/work/examples/2bus-13bus/pf_app.cpp"
+        },
+        {
+          "path": "pf_app.hpp",
+          "target": "/work/examples/2bus-13bus/pf_app.hpp"
+        },
+        {
+          "path": "pf_factory.cpp",
+          "target": "/work/examples/2bus-13bus/pf_factory.cpp"
+        },
+        {
+          "path": "pf_factory.hpp",
+          "target": "/work/examples/2bus-13bus/pf_factory.hpp"
+        },
+        {
+          "path": "read.me",
+          "target": "/work/examples/2bus-13bus/read.me"
+        },
+        {
+          "path": "roi-uncc",
+          "target": "/work/examples/2bus-13bus/roi-uncc"
+        },
+        {
+          "path": "switch_status_EV1_plotting.py",
+          "target": "/work/examples/2bus-13bus/switch_status_EV1_plotting.py"
+        },
+        {
+          "path": "switch_status_EV4_plotting.py",
+          "target": "/work/examples/2bus-13bus/switch_status_EV4_plotting.py"
+        },
+        {
+          "path": "test-helics",
+          "target": "/work/examples/2bus-13bus/test-helics"
+        }
+      ],
+      "retry_count": 0,
+      "stderr_sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361",
+      "stdout_sha256": "75e93687f09a022469d082be58aa44c53a6a79c7523375b6ae5d1dd1ba96bfba",
+      "teardown_query_exit_code": 0,
+      "teardown_remaining_names": [],
+      "teardown_verified": true,
+      "treatment": "benign"
+    },
+    {
+      "action_id": "m28_ia4_attack_seed8109",
+      "actor": "IA4",
+      "container_exit_code": 0,
+      "container_name": "g7-m28-ia4-attack-seed8109-a1",
+      "container_only_link_count": 39,
+      "container_only_links_removed": [
+        {
+          "path": ".DS_Store",
+          "target": "/work/examples/2bus-13bus/.DS_Store"
+        },
+        {
+          "path": "1bc_EV_Controller.py",
+          "target": "/work/examples/2bus-13bus/1bc_EV_Controller.py"
+        },
+        {
+          "path": "1bc_EV_Controller_2.py",
+          "target": "/work/examples/2bus-13bus/1bc_EV_Controller_2.py"
+        },
+        {
+          "path": "1c_Control.json",
+          "target": "/work/examples/2bus-13bus/1c_Control.json"
+        },
+        {
+          "path": "1c_Control_2.json",
+          "target": "/work/examples/2bus-13bus/1c_Control_2.json"
+        },
+        {
+          "path": "1c_IEEE_123_feeder.glm~",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder.glm~"
+        },
+        {
+          "path": "1c_IEEE_123_feeder.json",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder.json"
+        },
+        {
+          "path": "1c_IEEE_123_feeder_2.glm",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder_2.glm"
+        },
+        {
+          "path": "1c_IEEE_123_feeder_2.glm~",
+          "target": "/work/examples/2bus-13bus/1c_IEEE_123_feeder_2.glm~"
+        },
+        {
+          "path": "1c_cosim_runner.json",
+          "target": "/work/examples/2bus-13bus/1c_cosim_runner.json"
+        },
+        {
+          "path": "300bus_v23_no0imp_pslf.raw",
+          "target": "/work/examples/2bus-13bus/300bus_v23_no0imp_pslf.raw"
+        },
+        {
+          "path": "9b3g.raw",
+          "target": "/work/examples/2bus-13bus/9b3g.raw"
+        },
+        {
+          "path": "CMakeLists.txt",
+          "target": "/work/examples/2bus-13bus/CMakeLists.txt"
+        },
+        {
+          "path": "GRID_DIAGRAM.md",
+          "target": "/work/examples/2bus-13bus/GRID_DIAGRAM.md"
+        },
+        {
+          "path": "IEEE13bus.glm",
+          "target": "/work/examples/2bus-13bus/IEEE13bus.glm"
+        },
+        {
+          "path": "IEEE13bus_2.glm",
+          "target": "/work/examples/2bus-13bus/IEEE13bus_2.glm"
+        },
+        {
+          "path": "IEEE8500.glm",
+          "target": "/work/examples/2bus-13bus/IEEE8500.glm"
+        },
+        {
+          "path": "QUICK_REFERENCE.txt",
+          "target": "/work/examples/2bus-13bus/QUICK_REFERENCE.txt"
+        },
+        {
+          "path": "README.md",
+          "target": "/work/examples/2bus-13bus/README.md"
+        },
+        {
+          "path": "SYSTEM_DIAGRAM.txt",
+          "target": "/work/examples/2bus-13bus/SYSTEM_DIAGRAM.txt"
+        },
+        {
+          "path": "Tr2bus.raw",
+          "target": "/work/examples/2bus-13bus/Tr2bus.raw"
+        },
+        {
+          "path": "build",
+          "target": "/work/examples/2bus-13bus/build"
+        },
+        {
+          "path": "gpk-gld-cosim-with-mcp.json",
+          "target": "/work/examples/2bus-13bus/gpk-gld-cosim-with-mcp.json"
+        },
+        {
+          "path": "gpk-gld-cosim.json",
+          "target": "/work/examples/2bus-13bus/gpk-gld-cosim.json"
+        },
+        {
+          "path": "gpk-left-fed.cpp",
+          "target": "/work/examples/2bus-13bus/gpk-left-fed.cpp"
+        },
+        {
+          "path": "grab_time_feeder_load_W.py",
+          "target": "/work/examples/2bus-13bus/grab_time_feeder_load_W.py"
+        },
+        {
+          "path": "gridpack_log_output.py",
+          "target": "/work/examples/2bus-13bus/gridpack_log_output.py"
+        },
+        {
+          "path": "include",
+          "target": "/work/examples/2bus-13bus/include"
+        },
+        {
+          "path": "include2",
+          "target": "/work/examples/2bus-13bus/include2"
+        },
+        {
+          "path": "mainglm_2.json",
+          "target": "/work/examples/2bus-13bus/mainglm_2.json"
+        },
+        {
+          "path": "pf_app.cpp",
+          "target": "/work/examples/2bus-13bus/pf_app.cpp"
+        },
+        {
+          "path": "pf_app.hpp",
+          "target": "/work/examples/2bus-13bus/pf_app.hpp"
+        },
+        {
+          "path": "pf_factory.cpp",
+          "target": "/work/examples/2bus-13bus/pf_factory.cpp"
+        },
+        {
+          "path": "pf_factory.hpp",
+          "target": "/work/examples/2bus-13bus/pf_factory.hpp"
+        },
+        {
+          "path": "read.me",
+          "target": "/work/examples/2bus-13bus/read.me"
+        },
+        {
+          "path": "roi-uncc",
+          "target": "/work/examples/2bus-13bus/roi-uncc"
+        },
+        {
+          "path": "switch_status_EV1_plotting.py",
+          "target": "/work/examples/2bus-13bus/switch_status_EV1_plotting.py"
+        },
+        {
+          "path": "switch_status_EV4_plotting.py",
+          "target": "/work/examples/2bus-13bus/switch_status_EV4_plotting.py"
+        },
+        {
+          "path": "test-helics",
+          "target": "/work/examples/2bus-13bus/test-helics"
+        }
+      ],
+      "retry_count": 0,
+      "stderr_sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361",
+      "stdout_sha256": "aa938818aa03fac5af163deb48b1b5b73c26fd1fe120e800c9bf3f2ea7a496cb",
+      "teardown_query_exit_code": 0,
+      "teardown_remaining_names": [],
+      "teardown_verified": true,
+      "treatment": "attack"
+    }
+  ],
+  "runs_completed": 4,
+  "schema_version": "grideval-g7-m28-runtime-execution/v1",
+  "status": "complete",
+  "teardown_verified": true,
+  "upstream_IA4_model_decision_reused": true
+}

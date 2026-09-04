@@ -1,0 +1,261 @@
+{
+  "access_boundary": {
+    "defense": false,
+    "detector": false,
+    "embedding": false,
+    "evaluation_seeds": false,
+    "final_evaluation": false,
+    "new_LLM_inference": false,
+    "physical_field_actuator": false,
+    "real_network": false,
+    "resource_admission": false,
+    "simulated_actuator": true,
+    "simulator": true
+  },
+  "campaign_authorized": false,
+  "claim_boundary": "M28 qualifies point-specific decision-to-action wiring and exact actor-blind execution equivalence only. It does not establish an LLM advantage, adaptive strategy use, operating-point generality, population performance, safety, or confirmatory impact.",
+  "classification": "PRELIMINARY_ONLY",
+  "confirmatory_claim_authorized": false,
+  "contract_id": "m28contract_17d257b43c8954ebaea495bfd44ccba6b8b623f9fe256687ac4623b5f851e3e1",
+  "decision_id": "dec_01M1N1F7JDKCVK43WGCC6NGYW1",
+  "decision_lineage": {
+    "IA3": {
+      "abstract_target_id": "DER_B",
+      "candidate_id": "cand_bc73d19dea133043082f",
+      "commands": {
+        "DER_B": [
+          30.0,
+          0.0
+        ]
+      },
+      "plan_id": "plan_787578843b711636e3b3",
+      "qualification_id": "m25qual_1d3ffc1e3d2adc6fd442286a9c9f48326cf49bea8f3dc67232ae34f628be1b6c",
+      "source": "M25 deterministic real-adapter transaction"
+    },
+    "IA4": {
+      "abstract_target_id": "DER_B",
+      "candidate_id": "cand_bc73d19dea133043082f",
+      "commands": {
+        "DER_B": [
+          30.0,
+          0.0
+        ]
+      },
+      "model_id": "qwen3.6-35b-a3b",
+      "plan_id": "plan_fcaa80a54903ed8b0dbf",
+      "receipt_id": "m26receipt_248240e0650b47d804d01c2cf1627375bc7fe03654c2966796ad70266362b8ea",
+      "source": "M26 live-model real-adapter decision"
+    },
+    "agreed_candidate_id": "cand_bc73d19dea133043082f",
+    "candidate_agreement_required": true
+  },
+  "endpoints": {
+    "accepted_equals_delivered": true,
+    "actor_blind_physical_trace_equality": true,
+    "attacker_advantage_endpoint": false,
+    "candidate_to_runtime_translation_exact": true,
+    "decision_candidate_agreement": true,
+    "paired_causal_response_at_t30": true
+  },
+  "evaluation_opened": false,
+  "milestone": "M28",
+  "mission_id": "mis_01M1N1G1JVYHSXVZFHREF01QKA",
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "runtime_design": {
+    "action_requests": {
+      "IA3": {
+        "attack_action_request.json": {
+          "action_id": "m28_ia3_attack_seed8109",
+          "action_type": "simulator_execution",
+          "budget_id": "m28_ia3_three_windows_one_30kw_action",
+          "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+          "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "create_once": true,
+          "final_evaluation_data_accessed": false,
+          "local_service_identity": null,
+          "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+          "output_classification": "PRELIMINARY_ONLY",
+          "paired_benign_id": "m28_ia3_benign_seed8109",
+          "partition_role": "attack_development",
+          "physical_field_actuator": false,
+          "retain_failures": true,
+          "seed": 8109,
+          "starts_or_restarts_service": false
+        },
+        "benign_action_request.json": {
+          "action_id": "m28_ia3_benign_seed8109",
+          "action_type": "simulator_execution",
+          "budget_id": "m28_ia3_three_windows_one_30kw_action",
+          "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+          "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "create_once": true,
+          "final_evaluation_data_accessed": false,
+          "local_service_identity": null,
+          "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+          "output_classification": "PRELIMINARY_ONLY",
+          "paired_benign_id": "m28_ia3_benign_seed8109",
+          "partition_role": "attack_development",
+          "physical_field_actuator": false,
+          "retain_failures": true,
+          "seed": 8109,
+          "starts_or_restarts_service": false
+        }
+      },
+      "IA4": {
+        "attack_action_request.json": {
+          "action_id": "m28_ia4_attack_seed8109",
+          "action_type": "simulator_execution",
+          "budget_id": "m28_ia4_three_windows_one_30kw_action",
+          "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+          "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "create_once": true,
+          "final_evaluation_data_accessed": false,
+          "local_service_identity": null,
+          "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+          "output_classification": "PRELIMINARY_ONLY",
+          "paired_benign_id": "m28_ia4_benign_seed8109",
+          "partition_role": "attack_development",
+          "physical_field_actuator": false,
+          "retain_failures": true,
+          "seed": 8109,
+          "starts_or_restarts_service": false
+        },
+        "benign_action_request.json": {
+          "action_id": "m28_ia4_benign_seed8109",
+          "action_type": "simulator_execution",
+          "budget_id": "m28_ia4_three_windows_one_30kw_action",
+          "code_sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e",
+          "config_sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c",
+          "create_once": true,
+          "final_evaluation_data_accessed": false,
+          "local_service_identity": null,
+          "manifest_sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d",
+          "output_classification": "PRELIMINARY_ONLY",
+          "paired_benign_id": "m28_ia4_benign_seed8109",
+          "partition_role": "attack_development",
+          "physical_field_actuator": false,
+          "retain_failures": true,
+          "seed": 8109,
+          "starts_or_restarts_service": false
+        }
+      }
+    },
+    "actors": [
+      "IA3",
+      "IA4"
+    ],
+    "apparent_energy_cap_kvah": 2.0,
+    "container_image_id": "sha256:c79f6cc1bd1eea69c5c21b8794d9def19435f26aa7f4f71c5330c823835e4df7",
+    "container_image_tag": "docker-cosim:latest",
+    "containers_ephemeral": true,
+    "expected_command_energy_kvah": 0.08333333333333333,
+    "measurement_noise_seed": 98109,
+    "network_mode": "none",
+    "operating_point": "responsive_night",
+    "partition_role": "attack_development",
+    "perturbed_window_cap": 1,
+    "retry_cap": 0,
+    "runs": 4,
+    "seed": 8109,
+    "treatments_per_actor": [
+      "benign",
+      "attack"
+    ],
+    "window_seconds": 10,
+    "windows": 3
+  },
+  "schema_version": "grideval-g7-m28-decision-to-action-contract/v1",
+  "source_admitted": false,
+  "source_bindings": {
+    "DER_configuration": {
+      "bytes": 5272,
+      "path": "v3/configs/der_devices.yaml",
+      "sha256": "dc365b148b0d5ad5f333812c740d80f761f8504e1a78cc9c2088ee5044be0d2c"
+    },
+    "M18_gate": {
+      "bytes": 9696,
+      "path": "v3/g7_confirmatory/artifacts/preliminary_only_gate_m18.json",
+      "sha256": "e31a49d758700a3d30e4d7e3d5469b831b3f52370954fa92238eac6aa4dc3e9d"
+    },
+    "M25_contract": {
+      "bytes": 4910,
+      "path": "v3/g7_confirmatory/artifacts/m25_adapter_transaction_attempt1/contract.json",
+      "sha256": "43fe76b9396fb5511902632085b6645e2d0af522026959449ddcc2960958785b"
+    },
+    "M25_independent_audit": {
+      "bytes": 1806,
+      "path": "v3/g7_confirmatory/artifacts/m25_adapter_transaction_attempt1/independent_audit_receipt.json",
+      "sha256": "ff07cf12ec365a54b50b0d16d0d5501a194aec63961df3dae55469aff0a178bc"
+    },
+    "M25_receipt": {
+      "bytes": 30678,
+      "path": "v3/g7_confirmatory/artifacts/m25_adapter_transaction_attempt1/qualification_receipt.json",
+      "sha256": "e0fa95cfeaaae1dbe576844f6a7dd7f44af0d5f3251cbc14adf2d6ecba2c837e"
+    },
+    "M26_contract": {
+      "bytes": 8664,
+      "path": "v3/g7_confirmatory/artifacts/m26_live_empirical_attempt1/contract.json",
+      "sha256": "5bcefa5f03843f949446127aea4fe513f634a40523370e8825569c4c538b735a"
+    },
+    "M26_independent_audit": {
+      "bytes": 1457,
+      "path": "v3/g7_confirmatory/artifacts/m26_live_empirical_attempt1/independent_audit_receipt.json",
+      "sha256": "cfafec448a0cfb5f772326bfbcc622c16ac40c6639e3255a9a24cd0f338c056c"
+    },
+    "M26_receipt": {
+      "bytes": 74682,
+      "path": "v3/g7_confirmatory/artifacts/m26_live_empirical_attempt1/receipt.json",
+      "sha256": "b6e99edcff130ef05f70d077ec0e0bdff00bc326398292c9daf5790515655f04"
+    },
+    "M27_evidence": {
+      "bytes": 300476,
+      "path": "v3/g7_confirmatory/artifacts/m27_repeatability_coverage_attempt1/m27_repeatability_coverage.json",
+      "sha256": "043fbb972c8693c15c8a2c9a57a6478ce68d8980a03bb115dc243f81eb94d521"
+    },
+    "M27_independent_audit": {
+      "bytes": 1646,
+      "path": "v3/g7_confirmatory/artifacts/m27_repeatability_coverage_attempt1/independent_audit_receipt.json",
+      "sha256": "2512f17434b8a5d830a101d3ecd6d85af90c75d67d4aa39864f258318165ac0e"
+    },
+    "M28_evidence_builder": {
+      "bytes": 29588,
+      "path": "v3/g7_confirmatory/g7confirm/m28_decision_to_action.py",
+      "sha256": "ebe9e7db721278fdfec4db22fd32a0c744936779beb43f64a8abdf04ba06044b"
+    },
+    "M28_executor": {
+      "bytes": 8639,
+      "path": "v3/g7_confirmatory/g7confirm/m28_execute.py",
+      "sha256": "dc69e0deedb4a3cbaee0430d56b7d7f2f6b3d595023d66017e22447ba7d3ad18"
+    },
+    "M28_independent_auditor": {
+      "bytes": 19186,
+      "path": "v3/g7_confirmatory/g7confirm/m28_independent_audit.py",
+      "sha256": "0df26273d9555ebcc8ec95505759ad8612f3c98ce5ec64bc8e16dadb79e5e5b4"
+    },
+    "M28_runtime_wrapper": {
+      "bytes": 5458,
+      "path": "v3/g7_confirmatory/g7confirm/m28_runtime.py",
+      "sha256": "ffb55af12fb467e6bc47b01eacf4ed8eea500182f9a067324f4dc43f903cd69a"
+    },
+    "experiment_specification": {
+      "bytes": 5433,
+      "path": "v3/g7_confirmatory/experiment_spec.yaml",
+      "sha256": "79e48fb57f01d680e3f1eef4c1273bc0895010f5eb7ab87fd85e0d4217be581d"
+    },
+    "runtime_core": {
+      "bytes": 25602,
+      "path": "v3/g7_confirmatory/g7confirm/runtime.py",
+      "sha256": "8ebfbcbd28c4952c2d6a90517e6b0a4bc84525de7fc5889b26afda5b887d939e"
+    }
+  },
+  "status": "REGISTERED_NO_SIMULATOR_RUN",
+  "translation": {
+    "active_power_kw": 30.0,
+    "actor_visible_target": "DER_B",
+    "executor_may_modify_plan": false,
+    "reactive_power_kvar": 0.0,
+    "runtime_target": "DER_EV4_BESS",
+    "strategy_id": "matched_step",
+    "translation_is_fixed": true
+  }
+}

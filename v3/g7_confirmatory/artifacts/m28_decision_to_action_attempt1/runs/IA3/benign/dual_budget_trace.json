@@ -1,0 +1,62 @@
+{
+  "admitted_energy_kvah": 0.0,
+  "apparent_energy_cap_kvah": 0.0,
+  "delivered_command_energy_kvah": 0.0,
+  "delivery_reconciled": true,
+  "records": [
+    {
+      "accepted": true,
+      "admitted": {},
+      "apparent_energy_kvah": 0.0,
+      "commands": {},
+      "delivered": {},
+      "delivery_reconciled": true,
+      "energy_spent_kvah": 0.0,
+      "inner_windows_spent": 0,
+      "proposed": {},
+      "reason": "accepted_benign",
+      "runner_noted": true,
+      "time_s": 10,
+      "window": 0,
+      "window_cost": 0,
+      "windows_spent": 0
+    },
+    {
+      "accepted": true,
+      "admitted": {},
+      "apparent_energy_kvah": 0.0,
+      "commands": {},
+      "delivered": {},
+      "delivery_reconciled": true,
+      "energy_spent_kvah": 0.0,
+      "inner_windows_spent": 0,
+      "proposed": {},
+      "reason": "accepted_benign",
+      "runner_noted": true,
+      "time_s": 20,
+      "window": 1,
+      "window_cost": 0,
+      "windows_spent": 0
+    },
+    {
+      "accepted": true,
+      "admitted": {},
+      "apparent_energy_kvah": 0.0,
+      "commands": {},
+      "delivered": {},
+      "delivery_reconciled": true,
+      "energy_spent_kvah": 0.0,
+      "inner_windows_spent": 0,
+      "proposed": {},
+      "reason": "accepted_benign",
+      "runner_noted": true,
+      "time_s": 30,
+      "window": 2,
+      "window_cost": 0,
+      "windows_spent": 0
+    }
+  ],
+  "schema_version": "grideval-g7-dual-budget-trace/v1",
+  "window_cap": 0,
+  "windows_spent": 0
+}

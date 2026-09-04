@@ -133,7 +133,14 @@ The harness provides:
   selects the same `DER_B` candidate as the deterministic IA3 control, and
   passes the common plan validator. The plan is never executed; M26 uses one
   discovery, two completions, one local adapter call, and no simulator,
-  embedding, detector, defense, actuator, or evaluation access.
+  embedding, detector, defense, actuator, or evaluation access; and
+- an M28 point-specific matched decision-to-action qualification that binds the
+  prior M25 IA3 and live M26 IA4 decisions, translates their common `DER_B`
+  candidate to one fixed `DER_EV4_BESS +30 kW` simulated command, and executes
+  actor-labelled benign/attack pairs at `responsive_night`. The four
+  network-isolated runs have byte-identical actor-blind physical evidence,
+  verified delivery and teardown, and zero retries. M28 qualifies wiring only;
+  it does not demonstrate adaptive strategy use or LLM advantage.
 
 The orchestration design, failure taxonomy, current limitations, and next gate
 are documented in `ORCHESTRATION_CONTRACT.md`. The machine-readable AI-V2
@@ -210,6 +217,13 @@ crossed-anchor design: three seeds at `responsive_night` and all five operating
 points at seed `6102`. It supports a point-specific development result and a
 stable two-target ordering, but does not estimate the missing interaction or
 admit an operating-point-invariant sensitivity resource.
+The M28 matched decision-to-action result is documented in
+`M28_DECISION_TO_ACTION_WIRING_REPORT.md`; its contract, four M18 requests,
+four network-isolated runtime traces, aggregate evidence, and independent audit
+are under `artifacts/m28_decision_to_action_attempt1/`. M28 reuses the exact M25
+and M26 decisions to isolate candidate translation and simulator delivery. It
+performs no new model or embedding call and does not admit a general sensitivity
+resource.
 The M7 causal tool-use qualification is documented in
 `M7_COUNTERFACTUAL_TOOL_USE_REPORT.md`; its preregistration and model-receipt
 schemas are `ia4_counterfactual_contract.schema.json` and
@@ -320,6 +334,12 @@ live model or any external service.
 M26 opens only the registered model transport and one local M24 adapter call.
 It is capped at one discovery, two completions, one tool call, and zero retry;
 the accepted candidate is validated but never sent to a simulator or actuator.
+M28 connects that retained live IA4 decision and its matched IA3 control to the
+simulator only at externally bound `responsive_night`. It is capped at four
+network-none container runs and zero retries, delivers one fixed simulated
+command per attack trace, and preserves actor-blind physical equality. It does
+not make a new model call or open detector, defense, embedding, physical, or
+evaluation resources.
 Evaluation seeds, physical field-device actuation, and campaign-scale
 confirmatory execution remain prohibited.
 
@@ -349,6 +369,11 @@ python3 -m g7confirm.m26_live_empirical_decision --mode verify \
   --artifact-root artifacts/m26_live_empirical_attempt1
 python3 -m g7confirm.m26_independent_audit --mode verify \
   --artifact-root artifacts/m26_live_empirical_attempt1
+python3 -m pytest -q tests/test_m28_decision_to_action.py
+python3 -m g7confirm.m28_decision_to_action --mode verify \
+  --root artifacts/m28_decision_to_action_attempt1
+python3 -m g7confirm.m28_independent_audit --mode verify \
+  --root artifacts/m28_decision_to_action_attempt1
 python3 -m g7confirm.cli validate-spec --spec experiment_spec.yaml
 python3 -m g7confirm.runtime --operating-point responsive_night \
   --arm scripted_max --budget-windows 1 --energy-cap-kvah 2.0 \

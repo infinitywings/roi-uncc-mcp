@@ -1,0 +1,919 @@
+{
+  "access_boundary": {
+    "defense_accessed": false,
+    "detector_accessed": false,
+    "embedding_accessed": false,
+    "final_evaluation_accessed": false,
+    "final_evaluation_seeds_accessed": [],
+    "new_LLM_inference_used": false,
+    "physical_field_actuator_accessed": false,
+    "real_network_used": false,
+    "resource_admitted": false,
+    "simulated_actuator_used": true,
+    "simulator_accessed": true
+  },
+  "actor_blind_physical_equality": {
+    "attack": true,
+    "benign": true
+  },
+  "actor_paired_delta_equality": true,
+  "claim_boundary": "M28 qualifies point-specific decision-to-action wiring and exact actor-blind execution equivalence only. It does not establish an LLM advantage, adaptive strategy use, operating-point generality, population performance, safety, or confirmatory impact.",
+  "classification": "PRELIMINARY_ONLY",
+  "contract_id": "m28contract_17d257b43c8954ebaea495bfd44ccba6b8b623f9fe256687ac4623b5f851e3e1",
+  "created_at_utc": "2026-09-04T01:54:51.995719+00:00",
+  "decision_id": "dec_01M1N1F7JDKCVK43WGCC6NGYW1",
+  "decision_lineage": {
+    "IA3": {
+      "abstract_target_id": "DER_B",
+      "candidate_id": "cand_bc73d19dea133043082f",
+      "commands": {
+        "DER_B": [
+          30.0,
+          0.0
+        ]
+      },
+      "plan_id": "plan_787578843b711636e3b3",
+      "qualification_id": "m25qual_1d3ffc1e3d2adc6fd442286a9c9f48326cf49bea8f3dc67232ae34f628be1b6c",
+      "source": "M25 deterministic real-adapter transaction"
+    },
+    "IA4": {
+      "abstract_target_id": "DER_B",
+      "candidate_id": "cand_bc73d19dea133043082f",
+      "commands": {
+        "DER_B": [
+          30.0,
+          0.0
+        ]
+      },
+      "model_id": "qwen3.6-35b-a3b",
+      "plan_id": "plan_fcaa80a54903ed8b0dbf",
+      "receipt_id": "m26receipt_248240e0650b47d804d01c2cf1627375bc7fe03654c2966796ad70266362b8ea",
+      "source": "M26 live-model real-adapter decision"
+    },
+    "agreed_candidate_id": "cand_bc73d19dea133043082f",
+    "candidate_agreement_required": true
+  },
+  "evidence_id": "m28evidence_0b4d764af97fbb6de33f4981869a6e0883bccb6c8ffbe8fa6f54392ab8c35ed7",
+  "manifest": {
+    "algorithm": "sha256",
+    "file_count": 130,
+    "files": [
+      {
+        "bytes": 10748,
+        "path": "contract.json",
+        "sha256": "39a1dd18c2f6b77c189c91846c412d3670c354da0b94dd2e0ed4c6faef45decf"
+      },
+      {
+        "bytes": 758,
+        "path": "requests/IA3/attack_action_request.json",
+        "sha256": "e8af4a0494c5575a155547706b354ed41256338e7c0eb97e080933c1be0bf810"
+      },
+      {
+        "bytes": 758,
+        "path": "requests/IA3/benign_action_request.json",
+        "sha256": "aefeb9f48cd00ba2cf26b589fb82750bb368cfbdb414e6340750b00dfb361b91"
+      },
+      {
+        "bytes": 758,
+        "path": "requests/IA4/attack_action_request.json",
+        "sha256": "1020b7cb027e08d28b89b0f61eb01159449032f8d39ed85238fa363816a46988"
+      },
+      {
+        "bytes": 758,
+        "path": "requests/IA4/benign_action_request.json",
+        "sha256": "f32c449d6d3a5f95e61f556720d3277cee0164981679b58f2633e081ee2301b2"
+      },
+      {
+        "bytes": 157374,
+        "path": "runs/IA3/attack/1c_IEEE_123_feeder.glm",
+        "sha256": "fd9eb04ba1821c79ae1c8ec797ab1f949f8c750f32c2cdd90504882b13a778dd"
+      },
+      {
+        "bytes": 318,
+        "path": "runs/IA3/attack/1c_IEEE_123_feeder_0_EV1.csv",
+        "sha256": "cb9e8bea56dfb859fa6ca4b1a7cfe8ab604f29509e94c896d5f579cf05d0f265"
+      },
+      {
+        "bytes": 20702,
+        "path": "runs/IA3/attack/Current_Dump_NR.csv",
+        "sha256": "b659e7b4d44299866d3a8b59cc2250f2b00659c0668385ab4db954ffe80fe182"
+      },
+      {
+        "bytes": 33585,
+        "path": "runs/IA3/attack/Volt_Dump_NR.csv",
+        "sha256": "5686d9d4980ba4dc7ea73d48994d3ab0b139e28bf9855036b40a797bb83cd446"
+      },
+      {
+        "bytes": 1516,
+        "path": "runs/IA3/attack/attack_trace.json",
+        "sha256": "23032f4e8d1a08dd82f563d20245c74f73f845081121f534ae624ed22acfead2"
+      },
+      {
+        "bytes": 231,
+        "path": "runs/IA3/attack/console.stderr.txt",
+        "sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361"
+      },
+      {
+        "bytes": 388,
+        "path": "runs/IA3/attack/console.stdout.txt",
+        "sha256": "ce37f66879750561da76d7a40b1c26042006da6bd34df8502f28a77b660c777d"
+      },
+      {
+        "bytes": 2073,
+        "path": "runs/IA3/attack/dual_budget_trace.json",
+        "sha256": "6158148bf74cfdc18cad47656b546f3a588bf8d79a4144141e68ced4883398b2"
+      },
+      {
+        "bytes": 387,
+        "path": "runs/IA3/attack/g7_summary.json",
+        "sha256": "5006f7534128558ee2703e8d058c859a2ec007277e006e4dfbaa85831bb98201"
+      },
+      {
+        "bytes": 422,
+        "path": "runs/IA3/attack/gld_cosim_right.csv",
+        "sha256": "f8013275c778a3576be726ac1bb79dfd3d1887388025487e336b902643ad9b9e"
+      },
+      {
+        "bytes": 2424,
+        "path": "runs/IA3/attack/gridlabd.log",
+        "sha256": "814e37fed2ba1ce0c4536a8769576d59474d7b5b67807577c814a434de3f2d0d"
+      },
+      {
+        "bytes": 3246,
+        "path": "runs/IA3/attack/mainglm.json",
+        "sha256": "238530d26525f6bf730f75f957b45cd7978ae0bc1cd519834127eb30853f2887"
+      },
+      {
+        "bytes": 1903,
+        "path": "runs/IA3/attack/multi_der_opender.json",
+        "sha256": "484c0f7ac1e4919d9e181f5d20310f32e9130ee34e95736fa900c257423f7581"
+      },
+      {
+        "bytes": 299,
+        "path": "runs/IA3/attack/multi_der_source.json",
+        "sha256": "d979567129c2a52fc4cbcfe7206e3140868ac3462da5f6ff83843756eff9413d"
+      },
+      {
+        "bytes": 3409,
+        "path": "runs/IA3/attack/multi_der_traces.json",
+        "sha256": "84987c736c08072f390895be3bc69db25a42b9fa7cd106a3c218d4e1b249da46"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA3/attack/output/1c_IEEE_123_feeder_0_EV2.csv",
+        "sha256": "936682c70a17789368aca4b7cea69fdabe54fc7a9c335cf9737b2b64d902fc0d"
+      },
+      {
+        "bytes": 327,
+        "path": "runs/IA3/attack/output/1c_IEEE_123_feeder_0_EV3.csv",
+        "sha256": "099a52877b67a26e615454c43fcc27d1007bd4dbd651bdd84403c9d5a3094d23"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA3/attack/output/1c_IEEE_123_feeder_0_EV4.csv",
+        "sha256": "0fc8ef7ff08952181f30380cacdb05d390768f325aeff05b1342cd96607f49c5"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA3/attack/output/1c_IEEE_123_feeder_0_EV5.csv",
+        "sha256": "0ab357cae9a2a395931578413067e45026768df0042e613c9b23285bd7679ee7"
+      },
+      {
+        "bytes": 320,
+        "path": "runs/IA3/attack/output/1c_IEEE_123_feeder_0_EV6.csv",
+        "sha256": "f3734d662a4500a8de61c9f27d487a8a28755951a96ba76d137d34bd0da91ad8"
+      },
+      {
+        "bytes": 276,
+        "path": "runs/IA3/attack/output/1c_IEEE_123_feeder_0_climate.csv",
+        "sha256": "b3b8cd813af7614446075244c9fee5dd33323de50f30b53274748129b51f539d"
+      },
+      {
+        "bytes": 391,
+        "path": "runs/IA3/attack/output/multi_der_DER_EV1_BESS_coupling.csv",
+        "sha256": "e595db952ba2dc713084544865b959060c204f594d530c9e4c5832441e43945a"
+      },
+      {
+        "bytes": 398,
+        "path": "runs/IA3/attack/output/multi_der_DER_EV3_PV_coupling.csv",
+        "sha256": "43a1a98259c03cb7c078c4d7a1184eb29dec6eddbf5bb0ec7dcebbc690381077"
+      },
+      {
+        "bytes": 403,
+        "path": "runs/IA3/attack/output/multi_der_DER_EV4_BESS_coupling.csv",
+        "sha256": "8bb66f3b2179ed4e5d1097939ea3aad8be4f9f9f853033ff95f460a07cca9ca0"
+      },
+      {
+        "bytes": 401,
+        "path": "runs/IA3/attack/output/multi_der_DER_EV5_PV_coupling.csv",
+        "sha256": "82766c5f1cbb6b1bae1ee72d3db7bad82e9d37eadde0d08df97d001d130a0ee7"
+      },
+      {
+        "bytes": 3503,
+        "path": "runs/IA3/attack/runtime_integration.json",
+        "sha256": "486b1a8250a8250e79f653882d4b2480e59186b78f9f649b0425829e1ca0193f"
+      },
+      {
+        "bytes": 241,
+        "path": "runs/IA3/attack/sw_status_l107_EV5.csv",
+        "sha256": "5960107d50072d3d2dbebd12bc4d4da25cfbadd0dc440ad5aadd34d798882fe9"
+      },
+      {
+        "bytes": 241,
+        "path": "runs/IA3/attack/sw_status_l114_EV6.csv",
+        "sha256": "094aba2449a343308d712d22347d1da6a10979ee0c92924c819c982aa89a77be"
+      },
+      {
+        "bytes": 239,
+        "path": "runs/IA3/attack/sw_status_l2_EV2.csv",
+        "sha256": "f6a7b3f910daf1aafc2801a32422d7d21581a7e6c6d55aed135c9e0a5c04b7bd"
+      },
+      {
+        "bytes": 239,
+        "path": "runs/IA3/attack/sw_status_l5_EV1.csv",
+        "sha256": "bea90fd872af41221571ba8edeb71bacfb3f1bd7eabd0a217afba9dd3c2e0417"
+      },
+      {
+        "bytes": 240,
+        "path": "runs/IA3/attack/sw_status_l92_EV4.csv",
+        "sha256": "4e56edaf0461b3f57317dcbc0389d2ebc226bedfb1ed84f9f63a6584efbedf05"
+      },
+      {
+        "bytes": 157374,
+        "path": "runs/IA3/benign/1c_IEEE_123_feeder.glm",
+        "sha256": "fd9eb04ba1821c79ae1c8ec797ab1f949f8c750f32c2cdd90504882b13a778dd"
+      },
+      {
+        "bytes": 318,
+        "path": "runs/IA3/benign/1c_IEEE_123_feeder_0_EV1.csv",
+        "sha256": "e419b9ce7b07c6c7ac9c76d478aa401d376c146574cf735dcb4a41d3edc4cd55"
+      },
+      {
+        "bytes": 20702,
+        "path": "runs/IA3/benign/Current_Dump_NR.csv",
+        "sha256": "b659e7b4d44299866d3a8b59cc2250f2b00659c0668385ab4db954ffe80fe182"
+      },
+      {
+        "bytes": 33585,
+        "path": "runs/IA3/benign/Volt_Dump_NR.csv",
+        "sha256": "5686d9d4980ba4dc7ea73d48994d3ab0b139e28bf9855036b40a797bb83cd446"
+      },
+      {
+        "bytes": 1451,
+        "path": "runs/IA3/benign/attack_trace.json",
+        "sha256": "16e19152f8015cd848c16113eb9abc9a6a1657a180d6b3798e1a5e999ac11e34"
+      },
+      {
+        "bytes": 231,
+        "path": "runs/IA3/benign/console.stderr.txt",
+        "sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361"
+      },
+      {
+        "bytes": 580,
+        "path": "runs/IA3/benign/console.stdout.txt",
+        "sha256": "7818deba847f7b0d42297e44b78b8ee021ffdd6b89855bd9b28cf909468d8cee"
+      },
+      {
+        "bytes": 1489,
+        "path": "runs/IA3/benign/dual_budget_trace.json",
+        "sha256": "98b4366710883675a04cd5f51a3063be8b226413870b25a10b8233f3c34c3002"
+      },
+      {
+        "bytes": 388,
+        "path": "runs/IA3/benign/g7_summary.json",
+        "sha256": "1ef9fcec4d279d649192112c7fd0cae4e9f89ea019e25a8d131f6f97f1a4611a"
+      },
+      {
+        "bytes": 422,
+        "path": "runs/IA3/benign/gld_cosim_right.csv",
+        "sha256": "0988533a0a4a7fdc69cf4251b81a70bd06496c272e32ec2717a1116a9bbb9986"
+      },
+      {
+        "bytes": 2424,
+        "path": "runs/IA3/benign/gridlabd.log",
+        "sha256": "4150e9d3c984877c7cf4b83321770059132b6fdacf74d30832f216a695794261"
+      },
+      {
+        "bytes": 3246,
+        "path": "runs/IA3/benign/mainglm.json",
+        "sha256": "46771cfdb24976f94fb53c8d5d38f1268c71cd10c358a3517f4be9266629d6b4"
+      },
+      {
+        "bytes": 1903,
+        "path": "runs/IA3/benign/multi_der_opender.json",
+        "sha256": "d29cddce1618af5f8e1a9c7b5fe734c614d747d4b69aeed7bd8e1d738df84102"
+      },
+      {
+        "bytes": 300,
+        "path": "runs/IA3/benign/multi_der_source.json",
+        "sha256": "a652f34cfe50efa2ce4a77bba4ee3f1b08723e7bee26ce660e53fe4a87ed5d4a"
+      },
+      {
+        "bytes": 3406,
+        "path": "runs/IA3/benign/multi_der_traces.json",
+        "sha256": "7212c7ad7888b429f677c4ed178ec13f7fcbb1908ccef32bb1733b2ad78f3eaa"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA3/benign/output/1c_IEEE_123_feeder_0_EV2.csv",
+        "sha256": "8d0f08d860cdbc647d246609197f79112a5bedd46612840c040d6033974476a9"
+      },
+      {
+        "bytes": 327,
+        "path": "runs/IA3/benign/output/1c_IEEE_123_feeder_0_EV3.csv",
+        "sha256": "8e10782966514bd778f66f857378ecf12ed83842c135a8f08b6b21d276d6eee4"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA3/benign/output/1c_IEEE_123_feeder_0_EV4.csv",
+        "sha256": "e5196777b779b3d6d4b6ddcd1953552b355aab0bad02b16710f88ef3b9419dbf"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA3/benign/output/1c_IEEE_123_feeder_0_EV5.csv",
+        "sha256": "41fb01423f36be434518b1cc74ec98437e26ff736772592d0dc357c9fb10dd8c"
+      },
+      {
+        "bytes": 320,
+        "path": "runs/IA3/benign/output/1c_IEEE_123_feeder_0_EV6.csv",
+        "sha256": "bb381ced7695426018a9e481f8d3565caa6a4fd07ecc1b6de73b40f600dcc30a"
+      },
+      {
+        "bytes": 276,
+        "path": "runs/IA3/benign/output/1c_IEEE_123_feeder_0_climate.csv",
+        "sha256": "081ffecbaa2ba3b9138ece3a5caea47060f7abef0f60ac40f78a67484a83fbb0"
+      },
+      {
+        "bytes": 393,
+        "path": "runs/IA3/benign/output/multi_der_DER_EV1_BESS_coupling.csv",
+        "sha256": "6567078b7e059ee6cc1107040582014938ece36576e087ee2f3d20e7c1997562"
+      },
+      {
+        "bytes": 397,
+        "path": "runs/IA3/benign/output/multi_der_DER_EV3_PV_coupling.csv",
+        "sha256": "5638dcbd6871b16acaef01b435dcfae75f063dfd53b49d47a797e9674a35555e"
+      },
+      {
+        "bytes": 399,
+        "path": "runs/IA3/benign/output/multi_der_DER_EV4_BESS_coupling.csv",
+        "sha256": "a863ad4ee38a9ef0361c10f8cb0c928d052489d7d8b9afcbc8f4d525c15db1d3"
+      },
+      {
+        "bytes": 401,
+        "path": "runs/IA3/benign/output/multi_der_DER_EV5_PV_coupling.csv",
+        "sha256": "892bb11b33e61febc52156bfb1a17e2d9c9e08a7a21585ab0ba14c8e12023f6d"
+      },
+      {
+        "bytes": 3471,
+        "path": "runs/IA3/benign/runtime_integration.json",
+        "sha256": "24a0c31251e673d0a4592367d2f872e7383ab3036771aabc46c978dbb4fa2550"
+      },
+      {
+        "bytes": 241,
+        "path": "runs/IA3/benign/sw_status_l107_EV5.csv",
+        "sha256": "1917bb382189eb107ebc91d617f44680466af2cd1e56ea68740cf896bd7c38f1"
+      },
+      {
+        "bytes": 241,
+        "path": "runs/IA3/benign/sw_status_l114_EV6.csv",
+        "sha256": "b76a184c593b7ea37120bfef348c0f084752c8288b03f8c603d6f804ea5c6586"
+      },
+      {
+        "bytes": 239,
+        "path": "runs/IA3/benign/sw_status_l2_EV2.csv",
+        "sha256": "d1fb4e46003ebd8f1ad5b03a6a1e0441bf8104bb7bf392c079cf7e872d137f44"
+      },
+      {
+        "bytes": 239,
+        "path": "runs/IA3/benign/sw_status_l5_EV1.csv",
+        "sha256": "1940d40c145c754fc09936f6a215a7aac4b6bad50a0f9d8cc6f1e02a16af810d"
+      },
+      {
+        "bytes": 240,
+        "path": "runs/IA3/benign/sw_status_l92_EV4.csv",
+        "sha256": "3730d9ba00c8471784d7503b659bcebb57dde86080a2be63e12583f672a16051"
+      },
+      {
+        "bytes": 157374,
+        "path": "runs/IA4/attack/1c_IEEE_123_feeder.glm",
+        "sha256": "fd9eb04ba1821c79ae1c8ec797ab1f949f8c750f32c2cdd90504882b13a778dd"
+      },
+      {
+        "bytes": 318,
+        "path": "runs/IA4/attack/1c_IEEE_123_feeder_0_EV1.csv",
+        "sha256": "99e6f3283823f404c3e37016e73143c6cb3b790372ab0a0e4cc0e0e71c4c0d4a"
+      },
+      {
+        "bytes": 20702,
+        "path": "runs/IA4/attack/Current_Dump_NR.csv",
+        "sha256": "b659e7b4d44299866d3a8b59cc2250f2b00659c0668385ab4db954ffe80fe182"
+      },
+      {
+        "bytes": 33585,
+        "path": "runs/IA4/attack/Volt_Dump_NR.csv",
+        "sha256": "5686d9d4980ba4dc7ea73d48994d3ab0b139e28bf9855036b40a797bb83cd446"
+      },
+      {
+        "bytes": 1516,
+        "path": "runs/IA4/attack/attack_trace.json",
+        "sha256": "23032f4e8d1a08dd82f563d20245c74f73f845081121f534ae624ed22acfead2"
+      },
+      {
+        "bytes": 231,
+        "path": "runs/IA4/attack/console.stderr.txt",
+        "sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361"
+      },
+      {
+        "bytes": 770,
+        "path": "runs/IA4/attack/console.stdout.txt",
+        "sha256": "aa938818aa03fac5af163deb48b1b5b73c26fd1fe120e800c9bf3f2ea7a496cb"
+      },
+      {
+        "bytes": 2073,
+        "path": "runs/IA4/attack/dual_budget_trace.json",
+        "sha256": "6158148bf74cfdc18cad47656b546f3a588bf8d79a4144141e68ced4883398b2"
+      },
+      {
+        "bytes": 387,
+        "path": "runs/IA4/attack/g7_summary.json",
+        "sha256": "5006f7534128558ee2703e8d058c859a2ec007277e006e4dfbaa85831bb98201"
+      },
+      {
+        "bytes": 422,
+        "path": "runs/IA4/attack/gld_cosim_right.csv",
+        "sha256": "7c0255fed94ff5c40b45dd3a23505c6b3897541c66a99e2fd97cc464e3af5dda"
+      },
+      {
+        "bytes": 2424,
+        "path": "runs/IA4/attack/gridlabd.log",
+        "sha256": "5e4d0ea17c724a35fd25869f7a942917575bb85b40fb9e4d911ad32c6b121632"
+      },
+      {
+        "bytes": 3246,
+        "path": "runs/IA4/attack/mainglm.json",
+        "sha256": "238530d26525f6bf730f75f957b45cd7978ae0bc1cd519834127eb30853f2887"
+      },
+      {
+        "bytes": 1903,
+        "path": "runs/IA4/attack/multi_der_opender.json",
+        "sha256": "484c0f7ac1e4919d9e181f5d20310f32e9130ee34e95736fa900c257423f7581"
+      },
+      {
+        "bytes": 299,
+        "path": "runs/IA4/attack/multi_der_source.json",
+        "sha256": "d979567129c2a52fc4cbcfe7206e3140868ac3462da5f6ff83843756eff9413d"
+      },
+      {
+        "bytes": 3409,
+        "path": "runs/IA4/attack/multi_der_traces.json",
+        "sha256": "84987c736c08072f390895be3bc69db25a42b9fa7cd106a3c218d4e1b249da46"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA4/attack/output/1c_IEEE_123_feeder_0_EV2.csv",
+        "sha256": "18bf9009fca2c4b5c4d20a2c17b92954fb5d89c238b48842cdaaa368e9d9807f"
+      },
+      {
+        "bytes": 327,
+        "path": "runs/IA4/attack/output/1c_IEEE_123_feeder_0_EV3.csv",
+        "sha256": "bdce8797d2a9297c3231ead7e57670348adaa26f77b44bed972815f971b75dd3"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA4/attack/output/1c_IEEE_123_feeder_0_EV4.csv",
+        "sha256": "d6a682bf428c1cc9371840f82eef9436d4c41cadecad09e270735feafcbbbfed"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA4/attack/output/1c_IEEE_123_feeder_0_EV5.csv",
+        "sha256": "2d45d6a7e341e07e3322e90dc766cb2fdd2e951f98dd7b05bbc2dd3bd12fdc09"
+      },
+      {
+        "bytes": 320,
+        "path": "runs/IA4/attack/output/1c_IEEE_123_feeder_0_EV6.csv",
+        "sha256": "9161545f0d78e4f1a7ba0e32bca789e4a8a990e4452f505ba33f8b4a4819e499"
+      },
+      {
+        "bytes": 276,
+        "path": "runs/IA4/attack/output/1c_IEEE_123_feeder_0_climate.csv",
+        "sha256": "5cccbcf4d10e56289711a76b1a268b9e0f47f3e173c510c3cbc48b3cfe402f4d"
+      },
+      {
+        "bytes": 391,
+        "path": "runs/IA4/attack/output/multi_der_DER_EV1_BESS_coupling.csv",
+        "sha256": "9753c7b2cd5b809ce488f6d1e8a5c8c8944b9241d21a130104be1d8e7233875c"
+      },
+      {
+        "bytes": 398,
+        "path": "runs/IA4/attack/output/multi_der_DER_EV3_PV_coupling.csv",
+        "sha256": "e99479f7dc236ee9f6e4d19c616a2a343b89a3eb8a6c10804e1a064da5fdb96d"
+      },
+      {
+        "bytes": 403,
+        "path": "runs/IA4/attack/output/multi_der_DER_EV4_BESS_coupling.csv",
+        "sha256": "40a54711df90b38d97d50752daeb1ea145946127bb6c2ceff58de85dc7bebfa6"
+      },
+      {
+        "bytes": 401,
+        "path": "runs/IA4/attack/output/multi_der_DER_EV5_PV_coupling.csv",
+        "sha256": "15cd38fee4440f395c3c335c380fa7c938c32c9a47f5da34ec7716cdaaa1473e"
+      },
+      {
+        "bytes": 3503,
+        "path": "runs/IA4/attack/runtime_integration.json",
+        "sha256": "5435e4756db462f0f24b3829969a5c155eb15e13cfdfab9402188fa232146671"
+      },
+      {
+        "bytes": 241,
+        "path": "runs/IA4/attack/sw_status_l107_EV5.csv",
+        "sha256": "807938d45cb78feebf9b34d6b9aa48735d71db52ec0f6238e5acaf81130e1ba5"
+      },
+      {
+        "bytes": 241,
+        "path": "runs/IA4/attack/sw_status_l114_EV6.csv",
+        "sha256": "10ecc9b948fb8344dca3c33b42e57a9d30e54b421e7d38a38cfe0e2f0a4c5583"
+      },
+      {
+        "bytes": 239,
+        "path": "runs/IA4/attack/sw_status_l2_EV2.csv",
+        "sha256": "4db8dbffa39cee479ed2c1724162e18e5a098c9cc761d98ca460cbe6a8becde4"
+      },
+      {
+        "bytes": 239,
+        "path": "runs/IA4/attack/sw_status_l5_EV1.csv",
+        "sha256": "c93e2a2f9d3a46aae37f5dfb0d53caf587f289e4218e1a040fb5c4ef993ca28d"
+      },
+      {
+        "bytes": 240,
+        "path": "runs/IA4/attack/sw_status_l92_EV4.csv",
+        "sha256": "c4ee2099995b504753772f3680a3d477aa3f0867e13e75e1c821a0c037f14ce1"
+      },
+      {
+        "bytes": 157374,
+        "path": "runs/IA4/benign/1c_IEEE_123_feeder.glm",
+        "sha256": "fd9eb04ba1821c79ae1c8ec797ab1f949f8c750f32c2cdd90504882b13a778dd"
+      },
+      {
+        "bytes": 318,
+        "path": "runs/IA4/benign/1c_IEEE_123_feeder_0_EV1.csv",
+        "sha256": "3f5a084287c2742f60ed0fa01954c8a391c3d7d5c9535ebefa1a79e2d1c97999"
+      },
+      {
+        "bytes": 20702,
+        "path": "runs/IA4/benign/Current_Dump_NR.csv",
+        "sha256": "b659e7b4d44299866d3a8b59cc2250f2b00659c0668385ab4db954ffe80fe182"
+      },
+      {
+        "bytes": 33585,
+        "path": "runs/IA4/benign/Volt_Dump_NR.csv",
+        "sha256": "5686d9d4980ba4dc7ea73d48994d3ab0b139e28bf9855036b40a797bb83cd446"
+      },
+      {
+        "bytes": 1451,
+        "path": "runs/IA4/benign/attack_trace.json",
+        "sha256": "16e19152f8015cd848c16113eb9abc9a6a1657a180d6b3798e1a5e999ac11e34"
+      },
+      {
+        "bytes": 231,
+        "path": "runs/IA4/benign/console.stderr.txt",
+        "sha256": "555fa2b86bb1938549d798f278d044110caec7fc8c684d162f7bcc1f4898a361"
+      },
+      {
+        "bytes": 580,
+        "path": "runs/IA4/benign/console.stdout.txt",
+        "sha256": "75e93687f09a022469d082be58aa44c53a6a79c7523375b6ae5d1dd1ba96bfba"
+      },
+      {
+        "bytes": 1489,
+        "path": "runs/IA4/benign/dual_budget_trace.json",
+        "sha256": "98b4366710883675a04cd5f51a3063be8b226413870b25a10b8233f3c34c3002"
+      },
+      {
+        "bytes": 388,
+        "path": "runs/IA4/benign/g7_summary.json",
+        "sha256": "1ef9fcec4d279d649192112c7fd0cae4e9f89ea019e25a8d131f6f97f1a4611a"
+      },
+      {
+        "bytes": 422,
+        "path": "runs/IA4/benign/gld_cosim_right.csv",
+        "sha256": "f5c6d0ae8c258de490bbdb8f3c036348a2391a15f7928d24756afad1bea3b19c"
+      },
+      {
+        "bytes": 2424,
+        "path": "runs/IA4/benign/gridlabd.log",
+        "sha256": "49eaa8ead3ee69eb8ccae23499a335f84342b1eca261a7a8a39865cccd656a21"
+      },
+      {
+        "bytes": 3246,
+        "path": "runs/IA4/benign/mainglm.json",
+        "sha256": "46771cfdb24976f94fb53c8d5d38f1268c71cd10c358a3517f4be9266629d6b4"
+      },
+      {
+        "bytes": 1903,
+        "path": "runs/IA4/benign/multi_der_opender.json",
+        "sha256": "d29cddce1618af5f8e1a9c7b5fe734c614d747d4b69aeed7bd8e1d738df84102"
+      },
+      {
+        "bytes": 300,
+        "path": "runs/IA4/benign/multi_der_source.json",
+        "sha256": "a652f34cfe50efa2ce4a77bba4ee3f1b08723e7bee26ce660e53fe4a87ed5d4a"
+      },
+      {
+        "bytes": 3406,
+        "path": "runs/IA4/benign/multi_der_traces.json",
+        "sha256": "7212c7ad7888b429f677c4ed178ec13f7fcbb1908ccef32bb1733b2ad78f3eaa"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA4/benign/output/1c_IEEE_123_feeder_0_EV2.csv",
+        "sha256": "d41175db4e8143f58576bf98260e46f993b2b3438eff568ba5dadea1d9e4d1d6"
+      },
+      {
+        "bytes": 327,
+        "path": "runs/IA4/benign/output/1c_IEEE_123_feeder_0_EV3.csv",
+        "sha256": "08fb6d111d8fff572a3de939d0b3fd880ffc1513551448ea6af3550c6a6457f7"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA4/benign/output/1c_IEEE_123_feeder_0_EV4.csv",
+        "sha256": "1f82d790b02d8d6cdd7c1f5ab52abfebd6fbae97c5b0f4d6fa7758e628883a09"
+      },
+      {
+        "bytes": 328,
+        "path": "runs/IA4/benign/output/1c_IEEE_123_feeder_0_EV5.csv",
+        "sha256": "722547f676db6afa0953dd8e3fb6139140b4787934ac708586ae22ae59c327f5"
+      },
+      {
+        "bytes": 320,
+        "path": "runs/IA4/benign/output/1c_IEEE_123_feeder_0_EV6.csv",
+        "sha256": "eb52d80868d189ad35b3facf4d285e23ed963e15f9b2cce71b94acf2c6440f63"
+      },
+      {
+        "bytes": 276,
+        "path": "runs/IA4/benign/output/1c_IEEE_123_feeder_0_climate.csv",
+        "sha256": "aee141c38b98f4d21d3117f2c46eb4d3b07584350728b826b11eecc24df9f6ed"
+      },
+      {
+        "bytes": 393,
+        "path": "runs/IA4/benign/output/multi_der_DER_EV1_BESS_coupling.csv",
+        "sha256": "538ec295a17b2132a85311c931dd50c48aa49ef56a7608da91ecfa54ddd0b68e"
+      },
+      {
+        "bytes": 397,
+        "path": "runs/IA4/benign/output/multi_der_DER_EV3_PV_coupling.csv",
+        "sha256": "1dc74dab7f6d6d8e36e217b0168204e28aa000cd3d96b00227a5124e62b5ae29"
+      },
+      {
+        "bytes": 399,
+        "path": "runs/IA4/benign/output/multi_der_DER_EV4_BESS_coupling.csv",
+        "sha256": "987d26a1c818932daa74be9c72f204f5c4ac52f340b99c2141b768b51571550a"
+      },
+      {
+        "bytes": 401,
+        "path": "runs/IA4/benign/output/multi_der_DER_EV5_PV_coupling.csv",
+        "sha256": "c795aa8160d5a48d0f64179d191704df2ea2b83321fb064b1a5d360c783ef690"
+      },
+      {
+        "bytes": 3471,
+        "path": "runs/IA4/benign/runtime_integration.json",
+        "sha256": "113c8585a1f16c04b22d75d3b7c5daf828a6458fd4b637ecf7ad7fda20af7c00"
+      },
+      {
+        "bytes": 241,
+        "path": "runs/IA4/benign/sw_status_l107_EV5.csv",
+        "sha256": "e1c169a7299fb5110fb5ee5b2a7ff3d4da9ce8c829a1aee1f786f1c1e47e9a5d"
+      },
+      {
+        "bytes": 241,
+        "path": "runs/IA4/benign/sw_status_l114_EV6.csv",
+        "sha256": "8bcc3cb7803fcef66efdf1bc99f333400ddf2207445a2ee5ed1bf83a16e1ec30"
+      },
+      {
+        "bytes": 239,
+        "path": "runs/IA4/benign/sw_status_l2_EV2.csv",
+        "sha256": "1b47845b11ca084688961bcb62f2c2fccc2901521a062de3e4482884e1697ef4"
+      },
+      {
+        "bytes": 239,
+        "path": "runs/IA4/benign/sw_status_l5_EV1.csv",
+        "sha256": "4c39b5222535032e25179ea1070566d11e280a76efd97ee86071cb5d5d844c74"
+      },
+      {
+        "bytes": 240,
+        "path": "runs/IA4/benign/sw_status_l92_EV4.csv",
+        "sha256": "2a1c5a9f42d1bd7e479fa778379ca3b4b0f8ec6fe6400d96a1c9fc7605b1a137"
+      },
+      {
+        "bytes": 22738,
+        "path": "runtime_execution.json",
+        "sha256": "6b7fc124f4d09397f0954aed1da28980500031f14c182cf1f2d6d413fc34a585"
+      }
+    ],
+    "total_bytes": 981834
+  },
+  "max_abs_t30_true_voltage_delta_pu": 0.0033131447622005705,
+  "milestone": "M28",
+  "mission_id": "mis_01M1N1G1JVYHSXVZFHREF01QKA",
+  "paired_t30_true_voltage_delta_pu": {
+    "IA3": {
+      "DER_EV1_BESS": 0.00023144279464770712,
+      "DER_EV3_PV": -0.00230650045722558,
+      "DER_EV4_BESS": 0.0033131447622005705,
+      "DER_EV5_PV": 0.0009785678141296383
+    },
+    "IA4": {
+      "DER_EV1_BESS": 0.00023144279464770712,
+      "DER_EV3_PV": -0.00230650045722558,
+      "DER_EV4_BESS": 0.0033131447622005705,
+      "DER_EV5_PV": 0.0009785678141296383
+    }
+  },
+  "primary_endpoints": {
+    "accepted_equals_delivered": true,
+    "actor_blind_physical_trace_equality": true,
+    "candidate_to_runtime_translation_exact": true,
+    "decision_candidate_agreement": true,
+    "paired_causal_response_at_t30": true
+  },
+  "project_id": "prj_01KYMPK10PE9YH1TJ84PAVB9Z6",
+  "run_records": {
+    "IA3": {
+      "attack": {
+        "action_id": "m28_ia3_attack_seed8109",
+        "actor": "IA3",
+        "commands": [
+          {
+            "DER_EV4_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          {},
+          {}
+        ],
+        "delivery": {
+          "admitted_energy_kvah": 0.08333333333333333,
+          "delivered_command_energy_kvah": 0.08333333333333333,
+          "delivery_reconciled": true,
+          "windows_spent": 1
+        },
+        "output_dir": "v3/g7_confirmatory/artifacts/m28_decision_to_action_attempt1/runs/IA3/attack",
+        "physical_payload_sha256": "dffaeb727344ea9f36c823728008e45ccb4e14e822b42a47774a17993f8d6c2a",
+        "telemetry": [
+          {
+            "DER_EV1_BESS": 1.0133328762876816,
+            "DER_EV3_PV": 0.9966361593943323,
+            "DER_EV4_BESS": 1.0015189608210184,
+            "DER_EV5_PV": 1.023093904462443
+          },
+          {
+            "DER_EV1_BESS": 1.0133328888640245,
+            "DER_EV3_PV": 0.9966358049031769,
+            "DER_EV4_BESS": 1.0015190825823614,
+            "DER_EV5_PV": 1.0230939710482552
+          },
+          {
+            "DER_EV1_BESS": 1.013305974968873,
+            "DER_EV3_PV": 1.0048222070058412,
+            "DER_EV4_BESS": 1.0039150362469682,
+            "DER_EV5_PV": 1.0280330928987425
+          }
+        ],
+        "treatment": "attack"
+      },
+      "benign": {
+        "action_id": "m28_ia3_benign_seed8109",
+        "actor": "IA3",
+        "commands": [
+          {},
+          {},
+          {}
+        ],
+        "delivery": {
+          "admitted_energy_kvah": 0.0,
+          "delivered_command_energy_kvah": 0.0,
+          "delivery_reconciled": true,
+          "windows_spent": 0
+        },
+        "output_dir": "v3/g7_confirmatory/artifacts/m28_decision_to_action_attempt1/runs/IA3/benign",
+        "physical_payload_sha256": "eabe721de8a9979ead207fb0dd2447dfd8cfb51bb7c448b5b96e19ef2b22c11d",
+        "telemetry": [
+          {
+            "DER_EV1_BESS": 1.0133328762876816,
+            "DER_EV3_PV": 0.9966361593943323,
+            "DER_EV4_BESS": 1.0015189608210184,
+            "DER_EV5_PV": 1.023093904462443
+          },
+          {
+            "DER_EV1_BESS": 1.0133328888640245,
+            "DER_EV3_PV": 0.9966358049031769,
+            "DER_EV4_BESS": 1.0015190825823614,
+            "DER_EV5_PV": 1.0230939710482552
+          },
+          {
+            "DER_EV1_BESS": 1.0130745321742254,
+            "DER_EV3_PV": 1.0071287074630668,
+            "DER_EV4_BESS": 1.0006018914847676,
+            "DER_EV5_PV": 1.0270545250846128
+          }
+        ],
+        "treatment": "benign"
+      }
+    },
+    "IA4": {
+      "attack": {
+        "action_id": "m28_ia4_attack_seed8109",
+        "actor": "IA4",
+        "commands": [
+          {
+            "DER_EV4_BESS": [
+              30.0,
+              0.0
+            ]
+          },
+          {},
+          {}
+        ],
+        "delivery": {
+          "admitted_energy_kvah": 0.08333333333333333,
+          "delivered_command_energy_kvah": 0.08333333333333333,
+          "delivery_reconciled": true,
+          "windows_spent": 1
+        },
+        "output_dir": "v3/g7_confirmatory/artifacts/m28_decision_to_action_attempt1/runs/IA4/attack",
+        "physical_payload_sha256": "dffaeb727344ea9f36c823728008e45ccb4e14e822b42a47774a17993f8d6c2a",
+        "telemetry": [
+          {
+            "DER_EV1_BESS": 1.0133328762876816,
+            "DER_EV3_PV": 0.9966361593943323,
+            "DER_EV4_BESS": 1.0015189608210184,
+            "DER_EV5_PV": 1.023093904462443
+          },
+          {
+            "DER_EV1_BESS": 1.0133328888640245,
+            "DER_EV3_PV": 0.9966358049031769,
+            "DER_EV4_BESS": 1.0015190825823614,
+            "DER_EV5_PV": 1.0230939710482552
+          },
+          {
+            "DER_EV1_BESS": 1.013305974968873,
+            "DER_EV3_PV": 1.0048222070058412,
+            "DER_EV4_BESS": 1.0039150362469682,
+            "DER_EV5_PV": 1.0280330928987425
+          }
+        ],
+        "treatment": "attack"
+      },
+      "benign": {
+        "action_id": "m28_ia4_benign_seed8109",
+        "actor": "IA4",
+        "commands": [
+          {},
+          {},
+          {}
+        ],
+        "delivery": {
+          "admitted_energy_kvah": 0.0,
+          "delivered_command_energy_kvah": 0.0,
+          "delivery_reconciled": true,
+          "windows_spent": 0
+        },
+        "output_dir": "v3/g7_confirmatory/artifacts/m28_decision_to_action_attempt1/runs/IA4/benign",
+        "physical_payload_sha256": "eabe721de8a9979ead207fb0dd2447dfd8cfb51bb7c448b5b96e19ef2b22c11d",
+        "telemetry": [
+          {
+            "DER_EV1_BESS": 1.0133328762876816,
+            "DER_EV3_PV": 0.9966361593943323,
+            "DER_EV4_BESS": 1.0015189608210184,
+            "DER_EV5_PV": 1.023093904462443
+          },
+          {
+            "DER_EV1_BESS": 1.0133328888640245,
+            "DER_EV3_PV": 0.9966358049031769,
+            "DER_EV4_BESS": 1.0015190825823614,
+            "DER_EV5_PV": 1.0230939710482552
+          },
+          {
+            "DER_EV1_BESS": 1.0130745321742254,
+            "DER_EV3_PV": 1.0071287074630668,
+            "DER_EV4_BESS": 1.0006018914847676,
+            "DER_EV5_PV": 1.0270545250846128
+          }
+        ],
+        "treatment": "benign"
+      }
+    }
+  },
+  "runtime_execution_sha256": "6b7fc124f4d09397f0954aed1da28980500031f14c182cf1f2d6d413fc34a585",
+  "schema_version": "grideval-g7-m28-decision-to-action-evidence/v1",
+  "status": "DECISION_TO_ACTION_WIRING_QUALIFIED",
+  "translation": {
+    "active_power_kw": 30.0,
+    "actor_visible_target": "DER_B",
+    "executor_may_modify_plan": false,
+    "reactive_power_kvar": 0.0,
+    "runtime_target": "DER_EV4_BESS",
+    "strategy_id": "matched_step",
+    "translation_is_fixed": true
+  }
+}
