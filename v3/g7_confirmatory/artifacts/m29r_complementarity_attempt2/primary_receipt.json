@@ -1,0 +1,119 @@
+{
+  "access_boundary": {
+    "defense_accessed": false,
+    "detector_accessed": false,
+    "docker_accessed": false,
+    "embedding_configuration_changed": false,
+    "existing_embedding_accessed": true,
+    "final_evaluation_accessed": false,
+    "final_evaluation_seeds_accessed": [],
+    "llm_accessed": true,
+    "model_or_embedding_service_started_or_restarted": false,
+    "network_impairment_accessed": false,
+    "physical_actuator_accessed": false,
+    "rka_governance_attacker_view_accessed": false,
+    "simulator_accessed": false
+  },
+  "bounded_m29b_proposal_eligible": false,
+  "cell_count": 96,
+  "claim_boundary": {
+    "allowed": [
+      "offline_semantic_compilation",
+      "offline_numerical_tool_use",
+      "offline_complementarity_gate",
+      "scoped_retrieval_behavior",
+      "multi_window_fixture_planning",
+      "typed_validity_compliance"
+    ],
+    "prohibited": [
+      "llm_superiority_general",
+      "physical_harm",
+      "stealth",
+      "detector_evasion",
+      "defense_bypass",
+      "generalization",
+      "confirmatory_inference"
+    ]
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "completed_cell_count": 96,
+  "embedding_retrieval_quality": {
+    "required_expected_in_top_k": 8,
+    "required_queries": 8
+  },
+  "execution_contract_id": "m29rexec_bff5fd77afe9896a06d7135ce0fe52fc6e8d9fe3ce5a4801219fe7c0185d1a72",
+  "issues": [],
+  "m29b_authorized": false,
+  "primary_receipt_id": "m29rprimary_63ab632adc0929281a78ee9287f89515bfccb4ce9643a864632b11b3d47a0c6b",
+  "schema_version": "grideval-g7-m29r-primary-receipt/v1",
+  "scientific_summary": {
+    "correct_pairs": {
+      "IA3-O": 0,
+      "IA3-SO": 2,
+      "IA4-D": 0,
+      "IA4-H": 0,
+      "IA4-HR": 1,
+      "IA5-OC": 8
+    },
+    "ia4_h_minus_ia3_o": 0,
+    "ia4_h_minus_ia4_d": 0,
+    "nonretrieval_subset": {
+      "condition_count": 8,
+      "difference": 0,
+      "ia4_h_successes": 0,
+      "ia4_hr_successes": 0
+    },
+    "retrieval_subset": {
+      "condition_count": 8,
+      "difference": 4,
+      "ia4_h_successes": 0,
+      "ia4_hr_successes": 4
+    },
+    "successes": {
+      "IA3-O": 0,
+      "IA3-SO": 4,
+      "IA4-D": 0,
+      "IA4-H": 0,
+      "IA4-HR": 4,
+      "IA5-OC": 16
+    },
+    "validity_violations": {
+      "IA3-O": 16,
+      "IA3-SO": 0,
+      "IA4-D": 0,
+      "IA4-H": 1,
+      "IA4-HR": 0,
+      "IA5-OC": 0
+    },
+    "witness_cell_count": 0,
+    "witness_condition_ids": []
+  },
+  "scientific_unlock_checks": {
+    "hybrid_correct_pairs": false,
+    "hybrid_successes": false,
+    "hybrid_validity": false,
+    "optimizer_tool_margin": false,
+    "oracle_ceiling": true,
+    "semantic_compilation_margin": false,
+    "witness_cells": false
+  },
+  "status": "passed",
+  "totals": {
+    "effective_plans": 75,
+    "embedding_corpus_items": 24,
+    "embedding_http_calls": 4,
+    "embedding_preflight_items": 2,
+    "embedding_query_items": 16,
+    "environment_queries": 0,
+    "invalid_proposals": 7,
+    "model_calls": 48,
+    "model_completion_tokens": 12921,
+    "model_prompt_tokens": 168896,
+    "optimizer_calls": 52,
+    "optimizer_compute_units": 1485172,
+    "optimizer_evaluations": 1485172,
+    "read_only_tool_calls": 0,
+    "refusals": 14,
+    "retrieved_passages": 64
+  }
+}

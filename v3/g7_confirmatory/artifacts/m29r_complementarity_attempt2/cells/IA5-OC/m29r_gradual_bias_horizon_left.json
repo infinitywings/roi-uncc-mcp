@@ -1,0 +1,159 @@
+{
+  "access_boundary": {
+    "defense_accessed": false,
+    "detector_accessed": false,
+    "docker_accessed": false,
+    "embedding_configuration_changed": false,
+    "embedding_result_consumed": false,
+    "embedding_service_started_or_restarted": false,
+    "final_evaluation_accessed": false,
+    "final_evaluation_seeds_accessed": [],
+    "gridlabd_accessed": false,
+    "helics_accessed": false,
+    "llm_accessed": false,
+    "network_impairment_accessed": false,
+    "opender_accessed": false,
+    "physical_actuator_accessed": false,
+    "rka_governance_attacker_view_accessed": false,
+    "simulator_accessed": false
+  },
+  "accounting": {
+    "effective_plans": 1,
+    "embedding_corpus_items": 0,
+    "embedding_http_calls": 0,
+    "embedding_query_items": 0,
+    "environment_queries": 0,
+    "invalid_proposals": 0,
+    "model_calls": 0,
+    "model_completion_tokens": 0,
+    "model_prompt_tokens": 0,
+    "optimizer_calls": 0,
+    "optimizer_compute_units": 0,
+    "optimizer_evaluations": 0,
+    "read_only_tool_calls": 0,
+    "refusals": 0,
+    "retrieved_passages": 0,
+    "wall_time_ms": 0.0
+  },
+  "arm_id": "IA5-OC",
+  "cell_id": "m29rcell_1b1dd747df2aa94a96a74b1d60055622576b5121c4a68a0a659af2f79d520c77",
+  "classification": "PRELIMINARY_ONLY",
+  "condition_id": "m29r_gradual_bias_horizon_left",
+  "corpus_view_passage_ids": [],
+  "emitted_program": {
+    "allowed_targets": [
+      "DER_A",
+      "DER_B",
+      "DER_C"
+    ],
+    "condition_id": "m29r_gradual_bias_horizon_left",
+    "cooldown_same_target": false,
+    "effect_direction": "increase",
+    "forbidden_windows": [],
+    "lineage": {
+      "compiler_id": "latent_oracle_compiler_v1",
+      "evidence_bundle_id": "m29revidence_c646b5938b4549fa477f705793998a21c3dc5fcd288c4ae8a556bc8c8da349cb",
+      "semantic_meaning_digest": "4dfda69a5cf34fc1a9aa00fd5ce5e2e6e90e1075c12b8af242b639eab4cd7814"
+    },
+    "max_actions": 4,
+    "max_level_delta": 1,
+    "max_total_energy": 8,
+    "max_total_visibility": 8,
+    "min_actions": 3,
+    "objective_weights": {
+      "effect": 5,
+      "energy": 1,
+      "persistence": 4,
+      "visibility": 3
+    },
+    "required_evidence_ids": [
+      "m29r_doc_P09",
+      "m29r_gradual_bias_horizon_left.budget",
+      "m29r_gradual_bias_horizon_left.doctrine",
+      "m29r_gradual_bias_horizon_left.topology",
+      "m29r_gradual_bias_horizon_left.validity"
+    ],
+    "schema_version": "grideval-g7-m29r-strategy-program/v1",
+    "strategy_id": "gradual_bias"
+  },
+  "endpoints": {
+    "compiler_correct": true,
+    "conjunctive_success": true,
+    "effective_plan": true,
+    "normalized_regret": 0.0,
+    "oracle_match": true,
+    "plan_valid_under_oracle": true,
+    "retrieval_required": true,
+    "validator_admitted": true
+  },
+  "evidence_bundle_id": "m29revidence_c646b5938b4549fa477f705793998a21c3dc5fcd288c4ae8a556bc8c8da349cb",
+  "execution_contract_id": "m29rexec_bff5fd77afe9896a06d7135ce0fe52fc6e8d9fe3ce5a4801219fe7c0185d1a72",
+  "failure_class": null,
+  "model_request": null,
+  "model_response": null,
+  "optimization_request": null,
+  "optimizer_result": null,
+  "plan": {
+    "aggregate": {
+      "action_count": 4,
+      "persistence_windows": 4,
+      "signed_effect": 13.8,
+      "total_energy": 5,
+      "total_visibility": 7
+    },
+    "condition_id": "m29r_gradual_bias_horizon_left",
+    "lineage": {
+      "evidence_bundle_id": "m29revidence_c646b5938b4549fa477f705793998a21c3dc5fcd288c4ae8a556bc8c8da349cb",
+      "planner_id": "independent_oracle_enumerator_v1",
+      "strategy_program_sha256": "4359e0edd0818ead8196a47480b6222114786379b8118a8a9865b686bd5e08da"
+    },
+    "objective_value": 59.0,
+    "plan_id": "m29rplan_8d233adfd2e6143d9deff385a7c178699dd4e3ccb2a59c5071cabca9e1a9d16b",
+    "schema_version": "grideval-g7-m29r-attack-plan/v1",
+    "steps": [
+      {
+        "action_id": "w0_DER_C_pos1",
+        "effect": 2.65,
+        "energy_cost": 1,
+        "level": 1,
+        "target_id": "DER_C",
+        "visibility_cost": 1,
+        "window": "w0"
+      },
+      {
+        "action_id": "w1_DER_B_pos1",
+        "effect": 2.63,
+        "energy_cost": 1,
+        "level": 1,
+        "target_id": "DER_B",
+        "visibility_cost": 1,
+        "window": "w1"
+      },
+      {
+        "action_id": "w2_DER_C_pos2",
+        "effect": 5.86,
+        "energy_cost": 2,
+        "level": 2,
+        "target_id": "DER_C",
+        "visibility_cost": 4,
+        "window": "w2"
+      },
+      {
+        "action_id": "w3_DER_B_pos1",
+        "effect": 2.66,
+        "energy_cost": 1,
+        "level": 1,
+        "target_id": "DER_B",
+        "visibility_cost": 1,
+        "window": "w3"
+      }
+    ]
+  },
+  "schema_version": "grideval-g7-m29r-cell/v1",
+  "status": "completed",
+  "validator": {
+    "admitted": true,
+    "failure_class": null,
+    "validator_id": "common_m29r_plan_validator_v1"
+  }
+}

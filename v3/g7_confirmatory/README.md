@@ -505,3 +505,27 @@ python3 -m g7confirm.cli ia4-counterfactual-model-smoke \
 The successful bounded evidence and its limitations are summarized in
 `RUNTIME_INTEGRATION_REPORT.md`. Passing it is not a campaign-authorization
 gate.
+
+## M29-R offline complementarity result
+
+The provider-compatible M29-R Attempt 2 completed all 96 registered cells and
+passed both the primary and independent integrity audits. It did not pass the
+core hybrid-complementarity unlock: `IA4-H` produced 0/16 conjunctive
+successes and no hybrid-only witness cells. The scoped-retrieval arm `IA4-HR`
+improved by four successes on the registered retrieval-required subset without
+non-retrieval degradation, satisfying only the secondary retrieval rule.
+M29-B and every simulator or final-evaluation action remain locked. See
+`M29R_OFFLINE_COMPLEMENTARITY_REPORT.md`.
+
+Reproduce the immutable receipts and the post-hoc failure analysis with:
+
+```bash
+python3 -m g7confirm.m29r_campaign_v2 verify \
+  --root artifacts/m29r_complementarity_attempt2
+python3 -m g7confirm.m29r_independent_audit_v2 \
+  --root artifacts/m29r_complementarity_attempt2
+python3 -m g7confirm.m29r_failure_analysis \
+  --attempt-root artifacts/m29r_complementarity_attempt2 \
+  --design artifacts/m29r_design_attempt1/design_fixture.json \
+  --verify artifacts/m29r_attempt2_failure_analysis/receipt.json
+```

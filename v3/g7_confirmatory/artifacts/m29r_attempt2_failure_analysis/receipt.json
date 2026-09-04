@@ -1,0 +1,220 @@
+{
+  "analysis_id": "m29ranalysis_c31e36033d92c95c2342934652690ff205e0564666d0ad32164e241ce12ae1eb",
+  "arm_analysis": {
+    "IA3-O": {
+      "cell_count": 16,
+      "compiler_correct": 0,
+      "conjunctive_success": 0,
+      "evidence_lineage_mismatch": 16,
+      "failure_classes": {},
+      "finish_reasons": {},
+      "oracle_match": 0,
+      "plan_valid_under_oracle": 0,
+      "program_absent": 0,
+      "semantic_field_mismatches": {
+        "allowed_targets": 14,
+        "cooldown_same_target": 5,
+        "effect_direction": 2,
+        "forbidden_windows": 4,
+        "max_actions": 7,
+        "max_level_delta": 16,
+        "max_total_energy": 16,
+        "max_total_visibility": 16,
+        "min_actions": 16,
+        "objective_weights": 16,
+        "strategy_id": 11
+      },
+      "validator_admitted": 16,
+      "zero_regret_wrong_semantics": 0
+    },
+    "IA3-SO": {
+      "cell_count": 16,
+      "compiler_correct": 4,
+      "conjunctive_success": 4,
+      "evidence_lineage_mismatch": 0,
+      "failure_classes": {
+        "semantic_compiler_unavailable": 12
+      },
+      "finish_reasons": {},
+      "oracle_match": 4,
+      "plan_valid_under_oracle": 4,
+      "program_absent": 12,
+      "semantic_field_mismatches": {
+        "allowed_targets": 0,
+        "cooldown_same_target": 0,
+        "effect_direction": 0,
+        "forbidden_windows": 0,
+        "max_actions": 0,
+        "max_level_delta": 0,
+        "max_total_energy": 0,
+        "max_total_visibility": 0,
+        "min_actions": 0,
+        "objective_weights": 0,
+        "strategy_id": 0
+      },
+      "validator_admitted": 4,
+      "zero_regret_wrong_semantics": 0
+    },
+    "IA4-D": {
+      "cell_count": 16,
+      "compiler_correct": 2,
+      "conjunctive_success": 0,
+      "evidence_lineage_mismatch": 12,
+      "failure_classes": {
+        "validator_rejected:M29RContractError": 7
+      },
+      "finish_reasons": {
+        "stop": 16
+      },
+      "oracle_match": 0,
+      "plan_valid_under_oracle": 9,
+      "program_absent": 0,
+      "semantic_field_mismatches": {
+        "allowed_targets": 0,
+        "cooldown_same_target": 4,
+        "effect_direction": 1,
+        "forbidden_windows": 0,
+        "max_actions": 0,
+        "max_level_delta": 0,
+        "max_total_energy": 0,
+        "max_total_visibility": 0,
+        "min_actions": 0,
+        "objective_weights": 6,
+        "strategy_id": 2
+      },
+      "validator_admitted": 9,
+      "zero_regret_wrong_semantics": 0
+    },
+    "IA4-H": {
+      "cell_count": 16,
+      "compiler_correct": 0,
+      "conjunctive_success": 0,
+      "evidence_lineage_mismatch": 12,
+      "failure_classes": {
+        "no_feasible_plan": 2
+      },
+      "finish_reasons": {
+        "stop": 16
+      },
+      "oracle_match": 11,
+      "plan_valid_under_oracle": 13,
+      "program_absent": 0,
+      "semantic_field_mismatches": {
+        "allowed_targets": 0,
+        "cooldown_same_target": 4,
+        "effect_direction": 0,
+        "forbidden_windows": 0,
+        "max_actions": 1,
+        "max_level_delta": 1,
+        "max_total_energy": 0,
+        "max_total_visibility": 0,
+        "min_actions": 0,
+        "objective_weights": 7,
+        "strategy_id": 2
+      },
+      "validator_admitted": 14,
+      "zero_regret_wrong_semantics": 11
+    },
+    "IA4-HR": {
+      "cell_count": 16,
+      "compiler_correct": 4,
+      "conjunctive_success": 4,
+      "evidence_lineage_mismatch": 8,
+      "failure_classes": {},
+      "finish_reasons": {
+        "stop": 16
+      },
+      "oracle_match": 15,
+      "plan_valid_under_oracle": 16,
+      "program_absent": 0,
+      "semantic_field_mismatches": {
+        "allowed_targets": 0,
+        "cooldown_same_target": 1,
+        "effect_direction": 0,
+        "forbidden_windows": 0,
+        "max_actions": 0,
+        "max_level_delta": 0,
+        "max_total_energy": 0,
+        "max_total_visibility": 0,
+        "min_actions": 0,
+        "objective_weights": 3,
+        "strategy_id": 1
+      },
+      "validator_admitted": 16,
+      "zero_regret_wrong_semantics": 11
+    },
+    "IA5-OC": {
+      "cell_count": 16,
+      "compiler_correct": 16,
+      "conjunctive_success": 16,
+      "evidence_lineage_mismatch": 0,
+      "failure_classes": {},
+      "finish_reasons": {},
+      "oracle_match": 16,
+      "plan_valid_under_oracle": 16,
+      "program_absent": 0,
+      "semantic_field_mismatches": {
+        "allowed_targets": 0,
+        "cooldown_same_target": 0,
+        "effect_direction": 0,
+        "forbidden_windows": 0,
+        "max_actions": 0,
+        "max_level_delta": 0,
+        "max_total_energy": 0,
+        "max_total_visibility": 0,
+        "min_actions": 0,
+        "objective_weights": 0,
+        "strategy_id": 0
+      },
+      "validator_admitted": 16,
+      "zero_regret_wrong_semantics": 0
+    }
+  },
+  "call_accounting": {
+    "attempt_2_model_calls": 48,
+    "authorized_ceiling": 1000,
+    "cumulative_read_only_chat_requests": 101,
+    "prior_read_only_chat_requests": 53
+  },
+  "classification": "PRELIMINARY_ONLY",
+  "core_unlock_checks": {
+    "hybrid_correct_pairs": false,
+    "hybrid_successes": false,
+    "hybrid_validity": false,
+    "optimizer_tool_margin": false,
+    "oracle_ceiling": true,
+    "semantic_compilation_margin": false,
+    "witness_cells": false
+  },
+  "core_unlock_passed": false,
+  "execution_contract_id": "m29rexec_bff5fd77afe9896a06d7135ce0fe52fc6e8d9fe3ce5a4801219fe7c0185d1a72",
+  "independent_audit_id": "m29raudit_de37e91874e09cb4a1f8b75e9b0266e5c02ce15effd32164d335b2e1c2bdf08b",
+  "interpretation_boundary": {
+    "prohibited": [
+      "M29-B simulator authorization",
+      "general LLM or retrieval superiority",
+      "physical, stealth, detector-evasion, defense-bypass, or confirmatory inference"
+    ],
+    "supported": [
+      "Attempt 2 repaired provider compatibility without changing the scientific contract.",
+      "The current model did not establish semantic-compiler and optimizer complementarity on the registered battery.",
+      "Scoped retrieval met the registered secondary retrieval rule within this battery."
+    ]
+  },
+  "m29b_authorized": false,
+  "primary_receipt_id": "m29rprimary_63ab632adc0929281a78ee9287f89515bfccb4ce9643a864632b11b3d47a0c6b",
+  "schema_version": "grideval-g7-m29r-failure-analysis/v1",
+  "secondary_retrieval_checks": {
+    "nonretrieval_degradation": true,
+    "registered_subset_size": true,
+    "retrieval_margin": true
+  },
+  "secondary_retrieval_rule_passed": true,
+  "source_hashes": {
+    "analysis_source": "8e4395a3462c037ffc7e44861faf9c727fcdf2fe87bb2150566eac9a0bac5705",
+    "contract": "cb877c01524ae00268926587ccf6a95003a6a0c3ba860159d2c7f9d2932b7126",
+    "design_fixture": "65bfad93a8a969606a853e856d347bc433fb74da92e7979311b1b08b3b29b539",
+    "independent_audit_receipt": "4f284785d0a0bbbc33bdf47e57da9dca338f134ed921c0498874c3f066c5b65d",
+    "primary_receipt": "8ddf106df831c48373e2982c6bd765d6d8fc2afc1a67d2859d9287f76ace14e4"
+  }
+}

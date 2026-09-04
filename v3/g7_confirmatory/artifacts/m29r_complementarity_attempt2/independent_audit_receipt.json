@@ -1,0 +1,61 @@
+{
+  "audit_id": "m29raudit_de37e91874e09cb4a1f8b75e9b0266e5c02ce15effd32164d335b2e1c2bdf08b",
+  "auditor_source_sha256": "28df7938359a6b5df0451805b72d3c95405eacfb76380a1bb80c25a2c42f3aec",
+  "authorization_arithmetic_recomputed": true,
+  "cell_count": 96,
+  "classification": "PRELIMINARY_ONLY",
+  "content_addresses_recomputed": true,
+  "embedding_top_k_recomputed": true,
+  "endpoints_recomputed": true,
+  "execution_contract_id": "m29rexec_bff5fd77afe9896a06d7135ce0fe52fc6e8d9fe3ce5a4801219fe7c0185d1a72",
+  "independent_imports_campaign": false,
+  "independent_imports_complementarity": false,
+  "issues": [],
+  "m29b_authorized": false,
+  "provider_profile_recomputed": true,
+  "schema_version": "grideval-g7-m29r-independent-audit/v2",
+  "scientific_summary": {
+    "correct_pairs": {
+      "IA3-O": 0,
+      "IA3-SO": 2,
+      "IA4-D": 0,
+      "IA4-H": 0,
+      "IA4-HR": 1,
+      "IA5-OC": 8
+    },
+    "ia4_h_minus_ia3_o": 0,
+    "ia4_h_minus_ia4_d": 0,
+    "nonretrieval_subset": {
+      "condition_count": 8,
+      "difference": 0,
+      "ia4_h_successes": 0,
+      "ia4_hr_successes": 0
+    },
+    "retrieval_subset": {
+      "condition_count": 8,
+      "difference": 4,
+      "ia4_h_successes": 0,
+      "ia4_hr_successes": 4
+    },
+    "successes": {
+      "IA3-O": 0,
+      "IA3-SO": 4,
+      "IA4-D": 0,
+      "IA4-H": 0,
+      "IA4-HR": 4,
+      "IA5-OC": 16
+    },
+    "validity_violations": {
+      "IA3-O": 16,
+      "IA3-SO": 0,
+      "IA4-D": 0,
+      "IA4-H": 1,
+      "IA4-HR": 0,
+      "IA5-OC": 0
+    },
+    "witness_cell_count": 0,
+    "witness_condition_ids": []
+  },
+  "source_hashes_recomputed": true,
+  "status": "passed"
+}
